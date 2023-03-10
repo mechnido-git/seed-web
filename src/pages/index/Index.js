@@ -4,6 +4,7 @@ import Navbar from '../../components/sideMenu/Navbar'
 import SideMenu from '../../components/sideMenu/SideMenu'
 
 function Index() {
+  
   return (
     <div className='index' id='index'>
       <SideMenu />
