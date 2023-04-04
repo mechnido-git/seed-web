@@ -15,8 +15,8 @@ a{
     height: 100vh;
     width: 100vw;
     display: grid;
-    grid-template-columns: 74px 146px auto;
-    grid-template-rows: 60px 50px auto;
+    grid-template-columns: 74px auto;
+    grid-template-rows: 60px auto;
     transition: .5s;
     gap: .5rem;
     overflow: hidden;

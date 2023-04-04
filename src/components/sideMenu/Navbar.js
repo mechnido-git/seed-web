@@ -2,6 +2,7 @@ import React from 'react'
 import search from "../../images/search.png";
 import './navbar.css'
 import logo from '../../images/logo.jpg'
+import { Link } from 'react-router-dom';
 
 function Navbar() {
     const toggle = () => {
@@ -17,7 +18,9 @@ function Navbar() {
         <span onClick={toggle} class="material-symbols-outlined">
           menu
         </span>
+        <Link to='home'>
         <img src={logo} alt="" />
+        </Link>
         </div>
         <div className="search-bar">
           <img src={search} alt="" />

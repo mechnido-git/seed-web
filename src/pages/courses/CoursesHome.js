@@ -135,20 +135,21 @@ function CoursesHome() {
     setFilter(filter === "All" ? item : filter == item ? "All" : item);
   };
 
+  const addIcon = (item) => {
+    switch(item){
+      case "All" : return "apps";
+      case "Marketing" : return "campaign";
+      case "Sell Online" : return "sell";
+      case "Services & Events" : return "prescriptions";
+      case "Media Content" : return "perm_media";
+      case "Design Elements" : return "design_services";
+      case "Communication" : return "hub";
+    }
+  }
+
   return (
         <>
-          <div className="fixed">
-            {category.map((item, index) => (
-              <button
-                id={index === 0 ? "All" : null}
-                className={index === 0 ? "filter active" : "filter"}
-                onClick={(e) => filterItems(item, e)}
-                key={index}
-              >
-                {item}
-              </button>
-            ))}
-          </div>
+
           <div className="courses-home">
             <div className="slides">
               <Splide
@@ -208,6 +209,19 @@ function CoursesHome() {
                 <button>Know More</button>
               </div>
             </div>
+            <div className="fixed">
+            {category.map((item, index) => (
+              <button
+                id={index === 0 ? "All" : null}
+                className={index === 0 ? "filter active" : "filter"}
+                onClick={(e) => filterItems(item, e)}
+                key={index}
+              >
+                <span class="material-symbols-outlined">{addIcon(item)}</span>
+                {item}
+              </button>
+            ))}
+          </div>
             <section className="main-div">
               <div id="recommended" className="section">
                 <h2>Recommended for You</h2>

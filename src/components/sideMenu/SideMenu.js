@@ -14,10 +14,6 @@ function SideMenu() {
   return (
     <div className="side-menu" id="side-menu">
       <div className="min-menu" id="min-menu">
-        <Link to="home">
-          <span class="material-symbols-outlined">home</span>
-          <p>Home</p>
-        </Link>
         <Link to="courses">
           <span class="material-symbols-outlined">school</span>
           <p>Courses</p>
@@ -26,16 +22,8 @@ function SideMenu() {
           <span class="material-symbols-outlined">today</span>
           <p>Events</p>
         </Link>
-        <Link to="history">
-          <span class="material-symbols-outlined">history</span>
-          <p>History</p>
-        </Link>
       </div>
       <div className="menu-options disable" id="menu-options">
-        <Link onClick={mobile? toggle: null} to="home">
-          <span class="material-symbols-outlined">home</span>
-          <div>Home</div>
-        </Link>
         <Link onClick={mobile? toggle: null} to="courses">
           <span class="material-symbols-outlined">school</span>
           <div>Courses</div>
@@ -43,10 +31,6 @@ function SideMenu() {
         <Link onClick={mobile? toggle: null} to="events">
           <span class="material-symbols-outlined">today</span>
           <div>Events</div>
-        </Link>
-        <Link onClick={mobile? toggle: null} to="History">
-          <span class="material-symbols-outlined">history</span>
-          <div>History</div>
         </Link>
         <hr />
         <h3>EXPLORE</h3>

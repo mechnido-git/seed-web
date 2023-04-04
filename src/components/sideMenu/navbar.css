@@ -65,7 +65,7 @@
     margin-left: 6px;
 }
 
-.navbar > .left > img{
+.navbar > .left > a > img{
     width: 4rem;
     mix-blend-mode: darken;
 }

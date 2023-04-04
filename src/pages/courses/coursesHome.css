@@ -22,8 +22,19 @@
 
 .fixed > button{
     padding: .5rem .7rem;
-    border-radius: 15px;
+    border-radius: 5px;
     border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 110px;
+    background-color: white;
+    gap: 8px;
+}
+
+.fixed > button > span{
+    pointer-events: none;
 }
 
 .courses-home > .slides{
@@ -59,23 +70,21 @@
     text-transform: uppercase;
     letter-spacing: 2.5px;
     font-weight: 500;
-    color: #000;
-    background-color: #fff;
-    border: none;
-    border-radius: 45px;
+    color: #fff;
+    background-color: #006AFF;
+    border: 1px solid #006AFF;
+    border-radius: 5px;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease 0s;
     cursor: pointer;
     outline: none;  
 }
 .courses-home > .slides > .btns > button:hover{
-    background-color: #23c483;
-    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
-    color: #fff;
-    transform: translateY(-7px);
+    background-color: #0055CC;
 }
 .courses-home > .slides > .btns > button:active{
-    transform: translateY(-1px);
+    background-color: #fff;
+    color: #006AFF;
 }
 
 .courses-home > .upper{
@@ -199,15 +208,18 @@
 
 @media only screen and (max-width: 770px){
     .fixed > button{
-        height: 2rem;
-        min-width: 10rem;
+        height: inherit;
+        min-width: 100px;
     }
     .fixed{
         overflow-y: scroll;
         gap: .5rem;
         justify-content: unset;
         align-self: unset;
+        align-items: center;
         height: fit-content;
+        min-height: 100px;
+        
     }
 
     .fixed::-webkit-scrollbar{
@@ -221,12 +233,12 @@
         padding: 1px;
     }
     .fixed{
-        margin-top: 60px;
         overflow-y: scroll;
         gap: .5rem;
         justify-content: unset;
         align-self: unset;
         height: fit-content;
+        min-height: 80px;
     }
     .fixed::-webkit-scrollbar{
         display: none;
@@ -238,7 +250,7 @@
         width: max-content;
         font-size: small;
         height: inherit;
-        min-width: 9rem;
+        min-width: 100px;
     }
     .courses-home > .slides > .btns{
         padding-bottom: 20px;
