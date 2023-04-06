@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import './eventIndex.css'
 import { Splide, SplideSlide} from "@splidejs/react-splide";
 import image from "../../images/slide.jpg";
 import "@splidejs/react-splide/css";
+import { useLocation, useOutletContext } from 'react-router-dom';
+import { ToggleContext } from '../../store/ToggleContext';
 
 function EventIndex() {
+
+
   return (
     <div className='events-index'>
         <div className="slides">

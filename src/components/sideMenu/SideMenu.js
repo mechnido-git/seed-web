@@ -1,66 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./sideMenu.css";
 import { Link, useLocation } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
+import { ToggleContext } from "../../store/ToggleContext";
 
-function SideMenu() {
-  const [prev, setPrev] = useState(null);
-  const [event, setEvent] = useState(false);
+function SideMenu({event, setEvent}) {
 
+ // const {loc, setLoc} = useContext(ToggleContext)
+
+const loc =[]
   const location = useLocation();
-  const loc = location.pathname.split("/");
-
-  function click(e) {
-    e.stopPropagation();
-    const links = document.querySelectorAll(".link");
-    links.forEach((link) => {
-      link.classList.remove("clicked");
-    });
-    const index = e.target.closest("[data-index]").dataset.index;
-    console.log(index);
-    if (index == 0 || index == 2) {
-      console.log(links[0], "k");
-      links[0].classList.add("clicked");
-      links[2].classList.add("clicked");
-      setEvent(false);
-    } else {
-      links[1].classList.add("clicked");
-      links[3].classList.add("clicked");
-      setEvent(true);
-    }
-  }
-
-  useEffect(() => {
-    let elem;
-    switch (loc[loc.length - 1]) {
-      case "courses":
-        elem = 0;
-        break;
-      case "events":
-        setEvent(true);
-        elem = 1;
-        break;
-    }
-    document.querySelectorAll(".link").forEach((link, index) => {
-      if (prev === null) {
-        if (elem === 0) {
-          if (index === 0 || index === 2) link.classList.add("clicked");
-          setPrev(link);
-        } else {
-          if (index === 1 || index === 3) {
-            link.classList.add("clicked");
-            setPrev(link);
-          }
-        }
-      }
-      link.addEventListener("click", click);
-    });
-    return () => {
-      document.querySelectorAll(".link").forEach((link) => {
-        link.removeEventListener("click", click);
-      });
-    };
-  }, []);
+ // setLoc(location.pathname.split("/"))
+ // console.log(loc);
+  //const loc = location.pathname.split("/");
+  //const [loc, setLoc] = useState()
 
   const toggle = () => {
     document.getElementById("menu-options").classList.toggle("disable");

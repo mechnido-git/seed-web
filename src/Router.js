@@ -1,14 +1,15 @@
 import React from 'react'
-import { HashRouter, Navigate, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, HashRouter, Navigate, Route, Routes } from 'react-router-dom'
 import CoursesHome from './pages/courses/CoursesHome'
 import EventIndex from './pages/events/EventIndex'
 import Home from './pages/home/Home'
 import Index from './pages/index/Index'
+import Toggle from './store/ToggleContext'
 
 
 function Router() {
   return (
-    <HashRouter >
+    <BrowserRouter  >
         <Routes>
             <Route path='/' exact element={<Index />} >
               <Route exact index element={<Navigate to='home' />} /> {/* default route -> home */}
@@ -18,7 +19,7 @@ function Router() {
               <Route path='*' element={<Home />} />
             </Route>
         </Routes>
-    </HashRouter>
+    </BrowserRouter >
   )
 }
 

@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./coursesHome.css";
 import courses from "../../images/courses.jpg";
 import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
 import image from "../../images/slide.jpg";
 import "@splidejs/react-splide/css";
+import { useLocation, useOutletContext } from "react-router-dom";
+import { ToggleContext } from "../../store/ToggleContext";
 
 export const recomended = [
   {
@@ -111,12 +113,14 @@ function CoursesHome() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+
     const arrows = document.querySelectorAll('.splide__arrow')
     arrows.forEach(arrow=>arrow.innerHTML=`<svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 96 960 960" width="48"><path d="m561 814-43-42 168-168H160v-60h526L517 375l43-42 241 241-240 240Z"/></svg>`)
     let timer1 = setTimeout(() => setLoading(false), 1000);
     return () => {
       clearTimeout(timer1);
     };
+
   }, []);
   const filterItems = (item, e) => {
     //const btns = document.querySelectorAll('.filter')
