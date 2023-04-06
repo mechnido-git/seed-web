@@ -4,7 +4,6 @@ import CoursesHome from './pages/courses/CoursesHome'
 import EventIndex from './pages/events/EventIndex'
 import Home from './pages/home/Home'
 import Index from './pages/index/Index'
-import Toggle from './store/ToggleContext'
 
 
 function Router() {

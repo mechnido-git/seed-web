@@ -4,7 +4,6 @@ import { Splide, SplideSlide} from "@splidejs/react-splide";
 import image from "../../images/slide.jpg";
 import "@splidejs/react-splide/css";
 import { useLocation, useOutletContext } from 'react-router-dom';
-import { ToggleContext } from '../../store/ToggleContext';
 
 function EventIndex() {
 

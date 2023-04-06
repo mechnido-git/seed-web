@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import "./sideMenu.css";
 import { Link, useLocation } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
-import { ToggleContext } from "../../store/ToggleContext";
 
 function SideMenu({event, setEvent}) {
 
