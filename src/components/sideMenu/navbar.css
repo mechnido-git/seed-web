@@ -89,7 +89,7 @@
 }
 
 .navbar > .btns > button {
-    --color: rgb(0, 0, 0);
+    --color: #fff;
     font-family: inherit;
     display: inline-block;
     width: 5em;
@@ -102,7 +102,11 @@
     border: 1px solid rgb(145, 145, 145);
     border-radius: 6px;
     position: relative;
-    background-color: white;
+    background-color: #006aff;
+  }
+
+  .navbar > .btns > button:hover{
+    background-color: #0055cc;
   }
   
   .navbar > .btns > button::before {
@@ -115,19 +119,10 @@
     border-radius: 50%;
   }
   
-  .navbar > .btns > button:hover {
-    color: white;
-  }
-  
   .navbar > .btns > button:before {
     top: 100%;
     left: 100%;
     transition: .3s all;
-  }
-  
-  .navbar > .btns > button:hover::before {
-    top: -30px;
-    left: -30px;
   }
 
   @media only screen and (max-width: 430px) {

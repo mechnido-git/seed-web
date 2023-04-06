@@ -23,7 +23,6 @@
 .fixed > button{
     padding: .5rem .7rem;
     border-radius: 5px;
-    border: none;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -31,6 +30,7 @@
     max-width: 110px;
     background-color: white;
     gap: 8px;
+    border: none;
 }
 
 .fixed > button > span{
@@ -41,6 +41,14 @@
     position: relative;
     display: flex;
     justify-content: center;
+}
+
+.splide__arrows > button{
+    background-color: #006AFF;
+}
+
+.splide__arrow  svg{
+    fill: #fff !important;
 }
 
 .courses-home > .slides img{
@@ -81,10 +89,6 @@
 }
 .courses-home > .slides > .btns > button:hover{
     background-color: #0055CC;
-}
-.courses-home > .slides > .btns > button:active{
-    background-color: #fff;
-    color: #006AFF;
 }
 
 .courses-home > .upper{
@@ -201,7 +205,9 @@
 }
 
 .active{
-    box-shadow: rgba(156, 191, 255, 0.584) 0px 0px 0px 4px
+   /* box-shadow: rgba(156, 191, 255, 0.584) 0px 0px 0px 4px */
+   color: #006aff !important;
+   border: 2px solid #006aff !important;
 }
 
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./coursesHome.css";
 import courses from "../../images/courses.jpg";
-import { Splide, SplideSlide } from "@splidejs/react-splide";
+import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
 import image from "../../images/slide.jpg";
 import "@splidejs/react-splide/css";
 
@@ -80,7 +80,7 @@ const CardBuilder = ({ arr, limit }) => (
     {arr.map((item, index) => {
       if (limit != null && index >= limit) return;
       return (
-        <div className="card">
+        <div className="card" key={index}>
           <img src={item.thumbnail} alt="" />
           <div className="body">
             <h4>{item.name}</h4>
@@ -110,13 +110,14 @@ function CoursesHome() {
   const [filter, setFilter] = useState("All");
   const [loading, setLoading] = useState(true);
 
-  useEffect(
-    () => {
-      let timer1 = setTimeout(() => setLoading(false), 1000);
-      return () => {
-        clearTimeout(timer1);
-      };
-    },[]);
+  useEffect(() => {
+    const arrows = document.querySelectorAll('.splide__arrow')
+    arrows.forEach(arrow=>arrow.innerHTML=`<svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 96 960 960" width="48"><path d="m561 814-43-42 168-168H160v-60h526L517 375l43-42 241 241-240 240Z"/></svg>`)
+    let timer1 = setTimeout(() => setLoading(false), 1000);
+    return () => {
+      clearTimeout(timer1);
+    };
+  }, []);
   const filterItems = (item, e) => {
     //const btns = document.querySelectorAll('.filter')
     const active = document.getElementsByClassName("active");
@@ -136,123 +137,131 @@ function CoursesHome() {
   };
 
   const addIcon = (item) => {
-    switch(item){
-      case "All" : return "apps";
-      case "Marketing" : return "campaign";
-      case "Sell Online" : return "sell";
-      case "Services & Events" : return "prescriptions";
-      case "Media Content" : return "perm_media";
-      case "Design Elements" : return "design_services";
-      case "Communication" : return "hub";
+    switch (item) {
+      case "All":
+        return "apps";
+      case "Marketing":
+        return "campaign";
+      case "Sell Online":
+        return "sell";
+      case "Services & Events":
+        return "prescriptions";
+      case "Media Content":
+        return "perm_media";
+      case "Design Elements":
+        return "design_services";
+      case "Communication":
+        return "hub";
     }
-  }
+  };
 
   return (
-        <>
+    <>
+      <div className="courses-home">
+        <div className="slides">
+          <Splide
+            tag="section"
+            aria-labelledby="My Favorite Images"
+            options={{
+              type: "loop",
+              interval: "1000",
+              autoplay: true,
+              interval: 3000,
+              speed: 1000,
+              pauseOnHover: false,
+              pauseOnFocus: true,
+              keyboard: true,
+              gap: "1rem",
+              width: "100%",
+            }}
+          >
+            <SplideSlide>
+              <img
+                style={{ objectFit: "contain", width: "100%" }}
+                src={image}
+                alt="Image 1"
+              />
+            </SplideSlide>
+            <SplideSlide>
+              <img
+                style={{ objectFit: "contain", width: "100%" }}
+                src={image}
+                alt="Image 1"
+              />
+            </SplideSlide>
+            <SplideSlide>
+              <img
+                style={{ objectFit: "contain", width: "100%" }}
+                src={image}
+                alt="Image 1"
+              />
+            </SplideSlide>
+            <SplideSlide>
+              <img
+                style={{ objectFit: "contain", width: "100%" }}
+                src={image}
+                alt="Image 2"
+              />
+            </SplideSlide>
+            <SplideSlide>
+              <img
+                style={{ objectFit: "contain", width: "100%" }}
+                src={image}
+                alt="Image 2"
+              />
+            </SplideSlide>
+            
+          </Splide>
 
-          <div className="courses-home">
-            <div className="slides">
-              <Splide
-                tag="section"
-                aria-labelledby="My Favorite Images"
-                options={{
-                  type: "loop",
-                  interval: "1000",
-                  autoplay: true,
-                  interval: 3000,
-                  speed: 1000,
-                  pauseOnHover: false,
-                  pauseOnFocus: true,
-                  keyboard: true,
-                  gap: "1rem",
-                  width: "100%",
-                }}
-              >
-                <SplideSlide>
-                  <img
-                    style={{ objectFit: "contain", width: "100%" }}
-                    src={image}
-                    alt="Image 1"
-                  />
-                </SplideSlide>
-                <SplideSlide>
-                  <img
-                    style={{ objectFit: "contain", width: "100%" }}
-                    src={image}
-                    alt="Image 1"
-                  />
-                </SplideSlide>
-                <SplideSlide>
-                  <img
-                    style={{ objectFit: "contain", width: "100%" }}
-                    src={image}
-                    alt="Image 1"
-                  />
-                </SplideSlide>
-                <SplideSlide>
-                  <img
-                    style={{ objectFit: "contain", width: "100%" }}
-                    src={image}
-                    alt="Image 2"
-                  />
-                </SplideSlide>
-                <SplideSlide>
-                  <img
-                    style={{ objectFit: "contain", width: "100%" }}
-                    src={image}
-                    alt="Image 2"
-                  />
-                </SplideSlide>
-              </Splide>
-              <div className="btns">
-                <button>Register</button>
-                <button>Know More</button>
-              </div>
+          <div className="btns">
+            <button>Register</button>
+            <button>Know More</button>
+          </div>
+        </div>
+        <div className="fixed">
+          {category.map((item, index) => (
+            <button
+              id={index === 0 ? "All" : null}
+              className={index === 0 ? "filter active" : "filter"}
+              onClick={(e) => filterItems(item, e)}
+              key={index}
+            >
+              <span class="material-symbols-outlined">{addIcon(item)}</span>
+              {item}
+            </button>
+          ))}
+        </div>
+        <section className="main-div">
+          <div id="recommended" className="section">
+            <h2>Recommended for You</h2>
+            <div className="card-container-div">
+              <CardBuilder
+                arr={recomended.filter((item) =>
+                  filter === "All" ? item : filter == item.category
+                )}
+                limit={4}
+              />
             </div>
-            <div className="fixed">
-            {category.map((item, index) => (
-              <button
-                id={index === 0 ? "All" : null}
-                className={index === 0 ? "filter active" : "filter"}
-                onClick={(e) => filterItems(item, e)}
-                key={index}
-              >
-                <span class="material-symbols-outlined">{addIcon(item)}</span>
-                {item}
-              </button>
-            ))}
           </div>
-            <section className="main-div">
-              <div id="recommended" className="section">
-                <h2>Recommended for You</h2>
-                <div className="card-container-div">
-                  <CardBuilder
-                    arr={recomended.filter((item) =>
-                      filter === "All" ? item : filter == item.category
-                    )}
-                    limit={4}
-                  />
-                </div>
-              </div>
-              <div id="trending" className="section">
-                <h2>Trending Now</h2>
-                <div className="card-container-div">
-                  <CardBuilder
-                    arr={trending.filter((item) =>
-                      filter === "All" ? item : filter == item.category
-                    )}
-                    limit={4}
-                  />
-                </div>
-              </div>
-              <div id="team" className="section">
-                <h2>Team Picks</h2>
-                <div className="card-container-div">
-                  <CardBuilder arr={recomended} limit={4} />
-                </div>
-              </div>
-            </section>
+          <div id="trending" className="section">
+            <h2>Trending Now</h2>
+            <div className="card-container-div">
+              <CardBuilder
+                arr={trending.filter((item) =>
+                  filter === "All" ? item : filter == item.category
+                )}
+                limit={4}
+              />
+            </div>
           </div>
+          <div id="team" className="section">
+            <h2>Team Picks</h2>
+            <div className="card-container-div">
+              <CardBuilder arr={recomended} limit={4} />
+            </div>
+          </div>
+        </section>
+      </div>
     </>
   );
 }

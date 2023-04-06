@@ -1,9 +1,62 @@
 .events-index{
+    padding:10px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 1;
-    font-family: 'Noticia Text', serif;
+    flex-direction: column;
+    gap: .6rem;
+    overflow-y: auto;
     grid-column: 2 / 4;
-    grid-row: 2 /4;
+}
+
+.events-index > .slides{
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.splide__arrows > button{
+    background-color: #006AFF;
+}
+
+.splide__arrow  svg{
+    fill: #fff !important;
+}
+
+.events-index > .slides img{
+    border-radius: 10px;
+}
+
+.events-index > .slides > .splide > div{
+    border-radius: 10px;
+    overflow-X: scroll;
+}
+.events-index > .slides > .splide > div::-webkit-scrollbar{
+    display: none;
+}
+.events-index > .slides > .btns{
+    position: absolute;
+    display: flex;
+    align-self: end;
+    align-items: end;
+    justify-content: center;
+    gap: 1rem;
+    padding-bottom: 3rem;
+}
+
+.events-index > .slides > .btns > button{
+    padding: 1.3em 3em;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #fff;
+    background-color: #006AFF;
+    border: 1px solid #006AFF;
+    border-radius: 5px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;  
+}
+.events-index > .slides > .btns > button:hover{
+    background-color: #0055CC;
 }
