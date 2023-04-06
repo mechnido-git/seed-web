@@ -15,7 +15,7 @@
     "react-spinners": "^0.13.8",
     "web-vitals": "^2.1.4"
   },
-  "homepage": "http://mishalp.github.io/idea-website",
+  "homepage": "https://gregarious-griffin-da22a3.netlify.app",
   "scripts": {
     "start": "react-scripts start",
     "predeploy": "npm run build",
