@@ -43,8 +43,9 @@
     justify-content: center;
 }
 
-.splide__arrows > button{
+.splide__arrows > button:hover{
     background-color: #006AFF;
+    transition: .3s;
 }
 
 .splide__arrow  svg{

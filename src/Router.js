@@ -8,7 +8,7 @@ import Index from './pages/index/Index'
 
 function Router() {
   return (
-    <BrowserRouter basename='/'  >
+    <HashRouter  >
         <Routes>
             <Route path='/' exact element={<Index />} >
               <Route exact index element={<Navigate to='home' />} /> {/* default route -> home */}
@@ -18,7 +18,7 @@ function Router() {
               <Route path='*' element={<Home />} />
             </Route>
         </Routes>
-    </BrowserRouter >
+    </HashRouter >
   )
 }
 

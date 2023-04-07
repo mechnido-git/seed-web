@@ -4,7 +4,6 @@ import courses from "../../images/courses.jpg";
 import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
 import image from "../../images/slide.jpg";
 import "@splidejs/react-splide/css";
-import { useLocation, useOutletContext } from "react-router-dom";
 
 export const recomended = [
   {
@@ -218,7 +217,6 @@ function CoursesHome() {
 
           <div className="btns">
             <button>Register</button>
-            <button>Know More</button>
           </div>
         </div>
         <div className="fixed">
