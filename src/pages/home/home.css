@@ -4,6 +4,10 @@
     justify-content: center;
     flex: 1;
     font-family: 'Noticia Text', serif;
-    grid-column: 2 / 4;
+    grid-column: 1 / 4;
     grid-row: 2 / 4;
+}
+
+.disable{
+    display: none;
 }

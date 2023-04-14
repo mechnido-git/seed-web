@@ -101,8 +101,7 @@
 
 .register-info{
     padding: 1rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
     gap: 1rem;
     margin: 2rem 0;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -244,6 +243,13 @@
 
 .slides-sponsors  .splide__slide img{
     border-radius: 50%;
+}
+
+.register-info ul > .splide__slide{
+    display: grid ;
+    grid-template-columns: 1fr 1fr ;
+    gap: 1rem ;
+    align-items: center;
 }
 
 @media only screen and (max-width: 430px) {

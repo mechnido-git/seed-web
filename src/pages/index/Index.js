@@ -2,10 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import Navbar from '../../components/sideMenu/Navbar'
 import SideMenu from '../../components/sideMenu/SideMenu'
+import './index.css'
+import RegisterForm from '../../components/RegisterForm'
 
 function Index() {
   const [prev, setPrev] = useState(null);
   const [event, setEvent] = useState(false);
+  const [register, setRegister] = useState(false);
 
 
   const location = useLocation();
@@ -58,7 +61,6 @@ function Index() {
       }
       link.addEventListener("click", click);
     });
-    console.log('hello');
     return () => {
       document.querySelectorAll(".link").forEach((link) => {
         link.removeEventListener("click", click);
@@ -73,7 +75,7 @@ function Index() {
       {/* Outlet will render the inner component of the route */}
       {/* default route -> home */}
       <Navbar />
-      <Outlet  />
+      <Outlet context={[register, setRegister]}  />
     </div>
   )
 }
