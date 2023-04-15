@@ -10,12 +10,12 @@ function Router() {
   return (
     <HashRouter  >
         <Routes>
-            <Route path='/' exact element={<Index />} >
-              <Route exact index element={<Navigate to='home' />} /> {/* default route -> home */}
-              <Route exact path='home' element={<Home />} />
+        <Route exact path='/' element={<Navigate to='/home' />} />
+        <Route exact path='/home' element={<Home />} />
+            <Route path='/menu' exact element={<Index />} >
+              <Route exact index element={<Navigate to='courses' />} />
               <Route exact path='courses' element={<CoursesHome />} />
               <Route path='events' element={<EventIndex />} />
-              <Route path='*' element={<Home />} />
             </Route>
         </Routes>
     </HashRouter >

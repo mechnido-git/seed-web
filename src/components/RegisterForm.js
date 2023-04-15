@@ -72,7 +72,7 @@ function RegisterForm() {
 
             <div className="terms">
             <input type="checkbox" name='terms'/>
-            <label htmlFor="terms">I hereby agree to all <Link id='terms' to='terms'>*Terms and Conditions*</Link> </label> 
+            <label htmlFor="terms">I hereby agree to all <Link target='_blank' id='terms' to='terms'>*Terms and Conditions*</Link> </label> 
             </div>
 
             <input type="submit" value="Register" />

@@ -3,6 +3,7 @@ import search from "../../images/search.png";
 import "./navbar.css";
 import logo from "../../images/logo.jpg";
 import { Link } from "react-router-dom";
+import SignIn from "../../pages/signin/SignIn";
 
 function Navbar() {
   const [signIn, setSignIn] = useState(false);
@@ -20,7 +21,7 @@ function Navbar() {
         <span onClick={toggle} id="toggle" class="material-symbols-outlined">
           menu
         </span>
-        <Link to="home">
+        <Link to="/home">
           <img src={logo} alt="" />
         </Link>
       </div>
@@ -33,6 +34,10 @@ function Navbar() {
       <div className="btns">
         <button onClick={()=>setSignIn(true)}>Sign in</button>
       </div>
+     {signIn && <div className="wrapper">
+        <div className="blocker" onClick={()=>setSignIn(false)}></div>
+        <SignIn />
+      </div>}
     </div>
   );
 }
