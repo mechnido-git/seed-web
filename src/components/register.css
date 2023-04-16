@@ -18,6 +18,7 @@
     gap: 5px;
     padding: 5px;
     align-items: center;
+    font-size: large;
 }
 
 .register-form > form > .terms{

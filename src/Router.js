@@ -4,6 +4,7 @@ import CoursesHome from './pages/courses/CoursesHome'
 import EventIndex from './pages/events/EventIndex'
 import Home from './pages/home/Home'
 import Index from './pages/index/Index'
+import Dashboard from './pages/events/dashboard/Dashboard'
 
 
 function Router() {
@@ -16,6 +17,7 @@ function Router() {
               <Route exact index element={<Navigate to='courses' />} />
               <Route exact path='courses' element={<CoursesHome />} />
               <Route path='events' element={<EventIndex />} />
+              <Route path='dashboard' element={<Dashboard />} />
             </Route>
         </Routes>
     </HashRouter >

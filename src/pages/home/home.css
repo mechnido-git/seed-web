@@ -42,7 +42,7 @@
 
 .nav > .left > ul > li::before{
     transition: 300ms;
-    height: 5px;
+    height: 2px;
     content: "";
     position: absolute;
     background-color: white;
