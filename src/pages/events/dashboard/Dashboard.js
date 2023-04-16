@@ -23,10 +23,29 @@ function Dashboard() {
     mobile: "",
   };
 
+  const member_model = {
+    img: "",
+    collegeId: "",
+    yearStudy: "",
+    name: "",
+    dob: "",
+    email: "",
+    mobile: "",
+  };
+
   const [facualty, setFacualty] = useState([
     { ...facuality_model },
     { ...facuality_model },
   ]);
+
+  const [members, setMembers] = useState([
+    { ...member_model },
+    { ...member_model },
+  ]);
+
+  const addMember = () => {
+    setMembers([...members, {...member_model}])
+  }
 
   const onSumbitHandler = () => {};
 
@@ -216,7 +235,7 @@ function Dashboard() {
           <hr />
             <h3 style={{margin: "1rem"}}>Team Details</h3>
           <div className="fac-div">
-            {facualty.map((item, index) => {
+            {members.map((item, index) => {
               return (
                 <div className="fac">
                     <h3>Member {index+1}</h3>
@@ -258,7 +277,7 @@ function Dashboard() {
               );
             })}
           </div>
-
+            <button type="button" onClick={addMember} className="add-btn">Add more members</button>
           <hr />
         </form>
       </div>

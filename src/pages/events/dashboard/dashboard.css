@@ -83,7 +83,13 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
-    padding: 0 5rem;
+    padding: 0 3rem;
+}
+
+.dashboard .fac-div .fac{
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    padding: 2rem;
+    border-radius: 5px;
 }
 
 .dashboard .fac-div .fac .input-div{
@@ -106,4 +112,20 @@
     border: 2px solid #0055CC;
     border-radius: 5px;
     font-size: large;
+}
+
+.dashboard > .form-div > form > .add-btn{
+    padding: 5px 15px;
+    background-color: white;
+    color: #006AFF;
+    border-radius: 5px;
+    border: 2px solid #006AFF;
+    cursor: pointer;
+    transition: .4s;
+    margin: 1rem auto;
+}
+
+.dashboard > .form-div > form > .add-btn:hover{
+    background-color: #006AFF;
+    color: white;
 }
