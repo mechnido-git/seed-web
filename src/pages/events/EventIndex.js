@@ -10,14 +10,20 @@ import sponsor from "../../images/sponsor.jpg";
 import "@splidejs/react-splide/css";
 import { useLocation, useOutletContext } from "react-router-dom";
 import RegisterForm from "../../components/RegisterForm";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../../firebase/config";
 
 function EventIndex() {
   const [signIn, setSignIn] = useState(false);
+  const [user, setUser] = useState(false);
   const imgWidth = window.innerWidth < 1024 ? "100%" : "200px";
   const gap = window.innerWidth < 1024 ? "1rem" : "4rem";
   const [register, setRegister] = useOutletContext();
 
   useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) setUser(true);
+    });
     const arrows = document.querySelectorAll(".splide__arrow");
     arrows.forEach(
       (arrow) =>
@@ -34,15 +40,13 @@ function EventIndex() {
           ref={ref}
           onMove={(splide, prev, next) => {
             console.log(prev, splide.index, next);
-            console.log(ref2.current.splide.Components.Move.move(0,splide.index,0));
+            console.log(ref2.current.splide.Components.Move.move(splide.index,splide.index,splide.index+1));
             //ref2.current.splide.Components.Contro.move(splide.index)
           }}
           tag="section"
           aria-labelledby="My Favorite Images"
           options={{
             type: "loop",
-            autoplay: true,
-            interval: 5000,
             speed: 1000,
             pauseOnHover: false,
             pauseOnFocus: true,
@@ -75,7 +79,7 @@ function EventIndex() {
         </Splide>
 
         <div className="btns">
-          <button onClick={()=>setRegister(true)}>Register</button>
+          <button onClick={()=>user?setRegister(true): alert('login first')}>Register</button>
         </div>
       </div>
 

@@ -5,7 +5,6 @@ import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
 import image from "../../images/slide.jpg";
 import "@splidejs/react-splide/css";
 import { useOutletContext } from "react-router-dom";
-import RegisterForm from "../../components/RegisterForm";
 
 export const recomended = [
   {
@@ -219,7 +218,7 @@ function CoursesHome() {
           </Splide>
 
           <div className="btns">
-            <button onClick={()=>setRegister(true)}>Register</button>
+            <button >Register</button>
           </div>
         </div>
         <div className="fixed">
@@ -265,10 +264,6 @@ function CoursesHome() {
             </div>
           </div>
         </section>
-        {register && <div className="wrapper">
-        <div className="blocker" onClick={()=>setRegister(false)}></div>
-        <RegisterForm />
-      </div>}
       </div>
     </>
   );

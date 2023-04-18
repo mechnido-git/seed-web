@@ -45,7 +45,7 @@ function RegisterForm() {
             <div className="input-div">
             <label htmlFor="Kart Type">Kart Type</label> :
             <select name="kartType" id="kartType" value={kartType} onChange={(e)=>setKartType(e.target.value)}>
-                <option value="gokart">Gokart</option>
+                <option value="gokart">Go-kart</option>
                 <option value="ekart">E-Kart</option>
             </select>
             </div>

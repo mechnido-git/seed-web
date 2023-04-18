@@ -3,11 +3,13 @@ import "./sideMenu.css";
 import { Link, useLocation } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import RegisterForm from "../RegisterForm";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../../firebase/config";
 
 function SideMenu({event, setEvent}) {
 
  // const {loc, setLoc} = useContext(ToggleContext)
-
+  const [user, setUser] = useState(false)
 const loc =[]
   const location = useLocation();
  // setLoc(location.pathname.split("/"))
@@ -22,6 +24,13 @@ const loc =[]
     document.getElementById("side-menu").classList.toggle("border");
   };
   const mobile = window.innerWidth < 430 ? true : false;
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) setUser(true);
+    });
+  }, []);
+
   return (
     <div className="side-menu" id="side-menu">
       <div className="min-menu" id="min-menu">
@@ -59,7 +68,7 @@ const loc =[]
             <h3>EXPLORE</h3>
             <HashLink
               onClick={mobile ? toggle : null}
-              to="/courses/#recommended"
+              to="/menu/courses/#recommended"
               smooth
             >
               <span class="material-symbols-outlined">sort</span>
@@ -67,7 +76,7 @@ const loc =[]
             </HashLink>
             <HashLink
               onClick={mobile ? toggle : null}
-              to="/courses/#trending"
+              to="/menu/courses/#trending"
               smooth
             >
               <span class="material-symbols-outlined">trending_up</span>
@@ -75,7 +84,7 @@ const loc =[]
             </HashLink>
             <HashLink
               onClick={mobile ? toggle : null}
-              to="/courses/#team"
+              to="/menu/courses/#team"
               smooth
             >
               <span class="material-symbols-outlined">diversity_3</span>
@@ -108,7 +117,7 @@ const loc =[]
               <div>communication</div>
             </Link>
           </>
-        ) : (
+        ) : user? (
           <>
             <h3>MENU</h3>
             <Link to="dashboard">
@@ -128,7 +137,7 @@ const loc =[]
               <div>Payments</div>
             </Link>
           </>
-        )}
+        ) : <h5 style={{marginLeft: 'auto', marginRight: 'auto'}}>Log in for more options</h5>}
       </div>
     </div>
   );

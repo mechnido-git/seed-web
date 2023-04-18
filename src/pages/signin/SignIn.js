@@ -1,9 +1,28 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./signin.css";
 import google from "./pngwing.com.png";
+import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, updateProfile } from "firebase/auth";
+import { auth } from "../../firebase/config";
+import Spinner from "../../components/Spinner";
+
 
 function SignIn() {
   const [signin, setSigin] = useState(true);
+  const [loading, setLoading] = useState(false);
+
+  const [error, setError] = useState('')
+
+  //sign up
+  const [fullName, setFullName] = useState('')
+  const [upEmail, setUpEmail] = useState('')
+  const [upPassword, setUpPassword] = useState('')
+  const [phone, setPhone] = useState('')
+
+  //sign in
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('');
+
+
   const starter = () => {
     const forms = document.querySelector(".forms"),
       pwShowHide = document.querySelectorAll(".eye-icon"),
@@ -13,7 +32,6 @@ function SignIn() {
       eyeIcon.addEventListener("click", () => {
         let pwFields =
           eyeIcon.parentElement.parentElement.querySelectorAll(".password");
-        console.log(pwFields[0]);
         pwFields.forEach((password) => {
           if (password.type === "password") {
             password.type = "text";
@@ -26,12 +44,6 @@ function SignIn() {
       });
     });
 
-    links.forEach((link) => {
-      link.addEventListener("click", (e) => {
-        e.preventDefault(); //preventing form submit
-        forms.classList.toggle("show-signup");
-      });
-    });
   };
 
   const stop = () => {
@@ -65,31 +77,109 @@ function SignIn() {
     console.log("removed");
   };
 
+
   useEffect(() => {
     starter();
     return () => stop();
   }, []);
 
+  const handleSignUp = (e) => {
+    setLoading(true)
+    e.preventDefault();
+    createUserWithEmailAndPassword(auth, upEmail, upPassword)
+    .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    updateProfile(auth.currentUser,{
+      displayName: fullName
+    }).then(()=>{console.log('updated');window.location.reload()}).catch((err)=>{
+      console.log(err);
+      setLoading(false)
+    })
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.log(errorMessage);
+    // ..
+    setLoading(false)
+  }); 
+  }
+
+  const handleSignIn = (e) => {
+    setLoading(true)
+    e.preventDefault()
+    console.log(email);
+    signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    //console.log(user);
+    // ...
+    window.location.reload()
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.log(errorMessage);
+    alert(errorMessage)
+    setLoading(false)
+  });
+  }
+
+  const signInGoogle = (e) => {
+    e.preventDefault()
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider)
+  .then((result) => {
+    // This gives you a Google Access Token. You can use it to access the Google API.
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+    // The signed-in user info.
+    const user = result.user;
+    // IdP data available using getAdditionalUserInfo(result)
+    // ...
+    window.location.reload()
+  }).catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.customData.email;
+    // The AuthCredential type that was used.
+    const credential = GoogleAuthProvider.credentialFromError(error);
+    // ...
+  });
+  }
+
   return (
     <div className="signin-div form login">
+      {loading && <Spinner loading={loading} />}
       {signin ? (
         <>
           <div className="form-content">
-            <header>Sign in to your account</header>
-            <form action="#">
+            <header>Sign in</header>
+            <form onSubmit={handleSignIn}>
               <div className="field input-field">
                 <input
                   type="email"
-                  placeholder="Email or Phone"
+                  placeholder="Email"
                   className="input"
+                  value={email}
+                  onChange={(e)=>setEmail(e.target.value)}
+                  required
                 />
               </div>
 
               <div className="field input-field">
                 <input
+                  required
+                  value={password}
+                  onChange={(e)=>setPassword(e.target.value)}
                   type="password"
                   placeholder="Password"
                   className="password"
+                  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
                 />
                 <i className="bx bx-hide eye-icon"></i>
               </div>
@@ -101,7 +191,8 @@ function SignIn() {
               </div>
 
               <div className="field button-field">
-                <button>Sign in</button>
+                <input type="submit" value='Sign in'/>
+
               </div>
             </form>
 
@@ -122,38 +213,43 @@ function SignIn() {
             </a>
           </div>
           <div className="media-options">
-            <a href="#" className="field google">
+            <a href="" className="field google" onClick={signInGoogle}>
               <img src={google} alt="" className="google-img" />
               <span>Login with Google</span>
             </a>
-          </div>{" "}
+          </div>
         </>
       ) : (
         <>
           <div className="form-content">
-            <header>Create your account</header>
-            <form action="#">
+            <header>Create account</header>
+            <form>
               <div className="field input-field">
-                <input type="text" placeholder="Fullname" className="input" />
+                <input required type="text" minLength={3} value={fullName} onChange={(e)=>setFullName(e.target.value)} placeholder="Full Name" className="input" />
               </div>
               <div className="field input-field">
-                <input type="email" placeholder="Email" className="input" />
+                <input required type="email" value={upEmail} onChange={(e)=>setUpEmail(e.target.value)} placeholder="Email" className="input" />
               </div>
               <div className="field input-field">
-                <input type="phone" placeholder="Phone" className="input" />
+                <input required type="phone" value={phone} onChange={(e)=>setPhone(e.target.value)} placeholder="Phone" className="input" />
               </div>
 
               <div className="field input-field">
                 <input
+                  required
                   type="password"
                   placeholder="Password"
                   className="password"
+                  value={upPassword}
+                  onChange={(e)=>setUpPassword(e.target.value)}
+                  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
                 />
                 <i className="bx bx-hide eye-icon"></i>
               </div>
 
               <div className="form-link">
                 <i className="bx bx-info-circle"></i>
+                {' '}
                 <label className="info">
                   Your password should contain at least 8 characters, including
                   one uppercase letter (A-Z), one lowercase letter (a-z), one
@@ -162,7 +258,7 @@ function SignIn() {
               </div>
 
               <div className="field button-field">
-                <button>Sign up</button>
+                <input type="submit" onClick={handleSignUp} name="" id="" value='sign up' />
               </div>
             </form>
 
@@ -199,7 +295,7 @@ function SignIn() {
             </div>
 
             <div className="media-options">
-              <a href="#" className="field google">
+              <a href="" className="field google" onClick={signInGoogle}>
                 <img src={google} alt="" className="google-img" />
                 <span>Login with Google</span>
               </a>

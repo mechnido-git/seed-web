@@ -84,13 +84,13 @@ form{
     cursor: pointer;
     padding: 5px;
 }
-.field button{
+.field input[type="submit"]{
     color: #fff;
     background-color: #006AAF;
     transition: all 0.3s ease;
     cursor: pointer;
 }
-.field button:hover{
+.field input[type="submit"]:hover{
     background-color: #0055CC;
 }
 .form-link{
@@ -184,4 +184,11 @@ a.google span{
     height: 5px;
     width: 9.5px;
     font-size: 12px;
+}
+
+.close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 1rem;
 }

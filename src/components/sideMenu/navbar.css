@@ -86,6 +86,7 @@
     display: flex;
     gap: 1rem;
     justify-self: end;
+    align-items: center;
 }
 
 .navbar > .btns > button {

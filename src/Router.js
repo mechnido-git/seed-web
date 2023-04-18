@@ -7,9 +7,10 @@ import Index from './pages/index/Index'
 import Dashboard from './pages/events/dashboard/Dashboard'
 
 
+
 function Router() {
   return (
-    <HashRouter  >
+    <BrowserRouter basename='/' >
         <Routes>
         <Route exact path='/' element={<Navigate to='/home' />} />
         <Route exact path='/home' element={<Home />} />
@@ -20,7 +21,7 @@ function Router() {
               <Route path='dashboard' element={<Dashboard />} />
             </Route>
         </Routes>
-    </HashRouter >
+    </BrowserRouter >
   )
 }
 

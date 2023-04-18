@@ -1,31 +1,76 @@
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import logo from '../../images/logo_round.png'
 import './home.css'
 import trophy from '../../images/trophy.png'
 import { Splide, SplideSlide } from '@splidejs/react-splide'
 import { useNavigate } from 'react-router-dom'
 import SignIn from '../signin/SignIn'
+import { StoreContext } from '../../store/StoreContext'
+import { onAuthStateChanged, signOut } from 'firebase/auth'
+import { auth } from '../../firebase/config'
+import Spinner from '../../components/Spinner'
 
 function Home() {
     const [signIn, setSignIn] = useState(false);
+    const [userName, setUserName] = useState(null)
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(true)
+
+    useEffect(()=>{
+      onAuthStateChanged(auth, user => {
+        if(user){
+          setUserName(user.displayName)
+          setLoading(false)
+        }else{
+          setLoading(false)
+        }
+      })
+    }, [])
+
     const goToLink = (link) =>{
         navigate(link)
     }
-  return (
+
+    const popup = () =>{
+      document.body.classList.add('disable-scroll');
+      setSignIn(true)
+    }
+      const close = () =>{
+        document.body.classList.remove('disable-scroll');
+        setSignIn(false)
+      }
+
+      const logout = () => {
+        setLoading(true)
+        signOut(auth).then(() => {
+          // Sign-out successful.
+          window.location.reload()
+        }).catch((error) => {
+          // An error happened.
+          setLoading(false)
+        });
+      }
+
+    return ( <>
+    {loading && <Spinner loading={loading} />}
     <div className="home">
         <div className="nav">
             <div className="left">
                 <img src={logo} alt="" />
                 <ul>
                     <li>About</li>
+                    <li>FAQ</li>
                     <li>Achievements</li>
                     <li>Testimonials</li>
                     <li>Contact Us</li>
                 </ul>
             </div>
             <div className="right">
-                <button onClick={()=>setSignIn(true)}>Signin</button>
+                {userName ?<> <h4>{userName}</h4>
+                <button onClick={logout}>Log out</button></>
+                 : <button onClick={popup}>Sign in</button> }
+                
+                
             </div>
         </div>
         <div className="hero">
@@ -185,11 +230,11 @@ function Home() {
         </Splide>
       </div>
         </div>
-        {signIn && <div className="wrapper">
-        <div className="blocker" onClick={()=>setSignIn(false)}></div>
-        <SignIn />
-      </div>}
     </div>
+        {signIn && <div className="wrapper">
+          <div className="blocker" onClick={close}></div>
+        <SignIn />
+      </div>}</>
   )
 }
 
