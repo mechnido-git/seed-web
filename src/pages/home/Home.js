@@ -10,8 +10,6 @@ import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../../firebase/config";
 import Spinner from "../../components/Spinner";
 import { HashLink } from "react-router-hash-link";
-import questions from "./Faq.json";
-import Banner from "./Banner";
 
 
 function Home() {
