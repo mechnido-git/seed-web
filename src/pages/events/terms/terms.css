@@ -1,0 +1,36 @@
+.terms-page{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 1rem;
+    background-color: white;
+    max-width: 80%;
+    border-radius: 5px;
+}
+
+.terms-page > .upper > h3{
+    color: #006aff;
+}
+
+.terms-page > .upper > span{
+    border: 2px solid #006aff;
+    background-color: #006aff;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: .4s;
+}
+
+.terms-page > .upper > span:hover{
+    background-color: white;
+    color: #006aff;
+}
+
+.terms-page > .upper{
+    display: flex;
+    justify-content: space-between;
+}
+
+#info{
+    line-break: anywhere;
+}

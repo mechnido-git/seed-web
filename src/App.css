@@ -10,6 +10,8 @@
 .App{
     width: 100%;
     position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 a{
@@ -25,8 +27,6 @@ a{
     grid-template-rows: 60px auto;
     transition: .5s;
     gap: .5rem;
-    overflow: hidden;
-
 }
 
 .spinner{

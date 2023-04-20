@@ -25,6 +25,7 @@ function Navbar() {
     signOut(auth).then(() => {
       // Sign-out successful.
       window.location.reload()
+      setSignIn(false)
     }).catch((error) => {
       // An error happened.
       setLoading(false)

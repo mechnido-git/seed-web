@@ -3,6 +3,7 @@
     padding: 1rem;
     border-radius: 10px;
     z-index: 4;
+    margin: 1rem;
 }
 
 .register-form > form{
@@ -33,11 +34,17 @@
 .register-form > form > .input-div > input[type = "tel"],
 .register-form > form > .input-div > input[type = "password"],
 .register-form > form > .input-div > input[type = "email"],
-.register-form > form > .input-div > select{
+.register-form > form > .input-div > select,
+.register-form > form > .input-div > textarea{
     padding: 5px;
     border: 2px solid #0055CC;
     border-radius: 5px;
     font-size: large;
+}
+
+.register-form > form input[type = "checkbox"],
+.register-form > form input[type = "radio"]{
+    cursor: pointer !important;
 }
 
 .register-form > form > input[type = "submit"]{
@@ -50,5 +57,10 @@
 }
 
 #terms{
-    color: green;
+    color: #0055CC;
+    cursor: pointer;
+}
+
+.register-form > .wrapper{
+    background-color: rgba(0, 0, 0, 0.53);
 }

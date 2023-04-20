@@ -11,34 +11,53 @@ import "@splidejs/react-splide/css";
 import { useLocation, useOutletContext } from "react-router-dom";
 import RegisterForm from "../../components/RegisterForm";
 import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../../firebase/config";
+import { auth, db } from "../../firebase/config";
+import { collection, getDocs } from "firebase/firestore";
+import Spinner from "../../components/Spinner";
 
 function EventIndex() {
   const [signIn, setSignIn] = useState(false);
+  const [currentEvent, setCurrentEvent] = useState(0);
   const [user, setUser] = useState(false);
   const imgWidth = window.innerWidth < 1024 ? "100%" : "200px";
   const gap = window.innerWidth < 1024 ? "1rem" : "4rem";
   const [register, setRegister] = useOutletContext();
+  const [loading, setLoading] = useState(true)
+  const [events, setEvents] = useState(null)
+  const [yes, setYes] = useState(false)
 
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) setUser(true);
-    });
+  const eventList = ["Event One", "Event Two", "Event Three"];
+
+  const tru = () => {
     const arrows = document.querySelectorAll(".splide__arrow");
     arrows.forEach(
       (arrow) =>
         (arrow.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 96 960 960" width="48"><path d="m561 814-43-42 168-168H160v-60h526L517 375l43-42 241 241-240 240Z"/></svg>`)
     );
+  }
+
+
+  useEffect(() => {
+    onAuthStateChanged(auth, user=>{
+      if(user) setUser(user.displayName)
+    })
+    const temp = []
+    getDocs(collection(db, "events")).then(snaps=>{
+      snaps.forEach(doc=>temp.push({id: doc.id, name: doc.data().name}))
+      setEvents(temp)
+    }).catch().finally(()=>setLoading(false))
   }, []);
   const ref = useRef();
   const ref2 = useRef();
 
   return (
     <div className="events-index">
+      {loading && <Spinner loading={loading} />}
       <div className="slides">
-        <Splide
+        {events && <Splide
           ref={ref}
           onMove={(splide, prev, next) => {
+            setCurrentEvent(splide.index)
             console.log(prev, splide.index, next);
             console.log(ref2.current.splide.Components.Move.move(splide.index,splide.index,splide.index+1));
             //ref2.current.splide.Components.Contro.move(splide.index)
@@ -55,28 +74,17 @@ function EventIndex() {
             width: "100%",
           }}
         >
-          <SplideSlide>
+          {events.map((item)=>{
+            return <SplideSlide>
             <img
               style={{ objectFit: "contain", width: "100%" }}
               src={image}
               alt="Image 1"
             />
           </SplideSlide>
-          <SplideSlide>
-            <img
-              style={{ objectFit: "contain", width: "100%" }}
-              src={image}
-              alt="Image 1"
-            />
-          </SplideSlide>
-          <SplideSlide>
-            <img
-              style={{ objectFit: "contain", width: "100%" }}
-              src={image}
-              alt="Image 1"
-            />
-          </SplideSlide>
-        </Splide>
+          })}
+
+        </Splide>}
 
         <div className="btns">
           <button onClick={()=>user?setRegister(true): alert('login first')}>Register</button>
@@ -397,9 +405,9 @@ function EventIndex() {
           </SplideSlide>
         </Splide>
       </div>
-      {register && <div className="wrapper">
+      {register && <div className="wrapper-reg">
         <div className="blocker" onClick={()=>setRegister(false)}></div>
-        <RegisterForm />
+        <RegisterForm event={events[currentEvent]} />
       </div>}
     </div>
   );

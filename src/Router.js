@@ -5,6 +5,8 @@ import EventIndex from './pages/events/EventIndex'
 import Home from './pages/home/Home'
 import Index from './pages/index/Index'
 import Dashboard from './pages/events/dashboard/Dashboard'
+import Terms from './pages/events/terms/Terms'
+import EventConfig from './pages/events/eventConfig/EventConfig'
 
 
 
@@ -19,7 +21,9 @@ function Router() {
               <Route exact path='courses' element={<CoursesHome />} />
               <Route path='events' element={<EventIndex />} />
               <Route path='dashboard' element={<Dashboard />} />
+              <Route path='event-config/:eventId' element={<EventConfig />} />
             </Route>
+            <Route path='/terms' element={<Terms />} />
         </Routes>
     </BrowserRouter >
   )

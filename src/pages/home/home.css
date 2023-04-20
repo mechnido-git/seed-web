@@ -79,7 +79,7 @@
     font-size: 13px;
     z-index: 1;
     color: var(--color);
-    border: 1px solid rgb(145, 145, 145);
+    border: none;
     border-radius: 6px;
     position: relative;
     background-color: #006aff;
@@ -138,7 +138,7 @@
     
 }
 
-.main{
+.home > .main{
     padding: 1rem;
     margin: 1rem;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
@@ -186,3 +186,5 @@
     padding: 1rem;
     gap: 1rem;
 }
+
+
