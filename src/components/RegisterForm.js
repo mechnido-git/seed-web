@@ -85,6 +85,7 @@ function RegisterForm({ event }) {
             name="teamName"
             required
             onChange={(e) => setTeamName(e.target.value.toUpperCase())}
+            placeholder="name"
           />
         </div>
 
@@ -96,6 +97,7 @@ function RegisterForm({ event }) {
             name="teamEmail"
             required
             onChange={(e) => setTeamEmail(e.target.value)}
+            placeholder="example@gmail.com"
           />
         </div>
 
@@ -109,6 +111,7 @@ function RegisterForm({ event }) {
             name="teamMembers"
             required
             onChange={(e) => setTeamMembers(e.target.value)}
+            placeholder="3-25"
           />
         </div>
 
@@ -121,6 +124,7 @@ function RegisterForm({ event }) {
             name="capName"
             required
             onChange={(e) => setCapName(e.target.value.toUpperCase())}
+            placeholder="name"
           />
         </div>
 
@@ -147,6 +151,7 @@ function RegisterForm({ event }) {
             required
             onChange={(e) => setContact(e.target.value)}
             pattern="[6789][0-9]{9}" title="Please enter valid phone number"
+            placeholder="number"
           />
         </div>
 
@@ -159,6 +164,7 @@ function RegisterForm({ event }) {
             name="adress"
             required
             onChange={(e) => setCollegeName(e.target.value)}
+            placeholder="college"
           />
         </div>
 
@@ -169,11 +175,12 @@ function RegisterForm({ event }) {
           onChange={(e)=>setAdress(e.target.value)}
           rows={5}
           cols={5}
+          placeholder="Address"
         />
         </div>
 
         <div className="input-div">
-          <label htmlFor="college-name">Ciity</label> :
+          <label htmlFor="college-name">City</label> :
           <input
             minLength={3}
             value={city}
@@ -181,6 +188,7 @@ function RegisterForm({ event }) {
             name="city"
             required
             onChange={(e) => setCity(e.target.value)}
+            placeholder="City"
           />
         </div>
 
@@ -193,6 +201,7 @@ function RegisterForm({ event }) {
             name="state"
             required
             onChange={(e) => setState(e.target.value)}
+            placeholder="Tamil Nadu"
           />
         </div>
 
@@ -205,11 +214,12 @@ function RegisterForm({ event }) {
             name="pincode"
             required
             onChange={(e) => setPincode(e.target.value)}
+            placeholder="123456"
           />
         </div>
 
         <div className="input-div" onChange={(e)=>setFac(e.target.value)}>
-          <label htmlFor="pincode">Facualty</label> :
+          <label htmlFor="pincode">Faculty</label> :
           <div
             style={{
               display: "flex",

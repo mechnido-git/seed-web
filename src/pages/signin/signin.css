@@ -28,6 +28,24 @@
     padding: 30px;
     border-radius: 6px;
     background: #FFF;
+
+}
+
+.media-options{
+    margin: .5rem 0;
+}
+
+.error{
+    color: red;
+    padding: 0 1rem;
+    font-size: small;
+}
+
+
+.signin-div form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 .form.signup{
     opacity: 0;
@@ -54,7 +72,6 @@ form{
     position: relative;
     height: 40px;
     width: 100%;
-    margin-top: 20px;
     border-radius: 6px;
 }
 .field input,
@@ -74,6 +91,14 @@ form{
 .field input:focus{
     border-bottom-width: 2px;
 }
+input:not(:focus):not(:placeholder-shown):invalid {
+    border: 2px solid red !important;
+  }
+
+  input:not(:focus):not(:placeholder-shown):valid {
+    border: 1px solid #CACACA !important;
+  }
+
 .eye-icon{
     position: absolute;
     top: 50%;

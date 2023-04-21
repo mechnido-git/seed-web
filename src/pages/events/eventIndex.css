@@ -35,8 +35,8 @@
     position: absolute;
     display: flex;
     align-self: end;
-    top: 75%;
-    left: 25%;
+    top: 170px;
+    left: 190px;
     gap: 1rem;
     padding-bottom: 3rem;
 }

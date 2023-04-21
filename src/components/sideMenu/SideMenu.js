@@ -67,6 +67,7 @@ const loc =[]
           <>
             <h3>EXPLORE</h3>
             <HashLink
+              className="sub"
               onClick={mobile ? toggle : null}
               to="/menu/courses/#recommended"
               smooth
@@ -75,6 +76,7 @@ const loc =[]
               <div>Recommended</div>
             </HashLink>
             <HashLink
+              className="sub"
               onClick={mobile ? toggle : null}
               to="/menu/courses/#trending"
               smooth
@@ -83,6 +85,7 @@ const loc =[]
               <div>Trending Now</div>
             </HashLink>
             <HashLink
+              className="sub"
               onClick={mobile ? toggle : null}
               to="/menu/courses/#team"
               smooth
@@ -92,27 +95,27 @@ const loc =[]
             </HashLink>
             <hr />
             <h3>CATEGORIES</h3>
-            <Link onClick={mobile ? toggle : null} to="marketing">
+            <Link className="sub" onClick={mobile ? toggle : null} to="marketing">
               <span class="material-symbols-outlined">campaign</span>
               <div>Marketing</div>
             </Link>
-            <Link onClick={mobile ? toggle : null} to="sell">
+            <Link className="sub" onClick={mobile ? toggle : null} to="sell">
               <span class="material-symbols-outlined">sell</span>
               <div>Sell Online</div>
             </Link>
-            <Link to="services">
+            <Link className="sub" to="services">
               <span class="material-symbols-outlined">prescriptions</span>
               <div>Services & Events</div>
             </Link>
-            <Link onClick={mobile ? toggle : null} to="media">
+            <Link className="sub" onClick={mobile ? toggle : null} to="media">
               <span class="material-symbols-outlined">perm_media</span>
               <div>Media & Content</div>
             </Link>
-            <Link onClick={mobile ? toggle : null} to="design">
+            <Link className="sub" onClick={mobile ? toggle : null} to="design">
               <span class="material-symbols-outlined">design_services</span>
               <div>Design Elements</div>
             </Link>
-            <Link onClick={mobile ? toggle : null} to="communication">
+            <Link className="sub" onClick={mobile ? toggle : null} to="communication">
               <span class="material-symbols-outlined">hub</span>
               <div>communication</div>
             </Link>
@@ -120,19 +123,19 @@ const loc =[]
         ) : user? (
           <>
             <h3>MENU</h3>
-            <Link to="dashboard">
+            <Link className="sub"  to="dashboard">
               <span class="material-symbols-outlined">dashboard</span>
               <div>Dashboard</div>
             </Link>
-            <Link to="downloads">
+            <Link className="sub" to="downloads">
               <span class="material-symbols-outlined">download</span>
               <div>Downloads</div>
             </Link>
-            <Link to="uploads">
+            <Link className="sub" to="uploads">
               <span class="material-symbols-outlined">upload_file</span>
               <div>Uploads</div>
             </Link>
-            <Link to="payments">
+            <Link className="sub" to="payments">
               <span class="material-symbols-outlined">payments</span>
               <div>Payments</div>
             </Link>

@@ -14,23 +14,19 @@
 
 .terms-page > .upper > span{
     border: 2px solid #006aff;
-    background-color: #006aff;
-    color: white;
+    background-color: white;
+    color: #006aff;
     border-radius: 50%;
     cursor: pointer;
     transition: .4s;
 }
 
 .terms-page > .upper > span:hover{
-    background-color: white;
-    color: #006aff;
+    background-color: #006aff;
+    color: white;
 }
 
 .terms-page > .upper{
     display: flex;
     justify-content: space-between;
-}
-
-#info{
-    line-break: anywhere;
 }

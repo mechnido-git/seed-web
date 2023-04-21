@@ -18,10 +18,13 @@ function SignIn() {
   const [upPassword, setUpPassword] = useState('')
   const [phone, setPhone] = useState('')
 
+  
   //sign in
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('');
-
+  
+  const [emailError, setEmailError] = useState('')
+  const [passError, setPassError] = useState('')
 
   const starter = () => {
     const forms = document.querySelector(".forms"),
@@ -152,6 +155,20 @@ function SignIn() {
   });
   }
 
+  const checkEmail = (e, setter) =>{
+    var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    if(!(e.target.value.match(validRegex))){
+      setter('Invalid Email')
+    }
+  }
+
+  const checkPassword = (e, setter) => {
+    var validRegex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
+    if(!(e.target.value.match(validRegex))){
+      setter('Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters')
+    }
+  }
+
   return (
     <div className="signin-div form login">
       {loading && <Spinner loading={loading} />}
@@ -170,6 +187,7 @@ function SignIn() {
                   required
                 />
               </div>
+              <span className="error">{emailError}</span>
 
               <div className="field input-field">
                 <input
@@ -183,6 +201,7 @@ function SignIn() {
                 />
                 <i className="bx bx-hide eye-icon"></i>
               </div>
+              <div className="error">{passError}</div>
 
               <div className="form-link">
                 <a href="#" className="forgot-pass">
@@ -225,7 +244,7 @@ function SignIn() {
             <header>Create account</header>
             <form>
               <div className="field input-field">
-                <input required type="text" minLength={3} value={fullName} onChange={(e)=>setFullName(e.target.value)} placeholder="Full Name" className="input" />
+                <input required type="text" minLength={3} value={fullName} onChange={(e)=>setFullName(e.target.value)} placeholder="Full Name" className="input" onFocus={(e)=>{e.target.classList.remove('error-inp')}} />
               </div>
               <div className="field input-field">
                 <input required type="email" value={upEmail} onChange={(e)=>setUpEmail(e.target.value)} placeholder="Email" className="input" />
@@ -258,7 +277,7 @@ function SignIn() {
               </div>
 
               <div className="field button-field">
-                <input type="submit" onClick={handleSignUp} name="" id="" value='sign up' />
+                <input type="submit" onClick={handleSignUp} name="" id="" value='Sign up' />
               </div>
             </form>
 

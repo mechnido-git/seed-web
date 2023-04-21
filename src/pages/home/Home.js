@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import logo from "../../images/logo_round.png";
 import "./home.css";
 import trophy from "../../images/trophy.png";
@@ -10,7 +10,7 @@ import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../../firebase/config";
 import Spinner from "../../components/Spinner";
 import { HashLink } from "react-router-hash-link";
-
+import { FiPlus } from "react-icons/fi";
 
 function Home() {
   const [signIn, setSignIn] = useState(false);
@@ -28,6 +28,42 @@ function Home() {
       }
     });
   }, []);
+
+  const [active1, setActive1] = useState(false);
+  const [active2, setActive2] = useState(false);
+  const [active3, setActive3] = useState(false);
+
+  const contentRef1 = useRef(null);
+  const contentRef2 = useRef(null);
+  const contentRef3 = useRef(null);
+
+  useEffect(() => {
+    contentRef1.current.style.maxHeight = active1
+      ? `${contentRef1.current.scrollHeight}px`
+      : "0px";
+  }, [contentRef1, active1]);
+
+  const toggleAccordion1 = () => {
+    setActive1(!active1);
+  };
+  useEffect(() => {
+    contentRef2.current.style.maxHeight = active2
+      ? `${contentRef2.current.scrollHeight}px`
+      : "0px";
+  }, [contentRef2, active2]);
+
+  const toggleAccordion2 = () => {
+    setActive2(!active2);
+  };
+  useEffect(() => {
+    contentRef3.current.style.maxHeight = active3
+      ? `${contentRef3.current.scrollHeight}px`
+      : "0px";
+  }, [contentRef3, active3]);
+
+  const toggleAccordion3 = () => {
+    setActive3(!active3);
+  };
 
   const goToLink = (link) => {
     navigate(link);
@@ -64,6 +100,11 @@ function Home() {
             <img src={logo} alt="" />
             <ul>
               <li>
+                <HashLink to="/home/#about" smooth>
+                  About
+                </HashLink>
+              </li>
+              <li>
                 <HashLink to="/home/#achievements" smooth>
                   Achievements
                 </HashLink>
@@ -73,9 +114,16 @@ function Home() {
                   Testimonials
                 </HashLink>
               </li>
-              <li>FAQ</li>
-              <li>Contact Us</li>
-              <li>About</li>
+              <li>
+                <HashLink to="/home/#faq" smooth>
+                  FAQ
+                </HashLink>
+              </li>
+              <li>
+                <HashLink to="/home/#contact-us" smooth>
+                  Contact Us
+                </HashLink>
+              </li>
             </ul>
           </div>
           <div className="right">
@@ -83,7 +131,7 @@ function Home() {
               <>
                 {" "}
                 <h4>{userName}</h4>
-                <button onClick={logout}>Log out</button>
+                <button onClick={logout}>Sign out</button>
               </>
             ) : (
               <button onClick={popup}>Sign in</button>
@@ -97,7 +145,73 @@ function Home() {
           </div>
         </div>
         <div className="main">
-          <div className="slides-achievements" id="achievements">
+          <div className="about">
+            <div id="about"></div>
+            <div className="left">
+              <h2>
+                About INNOVATIVE DESIGN AND ENGINEERING ANALYSIS (I.D.E.A)
+              </h2>
+              <p>
+                Innovative design and engineering analysis is a group of events
+                presented by M/S MECHNIDO, comprising of various national level
+                events which acts as a platform for engineers to apply and
+                enhance their engineering skills in real world applications. It
+                promotes the idea of developing innovative, robust structures
+                designed with sound engineering practices.{" "}
+              </p>
+              <p>
+                All the events included under brand name I.D.E.A. are exclusive
+                events and cannot be associated with other events conducted by
+                M/S MECHNIDO.{" "}
+              </p>
+              <h2>Mission</h2>
+              <p>
+                Our mission is to play key role in forging ideas of young
+                technocrats, to create a platform for prospective engineers to
+                perform and excel their technical skills, to strive hard to
+                ensure that each student in our family evolves to their best
+                potential.
+              </p>
+              <h2>Vision</h2>
+              <p>
+                Our primary vision is to motivate budding engineers to develop
+                creative ideas, implement them effectively and mould them to
+                face the obstacles. We visualize in creating a platform which
+                forms a strong technical base for them.{" "}
+              </p>
+            </div>
+            <div className="right">
+              <img src={logo} />
+            </div>
+            <div className="left">
+              <h2>
+                About <span style={{ color: "#1cb58c" }}>INNOVATIVE</span>{" "}
+                <span style={{ color: "#008dc4" }}>DESIGN</span>{" "}
+                <span style={{ color: "#f78400" }}>AND</span>{" "}
+                <span style={{ color: "#a5a5a5" }}>ENGINEERING</span>{" "}
+                <span style={{ color: "#f04949" }}>ANALYSIS</span>{" "}
+                <span style={{ color: "#a6a6a6" }}>FOR VIRTUAL KART</span>
+              </h2>
+              <p>
+                I.D.E.A V-Kart stands for Innovative Design and Engineering
+                Analysis for virtual kart. It is an online event encouraging
+                budding engineers in designing a Go-kart or E-kart with proper
+                engineering techniques. It aims at developing appropriate
+                designing skills and understanding of the relevant scientific
+                theories. It is a team event. The participating teams have to
+                develop a virtual model of Go-kart or an E-kart, analyse and
+                optimise virtually, under ideal conditions using modern computer
+                applications, scientific theories and engineering calculations.
+                The teams are then evaluated based on various relevant aspects
+                required to design a fully functional vehicle.{" "}
+              </p>
+            </div>
+            <div className="right">
+              <img src={logo} />
+            </div>
+          </div>
+          <div className="slides-achievements">
+            <div id="achievements"></div>
             <h2>Achievements</h2>
 
             <Splide
@@ -153,7 +267,8 @@ function Home() {
               </SplideSlide>
             </Splide>
           </div>
-          <div className="slides-testimonials" id="testimonials">
+          <div className="slides-testimonials">
+            <div id="testimonials"></div>
             <h2>Testimonials</h2>
             <p>What people say</p>
             <Splide
@@ -253,8 +368,117 @@ function Home() {
               </SplideSlide>
             </Splide>
           </div>
-          <div className="faq" id="faq">
-            
+          <div className="faq">
+            <div id="faq"></div>
+            <h2>FAQ</h2>
+            <div>
+              <button
+                className={`question-section ${active1}`}
+                onClick={toggleAccordion1}
+              >
+                <div>
+                  <div className="question-align">
+                    <h4 className="question-style">
+                      Why do you like web developemnt
+                    </h4>
+                    <FiPlus
+                      className={
+                        active1 ? `question-icon rotate` : `question-icon`
+                      }
+                    />
+                  </div>
+                  <div
+                    ref={contentRef1}
+                    className={active1 ? `answer answer-divider` : `answer`}
+                  >
+                    <p>Because I love coding</p>
+                  </div>
+                </div>
+              </button>
+            </div>
+            <div>
+              <button
+                className={`question-section ${active2}`}
+                onClick={toggleAccordion2}
+              >
+                <div>
+                  <div className="question-align">
+                    <h4 className="question-style">
+                      Why do you like web developemnt
+                    </h4>
+                    <FiPlus
+                      className={
+                        active2 ? `question-icon rotate` : `question-icon`
+                      }
+                    />
+                  </div>
+                  <div
+                    ref={contentRef2}
+                    className={active2 ? `answer answer-divider` : `answer`}
+                  >
+                    <p>Because I love coding</p>
+                  </div>
+                </div>
+              </button>
+            </div>
+            <div>
+              <button
+                className={`question-section ${active3}`}
+                onClick={toggleAccordion3}
+              >
+                <div>
+                  <div className="question-align">
+                    <h4 className="question-style">
+                      Why do you like web developemnt
+                    </h4>
+                    <FiPlus
+                      className={
+                        active3 ? `question-icon rotate` : `question-icon`
+                      }
+                    />
+                  </div>
+                  <div
+                    ref={contentRef3}
+                    className={active3 ? `answer answer-divider` : `answer`}
+                  >
+                    <p>Because I love coding</p>
+                  </div>
+                </div>
+              </button>
+            </div>
+          </div>
+          <div className="contact-us">
+            <div id="contact-us"></div>
+            <h2>Contact Us</h2>
+            <div class="container-div">
+              <form action="">
+                <label htmlFor="name">Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Your name.."
+                />
+
+                <label htmlFor="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="example@gmail.com"
+                />
+
+                <label htmlFor="subject">Subject</label>
+                <textarea
+                  id="subject"
+                  name="subject"
+                  placeholder="Write something.."
+                  style={{ height: "200px" }}
+                ></textarea>
+
+                <input type="submit" value="Submit" />
+              </form>
+            </div>
           </div>
         </div>
       </div>

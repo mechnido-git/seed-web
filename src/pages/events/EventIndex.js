@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState, useRef } from "react";
 import "./eventIndex.css";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
-import image from "../../images/slide2.jpg";
+import image from "../../images/slide3.png";
 import poster from "../../images/aa7.jpg";
 import kart from "../../images/kart.jpg";
 import trophy from "../../images/trophy.png";
@@ -14,6 +14,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth, db } from "../../firebase/config";
 import { collection, getDocs } from "firebase/firestore";
 import Spinner from "../../components/Spinner";
+import soon from '../../images/soon.jpg'
 
 function EventIndex() {
   const [signIn, setSignIn] = useState(false);
@@ -102,6 +103,12 @@ function EventIndex() {
             pagination: false,
             width: '100%',
             type: "loop",
+          }}
+          onMove={(splide, prev, next) => {
+            setCurrentEvent(splide.index)
+            console.log(prev, splide.index, next);
+            console.log(ref.current.splide.Components.Move.move(splide.index,splide.index,splide.index+1));
+            //ref2.current.splide.Components.Contro.move(splide.index)
           }}
         >
           <SplideSlide>
@@ -355,7 +362,7 @@ function EventIndex() {
         </Splide>
       </div>
       <div className="slides-sponsors">
-        <h2>Sponsors</h2>
+        <h2>Upcomming Events</h2>
 
         <Splide
           tag="section"
@@ -364,6 +371,57 @@ function EventIndex() {
             speed: 1000,
             autoplay: true,
             interval: 2000,
+            pauseOnHover: false,
+            type: "loop",
+            pauseOnFocus: true,
+            keyboard: true,
+            gap: ".5rem",
+            width: "100%",
+            perPage:
+              window.innerWidth <= 426
+                ? 3
+                : window.innerWidth <= 768
+                ? 3.5
+                : window.innerWidth <= 1024
+                ? 4
+                : 5,
+            perMove: 1,
+            pagination: false,
+          }}
+        >
+          <SplideSlide>
+            <img src={soon} style={{ width: "100px" }} />
+          </SplideSlide>
+          <SplideSlide>
+            <img src={soon} style={{ width: "100px" }} />
+          </SplideSlide>
+          <SplideSlide>
+            <img src={soon} style={{ width: "100px" }} />
+          </SplideSlide>
+          <SplideSlide>
+            <img src={soon} style={{ width: "100px" }} />
+          </SplideSlide>
+          <SplideSlide>
+            <img src={soon} style={{ width: "100px" }} />
+          </SplideSlide>
+          <SplideSlide>
+            <img src={soon} style={{ width: "100px" }} />
+          </SplideSlide>
+          <SplideSlide>
+            <img src={soon} style={{ width: "100px" }} />
+          </SplideSlide>
+        </Splide>
+      </div>
+      <div className="slides-sponsors">
+        <h2>Sponsors</h2>
+
+        <Splide
+          tag="section"
+          aria-labelledby="My Favorite Images"
+          options={{
+            speed: 800,
+            autoplay: true,
+            interval: 2500,
             pauseOnHover: false,
             type: "loop",
             pauseOnFocus: true,

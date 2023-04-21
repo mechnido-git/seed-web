@@ -60,7 +60,7 @@ function Navbar() {
         {userName ? (
           <>
             <h4>{userName}</h4>
-            <button onClick={logout}>Log out</button>
+            <button onClick={logout}>Sign out</button>
           </>
         ) : (
           <button onClick={() => setSignIn(true)}>Sign in</button>

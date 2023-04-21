@@ -4,6 +4,7 @@
     border-radius: 10px;
     z-index: 4;
     margin: 1rem;
+    width: 60%;
 }
 
 .register-form > form{
@@ -11,6 +12,17 @@
     flex-direction: column;
     padding: .5rem;
     gap: 5px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 .register-form > form > .input-div{
