@@ -5,8 +5,9 @@ import { HashLink } from "react-router-hash-link";
 import RegisterForm from "../RegisterForm";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../firebase/config";
+import SignIn from "../../pages/signin/SignIn";
 
-function SideMenu({event, setEvent}) {
+function SideMenu({event, signIn}) {
 
  // const {loc, setLoc} = useContext(ToggleContext)
   const [user, setUser] = useState(false)
@@ -120,7 +121,7 @@ const loc =[]
               <div>communication</div>
             </Link>
           </>
-        ) : user? (
+        ) : (
           <>
             <h3>MENU</h3>
             <Link className="sub"  to="dashboard">
@@ -139,8 +140,9 @@ const loc =[]
               <span class="material-symbols-outlined">payments</span>
               <div>Payments</div>
             </Link>
+            {!user && <div className="cover"><button onClick={() => signIn(true)}>Sign in</button></div> }
           </>
-        ) : <h5 style={{marginLeft: 'auto', marginRight: 'auto'}}>Log in for more options</h5>}
+        )}
       </div>
     </div>
   );

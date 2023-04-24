@@ -20,6 +20,7 @@
     display: grid;
     grid-template-columns: 1fr;
     font-size: 15px;
+    position: relative;
 }
 
 .side-menu > .menu-options > a{
@@ -107,6 +108,38 @@
     background-color: white !important;
     color: #006aff;
 }
+
+.menu-options .cover{
+    position: absolute;
+    backdrop-filter: blur(3px);
+    height: 100%;
+    width: 100%;
+    top: 90px;
+    display: flex;
+    justify-content: center;
+}
+
+.menu-options > .cover > button {
+    --color: #fff;
+    font-family: inherit;
+    display: inline-block;
+    width: 5em;
+    height: 2.6em;
+    line-height: 2.5em;
+    overflow: hidden;
+    font-size: 13px;
+    z-index: 1;
+    color: var(--color);
+    border: 1px solid rgb(145, 145, 145);
+    border-radius: 6px;
+    position: relative;
+    background-color: #006aff;
+  }
+
+  .menu-options > .cover > button:hover{
+    background-color: #0055cc;
+  }
+  
 
 
 @media only screen and (max-width: 430px) {

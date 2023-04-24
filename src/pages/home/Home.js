@@ -91,53 +91,76 @@ function Home() {
       });
   };
 
+  const toggle = () => {
+    const nav = document.getElementById("nav");
+    const links = document.querySelectorAll('.links')
+    if (nav.className === "nav") {
+      nav.className += " toggle";
+      document.getElementById('home').addEventListener('click', toggle)
+      links.forEach(link=>link.addEventListener('click', toggle))
+    } else {
+      nav.className = "nav";
+      document.getElementById('home').removeEventListener('click', toggle)
+      links.forEach(link=>link.removeEventListener('click', toggle))
+    }
+  };
+
   return (
     <>
       {loading && <Spinner loading={loading} />}
-      <div className="home">
-        <div className="nav">
-          <div className="left">
-            <img src={logo} alt="" />
-            <ul>
-              <li>
-                <HashLink to="/home/#about" smooth>
-                  About
-                </HashLink>
-              </li>
-              <li>
-                <HashLink to="/home/#achievements" smooth>
-                  Achievements
-                </HashLink>
-              </li>
-              <li>
-                <HashLink to="/home/#testimonials" smooth>
-                  Testimonials
-                </HashLink>
-              </li>
-              <li>
-                <HashLink to="/home/#faq" smooth>
-                  FAQ
-                </HashLink>
-              </li>
-              <li>
-                <HashLink to="/home/#contact-us" smooth>
-                  Contact Us
-                </HashLink>
-              </li>
-            </ul>
+      <div className="nav" id="nav">
+          <img src={logo} alt="" />
+          <div className="options">
+            <div className="links">
+              <ul>
+                <li className="link">
+                  <HashLink to="/home/#about" smooth>
+                    About
+                  </HashLink>
+                </li>
+                <li className="link">
+                  <HashLink to="/home/#achievements" smooth>
+                    Achievements
+                  </HashLink>
+                </li>
+                <li className="link">
+                  <HashLink to="/home/#testimonials" smooth>
+                    Testimonials
+                  </HashLink>
+                </li>
+                <li className="link">
+                  <HashLink to="/home/#faq" smooth>
+                    FAQ
+                  </HashLink>
+                </li>
+                <li className="link">
+                  <HashLink to="/home/#get-in-touch" smooth>
+                    get in touch
+                  </HashLink>
+                </li>
+                <li className="link">
+                  <HashLink to="/home/#contact-us" smooth>
+                    Contact Us
+                  </HashLink>
+                </li>
+              </ul>
+            </div>
+            <div className="account">
+              {userName ? (
+                <>
+                  <h4>{userName}</h4>
+                  <button onClick={logout}>Sign out</button>
+                </>
+              ) : (
+                <button onClick={popup}>Sign in</button>
+              )}
+            </div>
           </div>
-          <div className="right">
-            {userName ? (
-              <>
-                {" "}
-                <h4>{userName}</h4>
-                <button onClick={logout}>Sign out</button>
-              </>
-            ) : (
-              <button onClick={popup}>Sign in</button>
-            )}
-          </div>
+            <span onClick={toggle} class="material-symbols-outlined">
+              menu
+            </span>
         </div>
+      <div className="home" id="home">
         <div className="hero">
           <div className="btns">
             <button onClick={() => goToLink("/menu/courses")}>Courses</button>
@@ -270,7 +293,7 @@ function Home() {
           <div className="slides-testimonials">
             <div id="testimonials"></div>
             <h2>Testimonials</h2>
-            <p>What people say</p>
+            <p style={{ marginLeft: "5px" }}>What people say</p>
             <Splide
               tag="section"
               aria-labelledby="My Favorite Images"
@@ -445,6 +468,32 @@ function Home() {
                   </div>
                 </div>
               </button>
+            </div>
+          </div>
+          <div className="get-in-touch">
+            <div id="get-in-touch"></div>
+            <h2>Get in Touch</h2>
+            <div className="cards">
+              <div className="section">
+                <span class="material-symbols-outlined">location_on</span>
+                <h3>Address</h3>
+                <p>
+                  5/4b Lakshmi Vinayagar Kovil Land, 8th Street, Ganapathy
+                  Coimbatore, Tamil Nadu 641006{" "}
+                </p>
+              </div>
+              <div className="section">
+                <span class="material-symbols-outlined">call</span>
+                <h3>Phone</h3>
+                <p>
+                  +91-9047363963 <br /> +91-8220662798
+                </p>
+              </div>
+              <div className="section">
+                <span class="material-symbols-outlined">mail</span>
+                <h3>Email</h3>
+                <p>info@mechnido.com</p>
+              </div>
             </div>
           </div>
           <div className="contact-us">

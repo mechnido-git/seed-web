@@ -4,11 +4,13 @@ import Navbar from '../../components/sideMenu/Navbar'
 import SideMenu from '../../components/sideMenu/SideMenu'
 import './index.css'
 import RegisterForm from '../../components/RegisterForm'
+import SignIn from '../signin/SignIn'
 
 function Index() {
   const [prev, setPrev] = useState(null);
   const [event, setEvent] = useState(false);
   const [register, setRegister] = useState(false);
+  const [signIn, setSignIn] = useState(false);
 
 
   const location = useLocation();
@@ -71,11 +73,17 @@ function Index() {
   
   return (
     <div className='index' id='index'>
-      <SideMenu event={event}  />
+      <SideMenu event={event} signIn={setSignIn}  />
       {/* Outlet will render the inner component of the route */}
       {/* default route -> home */}
-      <Navbar />
+      <Navbar signIn={setSignIn} />
       <Outlet context={[register, setRegister]}  />
+      {signIn && (
+        <div className="wrapper">
+          <div className="blocker" onClick={() => setSignIn(false)}></div>
+          <SignIn />
+        </div>
+      )}
     </div>
   )
 }

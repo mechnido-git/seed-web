@@ -8,8 +8,7 @@ import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../../firebase/config";
 import Spinner from "../Spinner";
 
-function Navbar() {
-  const [signIn, setSignIn] = useState(false);
+function Navbar({signIn}) {
   const [userName, setUserName] = useState(null);
   const [loading, setLoading] = useState(true)
 
@@ -25,7 +24,6 @@ function Navbar() {
     signOut(auth).then(() => {
       // Sign-out successful.
       window.location.reload()
-      setSignIn(false)
     }).catch((error) => {
       // An error happened.
       setLoading(false)
@@ -63,15 +61,9 @@ function Navbar() {
             <button onClick={logout}>Sign out</button>
           </>
         ) : (
-          <button onClick={() => setSignIn(true)}>Sign in</button>
+          <button onClick={() => signIn(true)}>Sign in</button>
         )}
       </div>
-      {signIn && (
-        <div className="wrapper">
-          <div className="blocker" onClick={() => setSignIn(false)}></div>
-          <SignIn />
-        </div>
-      )}
     </div>
   );
 }

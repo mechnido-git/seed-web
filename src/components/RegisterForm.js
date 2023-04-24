@@ -28,7 +28,9 @@ function RegisterForm({ event }) {
   const [pincode, setPincode] = useState('')
 
   const onSumbitHandler = (e) => {
+    console.log(e);
     e.preventDefault();
+
     setLoading(true)
     onAuthStateChanged(auth, user=>{
         if(user){
@@ -71,6 +73,16 @@ function RegisterForm({ event }) {
     })
   };
 
+  const validate = (e) =>{
+    const inputs = document.querySelectorAll('input')
+    inputs.forEach((inp ,i) => {
+      if(inp.value === '' && i != 0 ){
+        console.log(inp);
+        inp.style.border = '2px solid red'
+      }
+    });
+  }
+
   return (
     <div className="register-form">
         {loading && <Spinner loading={loading} />}
@@ -85,7 +97,7 @@ function RegisterForm({ event }) {
             name="teamName"
             required
             onChange={(e) => setTeamName(e.target.value.toUpperCase())}
-            placeholder="name"
+            placeholder="Name"
           />
         </div>
 
@@ -98,6 +110,7 @@ function RegisterForm({ event }) {
             required
             onChange={(e) => setTeamEmail(e.target.value)}
             placeholder="example@gmail.com"
+            pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
           />
         </div>
 
@@ -112,6 +125,7 @@ function RegisterForm({ event }) {
             required
             onChange={(e) => setTeamMembers(e.target.value)}
             placeholder="3-25"
+            id="members"
           />
         </div>
 
@@ -124,7 +138,7 @@ function RegisterForm({ event }) {
             name="capName"
             required
             onChange={(e) => setCapName(e.target.value.toUpperCase())}
-            placeholder="name"
+            placeholder="Name"
           />
         </div>
 
@@ -151,7 +165,7 @@ function RegisterForm({ event }) {
             required
             onChange={(e) => setContact(e.target.value)}
             pattern="[6789][0-9]{9}" title="Please enter valid phone number"
-            placeholder="number"
+            placeholder="6234567890"
           />
         </div>
 
@@ -164,7 +178,7 @@ function RegisterForm({ event }) {
             name="adress"
             required
             onChange={(e) => setCollegeName(e.target.value)}
-            placeholder="college"
+            placeholder="College"
           />
         </div>
 
@@ -205,16 +219,17 @@ function RegisterForm({ event }) {
           />
         </div>
 
-        <div className="input-div">
+        <div className="input-div no-arrow">
           <label htmlFor="college-name">Pincode</label> :
           <input
-            minLength={3}
+            min={6}
             value={pincode}
             type="number"
             name="pincode"
             required
             onChange={(e) => setPincode(e.target.value)}
-            placeholder="123456"
+            placeholder="65251"
+            pattern="[1-9][0-9]{5}" title="Please enter a valid zip code, example: 65251" 
           />
         </div>
 
@@ -273,7 +288,7 @@ function RegisterForm({ event }) {
           </label>
         </div>
 
-        <input type="submit" value="Register" />
+        <input type="submit" value="Register" onClick={validate} />
       </form>
       {termsDiv && <div className="wrapper">
         <Terms close={setTermsDiv} />
