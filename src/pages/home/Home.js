@@ -135,7 +135,7 @@ function Home() {
                 </li>
                 <li className="link">
                   <HashLink to="/home/#get-in-touch" smooth>
-                    get in touch
+                    Get in touch
                   </HashLink>
                 </li>
                 <li className="link">
