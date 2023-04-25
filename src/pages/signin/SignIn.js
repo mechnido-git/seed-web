@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./signin.css";
 import google from "./pngwing.com.png";
-import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, FacebookAuthProvider, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, updateProfile } from "firebase/auth";
 import { auth } from "../../firebase/config";
 import Spinner from "../../components/Spinner";
 
@@ -155,6 +155,38 @@ function SignIn() {
   });
   }
 
+  const signInFB = (e) => {
+    e.preventDefault();
+    const provider = new FacebookAuthProvider();
+    signInWithPopup(auth, provider)
+  .then((result) => {
+    // The signed-in user info.
+    const user = result.user;
+    console.log('success');
+
+    // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+    const credential = FacebookAuthProvider.credentialFromResult(result);
+    const accessToken = credential.accessToken;
+
+    // IdP data available using getAdditionalUserInfo(result)
+    // ...
+    window.location.reload()
+  })
+  .catch((error) => {
+    console.log(error);
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.customData.email;
+    // The AuthCredential type that was used.
+    const credential = FacebookAuthProvider.credentialFromError(error);
+    console.log(errorMessage);
+
+    // ...
+  });
+  }
+
   const checkEmail = (e, setter) =>{
     var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     if(!(e.target.value.match(validRegex))){
@@ -226,7 +258,7 @@ function SignIn() {
           </div>
           <div className="line"></div>
           <div className="media-options">
-            <a href="#" className="field facebook">
+            <a href="#" className="field facebook" onClick={signInFB}>
               <i className="bx bxl-facebook facebook-icon"></i>
               <span>Login with Facebook</span>
             </a>
@@ -307,7 +339,7 @@ function SignIn() {
             <div className="line"></div>
 
             <div className="media-options">
-              <a href="#" className="field facebook">
+              <a href="#" className="field facebook" onClick={signInFB}>
                 <i className="bx bxl-facebook facebook-icon"></i>
                 <span>Login with Facebook</span>
               </a>

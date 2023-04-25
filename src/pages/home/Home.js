@@ -11,6 +11,8 @@ import { auth } from "../../firebase/config";
 import Spinner from "../../components/Spinner";
 import { HashLink } from "react-router-hash-link";
 import { FiPlus } from "react-icons/fi";
+import fb from '../../images/icons8-facebook-48.png'
+import insta from '../../images/icons8-instagram-48.png'
 
 function Home() {
   const [signIn, setSignIn] = useState(false);
@@ -93,15 +95,15 @@ function Home() {
 
   const toggle = () => {
     const nav = document.getElementById("nav");
-    const links = document.querySelectorAll('.links')
+    const links = document.querySelectorAll(".links");
     if (nav.className === "nav") {
       nav.className += " toggle";
-      document.getElementById('home').addEventListener('click', toggle)
-      links.forEach(link=>link.addEventListener('click', toggle))
+      document.getElementById("home").addEventListener("click", toggle);
+      links.forEach((link) => link.addEventListener("click", toggle));
     } else {
       nav.className = "nav";
-      document.getElementById('home').removeEventListener('click', toggle)
-      links.forEach(link=>link.removeEventListener('click', toggle))
+      document.getElementById("home").removeEventListener("click", toggle);
+      links.forEach((link) => link.removeEventListener("click", toggle));
     }
   };
 
@@ -109,57 +111,52 @@ function Home() {
     <>
       {loading && <Spinner loading={loading} />}
       <div className="nav" id="nav">
-          <img src={logo} alt="" />
-          <div className="options">
-            <div className="links">
-              <ul>
-                <li className="link">
-                  <HashLink to="/home/#about" smooth>
-                    About
-                  </HashLink>
-                </li>
-                <li className="link">
-                  <HashLink to="/home/#achievements" smooth>
-                    Achievements
-                  </HashLink>
-                </li>
-                <li className="link">
-                  <HashLink to="/home/#testimonials" smooth>
-                    Testimonials
-                  </HashLink>
-                </li>
-                <li className="link">
-                  <HashLink to="/home/#faq" smooth>
-                    FAQ
-                  </HashLink>
-                </li>
-                <li className="link">
-                  <HashLink to="/home/#get-in-touch" smooth>
-                    Get in touch
-                  </HashLink>
-                </li>
-                <li className="link">
-                  <HashLink to="/home/#contact-us" smooth>
-                    Contact Us
-                  </HashLink>
-                </li>
-              </ul>
-            </div>
-            <div className="account">
-              {userName ? (
-                <>
-                  <h4>{userName}</h4>
-                  <button onClick={logout}>Sign out</button>
-                </>
-              ) : (
-                <button onClick={popup}>Sign in</button>
-              )}
-            </div>
+        <img src={logo} alt="" />
+        <div className="options">
+          <div className="links">
+            <ul>
+              <li className="link">
+                <HashLink to="/home/#about" smooth>
+                  About
+                </HashLink>
+              </li>
+              <li className="link">
+                <HashLink to="/home/#achievements" smooth>
+                  Achievements
+                </HashLink>
+              </li>
+              <li className="link">
+                <HashLink to="/home/#testimonials" smooth>
+                  Testimonials
+                </HashLink>
+              </li>
+              <li className="link">
+                <HashLink to="/home/#faq" smooth>
+                  FAQ
+                </HashLink>
+              </li>
+              <li className="link">
+                <HashLink to="/home/#get-in-touch" smooth>
+                  Get in touch
+                </HashLink>
+              </li>
+            </ul>
           </div>
-            <span onClick={toggle} class="material-symbols-outlined">
-              menu
-            </span>
+          <div className="account">
+            {userName ? (
+              <>
+                <h4>{userName}</h4>
+                <button onClick={logout}>Sign out</button>
+              </>
+            ) : (
+              <button onClick={popup}>Sign in</button>
+            )}
+          </div>
         </div>
+        <span onClick={toggle} class="material-symbols-outlined">
+          menu
+        </span>
+      </div>
       <div className="home" id="home">
         <div className="hero">
           <div className="btns">
@@ -473,60 +470,73 @@ function Home() {
           <div className="get-in-touch">
             <div id="get-in-touch"></div>
             <h2>Get in Touch</h2>
-            <div className="cards">
-              <div className="section">
-                <span class="material-symbols-outlined">location_on</span>
-                <h3>Address</h3>
-                <p>
-                  5/4b Lakshmi Vinayagar Kovil Land, 8th Street, Ganapathy
-                  Coimbatore, Tamil Nadu 641006{" "}
-                </p>
-              </div>
-              <div className="section">
-                <span class="material-symbols-outlined">call</span>
-                <h3>Phone</h3>
-                <p>
-                  +91-9047363963 <br /> +91-8220662798
-                </p>
-              </div>
-              <div className="section">
-                <span class="material-symbols-outlined">mail</span>
-                <h3>Email</h3>
-                <p>info@mechnido.com</p>
-              </div>
-            </div>
-          </div>
-          <div className="contact-us">
-            <div id="contact-us"></div>
-            <h2>Contact Us</h2>
-            <div class="container-div">
-              <form action="">
-                <label htmlFor="name">Name</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  placeholder="Your name.."
-                />
+            <div className="content">
+              <div class="container-div contact-us">
+                <form action="">
+                  <label htmlFor="name">Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Your name.."
+                  />
 
-                <label htmlFor="email">Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="example@gmail.com"
-                />
+                  <label htmlFor="email">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="example@gmail.com"
+                  />
 
-                <label htmlFor="subject">Subject</label>
-                <textarea
-                  id="subject"
-                  name="subject"
-                  placeholder="Write something.."
-                  style={{ height: "200px" }}
-                ></textarea>
+                  <label htmlFor="subject">Subject</label>
+                  <textarea
+                    id="subject"
+                    name="subject"
+                    placeholder="Write something.."
+                    style={{ height: "200px" }}
+                  ></textarea>
 
-                <input type="submit" value="Submit" />
-              </form>
+                  <input type="submit" value="Submit" />
+                </form>
+              </div>
+              <div className="cards">
+                <div className="section">
+                  <span class="material-symbols-outlined">location_on</span>
+                  <div className="details">
+                    <p>
+                      5/4b Lakshmi Vinayagar Kovil Land, 8th Street, Ganapathy
+                      Coimbatore, Tamil Nadu 641006{" "}
+                    </p>
+                  </div>
+                  <h3>Address</h3>
+                </div>
+                <div className="section">
+                  <span class="material-symbols-outlined">call</span>
+                  <div className="details">
+                    <p>
+                      +91-9047363963 <br /> +91-8220662798
+                    </p>
+                  </div>
+                  <h3>Phone</h3>
+                </div>
+                <div className="section">
+                  <span class="material-symbols-outlined">mail</span>
+                  <div className="details">
+                    {" "}
+                    <p>info@mechnido.com</p>
+                  </div>
+                  <h3>Email</h3>
+                </div>
+                <div className="section">
+                  <span class="material-symbols-outlined">group</span>
+                  <div className="details">
+                   <a href="https://www.facebook.com/IDEATECHEVENTS" target="_blank"> <img src={fb} alt="" /></a>
+                   <a href="https://www.instagram.com/mechnido/?igshid=YmMyMTA2M2Y%3D&__coig_restricted=1" target="_blank"> <img src={insta} alt="" /></a>
+                  </div>
+                  <h3>Socials</h3>
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -61,11 +61,16 @@
 
 .register-form > form > input[type = "submit"]{
     margin: 0 auto;
-    background-color: green;
+    background-color: #006aff;
     color: white;
     padding: 10px;
     border: none;
     border-radius: 5px;
+    cursor: pointer;
+}
+
+.register-form > form > input[type = "submit"]:hover{
+    background-color: #0055CC;
 }
 
 #terms{

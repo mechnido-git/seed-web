@@ -35,7 +35,8 @@
 }
 
 .side-menu > .menu-options > a:hover{
-    background-color: rgb(200, 230, 242);
+    background-color: #0055cc;
+    color: white;
 }
 
 .side-menu  hr{
@@ -95,7 +96,8 @@
     border: 2px solid #006aff !important;
 }
 .menu-options > .link.clicked{
-    background-color: rgb(200, 230, 242);
+    background-color: #006aff;
+    color: white;
 }
 
 
@@ -106,7 +108,7 @@
 
 .menu-options > .sub:hover{
     background-color: white !important;
-    color: #006aff;
+    color: #006aff !important;
 }
 
 .menu-options .cover{
