@@ -111,7 +111,9 @@ function Home() {
     <>
       {loading && <Spinner loading={loading} />}
       <div className="nav" id="nav">
+      <HashLink to="/home/#home" smooth>
         <img src={logo} alt="" />
+                </HashLink>
         <div className="options">
           <div className="links">
             <ul>
