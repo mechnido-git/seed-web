@@ -203,32 +203,6 @@ function Home() {
             <div className="right">
               <img src={logo} />
             </div>
-            <div className="left">
-              <h2>
-                About <span style={{ color: "#1cb58c" }}>INNOVATIVE</span>{" "}
-                <span style={{ color: "#008dc4" }}>DESIGN</span>{" "}
-                <span style={{ color: "#f78400" }}>AND</span>{" "}
-                <span style={{ color: "#a5a5a5" }}>ENGINEERING</span>{" "}
-                <span style={{ color: "#f04949" }}>ANALYSIS</span>{" "}
-                <span style={{ color: "#a6a6a6" }}>FOR VIRTUAL KART</span>
-              </h2>
-              <p>
-                I.D.E.A V-Kart stands for Innovative Design and Engineering
-                Analysis for virtual kart. It is an online event encouraging
-                budding engineers in designing a Go-kart or E-kart with proper
-                engineering techniques. It aims at developing appropriate
-                designing skills and understanding of the relevant scientific
-                theories. It is a team event. The participating teams have to
-                develop a virtual model of Go-kart or an E-kart, analyse and
-                optimise virtually, under ideal conditions using modern computer
-                applications, scientific theories and engineering calculations.
-                The teams are then evaluated based on various relevant aspects
-                required to design a fully functional vehicle.{" "}
-              </p>
-            </div>
-            <div className="right">
-              <img src={logo} />
-            </div>
           </div>
           <div className="slides-achievements">
             <div id="achievements"></div>

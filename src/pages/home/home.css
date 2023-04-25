@@ -315,7 +315,6 @@
   }
 
   .contact-us{
-    margin: 2rem 0;
     position: relative;
   }
 
@@ -394,6 +393,7 @@
     border-radius: 5px;
     position: relative;
     overflow: hidden;
+    cursor: pointer;
   }
 
   .get-in-touch > .content > .cards > .section > .details{
