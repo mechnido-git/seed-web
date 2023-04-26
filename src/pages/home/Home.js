@@ -20,6 +20,11 @@ function Home() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
 
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [msg, setMsg] = useState('')
+
+
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -455,6 +460,9 @@ function Home() {
                     id="name"
                     name="name"
                     placeholder="Your name.."
+                    required
+                    value={name}
+                    onChange={(e)=>setName(e.target.value)}
                   />
 
                   <label htmlFor="email">Email</label>
@@ -463,6 +471,10 @@ function Home() {
                     id="email"
                     name="email"
                     placeholder="example@gmail.com"
+                    required
+                    value={email}
+                    onChange={(e)=>setEmail(e.target.value)}
+                    pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                   />
 
                   <label htmlFor="subject">Subject</label>
@@ -471,6 +483,9 @@ function Home() {
                     name="subject"
                     placeholder="Write something.."
                     style={{ height: "200px" }}
+                    required
+                    value={msg}
+                    onChange={(e)=>setMsg(e.target.value)}
                   ></textarea>
 
                   <input type="submit" value="Submit" />
@@ -499,8 +514,7 @@ function Home() {
                 <div className="section">
                   <span class="material-symbols-outlined">mail</span>
                   <div className="details">
-                    {" "}
-                    <p>info@mechnido.com</p>
+                    <p style={{width: '100%', height: '100%'}}><a style={{width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center'}} href="mailto:info@mechnido.com">info@mechnido.com</a></p>
                   </div>
                   <h3>Email</h3>
                 </div>
