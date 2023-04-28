@@ -168,9 +168,6 @@ function CoursesHome() {
             aria-labelledby="My Favorite Images"
             options={{
               type: "loop",
-              interval: "1000",
-              autoplay: true,
-              interval: 3000,
               speed: 1000,
               pauseOnHover: false,
               pauseOnFocus: true,

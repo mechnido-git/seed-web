@@ -29,6 +29,8 @@ function Home() {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setUserName(user.displayName);
+        setName(user.displayName)
+        setEmail(user.email)
         setLoading(false);
       } else {
         setLoading(false);

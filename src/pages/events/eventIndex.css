@@ -245,6 +245,10 @@
     border-radius: 50%;
 }
 
+.register-info > section{
+    pointer-events: none;
+}
+
 .register-info ul > .splide__slide{
     display: grid ;
     grid-template-columns: 1fr 1fr ;
