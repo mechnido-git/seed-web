@@ -6,7 +6,7 @@
     gap: .6rem;
     overflow-y: scroll;
     grid-column: 2 / 4;
-
+    position: relative;
 }
 
 .fixed{

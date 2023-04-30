@@ -11,8 +11,8 @@ import { auth } from "../../firebase/config";
 import Spinner from "../../components/Spinner";
 import { HashLink } from "react-router-hash-link";
 import { FiPlus } from "react-icons/fi";
-import fb from '../../images/icons8-facebook-48.png'
-import insta from '../../images/icons8-instagram-48.png'
+import fb from '../../images/fb.png'
+import insta from '../../images/insta.png'
 
 function Home() {
   const [signIn, setSignIn] = useState(false);
@@ -502,7 +502,6 @@ function Home() {
                       Coimbatore, Tamil Nadu 641006{" "}
                     </p>
                   </div>
-                  <h3>Address</h3>
                 </div>
                 <div className="section">
                   <span class="material-symbols-outlined">call</span>
@@ -511,27 +510,45 @@ function Home() {
                       +91-9047363963 <br /> +91-8220662798
                     </p>
                   </div>
-                  <h3>Phone</h3>
                 </div>
                 <div className="section">
                   <span class="material-symbols-outlined">mail</span>
                   <div className="details">
                     <p style={{width: '100%', height: '100%'}}><a style={{width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center'}} href="mailto:info@mechnido.com">info@mechnido.com</a></p>
                   </div>
-                  <h3>Email</h3>
                 </div>
                 <div className="section">
                   <span class="material-symbols-outlined">group</span>
                   <div className="details">
-                   <a href="https://www.facebook.com/IDEATECHEVENTS" target="_blank"> <img src={fb} alt="" /></a>
-                   <a href="https://www.instagram.com/mechnido/?igshid=YmMyMTA2M2Y%3D&__coig_restricted=1" target="_blank"> <img src={insta} alt="" /></a>
+                   <a href="https://www.facebook.com/IDEATECHEVENTS" target="_blank"> <img style={{width: '2.5rem'}} src={fb} alt="" /></a>
+                   <a href="https://www.instagram.com/mechnido/?igshid=YmMyMTA2M2Y%3D&__coig_restricted=1" target="_blank"> <img style={{width: '2.5rem'}} src={insta} alt="" /></a>
                   </div>
-                  <h3>Socials</h3>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        <div className="footer">
+         <div className="links">
+         <div className="section">
+            <h3>Cources</h3>
+            <ul>
+              <li><a href="#">Trending Now</a></li>
+              <li><a href="#">Team Picks</a></li>
+            </ul>
+          </div>
+ 
+          <div className="section">
+            <h3>Events</h3>
+            <ul>
+              <li><a href="#">Gallery</a></li>
+              <li><a href="#">Upcoming Events</a></li>
+              <li><a href="#">Sponsors</a></li>
+            </ul>
+          </div>
+         </div>
+        </div>
+              <p>©MECHNIDO</p>
       </div>
       {signIn && (
         <div className="wrapper">

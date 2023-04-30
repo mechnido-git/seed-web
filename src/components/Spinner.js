@@ -5,9 +5,9 @@ function Spinner({loading}) {
   return (
     <div className="spinner">
       <ClipLoader
-        color={'#fffff'}
+        color={'#006aff'}
         loading={loading}
-        size={30}
+        size={40}
         aria-label="Loading Spinner"
         data-testid="loader"
       />

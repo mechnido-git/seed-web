@@ -5,6 +5,7 @@ import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
 import image from "../../images/slide.jpg";
 import "@splidejs/react-splide/css";
 import { useOutletContext } from "react-router-dom";
+import Spinner from "../../components/Spinner";
 
 export const recomended = [
   {
@@ -113,14 +114,15 @@ function CoursesHome() {
   const [register, setRegister] = useOutletContext();
 
   useEffect(() => {
-
-    const arrows = document.querySelectorAll('.splide__arrow')
-    arrows.forEach(arrow=>arrow.innerHTML=`<svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 96 960 960" width="48"><path d="m561 814-43-42 168-168H160v-60h526L517 375l43-42 241 241-240 240Z"/></svg>`)
+    const arrows = document.querySelectorAll(".splide__arrow");
+    arrows.forEach(
+      (arrow) =>
+        (arrow.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 96 960 960" width="48"><path d="m561 814-43-42 168-168H160v-60h526L517 375l43-42 241 241-240 240Z"/></svg>`)
+    );
     let timer1 = setTimeout(() => setLoading(false), 1000);
     return () => {
       clearTimeout(timer1);
     };
-
   }, []);
   const filterItems = (item, e) => {
     //const btns = document.querySelectorAll('.filter')
@@ -162,105 +164,110 @@ function CoursesHome() {
   return (
     <>
       <div className="courses-home">
-        <div className="slides">
-          <Splide
-            tag="section"
-            aria-labelledby="My Favorite Images"
-            options={{
-              type: "loop",
-              speed: 1000,
-              pauseOnHover: false,
-              pauseOnFocus: true,
-              keyboard: true,
-              gap: "1rem",
-              width: "100%",
-            }}
-          >
-            <SplideSlide>
-              <img
-                style={{ objectFit: "contain", width: "100%" }}
-                src={image}
-                alt="Image 1"
-              />
-            </SplideSlide>
-            <SplideSlide>
-              <img
-                style={{ objectFit: "contain", width: "100%" }}
-                src={image}
-                alt="Image 1"
-              />
-            </SplideSlide>
-            <SplideSlide>
-              <img
-                style={{ objectFit: "contain", width: "100%" }}
-                src={image}
-                alt="Image 1"
-              />
-            </SplideSlide>
-            <SplideSlide>
-              <img
-                style={{ objectFit: "contain", width: "100%" }}
-                src={image}
-                alt="Image 2"
-              />
-            </SplideSlide>
-            <SplideSlide>
-              <img
-                style={{ objectFit: "contain", width: "100%" }}
-                src={image}
-                alt="Image 2"
-              />
-            </SplideSlide>
-            
-          </Splide>
+        {loading ? (
+          <Spinner loading={loading} />
+        ) : (
+          <>
+            <div className="slides">
+              <Splide
+                tag="section"
+                aria-labelledby="My Favorite Images"
+                options={{
+                  type: "loop",
+                  speed: 1000,
+                  pauseOnHover: false,
+                  pauseOnFocus: true,
+                  keyboard: true,
+                  gap: "1rem",
+                  width: "100%",
+                }}
+              >
+                <SplideSlide>
+                  <img
+                    style={{ objectFit: "contain", width: "100%" }}
+                    src={image}
+                    alt="Image 1"
+                  />
+                </SplideSlide>
+                <SplideSlide>
+                  <img
+                    style={{ objectFit: "contain", width: "100%" }}
+                    src={image}
+                    alt="Image 1"
+                  />
+                </SplideSlide>
+                <SplideSlide>
+                  <img
+                    style={{ objectFit: "contain", width: "100%" }}
+                    src={image}
+                    alt="Image 1"
+                  />
+                </SplideSlide>
+                <SplideSlide>
+                  <img
+                    style={{ objectFit: "contain", width: "100%" }}
+                    src={image}
+                    alt="Image 2"
+                  />
+                </SplideSlide>
+                <SplideSlide>
+                  <img
+                    style={{ objectFit: "contain", width: "100%" }}
+                    src={image}
+                    alt="Image 2"
+                  />
+                </SplideSlide>
+              </Splide>
 
-          <div className="btns">
-            <button >Register</button>
-          </div>
-        </div>
-        <div className="fixed">
-          {category.map((item, index) => (
-            <button
-              id={index === 0 ? "All" : null}
-              className={index === 0 ? "filter active" : "filter"}
-              onClick={(e) => filterItems(item, e)}
-              key={index}
-            >
-              <span class="material-symbols-outlined">{addIcon(item)}</span>
-              {item}
-            </button>
-          ))}
-        </div>
-        <section className="main-div">
-          <div id="recommended" className="section">
-            <h2>Recommended for You</h2>
-            <div className="card-container-div">
-              <CardBuilder
-                arr={recomended.filter((item) =>
-                  filter === "All" ? item : filter == item.category
-                )}
-                limit={4}
-              />
+              <div className="btns">
+                <button>Register</button>
+              </div>
             </div>
-          </div>
-          <div id="trending" className="section">
-            <h2>Trending Now</h2>
-            <div className="card-container-div">
-              <CardBuilder
-                arr={trending.filter((item) =>
-                  filter === "All" ? item : filter == item.category
-                )}
-                limit={4}
-              />
+            <div className="fixed">
+              {category.map((item, index) => (
+                <button
+                  id={index === 0 ? "All" : null}
+                  className={index === 0 ? "filter active" : "filter"}
+                  onClick={(e) => filterItems(item, e)}
+                  key={index}
+                >
+                  <span class="material-symbols-outlined">{addIcon(item)}</span>
+                  {item}
+                </button>
+              ))}
             </div>
-          </div>
-          <div id="team" className="section">
-            <h2>Team Picks</h2>
-            <div className="card-container-div">
-              <CardBuilder arr={recomended} limit={4} />
-            </div>
-          </div>
-        </section>
+            <section className="main-div">
+              <div id="recommended" className="section">
+                <h2>Recommended for You</h2>
+                <div className="card-container-div">
+                  <CardBuilder
+                    arr={recomended.filter((item) =>
+                      filter === "All" ? item : filter == item.category
+                    )}
+                    limit={4}
+                  />
+                </div>
+              </div>
+              <div id="trending" className="section">
+                <h2>Trending Now</h2>
+                <div className="card-container-div">
+                  <CardBuilder
+                    arr={trending.filter((item) =>
+                      filter === "All" ? item : filter == item.category
+                    )}
+                    limit={4}
+                  />
+                </div>
+              </div>
+              <div id="team" className="section">
+                <h2>Team Picks</h2>
+                <div className="card-container-div">
+                  <CardBuilder arr={recomended} limit={4} />
+                </div>
+              </div>
+            </section>
+          </>
+        )}
       </div>
     </>
   );

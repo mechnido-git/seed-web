@@ -85,6 +85,7 @@
     flex-direction: column;
     align-items: center;
     cursor: pointer;
+    gap: 5px;
     padding: .5rem;
     border-radius: 1rem;
 }
@@ -95,7 +96,7 @@
 .min-menu > .link.clicked{
     border: 2px solid #006aff !important;
 }
-.menu-options > .link.clicked{
+.menu-options > .min-link.clicked{
     background-color: #006aff;
     color: white;
 }

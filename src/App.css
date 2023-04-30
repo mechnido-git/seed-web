@@ -23,19 +23,18 @@ a{
     height: 100vh;
     width: 100vw;
     display: grid;
-    grid-template-columns: 74px auto;
+    grid-template-columns: 90px auto;
     grid-template-rows: 60px auto;
     transition: .5s;
     gap: .5rem;
 }
 
 .spinner{
-    position: fixed;
+    position: absolute;
     width: 100%;
     height: 100vh;
     top: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.8);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -56,17 +55,4 @@ a{
 .disable-scroll{
     overflow: hidden;
 }
-
-.spinner{
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-}
-
 
