@@ -556,6 +556,7 @@
 
   }
 
+
   @media only screen and (max-width: 950px){
     .get-in-touch > .content{
       grid-template-columns: 1fr;
