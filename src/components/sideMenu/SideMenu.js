@@ -33,6 +33,7 @@ function SideMenu() {
   const mobile = window.innerWidth < 430 ? true : false;
 
   function click(e) {
+   
     const links = document.querySelectorAll(".link");
     const minLinks = document.querySelectorAll(".min-link");
     links.forEach((link) => {
@@ -52,6 +53,10 @@ function SideMenu() {
       links[1].classList.add("clicked");
       minLinks[1].classList.add("clicked");
       setSection(1);
+    }else if (index == 2) {
+      links[2].classList.add("clicked");
+      minLinks[2].classList.add("clicked");
+      setSection(2);
     }
   }
 
@@ -70,6 +75,11 @@ function SideMenu() {
         setSection(1);
         elem = 1;
         break;
+      case "dashboard":
+        setSection(2)
+        elem = 2
+        break;
+        default: return;
     }
     console.log(elem);
     document.querySelectorAll(".link").forEach((link, index) => {
@@ -79,6 +89,11 @@ function SideMenu() {
           setPrev(link);
         } else if(elem === 1) {
           if (index === 1) {
+            link.classList.add("clicked");
+            setPrev(link);
+          }
+        }else if(elem === 2) {
+          if (index === 2) {
             link.classList.add("clicked");
             setPrev(link);
           }
@@ -93,6 +108,11 @@ function SideMenu() {
           setPrev(link);
         } else if(elem === 1) {
           if (index === 1) {
+            link.classList.add("clicked");
+            setPrev(link);
+          }
+        }else if(elem === 2) {
+          if (index === 2) {
             link.classList.add("clicked");
             setPrev(link);
           }
@@ -219,6 +239,10 @@ function SideMenu() {
           <span class="material-symbols-outlined">today</span>
           <p>Events</p>
         </Link>
+        <Link to="dashboard" className="link" data-index={2}>
+          <span class="material-symbols-outlined">dashboard</span>
+          <p>Dashboard</p>
+        </Link>
       </div>
       <div className="menu-options disable" id="menu-options">
         <Link
@@ -238,6 +262,15 @@ function SideMenu() {
         >
           <span class="material-symbols-outlined">today</span>
           <div>Events</div>
+        </Link>
+        <Link
+          
+          to="dashboard"
+          className="min-link"
+          data-index={2}
+        >
+          <span class="material-symbols-outlined">dashboard</span>
+          <div>Dashboard</div>
         </Link>
         <hr />
         {renderSwitch(section)}

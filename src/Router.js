@@ -10,10 +10,10 @@ import CoursesHome from "./pages/courses/CoursesHome";
 import EventIndex from "./pages/events/EventIndex";
 import Home from "./pages/home/Home";
 import Index from "./pages/index/Index";
-import Dashboard from "./pages/events/dashboard/Dashboard";
 import Terms from "./pages/events/terms/Terms";
 import EventConfig from "./pages/events/eventConfig/EventConfig";
 import HomeIndex from "./pages/index/HomeIndex";
+import Dashboard from "./pages/dashboard/Dashboard";
 
 function Router() {
   return (
