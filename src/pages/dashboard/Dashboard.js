@@ -7,7 +7,8 @@ import logo from "../../images/man.png";
 import { useNavigate } from "react-router-dom";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { Link } from "react-router-dom";
-import slide from "../../images/slide.jpg"
+import slide from "../../images/slide.jpg";
+import { trending } from "../courses/CoursesHome";
 
 function Dashboard() {
   const [loading, setLoading] = useState(true);
@@ -18,6 +19,43 @@ function Dashboard() {
   const [email, setEmail] = useState("");
   const [events, setEvents] = useState([]);
   const navigate = useNavigate();
+
+  const CardBuilder = ({ arr, limit }) => (
+    <>
+      {arr.map((item, index) => {
+        if (limit != null && index >= limit) return;
+        return (
+          <div className="card" key={index}>
+            <img src={item.thumbnail} alt="" />
+            <div className="body">
+              <h4>{item.name}</h4>
+              <button>View Details</button>
+            </div>
+          </div>
+        );
+      })}
+    </>
+  );
+  const CardBuilderEvent = ({ arr, limit }) => (
+    <>
+      {arr.map((item, index) => {
+        if (limit != null && index >= limit) return;
+        return (
+          <div className="card" key={index}>
+            <img src={slide} alt="" />
+            <div className="body">
+              <h4>{item.name}</h4>
+              <button onClick={getEventDetails}>View Details</button>
+            </div>
+          </div>
+        );
+      })}
+    </>
+  );
+
+  const getEventDetails = () => {
+
+  }
 
   const doFetch = async (user) => {
     const q = query(
@@ -114,6 +152,22 @@ function Dashboard() {
                     <img src={slide} alt="" />
                     <h4>Event Name</h4>
                     <p>Date</p>
+                  </div>
+                </div>
+                <div className="my-courses">
+                  <div className="section">
+                    <h2>My Courses</h2>
+                    <div className="card-container-div">
+                      <CardBuilder arr={trending} limit={4} />
+                    </div>
+                  </div>
+                </div>
+                <div className="my-courses">
+                  <div className="section">
+                    <h2>My Events</h2>
+                    <div className="card-container-div">
+                      {events && <CardBuilderEvent arr={events} limit={4} />}
+                    </div>
                   </div>
                 </div>
               </div>

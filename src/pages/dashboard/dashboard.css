@@ -11,7 +11,7 @@
     display: flex;
     flex-direction: column;
     margin: 1rem;
-    gap: 15px;
+    gap: 50px;
 }
 
 .dashboard > .main > .details{
@@ -109,3 +109,85 @@
   .dashboard .details > .upcoming > p{
     margin-left: auto;
   }
+
+  .dashboard .my-courses{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    padding: 1rem;
+    border-radius: 20px;
+  }
+
+  .dashboard .my-courses > .section{
+    margin: .5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.dashboard .my-courses > .section > .card-container-div{
+    display: grid;
+    max-width: inherit;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    justify-items: center;
+    gap: 30px;
+    justify-content: center;
+}
+
+.dashboard .my-courses > .section > .card-container-div > .card{
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: .2s;
+    color: #727984;
+    padding: .5rem 1rem;
+    justify-content: space-between;
+}
+
+.dashboard .my-courses > .section > .card-container-div > .card > .body > h4{
+    color: #484D57;
+}
+
+.dashboard .my-courses > .section > .card-container-div > .card > .body > p{
+    color: #727984;
+}
+
+.dashboard .my-courses > .section > .card-container-div > .card:hover{
+ transform: translateY(-8px);
+ box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;   
+}
+
+.dashboard .my-courses > .section > .card-container-div > .card > img{
+    max-width: 220px;
+    align-self: center;
+}
+
+.dashboard .my-courses > .section > .card-container-div > .card > .body{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: .5rem;
+    height: 100%;
+}
+
+.dashboard .my-courses > .section > .card-container-div > .card > .body > div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 15px;
+}
+.dashboard .my-courses > .section > .card-container-div > .card > .body > button{
+    background-color: #006aff;
+    border: 2px solid #006aff;
+    margin: 0 auto;
+    padding: .5rem 1rem;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    transition: .4s;
+}
+
+.dashboard .my-courses > .section > .card-container-div > .card > .body > button:hover{
+    background-color: white;
+    color: #006aff;
+}
