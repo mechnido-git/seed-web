@@ -111,7 +111,7 @@ const category = [
 function CoursesHome() {
   const [filter, setFilter] = useState("All");
   const [loading, setLoading] = useState(true);
-  const [register, setRegister] = useOutletContext();
+  const {register, setRegister} = useOutletContext();
 
   useEffect(() => {
     const arrows = document.querySelectorAll(".splide__arrow");
