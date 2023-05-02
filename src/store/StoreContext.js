@@ -7,15 +7,13 @@ export const  StoreContext = createContext(null);
 const Store = ({children}) => {
     const [userId, setUserId] = useState(null);
     const [userName, setUserName] = useState(null);
-    const [auth, setAuth] = useState(null);
+    const [user, setUser] = useState(null);
 
-    useEffect(()=>{
-        setAuth(getAuth(app))
-    }, [])
+    useEffect(()=>{console.log(user);}, [user])
 
     return(
 
-    <StoreContext.Provider value={{userId, setUserId, userName, setUserName, auth, setAuth}}>
+    <StoreContext.Provider value={{userId, setUserId, userName, setUserName, user, setUser}}>
         {children}
     </StoreContext.Provider>
     )

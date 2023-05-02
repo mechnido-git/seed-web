@@ -9,7 +9,7 @@ function HomeIndex() {
   return (
     <>
         <SideMenu event={event} signIn={setSignIn} />
-        <Outlet context={[register, setRegister]}  />
+        <Outlet context={{register, setRegister, setSignIn}}  />
       {signIn && (
         <div className="wrapper">
           <div className="blocker" onClick={() => setSignIn(false)}></div>

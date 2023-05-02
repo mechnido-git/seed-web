@@ -75,7 +75,6 @@
   }
   
   .event-progress-bar::before, .course-progress-bar::before {
-    content: counter(percentage) '%';
     animation: progress 2s 1 forwards;
   }
 
@@ -152,11 +151,6 @@
     color: #727984;
 }
 
-.dashboard .my-courses > .section > .card-container-div > .card:hover{
- transform: translateY(-8px);
- box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;   
-}
-
 .dashboard .my-courses > .section > .card-container-div > .card > img{
     max-width: 220px;
     align-self: center;
@@ -190,4 +184,18 @@
 .dashboard .my-courses > .section > .card-container-div > .card > .body > button:hover{
     background-color: white;
     color: #006aff;
+}
+.dashboard .not-logged{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  opacity: .6;
+}
+.dashboard .not-logged > span{
+  font-size: 5rem;
+ 
 }

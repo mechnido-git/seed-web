@@ -9,7 +9,7 @@
     background-color: #f5f5f5;
 }
 
-.nav{
+.App > .nav{
     padding: .5rem 0;
     display: flex;
     align-items: center;
@@ -22,37 +22,37 @@
     background-color: rgba(0, 0, 0, 0.2);
 }
 
-.nav > .options{
+.App > .nav > .options{
   display: flex;
   justify-content: space-between;
   gap: 20px;
 }
 
-.nav .links{
+.App > .nav .links{
     display: flex;
     gap: 50px;
     align-items: center;
 }
 
-.nav >a> img{
+.App > .nav >a> img{
     width: 4rem;
     margin-left: 1rem;
 }
 
-.nav .links > ul{
+.App > .nav .links > ul{
     list-style: none;
     display: flex;
     gap: 20px;
     color: white;
 }
 
-.nav  .links > ul > li{
+.App > .nav  .links > ul > li{
     display: inline-block;
     position: relative;
     cursor: pointer;
 }
 
-.nav  .links > ul > li::before{
+.App > .nav  .links > ul > li::before{
     transition: 300ms;
     height: 2px;
     content: "";
@@ -62,15 +62,15 @@
     margin-top: 20px;
 }
 
-.nav  .links > ul > li:hover{
+.App > .nav  .links > ul > li:hover{
     color: #006aff;
 }
 
-.nav  .links > ul > li:hover::before{
+.App > .nav  .links > ul > li:hover::before{
     width: 100%;
 }
 
-.nav > .options > .account{
+.App > .nav > .options > .account{
     display: flex;
     color: white;
     align-items: center;
@@ -78,7 +78,7 @@
     margin-right: 1rem;
 }
 
-.nav > .options > .account > button {
+.App > .nav > .options > .account > button {
     --color: #fff;
     font-family: inherit;
     display: inline-block;
@@ -96,11 +96,11 @@
     cursor: pointer;
   }
 
-  .nav > .account > button:hover{
+  .App > .nav > .account > button:hover{
     background-color: #0055cc;
   }
   
-  .nav > .account > button::before {
+  .App > .nav > .account > button::before {
     position: absolute;
     content: "";
     background: var(--color);
@@ -110,7 +110,7 @@
     border-radius: 50%;
   }
   
-  .nav > .account > button:before {
+  .App > .nav > .account > button:before {
     top: 100%;
     left: 100%;
     transition: .3s all;
@@ -370,7 +370,7 @@
 
   .get-in-touch > .content > .cards{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 15px;
     justify-items: center;
     padding: 1rem;
@@ -395,6 +395,7 @@
     border-radius: 5px;
     position: relative;
     overflow: hidden;
+    
   }
 
   .get-in-touch > .content > .cards > .section > .details{
@@ -408,6 +409,7 @@
 
   .get-in-touch > .content > .cards > .section > .details > p{
     margin: 0 1rem;
+    text-wrap: balance;
   }
 
   .get-in-touch > .content > .cards > .section > span:hover{
@@ -447,9 +449,9 @@
 
   .home > p{
     text-align: center;
-    padding: 1rem;
+    padding: .7rem;
     background-color: #0055cc;
-    color: white;
+    color: white !important;
   }
 
   .home > .footer > .links{
@@ -480,28 +482,36 @@
     font-size: 17px;
   }
 
+  .home h2{
+    color: #484D57;
+  }
+
+  .home p{
+    color: #727984;
+  }
+
   @media only screen and (max-width: 840px){
-     .nav > .options > .links > ul{
+     .App > .nav > .options > .links > ul{
       display: none;
     }
 
-     .nav > span{
+     .App > .nav > span{
       display: block;
     }
 
-     .nav > img{
+     .App > .nav > img{
       width: 3.5rem;
     }
 
-     .nav {
+     .App > .nav {
       justify-content: space-between;
     }
 
-     .nav > .options > .account{
+     .App > .nav > .options > .account{
       display: none;
     }
 
-     .nav.toggle > .options{
+     .App > .nav.toggle > .options{
       justify-content: start;
       width: 100%;
       padding-top: 15px;
@@ -509,42 +519,58 @@
       gap: 1rem;
     }
 
-     .nav.toggle {
+     .App > .nav.toggle {
       align-items: start;
     }
 
-     .nav.toggle > span{
+     .App > .nav.toggle > span{
       margin-left: auto;
     }
 
-     .nav.toggle > .options ul{
+     .App > .nav.toggle > .options ul{
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 1.5rem;
     }
 
-     .nav.toggle > .options > .account{
+     .App > .nav.toggle > .options > .account{
       display: flex;
     }
-     .nav.toggle > .options > .links{
+     .App > .nav.toggle > .options > .links{
       flex-direction: column;
       align-items: start;
       margin: 0 auto;
     }
-   .nav.toggle > .options{
+   .App > .nav.toggle > .options{
       flex-direction: column-reverse;
     }
     .home > .hero {
       justify-content: center;
     }
 
+    .home > .main{
+      margin: 0;
+      padding: .7rem;
+      gap: 1.5rem;
+    }
+
     .home > .main > .about{
       grid-template-columns: 1fr;
     }
+
+    .home > .main > .about > .left > h2{
+      font-size: 1.2rem;
+    }
+
+    .home > .main > .about > .right > img{
+      width: 15rem;
+    }
+
     .about > .left{
       padding: .5rem;
       max-width: 100%;
+      grid-row: 2 / 3;
     }
     .get-in-touch > .content > .cards, .about{
       margin: .5rem;
@@ -552,6 +578,27 @@
 
     .get-in-touch > .content > .cards > .section > .details > p{
       font-size: small;
+    }
+
+    .slides-testimonials .splide__arrows{
+      position: static !important;
+    }
+
+    .slides-testimonials > section{
+      padding: 1rem 0 !important;
+    }
+
+    .slides-testimonials .splide__slide > h3{
+      font-size: 1.1rem;
+    }
+    .slides-testimonials .splide__slide > p{
+      font-size: .9rem;
+    }
+
+    .home > .footer > .links{
+      gap: 0;
+      justify-content: space-evenly;
+      gap: 5px;
     }
 
   }

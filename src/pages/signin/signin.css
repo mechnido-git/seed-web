@@ -2,6 +2,7 @@
     background-color: white;
     z-index: 4;
     box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
@@ -10,7 +11,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
+    
 }
 .container{
     height: 100vh;
@@ -193,6 +194,15 @@ a.google span{
     font-weight: 500;
     opacity: 0.6;
     color: #484D57;
+}
+
+.signin-div > .success{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: large;
+    color: green;
 }
 
 @media screen and (max-width: 400px) {

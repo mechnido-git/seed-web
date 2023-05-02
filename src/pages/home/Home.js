@@ -281,6 +281,7 @@ function Home() {
                 speed: 1000,
                 autoplay: true,
                 interval: 3400,
+                arrows: false,
                 pauseOnHover: false,
                 type: "loop",
                 pauseOnFocus: true,
@@ -289,7 +290,7 @@ function Home() {
                 width: "100%",
                 perPage:
                   window.innerWidth <= 426
-                    ? 1
+                    ? 1.2
                     : window.innerWidth <= 768
                     ? 1.5
                     : window.innerWidth <= 1024
@@ -548,7 +549,7 @@ function Home() {
           </div>
          </div>
         </div>
-              <p>©MECHNIDO</p>
+              <p>©Mechnido Pvt. Ltd. All Rights Reserved</p>
       </div>
       {signIn && (
         <div className="wrapper">

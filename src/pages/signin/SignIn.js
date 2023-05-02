@@ -35,6 +35,7 @@ function SignIn() {
   //forgot passs
   const [forgotPass, setForgotPass] = useState(false);
   const [forgEmail, setForgEmail] = useState("");
+  const [sent, setSent] = useState(false);
 
   const starter = () => {
     const forms = document.querySelector(".forms"),
@@ -218,24 +219,25 @@ function SignIn() {
     }
   };
 
-  const handleForgetPass = (e) =>{
-    e.preventDefault()
-    setLoading(true)
+  const handleForgetPass = (e) => {
+    e.preventDefault();
+    setLoading(true);
     sendPasswordResetEmail(auth, forgEmail)
-  .then(() => {
-    // Password reset email sent!
-    window.location.reload()
-    // ..
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.log(errorMessage);
-    alert(errorCode);
-    setLoading(false)
-    // ..
-  });
-  }
+      .then(() => {
+        // Password reset email sent!
+        setSent(true);
+        window.location.reload();
+        // ..
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorMessage);
+        alert(errorCode);
+        setLoading(false);
+        // ..
+      });
+  };
 
   return (
     <div className="signin-div form login">
@@ -244,39 +246,53 @@ function SignIn() {
         <>
           {forgotPass ? (
             <>
-              <div className="form-content">
-                <header>Password Reset</header>
-                <form onSubmit={handleForgetPass}>
-                  <div className="field input-field">
-                    <input
-                      type="email"
-                      placeholder="Email"
-                      className="input"
-                      value={forgEmail}
-                      onChange={(e) => setForgEmail(e.target.value)}
-                      required
-                      pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-                    />
-                  </div>
-                  <span className="error">{emailError}</span>
+              {!sent ? (
+                <>
+                  <div className="form-content">
+                    <header>Password Reset</header>
+                    <form onSubmit={handleForgetPass}>
+                      <div className="field input-field">
+                        <input
+                          type="email"
+                          placeholder="Email"
+                          className="input"
+                          value={forgEmail}
+                          onChange={(e) => setForgEmail(e.target.value)}
+                          required
+                          pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                        />
+                      </div>
+                      <span className="error">{emailError}</span>
 
-                  <div className="field button-field">
-                    <input type="submit" value="Sent Reset Email" />
-                  </div>
-                </form>
+                      <div className="field button-field">
+                        <input type="submit" value="Sent Reset Email" />
+                      </div>
+                    </form>
 
-                <div className="form-link">
-                  <span>
-                    Don't have an account?{" "}
-                    <a
-                      onClick={() => {setSigin(false); setForgotPass(false)}}
-                      className="link signup-link"
-                    >
-                      Sign up
-                    </a>
-                  </span>
-                </div>
-              </div>
+                    <div className="form-link">
+                      <span>
+                        Don't have an account?{" "}
+                        <a
+                          onClick={() => {
+                            setSigin(false);
+                            setForgotPass(false);
+                          }}
+                          className="link signup-link"
+                        >
+                          Sign up
+                        </a>
+                      </span>
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="success">
+                  <span class="material-symbols-outlined">check_circle</span>
+                  Email Sent
+                  </div>
+                </>
+              )}
             </>
           ) : (
             <>
@@ -312,7 +328,10 @@ function SignIn() {
                   <div className="error">{passError}</div>
 
                   <div className="form-link">
-                    <a onClick={()=>setForgotPass(true)} className="forgot-pass">
+                    <a
+                      onClick={() => setForgotPass(true)}
+                      className="forgot-pass"
+                    >
                       Forgot password?
                     </a>
                   </div>
@@ -415,12 +434,7 @@ function SignIn() {
               </div>
 
               <div className="field button-field">
-                <input
-                  type="submit"
-                  name=""
-                  id=""
-                  value="Sign up"
-                />
+                <input type="submit" name="" id="" value="Sign up" />
               </div>
             </form>
 

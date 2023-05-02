@@ -1,6 +1,6 @@
 import { onAuthStateChanged } from "firebase/auth";
 import "./dashboard.css";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { auth, db } from "../../firebase/config";
 import Spinner from "../../components/Spinner";
 import logo from "../../images/man.png";
@@ -45,7 +45,7 @@ function Dashboard() {
             <img src={slide} alt="" />
             <div className="body">
               <h4>{item.name}</h4>
-              <button onClick={getEventDetails}>View Details</button>
+              <button onClick={()=>getEventDetails(index)}>View Details</button>
             </div>
           </div>
         );
@@ -53,9 +53,9 @@ function Dashboard() {
     </>
   );
 
-  const getEventDetails = () => {
-
-  }
+  const getEventDetails = (index) => {
+    navigate(`/menu/events/${events[index].id}`)
+  };
 
   const doFetch = async (user) => {
     const q = query(
@@ -71,11 +71,15 @@ function Dashboard() {
         };
       });
       setEvents(lists);
+      console.log(lists);
       setLoading(false);
     } catch (error) {
       console.log(error);
     }
   };
+
+
+
   let dynamicStyles = null;
   function addAnimation(body) {
     if (!dynamicStyles) {
@@ -87,6 +91,7 @@ function Dashboard() {
     dynamicStyles.sheet.insertRule(body, dynamicStyles.length);
   }
 
+
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -97,7 +102,6 @@ function Dashboard() {
         if (user.photoURL) setDp(user.photoURL);
         doFetch(user);
       } else {
-        navigate("/menu/events");
         setLoading(false);
       }
     });
@@ -134,8 +138,8 @@ function Dashboard() {
                       role="progressbar"
                       aria-valuemin="0"
                       aria-valuemax="100"
-                    ></div>
-                    <p>2/4</p>
+                    >2/4</div>
+                    <p></p>
                   </div>
                   <div className="event-prog">
                     <h3>Courses</h3>
@@ -144,8 +148,8 @@ function Dashboard() {
                       role="progressbar"
                       aria-valuemin="0"
                       aria-valuemax="100"
-                    ></div>
-                    <p>3/10</p>
+                    >3/10</div>
+                    <p></p>
                   </div>
                   <div className="upcoming">
                     <h3>Upcoming Event</h3>
@@ -173,7 +177,10 @@ function Dashboard() {
               </div>
             </>
           ) : (
-            ""
+            <div className="not-logged">
+              <span class="material-symbols-outlined">report</span>
+              <h3>Sign in for Dashboard</h3>
+            </div>
           )}
         </>
       )}

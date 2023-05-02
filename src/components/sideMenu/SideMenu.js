@@ -7,8 +7,6 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../firebase/config";
 import SignIn from "../../pages/signin/SignIn";
 
-
-
 function SideMenu() {
   // const {loc, setLoc} = useContext(ToggleContext)
   const [user, setUser] = useState(false);
@@ -17,23 +15,21 @@ function SideMenu() {
   const loc = location.pathname.split("/");
   const [section, setSection] = useState(null);
 
-
   // setLoc(location.pathname.split("/"))
   // console.log(loc);
   //const loc = location.pathname.split("/");
   //const [loc, setLoc] = useState()
-  const { signIn } = useOutletContext();
+  const { setSignIn } = useOutletContext();
 
   const toggle = () => {
     document.getElementById("menu-options").classList.toggle("disable");
-   document.getElementById("index").classList.toggle("index-toggle");
+    document.getElementById("index").classList.toggle("index-toggle");
     document.getElementById("min-menu").classList.toggle("disable");
     document.getElementById("side-menu").classList.toggle("border");
   };
   const mobile = window.innerWidth < 430 ? true : false;
 
   function click(e) {
-   
     const links = document.querySelectorAll(".link");
     const minLinks = document.querySelectorAll(".min-link");
     links.forEach((link) => {
@@ -53,7 +49,7 @@ function SideMenu() {
       links[1].classList.add("clicked");
       minLinks[1].classList.add("clicked");
       setSection(1);
-    }else if (index == 2) {
+    } else if (index == 2) {
       links[2].classList.add("clicked");
       minLinks[2].classList.add("clicked");
       setSection(2);
@@ -61,12 +57,14 @@ function SideMenu() {
   }
 
   useEffect(() => {
-    console.log(section);
+    console.log('hi');
     onAuthStateChanged(auth, (user) => {
       if (user) setUser(true);
     });
     let elem = -1;
-    switch (loc[loc.length - 1]) {
+    let pos = 1
+    if(loc[loc.length - 1].length == 0) pos = 2;
+    switch (loc[loc.length - pos]) {
       case "courses":
         elem = 0;
         setSection(0);
@@ -76,10 +74,11 @@ function SideMenu() {
         elem = 1;
         break;
       case "dashboard":
-        setSection(2)
-        elem = 2
+        setSection(2);
+        elem = 2;
         break;
-        default: return;
+      default:
+        return;
     }
     console.log(elem);
     document.querySelectorAll(".link").forEach((link, index) => {
@@ -87,12 +86,12 @@ function SideMenu() {
         if (elem === 0) {
           if (index === 0) link.classList.add("clicked");
           setPrev(link);
-        } else if(elem === 1) {
+        } else if (elem === 1) {
           if (index === 1) {
             link.classList.add("clicked");
             setPrev(link);
           }
-        }else if(elem === 2) {
+        } else if (elem === 2) {
           if (index === 2) {
             link.classList.add("clicked");
             setPrev(link);
@@ -106,12 +105,12 @@ function SideMenu() {
         if (elem === 0) {
           if (index === 0) link.classList.add("clicked");
           setPrev(link);
-        } else if(elem === 1) {
+        } else if (elem === 1) {
           if (index === 1) {
             link.classList.add("clicked");
             setPrev(link);
           }
-        }else if(elem === 2) {
+        } else if (elem === 2) {
           if (index === 2) {
             link.classList.add("clicked");
             setPrev(link);
@@ -129,8 +128,6 @@ function SideMenu() {
       });
     };
   }, []);
-
-
 
   const renderSwitch = (index) => {
     switch (index) {
@@ -167,7 +164,11 @@ function SideMenu() {
             </HashLink>
             <hr />
             <h3>CATEGORIES</h3>
-            <Link className="sub" onClick={mobile ? toggle : null} to="marketing">
+            <Link
+              className="sub"
+              onClick={mobile ? toggle : null}
+              to="marketing"
+            >
               <span class="material-symbols-outlined">campaign</span>
               <div>Marketing</div>
             </Link>
@@ -201,36 +202,61 @@ function SideMenu() {
         return (
           <>
             <h3>MENU</h3>
-            <Link className="sub" to="dashboard">
-              <span class="material-symbols-outlined">dashboard</span>
-              <div>Dashboard</div>
-            </Link>
-            <Link className="sub" to="downloads">
-              <span class="material-symbols-outlined">download</span>
-              <div>Downloads</div>
-            </Link>
-            <Link className="sub" to="uploads">
-              <span class="material-symbols-outlined">upload_file</span>
-              <div>Uploads</div>
-            </Link>
-            <Link className="sub" to="payments">
-              <span class="material-symbols-outlined">payments</span>
-              <div>Payments</div>
-            </Link>
+            <HashLink
+              onClick={mobile ? toggle : null}
+              to="/menu/events/#current"
+              smooth
+              className="sub"
+            >
+              <span class="material-symbols-outlined">event_list</span>
+              <div>Current Events</div>
+            </HashLink>
+            <HashLink
+              className="sub"
+              onClick={mobile ? toggle : null}
+              to="/menu/events/#gallery"
+              smooth
+            >
+              <span class="material-symbols-outlined">gallery_thumbnail</span>
+              <div>Gallery</div>
+            </HashLink>
+            <HashLink
+              className="sub"
+              onClick={mobile ? toggle : null}
+              to="/menu/events/#upcoming"
+              smooth
+            >
+              <span class="material-symbols-outlined">event_upcoming</span>
+              <div>Upcoming Events</div>
+            </HashLink>
+            <HashLink
+              className="sub"
+              onClick={mobile ? toggle : null}
+              to="/menu/events/#sponsors"
+              smooth
+            >
+              <span class="material-symbols-outlined">stars</span>
+              <div>Sponsors</div>
+            </HashLink>
             {!user && (
               <div className="cover">
-                <button onClick={() => signIn(true)}>Sign in</button>
+                <button onClick={() => setSignIn(true)}>Sign in</button>
               </div>
             )}
           </>
         );
-        default : return <></>
+      default:
+        return <></>;
     }
   };
 
   return (
     <div className="side-menu" id="side-menu">
       <div className="min-menu" id="min-menu">
+        <Link to="/home" >
+          <span class="material-symbols-outlined">home</span>
+          <p>Home</p>
+        </Link>
         <Link to="courses" className="link" data-index={0}>
           <span class="material-symbols-outlined">school</span>
           <p>Courses</p>
@@ -245,30 +271,19 @@ function SideMenu() {
         </Link>
       </div>
       <div className="menu-options disable" id="menu-options">
-        <Link
-          
-          to="courses"
-          className="min-link"
-          data-index={0}
-        >
+        <Link to="/home" data-index={-1}>
+        <span class="material-symbols-outlined">home</span>
+          <div>Home</div>
+        </Link>
+        <Link to="courses" className="min-link" data-index={0}>
           <span class="material-symbols-outlined">school</span>
           <div>Courses</div>
         </Link>
-        <Link
-          
-          to="events"
-          className="min-link"
-          data-index={1}
-        >
+        <Link to="events" className="min-link" data-index={1}>
           <span class="material-symbols-outlined">today</span>
           <div>Events</div>
         </Link>
-        <Link
-          
-          to="dashboard"
-          className="min-link"
-          data-index={2}
-        >
+        <Link to="dashboard" className="min-link" data-index={2}>
           <span class="material-symbols-outlined">dashboard</span>
           <div>Dashboard</div>
         </Link>

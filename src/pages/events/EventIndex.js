@@ -22,7 +22,7 @@ function EventIndex() {
   const [user, setUser] = useState(false);
   const imgWidth = window.innerWidth < 1024 ? "100%" : "200px";
   const gap = window.innerWidth < 1024 ? "1rem" : "4rem";
-  const [register, setRegister] = useOutletContext();
+  const {register, setRegister} = useOutletContext();
   const [loading, setLoading] = useState(true);
   const [events, setEvents] = useState(null);
   const [yes, setYes] = useState(false);
@@ -63,7 +63,8 @@ function EventIndex() {
         ) : (
           <>
             <div className="slides">
-              {events && (
+              {events && (<>
+                <div id="current"></div>
                 <Splide
                   ref={ref}
                   onMove={(splide, prev, next) => {
@@ -102,6 +103,7 @@ function EventIndex() {
                     );
                   })}
                 </Splide>
+                </>
               )}
 
               <div className="btns">
@@ -291,6 +293,7 @@ function EventIndex() {
             </div>
 
             <div className="slides-gallery">
+              <div id="gallery"></div>
               <h2>Gallery</h2>
 
               <Splide
@@ -391,6 +394,7 @@ function EventIndex() {
               </Splide>
             </div>
             <div className="slides-sponsors">
+              <div id="upcoming"></div>
               <h2>Upcoming Events</h2>
 
               <Splide
@@ -440,6 +444,7 @@ function EventIndex() {
               </Splide>
             </div>
             <div className="slides-sponsors">
+              <div id="sponsors"></div>
               <h2>Sponsors</h2>
 
               <Splide
