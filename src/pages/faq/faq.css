@@ -1,0 +1,132 @@
+.faq-container{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.faq-container > .faq{
+    display: grid;
+    grid-template-columns: 1fr;
+    position: relative;
+
+}
+
+.faq-container > .faq > h2{
+    margin: 1rem auto;
+    
+}
+.faq-container > .faq > img{
+    width: 20rem;
+    margin: 0 auto;
+}
+
+.faq-container > .faq > div{
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.question-section {
+    background: transparent;
+    border: 1px solid lightgray;
+    border-radius: 8px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+      rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    cursor: pointer;
+    width: 90%;
+  }
+  
+  .question-align {
+    align-items: center;
+    min-height: 10px;
+    text-align: left;
+    padding: 1rem;
+    display: flex;
+    gap: 10px;
+    
+  }
+  
+  .question-align h4 {
+    margin-left: 8px;
+    font-size: 1.1rem;
+  }
+  
+  .question-styling {
+    
+    width: 100%;
+  }
+  
+  .question-icon {
+    background: none;
+    border: none;
+    color: #1b6aae;
+    cursor: pointer;
+    font-size: 22px;
+    margin-left: auto;
+    margin-right: 8px;
+  }
+  
+  .rotate {
+    transform: rotate(45deg);
+  }
+  
+  .answer-divider {
+    border-top: 1px solid lightgray;
+  }
+  
+  .answer {
+    margin-left: 8px;
+    margin-right: 8px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    text-align: left;
+    padding: 0 1rem;
+  }
+
+  .answer > p{
+    margin: .5rem 0;
+  }
+
+  .faq-container > p{
+    text-align: center;
+    padding: .7rem;
+    background-color: #0055cc;
+    color: white !important;
+    margin-block-end: 0;
+    margin-block-start: 0;
+    margin-top: auto;
+    height: max-content;
+  }
+
+  .faq-container > .footer{
+    margin: 1rem 0;
+  }
+
+  .faq-container > .footer > .links{
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin: 1rem;
+  }
+
+  .faq-container > .footer > .links > .section >  h3{
+    font-weight: 500;
+    font-size: 23px;
+  }
+
+  .faq-container > .footer > .links > .section{
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 20px;
+  }
+
+  .faq-container > .footer ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    font-size: 17px;
+  }

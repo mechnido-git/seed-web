@@ -22,7 +22,7 @@ function SideMenu() {
   const { setSignIn } = useOutletContext();
 
   const toggle = () => {
-    document.getElementById("menu-options").classList.toggle("disable");
+  //  document.getElementById("menu-options").classList.toggle("disable");
     document.getElementById("index").classList.toggle("index-toggle");
     document.getElementById("min-menu").classList.toggle("disable");
     document.getElementById("side-menu").classList.toggle("border");

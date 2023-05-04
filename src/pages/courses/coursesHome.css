@@ -227,6 +227,10 @@
         
     }
 
+    .courses-home > .main-div > .section > .card-container-div > .card > .body > p{
+        font-size: 13px;
+    }
+
     .fixed::-webkit-scrollbar{
         display: none;
     }

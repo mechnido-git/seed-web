@@ -15,6 +15,8 @@ import EventConfig from "./pages/events/eventConfig/EventConfig";
 import HomeIndex from "./pages/index/HomeIndex";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Store from "./store/StoreContext";
+import About from "./pages/About/About";
+import Faq from "./pages/faq/Faq";
 
 function Router() {
   return (
@@ -23,6 +25,8 @@ function Router() {
       <Routes>
         <Route exact path="/" element={<Navigate to="/home" />} />
         <Route exact path="/home" element={<Home />} />
+        <Route exact path="/about" element={<About />} />
+        <Route exact path="/faq" element={<Faq />} />
         <Route path="/menu" exact element={<Index />}>
           <Route element={<HomeIndex />}>
             <Route index element={<Navigate to='courses' />} />

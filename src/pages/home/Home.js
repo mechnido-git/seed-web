@@ -13,6 +13,7 @@ import { HashLink } from "react-router-hash-link";
 import { FiPlus } from "react-icons/fi";
 import fb from '../../images/fb.png'
 import insta from '../../images/insta.png'
+import { Link } from "react-router-dom";
 
 function Home() {
   const [signIn, setSignIn] = useState(false);
@@ -125,32 +126,23 @@ function Home() {
           <div className="links">
             <ul>
               <li className="link">
-                <HashLink to="/home/#about" smooth>
+                <Link to="#"  >
+                  Offerings
+                </Link>
+              </li>
+              <li className="link">
+                <Link to="/about" target="_blank" >
                   About
-                </HashLink>
+                </Link>
               </li>
               <li className="link">
-                <HashLink to="/home/#achievements" smooth>
-                  Achievements
-                </HashLink>
-              </li>
-              <li className="link">
-                <HashLink to="/home/#testimonials" smooth>
-                  Testimonials
-                </HashLink>
-              </li>
-              <li className="link">
-                <HashLink to="/home/#faq" smooth>
+                <Link to="/faq" target="_blank">
                   FAQ
-                </HashLink>
-              </li>
-              <li className="link">
-                <HashLink to="/home/#get-in-touch" smooth>
-                  Get in touch
-                </HashLink>
+                </Link>
               </li>
             </ul>
           </div>
+        </div>
           <div className="account">
             {userName ? (
               <>
@@ -161,7 +153,6 @@ function Home() {
               <button onClick={popup}>Sign in</button>
             )}
           </div>
-        </div>
         <span onClick={toggle} class="material-symbols-outlined">
           menu
         </span>
@@ -462,7 +453,7 @@ function Home() {
                     type="text"
                     id="name"
                     name="name"
-                    placeholder="Your name.."
+                    placeholder="Your name"
                     required
                     value={name}
                     onChange={(e)=>setName(e.target.value)}
@@ -484,7 +475,7 @@ function Home() {
                   <textarea
                     id="subject"
                     name="subject"
-                    placeholder="Write something.."
+                    placeholder="Write something"
                     style={{ height: "200px" }}
                     required
                     value={msg}

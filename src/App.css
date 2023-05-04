@@ -56,13 +56,22 @@ a{
     z-index: 5;
 }
 
-@media only screen and (max-width: 430px) {
+@media only screen and (max-width: 650px) {
     .index{
         display: grid;
         grid-template-columns: 1fr;
         width: 100%;
         gap: 0;
         overflow: hidden;
+    }
+
+    .splide__arrow svg{
+        width: .7rem;
+        height: .7rem;
+    }
+    .splide__arrow{
+        height: 1.7em;
+        width: 1.7em;
     }
 }
 

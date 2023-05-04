@@ -180,6 +180,7 @@ function CoursesHome() {
                   keyboard: true,
                   gap: "1rem",
                   width: "100%",
+                  pagination: window.innerWidth < 770? false: true ,
                 }}
               >
                 <SplideSlide>

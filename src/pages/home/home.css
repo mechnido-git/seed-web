@@ -70,7 +70,7 @@
     width: 100%;
 }
 
-.App > .nav > .options > .account{
+.App > .nav > .account{
     display: flex;
     color: white;
     align-items: center;
@@ -78,7 +78,7 @@
     margin-right: 1rem;
 }
 
-.App > .nav > .options > .account > button {
+.App > .nav > .account > button {
     --color: #fff;
     font-family: inherit;
     display: inline-block;
@@ -497,34 +497,38 @@
 
      .App > .nav > span{
       display: block;
+      font-size: 40px;
     }
 
-     .App > .nav > img{
-      width: 3.5rem;
+     .App > .nav > a > img{
+      width: 3rem;
     }
 
      .App > .nav {
       justify-content: space-between;
     }
 
-     .App > .nav > .options > .account{
-      display: none;
+     .App > .nav > .account{
+      margin-left: auto;
     }
 
      .App > .nav.toggle > .options{
       justify-content: start;
-      width: 100%;
-      padding-top: 15px;
-      padding-left: 10px;
+      padding: 15px;
       gap: 1rem;
     }
 
      .App > .nav.toggle {
       align-items: start;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      column-gap: 10px;
     }
 
      .App > .nav.toggle > span{
-      margin-left: auto;
+      grid-column: 3 / 4;
+      grid-row: 1 / 2 ;
     }
 
      .App > .nav.toggle > .options ul{
@@ -534,8 +538,12 @@
       gap: 1.5rem;
     }
 
-     .App > .nav.toggle > .options > .account{
+     .App > .nav.toggle > .account{
       display: flex;
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
+      margin-right: 0;
+
     }
      .App > .nav.toggle > .options > .links{
       flex-direction: column;
@@ -544,9 +552,17 @@
     }
    .App > .nav.toggle > .options{
       flex-direction: column-reverse;
+      grid-column: 1 / 4;
+      grid-row: 2 / 3;
     }
     .home > .hero {
       justify-content: center;
+      padding: 8rem 5rem;
+    }
+
+    .home > .hero > .btns > button{
+      font-size: medium;
+      padding: 1rem 4rem;
     }
 
     .home > .main{
@@ -580,6 +596,13 @@
       font-size: small;
     }
 
+    .get-in-touch > .content > .cards > .section > span{
+      font-size: 1.5rem;
+    }
+    .get-in-touch > .content > .cards > .section{
+      padding: 2rem 1rem;
+    }
+
     .slides-testimonials .splide__arrows{
       position: static !important;
     }
@@ -599,6 +622,18 @@
       gap: 0;
       justify-content: space-evenly;
       gap: 5px;
+    }
+    .home > .footer > .links > .section > h3{
+      font-size: 18px;
+    }
+    .home > .footer ul{
+      font-size: 14px;
+    }
+    .home > p{
+      font-size: 10px;
+    }
+    .question-align h4{
+      font-size: .9rem;
     }
 
   }
