@@ -39,63 +39,20 @@ function SignIn({index, redirect}) {
   const [forgEmail, setForgEmail] = useState("");
   const [sent, setSent] = useState(false);
 
-  const starter = () => {
-    const forms = document.querySelector(".forms"),
-      pwShowHide = document.querySelectorAll(".eye-icon"),
-      links = document.querySelectorAll(".link");
-
-    pwShowHide.forEach((eyeIcon) => {
-      eyeIcon.addEventListener("click", () => {
-        let pwFields =
-          eyeIcon.parentElement.parentElement.querySelectorAll(".password");
-        pwFields.forEach((password) => {
-          if (password.type === "password") {
-            password.type = "text";
-            eyeIcon.classList.replace("bx-hide", "bx-show");
-            return;
-          }
-          password.type = "password";
-          eyeIcon.classList.replace("bx-show", "bx-hide");
-        });
-      });
+  const showPassword = (e) => {
+    let pwFields =
+      e.target.parentElement.parentElement.querySelectorAll(".password");
+    pwFields.forEach((password) => {
+      if (password.type === "password") {
+        password.type = "text";
+        e.target.classList.replace("bx-hide", "bx-show");
+        return;
+      }
+      password.type = "password";
+      e.target.classList.replace("bx-show", "bx-hide");
     });
-  };
+  }
 
-  const stop = () => {
-    const forms = document.querySelector(".forms"),
-      pwShowHide = document.querySelectorAll(".eye-icon"),
-      links = document.querySelectorAll(".link");
-
-    pwShowHide.forEach((eyeIcon) => {
-      eyeIcon.removeEventListener("click", () => {
-        let pwFields =
-          eyeIcon.parentElement.parentElement.querySelectorAll(".password");
-
-        pwFields.forEach((password) => {
-          if (password.type === "password") {
-            password.type = "text";
-            eyeIcon.classList.replace("bx-hide", "bx-show");
-            return;
-          }
-          password.type = "password";
-          eyeIcon.classList.replace("bx-show", "bx-hide");
-        });
-      });
-    });
-
-    links.forEach((link) => {
-      link.removeEventListener("click", (e) => {
-        e.preventDefault(); //preventing form submit
-        forms.classList.toggle("show-signup");
-      });
-    });
-    console.log("removed");
-  };
-
-  useEffect(() => {
-    starter();
-    return () => stop();
-  }, []);
 
   const handleSignUp = (e) => {
     setLoading(true);
@@ -325,7 +282,7 @@ function SignIn({index, redirect}) {
                       pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                       title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
                     />
-                    <i className="bx bx-hide eye-icon"></i>
+                    <i onClick={showPassword} className="bx bx-hide eye-icon"></i>
                   </div>
                   <div className="error">{passError}</div>
 
@@ -423,7 +380,7 @@ function SignIn({index, redirect}) {
                   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                   title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
                 />
-                <i className="bx bx-hide eye-icon"></i>
+                <i onClick={showPassword} className="bx bx-hide eye-icon"></i>
               </div>
 
               <div className="form-link">

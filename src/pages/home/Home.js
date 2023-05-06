@@ -105,10 +105,8 @@ function Home() {
     nav.classList.toggle("offer");
     setShowDrop(!showDrop)
     if(profileDrop) viewProfile()
-    console.log(e);
+    
   };
-
-
 
   const viewProfile = (e) => {
     if(e) e.stopPropagation()
@@ -161,16 +159,16 @@ function Home() {
         <span onClick={toggle} class="material-symbols-outlined">
           menu
         </span>
-            <Drop show={showDrop} onClickOutside={toggleOffer} />
+           {showDrop && <Drop show={showDrop} onClickOutside={toggleOffer} />}
       </div>
       <div className="home" id="home">
         <div className="hero">
+            <h2>"Revolutionizing Possibilities: A Showcase of Engineering Excellence!"</h2>
           <div className="btns">
             <button onClick={() => goToLink("/menu/courses")}>
               Get started
             </button>
           </div>
-            <h2>"Revolutionizing Possibilities: A Showcase of Engineering Excellence!"</h2>
         </div>
         <div className="main">
           <div className="title">

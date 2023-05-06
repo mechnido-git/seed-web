@@ -40,6 +40,22 @@ export const recomended = [
     thumbnail: courses,
     category: "Media Content",
   },
+  {
+    name: "Video Title 5",
+    description:
+      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+    rating: "4.4",
+    thumbnail: courses,
+    category: "Design Elements",
+  },
+  {
+    name: "Video Title 6",
+    description:
+      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+    rating: "4.4",
+    thumbnail: courses,
+    category: "Communication",
+  },
 ];
 
 export const trending = [
@@ -77,7 +93,7 @@ export const trending = [
   },
 ];
 
-const CardBuilder = ({ arr, limit }) => (
+export const CardBuilder = ({ arr, limit }) => (
   <>
     {arr.map((item, index) => {
       if (limit != null && index >= limit) return;
@@ -98,7 +114,7 @@ const CardBuilder = ({ arr, limit }) => (
   </>
 );
 
-const category = [
+export const category = [
   "All",
   "Marketing",
   "Sell Online",
@@ -107,6 +123,25 @@ const category = [
   "Design Elements",
   "Communication",
 ];
+
+export const addIcon = (item) => {
+  switch (item) {
+    case "All":
+      return "apps";
+    case "Marketing":
+      return "campaign";
+    case "Sell Online":
+      return "sell";
+    case "Services & Events":
+      return "prescriptions";
+    case "Media Content":
+      return "perm_media";
+    case "Design Elements":
+      return "design_services";
+    case "Communication":
+      return "hub";
+  }
+};
 
 function CoursesHome() {
   const [filter, setFilter] = useState("All");
@@ -142,24 +177,7 @@ function CoursesHome() {
     setFilter(filter === "All" ? item : filter == item ? "All" : item);
   };
 
-  const addIcon = (item) => {
-    switch (item) {
-      case "All":
-        return "apps";
-      case "Marketing":
-        return "campaign";
-      case "Sell Online":
-        return "sell";
-      case "Services & Events":
-        return "prescriptions";
-      case "Media Content":
-        return "perm_media";
-      case "Design Elements":
-        return "design_services";
-      case "Communication":
-        return "hub";
-    }
-  };
+
 
   return (
     <>
