@@ -17,6 +17,7 @@ import Dashboard from "./pages/dashboard/Dashboard";
 import Store from "./store/StoreContext";
 import About from "./pages/About/About";
 import Faq from "./pages/faq/Faq";
+import Path from "./pages/path/Path";
 
 function Router() {
   return (
@@ -36,6 +37,7 @@ function Router() {
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="event-config/:eventId" element={<EventConfig />} />
           </Route>
+          <Route exact path="path" element={<Path />} />
         </Route>
         <Route path="/terms" element={<Terms />} />
       </Routes>

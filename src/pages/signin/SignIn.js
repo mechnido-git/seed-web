@@ -12,12 +12,14 @@ import {
 } from "firebase/auth";
 import { auth } from "../../firebase/config";
 import Spinner from "../../components/Spinner";
+import { useNavigate } from "react-router-dom";
 
-function SignIn() {
-  const [signin, setSigin] = useState(true);
+function SignIn({index, redirect}) {
+  const [signin, setSigin] = useState(!index? true : false);
   const [loading, setLoading] = useState(false);
 
   const [error, setError] = useState("");
+  const navigate = useNavigate()
 
   //sign up
   const [fullName, setFullName] = useState("");
@@ -107,7 +109,7 @@ function SignIn() {
         })
           .then(() => {
             console.log("updated");
-            window.location.reload();
+            redirect? navigate("/menu/path") : window.location.reload();
           })
           .catch((err) => {
             console.log(err);
@@ -133,7 +135,7 @@ function SignIn() {
         const user = userCredential.user;
         //console.log(user);
         // ...
-        window.location.reload();
+        redirect? navigate("/menu/path") : window.location.reload();
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -156,7 +158,7 @@ function SignIn() {
         const user = result.user;
         // IdP data available using getAdditionalUserInfo(result)
         // ...
-        window.location.reload();
+        redirect? navigate("/menu/path") : window.location.reload();
       })
       .catch((error) => {
         // Handle Errors here.
@@ -185,7 +187,7 @@ function SignIn() {
 
         // IdP data available using getAdditionalUserInfo(result)
         // ...
-        window.location.reload();
+        redirect? navigate("/menu/path") : window.location.reload();
       })
       .catch((error) => {
         console.log(error);

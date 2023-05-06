@@ -11,9 +11,13 @@ import { auth } from "../../firebase/config";
 import Spinner from "../../components/Spinner";
 import { HashLink } from "react-router-hash-link";
 import { FiPlus } from "react-icons/fi";
-import fb from '../../images/fb.png'
-import insta from '../../images/insta.png'
+import fb from "../../images/fb.png";
+import insta from "../../images/insta.png";
 import { Link } from "react-router-dom";
+import profile from "../../images/profile.png"
+import Drop from "./Drop";
+import ProfileDrop from "./ProfileDrop";
+import intro from "../../images/intro.jpg"
 
 function Home() {
   const [signIn, setSignIn] = useState(false);
@@ -21,17 +25,25 @@ function Home() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
 
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [msg, setMsg] = useState('')
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [msg, setMsg] = useState("");
+  const [dp, setDp] = useState(profile)
+
+  const [index, setIndex] = useState(null);
+  const [redirect, setRedirect] = useState(null);
+
+  const [showDrop, setShowDrop] = useState(false)
+  const [profileDrop, setProfileShowDrop] = useState(false)
 
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setUserName(user.displayName);
-        setName(user.displayName)
-        setEmail(user.email)
+        setName(user.displayName);
+        setEmail(user.email);
+        if (user.photoURL) setDp(user.photoURL);
         setLoading(false);
       } else {
         setLoading(false);
@@ -39,48 +51,20 @@ function Home() {
     });
   }, []);
 
-  const [active1, setActive1] = useState(false);
-  const [active2, setActive2] = useState(false);
-  const [active3, setActive3] = useState(false);
-
-  const contentRef1 = useRef(null);
-  const contentRef2 = useRef(null);
-  const contentRef3 = useRef(null);
-
-  useEffect(() => {
-    contentRef1.current.style.maxHeight = active1
-      ? `${contentRef1.current.scrollHeight}px`
-      : "0px";
-  }, [contentRef1, active1]);
-
-  const toggleAccordion1 = () => {
-    setActive1(!active1);
-  };
-  useEffect(() => {
-    contentRef2.current.style.maxHeight = active2
-      ? `${contentRef2.current.scrollHeight}px`
-      : "0px";
-  }, [contentRef2, active2]);
-
-  const toggleAccordion2 = () => {
-    setActive2(!active2);
-  };
-  useEffect(() => {
-    contentRef3.current.style.maxHeight = active3
-      ? `${contentRef3.current.scrollHeight}px`
-      : "0px";
-  }, [contentRef3, active3]);
-
-  const toggleAccordion3 = () => {
-    setActive3(!active3);
-  };
-
   const goToLink = (link) => {
-    navigate(link);
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        navigate("/menu/path");
+      } else {
+        setRedirect(true);
+        setSignIn(true);
+      }
+    });
   };
 
-  const popup = () => {
+  const popup = (i) => {
     document.body.classList.add("disable-scroll");
+    setIndex(i);
     setSignIn(true);
   };
   const close = () => {
@@ -115,23 +99,41 @@ function Home() {
     }
   };
 
+  const toggleOffer = (e) => {
+     if(e) e.stopPropagation()
+    const nav = document.getElementById("nav");
+    nav.classList.toggle("offer");
+    setShowDrop(!showDrop)
+    if(profileDrop) viewProfile()
+    console.log(e);
+  };
+
+
+
+  const viewProfile = (e) => {
+    if(e) e.stopPropagation()
+    document.getElementById('account').classList.toggle('clicked')
+    setProfileShowDrop(!profileDrop)
+    if(showDrop) toggleOffer()
+  }
+
   return (
     <>
       {loading && <Spinner loading={loading} />}
       <div className="nav" id="nav">
-      <HashLink to="/home/#home" smooth>
-        <img src={logo} alt="" />
-                </HashLink>
+        <HashLink to="/home/#home" smooth>
+          <img src={logo} alt="" />
+        </HashLink>
         <div className="options">
           <div className="links">
             <ul>
               <li className="link">
-                <Link to="#"  >
+                <Link to="#" id="offer" onClick={toggleOffer}>
                   Offerings
                 </Link>
               </li>
               <li className="link">
-                <Link to="/about" target="_blank" >
+                <Link to="/about" target="_blank">
                   About
                 </Link>
               </li>
@@ -143,66 +145,37 @@ function Home() {
             </ul>
           </div>
         </div>
-          <div className="account">
-            {userName ? (
-              <>
-                <h4>{userName}</h4>
-                <button onClick={logout}>Sign out</button>
-              </>
-            ) : (
-              <button onClick={popup}>Sign in</button>
-            )}
-          </div>
+        <div className="account" id="account">
+          {userName ? (
+            <>
+              <img src={dp} alt="" onClick={viewProfile} />
+              <ProfileDrop userName={userName} show={profileDrop} onClickOutside={viewProfile} signOut={logout} />
+            </>
+          ) : (
+            <>
+              <button onClick={() => popup(false)}>Sign In</button>
+              <button onClick={() => popup(true)}>Sign Up</button>
+            </>
+          )}
+        </div>
         <span onClick={toggle} class="material-symbols-outlined">
           menu
         </span>
+            <Drop show={showDrop} onClickOutside={toggleOffer} />
       </div>
       <div className="home" id="home">
         <div className="hero">
           <div className="btns">
-            <button onClick={() => goToLink("/menu/courses")}>Courses</button>
-            <button onClick={() => goToLink("/menu/events")}>Events</button>
+            <button onClick={() => goToLink("/menu/courses")}>
+              Get started
+            </button>
           </div>
+            <h2>"Revolutionizing Possibilities: A Showcase of Engineering Excellence!"</h2>
         </div>
         <div className="main">
-          <div className="about">
-            <div id="about"></div>
-            <div className="left">
-              <h2>
-                About INNOVATIVE DESIGN AND ENGINEERING ANALYSIS (I.D.E.A)
-              </h2>
-              <p>
-                Innovative design and engineering analysis is a group of events
-                presented by M/S MECHNIDO, comprising of various national level
-                events which acts as a platform for engineers to apply and
-                enhance their engineering skills in real world applications. It
-                promotes the idea of developing innovative, robust structures
-                designed with sound engineering practices.{" "}
-              </p>
-              <p>
-                All the events included under brand name I.D.E.A. are exclusive
-                events and cannot be associated with other events conducted by
-                M/S MECHNIDO.{" "}
-              </p>
-              <h2>Mission</h2>
-              <p>
-                Our mission is to play key role in forging ideas of young
-                technocrats, to create a platform for prospective engineers to
-                perform and excel their technical skills, to strive hard to
-                ensure that each student in our family evolves to their best
-                potential.
-              </p>
-              <h2>Vision</h2>
-              <p>
-                Our primary vision is to motivate budding engineers to develop
-                creative ideas, implement them effectively and mould them to
-                face the obstacles. We visualize in creating a platform which
-                forms a strong technical base for them.{" "}
-              </p>
-            </div>
-            <div className="right">
-              <img src={logo} />
-            </div>
+          <div className="title">
+            <img src={intro} alt="" />
+            <h2>"Engineering the Future: Innovate, Create, and Elevate!"</h2>
           </div>
           <div className="slides-achievements">
             <div id="achievements"></div>
@@ -363,85 +336,6 @@ function Home() {
               </SplideSlide>
             </Splide>
           </div>
-          <div className="faq">
-            <div id="faq"></div>
-            <h2>FAQ</h2>
-            <div>
-              <button
-                className={`question-section ${active1}`}
-                onClick={toggleAccordion1}
-              >
-                <div>
-                  <div className="question-align">
-                    <h4 className="question-style">
-                      Why do you like web developemnt
-                    </h4>
-                    <FiPlus
-                      className={
-                        active1 ? `question-icon rotate` : `question-icon`
-                      }
-                    />
-                  </div>
-                  <div
-                    ref={contentRef1}
-                    className={active1 ? `answer answer-divider` : `answer`}
-                  >
-                    <p>Because I love coding</p>
-                  </div>
-                </div>
-              </button>
-            </div>
-            <div>
-              <button
-                className={`question-section ${active2}`}
-                onClick={toggleAccordion2}
-              >
-                <div>
-                  <div className="question-align">
-                    <h4 className="question-style">
-                      Why do you like web developemnt
-                    </h4>
-                    <FiPlus
-                      className={
-                        active2 ? `question-icon rotate` : `question-icon`
-                      }
-                    />
-                  </div>
-                  <div
-                    ref={contentRef2}
-                    className={active2 ? `answer answer-divider` : `answer`}
-                  >
-                    <p>Because I love coding</p>
-                  </div>
-                </div>
-              </button>
-            </div>
-            <div>
-              <button
-                className={`question-section ${active3}`}
-                onClick={toggleAccordion3}
-              >
-                <div>
-                  <div className="question-align">
-                    <h4 className="question-style">
-                      Why do you like web developemnt
-                    </h4>
-                    <FiPlus
-                      className={
-                        active3 ? `question-icon rotate` : `question-icon`
-                      }
-                    />
-                  </div>
-                  <div
-                    ref={contentRef3}
-                    className={active3 ? `answer answer-divider` : `answer`}
-                  >
-                    <p>Because I love coding</p>
-                  </div>
-                </div>
-              </button>
-            </div>
-          </div>
           <div className="get-in-touch">
             <div id="get-in-touch"></div>
             <h2>Get in Touch</h2>
@@ -456,7 +350,7 @@ function Home() {
                     placeholder="Your name"
                     required
                     value={name}
-                    onChange={(e)=>setName(e.target.value)}
+                    onChange={(e) => setName(e.target.value)}
                   />
 
                   <label htmlFor="email">Email</label>
@@ -467,7 +361,7 @@ function Home() {
                     placeholder="example@gmail.com"
                     required
                     value={email}
-                    onChange={(e)=>setEmail(e.target.value)}
+                    onChange={(e) => setEmail(e.target.value)}
                     pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                   />
 
@@ -479,7 +373,7 @@ function Home() {
                     style={{ height: "200px" }}
                     required
                     value={msg}
-                    onChange={(e)=>setMsg(e.target.value)}
+                    onChange={(e) => setMsg(e.target.value)}
                   ></textarea>
 
                   <input type="submit" value="Submit" />
@@ -506,14 +400,39 @@ function Home() {
                 <div className="section">
                   <span class="material-symbols-outlined">mail</span>
                   <div className="details">
-                    <p style={{width: '100%', height: '100%'}}><a style={{width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center'}} href="mailto:info@mechnido.com">info@mechnido.com</a></p>
+                    <p style={{ width: "100%", height: "100%" }}>
+                      <a
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
+                        href="mailto:info@mechnido.com"
+                      >
+                        info@mechnido.com
+                      </a>
+                    </p>
                   </div>
                 </div>
                 <div className="section">
                   <span class="material-symbols-outlined">group</span>
                   <div className="details">
-                   <a href="https://www.facebook.com/IDEATECHEVENTS" target="_blank"> <img style={{width: '2.5rem'}} src={fb} alt="" /></a>
-                   <a href="https://www.instagram.com/mechnido/?igshid=YmMyMTA2M2Y%3D&__coig_restricted=1" target="_blank"> <img style={{width: '2.5rem'}} src={insta} alt="" /></a>
+                    <a
+                      href="https://www.facebook.com/IDEATECHEVENTS"
+                      target="_blank"
+                    >
+                      {" "}
+                      <img style={{ width: "2.5rem" }} src={fb} alt="" />
+                    </a>
+                    <a
+                      href="https://www.instagram.com/mechnido/?igshid=YmMyMTA2M2Y%3D&__coig_restricted=1"
+                      target="_blank"
+                    >
+                      {" "}
+                      <img style={{ width: "2.5rem" }} src={insta} alt="" />
+                    </a>
                   </div>
                 </div>
               </div>
@@ -521,31 +440,41 @@ function Home() {
           </div>
         </div>
         <div className="footer">
-         <div className="links">
-         <div className="section">
-            <h3>Cources</h3>
-            <ul>
-              <li><a href="#">Trending Now</a></li>
-              <li><a href="#">Team Picks</a></li>
-            </ul>
+          <div className="links">
+            <div className="section">
+              <h3>Cources</h3>
+              <ul>
+                <li>
+                  <a href="#">Trending Now</a>
+                </li>
+                <li>
+                  <a href="#">Team Picks</a>
+                </li>
+              </ul>
+            </div>
+
+            <div className="section">
+              <h3>Events</h3>
+              <ul>
+                <li>
+                  <a href="#">Gallery</a>
+                </li>
+                <li>
+                  <a href="#">Upcoming Events</a>
+                </li>
+                <li>
+                  <a href="#">Sponsors</a>
+                </li>
+              </ul>
+            </div>
           </div>
- 
-          <div className="section">
-            <h3>Events</h3>
-            <ul>
-              <li><a href="#">Gallery</a></li>
-              <li><a href="#">Upcoming Events</a></li>
-              <li><a href="#">Sponsors</a></li>
-            </ul>
-          </div>
-         </div>
         </div>
-              <p>©Mechnido Pvt. Ltd. All Rights Reserved</p>
+        <p>©Mechnido Pvt. Ltd. All Rights Reserved</p>
       </div>
       {signIn && (
         <div className="wrapper">
           <div className="blocker" onClick={close}></div>
-          <SignIn />
+          <SignIn index={index} redirect={redirect} />
         </div>
       )}
     </>

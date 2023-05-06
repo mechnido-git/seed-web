@@ -1,0 +1,49 @@
+.path-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: 1 / 4;
+    grid-row: 2 / 3;
+}
+.path-div > .paths{
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.path-div > .paths .course-path{
+    background-image: url("../../images/path1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.path-div > .paths .event-path{
+    background-image: url("../../images/path2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.path-div > .paths .course-path, .path-div > .paths .event-path{
+    padding: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    transition: .3s;
+}
+.path-div .paths .path{
+    display: flex;
+    flex-direction: column;
+}
+.path-div .paths h2{
+
+    padding: 1rem;
+    margin: 0 auto;
+
+}
+
+.path-div > .paths .course-path:hover, .path-div > .paths .event-path:hover{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}

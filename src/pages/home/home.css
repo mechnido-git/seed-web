@@ -22,6 +22,15 @@
     background-color: rgba(0, 0, 0, 0.2);
 }
 
+.home > .main > .title{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.home > .main > .title > img{
+  width: 600px;
+}
+
 .App > .nav > .options{
   display: flex;
   justify-content: space-between;
@@ -70,12 +79,158 @@
     width: 100%;
 }
 
+#after{
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+#offer::after{
+  content: ">";
+  font-family: monospace;
+  margin-left: 5px;
+  display: inline-block;
+  transform: rotate(90deg);
+}
+
+.App > .nav > .drop-menu{
+  position: relative;
+  display: none;
+  transition: .3s;
+}
+
+.App > .nav > .drop-menu > ul{
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  width: -moz-available;          /* WebKit-based browsers will ignore this. */
+  width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+  width: fill-available;
+  overflow: hidden;
+}
+
+.nav.offer > .drop-menu > ul > li{
+  padding: .5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.nav.offer > .drop-menu > ul > li:hover{
+  background-color: #0055cc;
+  color: white;
+}
+
+.nav.offer > .drop-menu > ul > li.clicked{
+ 
+  background-color: #006aff;
+  color: white;
+}
+
+.nav > .drop-menu > .lists{
+  display: flex;
+  
+}
+.nav.offer > .drop-menu > .lists > ul{
+  list-style: none;
+  color: black;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  width: -moz-available;          /* WebKit-based browsers will ignore this. */
+  width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+  width: fill-available;
+  padding: .5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 10px;
+}
+.nav.offer > .drop-menu > .lists > ul > li{
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  border-radius: 10px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: .2s;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.nav.offer > .drop-menu > .lists > ul > li:hover{
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+.nav.offer > .drop-menu{
+  display: flex;
+  grid-column: 1 / 4;
+  transition: .3s;
+  padding: .5rem;
+  flex-direction: column;
+  gap: 10px;
+}
+.nav.offer  #offer::after{
+  transform: rotate(-90deg);
+}
+
+.nav.offer{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  row-gap: 1rem;
+}
+
 .App > .nav > .account{
     display: flex;
     color: white;
     align-items: center;
     gap: 10px;
     margin-right: 1rem;
+    position: relative;
+    justify-content: flex-end;
+}
+
+.App > .nav > .account > .options{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+  display: none;
+  gap: 7px;
+  position: absolute;
+  width: max-content;
+  top: 50px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+} 
+.App > .nav > .account.clicked > .options{
+  display: flex;
+}
+.App > .nav > .account > .options > ul{
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  
+}
+.App > .nav > .account > .options > h3{
+  margin: 10px 20px;
+}
+.App > .nav > .account > .options > ul > li{
+  padding: .5rem;
+  cursor: pointer;
+  padding: 10px 20px;
+  transition: .2s;
+}
+
+.App > .nav > .account > .options > ul > li:hover{
+  background-color: #0055cc;
+  color: white;
+}
+
+.App > .nav > .account img{
+  cursor: pointer;
+  width: 3rem;
+  border-radius: 50%;
 }
 
 .App > .nav > .account > button {
@@ -117,22 +272,33 @@
   }
 
 .hero{
-    padding: 15rem 10rem;
+    padding: 10rem 10rem;
     background-image: url('../../images/car.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
     background-position: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
-
+.hero > h2{
+  color: white !important;
+  font-size: 35px;
+  margin: 1rem;
+}
 .hero > .btns{
     display: flex;
     flex-direction: column;
     gap: 5px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5rem;
 }
 
 .hero > .btns > button{
-    padding: 1rem 5rem;
+    padding: 1rem 3rem;
     border: 2px solid #006aff;
     background-color: #006aff;
     color: white;
@@ -140,7 +306,30 @@
     font-size: large;
     cursor: pointer;
     transition: .4s;
+    position: relative;
+    display: flex;
+    align-items: center;
+    right: 13%;
 }
+@keyframes swing {
+  from {right: 13%;}
+  to {right: 10%}
+}
+.hero > .btns > button::after{
+  content: ">";
+  margin-left: auto;
+  position: absolute;
+  font-weight: 500;
+  font-size: 1.2rem;
+  animation-name: swing;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
+  font-family: cursive;
+}
+
+
 
 .hero > .btns > button:hover{
     background-color: rgba(255, 255, 255, 0.237);
