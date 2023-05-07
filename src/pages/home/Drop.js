@@ -105,6 +105,10 @@ function Drop({ onClickOutside, show }) {
             <div className="events">
               <ul>
                 <li>
+                <span class="material-symbols-outlined">event_list</span>
+                  Current Events
+                </li>
+                <li>
                   <span class="material-symbols-outlined">event_upcoming</span>
                   Upcoming Events
                 </li>
