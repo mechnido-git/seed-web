@@ -1,32 +1,48 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from "react";
+import { auth } from "../../firebase/config";
+import { signOut } from "firebase/auth";
 
-function ProfileDrop({userName, onClickOutside, show, signOut}) {
-    const ref = useRef()
-    useEffect(() => {
-        const handleClickOutside = (event) => {
-          if (ref.current && !ref.current.contains(event.target)) {
-            onClickOutside && onClickOutside();
-          }
-        };
-        document.addEventListener('click', handleClickOutside);
-        return () => {
-          document.removeEventListener('click', handleClickOutside);
-        };
-      }, [ onClickOutside ]);
+function ProfileDrop({ userName, onClickOutside, show, setLoading }) {
+  const ref = useRef();
 
+  const logout = () => {
+    setLoading(true);
+    signOut(auth)
+      .then(() => {
+        // Sign-out successful.
+        window.location.reload();
+        localStorage.removeItem('cover')
+      })
+      .catch((error) => {
+        // An error happened.
+        setLoading(false);
+      });
+  };
 
-      if(!show) return null
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (ref.current && !ref.current.contains(event.target)) {
+        onClickOutside && onClickOutside();
+      }
+    };
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [onClickOutside]);
+
+  if (!show) return null;
   return (
     <div className="options" ref={ref}>
-                <h3>{userName}</h3>
-                <ul>
-                  <li>My Account</li>
-                  <li>My Courses</li>
-                  <li>My Events</li>
-                  <li onClick={signOut}>Sign Out</li>
-                </ul>
-              </div>
-  )
+      <h3>{userName}</h3>
+      <ul>
+        <li>My Account</li>
+        <li>My Courses</li>
+        <li>My Events</li>
+        <li onClick={logout}>Sign Out</li>
+      </ul>
+    </div>
+  );
 }
 
-export default ProfileDrop
+export default ProfileDrop;

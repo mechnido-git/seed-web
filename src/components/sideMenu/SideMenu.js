@@ -1,25 +1,28 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./sideMenu.css";
-import { Link, useLocation, useOutletContext } from "react-router-dom";
+import { Link, useLocation, useNavigate, useOutletContext } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import RegisterForm from "../RegisterForm";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../firebase/config";
 import SignIn from "../../pages/signin/SignIn";
+import { StoreContext } from "../../store/StoreContext";
 
 function SideMenu() {
   // const {loc, setLoc} = useContext(ToggleContext)
   const [user, setUser] = useState(false);
   const [prev, setPrev] = useState(null);
   const location = useLocation();
-  const loc = location.pathname.split("/");
+  const [loc, setLoc] = useState(location.pathname.split("/"))
   const [section, setSection] = useState(null);
+  const navigator = useNavigate();
 
   // setLoc(location.pathname.split("/"))
   // console.log(loc);
   //const loc = location.pathname.split("/");
   //const [loc, setLoc] = useState()
   const { setSignIn } = useOutletContext();
+  const { change } = useContext(StoreContext)
 
   const toggle = () => {
   //  document.getElementById("menu-options").classList.toggle("disable");
@@ -57,7 +60,7 @@ function SideMenu() {
   }
 
   useEffect(() => {
-    console.log('hi');
+    console.log(change);
     onAuthStateChanged(auth, (user) => {
       if (user) setUser(true);
     });
@@ -66,16 +69,16 @@ function SideMenu() {
     if(loc[loc.length - 1].length == 0) pos = 2;
     switch (loc[loc.length - pos]) {
       case "courses":
-        elem = 0;
-        setSection(0);
+        elem = 1;
+        setSection(1);
         break;
       case "events":
-        setSection(1);
-        elem = 1;
-        break;
-      case "dashboard":
         setSection(2);
         elem = 2;
+        break;
+      case "home":
+        setSection(0);
+        elem = 0;
         break;
       default:
         return;
@@ -127,11 +130,11 @@ function SideMenu() {
         link.removeEventListener("click", click);
       });
     };
-  }, []);
+  }, [change]);
 
   const renderSwitch = (index) => {
     switch (index) {
-      case 0:
+      case 1:
         return (
           <>
             <h3>EXPLORE</h3>
@@ -198,7 +201,7 @@ function SideMenu() {
             </Link>
           </>
         );
-      case 1:
+      case 2:
         return (
           <>
             <h3>MENU</h3>
@@ -253,39 +256,31 @@ function SideMenu() {
   return (
     <div className="side-menu" id="side-menu">
       <div className="min-menu" id="min-menu">
-        <Link to="/home" >
+        <Link to="home" className="link" data-index={0} >
           <span class="material-symbols-outlined">home</span>
           <p>Home</p>
         </Link>
-        <Link to="courses" className="link" data-index={0}>
+        <Link to="courses" className="link" data-index={1}>
           <span class="material-symbols-outlined">school</span>
           <p>Courses</p>
         </Link>
-        <Link to="events" className="link" data-index={1}>
+        <Link to="events" className="link" data-index={2}>
           <span class="material-symbols-outlined">today</span>
           <p>Events</p>
         </Link>
-        <Link to="dashboard" className="link" data-index={2}>
-          <span class="material-symbols-outlined">dashboard</span>
-          <p>Dashboard</p>
-        </Link>
       </div>
       <div className="menu-options disable" id="menu-options">
-        <Link to="/home" data-index={-1}>
+        <Link to="home" className="min-link" data-index={0}>
         <span class="material-symbols-outlined">home</span>
           <div>Home</div>
         </Link>
-        <Link to="courses" className="min-link" data-index={0}>
+        <Link to="courses" className="min-link" data-index={1}>
           <span class="material-symbols-outlined">school</span>
           <div>Courses</div>
         </Link>
-        <Link to="events" className="min-link" data-index={1}>
+        <Link to="events" className="min-link" data-index={2}>
           <span class="material-symbols-outlined">today</span>
           <div>Events</div>
-        </Link>
-        <Link to="dashboard" className="min-link" data-index={2}>
-          <span class="material-symbols-outlined">dashboard</span>
-          <div>Dashboard</div>
         </Link>
         <hr />
         {renderSwitch(section)}

@@ -14,10 +14,10 @@ import { FiPlus } from "react-icons/fi";
 import fb from "../../images/fb.png";
 import insta from "../../images/insta.png";
 import { Link } from "react-router-dom";
-import profile from "../../images/profile.png"
+import profile from "../../images/profile.png";
 import Drop from "./Drop";
 import ProfileDrop from "./ProfileDrop";
-import intro from "../../images/intro.jpg"
+import intro from "../../images/intro.jpg";
 
 function Home() {
   const [signIn, setSignIn] = useState(false);
@@ -28,14 +28,13 @@ function Home() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [msg, setMsg] = useState("");
-  const [dp, setDp] = useState(profile)
+  const [dp, setDp] = useState(profile);
 
   const [index, setIndex] = useState(null);
   const [redirect, setRedirect] = useState(null);
 
-  const [showDrop, setShowDrop] = useState(false)
-  const [profileDrop, setProfileShowDrop] = useState(false)
-
+  const [showDrop, setShowDrop] = useState(false);
+  const [profileDrop, setProfileShowDrop] = useState(false);
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -51,10 +50,46 @@ function Home() {
     });
   }, []);
 
+  const [active1, setActive1] = useState(false);
+  const [active2, setActive2] = useState(false);
+  const [active3, setActive3] = useState(false);
+
+  const contentRef1 = useRef(null);
+  const contentRef2 = useRef(null);
+  const contentRef3 = useRef(null);
+
+  useEffect(() => {
+    contentRef1.current.style.maxHeight = active1
+      ? `${contentRef1.current.scrollHeight}px`
+      : "0px";
+  }, [contentRef1, active1]);
+
+  const toggleAccordion1 = () => {
+    setActive1(!active1);
+  };
+  useEffect(() => {
+    contentRef2.current.style.maxHeight = active2
+      ? `${contentRef2.current.scrollHeight}px`
+      : "0px";
+  }, [contentRef2, active2]);
+
+  const toggleAccordion2 = () => {
+    setActive2(!active2);
+  };
+  useEffect(() => {
+    contentRef3.current.style.maxHeight = active3
+      ? `${contentRef3.current.scrollHeight}px`
+      : "0px";
+  }, [contentRef3, active3]);
+
+  const toggleAccordion3 = () => {
+    setActive3(!active3);
+  };
+
   const goToLink = (link) => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        navigate("/menu/path");
+        navigate("/menu/home");
       } else {
         setRedirect(true);
         setSignIn(true);
@@ -72,19 +107,6 @@ function Home() {
     setSignIn(false);
   };
 
-  const logout = () => {
-    setLoading(true);
-    signOut(auth)
-      .then(() => {
-        // Sign-out successful.
-        window.location.reload();
-      })
-      .catch((error) => {
-        // An error happened.
-        setLoading(false);
-      });
-  };
-
   const toggle = () => {
     const nav = document.getElementById("nav");
     const links = document.querySelectorAll(".links");
@@ -100,20 +122,19 @@ function Home() {
   };
 
   const toggleOffer = (e) => {
-     if(e) e.stopPropagation()
+    if (e) e.stopPropagation();
     const nav = document.getElementById("nav");
     nav.classList.toggle("offer");
-    setShowDrop(!showDrop)
-    if(profileDrop) viewProfile()
-    
+    setShowDrop(!showDrop);
+    if (profileDrop) viewProfile();
   };
 
   const viewProfile = (e) => {
-    if(e) e.stopPropagation()
-    document.getElementById('account').classList.toggle('clicked')
-    setProfileShowDrop(!profileDrop)
-    if(showDrop) toggleOffer()
-  }
+    if (e) e.stopPropagation();
+    document.getElementById("account").classList.toggle("clicked");
+    setProfileShowDrop(!profileDrop);
+    if (showDrop) toggleOffer();
+  };
 
   return (
     <>
@@ -135,19 +156,21 @@ function Home() {
                   About
                 </Link>
               </li>
-              <li className="link">
-                <Link to="/faq" target="_blank">
-                  FAQ
-                </Link>
-              </li>
+              <li id="bell"><span  class="material-symbols-outlined">notifications</span></li>
             </ul>
           </div>
         </div>
+        
         <div className="account" id="account">
           {userName ? (
             <>
               <img src={dp} alt="" onClick={viewProfile} />
-              <ProfileDrop userName={userName} show={profileDrop} onClickOutside={viewProfile} signOut={logout} />
+              <ProfileDrop
+                userName={userName}
+                show={profileDrop}
+                onClickOutside={viewProfile}
+                setLoading={setLoading}
+              />
             </>
           ) : (
             <>
@@ -159,21 +182,22 @@ function Home() {
         <span onClick={toggle} class="material-symbols-outlined">
           menu
         </span>
-           {showDrop && <Drop show={showDrop} onClickOutside={toggleOffer} />}
+        {showDrop && <Drop show={showDrop} onClickOutside={toggleOffer} />}
       </div>
       <div className="home" id="home">
         <div className="hero">
-            <h2>"Revolutionizing Possibilities: A Showcase of Engineering Excellence!"</h2>
+          <h2>
+            "Revolutionizing Possibilities: A Showcase of Engineering
+            Excellence!"
+          </h2>
           <div className="btns">
-            <button onClick={() => goToLink("/menu/courses")}>
-              Get started
-            </button>
+            <button onClick={goToLink}>Get started</button>
           </div>
         </div>
         <div className="main">
           <div className="title">
-            <img src={intro} alt="" />
             <h2>"Engineering the Future: Innovate, Create, and Elevate!"</h2>
+            <img src={intro} alt="" />
           </div>
           <div className="slides-achievements">
             <div id="achievements"></div>
@@ -333,6 +357,85 @@ function Home() {
                 <p>Rahul Kumar</p>
               </SplideSlide>
             </Splide>
+          </div>
+          <div className="faq">
+            <div id="faq"></div>
+            <h2>FAQ</h2>
+            <div>
+              <button
+                className={`question-section ${active1}`}
+                onClick={toggleAccordion1}
+              >
+                <div>
+                  <div className="question-align">
+                    <h4 className="question-style">
+                      Why do you like web developemnt
+                    </h4>
+                    <FiPlus
+                      className={
+                        active1 ? `question-icon rotate` : `question-icon`
+                      }
+                    />
+                  </div>
+                  <div
+                    ref={contentRef1}
+                    className={active1 ? `answer answer-divider` : `answer`}
+                  >
+                    <p>Because I love coding</p>
+                  </div>
+                </div>
+              </button>
+            </div>
+            <div>
+              <button
+                className={`question-section ${active2}`}
+                onClick={toggleAccordion2}
+              >
+                <div>
+                  <div className="question-align">
+                    <h4 className="question-style">
+                      Why do you like web developemnt
+                    </h4>
+                    <FiPlus
+                      className={
+                        active2 ? `question-icon rotate` : `question-icon`
+                      }
+                    />
+                  </div>
+                  <div
+                    ref={contentRef2}
+                    className={active2 ? `answer answer-divider` : `answer`}
+                  >
+                    <p>Because I love coding</p>
+                  </div>
+                </div>
+              </button>
+            </div>
+            <div>
+              <button
+                className={`question-section ${active3}`}
+                onClick={toggleAccordion3}
+              >
+                <div>
+                  <div className="question-align">
+                    <h4 className="question-style">
+                      Why do you like web developemnt
+                    </h4>
+                    <FiPlus
+                      className={
+                        active3 ? `question-icon rotate` : `question-icon`
+                      }
+                    />
+                  </div>
+                  <div
+                    ref={contentRef3}
+                    className={active3 ? `answer answer-divider` : `answer`}
+                  >
+                    <p>Because I love coding</p>
+                  </div>
+                </div>
+              </button>
+            </div>
           </div>
           <div className="get-in-touch">
             <div id="get-in-touch"></div>

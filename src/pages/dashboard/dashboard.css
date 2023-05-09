@@ -5,7 +5,23 @@
     overflow-y: auto;
     grid-column: 2 / 4;
     gap: 1rem;
+    position: relative;
 }
+
+.dashboard > .cover{
+  position: absolute;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  background-color: white;
+  height: 90vh;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+
 
 .dashboard > .main{
     display: flex;

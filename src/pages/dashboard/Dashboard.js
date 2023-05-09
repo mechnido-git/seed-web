@@ -9,6 +9,7 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 import { Link } from "react-router-dom";
 import slide from "../../images/slide.jpg";
 import { trending } from "../courses/CoursesHome";
+import Path from "../path/Path";
 
 function Dashboard() {
   const [loading, setLoading] = useState(true);
@@ -18,7 +19,9 @@ function Dashboard() {
   const [uid, setUid] = useState();
   const [email, setEmail] = useState("");
   const [events, setEvents] = useState([]);
+  const [cover, setCover] = useState(localStorage.getItem('cover'))
   const navigate = useNavigate();
+  console.log(cover);
 
   const CardBuilder = ({ arr, limit }) => (
     <>
@@ -113,6 +116,12 @@ function Dashboard() {
    }
     `);
   }, []);
+
+  const skipCover = () =>{
+    localStorage.setItem('cover', true)
+    setCover(true)
+  }
+
   return (
     <div className="dashboard">
       {loading ? (
@@ -175,6 +184,9 @@ function Dashboard() {
                   </div>
                 </div>
               </div>
+             { !cover &&  <div className="cover">
+                <Path setCover={setCover} skip={skipCover} />
+              </div>}
             </>
           ) : (
             <div className="not-logged">

@@ -1,43 +1,41 @@
-.about-container > .about{
+.about-container > .about > section{
     display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    margin: 2rem;
+    grid-template-columns: 1fr 1fr;
+    margin: 1rem;
     justify-content: center;
     justify-items: center;
     position: relative;
-    row-gap: 2rem;
     box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
-    padding: 1rem 0;
+    padding: 2rem;
+    align-items: center;
   }
 
   .about-container{
-    height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 
   }
   .about-container  > .about h2{
     color: #484D57;
+    font-size: 1.4rem;
   }
   .about-container > .about p{
     color: #727984;
+    font-size: 1.1rem;
   }
 
-  .about > .left{
+  .about > section .details{
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    padding: 1rem 2rem;
-    max-width: 80%;
   }
 
-  .about > .right{
+  .about > section .logo{
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
-  .about > .right > img{
+  .about > section .logo > img{
     width: 20rem;
   }
 
@@ -90,20 +88,20 @@
   }
 
   @media only screen and (max-width: 840px){
-    .about-container > .about{
+    .about-container > .about > section{
         grid-template-columns: 1fr;
       }
     
-      .about-container > .about > .left > h2{
+      .about-container > .about > section > .details > h2{
         font-size: 1.2rem;
       }
     
-      .about-container > .about > .right > img{
+      .about-container > .about > section > .logo > img{
         width: 15rem;
       }
     
-        .about-container >  .about > .left{
-        padding: .5rem;
+        .about-container >  .about > section > .details{
+        padding: 1rem;
         max-width: 100%;
         grid-row: 2 / 3;
       }

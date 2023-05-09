@@ -53,6 +53,7 @@
     display: flex;
     gap: 20px;
     color: white;
+    align-items: center;
 }
 
 .App > .nav  .links > ul > li{
@@ -71,11 +72,11 @@
     margin-top: 20px;
 }
 
-.App > .nav  .links > ul > li:hover{
+.App > .nav  .links > ul > li:hover:not(#bell){
     color: #006aff;
 }
 
-.App > .nav  .links > ul > li:hover::before{
+.App > .nav  .links > ul > li:hover::before:not(#bell){
     width: 100%;
 }
 
@@ -317,7 +318,6 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   display: flex;
   flex-direction: column;
   width: 100%;
-  
 }
 .App > .nav > .account > .options > h3{
   margin: 10px 20px;
@@ -329,7 +329,7 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   transition: .2s;
 }
 
-.App > .nav > .account > .options > ul > li:hover{
+.App > .nav > .account > .options > ul > li:hover:not(span){
   background-color: #0055cc;
   color: white;
 }
@@ -585,15 +585,6 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     top: -100px;
   }
 
-  .about{
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    margin: 2rem;
-    justify-content: center;
-    justify-items: center;
-    position: relative;
-    row-gap: 2rem;
-  }
 
   .about > .left{
     display: flex;
@@ -867,7 +858,7 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
       gap: 1.5rem;
     }
 
-    .home > .main > .about{
+    .home > .main > .about > section{
       grid-template-columns: 1fr;
     }
 
@@ -879,12 +870,12 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
       width: 15rem;
     }
 
-    .about > .left{
+    .about > section > .left{
       padding: .5rem;
       max-width: 100%;
       grid-row: 2 / 3;
     }
-    .get-in-touch > .content > .cards, .about{
+    .get-in-touch > .content > .cards, .about > section{
       margin: .5rem;
     }
 
