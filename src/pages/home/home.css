@@ -31,7 +31,7 @@
   width: 600px;
 }
 
-.App > .nav > .options{
+.App > .nav .options{
   display: flex;
   justify-content: space-between;
   gap: 20px;
@@ -43,7 +43,7 @@
     align-items: center;
 }
 
-.App > .nav >a> img{
+.App > .nav a > img{
     width: 4rem;
     margin-left: 1rem;
 }
@@ -62,6 +62,11 @@
     cursor: pointer;
 }
 
+.App .nav > .left{
+  display: flex;
+  gap: 20px;
+}
+
 .App > .nav  .links > ul > li::before{
     transition: 300ms;
     height: 2px;
@@ -76,7 +81,7 @@
     color: #006aff;
 }
 
-.App > .nav  .links > ul > li:hover::before:not(#bell){
+.App > .nav  .links > ul > li:hover::before{
     width: 100%;
 }
 
@@ -95,13 +100,13 @@
   transform: rotate(90deg);
 }
 
-.App > .nav > .drop-menu{
+.App > .nav .drop-menu{
   position: relative;
   display: none;
   transition: .3s;
 }
 
-.App > .nav > .drop-menu > ul{
+.App > .nav .drop-menu > ul{
   list-style: none;
   display: flex;
   background-color: rgb(255, 255, 255);
@@ -112,7 +117,7 @@
   background-color: #f5f5f5;
 }
 
-.nav.offer > .drop-menu > ul > li{
+.nav.offer .drop-menu > ul > li{
   padding: 1rem;
   text-align: center;
   cursor: pointer;
@@ -123,7 +128,7 @@
   align-items: center;
 }
 
-.nav.offer > .drop-menu > ul > li.clicked::after{
+.nav.offer .drop-menu > ul > li.clicked::after{
   content: "";
   background-color: #0055cc;
   height: 3px;
@@ -141,18 +146,18 @@
  
 }
 
-.nav > .drop-menu > .lists{
+.nav .drop-menu > .lists{
   display: flex;
 }
 
-.nav > .drop-menu > .lists > div{
+.nav .drop-menu > .lists > div{
   display: grid;
   grid-template-columns: auto 1fr;
   column-gap: 10px;
   width: 100%;
 }
 
-.nav.offer > .drop-menu > .lists ul{
+.nav.offer .drop-menu > .lists ul{
   list-style: none;
   color: black;
   background-color: rgb(255, 255, 255);
@@ -167,7 +172,7 @@
   position: relative;
 }
 
-.nav.offer > .drop-menu > .lists ul::after{
+.nav.offer .drop-menu > .lists ul::after{
   content: "";
   background-color: #484d576b;
   position: absolute;
@@ -177,7 +182,7 @@
   box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
 }
 
-.nav.offer > .drop-menu > .lists ul > li{
+.nav.offer .drop-menu > .lists ul > li{
   box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
   border-radius: 10px;
   padding: .5rem 1rem;
@@ -190,12 +195,12 @@
   padding-right: 3rem;
 }
 
-.nav.offer > .drop-menu > .lists ul > li:hover{
+.nav.offer .drop-menu > .lists ul > li:hover{
   background-color: #006aff;
   color: white;
 }
 
-.nav.offer > .drop-menu > .lists ul > li:hover::after{
+.nav.offer .drop-menu > .lists ul > li:hover::after{
   content: ">";
   margin-left: auto;
   position: absolute;
@@ -209,7 +214,7 @@
   font-family: cursive;
 }
 
-.nav.offer > .drop-menu{
+.nav.offer .drop-menu{
   display: flex;
   grid-column: 1 / 4;
   transition: .3s;
@@ -228,9 +233,10 @@
   grid-template-columns: auto auto auto;
   row-gap: 1rem;
   justify-items: center;
+  justify-content: center;
 }
 
-.nav.offer > .drop-menu > .lists .cards{
+.nav.offer .drop-menu > .lists .cards{
   background-color: white;
   border-radius: 10px;
   padding: .5rem;
@@ -240,7 +246,7 @@
   align-content: flex-start;
 }
 
-.nav.offer > .drop-menu > .lists .cards > .card{
+.nav.offer .drop-menu > .lists .cards > .card{
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
   border-radius: 5px;
   display: flex;
@@ -250,12 +256,12 @@
   color: #727984;
 }
 
-.nav.offer > .drop-menu > .lists .cards > .card > .body > h4{
+.nav.offer .drop-menu > .lists .cards > .card > .body > h4{
   color: #484D57;
   font-size: 15px;
 }
 
-.nav.offer > .drop-menu > .lists .cards > .card > .body > p{
+.nav.offer .drop-menu > .lists .cards > .card > .body > p{
   color: #727984;
   font-size: 12px;
 
@@ -266,12 +272,12 @@ transform: translateY(-8px);
 box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;   
 } */
 
-.nav.offer > .drop-menu > .lists .cards > .card > img{
+.nav.offer .drop-menu > .lists .cards > .card > img{
   width: 100%;
   align-self: center;
 }
 
-.nav.offer > .drop-menu > .lists .cards > .card > .body{
+.nav.offer .drop-menu > .lists .cards > .card > .body{
   display: flex;
   flex-direction: column;
   padding: 1rem;
@@ -279,14 +285,14 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   height: 100%;
 }
 
-.nav.offer > .drop-menu > .lists .cards > .card > .body > div{
+.nav.offer .drop-menu > .lists .cards > .card > .body > div{
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 10px;
 }
 
-.App > .nav > .account{
+.App > .nav .account{
     display: flex;
     color: white;
     align-items: center;
@@ -296,7 +302,7 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     justify-content: flex-end;
 }
 
-.App > .nav > .account > .options{
+.App > .nav .account > .options{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -310,37 +316,37 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   top: 50px;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 } 
-.App > .nav > .account.clicked > .options{
+.App > .nav  .account.clicked > .options{
   display: flex;
 }
-.App > .nav > .account > .options > ul{
+.App > .nav .account > .options > ul{
   list-style: none;
   display: flex;
   flex-direction: column;
   width: 100%;
 }
-.App > .nav > .account > .options > h3{
+.App > .nav .account > .options > h3{
   margin: 10px 20px;
 }
-.App > .nav > .account > .options > ul > li{
+.App > .nav .account > .options > ul > li{
   padding: .5rem;
   cursor: pointer;
   padding: 10px 20px;
   transition: .2s;
 }
 
-.App > .nav > .account > .options > ul > li:hover:not(span){
+.App > .nav .account > .options > ul > li:hover:not(span){
   background-color: #0055cc;
   color: white;
 }
 
-.App > .nav > .account img{
+.App > .nav .account img{
   cursor: pointer;
   width: 3rem;
   border-radius: 50%;
 }
 
-.App > .nav > .account > button {
+.App > .nav .account > button {
     --color: #fff;
     font-family: inherit;
     display: inline-block;
@@ -358,11 +364,11 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     cursor: pointer;
   }
 
-  .App > .nav > .account > button:hover{
+  .App > .nav .account > button:hover{
     background-color: #0055cc;
   }
   
-  .App > .nav > .account > button::before {
+  .App > .nav .account > button::before {
     position: absolute;
     content: "";
     background: var(--color);
@@ -372,10 +378,27 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     border-radius: 50%;
   }
   
-  .App > .nav > .account > button:before {
+  .App > .nav .account > button:before {
     top: 100%;
     left: 100%;
     transition: .3s all;
+  }
+
+  .nav.offer > .right{
+    grid-column: 3 / 4;
+  }
+
+  .App .nav > .right{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+
+  #bell, #search{
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
   }
 
 .hero{
@@ -721,7 +744,7 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     width: 100%;
   }
 
-   .nav  > span{
+   .nav  #menu{
     color: white;
     font-size: 3rem;
     margin-right: 1rem;
@@ -778,16 +801,16 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   }
 
   @media only screen and (max-width: 840px){
-     .App > .nav > .options > .links > ul{
+     .App > .nav .options > .links > ul{
       display: none;
     }
 
-     .App > .nav > span{
+     .App > .nav #menu{
       display: block;
       font-size: 40px;
     }
 
-     .App > .nav > a > img{
+     .App > .nav a > img{
       width: 3rem;
     }
 
@@ -795,11 +818,11 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
       justify-content: space-between;
     }
 
-     .App > .nav > .account{
+     .App > .nav .account{
       margin-left: auto;
     }
 
-     .App > .nav.toggle > .options{
+     .App > .nav.toggle .options{
       justify-content: start;
       padding: 15px;
       gap: 1rem;
@@ -813,31 +836,31 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
       column-gap: 10px;
     }
 
-     .App > .nav.toggle > span{
+     .App > .nav.toggle span{
       grid-column: 3 / 4;
       grid-row: 1 / 2 ;
     }
 
-     .App > .nav.toggle > .options ul{
+     .App > .nav.toggle .options ul{
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 1.5rem;
     }
 
-     .App > .nav.toggle > .account{
+     .App > .nav.toggle .right{
       display: flex;
       grid-column: 2 / 3;
       grid-row: 1 / 2;
       margin-right: 0;
 
     }
-     .App > .nav.toggle > .options > .links{
+     .App > .nav.toggle .options > .links{
       flex-direction: column;
       align-items: start;
       margin: 0 auto;
     }
-   .App > .nav.toggle > .options{
+   .App > .nav.toggle .options{
       flex-direction: column-reverse;
       grid-column: 1 / 4;
       grid-row: 2 / 3;

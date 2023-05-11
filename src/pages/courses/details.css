@@ -1,0 +1,89 @@
+.course-details{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 20px;
+    overflow-y: scroll;
+    grid-column: 2 / 4;
+}
+
+.course-details > img{
+    width: 30rem;
+    margin: 0 auto;
+}
+
+.course-details > .details{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    font-size: 1.1rem;
+    margin: 1rem 0;
+
+}
+
+.course-details > .details > .description{
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.course-details > .details > .duration{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.course-details > .schedule{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+.course-details .main > ol{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.course-details .main > ol > li{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    cursor: pointer;
+}
+
+
+.course-details .main > ol > li > ul{
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    margin: 1rem 2rem;
+}
+
+.course-details .main > ol > li.show > ul{
+    display: flex;
+}
+.course-details .main > ol > li > h4{
+    padding: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
+}
+
+.course-details .main > ol > li > h4::after{
+    content: ">";
+    display: inline-block;
+    transform: rotate(90deg);
+    font-family: cursive;
+    font-size: 1.2rem;
+    margin: 0 1rem;
+    transition: .3s;
+    transform-origin: center center;
+}
+
+.course-details .main > ol > li.show > h4::after{
+    transform: rotate(270deg);
+}

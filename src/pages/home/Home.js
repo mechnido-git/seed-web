@@ -140,49 +140,55 @@ function Home() {
     <>
       {loading && <Spinner loading={loading} />}
       <div className="nav" id="nav">
-        <HashLink to="/home/#home" smooth>
-          <img src={logo} alt="" />
-        </HashLink>
-        <div className="options">
-          <div className="links">
-            <ul>
-              <li className="link">
-                <Link to="#" id="offer" onClick={toggleOffer}>
-                  Offerings
-                </Link>
-              </li>
-              <li className="link">
-                <Link to="/about" target="_blank">
-                  About
-                </Link>
-              </li>
-              <li id="bell"><span  class="material-symbols-outlined">notifications</span></li>
-            </ul>
+        <div className="left">
+          <HashLink to="/home/#home" smooth>
+            <img src={logo} alt="" />
+          </HashLink>
+          <div className="options">
+            <div className="links">
+              <ul>
+                <li className="link">
+                  <Link to="#" id="offer" onClick={toggleOffer}>
+                    Offerings
+                  </Link>
+                </li>
+                <li className="link">
+                  <Link to="/about">
+                    About
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
-        
-        <div className="account" id="account">
-          {userName ? (
-            <>
-              <img src={dp} alt="" onClick={viewProfile} />
-              <ProfileDrop
-                userName={userName}
-                show={profileDrop}
-                onClickOutside={viewProfile}
-                setLoading={setLoading}
-              />
-            </>
-          ) : (
-            <>
-              <button onClick={() => popup(false)}>Sign In</button>
-              <button onClick={() => popup(true)}>Sign Up</button>
-            </>
-          )}
+        <div className="right">
+          <span id="search" class="material-symbols-outlined">search</span>
+          <span id="bell" class="material-symbols-outlined">
+            campaign
+          </span>
+          <div className="account" id="account">
+            {userName ? (
+              <>
+                <img src={dp} alt="" onClick={viewProfile} />
+                <ProfileDrop
+                  userName={userName}
+                  show={profileDrop}
+                  onClickOutside={viewProfile}
+                  setLoading={setLoading}
+                />
+              </>
+            ) : (
+              <>
+                <button onClick={() => popup(false)}>Sign In</button>
+                <button onClick={() => popup(true)}>Sign Up</button>
+              </>
+            )}
+          </div>
+          <span onClick={toggle} id="menu" class="material-symbols-outlined">
+            menu
+          </span>
         </div>
-        <span onClick={toggle} class="material-symbols-outlined">
-          menu
-        </span>
-        {showDrop && <Drop show={showDrop} onClickOutside={toggleOffer} />}
+          {showDrop && <Drop show={showDrop} onClickOutside={toggleOffer} />}
       </div>
       <div className="home" id="home">
         <div className="hero">

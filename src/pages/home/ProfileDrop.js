@@ -6,6 +6,7 @@ function ProfileDrop({ userName, onClickOutside, show, setLoading }) {
   const ref = useRef();
 
   const logout = () => {
+    console.log('ho');
     setLoading(true);
     signOut(auth)
       .then(() => {

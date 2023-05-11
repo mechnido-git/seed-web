@@ -4,8 +4,9 @@ import courses from "../../images/courses.jpg";
 import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
 import image from "../../images/slide.jpg";
 import "@splidejs/react-splide/css";
-import { useOutletContext } from "react-router-dom";
+import { useNavigate, useOutletContext } from "react-router-dom";
 import Spinner from "../../components/Spinner";
+import { StoreContext } from "../../store/StoreContext";
 
 export const recomended = [
   {
@@ -93,19 +94,18 @@ export const trending = [
   },
 ];
 
-export const CardBuilder = ({ arr, limit }) => (
+export const CardBuilder = ({ arr, limit, viewDetails }) => (
   <>
     {arr.map((item, index) => {
       if (limit != null && index >= limit) return;
       return (
-        <div className="card" key={index}>
-          <img src={item.thumbnail} alt="" />
+        <div className="card" key={index} onClick={()=>viewDetails(index)}>
+          <img src={require("../../images/courses.jpg")} alt="" />
           <div className="body">
             <h4>{item.name}</h4>
             <p>{item.description}</p>
             <div>
-              <p>Free plan</p>
-              <h5>Rating:{item.rating}</h5>
+              {item.rating && <h5>Rating:{item.rating}</h5>}
             </div>
           </div>
         </div>
@@ -146,7 +146,11 @@ export const addIcon = (item) => {
 function CoursesHome() {
   const [filter, setFilter] = useState("All");
   const [loading, setLoading] = useState(true);
-  const {register, setRegister} = useOutletContext();
+  const { register, setRegister } = useOutletContext();
+
+  const {courseList} = useContext(StoreContext)
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     const arrows = document.querySelectorAll(".splide__arrow");
@@ -177,7 +181,9 @@ function CoursesHome() {
     setFilter(filter === "All" ? item : filter == item ? "All" : item);
   };
 
-
+  const viewDetails = (index) => {
+    navigate(`/menu/courses/details/${index}`)
+  } 
 
   return (
     <>
@@ -198,7 +204,7 @@ function CoursesHome() {
                   keyboard: true,
                   gap: "1rem",
                   width: "100%",
-                  pagination: window.innerWidth < 770? false: true ,
+                  pagination: window.innerWidth < 770 ? false : true,
                 }}
               >
                 <SplideSlide>
@@ -271,10 +277,9 @@ function CoursesHome() {
                 <h2>Trending Now</h2>
                 <div className="card-container-div">
                   <CardBuilder
-                    arr={trending.filter((item) =>
-                      filter === "All" ? item : filter == item.category
-                    )}
+                    arr={courseList}
                     limit={4}
+                    viewDetails={viewDetails}
                   />
                 </div>
               </div>

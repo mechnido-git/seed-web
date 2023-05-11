@@ -17,6 +17,7 @@ import Dashboard from "./pages/dashboard/Dashboard";
 import Store from "./store/StoreContext";
 import About from "./pages/About/About";
 import Path from "./pages/path/Path";
+import CourseDetails from "./pages/courses/CourseDetails";
 
 function Router() {
   return (
@@ -30,6 +31,7 @@ function Router() {
             <Route index element={<Navigate to='courses' />} />
             <Route exaact path="home" element={<Dashboard />} />
             <Route exact path="courses" element={<CoursesHome />} />
+            <Route exact path="courses/details/:index" element={<CourseDetails />} />
             <Route path="events" element={<EventIndex />} />
             <Route path="events/:eventId" element={<EventConfig />} />
             <Route path="event-config/:eventId" element={<EventConfig />} />

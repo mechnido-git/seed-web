@@ -76,7 +76,7 @@ function Navbar({signIn}) {
           {userName ? (
             <>
               <img referrerpolicy="no-referrer" src={dp} alt="" onClick={viewProfile} />
-              <ProfileDrop userName={userName} show={profileDrop} onClickOutside={viewProfile} signOut={logout} />
+              <ProfileDrop userName={userName} setLoading={setLoading} show={profileDrop} onClickOutside={viewProfile} signOut={logout} />
             </>
           ) : (
             <>
