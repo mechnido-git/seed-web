@@ -169,7 +169,7 @@ function Home() {
           <div className="account" id="account">
             {userName ? (
               <>
-                <img src={dp} alt="" onClick={viewProfile} />
+                <img src={dp} referrerPolicy="no-referrer" alt="" onClick={viewProfile} />
                 <ProfileDrop
                   userName={userName}
                   show={profileDrop}

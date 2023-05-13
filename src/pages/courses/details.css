@@ -1,79 +1,201 @@
 .course-details{
     display: flex;
     flex-direction: column;
-    padding: 1rem;
     gap: 20px;
-    overflow-y: scroll;
+    overflow-y: auto;
     grid-column: 2 / 4;
+    padding: 2rem 9rem;
 }
 
-.course-details > img{
-    width: 30rem;
-    margin: 0 auto;
-}
-
-.course-details > .details{
+.course-details > .hero{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    font-size: 1.1rem;
-    margin: 1rem 0;
-
+    padding: 1rem 0;
+    padding-top: 3rem;
+    gap: 2rem;
 }
 
-.course-details > .details > .description{
-    padding: 2rem 1rem;
+.course-details .title > h1{
+    font-size: 55px;
+    line-height: 113%;
+    font-weight: 600;
+    margin: 2rem 0;
+}
+
+.course-details .title > p{
+    font-size: 17px;
+    line-height: 26px;
+    font-weight: 400;
+}
+
+.course-details > .hero > .course{
+    display: flex;
+    justify-content: center;
+    
+}
+
+.course-details > .hero > .course > .card, .course-details > .explore > .content > .card{
     display: flex;
     flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px ;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: white;
+}
+
+.course-details > .hero > .course > .card > img,  .course-details > .explore > .content > .card img{
+    width: 20rem;
+}
+
+.course-details > .hero > .course > .card > .body,  .course-details > .explore > .content > .card > .body{
+    padding: 1rem;
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+}
+
+.course-details > .hero > .course > .card > .body > ul,  .course-details > .explore > .content > .card > .body > ul{
+    list-style-position: inside;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.course-details > .hero > .course > .card > .body > h3,  .course-details > .explore > .content > .card > .body > h3{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.course-details > .hero > .course > .card > button, .course-details .title button,  .course-details > .explore > .content > .card > button{
+    padding: .8rem 4rem;
+    font-size: 20px;
+    font-weight: 500;
+    border-radius: 5px;
+    border: 2px solid #006aff;
+    background-color: #006aff;
+    color: white;
+    cursor: pointer;
+    margin:  1rem auto;
+    transition: .2s;
+}
+
+.course-details > .hero > .course > .card > button:hover, .course-details .title button:hover,  .course-details > .explore > .content > .card > button:hover{
+    color: #006aff;
+    background-color: white;
+}
+
+.fee-li{
+    display: inline-grid;
+    gap: 10px;
+    grid-template-columns: 1fr auto 1fr;
+}
+
+.course-details > .about > h2, .course-details > .explore h2{
+    font-size: 38px;
+    margin: 1rem 0;
+}
+
+.course-details > .about > .details{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 20px;
 }
 
-.course-details > .details > .duration{
+.course-details > .about > .details > .left{
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
+    
+
+}
+.course-details > .about > .details > .left > p{
+    font-size: 17px;
+    line-height: 24px;
+    font-weight: 400;
+}
+
+.course-details > .about > .details > .right{
+    display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.course-details > .schedule{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-
+.course-details > .about > .details > .right > img{
+    width: 25rem;
+    border-top-left-radius: 90%;
+    border-end-end-radius: 90%;
+    border-bottom-left-radius: 90%;
+    border-top-right-radius: 60%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
 }
 
-.course-details .main > ol{
+.course-details > .explore{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.course-details > .explore > .content{
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 20px;
+    align-items: start;
+}
+
+.course-details > .explore > .content > .card{
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+}
+
+.course-details > .explore .main > ol{
     display: flex;
     flex-direction: column;
     gap: 10px;
     margin: 10px 0;
 }
 
-.course-details .main > ol > li{
+.course-details > .explore .main > ol > li{
     display: flex;
     flex-direction: column;
     gap: 10px;
     cursor: pointer;
+    background-color: white;
+    border-radius: 10px;
 }
 
 
-.course-details .main > ol > li > ul{
+.course-details > .explore .main > ol > li > ul{
     display: none;
     flex-direction: column;
     gap: 10px;
-    margin: 1rem 2rem;
+    padding: 1rem 2rem;
+    list-style-position: inside;
 }
 
-.course-details .main > ol > li.show > ul{
+.course-details > .explore .main > ol > li.show > ul{
     display: flex;
 }
-.course-details .main > ol > li > h4{
-    padding: 1rem;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
+.course-details > .explore .main > ol > li > h4{
+    padding: 1.5rem;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+    color: white;
+    border-radius: 10px;
+    font-size: 22px;
+    background-color: #006aff;
+
 }
 
-.course-details .main > ol > li > h4::after{
+.course-details > .explore .main > ol > li.show {
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+}
+.course-details > .explore .main > ol > li.show > h4{
+    box-shadow: none;
+}
+
+.course-details > .explore  .main > ol > li > h4::after{
     content: ">";
     display: inline-block;
     transform: rotate(90deg);
@@ -84,6 +206,6 @@
     transform-origin: center center;
 }
 
-.course-details .main > ol > li.show > h4::after{
+.course-details > .explore .main > ol > li.show > h4::after{
     transform: rotate(270deg);
 }

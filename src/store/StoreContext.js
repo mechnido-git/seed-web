@@ -21,6 +21,20 @@ const Store = ({children}) => {
             "The topics are explained using product development strategy. Moreover, in this session students get brief explanation of new product trends and opportunities.",
           ],
           duration: ["Day 01 - 06 Hrs", "Day 02 - 06 Hrs", "Day 03 - 06 Hrs"],
+          fee: [
+            {
+              type: "One Day",
+              price: 200
+            },
+            {
+              type: "Two Days",
+              price: 350
+            },
+            {
+              type: "Three Days",
+              price: 450
+            },
+          ],
           schedule: [
             {
               name: "Day 01",
