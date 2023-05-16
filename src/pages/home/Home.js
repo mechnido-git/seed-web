@@ -162,10 +162,6 @@ function Home() {
           </div>
         </div>
         <div className="right">
-          <span id="search" class="material-symbols-outlined">search</span>
-          <span id="bell" class="material-symbols-outlined">
-            campaign
-          </span>
           <div className="account" id="account">
             {userName ? (
               <>

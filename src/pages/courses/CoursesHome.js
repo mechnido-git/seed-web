@@ -146,7 +146,10 @@ export const addIcon = (item) => {
 function CoursesHome() {
   const [filter, setFilter] = useState("All");
   const [loading, setLoading] = useState(true);
+
+  const [currentSlide, setCurrentSlide] = useState(0);
   const { register, setRegister } = useOutletContext();
+
 
   const {courseList} = useContext(StoreContext)
 
@@ -181,8 +184,8 @@ function CoursesHome() {
     setFilter(filter === "All" ? item : filter == item ? "All" : item);
   };
 
-  const viewDetails = (index) => {
-    navigate(`/menu/courses/details/${index}`)
+  const viewDetails = () => {
+    navigate(`/menu/courses/details/${currentSlide}`)
   } 
 
   return (
@@ -197,7 +200,6 @@ function CoursesHome() {
                 tag="section"
                 aria-labelledby="My Favorite Images"
                 options={{
-                  type: "loop",
                   speed: 1000,
                   pauseOnHover: false,
                   pauseOnFocus: true,
@@ -206,46 +208,18 @@ function CoursesHome() {
                   width: "100%",
                   pagination: window.innerWidth < 770 ? false : true,
                 }}
+                onMove={(splide, prev, next) => {
+                  setCurrentSlide(splide.index);
+                }}
               >
-                <SplideSlide>
-                  <img
-                    style={{ objectFit: "contain", width: "100%" }}
-                    src={image}
-                    alt="Image 1"
-                  />
-                </SplideSlide>
-                <SplideSlide>
-                  <img
-                    style={{ objectFit: "contain", width: "100%" }}
-                    src={image}
-                    alt="Image 1"
-                  />
-                </SplideSlide>
-                <SplideSlide>
-                  <img
-                    style={{ objectFit: "contain", width: "100%" }}
-                    src={image}
-                    alt="Image 1"
-                  />
-                </SplideSlide>
-                <SplideSlide>
-                  <img
-                    style={{ objectFit: "contain", width: "100%" }}
-                    src={image}
-                    alt="Image 2"
-                  />
-                </SplideSlide>
-                <SplideSlide>
-                  <img
-                    style={{ objectFit: "contain", width: "100%" }}
-                    src={image}
-                    alt="Image 2"
-                  />
-                </SplideSlide>
+                {courseList.map((item, i)=><SplideSlide key={i}>
+                  <img src={item.slide} style={{ objectFit: "contain", width: "100%" }} alt="" />
+                </SplideSlide>)}
               </Splide>
 
               <div className="btns">
                 <button>Register</button>
+                <button onClick={viewDetails}>Know more</button>
               </div>
             </div>
             <div className="fixed">
@@ -277,9 +251,10 @@ function CoursesHome() {
                 <h2>Trending Now</h2>
                 <div className="card-container-div">
                   <CardBuilder
-                    arr={courseList}
+                    arr={trending.filter((item) =>
+                      filter === "All" ? item : filter == item.category
+                    )}
                     limit={4}
-                    viewDetails={viewDetails}
                   />
                 </div>
               </div>

@@ -395,11 +395,7 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   }
 
 
-  #bell, #search{
-    color: white;
-    font-size: 2rem;
-    cursor: pointer;
-  }
+
 
 .home > .hero{
     padding: 10rem 10rem;
@@ -465,7 +461,6 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     background-color: rgba(255, 255, 255, 0.237);
     border: 2px solid white;
     backdrop-filter: blur(4px);
-    
 }
 
 .home > .main{

@@ -3,13 +3,15 @@ import { useLocation, useParams } from "react-router-dom";
 import { StoreContext } from "../../store/StoreContext";
 import img from "../../images/courses.jpg";
 import side from "../../images/side.jpg";
-import cert from "../../images/cert.jpg"
+import cert from "../../images/cert.jpg";
 
 import "./details.css";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
+import { HashLink } from "react-router-hash-link";
 
 function CourseDetails() {
   const { index } = useParams();
+  const loc = useLocation();
 
   const { courseList } = useContext(StoreContext);
 
@@ -25,9 +27,14 @@ function CourseDetails() {
     <div className="course-details">
       <div className="hero">
         <div className="title">
-          <h1>{data.name}</h1>
+          <h1>
+            The Flagship <br />
+            {data.name}
+          </h1>
           <p>{data.description}</p>
-          <button>Explore</button>
+          <HashLink to={`${loc.pathname}/#explore`} smooth>
+            Explore
+          </HashLink>
         </div>
         <div className="course">
           <div className="card">
@@ -75,7 +82,7 @@ function CourseDetails() {
           </div>
         </div>
       </div>
-      <div className="explore">
+      <div className="explore" id="explore">
         <h2>Explore the course</h2>
         <div className="content">
           <div className="topics">
@@ -130,10 +137,40 @@ function CourseDetails() {
         </div>
       </div>
       <div className="certificate">
-        <h2>Certificate <span class="material-symbols-outlined">workspace_premium</span></h2>
-        <h3>{data.certificate.title}</h3>
+        <h2>
+          Certificate{" "}
+          <span class="material-symbols-outlined">workspace_premium</span>
+        </h2>
         <div className="content">
-            <ul>{data.certificate.sub.map((item, i)=><li key={i}>{item}</li>)}</ul>
+          <div className="details">
+            <h3>{data.certificate.title}</h3>
+            <ul>
+              {data.certificate.sub.map((item, i) => (
+                <li key={i}>{item}</li>
+              ))}
+            </ul>
+          </div>
+          <img src={cert} alt="" />
+        </div>
+      </div>
+      <div className="metrics">
+        <h2>Our Metrics</h2>
+        <div className="content">
+          <div className="section">
+            <span class="material-symbols-outlined">groups</span>
+            <h4>1000+</h4>
+            <p>Students participated</p>
+          </div>
+          <div className="section">
+            <span class="material-symbols-outlined">record_voice_over</span>
+            <h4>18 Hours</h4>
+            <p>of live Interaction</p>
+          </div>
+          <div className="section">
+            <span class="material-symbols-outlined">groups</span>
+            <h4>1000+</h4>
+            <p>Students participated</p>
+          </div>
         </div>
       </div>
       <div className="feedback">

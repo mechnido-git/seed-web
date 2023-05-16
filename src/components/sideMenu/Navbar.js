@@ -72,6 +72,10 @@ function Navbar({signIn}) {
           <input type="text" placeholder="Search" />
         </div>
       </div>
+      <div className="right">
+      <span id="bell" class="material-symbols-outlined">
+            campaign
+          </span>
       <div className="account" id="account">
           {userName ? (
             <>
@@ -85,6 +89,8 @@ function Navbar({signIn}) {
             </>
           )}
         </div>
+
+      </div>
     </div>
   );
 }

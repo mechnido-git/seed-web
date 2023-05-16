@@ -59,16 +59,17 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
+    padding: 0 1rem;
 }
 
 .course-details > .hero > .course > .card > .body > h3,  .course-details > .explore > .content > .card > .body > h3{
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin: .5rem 0;
+    gap: 2px;
+    margin-top: 1rem;
 }
 
-.course-details > .hero > .course > .card > button, .course-details .title button,  .course-details > .explore > .content > .card > button{
+.course-details > .hero > .course > .card > button, .course-details .title > a,  .course-details > .explore > .content > .card > button{
     padding: .8rem 4rem;
     font-size: 20px;
     font-weight: 500;
@@ -79,6 +80,9 @@
     cursor: pointer;
     margin:  1rem auto;
     transition: .2s;
+    display: inline-block;
+    box-sizing: border-box;
+    
 }
 
 .course-details > .hero > .course > .card > button:hover, .course-details .title button:hover,  .course-details > .explore > .content > .card > button:hover{
@@ -261,24 +265,68 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding: 2rem 1rem;
+    padding: 2rem;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
     position: relative;
 }
-
 .course-details > .certificate > .content{
     display: flex;
     gap: 20px;
-    list-style-position: inside;
-    justify-content: space-between;
-    margin: 0 1rem;
 }
+
+.course-details > .certificate > .content > .details {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+}
+
+.course-details > .certificate > .content > .details > ul{
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+   font-size: 17px;
+   padding: 0 1rem;
+}
+
 .course-details > .certificate > .content p{
     font-size: 17px;
     line-height: 26px;
     font-weight: 400;
 }
 
-.course-details > .certificate > img{
-    width: 12rem;
+.course-details > .certificate img{
+    width: 20rem;
+}
+
+.course-details > .metrics{
+    display: flex;
+    flex-direction: column;
+
+}
+.course-details > .metrics h2{
+    margin: 2rem auto;
+}
+.course-details > .metrics > .content{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.course-details > .metrics > .content > .section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    padding: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    border-radius: 5px;
+}
+
+.course-details > .metrics > .content > .section > h4{
+    font-size: 27px;
+    color: #006aff;
+}
+
+.course-details > .metrics > .content > .section > span{
+    font-size: 4rem;
 }

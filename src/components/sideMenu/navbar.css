@@ -147,7 +147,7 @@
     content: ' ';
     background: rgba(0,0,0,.5);
 }
-  .navbar > .account{
+  .navbar .account{
     display: flex;
     color: white;
     align-items: center;
@@ -156,7 +156,7 @@
     position: relative;
     justify-content: flex-end;
 }
-  .navbar > .account > .options{
+  .navbar .account > .options{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -169,32 +169,32 @@
   width: max-content;
   top: 50px;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-}   .navbar > .account.clicked > .options{
+}   .navbar .account.clicked > .options{
   display: flex;
-}  .navbar > .account > .options > ul{
+}  .navbar .account > .options > ul{
   list-style: none;
   display: flex;
   flex-direction: column;
   width: 100%;
   
-}  .navbar > .account > .options > h3{
+}  .navbar .account > .options > h3{
   margin: 10px 20px;
-}  .navbar > .account > .options > ul > li{
+}  .navbar .account > .options > ul > li{
   padding: .5rem;
   cursor: pointer;
   padding: 10px 20px;
   transition: .2s;
 }
-  .navbar > .account > .options > ul > li:hover{
+  .navbar .account > .options > ul > li:hover{
   background-color: #0055cc;
   color: white;
 }
-  .navbar > .account img{
+  .navbar .account img{
   cursor: pointer;
   width: 3rem;
   border-radius: 50%;
 }
-  .navbar > .account > button {
+  .navbar .account > button {
     --color: #fff;
     font-family: inherit;
     display: inline-block;
@@ -212,11 +212,11 @@
     cursor: pointer;
   }
 
-  .navbar > .account > button:hover{
+  .navbar .account > button:hover{
     background-color: #0055cc;
   }
   
-  .navbar > .account > button::before {
+  .navbar .account > button::before {
     position: absolute;
     content: "";
     background: var(--color);
@@ -226,10 +226,22 @@
     border-radius: 50%;
   }
   
-  .navbar > .account > button:before {
+  .navbar .account > button:before {
     top: 100%;
     left: 100%;
     transition: .3s all;
+  }
+
+  .navbar > .right{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    
+  }
+
+  #bell{
+    font-size: 2rem;
+    cursor: pointer;
   }
 
 

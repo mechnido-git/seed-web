@@ -9,6 +9,8 @@ import p5 from "../images/p5.jpg";
 import p6 from "../images/p6.jpg";
 import p7 from "../images/p7.jpg";
 
+import s1 from "../images/slide1.png";
+
 export const StoreContext = createContext(null);
 
 const Store = ({ children }) => {
@@ -20,6 +22,7 @@ const Store = ({ children }) => {
     {
       name: "Product Development Program",
       thumbnail: "../../images/courses.jpg",
+      slide: s1,
       description:
         "This Program offers students to get clear insights of product development concepts by hands-on training which will be handled by Mechnido's faculty and industrial experts",
       description_L: [
