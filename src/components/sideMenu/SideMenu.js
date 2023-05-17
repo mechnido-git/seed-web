@@ -42,7 +42,7 @@ function SideMenu() {
       link.classList.remove("clicked");
     });
     const index = e.target.closest("[data-index]").dataset.index;
-    console.log(index);
+    console.log(index+"jiii");
     if (index == 0) {
       console.log(links[0], "k");
       links[0].classList.add("clicked");
@@ -61,12 +61,14 @@ function SideMenu() {
 
   useEffect(() => {
     console.log(change);
+    console.log('hehe');
     onAuthStateChanged(auth, (user) => {
       if (user) setUser(true);
     });
     let elem = -1;
     let pos = 1
-    if(loc[loc.length - 1].length == 0) pos = 2;
+    if(loc[loc.length - 1].length <= 1) pos = 2;
+    if(loc[loc.length - 1].length == 1) pos = 3;
     switch (loc[loc.length - pos]) {
       case "courses":
         elem = 1;
@@ -130,7 +132,7 @@ function SideMenu() {
         link.removeEventListener("click", click);
       });
     };
-  }, [change]);
+  }, []);
 
   const renderSwitch = (index) => {
     switch (index) {
