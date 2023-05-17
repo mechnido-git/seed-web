@@ -7,6 +7,18 @@
     padding: 2rem 9rem;
 }
 
+.course-details h2, .course-details h4 {
+    color: #484D57;
+}
+
+.course-details p, .course-details li{
+    color: #727984;
+}
+
+.course-details h3{
+    color: #484D57;
+}
+
 .course-details > .hero{
     display: grid;
     grid-template-columns: 1fr 1fr;
