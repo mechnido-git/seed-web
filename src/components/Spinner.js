@@ -1,9 +1,9 @@
 import React from 'react'
 import ClipLoader from "react-spinners/ClipLoader";
 
-function Spinner({loading}) {
+function Spinner({loading, other}) {
   return (
-    <div className="spinner">
+    <div className={`spinner ${other}`}>
       <ClipLoader
         color={'#006aff'}
         loading={loading}

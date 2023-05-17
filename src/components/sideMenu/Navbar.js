@@ -58,6 +58,7 @@ function Navbar({signIn}) {
 
   return (
     <div className="navbar">
+      {loading && <Spinner other="globel" loading={loading} />}
       <div className="left">
         <span onClick={toggle} id="toggle" class="material-symbols-outlined">
           menu
