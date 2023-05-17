@@ -141,7 +141,7 @@ function Home() {
       {loading && <Spinner loading={loading} />}
       <div className="nav" id="nav">
         <div className="left">
-          <HashLink to="/home/#home" smooth>
+          <HashLink to="#home" smooth>
             <img src={logo} alt="" />
           </HashLink>
           <div className="options">

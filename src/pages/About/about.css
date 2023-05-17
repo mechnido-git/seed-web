@@ -13,7 +13,7 @@
   .about-container{
     display: flex;
     flex-direction: column;
-
+    margin-top: 5rem;
   }
   .about-container  > .about h2{
     color: #484D57;

@@ -1,12 +1,133 @@
-import React from "react";
-import "./about.css";
+import { onAuthStateChanged } from "firebase/auth";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
+import Spinner from "../../components/Spinner";
+import { auth } from "../../firebase/config";
+import kart from "../../images/kart_logo.png";
 import logo from "../../images/logo_round.png";
 import mech from "../../images/mech_logo.png";
-import kart from "../../images/kart_logo.png";
+import profile from "../../images/profile.png";
+import Drop from "../home/Drop";
+import ProfileDrop from "../home/ProfileDrop";
+import "./about.css";
 
 function About() {
+
+  const [showDrop, setShowDrop] = useState(false);
+  const [profileDrop, setProfileShowDrop] = useState(false);
+  const [dp, setDp] = useState(profile);
+  const [userName, setUserName] = useState(null);
+
+  const [signIn, setSignIn] = useState(false);
+  const [index, setIndex] = useState(null);
+
+  const [loading, setLoading] = useState(true);
+
+  const toggleOffer = (e) => {
+    if (e) e.stopPropagation();
+    const nav = document.getElementById("nav");
+    nav.classList.toggle("offer");
+    setShowDrop(!showDrop);
+    if (profileDrop) viewProfile();
+  };
+
+  const viewProfile = (e) => {
+    if (e) e.stopPropagation();
+    document.getElementById("account").classList.toggle("clicked");
+    setProfileShowDrop(!profileDrop);
+    if (showDrop) toggleOffer();
+  };
+
+  const popup = (i) => {
+    document.body.classList.add("disable-scroll");
+    setIndex(i);
+    setSignIn(true);
+  };
+  const close = () => {
+    document.body.classList.remove("disable-scroll");
+    setSignIn(false);
+  };
+
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUserName(user.displayName);
+        if (user.photoURL) setDp(user.photoURL);
+        setLoading(false);
+      } else {
+        setLoading(false);
+      }
+    });
+  }, []);
+
+  const toggle = () => {
+    const nav = document.getElementById("nav");
+    const links = document.querySelectorAll(".links");
+    if (nav.className === "nav") {
+      nav.className += " toggle";
+      document.getElementById("home").addEventListener("click", toggle);
+      links.forEach((link) => link.addEventListener("click", toggle));
+    } else {
+      nav.className = "nav";
+      document.getElementById("home").removeEventListener("click", toggle);
+      links.forEach((link) => link.removeEventListener("click", toggle));
+    }
+  };
+
   return (
+    <>
+                <div className="nav" id="nav">
+        <div className="left">
+          <Link to="/" smooth>
+            <img src={logo} alt="" />
+          </Link>
+          <div className="options">
+            <div className="links">
+              <ul>
+                <li className="link">
+                  <Link to="#" id="offer" onClick={toggleOffer}>
+                    Offerings
+                  </Link>
+                </li>
+                <li className="link">
+                  <Link to="/">
+                    Home
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div className="right">
+          <div className="account" id="account">
+            {userName ? (
+              <>
+                <img src={dp} referrerPolicy="no-referrer" alt="" onClick={viewProfile} />
+                <ProfileDrop
+                  userName={userName}
+                  show={profileDrop}
+                  onClickOutside={viewProfile}
+                  setLoading={setLoading}
+                />
+              </>
+            ) : (
+              <>
+                <button onClick={() => popup(false)}>Sign In</button>
+                <button onClick={() => popup(true)}>Sign Up</button>
+              </>
+            )}
+          </div>
+          <span onClick={toggle} id="menu" class="material-symbols-outlined">
+            menu
+          </span>
+        </div>
+          {showDrop && <Drop show={showDrop} onClickOutside={toggleOffer} />}
+      </div>
     <div className="about-container">
+      {loading && <Spinner loading={loading} />}
+
       
       <div className="about">
         <div id="about"></div>
@@ -118,6 +239,7 @@ function About() {
       </div>
       <p>©Mechnido Pvt. Ltd. All Rights Reserved</p>
     </div>
+    </>
   );
 }
 
