@@ -3,11 +3,13 @@ import { recomended } from "../courses/CoursesHome";
 import { CardBuilder } from "../courses/CoursesHome";
 import { category } from "../courses/CoursesHome";
 import { addIcon } from "../courses/CoursesHome";
-import kart from "../../images/slide.jpg"
+import kart from "../../images/slide.jpg";
+import sp from "../../images/sponsor.jpg";
 
 function Drop({ onClickOutside, show }) {
   const [offerSwitch, setOfferSwitch] = useState(0);
   const [filter, setFilter] = useState(category[1]);
+  const [eventSwitch, setEventSwitch] = useState(0);
   const ref = useRef();
 
   const selcectOffer = (e) => {
@@ -19,11 +21,11 @@ function Drop({ onClickOutside, show }) {
     setOfferSwitch(offerSwitch === 0 ? 1 : 0);
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     document.body.classList.add("disable-scroll");
-    console.log('hi');
-    return ()=>document.body.classList.remove("disable-scroll");
-  }, [])
+    console.log("hi");
+    return () => document.body.classList.remove("disable-scroll");
+  }, []);
 
   useEffect(() => {
     setOfferSwitch(0);
@@ -40,7 +42,7 @@ function Drop({ onClickOutside, show }) {
 
   if (!show) return null;
 
-  const cardBuilder = (arr = recomended, limit= 4) => (
+  const cardBuilder = (arr = recomended, limit = 4) => (
     <>
       {arr.map((item, index) => {
         if (limit != null && index >= limit) return;
@@ -48,11 +50,23 @@ function Drop({ onClickOutside, show }) {
           <div className="card" key={index}>
             <img src={kart} alt="" />
             <div className="body">
-              <h4>Event{" "}{index+1}</h4>
+              <h4>Event {index + 1}</h4>
               <p>{item.description}</p>
-              <div>
-              </div>
+              <div></div>
             </div>
+          </div>
+        );
+      })}
+    </>
+  );
+  const li = [1, 2, 3, 4, 5, 6];
+
+  const sponserCard = () => (
+    <>
+      {li.map((item, index) => {
+        return (
+          <div className="card" key={index}>
+            <img  style={{width: '5rem', borderRadius: '50%', padding: '1rem'}} src={sp} alt="" />
           </div>
         );
       })}
@@ -79,7 +93,6 @@ function Drop({ onClickOutside, show }) {
                     return (
                       <li
                         onMouseEnter={() => {
-                          console.log("hi");
                           console.log(item);
                           setFilter(item);
                         }}
@@ -104,20 +117,36 @@ function Drop({ onClickOutside, show }) {
           <>
             <div className="events">
               <ul>
-                <li>
-                <span class="material-symbols-outlined">event_list</span>
+                <li
+                  onMouseEnter={() => {
+                    setEventSwitch(0);
+                  }}
+                >
+                  <span class="material-symbols-outlined">event_list</span>
                   Current Events
                 </li>
-                <li>
+                <li
+                  onMouseEnter={() => {
+                    setEventSwitch(1);
+                  }}
+                >
                   <span class="material-symbols-outlined">event_upcoming</span>
                   Upcoming Events
                 </li>
-                <li>
+                <li
+                  onMouseEnter={() => {
+                    setEventSwitch(2);
+                  }}
+                >
                   <span class="material-symbols-outlined">stars</span>Sponsors
                 </li>
               </ul>
               <div className="cards">
-                {cardBuilder()}
+                {eventSwitch == 0
+                  ? cardBuilder()
+                  : eventSwitch == 1
+                  ? cardBuilder()
+                  : sponserCard()}
               </div>
             </div>
           </>
