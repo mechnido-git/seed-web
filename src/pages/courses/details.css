@@ -341,3 +341,68 @@
 .course-details > .metrics > .content > .section > span{
     font-size: 4rem;
 }
+
+.course-details > .other-courses{
+    display: flex;
+    flex-direction: column;
+}
+
+.course-details > .other-courses > .content{
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    padding: 3rem 1rem;
+    gap: 20px;
+}
+
+.course-details > .other-courses .individual{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.course-details > .other-courses .individual > .card{
+    padding: 2rem;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 10px;
+}
+
+.course-details > .other-courses .individual > .card > h4{
+    font-size: 16px;
+    font-weight: bolder;
+}
+
+.course-details > .other-courses .divider{
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.course-details > .other-courses .circle{
+    padding: 1rem;
+    background-color: aliceblue;
+    display: flex;
+    align-self: center;
+    border-radius: 50%;
+}
+
+
+.course-details > .other-courses .divider::after, .course-details > .other-courses .divider::before{
+    content: "";
+    margin: 0 auto;
+    border-left: 2px solid rgb(181, 181, 181);
+    height: 40%;
+}
+
+.course-details > .other-courses .pack{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}

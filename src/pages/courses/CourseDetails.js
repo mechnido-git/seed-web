@@ -13,6 +13,41 @@ function CourseDetails() {
   const { index } = useParams();
   const loc = useLocation();
 
+  const otherCourses = [
+    {
+      name: "Course 1",
+      price: 200
+    },
+    {
+      name: "Course 2",
+      price: 200
+    },
+    {
+      name: "Course 3",
+      price: 200
+    },
+    {
+      name: "Course 4",
+      price: 200
+    },
+    {
+      name: "Course 5",
+      price: 200
+    },
+    {
+      name: "Course 6",
+      price: 200
+    },
+    {
+      name: "Course 7",
+      price: 200
+    },
+    {
+      name: "Course 8",
+      price: 200
+    },
+  ]
+
   const { courseList } = useContext(StoreContext);
 
   console.log(courseList[index]);
@@ -138,7 +173,7 @@ function CourseDetails() {
       </div>
       <div className="certificate">
         <h2>
-          Certificate{" "}
+          Certificate
           <span class="material-symbols-outlined">workspace_premium</span>
         </h2>
         <div className="content">
@@ -193,10 +228,10 @@ function CourseDetails() {
               window.innerWidth <= 426
                 ? 1.2
                 : window.innerWidth <= 768
-                ? 1.5
-                : window.innerWidth <= 1024
-                ? 2
-                : 3,
+                  ? 1.5
+                  : window.innerWidth <= 1024
+                    ? 2
+                    : 3,
             perMove: 1,
             pagination: false,
           }}
@@ -212,6 +247,29 @@ function CourseDetails() {
           ))}
         </Splide>
       </div>
+      <div className="other-courses">
+        <h2>Enroll Now!!</h2>
+        <div className="content">
+          <h3>Individual courses</h3>
+          <h3></h3>
+          <h3>Offer pack</h3>
+        <div className="individual">
+          {otherCourses.map((item, i) => <div className="card" key={i}>
+            <h4>{item.name}</h4>
+            <span>₹{item.price}</span>
+          </div>)}
+        </div>
+        <div className="divider">
+        <div className="circle">
+          OR
+        </div>
+        </div>
+        <div className="pack">
+            <h3>OFFER PACK</h3>
+        </div>
+        </div>
+      </div>
+
     </div>
   );
 }
