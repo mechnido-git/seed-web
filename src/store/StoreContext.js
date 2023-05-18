@@ -22,6 +22,7 @@ const Store = ({ children }) => {
   const [change, setChange] = useState(true);
   const courseList = [
     {
+      id: 0,
       name: "Product Development Program",
       thumbnail: "../../images/courses.jpg",
       slide: s1,
@@ -85,15 +86,16 @@ const Store = ({ children }) => {
         ],
       },
       fee: [
-        {
+        { id:0,
           type: "One Day",
           price: 200,
         },
         {
+          id:1,
           type: "Two Days",
           price: 350,
         },
-        {
+        { id: 2,
           type: "Three Days",
           price: 450,
         },
@@ -216,6 +218,7 @@ const Store = ({ children }) => {
       ],
     },
     {
+      id: 1,
       name: "Product Development Program 2",
       thumbnail: "../../images/course.jpg",
       slide: s2,
@@ -410,10 +413,6 @@ const Store = ({ children }) => {
       ],
     },
   ];
-
-  useEffect(() => {
-    console.log(user);
-  }, [user]);
 
   return (
     <StoreContext.Provider

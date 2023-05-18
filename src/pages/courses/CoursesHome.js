@@ -188,6 +188,10 @@ function CoursesHome() {
     navigate(`/menu/courses/details/${currentSlide}`)
   } 
 
+  const enroll = () => {
+    navigate(`/menu/courses/enroll/${currentSlide}`)
+  } 
+
   return (
     <>
       <div className="courses-home">
@@ -218,7 +222,7 @@ function CoursesHome() {
               </Splide>
 
               <div className="btns">
-                <button>Register</button>
+                <button onClick={enroll}>Register</button>
                 <button onClick={viewDetails}>Know more</button>
               </div>
             </div>

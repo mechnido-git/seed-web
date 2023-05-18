@@ -1,0 +1,37 @@
+.enroll-div{
+    padding:10px;
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+    overflow-y: scroll;
+    grid-column: 2 / 4;
+    position: relative;
+    align-items: center;
+}
+
+.enroll-div > .card{
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+    font-size: 17px;
+    border-radius: 10px;
+}
+
+.enroll-div > .card form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.enroll-div > .card form > .inp{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid rgb(182, 182, 182);
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.enroll-div > .card form > .inp > label > span{
+    font-weight: bold;
+}
