@@ -71,9 +71,7 @@ function Navbar({signIn}) {
         <span onClick={toggle} id="toggle" class="material-symbols-outlined">
           menu
         </span>
-        <Link to="/">
           <img src={logo} alt="" />
-        </Link>
       </div>
       <div className="search-bar">
         <img src={search} alt="" />
