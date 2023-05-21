@@ -1,23 +1,42 @@
-import React, { useEffect, useState } from 'react'
-import SignIn from '../signin/SignIn';
-import { Outlet, useOutletContext } from 'react-router-dom';
-import SideMenu from '../../components/sideMenu/SideMenu';
+import React, { useContext, useEffect, useState } from "react";
+import SignIn from "../signin/SignIn";
+import { Outlet, useOutletContext } from "react-router-dom";
+import SideMenu from "../../components/sideMenu/SideMenu";
+import { StoreContext } from "../../store/StoreContext";
+import { db } from "../../firebase/config";
+import { collection, getDocs } from "firebase/firestore";
 
 function HomeIndex() {
-    const [register, setRegister] = useState(false);
-    const {event, signIn, setSignIn} = useOutletContext();
+  const [register, setRegister] = useState(false);
+  const { event, signIn, setSignIn } = useOutletContext();
 
-    useEffect(()=>{
-      window.addEventListener('popstate', ()=>window.location.reload())
-      return ()=>{
-        window.removeEventListener('popstate', ()=>window.location.reload())
-      }
-    }, [])
+  const { setCourses, courses } = useContext(StoreContext);
+
+  useEffect(() => {
+    window.addEventListener("popstate", () => window.location.reload());
+    const doFetch = async () => {
+      const querySnapshot = await getDocs(collection(db, "courses"));
+      const temp = [];
+      querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        //console.log(doc.id, " => ", doc.data());
+        console.log(doc.data());
+        temp.push({...doc.data(), id: doc.id })
+      });
+      console.log(temp);
+      setCourses(temp)
+    };
+    doFetch();
+    console.log('hello');
+    return () => {
+      window.removeEventListener("popstate", () => window.location.reload());
+    };
+  }, []);
 
   return (
     <>
-        <SideMenu event={event} signIn={setSignIn} />
-        <Outlet context={{register, setRegister, setSignIn}}  />
+      <SideMenu event={event} signIn={setSignIn} />
+      <Outlet context={{ register, setRegister, setSignIn }} />
       {signIn && (
         <div className="wrapper">
           <div className="blocker" onClick={() => setSignIn(false)}></div>
@@ -25,7 +44,7 @@ function HomeIndex() {
         </div>
       )}
     </>
-  )
+  );
 }
 
-export default HomeIndex
+export default HomeIndex;

@@ -87,13 +87,13 @@ function About() {
             <div className="links">
               <ul>
                 <li className="link">
-                  <Link to="#" id="offer" onClick={toggleOffer}>
-                    Offerings
+                  <Link to="/">
+                    Home
                   </Link>
                 </li>
                 <li className="link">
-                  <Link to="/">
-                    Home
+                  <Link to="#" id="offer" onClick={toggleOffer}>
+                    Offerings
                   </Link>
                 </li>
               </ul>

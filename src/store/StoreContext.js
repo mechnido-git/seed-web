@@ -20,6 +20,7 @@ const Store = ({ children }) => {
   const [userName, setUserName] = useState(null);
   const [user, setUser] = useState(null);
   const [change, setChange] = useState(true);
+  const [courses, setCourses] = useState(null)
   const courseList = [
     {
       id: 0,
@@ -426,6 +427,7 @@ const Store = ({ children }) => {
         change,
         setChange,
         courseList,
+        courses, setCourses
       }}
     >
       {children}

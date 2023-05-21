@@ -19,7 +19,7 @@
     z-index: 3;
     backdrop-filter: blur(6px);
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(64, 88, 118, 0.537);
 }
 
 .home > .main > .title{

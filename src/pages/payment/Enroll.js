@@ -1,47 +1,63 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import { StoreContext } from '../../store/StoreContext';
 import './enroll.css'
 import axios from 'axios';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../../firebase/config';
+import Spinner from '../../components/Spinner';
 
-function Enroll() {
-    const { index } = useParams();
-    const { courseList } = useContext(StoreContext);
-    const [data, setData]= useState(courseList[index])
+function Enroll({index}) {
+    const { courseList, courses } = useContext(StoreContext);
+    const [data, setData]= useState(courses[index])
     const [range, setRange] = useState(null);
-    const [id, setId] = useState(courseList[index].id)
+    const [id, setId] = useState(courses[index].id)
+    const [uid, setUid] = useState(null)
+    const [loading, setLoading] = useState(false)
 
     const change = (e) => {
         console.log(e.target.value);
-        setRange(parseInt(e.target.value))
+        setRange(e.target.value)
     }
+
+    useEffect(() => {
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          setUid(user.uid);
+        } else {
+        }
+      });
+    }, []);
 
     const proceed = async(e) => {
         e.preventDefault()
         if(range === null) return
 
-        const url = 'http://localhost:4242/create-checkout-session';
+        setLoading(true)
+        const url = 'https://grumpy-puce-frog.cyclic.app/create-checkout-session';
         const data = {
-            index: id,
+            id: id,
             range: range,
-            name: courseList[index].name
+            name: courseList[index].name,
+            userId: uid,
         }
         try {
           const res = await axios.post(url, data);
           const token = res.data;
-          console.log(token);
+          console.log(token.url);
           window.location = token.url;
     
         } catch (error) {
           console.log(error);
     
         } finally{
-
+          setLoading(false)
         }
     }
 
   return (
     <div className='enroll-div'>
+      {loading && <Spinner other={"globel"} loading={loading} />}
         <h1>{data.name}</h1>
         <h4>select pay range</h4>
         <div className="card" >

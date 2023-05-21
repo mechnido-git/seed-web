@@ -8,6 +8,7 @@ import cert from "../../images/cert.jpg";
 import "./details.css";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { HashLink } from "react-router-hash-link";
+import Enroll from "../payment/Enroll";
 
 function CourseDetails() {
   const { index } = useParams();
@@ -48,10 +49,26 @@ function CourseDetails() {
     },
   ]
 
-  const { courseList } = useContext(StoreContext);
+  const { courseList, courses, userId } = useContext(StoreContext);
 
   console.log(courseList[index]);
+  const [buy, setbuy] = useState(false)
   const [data, setData] = useState(courseList[index]);
+
+  const enroll = () => {
+    //navigate(`/menu/courses/enroll/${currentSlide}`)
+    let flag = false
+    if(userId){
+      courses[index].enrolled.forEach(item=>{
+        if(item.userId === userId ) flag = true
+      })
+      if(flag) return window.alert("Alredy enrolled")
+      setbuy(true)
+
+    }else{
+      window.alert("Sign in First")
+    }
+  } 
 
   const showSubs = (e) => {
     console.log(e.target.parentElement);
@@ -74,7 +91,7 @@ function CourseDetails() {
         <div className="course">
           <div className="card">
             <img src={img} alt="" />
-            <button>Enroll Now</button>
+            <button onClick={enroll}>Enroll Now</button>
             <hr />
             <div className="body">
               <h3>
@@ -269,6 +286,12 @@ function CourseDetails() {
         </div>
         </div>
       </div>
+      {buy && (
+        <div className="wrapper">
+          <div className="blocker" onClick={() => setbuy(false)}></div>
+          <Enroll index={index} />
+        </div>
+      )}
 
     </div>
   );

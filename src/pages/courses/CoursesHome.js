@@ -3,10 +3,13 @@ import "./coursesHome.css";
 import courses from "../../images/courses.jpg";
 import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
 import image from "../../images/slide.jpg";
+import slide from "../../images/slide1.png"
+import thumbnail from "../../images/courses.jpg"
 import "@splidejs/react-splide/css";
 import { useNavigate, useOutletContext } from "react-router-dom";
 import Spinner from "../../components/Spinner";
 import { StoreContext } from "../../store/StoreContext";
+import Enroll from "../payment/Enroll";
 
 export const recomended = [
   {
@@ -150,8 +153,9 @@ function CoursesHome() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const { register, setRegister } = useOutletContext();
 
+  const {courseList, courses, userId} = useContext(StoreContext)
 
-  const {courseList} = useContext(StoreContext)
+  const [buy, setbuy] = useState(false)
 
   const navigate = useNavigate()
 
@@ -161,11 +165,13 @@ function CoursesHome() {
       (arrow) =>
         (arrow.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 96 960 960" width="48"><path d="m561 814-43-42 168-168H160v-60h526L517 375l43-42 241 241-240 240Z"/></svg>`)
     );
-    let timer1 = setTimeout(() => setLoading(false), 1000);
-    return () => {
-      clearTimeout(timer1);
-    };
   }, []);
+
+  useEffect(()=>{
+    if(courses)
+    setLoading(false)
+  }, [courses])
+
   const filterItems = (item, e) => {
     //const btns = document.querySelectorAll('.filter')
     const active = document.getElementsByClassName("active");
@@ -189,7 +195,18 @@ function CoursesHome() {
   } 
 
   const enroll = () => {
-    navigate(`/menu/courses/enroll/${currentSlide}`)
+    //navigate(`/menu/courses/enroll/${currentSlide}`)
+    let flag = false
+    if(userId){
+      courses[currentSlide].enrolled.forEach(item=>{
+        if(item.userId === userId ) flag = true
+      })
+      if(flag) return window.alert("Alredy enrolled")
+      setbuy(true)
+
+    }else{
+      window.alert("Sign in First")
+    }
   } 
 
   return (
@@ -216,8 +233,8 @@ function CoursesHome() {
                   setCurrentSlide(splide.index);
                 }}
               >
-                {courseList.map((item, i)=><SplideSlide key={i}>
-                  <img src={item.slide} style={{ objectFit: "contain", width: "100%" }} alt="" />
+                {courses.map((item, i)=><SplideSlide key={i}>
+                  <img src={slide} style={{ objectFit: "contain", width: "100%" }} alt="" />
                 </SplideSlide>)}
               </Splide>
 
@@ -272,6 +289,12 @@ function CoursesHome() {
           </>
         )}
       </div>
+      {buy && (
+        <div className="wrapper">
+          <div className="blocker" onClick={() => setbuy(false)}></div>
+          <Enroll index={currentSlide} />
+        </div>
+      )}
     </>
   );
 }

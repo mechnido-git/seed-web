@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import search from "../../images/search.png";
 import "./navbar.css";
 import logo from "../../images/logo.jpg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SignIn from "../../pages/signin/SignIn";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../../firebase/config";
 import Spinner from "../Spinner";
 import ProfileDrop from "../../pages/home/ProfileDrop";
 import profile from "../../images/profile.png"
+import { StoreContext } from "../../store/StoreContext";
 
 function Navbar({signIn}) {
   const [userName, setUserName] = useState(null);
@@ -17,6 +18,8 @@ function Navbar({signIn}) {
   const [profileDrop, setProfileShowDrop] = useState(false)
   const [dp, setDp] = useState(profile)
 
+  const navigate = useNavigate()
+
   const toggle = () => {
     document.getElementById("menu-options").classList.toggle("disable");
     document.getElementById("index").classList.toggle("index-toggle");
@@ -24,11 +27,14 @@ function Navbar({signIn}) {
     document.getElementById("side-menu").classList.toggle("border");
   };
 
+  const { setUserId } = useContext(StoreContext)
+
   const logout = () => {
     setLoading(true)
     signOut(auth).then(() => {
       // Sign-out successful.
-      window.location.reload()
+      
+      console.log('hikk');
     }).catch((error) => {
       // An error happened.
       setLoading(false)
@@ -37,9 +43,11 @@ function Navbar({signIn}) {
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
-      if (user) setUserName(user.displayName);
-      if (user.photoURL) setDp(user.photoURL);
-      console.log(user);
+      if (user){
+        setUserName(user.displayName)
+        setUserId(user.uid)
+        if (user.photoURL) setDp(user.photoURL);
+      };
       setLoading(false)
     });
   }, []);
@@ -58,7 +66,7 @@ function Navbar({signIn}) {
 
   return (
     <div className="navbar">
-      {loading && <Spinner other="globel" loading={loading} />}
+      {loading && <Spinner other={"globel"} loading={loading} />}
       <div className="left">
         <span onClick={toggle} id="toggle" class="material-symbols-outlined">
           menu

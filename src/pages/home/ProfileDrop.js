@@ -1,9 +1,11 @@
 import React, { useEffect, useRef } from "react";
 import { auth } from "../../firebase/config";
 import { signOut } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 function ProfileDrop({ userName, onClickOutside, show, setLoading }) {
   const ref = useRef();
+  const navigate = useNavigate()
 
   const logout = () => {
     console.log('ho');
@@ -11,8 +13,10 @@ function ProfileDrop({ userName, onClickOutside, show, setLoading }) {
     signOut(auth)
       .then(() => {
         // Sign-out successful.
-        window.location.reload();
+       // window.location.reload();
+       navigate("/")
         localStorage.removeItem('cover')
+        setLoading(false)
       })
       .catch((error) => {
         // An error happened.

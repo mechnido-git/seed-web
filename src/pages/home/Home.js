@@ -18,6 +18,7 @@ import profile from "../../images/profile.png";
 import Drop from "./Drop";
 import ProfileDrop from "./ProfileDrop";
 import intro from "../../images/intro.jpg";
+import sponsor from "../../images/sponsor.jpg";
 
 function Home() {
   const [signIn, setSignIn] = useState(false);
@@ -138,7 +139,7 @@ function Home() {
 
   return (
     <>
-      {loading && <Spinner loading={loading} />}
+      {loading && <Spinner other="globel" loading={loading} />}
       <div className="nav" id="nav">
         <div className="left">
           <HashLink to="#home" smooth>
@@ -148,13 +149,13 @@ function Home() {
             <div className="links">
               <ul>
                 <li className="link">
-                  <Link to="#" id="offer" onClick={toggleOffer}>
-                    Offerings
+                  <Link to="/about">
+                    About
                   </Link>
                 </li>
                 <li className="link">
-                  <Link to="/about">
-                    About
+                  <Link to="#" id="offer" onClick={toggleOffer}>
+                    Offerings
                   </Link>
                 </li>
               </ul>
@@ -360,6 +361,58 @@ function Home() {
               </SplideSlide>
             </Splide>
           </div>
+          <div className="slides-sponsors">
+              <div id="sponsors"></div>
+              <h2>Sponsors</h2>
+
+              <Splide
+                tag="section"
+                aria-labelledby="My Favorite Images"
+                options={{
+                  speed: 800,
+                  autoplay: true,
+                  interval: 2500,
+                  pauseOnHover: false,
+                  type: "loop",
+                  pauseOnFocus: true,
+                  keyboard: true,
+                  gap: ".5rem",
+                  width: "100%",
+                  perPage:
+                    window.innerWidth <= 426
+                      ? 3
+                      : window.innerWidth <= 768
+                      ? 3.5
+                      : window.innerWidth <= 1024
+                      ? 4
+                      : 5,
+                  perMove: 1,
+                  pagination: false,
+                }}
+              >
+                <SplideSlide>
+                  <img src={sponsor} style={{ width: "100px" }} />
+                </SplideSlide>
+                <SplideSlide>
+                  <img src={sponsor} style={{ width: "100px" }} />
+                </SplideSlide>
+                <SplideSlide>
+                  <img src={sponsor} style={{ width: "100px" }} />
+                </SplideSlide>
+                <SplideSlide>
+                  <img src={sponsor} style={{ width: "100px" }} />
+                </SplideSlide>
+                <SplideSlide>
+                  <img src={sponsor} style={{ width: "100px" }} />
+                </SplideSlide>
+                <SplideSlide>
+                  <img src={sponsor} style={{ width: "100px" }} />
+                </SplideSlide>
+                <SplideSlide>
+                  <img src={sponsor} style={{ width: "100px" }} />
+                </SplideSlide>
+              </Splide>
+            </div>
           <div className="faq">
             <div id="faq"></div>
             <h2>FAQ</h2>
