@@ -198,7 +198,7 @@ function CoursesHome() {
     //navigate(`/menu/courses/enroll/${currentSlide}`)
     let flag = false
     if(userId){
-      courses[currentSlide].enrolled.forEach(item=>{
+      courses[currentSlide].enrolled?.forEach(item=>{
         if(item.userId === userId ) flag = true
       })
       if(flag) return window.alert("Alredy enrolled")
