@@ -15,6 +15,65 @@ import { auth, db } from "../../firebase/config";
 import { collection, getDocs } from "firebase/firestore";
 import Spinner from "../../components/Spinner";
 import soon from "../../images/soon.jpg";
+import { useCountdown } from "../../hooks/useCountDown";
+
+function RegisterInfo({ date, data }) {
+  const [eventDate, setEventDate] = useState(new Date(date));
+  console.log(eventDate);
+
+  const [days, hours, minutes, seconds] = useCountdown(eventDate);
+
+  return (
+    <SplideSlide>
+      <div className="time-container">
+        <h4>Registration Ends in</h4>
+        <div className="time-div">
+          <div className="days-div">
+            <h3>Days</h3>
+            <p>{days}</p>
+          </div>
+          <div className="hour-div">
+            <h3>Hours</h3>
+            <p>{hours}</p>
+          </div>
+          <div className="minute-div">
+            <h3>Minutes</h3>
+            <p>{minutes}</p>
+          </div>
+          <div className="second-div">
+            <h3>Seconds</h3>
+            <p>{seconds}</p>
+          </div>
+        </div>
+      </div>
+      <div className="prize-div">
+        <h4>Prize Category</h4>
+        <div className="prize-list">
+          <ul>
+            <li>
+              Overall winner <img src={medal} />
+            </li>
+            <li>
+              Overall runner up <img src={medal} />
+            </li>
+            <li>
+              Best design quality award <img src={medal} />
+            </li>
+            <li>
+              Best innovation award <img src={medal} />
+            </li>
+            <li>
+              Best strategy award <img src={medal} />
+            </li>
+            <li>
+              Best business plan <img src={medal} />
+            </li>
+          </ul>
+        </div>
+      </div>
+    </SplideSlide>
+  );
+}
 
 function EventIndex() {
   const [signIn, setSignIn] = useState(false);
@@ -22,11 +81,15 @@ function EventIndex() {
   const [user, setUser] = useState(false);
   const imgWidth = window.innerWidth < 1024 ? "100%" : "200px";
   const gap = window.innerWidth < 1024 ? "1rem" : "4rem";
-  const {register, setRegister} = useOutletContext();
+  const { register, setRegister } = useOutletContext();
   const [loading, setLoading] = useState(true);
   const [events, setEvents] = useState(null);
   const [yes, setYes] = useState(false);
 
+  let eventDate = new Date("5/27/2023");
+  let currentDate = new Date();
+
+  const [days, hours, minutes, seconds] = useCountdown(eventDate);
   const eventList = ["Event One", "Event Two", "Event Three"];
 
   const tru = () => {
@@ -63,47 +126,48 @@ function EventIndex() {
         ) : (
           <>
             <div className="slides">
-              {events && (<>
-                <div id="current"></div>
-                <Splide
-                  ref={ref}
-                  onMove={(splide, prev, next) => {
-                    setCurrentEvent(splide.index);
-                    console.log(prev, splide.index, next);
-                    console.log(
-                      ref2.current.splide.Components.Move.move(
-                        splide.index,
-                        splide.index,
-                        splide.index + 1
-                      )
-                    );
-                    //ref2.current.splide.Components.Contro.move(splide.index)
-                  }}
-                  tag="section"
-                  aria-labelledby="My Favorite Images"
-                  options={{
-                    type: "loop",
-                    speed: 1000,
-                    pauseOnHover: false,
-                    pauseOnFocus: true,
-                    keyboard: true,
-                    gap: "1rem",
-                    width: "100%",
-                    pagination: window.innerWidth < 770? false: true
-                  }}
-                >
-                  {events.map((item) => {
-                    return (
-                      <SplideSlide>
-                        <img
-                          style={{ objectFit: "contain", width: "100%" }}
-                          src={image}
-                          alt="Image 1"
-                        />
-                      </SplideSlide>
-                    );
-                  })}
-                </Splide>
+              {events && (
+                <>
+                  <div id="current"></div>
+                  <Splide
+                    ref={ref}
+                    onMove={(splide, prev, next) => {
+                      setCurrentEvent(splide.index);
+                      console.log(prev, splide.index, next);
+                      console.log(
+                        ref2.current.splide.Components.Move.move(
+                          splide.index,
+                          splide.index,
+                          splide.index + 1
+                        )
+                      );
+                      //ref2.current.splide.Components.Contro.move(splide.index)
+                    }}
+                    tag="section"
+                    aria-labelledby="My Favorite Images"
+                    options={{
+                      type: "loop",
+                      speed: 1000,
+                      pauseOnHover: false,
+                      pauseOnFocus: true,
+                      keyboard: true,
+                      gap: "1rem",
+                      width: "100%",
+                      pagination: window.innerWidth < 770 ? false : true,
+                    }}
+                  >
+                    {events.map((item) => {
+                      return (
+                        <SplideSlide>
+                          <img
+                            style={{ objectFit: "contain", width: "100%" }}
+                            src={image}
+                            alt="Image 1"
+                          />
+                        </SplideSlide>
+                      );
+                    })}
+                  </Splide>
                 </>
               )}
 
@@ -144,152 +208,10 @@ function EventIndex() {
                   //ref2.current.splide.Components.Contro.move(splide.index)
                 }}
               >
-                <SplideSlide>
-                  <div className="time-container">
-                    <h4>Registration Ends in</h4>
-                    <div className="time-div">
-                      <div className="days-div">
-                        <h3>Days</h3>
-                        <p>1</p>
-                      </div>
-                      <div className="hour-div">
-                        <h3>Hours</h3>
-                        <p>1</p>
-                      </div>
-                      <div className="minute-div">
-                        <h3>Minutes</h3>
-                        <p>1</p>
-                      </div>
-                      <div className="second-div">
-                        <h3>Seconds</h3>
-                        <p>1</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="prize-div">
-                    <h4>Prize Category</h4>
-                    <div className="prize-list">
-                      <ul>
-                        <li>
-                          Overall winner <img src={medal} />
-                        </li>
-                        <li>
-                          Overall runner up <img src={medal} />
-                        </li>
-                        <li>
-                          Best design quality award <img src={medal} />
-                        </li>
-                        <li>
-                          Best innovation award <img src={medal} />
-                        </li>
-                        <li>
-                          Best strategy award <img src={medal} />
-                        </li>
-                        <li>
-                          Best business plan <img src={medal} />
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </SplideSlide>
-
-                <SplideSlide>
-                  <div className="time-container">
-                    <h4>Registration Ends in</h4>
-                    <div className="time-div">
-                      <div className="days-div">
-                        <h3>Days</h3>
-                        <p>2</p>
-                      </div>
-                      <div className="hour-div">
-                        <h3>Hours</h3>
-                        <p>2</p>
-                      </div>
-                      <div className="minute-div">
-                        <h3>Minutes</h3>
-                        <p>2</p>
-                      </div>
-                      <div className="second-div">
-                        <h3>Seconds</h3>
-                        <p>2</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="prize-div">
-                    <h4>Prize Category</h4>
-                    <div className="prize-list">
-                      <ul>
-                        <li>
-                          Overall winner <img src={medal} />
-                        </li>
-                        <li>
-                          Overall runner up <img src={medal} />
-                        </li>
-                        <li>
-                          Best design quality award <img src={medal} />
-                        </li>
-                        <li>
-                          Best innovation award <img src={medal} />
-                        </li>
-                        <li>
-                          Best strategy award <img src={medal} />
-                        </li>
-                        <li>
-                          Best business plan <img src={medal} />
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </SplideSlide>
-
-                <SplideSlide>
-                  <div className="time-container">
-                    <h4>Registration Ends in</h4>
-                    <div className="time-div">
-                      <div className="days-div">
-                        <h3>Days</h3>
-                        <p>3</p>
-                      </div>
-                      <div className="hour-div">
-                        <h3>Hours</h3>
-                        <p>3</p>
-                      </div>
-                      <div className="minute-div">
-                        <h3>Minutes</h3>
-                        <p>3</p>
-                      </div>
-                      <div className="second-div">
-                        <h3>Seconds</h3>
-                        <p>3</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="prize-div">
-                    <h4>Prize Category</h4>
-                    <div className="prize-list">
-                      <ul>
-                        <li>
-                          Overall winner <img src={medal} />
-                        </li>
-                        <li>
-                          Overall runner up <img src={medal} />
-                        </li>
-                        <li>
-                          Best design quality award <img src={medal} />
-                        </li>
-                        <li>
-                          Best innovation award <img src={medal} />
-                        </li>
-                        <li>
-                          Best strategy award <img src={medal} />
-                        </li>
-                        <li>
-                          Best business plan <img src={medal} />
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </SplideSlide>
+                {events.map((item, i)=>{
+                  const date = ["5/25/2023", "5/26/2023", "5/27/2023"];
+                  return <RegisterInfo data={item} key={i} date={date[i]} />
+                })}
               </Splide>
             </div>
 
@@ -444,7 +366,6 @@ function EventIndex() {
                 </SplideSlide>
               </Splide>
             </div>
-            
           </>
         )}
       </div>

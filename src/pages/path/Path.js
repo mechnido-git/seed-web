@@ -10,6 +10,9 @@ import eventImg from "../../images/path1.jpg"
 
 function Path({skip}) {
   const navigate = useNavigate();
+
+  const { userName } = useContext(StoreContext);
+
   useEffect(() => {
     document.querySelector('.dashboard').classList.add("disable-scroll");
     onAuthStateChanged(auth, (user) => {
@@ -32,6 +35,10 @@ function Path({skip}) {
 
   return (
     <div className="path-div">
+          <div className="intro">
+            <p>Hi {userName}. We are happy to have you on board</p>
+            <h2>You should start with  any  of this</h2>
+          </div>
       <div className="paths">
         <div className="path">
         <div className="course-path" >

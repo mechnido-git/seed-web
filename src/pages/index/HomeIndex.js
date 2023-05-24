@@ -3,17 +3,23 @@ import SignIn from "../signin/SignIn";
 import { Outlet, useOutletContext } from "react-router-dom";
 import SideMenu from "../../components/sideMenu/SideMenu";
 import { StoreContext } from "../../store/StoreContext";
-import { db } from "../../firebase/config";
+import { auth, db } from "../../firebase/config";
 import { collection, getDocs } from "firebase/firestore";
+import { onAuthStateChanged } from "firebase/auth";
 
 function HomeIndex() {
   const [register, setRegister] = useState(false);
   const { event, signIn, setSignIn } = useOutletContext();
 
-  const { setCourses, courses } = useContext(StoreContext);
+  const { setCourses, courses, setUserName } = useContext(StoreContext);
 
   useEffect(() => {
     window.addEventListener("popstate", () => window.location.reload());
+
+    onAuthStateChanged(auth, (user)=>{
+      if (user) setUserName(user.displayName)
+    })
+
     const doFetch = async () => {
       const querySnapshot = await getDocs(collection(db, "courses"));
       const temp = [];
