@@ -36,9 +36,9 @@ function Enroll({index}) {
         setLoading(true)
         const url = 'https://grumpy-puce-frog.cyclic.app/order';
         const data = {
-            id: id,
+            id: String(id),
             range: range,
-            name: courseList[index].name,
+            name: String(courseList[index].name),
             userId: uid,
         }
         try {
@@ -57,7 +57,6 @@ function Enroll({index}) {
                     range: range,
                     courseId: id
                   })
-                  console.log(res.signatureIsValid);
                   window.location.reload()
                 } catch (error) {
                   alert(error)
@@ -71,7 +70,7 @@ function Enroll({index}) {
         rzp1.open()
     
         } catch (error) {
-          console.log(error);
+          console.log(error+ "hihi");
     
         } finally{
           setLoading(false)
