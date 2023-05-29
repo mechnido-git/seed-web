@@ -55,6 +55,7 @@ function Enroll({index}) {
             order_id: res.data.order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
             handler: async function (response){
                 try {
+                  setLoading(true)
                   const res = await axios.post("https://grumpy-puce-frog.cyclic.app/verify", {
                     response,
                     userId: uid,
