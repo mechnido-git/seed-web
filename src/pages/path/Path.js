@@ -18,7 +18,6 @@ function Path({skip}) {
     onAuthStateChanged(auth, (user) => {
       if (!user) navigate("/home");
     });
-    return ()=> document.querySelector('.dashboard').classList.remove("disable-scroll");
   }, []);
 
   const goCourse = () => {

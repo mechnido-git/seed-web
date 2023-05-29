@@ -23,7 +23,7 @@ function HomeIndex() {
     const doFetch = async () => {
       const querySnapshot = await getDocs(collection(db, "courses"));
       const temp = [];
-      querySnapshot.forEach((doc) => {
+      querySnapshot?.forEach((doc) => {
         // doc.data() is never undefined for query doc snapshots
         //console.log(doc.id, " => ", doc.data());
         console.log(doc.data());

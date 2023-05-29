@@ -14,6 +14,8 @@ function Enroll({index}) {
     const [id, setId] = useState(courses[index].id)
     const [uid, setUid] = useState(null)
     const [loading, setLoading] = useState(false)
+    const [email, setEmail] = useState(null)
+    const [userName, setUserName] = useState(null)
 
     const change = (e) => {
         console.log(e.target.value);
@@ -24,6 +26,8 @@ function Enroll({index}) {
       onAuthStateChanged(auth, (user) => {
         if (user) {
           setUid(user.uid);
+          setEmail(user.email)
+          setUserName(user.displayName)
         } else {
         }
       });
@@ -51,11 +55,14 @@ function Enroll({index}) {
             order_id: res.data.order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
             handler: async function (response){
                 try {
-                  const res = await axios.post("https://grumpy-puce-frog.cyclic.app/verify", {
+                  const res = axios.post("https://grumpy-puce-frog.cyclic.app/verify", {
                     response,
                     userId: uid,
                     range: range,
-                    courseId: id
+                    courseId: id,
+                    email: email,
+                    userName,
+                    item  : String(courseList[index].name)
                   })
                   window.location.reload()
                 } catch (error) {
