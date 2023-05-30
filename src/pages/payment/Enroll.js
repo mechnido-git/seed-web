@@ -38,7 +38,7 @@ function Enroll({index}) {
         if(range === null) return
 
         setLoading(true)
-        const url = 'https://grumpy-puce-frog.cyclic.app/order';
+        const url = 'https://elegant-teal-galoshes.cyclic.app/order';
         const data = {
             id: String(id),
             range: range,
@@ -56,7 +56,7 @@ function Enroll({index}) {
             handler: async function (response){
                 try {
                   setLoading(true)
-                  const res = await axios.post("https://grumpy-puce-frog.cyclic.app/verify", {
+                  const res = await axios.post("https://elegant-teal-galoshes.cyclic.app/verify", {
                     response,
                     userId: uid,
                     range: range,
