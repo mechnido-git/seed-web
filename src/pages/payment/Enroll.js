@@ -17,6 +17,9 @@ function Enroll({index}) {
     const [email, setEmail] = useState(null)
     const [userName, setUserName] = useState(null)
 
+    const base = `https://kind-dog-handkerchief.cyclic.app`
+    // const base = 'http://localhost:4242'
+
     const change = (e) => {
         console.log(e.target.value);
         setRange(e.target.value)
@@ -38,7 +41,7 @@ function Enroll({index}) {
         if(range === null) return
 
         setLoading(true)
-        const url = 'https://elegant-teal-galoshes.cyclic.app/order';
+        const url = `${base}/order`;
         const data = {
             id: String(id),
             range: range,
@@ -56,7 +59,7 @@ function Enroll({index}) {
             handler: async function (response){
                 try {
                   setLoading(true)
-                  const res = await axios.post("https://elegant-teal-galoshes.cyclic.app/verify", {
+                  const res = await axios.post(`${base}/verify`, {
                     response,
                     userId: uid,
                     range: range,
