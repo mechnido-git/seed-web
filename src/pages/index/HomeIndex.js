@@ -4,7 +4,7 @@ import { Outlet, useOutletContext } from "react-router-dom";
 import SideMenu from "../../components/sideMenu/SideMenu";
 import { StoreContext } from "../../store/StoreContext";
 import { auth, db } from "../../firebase/config";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, doc, getDocs, orderBy, query, setDoc } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
 
 function HomeIndex() {
@@ -20,8 +20,11 @@ function HomeIndex() {
       if (user) setUserName(user.displayName)
     })
 
+    
+
     const doFetch = async () => {
-      const querySnapshot = await getDocs(collection(db, "courses"));
+      const q = query(collection(db, "courses"), orderBy("order", "asc"))
+      const querySnapshot = await getDocs(q);
       const temp = [];
       querySnapshot?.forEach((doc) => {
         // doc.data() is never undefined for query doc snapshots

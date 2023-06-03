@@ -198,6 +198,8 @@ function CoursesHome() {
     //navigate(`/menu/courses/enroll/${currentSlide}`)
     let flag = false
     if(userId){
+      console.log(courses);
+      console.log(courses[currentSlide]);
       courses[currentSlide].enrolled?.forEach(item=>{
         if(item.userId === userId ) flag = true
       })
@@ -234,7 +236,7 @@ function CoursesHome() {
                 }}
               >
                 {courses.map((item, i)=><SplideSlide key={i}>
-                  <img src={slide} style={{ objectFit: "contain", width: "100%" }} alt="" />
+                  <img src={courseList[i].slide} style={{ objectFit: "contain", width: "100%" }} alt="" />
                 </SplideSlide>)}
               </Splide>
 

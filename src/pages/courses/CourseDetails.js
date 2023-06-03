@@ -109,7 +109,7 @@ function CourseDetails() {
               <ul>
                 {data.fee.map((item, i) => (
                   <li className="fee-li" key={i}>
-                    <span>{item.type}</span>: <span>{item.price}₹</span>{" "}
+                    <span>{item.type}</span>: <span style={{fontWeight: 'bold'}}>{item.price}₹</span>{" "}
                   </li>
                 ))}
               </ul>
@@ -202,7 +202,7 @@ function CourseDetails() {
               ))}
             </ul>
           </div>
-          <img src={cert} alt="" />
+          <img src={data.certificate.imgURL} alt="" />
         </div>
       </div>
       <div className="metrics">
@@ -210,17 +210,17 @@ function CourseDetails() {
         <div className="content">
           <div className="section">
             <span class="material-symbols-outlined">groups</span>
-            <h4>1000+</h4>
+            <h4>{data.metrics.students}+</h4>
             <p>Students participated</p>
           </div>
           <div className="section">
             <span class="material-symbols-outlined">record_voice_over</span>
-            <h4>18 Hours</h4>
+            <h4>{data.metrics.hours} Hours</h4>
             <p>of live Interaction</p>
           </div>
           <div className="section">
             <span class="material-symbols-outlined">groups</span>
-            <h4>1000+</h4>
+            <h4>{data.metrics.students}+</h4>
             <p>Students participated</p>
           </div>
         </div>

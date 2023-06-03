@@ -13,10 +13,10 @@ function ProfileDrop({ userName, onClickOutside, show, setLoading }) {
     signOut(auth)
       .then(() => {
         // Sign-out successful.
-       // window.location.reload();
-       navigate("/")
+        navigate("/")
         localStorage.removeItem('cover')
         setLoading(false)
+        window.location.reload();
       })
       .catch((error) => {
         // An error happened.
