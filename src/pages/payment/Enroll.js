@@ -22,7 +22,7 @@ function Enroll({index}) {
 
     const change = (e) => {
         console.log(e.target.value);
-        setRange(e.target.value)
+        setRange(parseInt(e.target.value))
     }
 
     useEffect(() => {
