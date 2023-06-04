@@ -380,7 +380,7 @@ function Home() {
                   width: "100%",
                   perPage:
                     window.innerWidth <= 426
-                      ? 3
+                      ? 2.5
                       : window.innerWidth <= 768
                       ? 3.5
                       : window.innerWidth <= 1024
