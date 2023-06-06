@@ -11,6 +11,7 @@
     margin: 1rem;
     line-height: 30px;
     font-size: 20px;
+    text-align: center;
 }
 
 .path-div > .intro > h2{
@@ -107,4 +108,39 @@
         position: absolute;
         top: 0;
         right: 20px;
+}
+
+@media only screen and (max-width: 610px){
+    .path-div > .intro {
+        font-size: 17px;
+    }
+
+    .path-div > .paths {
+        gap: 10px;
+        font-size: 13px;
+        
+    }
+
+.path-div .paths .path{
+    max-width: 100%;
+}
+
+    .path-div > .paths .course-path > img {
+        width: 12rem;
+    }
+
+    .path-div > .paths .event-path > img {
+        width: 12rem;
+    }
+
+    .path-div .paths button {
+        padding: 0.7rem 1.7rem;
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (max-width: 500px){
+    .path-div > .paths{
+        grid-template-columns: 1fr;
+    }
 }

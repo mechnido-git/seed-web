@@ -21,15 +21,15 @@ function Path({skip}) {
   }, []);
 
   const goCourse = () => {
-    navigate("/menu/courses")
-    localStorage.setItem('cover', true)
-    window.location.reload()
+    navigate("/menu/courses");
+   // localStorage.setItem('cover', true)
+    //window.location.reload()
   }
   
   const goEvents = () => {
-    navigate("/menu/events")
-    localStorage.setItem('cover', true)
-    window.location.reload()
+    navigate("/menu/events");
+    //localStorage.setItem('cover', true)
+    //window.location.reload()
   }
 
   return (
@@ -59,7 +59,7 @@ function Path({skip}) {
           <button onClick={goEvents} >Events</button>
         </div>
       </div>
-      <button id="skip" onClick={skip}>Skip</button>
+      {/* <button id="skip" onClick={skip}>Skip</button> */}
     </div>
   );
 }

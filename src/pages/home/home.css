@@ -11,15 +11,18 @@
 
 .App > .nav{
     padding: .5rem 0;
-    display: flex;
+    display: grid;
+    grid-template-columns: .5fr 1fr 1fr;
     align-items: center;
     justify-content: space-around;
+    justify-items: center;
     position: fixed;
     width: 100%;
     z-index: 3;
     backdrop-filter: blur(6px);
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     background-color: rgba(64, 88, 118, 0.537);
+    gap: 1rem;
 }
 
 .home > .main > .title{
@@ -35,6 +38,7 @@
   display: flex;
   justify-content: space-between;
   gap: 20px;
+  justify-self: left;
 }
 
 .App > .nav .links{
@@ -65,6 +69,7 @@
 .App .nav > .left{
   display: flex;
   gap: 20px;
+  justify-self: right;
 }
 
 .App > .nav  .links > ul > li::before{
@@ -229,7 +234,6 @@
 
 .nav.offer{
   display: grid;
-  grid-template-columns: auto auto auto;
   row-gap: 1rem;
   justify-items: center;
   justify-content: center;
@@ -469,6 +473,11 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     gap: 3rem;
     background-color: white;
 }
+
+.home .title h2{
+  text-align: center;
+}
+
 
 .slides-achievements{
     padding: 0rem 1rem;
@@ -818,12 +827,13 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
       justify-content: start;
       padding: 15px;
       gap: 1rem;
+      justify-self: center;
     }
 
      .App > .nav.toggle {
       align-items: start;
       display: grid;
-      grid-template-columns: auto 1fr auto;
+      grid-template-columns: .5fr 1fr 1fr;
       align-items: center;
       column-gap: 10px;
     }
@@ -842,9 +852,10 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 
      .App > .nav.toggle .right{
       display: flex;
-      grid-column: 2 / 3;
+      grid-column: 2 / 4;
       grid-row: 1 / 2;
       margin-right: 0;
+      justify-self: right;
 
     }
      .App > .nav.toggle .options > .links{
@@ -857,6 +868,37 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
       grid-column: 1 / 4;
       grid-row: 2 / 3;
     }
+
+    .App > .nav.offer .drop-menu .courses, .nav .drop-menu > .lists > .events{
+      display: grid;
+      grid-template-rows: auto 1fr;
+      grid-template-columns: 1fr;
+    }
+
+    .App > .nav.offer .drop-menu .courses ul, .nav .drop-menu > .lists > .events ul{
+      display: flex;
+      flex-direction: row;
+      overflow-y: scroll;
+    }
+
+    .App > .nav.offer .drop-menu .courses ul::-webkit-scrollbar, .nav .drop-menu > .lists > .events ul::-webkit-scrollbar {
+      display: none;
+    }
+
+    .App > .nav.offer .drop-menu .courses ul::after, .nav .drop-menu > .lists > .events ul::after{
+      content: none;
+    }
+
+    .App > .nav.offer .drop-menu .courses .cards, .nav .drop-menu > .lists > .events .cards{
+      overflow-x: auto;
+      height: 300px;
+    }
+
+    .nav.offer .drop-menu > .lists ul > li{
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
     .home > .hero {
       justify-content: center;
       padding: 8rem 5rem;
@@ -948,7 +990,7 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   }
 
 
-  @media only screen and (max-width: 425px){
+  @media only screen and (max-width: 540px){
 
     .home > .hero{
       padding-left: 1rem;
@@ -961,10 +1003,6 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 
     .home > .hero > .btns > button{
       padding: 1rem 3rem;
-    }
-
-    .home .title h2{
-      text-align: center;
     }
 
     .home > .main > .title > img {

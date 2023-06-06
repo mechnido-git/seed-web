@@ -21,7 +21,7 @@ function Enroll({index}) {
     // const base = 'http://localhost:4242'
 
     const change = (e) => {
-        console.log(e.target.value);
+        console.log(typeof range);
         setRange(parseInt(e.target.value))
     }
 
@@ -97,7 +97,7 @@ function Enroll({index}) {
             <form onChange={change}>
                 {data.fee.map((item, i)=><div className='inp'>
                     <label htmlFor="radio">{item.type}{" : "} <span>₹{item.price}</span></label>
-                    <input  type="radio" value={item.id} checked={range === item.id} onChange={change} id="range" />
+                    <input  type="radio" value={item.id} checked={range === parseInt(item.id)} onChange={change} id="range" />
                 </div>)}
                 <button onClick={proceed}>Proceed</button>
             </form>

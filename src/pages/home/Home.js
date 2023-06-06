@@ -110,15 +110,12 @@ function Home() {
 
   const toggle = () => {
     const nav = document.getElementById("nav");
-    const links = document.querySelectorAll(".links");
     if (nav.className === "nav") {
       nav.className += " toggle";
       document.getElementById("home").addEventListener("click", toggle);
-      links.forEach((link) => link.addEventListener("click", toggle));
     } else {
       nav.className = "nav";
       document.getElementById("home").removeEventListener("click", toggle);
-      links.forEach((link) => link.removeEventListener("click", toggle));
     }
   };
 
@@ -145,7 +142,8 @@ function Home() {
           <HashLink to="#home" smooth>
             <img src={logo} alt="" />
           </HashLink>
-          <div className="options">
+        </div>
+        <div className="options">
             <div className="links">
               <ul>
                 <li className="link">
@@ -161,7 +159,6 @@ function Home() {
               </ul>
             </div>
           </div>
-        </div>
         <div className="right">
           <div className="account" id="account">
             {userName ? (

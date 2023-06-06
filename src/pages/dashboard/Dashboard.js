@@ -65,6 +65,10 @@ function Dashboard() {
       collection(db, "events"),
       where("enrolled", "array-contains", user.uid)
     );
+    const q2 = query(
+      collection(db, "courses"),
+      where("enrolled_arr", "array-contains", user.uid)
+    );
     try {
       const snaps = await getDocs(q);
       const lists = snaps.docs.map((list) => {
@@ -73,6 +77,26 @@ function Dashboard() {
           id: list.id,
         };
       });
+
+      const snaps2 = await getDocs(q2)
+      const lists2 = snaps2.docs.map((list)=>{
+        return {
+          ...list.data(),
+          id: list.id
+        }
+      })
+      console.log(lists2);
+      console.log(lists)
+      console.log(lists.length === 0 && lists2.length === 0);
+
+      if(lists.length === 0 && lists2.length === 0){
+        localStorage.setItem('cover', true)
+        setCover(true)
+      }else{
+        localStorage.setItem('cover', false)
+        setCover(false)
+      }
+
       setEvents(lists);
       console.log(lists);
       setLoading(false);
@@ -184,7 +208,7 @@ function Dashboard() {
                   </div>
                 </div>
               </div>
-             { !cover &&  <div className="cover">
+             { (cover === null || cover ) &&  <div className="cover">
                 <Path setCover={setCover} skip={skipCover} />
               </div>}
             </>

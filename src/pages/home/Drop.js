@@ -133,13 +133,6 @@ function Drop({ onClickOutside, show }) {
                   <span class="material-symbols-outlined">event_upcoming</span>
                   Upcoming Events
                 </li>
-                <li
-                  onMouseEnter={() => {
-                    setEventSwitch(2);
-                  }}
-                >
-                  <span class="material-symbols-outlined">stars</span>Sponsors
-                </li>
               </ul>
               <div className="cards">
                 {eventSwitch == 0

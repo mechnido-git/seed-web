@@ -18,6 +18,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: auto;
 }
 
 
@@ -213,4 +214,15 @@
 .dashboard .not-logged > span{
   font-size: 5rem;
  
+}
+
+@media only screen and (max-width: 650px){
+  .dashboard{
+    grid-column: 1 / 4;
+    grid-row: 2 / 3;
+  }
+
+  .dashboard > .cover{
+    height: 90%;
+  }
 }
