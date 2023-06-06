@@ -243,7 +243,7 @@ function CourseDetails() {
             width: "100%",
             perPage:
               window.innerWidth <= 426
-                ? 1.2
+                ? 1
                 : window.innerWidth <= 768
                   ? 1.5
                   : window.innerWidth <= 1024

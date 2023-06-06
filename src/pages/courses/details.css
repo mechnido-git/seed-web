@@ -4,7 +4,8 @@
     gap: 3rem;
     overflow-y: auto;
     grid-column: 2 / 4;
-    padding: 2rem 9rem;
+    grid-row: 2 / 3;
+    padding: 2rem 3rem;
 }
 
 .course-details h2, .course-details h4 {
@@ -319,7 +320,7 @@
 }
 .course-details > .metrics > .content{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
 }
 
@@ -405,4 +406,91 @@
     align-items: center;
     justify-content: center;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+@media only screen and (max-width: 930px){
+
+    .course-details{
+        padding: 2rem;
+    }
+
+    .course-details > .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .course-details > .about > .details {
+        grid-template-columns: 1fr;
+    }
+
+    .course-details > .explore > .content > .card {
+        display: none;
+    }
+
+    .course-details > .certificate > .content {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media only screen and (max-width: 650px){
+    .course-details .title > h1 {
+        font-size: 40px;
+    }
+
+    .course-details .title > p {
+        font-size: 16px;
+    }
+
+    .course-details > .hero > .course > .card > button, .course-details .title > a, .course-details > .explore > .content > .card > button {
+        padding: 0.6rem 3.5rem;
+        font-size: 18px;
+    }
+
+    .feedback h2, .course-details > .certificate h2 {
+        font-size: 35px;
+    }
+
+    .course-details > .explore .main > ol > li > h4 {
+        font-size: 17px;
+    }
+
+    .course-details > .metrics > .content > .section > h4 {
+        font-size: 20px;
+    }
+
+    .course-details > .metrics > .content > .section {
+        padding: 2rem 1rem;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 470px){
+
+    .course-details{
+        padding: 1rem;
+    }
+
+    .course-details > .about > .details > .right > img{
+        width: 100%;
+    }
+
+    .course-details > .about > h2, .course-details > .explore h2, .course-details > .feedback h2, .course-details > .certificate h2 {
+        font-size: 32px;
+    }
+
+    .course-details > .certificate img {
+        width: 100%;
+    }
+
+    .course-details > .explore .main > ol > li > h4 {
+        font-size: 14px;
+    }
+
+    .course-details > .certificate {
+        padding: 1rem;
+    }
+
+    .course-details p, .course-details li {
+        font-size: 16px;
+    }
 }
