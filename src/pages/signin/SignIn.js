@@ -66,7 +66,7 @@ function SignIn({index, redirect}) {
         })
           .then(() => {
             console.log("updated");
-            redirect? navigate("/menu/home") : window.location.reload();
+            redirect? navigate("/menu/dashboard") : window.location.reload();
           })
           .catch((err) => {
             console.log(err);
@@ -93,7 +93,7 @@ function SignIn({index, redirect}) {
         const user = userCredential.user;
         //console.log(user);
         // ...
-        redirect? navigate("/menu/home") : window.location.reload();
+        redirect? navigate("/menu/dashboard") : window.location.reload();
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -116,7 +116,7 @@ function SignIn({index, redirect}) {
         const user = result.user;
         // IdP data available using getAdditionalUserInfo(result)
         // ...
-        redirect? navigate("/menu/home") : window.location.reload();
+        redirect? navigate("/menu/dashboard") : window.location.reload();
       })
       .catch((error) => {
         // Handle Errors here.
@@ -145,7 +145,7 @@ function SignIn({index, redirect}) {
 
         // IdP data available using getAdditionalUserInfo(result)
         // ...
-        redirect? navigate("/menu/home") : window.location.reload();
+        redirect? navigate("/menu/dashboard") : window.location.reload();
       })
       .catch((error) => {
         console.log(error);

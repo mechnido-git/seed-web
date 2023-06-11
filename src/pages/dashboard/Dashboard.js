@@ -170,7 +170,7 @@ const QuickLinks = () => {
             link
           </span>{item.name}
         </>;
-        if(item.hash) return <HashLink smooth to={item.link} className="card">{content}</HashLink>;
+        if (item.hash) return <HashLink smooth to={item.link} className="card">{content}</HashLink>;
         return <Link className="card" to={item.link} >{content}</Link>
       })}
     </div>
@@ -346,13 +346,17 @@ function Dashboard() {
         <>
           {loggedIn ? (
             <>
-              <h2>Dashboard</h2>
-              <div className="main" onDragOver={containerDrag}>
-                {items.map(item => item)}
-              </div>
-              {(cover === null || cover) && <div className="cover">
+
+              {(cover === null || cover) ? <div className="cover">
                 <Path setCover={setCover} skip={skipCover} />
-              </div>}
+              </div> :
+                <>
+                  <h2>Dashboard</h2>
+                  <div className="main" onDragOver={containerDrag}>
+                    {items.map(item => item)}
+                  </div>
+                </>
+              }
             </>
           ) : (
             <div className="not-logged">
