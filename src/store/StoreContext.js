@@ -27,6 +27,7 @@ const Store = ({ children }) => {
       id: 0,
       name: "Product Development Program",
       thumbnail: "../../images/courses.jpg",
+      flag: true,
       metrics: {
         students: 1000,
         hours: 18,
@@ -727,8 +728,8 @@ const Store = ({ children }) => {
                 "Patching binaries to alter program functionality.",
                 "Bypassing license checks and other security mechanisms.",
                 "Reverse engineering and modifying cryptographic algorithms.",
-              ]
-            }
+              ],
+            },
           ],
         },
         {
@@ -776,6 +777,1511 @@ const Store = ({ children }) => {
                 "Real-world applications of reverse engineering in different domains",
                 "Case studies on reverse engineering of software, hardware, and protocols",
                 "Success stories and lessons learned from reverse engineering projects",
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 3,
+      name: "PRODUCTION PLANNING & CONTROL (PPC)",
+      thumbnail: "../../images/course.jpg",
+      slide: s3,
+      order: 3,
+      description:
+        "This Program offers students to get clear insights of product development concepts by hands-on training which will be handled by Mechnido's faculty and industrial experts.",
+      description_L: [
+        "This Program offers students to get clear insights of product development concepts by hands-on training which will be handled by Mechnido's faculty and industrial experts.",
+        "In 50+ hours sessions, students will get an overview of the concepts and potential opportunities in the field. Moreover, students will get certificates from Mechnido.",
+        "Production Planning and Control Management provides participants with a comprehensive understanding of the principles, strategies, and tools necessary for effective production planning and control.The course covers material requirement planning (MRP), where participants will gain insights into the basics of MRP, bill of materials, master production scheduling, and inventory management. Participants will learn about production scheduling techniques, shop floor control, lean manufacturing principles, quality control, and performance measurement.",
+      ],
+      duration: [
+        "Flexible Timing",
+        "Weekend : 2 Sessions",
+        "    Saturday & Sunday - 4 Hrs",
+        "Weekday : 2 Sessions (Any 2 Days)",
+        "    Monday to Friday - 4 Hrs",
+      ],
+      certificate: {
+        title: "Requirements for Certification",
+        imgURL:
+          "https://firebasestorage.googleapis.com/v0/b/idea-website-9344a.appspot.com/o/courses%2FBmTpjtkRUuSLmcEQ4HVu%2Fcertificates%2Fcert.png?alt=media&token=c7050733-7850-4541-9660-35e03278c649&_gl=1*1wrqmnv*_ga*MTI0Mzg0ODM1MS4xNjg0MjQ5MjMz*_ga_CW55HF8NVT*MTY4NjQ2NjE2OC41OS4xLjE2ODY0NjY1MjEuMC4wLjA.",
+        sub: [
+          "An individual enrolled in the program should complete the training within the program's time limit.",
+          "To acquire the certification, you must complete all the course's assignments, tests, case studies, projects, and other criteria.",
+          "To acquire certification, the student must show up to every session that the instructor provides.",
+        ],
+      },
+      fee: [
+        {
+          id: 0,
+          type: "One time",
+          price: 2500,
+        },
+      ],
+      schedule: [
+        {
+          name: "INTRO PRODUCTION PLANNING & CONTROL",
+          topics: [
+            {
+              name: "Welcome and Course Introduction",
+              SUB: [
+                "Introduction to the facilitator and course objectives",
+                "Overview of the session agenda",
+              ],
+            },
+            {
+              name: "Production Planning Process",
+              SUB: [
+                "Overview of the production planning process",
+                "Demand forecasting and sales planning",
+                "Aggregate production planning and master production scheduling",
+                "Capacity planning and resource allocation",
+              ],
+            },
+            {
+              name: "Material Planning and Control",
+              SUB: [
+                "MRP and its role in production planning",
+                "Bill of Materials (BOM) and its significance in material planning",
+                "Inventory management techniques in ppc",
+                "Just-in-Time (JIT) and Kanban systems",
+              ],
+            },
+            {
+              name: "Production Control Techniques",
+              SUB: [
+                "Shop floor control and work order release",
+                "Sequencing and scheduling of production orders",
+                "Managing and tracking work in progress (WIP)",
+                "Real-time production monitoring and control",
+              ],
+            },
+            {
+              name: "Key Performance Indicators (KPIs) in PPC",
+              SUB: [
+                "Essential KPIs for measuring production performance",
+                "Metrics for evaluating production efficiency and effectiveness",
+                "Analyzing and interpreting production data",
+              ],
+            },
+            {
+              name: "PPC Software and Tools ",
+              SUB: [
+                "Introduction to production planning and control software systems",
+                "Features and functionalities of production planning tools",
+                "Benefits and considerations in selecting and implementing production planning software",
+              ],
+            },
+            {
+              name: "Case Studies and Practical Examples",
+              SUB: [
+                "Analyzing real-world production planning and control challenges",
+                "Examining successful production planning and control strategies",
+                "Applying concepts to practical scenarios",
+              ],
+            },
+          ],
+        },
+        {
+          name: "DEMAND FORECASTING & CAPACITY PLANNING",
+          topics: [
+            {
+              name: "Importance of Demand Forecasting",
+              SUB: [
+                "Understanding the significance of demand forecasting in PPC",
+                "Impact of accurate demand forecasting on inventory management and customer satisfaction",
+                "Forecasting methods and techniques.",
+              ],
+            },
+            {
+              name: "Demand Forecasting Techniques",
+              SUB: [
+                "Qualitative forecasting methods",
+                "Quantitative forecasting methods",
+                "Selection and application of appropriate forecasting techniques based on data availability and forecast horizon",
+              ],
+            },
+            {
+              name: "Challenges & Considerations",
+              SUB: [
+                "Factors influencing demand variability and uncertainty",
+                "Seasonality, trends, and other demand patterns",
+                "Dealing with demand forecasting errors and adjusting forecasts",
+              ],
+            },
+            {
+              name: "Capacity Planning and Analysis",
+              SUB: [
+                "Capacity planning objectives and considerations",
+                "Evaluating production capacity requirements.",
+                "Capacity utilization and bottleneck identification",
+              ],
+            },
+            {
+              name: "Determining Production Capacity",
+              SUB: [
+                "Factors influencing production capacity",
+                "Capacity measurement and estimation methods",
+                "Techniques for determining the required production capacity",
+              ],
+            },
+            {
+              name: "Strategies for Balancing Demand & Capacity",
+              SUB: [
+                "Level production strategy and chase production strategy",
+                "Strategies for managing demand fluctuations",
+                "Outsourcing and subcontracting as capacity management approaches.",
+              ],
+            },
+            {
+              name: "Aggregate Production Planning",
+              SUB: [
+                "Developing aggregate production plans based on demand forecasts and capacity constraints",
+                "Production smoothing techniques",
+              ],
+            },
+            {
+              name: "Case Studies and Practical Examples",
+              SUB: [
+                "Analyzing real-world demand forecasting and capacity planning scenarios",
+                "Examining successful strategies for demand and capacity management.",
+              ],
+            },
+          ],
+        },
+        {
+          name: "MATERIAL REQUIREMENT PLANNING (MRP)",
+          topics: [
+            {
+              name: "Introduction to MRP",
+              SUB: [
+                "Overview of MRP and its significance",
+                "Objectives and benefits of implementing MRP in PPC",
+                "Integration of MRP with other planning and control systems",
+              ],
+            },
+            {
+              name: "Bill of Materials (BOM) and its Role in MRP",
+              SUB: [
+                "Understanding the structure and components of the Bill of Materials",
+                "BOM accuracy and maintenance",
+                "BOM explosion and implosion techniques",
+              ],
+            },
+            {
+              name: "MRP Process and Calculations",
+              SUB: [
+                "Key steps in the MRP process",
+                "MRP calculations and logic",
+                "Time-phased MRP versus order point systems",
+              ],
+            },
+            {
+              name: "Material Planning Parameters in MRP",
+              SUB: [
+                "Lead time and safety stock considerations",
+                "Lot sizing methods (e.g., EOQ, fixed order quantity, periodic order quantity)",
+                "Reorder points and order quantities determination.",
+              ],
+            },
+            {
+              name: "Managing Inventory in MRP",
+              SUB: [
+                "Inventory control techniques in MRP",
+                "ABC analysis and inventory classification",
+                "Stockout and excess inventory management",
+              ],
+            },
+            {
+              name: "MRP Implementation & Software Systems",
+              SUB: [
+                "Steps and considerations for implementing MRP",
+                "Introduction to MRP software systems and tools",
+                "Benefits and challenges of MRP implementation",
+              ],
+            },
+            {
+              name: "MRP in Production Scheduling and Control",
+              SUB: [
+                "Linking MRP with production scheduling and shop floor control",
+                "Coordination between MRP and capacity planning",
+                "Role of MRP in meeting production schedules and customer demand.",
+              ],
+            },
+            {
+              name: "Case Studies and Practical Examples",
+              SUB: [
+                "Analyzing real-world MRP implementation and challenges",
+                "Examining successful strategies for effective MRP management",
+                "Applying MRP concepts to practical scenarios",
+              ],
+            },
+          ],
+        },
+        {
+          name: "PRODUCTION SCHEDULING AND CONTROL",
+          topics: [
+            {
+              name: "Intro to Production Scheduling & Control",
+              SUB: [
+                "Definition and significance of production scheduling and control",
+                "Objectives and benefits of effective production scheduling",
+                "Key challenges in production scheduling and control",
+              ],
+            },
+            {
+              name: "Principles of Production Scheduling",
+              SUB: [
+                "Basic principles and considerations in production scheduling",
+                "Types of production scheduling",
+                "Factors influencing production scheduling decisions",
+              ],
+            },
+            {
+              name: "Techniques for Production Scheduling",
+              SUB: [
+                "Gantt charts and their role in production scheduling",
+                "Finite and infinite capacity scheduling methods",
+                "Scheduling algorithms (e.g., priority rules, heuristics)",
+                "Sequencing and prioritization of production orders",
+              ],
+            },
+            {
+              name: "Shop Floor Control and Work Order Release",
+              SUB: [
+                "Shop floor control techniques and strategies",
+                "Work order release processes and considerations",
+                "Material availability and release timing",
+              ],
+            },
+            {
+              name: "Managing and Tracking Work in Progress",
+              SUB: [
+                "Techniques for monitoring and tracking work in progress",
+                "Shop floor data collection and real-time production monitoring",
+                "Visual management tools (e.g., Kanban boards, Andon systems)",
+              ],
+            },
+            {
+              name: "Production Control & Bottleneck Management",
+              SUB: [
+                "Identifying and managing production bottlenecks",
+                "Load leveling and smoothing techniques",
+                "Techniques for managing production disruptions and changes",
+              ],
+            },
+            {
+              name: "Lean Production and Pull Systems",
+              SUB: [
+                "Introduction to lean production principles",
+                "Pull production systems (e.g., Kanban, Just-in-Time)",
+                "Implementing lean production concepts in production scheduling",
+              ],
+            },
+            {
+              name: "Case Studies and Practical Examples",
+              SUB: [
+                "Analyzing real-world production scheduling and control scenarios",
+                "Examining successful strategies for efficient production scheduling",
+                "Applying production scheduling and control concepts to practical situations",
+              ],
+            },
+          ],
+        },
+        {
+          name: "LEAN PRODUCTION & CONTINUOUS IMPROVEMENT ",
+          topics: [
+            {
+              name: "Introduction to Lean Production",
+              SUB: [
+                "Understanding the principles and philosophy of lean production",
+                "Key benefits of adopting lean production in manufacturing operations",
+                "Lean thinking and its application in PPC",
+              ],
+            },
+            {
+              name: "Seven Wastes in Lean Production",
+              SUB: [
+                "Identification and elimination of the seven wastes (muda) in production processes",
+                "Waste reduction techniques",
+                "Value-added and non-value-added activities",
+              ],
+            },
+            {
+              name: "Value Stream Mapping (VSM)",
+              SUB: [
+                "Intro to value stream mapping and its role in lean production",
+                "Mapping the current state and identifying opportunities for improvement",
+                "Designing the future state value stream map",
+              ],
+            },
+            {
+              name: "Just-in-Time (JIT) Production",
+              SUB: [
+                "Principles and objectives of just-in-time production",
+                "Pull systems (e.g., Kanban) and their role in JIT production",
+                "Lean layout design and workplace organization",
+              ],
+            },
+            {
+              name: "Kaizen and Continuous Improvement",
+              SUB: [
+                "Understanding the concept of kaizen and its significance in lean production",
+                "Techniques for generating improvement ideas and facilitating kaizen events, Creating a culture of continuous improvement.",
+              ],
+            },
+            {
+              name: "Lean Tools and Techniques",
+              SUB: [
+                "Poka-yoke (error-proofing) techniques",
+                "Total Productive Maintenance (TPM)",
+                "Single-Minute Exchange of Die (SMED)",
+              ],
+            },
+            {
+              name: "Lean Leadership and Employee Engagement",
+              SUB: [
+                "Role of leadership in driving lean transformation",
+                "Creating a culture of employee involvement and engagement",
+                "Training and empowering employees in lean practices",
+              ],
+            },
+            {
+              name: "Case Studies and Practical Examples",
+              SUB: [
+                "Analyzing real-world lean production implementation and challenges",
+                "Examining successful lean production strategies and outcomes",
+                "Applying lean production concepts to practical scenarios",
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 4,
+      name: "SUPPLY CHAIN MANAGEMENT",
+      thumbnail: "../../images/course.jpg",
+      slide: s3,
+      order: 4,
+      description:
+        "This Program offers students to get clear insights of product development concepts by hands-on training which will be handled by Mechnido's faculty and industrial experts.",
+      description_L: [
+        "This Program offers students to get clear insights of product development concepts by hands-on training which will be handled by Mechnido's faculty and industrial experts.",
+        "In 40+ hours sessions, students will get an overview of the concepts and potential opportunities in the field. Moreover, students will get certificates from Mechnido.",
+        "This comprehensive online course on supply chain management provides a deep understanding of the key concepts, strategies, and practices involved in effectively managing the flow of goods, services, and information across the supply chain. ",
+        "The course is designed to equip participants with the knowledge and skills necessary to optimize supply chain operations, enhance efficiency, reduce costs, and improve overall business performance.",
+      ],
+      duration: [
+        "Flexible Timing",
+        "Weekend : 2 Sessions",
+        "    Saturday & Sunday - 4 Hrs",
+        "Weekday : 2 Sessions (Any 2 Days)",
+        "    Monday to Friday - 4 Hrs",
+      ],
+      certificate: {
+        title: "Requirements for Certification",
+        imgURL:
+          "https://firebasestorage.googleapis.com/v0/b/idea-website-9344a.appspot.com/o/courses%2FHdguF5RNcSHdhm0VC4oE%2Fcertificates%2Fcert.png?alt=media&token=494f8357-cb1d-4a6d-a333-96d891616182&_gl=1*1xd9yjn*_ga*MTI0Mzg0ODM1MS4xNjg0MjQ5MjMz*_ga_CW55HF8NVT*MTY4NjQ3NDQwMy42MC4xLjE2ODY0NzQ0OTkuMC4wLjA.",
+        sub: [
+          "An individual enrolled in the program should complete the training within the program's time limit.",
+          "To acquire the certification, you must complete all the course's assignments, tests, case studies, projects, and other criteria.",
+          "To acquire certification, the student must show up to every session that the instructor provides.",
+        ],
+      },
+      fee: [
+        {
+          id: 0,
+          type: "One time",
+          price: 2500,
+        },
+      ],
+      schedule: [
+        {
+          name: "INTRO TO SUPPLY CHAIN MANAGEMENT",
+          topics: [
+            {
+              name: "Welcome and Course Introduction",
+              SUB: [
+                "Introduction to the facilitator and course objectives",
+                "Overview of the session agenda",
+              ],
+            },
+            {
+              name: "Overview of SCM",
+              SUB: [
+                "Definition and scope of supply chain management",
+                "Evolution and importance of supply chain management in today's global economy",
+                "Key objectives and benefits of effective supply chain management",
+              ],
+            },
+            {
+              name: "Components of the Supply Chain",
+              SUB: [
+                "Overview of the different components and stages of the supply chain",
+                "Explanation of the upstream and downstream activities",
+                "Understanding the flow of goods, services, and information across the supply chain",
+              ],
+            },
+            {
+              name: "Key Functions in Supply Chain Management",
+              SUB: [
+                "Procurement and sourcing , Operations and production",
+                "Distribution and logistics",
+                "Demand planning and forecasting",
+              ],
+            },
+            {
+              name: "Supply Chain Integration & Collaboration",
+              SUB: [
+                "Importance of collaboration among supply chain partners",
+                "Enhancing communication and coordination throughout the supply chain",
+                "Benefits and challenges of supply chain integration",
+              ],
+            },
+            {
+              name: "Technology and Innovation in SCM",
+              SUB: [
+                "Role of technology in optimizing supply chain operations",
+                "Introduction to supply chain management software and tools",
+                "Emerging trends and innovations in supply chain management",
+              ],
+            },
+            {
+              name: "Sustainability and Ethical Considerations",
+              SUB: [
+                "Sustainable supply chain practices and their impact on business",
+                "Ethical considerations in supply chain management, Corporate social responsibility & supply chain sustainability initiatives",
+              ],
+            },
+            {
+              name: "Case Studies and Practical Examples",
+              SUB: [
+                "Analyzing real-world supply chain management cases",
+                "Examining successful supply chain strategies & lessons learned",
+                "Applying concepts to practical scenarios",
+              ],
+            },
+          ],
+        },
+        {
+          name: "DEMAND PLANNING AND FORECASTING",
+          topics: [
+            {
+              name: "Understanding Demand Patterns",
+              SUB: [
+                "Different types of demand patterns (seasonal, trend, random fluctuations)",
+                "Analyzing historical demand data to identify patterns",
+                "Factors influencing demand variation in different industries",
+              ],
+            },
+            {
+              name: "Forecasting Techniques and Models",
+              SUB: [
+                "Quantitative forecasting methods",
+                "Qualitative forecasting methods",
+                "Time series analysis and forecasting model.",
+              ],
+            },
+            {
+              name: "Forecast Accuracy Measuring & Improvement",
+              SUB: [
+                "Metrics for measuring forecast accuracy",
+                "Techniques for improving forecast accuracy",
+                "Continuous monitoring and adjustment of forecasting models",
+              ],
+            },
+            {
+              name: "Demand Planning and Inventory Management",
+              SUB: [
+                "Importance of demand planning in inventory optimization",
+                "Safety stock and reorder point determination",
+                "Demand-driven inventory management strategies (Just-in-Time, Vendor-Managed Inventory)",
+              ],
+            },
+            {
+              name: "CPFR",
+              SUB: [
+                "Overview of CPFR process and its benefits",
+                "Collaboration with customers and suppliers for demand planning and forecasting",
+                "Sharing of information and coordination in the supply chain",
+              ],
+            },
+            {
+              name: "Demand Sensing and Shaping",
+              SUB: [
+                "Techniques for real-time demand sensing using point-of-sale data and advanced analytics",
+                "Demand shaping strategies to influence customer demand.",
+              ],
+            },
+            {
+              name: "Demand Planning Software and Tools",
+              SUB: [
+                "Introduction to demand planning software solutions",
+                "Features & functionalities of demand forecasting & planning tools",
+                "Benefits and considerations in selecting and implementing demand planning systems",
+              ],
+            },
+            {
+              name: "Case Studies and Practical Examples",
+              SUB: [
+                "Analyzing real-world demand planning and forecasting challenges",
+                "Examining successful demand planning strategies & lessons learned",
+                "Applying forecasting techniques to practical scenarios",
+              ],
+            },
+          ],
+        },
+        {
+          name: "PROCUREMENT & SUPPLIER MANAGEMENT",
+          topics: [
+            {
+              name: "Strategic Sourcing & Supplier Selection",
+              SUB: [
+                "Importance of strategic sourcing in supply chain management",
+                "Supplier evaluation and selection criteria",
+                "Developing a supplier portfolio & supplier segmentation strategies",
+              ],
+            },
+            {
+              name: "Supplier Relationship Management (SRM)",
+              SUB: [
+                "Understanding the role and benefits of supplier relationship management",
+                "Building collaborative and long-term relationships with suppliers",
+                "Strategies for effective communication, trust, and mutual value creation",
+              ],
+            },
+            {
+              name: "Supplier Performance Measuring & Improve",
+              SUB: [
+                "Key performance indicators (KPIs) for evaluating supplier performance",
+                "Techniques for supplier performance measurement & monitoring",
+                "Collaborative improvement initiatives & supplier development programs",
+              ],
+            },
+            {
+              name: "Negotiation and Contract Management",
+              SUB: [
+                "Negotiation strategies and techniques in procurement",
+                "Contract types, terms, and conditions",
+                "Supplier contract management and compliance monitoring",
+              ],
+            },
+            {
+              name: "Supplier Risk Management",
+              SUB: [
+                "Identifying and assessing supplier risks",
+                "Strategies for mitigating supplier-related risks",
+                "Continuity planning and supplier diversification",
+              ],
+            },
+            {
+              name: "Sustainable and Ethical Procurement",
+              SUB: [
+                "Importance of sustainable and ethical procurement practices",
+                "Environmental and social considerations in supplier selection",
+                "Supplier code of conduct and auditing processes",
+              ],
+            },
+            {
+              name: "Supplier Collaboration and Innovation",
+              SUB: [
+                "Collaborative product development and innovation with suppliers",
+                "Supplier involvement in value engineering and cost optimization",
+                "Supplier collaboration platforms and tools",
+              ],
+            },
+            {
+              name: "Case Studies and Practical Examples",
+              SUB: [
+                "Analyzing real-world procurement and supplier management scenarios",
+                "Examining successful supplier management strategies and lessons learned",
+                "Applying supplier management concepts to practical situations",
+              ],
+            },
+          ],
+        },
+        {
+          name: "INVENTORY MANAGEMENT & WAREHOUSING",
+          topics: [
+            {
+              name: "Types of Inventory",
+              SUB: [
+                "Overview of different types of inventory.",
+                "Understanding the costs and risks associated with holding inventory",
+                "Importance of accurate inventory tracking and management",
+              ],
+            },
+            {
+              name: "Inventory Control Techniques",
+              SUB: [
+                "ABC analysis and categorization of inventory items",
+                "Economic Order Quantity (EOQ) model for order quantity optimization",
+                "Safety stock calculation and determination",
+              ],
+            },
+            {
+              name: "Inventory Optimization Strategies",
+              SUB: [
+                "Just-in-Time (JIT) and Lean principles for reducing inventory levels",
+                "Demand-driven inventory management approaches",
+                "Collaborative inventory planning and forecasting",
+              ],
+            },
+            {
+              name: "Warehouse Operations and Layout Design",
+              SUB: [
+                "Warehouse functions and processes",
+                "Layout design principles for efficient space utilization",
+                "Slotting and storage strategies to minimize travel time and improve picking efficiency",
+              ],
+            },
+            {
+              name: "Warehouse Technology and Automation",
+              SUB: [
+                "Warehouse management systems (WMS) and their functionalities",
+                "Automated storage and retrieval systems (AS/RS)",
+                "RFID, barcoding, and other technologies for inventory tracking and management",
+              ],
+            },
+            {
+              name: "Cross-Docking and Consolidation Centers",
+              SUB: [
+                "Cross-docking concepts and benefits",
+                "Consolidation centers for efficient order fulfillment",
+                "Strategies for reducing handling and storage time",
+              ],
+            },
+            {
+              name: "Inventory Visibility & Tracking Technologies",
+              SUB: [
+                "Real-time inventory tracking and visibility solutions",
+                "RFID, IoT, and sensor-based technologies",
+                "Integration of inventory data with supply chain systems",
+              ],
+            },
+            {
+              name: "Case Studies and Practical Examples",
+              SUB: [
+                "Analyzing real-world inventory management and warehousing scenarios",
+                "Examining successful strategies for inventory optimization",
+                "Applying inventory management concepts to practical situations",
+              ],
+            },
+          ],
+        },
+        {
+          name: "LOGISTICS AND TRANSPORTATION",
+          topics: [
+            {
+              name: "Modes of Transportation",
+              SUB: [
+                "Overview of transportation modes (road, rail, air, sea)",
+                "Characteristics, advantages, and limitations of each mode",
+                "Factors influencing mode selection in different supply chain scenarios.",
+              ],
+            },
+            {
+              name: "Freight Forwarding and Carrier Selection",
+              SUB: [
+                "Role of freight forwarders in international logistics",
+                "Factors to consider when selecting carriers",
+                "Contract negotiation and service level agreements",
+              ],
+            },
+            {
+              name: "Route Optimization and Load Planning",
+              SUB: [
+                "Route optimization techniques for efficient transportation",
+                "Load planning strategies to maximize truck/container utilization",
+                "Tools and software for route planning and load optimization",
+              ],
+            },
+            {
+              name: "Customs Management and Trade Compliance",
+              SUB: [
+                "Import and export regulations and documentation",
+                "Customs clearance procedures and compliance requirements",
+                "Managing customs brokers and ensuring trade compliance",
+              ],
+            },
+            {
+              name: "Last-Mile Delivery and Customer Service",
+              SUB: [
+                "Importance of last-mile delivery in customer satisfaction",
+                "Strategies for efficient last-mile delivery operations",
+                "Enhancing customer service through timely and accurate deliveries",
+              ],
+            },
+            {
+              name: "Reverse Logistics & Returns Management",
+              SUB: [
+                "Managing reverse logistics processes for product returns & repairs",
+                "Reverse logistics network design and optimization",
+                "Strategies for minimizing costs and maximizing value in returns management",
+              ],
+            },
+            {
+              name: "Logistics Outsourcing & Third-Party Logistics",
+              SUB: [
+                "Benefits and considerations of outsourcing logistics functions",
+                "Roles and responsibilities of third-party logistics providers (3PLs)",
+                "Effective management of 3PL relationships",
+              ],
+            },
+            {
+              name: "Emerging Trends - Logistics & Transportation",
+              SUB: [
+                "Green logistics and sustainability initiatives",
+                "Impact of e-commerce on logistics and delivery operations",
+                "Technological advancements and automation in transportation",
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 5,
+      name: "PROJECT MANAGEMENT",
+      thumbnail: "../../images/course.jpg",
+      slide: s3,
+      order: 5,
+      description:
+        "This Program offers students to get clear insights of product development concepts by hands-on training which will be handled by Mechnido's faculty and industrial experts.",
+      description_L: [
+        "This Program offers students to get clear insights of product development concepts by hands-on training which will be handled by Mechnido's faculty and industrial experts.",
+        "In 50+ hours sessions, students will get an overview of the concepts and potential opportunities in the field. Moreover, students will get certificates from Mechnido.",
+        "Project management course provides a comprehensive introduction to the principles and practices of project management. Participants will gain a solid foundation in project management methodologies, tools, and techniques, enabling them to successfully plan, execute, monitor, and close projects. Through interactive sessions, real-world case studies, and practical exercises, participants will learn how to effectively manage project scope, time, cost, quality, and stakeholders. ",
+      ],
+      duration: [
+        "Flexible Timing",
+        "Weekend : 2 Sessions",
+        "    Saturday & Sunday - 4 Hrs",
+        "Weekday : 2 Sessions (Any 2 Days)",
+        "    Monday to Friday - 4 Hrs",
+      ],
+      certificate: {
+        title: "Requirements for Certification",
+        imgURL:
+          "https://firebasestorage.googleapis.com/v0/b/idea-website-9344a.appspot.com/o/courses%2FT4tJgpGiKixHQGqDH2eZ%2Fcertificates%2Fcert.png?alt=media&token=11b8e108-0ec7-4845-860a-4e67c373de44&_gl=1*khvk73*_ga*MTI0Mzg0ODM1MS4xNjg0MjQ5MjMz*_ga_CW55HF8NVT*MTY4NjQ3ODU1OS42MS4xLjE2ODY0Nzg2MzIuMC4wLjA.",
+        sub: [
+          "An individual enrolled in the program should complete the training within the program's time limit.",
+          "To acquire the certification, you must complete all the course's assignments, tests, case studies, projects, and other criteria.",
+          "To acquire certification, the student must show up to every session that the instructor provides.",
+        ],
+      },
+      fee: [
+        {
+          id: 0,
+          type: "One time",
+          price: 2500,
+        },
+      ],
+      schedule: [
+        {
+          name: "INTRO TO PROJECT MANAGEMENT",
+          topics: [
+            {
+              name: "Welcome and Course Introduction",
+              SUB: [
+                "Introduction to the facilitator and course objectives",
+                "Overview of the session agenda",
+              ],
+            },
+            {
+              name: "Importance of Project Management",
+              SUB: [
+                "Significance of effective project management in achieving organizational goals",
+                "Project management methodologies and practices",
+                "Common challenges faced in project management and their impact on project success.",
+              ],
+            },
+            {
+              name: "Project Life Cycle and Process Groups",
+              SUB: [
+                "Overview of the project life cycle stages",
+                "Understanding the five process groups & their interdependencies",
+                "Key deliverables & activities associated with each process group",
+              ],
+            },
+            {
+              name: "Project Stakeholders and Communication",
+              SUB: [
+                "Overview of the project life cycle stages",
+                "Understanding the five process groups & their interdependencies",
+                "Key deliverables & activities associated with each process group",
+              ],
+            },
+            {
+              name: "Project Management Roles & Responsibilities",
+              SUB: [
+                "The role of the project manager and their responsibilities",
+                "Project team roles and their contributions",
+                "Collaborative approaches and team dynamics in project management",
+              ],
+            },
+            {
+              name: "Project Success Criteria and Metrics",
+              SUB: [
+                "Defining project success criteria",
+                "Establishing project metrics and key performance indicators (KPIs)",
+                "Measuring and evaluating project success",
+              ],
+            },
+            {
+              name: "Ethical Considerations - Project Management",
+              SUB: [
+                "Ethical challenges in project management",
+                "Ethical standards and codes of conduct for project managers",
+                "Promoting ethical practices in project management",
+              ],
+            },
+            {
+              name: "Case Studies and Practical Examples",
+              SUB: [
+                "Analyzing real-world production planning and control challenges",
+                "Examining successful production planning and control strategies",
+                "Applying concepts to practical scenarios",
+              ],
+            },
+          ],
+        },
+        {
+          name: "PROJECT PLANNING & SCOPE MANAGEMENT",
+          topics: [
+            {
+              name: "Defining Project Scope",
+              SUB: [
+                "Importance of clearly defining project scope",
+                "Techniques for gathering and documenting project requirements",
+                "Identifying project constraints and assumptions",
+                "Scope statement development",
+              ],
+            },
+            {
+              name: "Work Breakdown Structure (WBS)",
+              SUB: [
+                "Introduction to the Work Breakdown Structure (WBS)",
+                "Creating a hierarchical breakdown of project deliverables",
+                "WBS dictionary and its role in project planning",
+              ],
+            },
+            {
+              name: "Activity Sequencing and Dependencies",
+              SUB: [
+                "Identifying project activities and their relationships",
+                "Techniques for sequencing project activities (e.g., precedence diagramming method, dependency determination)",
+                "Critical Path Method (CPM) and its role in project scheduling",
+              ],
+            },
+            {
+              name: "Developing the Project Schedule",
+              SUB: [
+                "Estimating activity durations and resource requirements",
+                "Creating a project schedule using project management software",
+                "Gantt charts and network diagrams for visualizing the project schedule.",
+              ],
+            },
+            {
+              name: "Resource Planning and Allocation",
+              SUB: [
+                "Identifying project resources (human, material, equipment)",
+                "Estimating resource requirements",
+                "Resource leveling and resource allocation techniques",
+              ],
+            },
+            {
+              name: "Risk Identification & Management",
+              SUB: [
+                "Techniques for identifying project risks",
+                "Assessing and prioritizing project risks",
+                "Developing risk response strategies and contingency plans",
+              ],
+            },
+            {
+              name: "Scope Change Management",
+              SUB: [
+                "Change control process and procedures",
+                "Evaluating and managing scope change requests",
+                "Impact of scope changes on the project schedule and resources",
+              ],
+            },
+            {
+              name: "Case Studies and Practical Examples",
+              SUB: [
+                "Analyzing real-world project planning and scope management scenarios",
+                "Examining successful projects and lessons learned",
+                "Applying project planning and scope management concepts to practical situations",
+              ],
+            },
+          ],
+        },
+        {
+          name: "PROJECT EXECUTION  & TEAM MANAGEMENT",
+          topics: [
+            {
+              name: "Project Execution Overview",
+              SUB: [
+                "Introduction to project execution phase",
+                "Key objectives and activities during project execution",
+                "Linking project execution to project planning and scope managemen",
+              ],
+            },
+            {
+              name: "Team Roles and Responsibilities",
+              SUB: [
+                "Defining project team roles and responsibilities",
+                "Team formation and development stages",
+                "Building and managing a high-performing project team",
+              ],
+            },
+            {
+              name: "Communication Stakeholder Engagement",
+              SUB: [
+                "Importance of effective communication in project execution",
+                "Communication planning and strategies",
+                "Stakeholder engagement and management.",
+              ],
+            },
+            {
+              name: "Managing Project Risks and Issues",
+              SUB: [
+                "Identifying and assessing project risks",
+                "Developing risk response strategies and contingency plans",
+                "Proactively managing project risks during execution",
+                "Handling project issues and conflicts",
+              ],
+            },
+            {
+              name: "Quality Assurance and Control",
+              SUB: [
+                "Defining project quality objectives and criteria",
+                "Quality planning and quality control techniques",
+                "Quality assurance activities during project execution",
+              ],
+            },
+            {
+              name: "Procurement and Vendor Management",
+              SUB: [
+                "Procurement planning and strategy development",
+                "Request for Proposal (RFP) process and vendor selection",
+                "Contract management and vendor performance monitoring",
+              ],
+            },
+            {
+              name: "Change Management and Project Updates",
+              SUB: [
+                "Change control process and procedures during project execution",
+                "Assessing and managing project changes",
+                "Communicating project updates and progress reports",
+              ],
+            },
+            {
+              name: "Case Studies and Practical Examples",
+              SUB: [
+                "Analyzing real-world project execution and team management scenarios",
+                "Examining successful projects and lessons learned",
+                "Applying project execution and team management concepts to practical situations",
+              ],
+            },
+          ],
+        },
+        {
+          name: "PROJECT MONITORING AND CONTROL",
+          topics: [
+            {
+              name: "Project Monitoring and Control Overview",
+              SUB: [
+                "Introduction to project monitoring and control phase",
+                "Key objectives and activities during project monitoring and control",
+                "Linking project monitoring and control to project execution",
+              ],
+            },
+            {
+              name: "Monitoring Project Progress & Performance",
+              SUB: [
+                "Defining project performance metrics and key performance indicators (KPIs)",
+                "Collecting project data and progress updates",
+                "Analyzing project performance and identifying variances",
+              ],
+            },
+            {
+              name: "Earned Value Management (EVM)",
+              SUB: [
+                "Introduction to Earned Value Management (EVM)",
+                "EVM formulas and calculations (PV, EV, AC, SPI, CPI)",
+                "Assessing project schedule and cost performance using EVM",
+              ],
+            },
+            {
+              name: "Project Tracking and Reporting",
+              SUB: [
+                "Creating project status reports and dashboards",
+                "Tracking project milestones and deliverables",
+                "Reporting project progress to stakeholders",
+              ],
+            },
+            {
+              name: "Managing Project Changes and Variations",
+              SUB: [
+                "Change control process during project monitoring and control",
+                "Assessing and managing project changes and variations",
+                "Evaluating change requests and their impact on project objectives",
+              ],
+            },
+            {
+              name: "Risk Response and Mitigation Strategies",
+              SUB: [
+                "Reviewing project risks and their mitigation strategies",
+                "Monitoring and controlling project risks during project execution",
+                "Implementing risk response plans",
+              ],
+            },
+            {
+              name: "Project Documentation and Record Keeping",
+              SUB: [
+                "Importance of project documentation and record keeping",
+                "Document control and versioning",
+                "Archiving project documents and lessons learned",
+              ],
+            },
+            {
+              name: "Case Studies and Practical Examples",
+              SUB: [
+                "Analyzing real-world project monitoring and control scenarios",
+                "Examining successful projects and lessons learned",
+                "Applying project monitoring and control concepts to practical situations.",
+              ],
+            },
+          ],
+        },
+        {
+          name: "PROJECT CLOSURE AND LESSONS LEARNED ",
+          topics: [
+            {
+              name: "Project Closure Overview",
+              SUB: [
+                "Importance of project closure for project success",
+                "Key objectives and activities during project closure",
+                "Transitioning project deliverables to operations or clients",
+              ],
+            },
+            {
+              name: "Project Closure Activities and Deliverables",
+              SUB: [
+                "Completing final project deliverables",
+                "Conducting final project reviews and approvals",
+                "Obtaining project sign-offs and acceptance",
+              ],
+            },
+            {
+              name: "Project Evaluate & Performance Assessment",
+              SUB: [
+                "Assessing project performance against objectives",
+                "Conducting post-project evaluations",
+                "Analyzing project success factors and challenges",
+              ],
+            },
+            {
+              name: "Analyzing project success factors and challenges",
+              SUB: [
+                "Importance of lessons learned in project management",
+                "Techniques for capturing and documenting lessons learned",
+                "Creating a lessons learned repository for future projects",
+              ],
+            },
+            {
+              name: "Project Documentation and Archiving",
+              SUB: [
+                "Organizing and archiving project documentation",
+                "Ensuring proper storage and accessibility of project records",
+                "Documenting project closure activities and outcomes",
+              ],
+            },
+            {
+              name: "Project Success and Team Contributions",
+              SUB: [
+                "Recognizing and appreciating project team contributions",
+                "Celebrating project success and milestones",
+                "Promoting a positive project closure experience",
+              ],
+            },
+            {
+              name: "Continuous Improvement - Project",
+              SUB: [
+                "Applying lessons learned to future projects",
+                "Promoting a culture of continuous improvement in project management , Incorporating feedback and insights ",
+              ],
+            },
+            {
+              name: "Case Studies and Practical Examples",
+              SUB: [
+                "Analyzing real-world project closure and lessons learned scenarios",
+                "Examining successful project closures and their impact on future projects.",
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 6,
+      name: "QUALITY MANAGEMENT",
+      thumbnail: "../../images/course.jpg",
+      slide: s3,
+      order: 6,
+      description:
+        "This Program offers students to get clear insights of product development concepts by hands-on training which will be handled by Mechnido's faculty and industrial experts.",
+      description_L: [
+        "This Program offers students to get clear insights of product development concepts by hands-on training which will be handled by Mechnido's faculty and industrial experts.",
+        "In 50+ hours sessions, students will get an overview of the concepts and potential opportunities in the field. Moreover, students will get certificates from Mechnido.",
+        "This Quality Management online course is designed to provide participants with a comprehensive understanding of quality management principles, tools, and techniques. Over the course of 50 hours They will explore topics such as quality planning, quality control, quality assurance, quality management systems, and developing a quality culture within organizations. Through interactive discussions, case studies, and practical exercises, participants will develop the skills necessary to drive continuous improvement and enhance customer satisfaction through effective quality management practices.",
+      ],
+      duration: [
+        "Flexible Timing",
+        "Weekend : 2 Sessions",
+        "    Saturday & Sunday - 4 Hrs",
+        "Weekday : 2 Sessions (Any 2 Days)",
+        "    Monday to Friday - 4 Hrs",
+      ],
+      certificate: {
+        title: "Requirements for Certification",
+        imgURL:
+          "https://firebasestorage.googleapis.com/v0/b/idea-website-9344a.appspot.com/o/courses%2Fr8weEIiW3iJ8ocAkeTtJ%2Fcertificates%2Fcert.png?alt=media&token=fbaf147c-9414-43f4-9eae-1ec8bfc2f289&_gl=1*1remt56*_ga*MTI0Mzg0ODM1MS4xNjg0MjQ5MjMz*_ga_CW55HF8NVT*MTY4NjQ4NTczNy42Mi4xLjE2ODY0ODU3OTYuMC4wLjA.",
+        sub: [
+          "An individual enrolled in the program should complete the training within the program's time limit.",
+          "To acquire the certification, you must complete all the course's assignments, tests, case studies, projects, and other criteria.",
+          "To acquire certification, the student must show up to every session that the instructor provides.",
+        ],
+      },
+      fee: [
+        {
+          id: 0,
+          type: "One time",
+          price: 2500,
+        },
+      ],
+      schedule: [
+        {
+          name: "INTRO TO QUALITY MANAGEMENT",
+          topics: [
+            {
+              name: "Welcome and Course Introduction",
+              SUB: [
+                "Introduction to the facilitator and course objectives",
+                "Overview of the session agenda",
+              ],
+            },
+            {
+              name: "Understanding Quality Management",
+              SUB: [
+                "Definition of quality and its significance in business",
+                "Historical development of quality management",
+                "The role of quality management in achieving organizational goals",
+              ],
+            },
+            {
+              name: "Quality - Philosophies & Approaches",
+              SUB: [
+                "Intro to different quality management philosophies (e.g., Total Quality Management, Six Sigma, Lean)",
+                "Overview of quality improvement methodologies and tools",
+                "Key principles and concepts underlying quality management approaches",
+              ],
+            },
+            {
+              name: "Quality Management Principles",
+              SUB: [
+                "Quality management principles (e.g., customer focus, continuous improvement, process approach)",
+                "Understanding the impact of quality management principles on organizational performance.",
+              ],
+            },
+            {
+              name: "Benefits of Quality Management",
+              SUB: [
+                "Identifying the benefits of effective quality management",
+                "Cost of poor quality and its impact on organizations",
+                "Linking quality management to customer satisfaction and loyalty",
+              ],
+            },
+            {
+              name: "Quality Management Tools and Techniques",
+              SUB: [
+                "Quality management tools and techniques (e.g., Pareto analysis, cause and effect diagrams, process mapping)",
+                "Overview of statistical process control and data-driven decision-making",
+              ],
+            },
+            {
+              name: "Quality Management Roles & Responsibilities",
+              SUB: [
+                "Roles and responsibilities of quality managers and quality teams",
+                "Collaboration between quality management and other functions within an organization",
+              ],
+            },
+            {
+              name: "Case Studies and Practical Examples",
+              SUB: [
+                "Analyzing real-world examples of quality management practices",
+                "Examining successful quality management initiatives and their outcomes",
+                "Applying quality management concepts to practical scenarios",
+              ],
+            },
+          ],
+        },
+        {
+          name: "QUALITY PLANNING AND DESIGN",
+          topics: [
+            {
+              name: "Defining Quality Requirements",
+              SUB: [
+                "Understanding customer needs and expectations",
+                "Translating customer requirements into quality specifications",
+                "Identifying critical quality parameters and performance indicators",
+              ],
+            },
+            {
+              name: "Setting Quality Objectives",
+              SUB: [
+                "Establishing measurable quality objectives",
+                "Linking quality objectives to organizational goals",
+                "Defining key performance indicators (KPIs) for quality measurement",
+              ],
+            },
+            {
+              name: "Quality Planning Techniques",
+              SUB: [
+                "Introduction to quality planning tools and techniques",
+                "Quality Function Deployment (QFD) for product and service design",
+                "Failure Modes and Effects Analysis (FMEA) for risk assessment",
+              ],
+            },
+            {
+              name: "Designing for Quality",
+              SUB: [
+                "Integrating quality into product and service design",
+                "Design for Six Sigma (DFSS) principles and methodologies",
+                "Considering manufacturability and serviceability in design processes",
+              ],
+            },
+            {
+              name: "Quality Control Plans & Inspection Procedures",
+              SUB: [
+                "Developing quality control plans for process control and monitoring",
+                "Defining inspection procedures and acceptance criteria",
+                "Determining appropriate sampling techniques for inspection",
+              ],
+            },
+            {
+              name: "Projects & Process Improvement Initiatives",
+              SUB: [
+                "Incorporating quality planning into project management processes",
+                "Applying quality planning techniques for process improvement initiatives (e.g., DMAIC in Six Sigma)",
+                "Setting up process controls and metrics for continuous improvement.",
+              ],
+            },
+            {
+              name: "Case Studies and Practical Examples",
+              SUB: [
+                "Analyzing real-world quality planning and design scenarios",
+                "Examining successful quality planning initiatives and their outcomes",
+                "Applying quality planning and design concepts to practical situations.",
+              ],
+            },
+          ],
+        },
+        {
+          name: "QUALITY CONTROL AND ASSURANCE ",
+          topics: [
+            {
+              name: "Implementing Quality Control Techniques",
+              SUB: [
+                "Introduction to quality control methods and techniques",
+                "Statistical Process Control (SPC) for monitoring and controlling process variation",
+                "Control charts and other statistical tools for quality control.",
+              ],
+            },
+            {
+              name: "Measurement and Analysis of Process",
+              SUB: [
+                "Selecting appropriate quality metrics and indicators",
+                "Collecting and analyzing data for quality measurement",
+                "Interpreting process capability and performance indices.",
+              ],
+            },
+            {
+              name: "Quality Auditing and Internal Controls",
+              SUB: [
+                "Conducting internal quality audits",
+                "Importance of internal controls for quality management",
+                "Compliance with quality standards and regulatory requirements",
+              ],
+            },
+            {
+              name: "Monitoring Quality Metrics and KPIs",
+              SUB: [
+                "Defining key quality metrics and performance indicators",
+                "Establishing benchmark targets for quality performance",
+                "Tracking and reporting on quality metrics and KPIs",
+              ],
+            },
+            {
+              name: "Continuous Improvement & Corrective Action ",
+              SUB: [
+                "Defining project quality objectives and criteria",
+                "Quality planning and quality control techniques",
+                "Quality assurance activities during project execution",
+              ],
+            },
+            {
+              name: "Procurement and Vendor Management",
+              SUB: [
+                "Identifying areas for improvement through data analysis and performance evaluation",
+                "Implementing corrective and preventive actions",
+                "Root cause analysis and problem-solving techniques",
+              ],
+            },
+            {
+              name: "Supply Chain & Vendor Management",
+              SUB: [
+                "Ensuring quality in the supply chain",
+                "Vendor selection and evaluation for quality assurance",
+                "Supplier quality management and performance monitoring",
+              ],
+            },
+            {
+              name: "Case Studies and Practical Examples",
+              SUB: [
+                "Analyzing real-world quality control & assurance scenarios",
+                "Examining successful quality control and assurance initiatives and their outcomes",
+              ],
+            },
+          ],
+        },
+        {
+          name: "QUALITY MANAGEMENT SYSTEMS & STANDARDS",
+          topics: [
+            {
+              name: "Intro to Quality Management Systems",
+              SUB: [
+                "Understanding the purpose and benefits of a quality management system",
+                "Overview of popular quality management system standards (e.g., ISO 9001, Six Sigma)",
+              ],
+            },
+            {
+              name: "ISO 9001: QMS Requirements",
+              SUB: [
+                "Understanding the structure and requirements of ISO 9001",
+                "Key principles and clauses of ISO 9001",
+                "Implementing ISO 9001 within an organization",
+              ],
+            },
+            {
+              name: "Developing a Quality Management System",
+              SUB: [
+                "Steps involved in developing a quality management system",
+                "Identifying quality policies, objectives, and processes",
+                "Documenting and implementing quality management system procedures",
+              ],
+            },
+            {
+              name: "Auditing and Certifying a QMS",
+              SUB: [
+                "Conducting internal and external QMS audits",
+                "Roles and responsibilities of auditors and auditees",
+                "Certification process and requirements",
+              ],
+            },
+            {
+              name: "Integrating QMS with Business Processes",
+              SUB: [
+                "Aligning QMS with other business processes",
+                "Linking QMS objectives to organizational goals",
+                "Ensuring effective communication and collaboration across functions",
+              ],
+            },
+            {
+              name: "QMS Documentation and Recordkeeping",
+              SUB: [
+                "Documentation requirements for a quality management system",
+                "Creating and maintaining quality management system documents",
+                "Recordkeeping and document control processes",
+              ],
+            },
+            {
+              name: "Continuous Improvement of the QMS",
+              SUB: [
+                "Applying corrective and preventive actions within the QMS",
+                "Management review and continual assessment of the QMS",
+              ],
+            },
+            {
+              name: "Case Studies and Practical Examples",
+              SUB: [
+                "Analyzing real-world examples of QMS and standards",
+                "Examining successful QMS implementations and their outcomes",
+                "Applying QMS concepts to practical scenarios",
+              ],
+            },
+          ],
+        },
+        {
+          name: "QUALITY LEADERSHIP & ORGANIZATIONAL CULTURE",
+          topics: [
+            {
+              name: "Role of Leadership in Quality Management",
+              SUB: [
+                "Understanding the importance of leadership in driving quality excellence",
+                "Characteristics of effective quality leaders",
+                "Leadership styles and their impact on quality culture",
+              ],
+            },
+            {
+              name: "Build a Quality-Focused Organization",
+              SUB: [
+                "Defining organizational culture and its influence on QMS",
+                "Strategies for creating a culture of quality",
+                "Aligning organizational values and behaviors with quality principles",
+              ],
+            },
+            {
+              name: "Employee Empowerment and Engagement ",
+              SUB: [
+                "Empowering employees to take ownership of quality improvement",
+                "Fostering a culture of collaboration and teamwork",
+                "Motivating and engaging employees in quality initiatives",
+              ],
+            },
+            {
+              name: "Effective Communication and Collaboration",
+              SUB: [
+                "Importance of effective communication in quality management",
+                "Building strong communication channels within the organization",
+              ],
+            },
+            {
+              name: "Managing Change and Resistance in QMS",
+              SUB: [
+                "Understanding the challenges of change management in quality initiatives",
+                "Strategies for managing resistance to change",
+                "Overcoming barriers to implementing quality improvement.",
+              ],
+            },
+            {
+              name: "Leading Continuous Improvement in QMS",
+              SUB: [
+                "Creating a culture of continuous improvement",
+                "Applying lean principles and practices in quality management",
+                "Sustaining and evolving quality excellence over time",
+              ],
+            },
+            {
+              name: "Case Studies and Best Practices",
+              SUB: [
+                "Analyzing real-world examples of quality leadership and cultural transformation",
+                "Examining successful quality leadership initiatives and their outcomes",
+                "Applying quality leadership concepts to practical situations",
               ],
             },
           ],

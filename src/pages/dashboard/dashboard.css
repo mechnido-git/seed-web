@@ -6,6 +6,7 @@
     grid-column: 2 / 4;
     gap: 1rem;
     position: relative;
+    background-color: rgb(253, 253, 253);
 }
 
 .dashboard > .cover{
@@ -24,47 +25,95 @@
 
 
 .dashboard > .main{
-    display: flex;
-    flex-direction: column;
-    margin: 1rem;
-    gap: 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 2rem;
+  
 }
 
-.dashboard > .main > .details{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-
+.dashboard > .main > .section{
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  aspect-ratio: 5 / 4;
+  border-radius: 5px;
+  background-color: white;
+  overflow-y: auto;
+  position: relative;
 }
 
-.dashboard > .main > .details > .profile{
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-weight: bold;
+.dashboard > .main > .section::-webkit-scrollbar{
+  display: none;
 }
 
-.dashboard > .main > .details > .profile > img{
-    border-radius: 50%;
-    width: 6rem;
+.dashboard > .main > .section.dragging{
+  /* opacity: .5; */
 }
 
-.dashboard .details >  .event-prog{
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    justify-content: space-between;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-    border-radius: 10px;
+.dashboard > .main > .section > h4{
+  user-select: none;
+  position: sticky;
+  inset: 0;
+  background-color: white;
+  padding: 1rem;
 }
 
-.dashboard .details >  .event-prog > p{
-    margin-left: auto;
+.dashboard > .main > .section > .enrolled-courses,
+.dashboard > .main > .section > .courses,
+.dashboard > .main > .section > .links,
+.dashboard > .main > .section > .messages{
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  margin-top: 0;
+  gap: 5px;
+}
+
+.dashboard > .main > .section > .enrolled-courses > .card,
+.dashboard > .main > .section > .courses > .card,
+.dashboard > .main > .section > .links > .card{
+  padding: .7rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  border-radius: 5px;
+  font-weight: 500;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dashboard > .main > .section > .links > .card:hover{
+  cursor: pointer;
+  color: #006aff;
+}
+
+.dashboard > .main > .section > .links > .card{
+  flex-direction: row;
+}
+
+.dashboard > .main > .section > .messages > .message{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+}
+
+.dashboard > .main > .section > .messages > .message span{
+  position: absolute;
+  right: 0;
+  align-self: center;
+}
+
+.dashboard > .main > .section > .courses > .card > .details > p{
+  font-size: 14px;
+}
+
+.dashboard > .main > .section > .courses > .card > .details > .price{
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.dashboard > .main > .section > .enrolled-courses > .card > h4, .dashboard > .main > .section > .courses > .card > h4{
+  font-size: 18px;
+  font-weight: 500;
 }
 
 @property --event-progress-value {
@@ -112,95 +161,6 @@
     counter-reset: percentage var(--course-progress-value);
   }
 
-  .dashboard .details > .upcoming{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    overflow: hidden;
-    padding: 1rem;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-  }
-
-  .dashboard .details > .upcoming > p{
-    margin-left: auto;
-  }
-
-  .dashboard .my-courses{
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-    padding: 1rem;
-    border-radius: 20px;
-  }
-
-  .dashboard .my-courses > .section{
-    margin: .5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.dashboard .my-courses > .section > .card-container-div{
-    display: grid;
-    max-width: inherit;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    justify-items: center;
-    gap: 30px;
-    justify-content: center;
-}
-
-.dashboard .my-courses > .section > .card-container-div > .card{
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-    transition: .2s;
-    color: #727984;
-    padding: .5rem 1rem;
-    justify-content: space-between;
-}
-
-.dashboard .my-courses > .section > .card-container-div > .card > .body > h4{
-    color: #484D57;
-}
-
-.dashboard .my-courses > .section > .card-container-div > .card > .body > p{
-    color: #727984;
-}
-
-.dashboard .my-courses > .section > .card-container-div > .card > img{
-    max-width: 220px;
-    align-self: center;
-}
-
-.dashboard .my-courses > .section > .card-container-div > .card > .body{
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-    gap: .5rem;
-    height: 100%;
-}
-
-.dashboard .my-courses > .section > .card-container-div > .card > .body > div{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 15px;
-}
-.dashboard .my-courses > .section > .card-container-div > .card > .body > button{
-    background-color: #006aff;
-    border: 2px solid #006aff;
-    margin: 0 auto;
-    padding: .5rem 1rem;
-    border-radius: 10px;
-    color: white;
-    cursor: pointer;
-    transition: .4s;
-}
-
-.dashboard .my-courses > .section > .card-container-div > .card > .body > button:hover{
-    background-color: white;
-    color: #006aff;
-}
 .dashboard .not-logged{
   width: 100%;
   height: 100%;
@@ -216,6 +176,21 @@
  
 }
 
+@media only screen and (max-width: 1350px){
+  .dashboard > .main{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    
+  }
+}
+
+@media only screen and (max-width: 878px){
+  .dashboard > .main > .section{
+    aspect-ratio: unset;
+  }
+}
+
 @media only screen and (max-width: 650px){
   .dashboard{
     grid-column: 1 / 4;
@@ -225,4 +200,8 @@
   .dashboard > .cover{
     height: 90%;
   }
+
+  .dashboard > .main{
+    grid-template-columns: 1fr;
+  }  
 }

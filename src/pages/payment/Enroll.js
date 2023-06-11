@@ -92,7 +92,7 @@ function Enroll({index}) {
     <div className='enroll-div'>
       {loading && <Spinner other={"globel"} loading={loading} />}
         <h1>{data.name}</h1>
-        <h4>select pay range</h4>
+        <h4>Select pay range</h4>
         <div className="card" >
             <form onChange={change}>
                 {data.fee.map((item, i)=><div className='inp'>

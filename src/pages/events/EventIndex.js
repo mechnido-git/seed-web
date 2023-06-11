@@ -16,10 +16,10 @@ import { collection, getDocs } from "firebase/firestore";
 import Spinner from "../../components/Spinner";
 import soon from "../../images/soon.jpg";
 import { useCountdown } from "../../hooks/useCountDown";
+import Footer from "../../components/footer/Footer";
 
 function RegisterInfo({ date, data }) {
   const [eventDate, setEventDate] = useState(new Date(date));
-  console.log(eventDate);
 
   const [days, hours, minutes, seconds] = useCountdown(eventDate);
 
@@ -79,6 +79,7 @@ function EventIndex() {
   const [signIn, setSignIn] = useState(false);
   const [currentEvent, setCurrentEvent] = useState(0);
   const [user, setUser] = useState(false);
+  const [uid, setUid] = useState('')
   const imgWidth = window.innerWidth < 1024 ? "100%" : "200px";
   const gap = window.innerWidth < 1024 ? "1rem" : "4rem";
   const { register, setRegister } = useOutletContext();
@@ -103,12 +104,13 @@ function EventIndex() {
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) setUser(user.displayName);
+      if (user) setUid(user.uid)
     });
     const temp = [];
     getDocs(collection(db, "events"))
       .then((snaps) => {
         snaps.forEach((doc) =>
-          temp.push({ id: doc.id, name: doc.data().name })
+          temp.push({ id: doc.id, ...doc.data() })
         );
         setEvents(temp);
       })
@@ -117,6 +119,17 @@ function EventIndex() {
   }, []);
   const ref = useRef();
   const ref2 = useRef();
+
+  const getRegister = () => {
+    let flag = false;
+    console.log(events);
+    events[currentEvent].enrolled?.forEach(item=>{
+      if(item === uid) flag = true
+    })
+    console.log(flag);
+    if(flag) return alert('Alredy registered')
+    setRegister(true)
+  }
 
   return (
     <>
@@ -174,7 +187,7 @@ function EventIndex() {
               <div className="btns">
                 <button
                   onClick={() =>
-                    user ? setRegister(true) : alert("login first")
+                    user ? getRegister() : alert("login first")
                   }
                 >
                   Register
@@ -366,6 +379,7 @@ function EventIndex() {
                 </SplideSlide>
               </Splide>
             </div>
+            <Footer />
           </>
         )}
       </div>

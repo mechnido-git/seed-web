@@ -25,7 +25,7 @@
   -moz-appearance: textfield;
 }
 
-.register-form > form > .input-div{
+.register-form > form .input-div{
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     gap: 5px;
@@ -34,20 +34,20 @@
     font-size: large;
 }
 
-.register-form > form > .terms{
+.register-form > form .terms{
     display: flex;
     justify-content: center;
     gap: 5px;
     margin: 1rem;
 }
 
-.register-form > form > .input-div > input[type = "text"],
-.register-form > form > .input-div > input[type = "number"],
-.register-form > form > .input-div > input[type = "tel"],
-.register-form > form > .input-div > input[type = "password"],
-.register-form > form > .input-div > input[type = "email"],
-.register-form > form > .input-div > select,
-.register-form > form > .input-div > textarea{
+.register-form > form .input-div > input[type = "text"],
+.register-form > form .input-div > input[type = "number"],
+.register-form > form .input-div > input[type = "tel"],
+.register-form > form .input-div > input[type = "password"],
+.register-form > form .input-div > input[type = "email"],
+.register-form > form .input-div > select,
+.register-form > form .input-div > textarea{
     padding: 5px;
     border: 1px solid#CACACA;
     border-radius: 5px;
@@ -59,8 +59,7 @@
     cursor: pointer !important;
 }
 
-.register-form > form > input[type = "submit"]{
-    margin: 0 auto;
+.register-form > form input[type = "submit"]{
     background-color: #006aff;
     color: white;
     padding: 10px;
@@ -69,7 +68,80 @@
     cursor: pointer;
 }
 
-.register-form > form > input[type = "submit"]:hover{
+.register-form form input:not(:focus):not(:placeholder-shown):invalid {
+    border: 2px solid red !important;
+  }
+
+.register-form > form .btns{
+    display: flex;
+    justify-content: space-between;
+}
+
+.register-form > form .members{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.register-form > form .members > .members-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.register-form > form .members > button{
+    padding: .6rem 1rem;
+    background-color: #006aff;
+    border: 2px solid #006aff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: auto;
+    transition: .3s;
+}
+
+.opacity{
+    opacity: .5;
+}
+
+.register-form > form .members > button:hover{
+    background-color: white;
+    color: #006aff;
+}
+
+.register-form > form .members > .members-container > .member{
+    padding: .5rem;
+    border: 1px solid #006aff;
+    display: flex;
+    gap: 10px;
+    border-radius: 5px;
+    align-items: center;
+}
+
+.register-form > form .members > .members-container > .member > span{
+    color: red;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.register-form > form .members > .members-container > .member > span:hover{
+    transform: scale(1.2);
+}
+
+.register-form > form .btns > .cntrl{
+    padding: .6rem 1rem;
+    background-color: #006aff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.register-form > form .btns > .cntrl:hover{
+    background-color: #0055CC;
+}
+
+.register-form > form input[type = "submit"]:hover{
     background-color: #0055CC;
 }
 

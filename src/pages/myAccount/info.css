@@ -1,0 +1,70 @@
+.user-info{
+    padding:10px;
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+    overflow-y: scroll;
+    grid-column: 2 / 4;
+    position: relative;
+    align-items: center;
+}
+
+.user-info > form{
+    display: flex;
+    flex-direction: column;
+    padding: .5rem;
+    gap: 5px;
+}
+
+.user-info > form > .input-div{
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 5px;
+    padding: 5px;
+    align-items: center;
+    font-size: large;
+}
+
+.user-info > form > .input-div > .inp{
+    display: flex;
+    gap: 10px;
+}
+
+.user-info > span{
+    border: 2px solid #006aff;
+    background-color: #006aff;
+    padding: .3rem;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: .4s;
+}
+
+.user-info > span:hover{
+    background-color: white;
+    color: #006aff;
+}
+
+
+.user-info > form >   .input-div > input[type = "text"],
+.user-info > form >  .input-div > input[type = "number"],
+.user-info > form >  .input-div > input[type = "tel"],
+.user-info > form >  .input-div > input[type = "email"],
+.user-info > form >  .input-div > select,
+.user-info > form >  .input-div > textarea{
+    padding: 5px;
+    border: 1px solid #CACACA ;
+    border-radius: 5px;
+    font-size: large;
+}
+
+.user-info> form > input[type = "submit"]{
+    margin: 0 auto;
+    background-color: #006aff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+

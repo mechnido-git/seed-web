@@ -24,6 +24,10 @@ function ProfileDrop({ userName, onClickOutside, show, setLoading }) {
       });
   };
 
+  const getMyAccount = () =>{
+    navigate("/menu/account")
+  }
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (ref.current && !ref.current.contains(event.target)) {
@@ -41,7 +45,7 @@ function ProfileDrop({ userName, onClickOutside, show, setLoading }) {
     <div className="options" ref={ref}>
       <h3>{userName}</h3>
       <ul>
-        <li>My Account</li>
+        <li onClick={getMyAccount}>My Account</li>
         <li>My Courses</li>
         <li>My Events</li>
         <li onClick={logout}>Sign Out</li>

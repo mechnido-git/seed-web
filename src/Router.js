@@ -19,6 +19,7 @@ import About from "./pages/About/About";
 import Path from "./pages/path/Path";
 import CourseDetails from "./pages/courses/CourseDetails";
 import Enroll from "./pages/payment/Enroll";
+import InfoForm from "./pages/myAccount/InfoForm";
 
 function Router() {
   return (
@@ -30,13 +31,14 @@ function Router() {
         <Route path="/menu" exact element={<Index />}>
           <Route element={<HomeIndex />}>
             <Route index element={<Navigate to='courses' />} />
-            <Route exaact path="home" element={<Dashboard />} />
+            <Route exaact path="dashboard" element={<Dashboard />} />
             <Route exact path="courses" element={<CoursesHome />} />
             <Route exact path="courses/details/:index" element={<CourseDetails />} />
             <Route exact path="courses/enroll/:index" element={<Enroll />} />
             <Route path="events" element={<EventIndex />} />
             <Route path="events/:eventId" element={<EventConfig />} />
             <Route path="event-config/:eventId" element={<EventConfig />} />
+            <Route path="account" element={<InfoForm />} />
           </Route>
         </Route>
         <Route path="/terms" element={<Terms />} />

@@ -93,7 +93,7 @@ header{
 .field input:focus{
     border-bottom-width: 2px;
 }
-input:not(:focus):not(:placeholder-shown):invalid {
+.signin-div input:not(:focus):not(:placeholder-shown):invalid {
     border: 2px solid red !important;
   }
 

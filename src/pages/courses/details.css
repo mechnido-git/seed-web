@@ -14,6 +14,7 @@
 
 .course-details p, .course-details li{
     color: #727984;
+    list-style-position: initial;
 }
 
 .course-details h3{
@@ -160,6 +161,14 @@
     grid-template-columns: 1fr auto;
     gap: 20px;
     align-items: start;
+}
+
+.course-details > .explore > .content > .topics > .main{
+    margin: 3rem 0;
+}
+
+.course-details > .explore > .content > .topics > .main > h3{
+    font-size: 25px;
 }
 
 .course-details > .explore > .content > .card{
@@ -407,6 +416,7 @@
     justify-content: center;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
+
 
 @media only screen and (max-width: 930px){
 

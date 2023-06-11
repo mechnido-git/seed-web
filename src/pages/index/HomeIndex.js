@@ -41,11 +41,11 @@ function HomeIndex() {
       console.log(temp);
       setCourses(temp);
 
-      // const washingtonRef = doc(db, "courses", "8Lqp9FZcnjss2XFfzh3n");
+      // const washingtonRef = doc(db, "courses", "r8weEIiW3iJ8ocAkeTtJ");
 
       // // Set the "capital" field of the city 'DC'
       // await updateDoc(washingtonRef, {
-      //   capital: true,
+        
       // });
     };
     doFetch();

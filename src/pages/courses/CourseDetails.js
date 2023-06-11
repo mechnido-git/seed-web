@@ -9,6 +9,7 @@ import "./details.css";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { HashLink } from "react-router-hash-link";
 import Enroll from "../payment/Enroll";
+import Footer from "../../components/footer/Footer";
 
 function CourseDetails() {
   const { index } = useParams();
@@ -58,17 +59,17 @@ function CourseDetails() {
   const enroll = () => {
     //navigate(`/menu/courses/enroll/${currentSlide}`)
     let flag = false
-    if(userId){
-      courses[index].enrolled?.forEach(item=>{
-        if(item.userId === userId ) flag = true
+    if (userId) {
+      courses[index].enrolled?.forEach(item => {
+        if (item.userId === userId) flag = true
       })
-      if(flag) return window.alert("Alredy enrolled")
+      if (flag) return window.alert("Alredy enrolled")
       setbuy(true)
 
-    }else{
+    } else {
       window.alert("Sign in First")
     }
-  } 
+  }
 
   const showSubs = (e) => {
     console.log(e.target.parentElement);
@@ -80,7 +81,7 @@ function CourseDetails() {
       <div className="hero">
         <div className="title">
           <h1>
-            The Flagship <br />
+            {data.flag ? <>The Flagship <br /></> : ''}
             {data.name}
           </h1>
           <p>{data.description}</p>
@@ -109,7 +110,7 @@ function CourseDetails() {
               <ul>
                 {data.fee.map((item, i) => (
                   <li className="fee-li" key={i}>
-                    <span>{item.type}</span>: <span style={{fontWeight: 'bold'}}>{item.price}₹</span>{" "}
+                    <span>{item.type}</span>: <span style={{ fontWeight: 'bold' }}>{item.price}₹</span>{" "}
                   </li>
                 ))}
               </ul>
@@ -205,7 +206,7 @@ function CourseDetails() {
           <img src={data.certificate.imgURL} alt="" />
         </div>
       </div>
-      <div className="metrics">
+      {data.metrics && <div className="metrics">
         <h2>Our Metrics</h2>
         <div className="content">
           <div className="section">
@@ -224,8 +225,8 @@ function CourseDetails() {
             <p>Students participated</p>
           </div>
         </div>
-      </div>
-      <div className="feedback">
+      </div>}
+      {data.feedback && <div className="feedback">
         <h2>Feedbacks</h2>
         <Splide
           tag="section"
@@ -253,7 +254,7 @@ function CourseDetails() {
             pagination: false,
           }}
         >
-          {data.feedback.map((item, i) => (
+          {data.feedback?.map((item, i) => (
             <SplideSlide key={i}>
               <div className="info">
                 <img src={item.dp} alt="" />
@@ -263,27 +264,30 @@ function CourseDetails() {
             </SplideSlide>
           ))}
         </Splide>
-      </div>
+      </div>}
       <div className="other-courses">
         <h2>Enroll Now!!</h2>
         <div className="content">
           <h3>Individual courses</h3>
           <h3></h3>
           <h3>Offer pack</h3>
-        <div className="individual">
-          {otherCourses.map((item, i) => <div className="card" key={i}>
-            <h4>{item.name}</h4>
-            <span>₹{item.price}</span>
-          </div>)}
-        </div>
-        <div className="divider">
-        <div className="circle">
-          OR
-        </div>
-        </div>
-        <div className="pack">
+          <div className="individual">
+            {courses?.map((item, i) => <div className="card" key={i}>
+              <h4>
+                {item.flag ? <>The Flagship <br /></> : ''}
+                {item.name}
+              </h4>
+              <span>₹{item.fee[0].price}</span>
+            </div>)}
+          </div>
+          <div className="divider">
+            <div className="circle">
+              OR
+            </div>
+          </div>
+          <div className="pack">
             <h3>OFFER PACK</h3>
-        </div>
+          </div>
         </div>
       </div>
       {buy && (
@@ -292,7 +296,7 @@ function CourseDetails() {
           <Enroll index={index} />
         </div>
       )}
-
+      <Footer />
     </div>
   );
 }

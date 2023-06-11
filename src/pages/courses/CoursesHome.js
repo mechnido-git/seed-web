@@ -10,6 +10,7 @@ import { useNavigate, useOutletContext } from "react-router-dom";
 import Spinner from "../../components/Spinner";
 import { StoreContext } from "../../store/StoreContext";
 import Enroll from "../payment/Enroll";
+import Footer from "../../components/footer/Footer";
 
 export const recomended = [
   {
@@ -241,7 +242,7 @@ function CoursesHome() {
               </Splide>
 
               <div className="btns">
-                <button onClick={enroll}>Register</button>
+                <button onClick={enroll}>Enroll</button>
                 <button onClick={viewDetails}>Know more</button>
               </div>
             </div>
@@ -288,8 +289,10 @@ function CoursesHome() {
                 </div>
               </div>
             </section>
+            <Footer />
           </>
         )}
+        
       </div>
       {buy && (
         <div className="wrapper">

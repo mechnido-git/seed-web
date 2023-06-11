@@ -90,7 +90,7 @@ function Home() {
   const goToLink = (link) => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        navigate("/menu/home");
+        navigate("/menu/dashboard");
       } else {
         setRedirect(true);
         setSignIn(true);
@@ -144,21 +144,21 @@ function Home() {
           </HashLink>
         </div>
         <div className="options">
-            <div className="links">
-              <ul>
-                <li className="link">
-                  <Link to="/about">
-                    About
-                  </Link>
-                </li>
-                <li className="link">
-                  <Link to="#" id="offer" onClick={toggleOffer}>
-                    Offerings
-                  </Link>
-                </li>
-              </ul>
-            </div>
+          <div className="links">
+            <ul>
+              <li className="link">
+                <Link to="/about">
+                  About
+                </Link>
+              </li>
+              <li className="link">
+                <Link to="#" id="offer" onClick={toggleOffer}>
+                  Offerings
+                </Link>
+              </li>
+            </ul>
           </div>
+        </div>
         <div className="right">
           <div className="account" id="account">
             {userName ? (
@@ -182,7 +182,7 @@ function Home() {
             menu
           </span>
         </div>
-          {showDrop && <Drop show={showDrop} onClickOutside={toggleOffer} />}
+        {showDrop && <Drop show={showDrop} onClickOutside={toggleOffer} />}
       </div>
       <div className="home" id="home">
         <div className="hero">
@@ -218,10 +218,10 @@ function Home() {
                   window.innerWidth <= 426
                     ? 1
                     : window.innerWidth <= 768
-                    ? 1.5
-                    : window.innerWidth <= 1024
-                    ? 2
-                    : 3,
+                      ? 1.5
+                      : window.innerWidth <= 1024
+                        ? 2
+                        : 3,
                 perMove: 1,
                 pagination: false,
               }}
@@ -278,10 +278,10 @@ function Home() {
                   window.innerWidth <= 426
                     ? 1.2
                     : window.innerWidth <= 768
-                    ? 1.5
-                    : window.innerWidth <= 1024
-                    ? 2
-                    : 3,
+                      ? 1.5
+                      : window.innerWidth <= 1024
+                        ? 2
+                        : 3,
                 perMove: 1,
                 pagination: false,
               }}
@@ -359,57 +359,57 @@ function Home() {
             </Splide>
           </div>
           <div className="slides-sponsors">
-              <div id="sponsors"></div>
-              <h2>Sponsors</h2>
+            <div id="sponsors"></div>
+            <h2>Sponsors</h2>
 
-              <Splide
-                tag="section"
-                aria-labelledby="My Favorite Images"
-                options={{
-                  speed: 800,
-                  autoplay: true,
-                  interval: 2500,
-                  pauseOnHover: false,
-                  type: "loop",
-                  pauseOnFocus: true,
-                  keyboard: true,
-                  gap: ".5rem",
-                  width: "100%",
-                  perPage:
-                    window.innerWidth <= 426
-                      ? 2.5
-                      : window.innerWidth <= 768
+            <Splide
+              tag="section"
+              aria-labelledby="My Favorite Images"
+              options={{
+                speed: 800,
+                autoplay: true,
+                interval: 2500,
+                pauseOnHover: false,
+                type: "loop",
+                pauseOnFocus: true,
+                keyboard: true,
+                gap: ".5rem",
+                width: "100%",
+                perPage:
+                  window.innerWidth <= 426
+                    ? 2.5
+                    : window.innerWidth <= 768
                       ? 3.5
                       : window.innerWidth <= 1024
-                      ? 4
-                      : 5,
-                  perMove: 1,
-                  pagination: false,
-                }}
-              >
-                <SplideSlide>
-                  <img src={sponsor} style={{ width: "100px" }} />
-                </SplideSlide>
-                <SplideSlide>
-                  <img src={sponsor} style={{ width: "100px" }} />
-                </SplideSlide>
-                <SplideSlide>
-                  <img src={sponsor} style={{ width: "100px" }} />
-                </SplideSlide>
-                <SplideSlide>
-                  <img src={sponsor} style={{ width: "100px" }} />
-                </SplideSlide>
-                <SplideSlide>
-                  <img src={sponsor} style={{ width: "100px" }} />
-                </SplideSlide>
-                <SplideSlide>
-                  <img src={sponsor} style={{ width: "100px" }} />
-                </SplideSlide>
-                <SplideSlide>
-                  <img src={sponsor} style={{ width: "100px" }} />
-                </SplideSlide>
-              </Splide>
-            </div>
+                        ? 4
+                        : 5,
+                perMove: 1,
+                pagination: false,
+              }}
+            >
+              <SplideSlide>
+                <img src={sponsor} style={{ width: "100px" }} />
+              </SplideSlide>
+              <SplideSlide>
+                <img src={sponsor} style={{ width: "100px" }} />
+              </SplideSlide>
+              <SplideSlide>
+                <img src={sponsor} style={{ width: "100px" }} />
+              </SplideSlide>
+              <SplideSlide>
+                <img src={sponsor} style={{ width: "100px" }} />
+              </SplideSlide>
+              <SplideSlide>
+                <img src={sponsor} style={{ width: "100px" }} />
+              </SplideSlide>
+              <SplideSlide>
+                <img src={sponsor} style={{ width: "100px" }} />
+              </SplideSlide>
+              <SplideSlide>
+                <img src={sponsor} style={{ width: "100px" }} />
+              </SplideSlide>
+            </Splide>
+          </div>
           <div className="faq">
             <div id="faq"></div>
             <h2>FAQ</h2>
@@ -595,13 +595,30 @@ function Home() {
         <div className="footer">
           <div className="links">
             <div className="section">
+              <h3>Home</h3>
+              <ul>
+                <li>
+                  <HashLink smooth to='/#achievements' >Achievements</HashLink>
+                </li>
+                <li>
+                  <HashLink smooth to='/#testimonials' >Testimonials</HashLink>
+                </li>
+                <li>
+                  <HashLink smooth to='/#sponsors' >Sponsors</HashLink>
+                </li>
+                <li>
+                  <HashLink smooth to='/#faq' >FAQ</HashLink>
+                </li>
+              </ul>
+            </div>
+            <div className="section">
               <h3>Cources</h3>
               <ul>
                 <li>
-                  <a href="#">Trending Now</a>
+                  <HashLink smooth to='/menu/courses/#trending'>Trending Now</HashLink>
                 </li>
                 <li>
-                  <a href="#">Team Picks</a>
+                  <HashLink smooth to='/menu/courses/#team'>Team Picks</HashLink>
                 </li>
               </ul>
             </div>
@@ -610,19 +627,17 @@ function Home() {
               <h3>Events</h3>
               <ul>
                 <li>
-                  <a href="#">Gallery</a>
+                  <a href="#"></a>
+                  <HashLink smooth to='/menu/events/#gallery'>Gallery</HashLink>
                 </li>
                 <li>
-                  <a href="#">Upcoming Events</a>
-                </li>
-                <li>
-                  <a href="#">Sponsors</a>
+                  <HashLink smooth to='/menu/events/#upcoming'>Upcomming Events</HashLink>
                 </li>
               </ul>
             </div>
           </div>
         </div>
-        <p>©Mechnido Pvt. Ltd. All Rights Reserved</p>
+        <p>© 2023, Mechnido Pvt. Ltd. All Rights Reserved</p>
       </div>
       {signIn && (
         <div className="wrapper">

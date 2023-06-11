@@ -78,7 +78,7 @@ function SideMenu() {
         setSection(2);
         elem = 2;
         break;
-      case "home":
+      case "dashboard":
         setSection(0);
         elem = 0;
         break;
@@ -234,15 +234,6 @@ function SideMenu() {
               <span class="material-symbols-outlined">event_upcoming</span>
               <div>Upcoming Events</div>
             </HashLink>
-            <HashLink
-              className="sub"
-              onClick={mobile ? toggle : null}
-              to="/menu/events/#sponsors"
-              smooth
-            >
-              <span class="material-symbols-outlined">stars</span>
-              <div>Sponsors</div>
-            </HashLink>
             {!user && (
               <div className="cover">
                 <button onClick={() => setSignIn(true)}>Sign in</button>
@@ -258,9 +249,9 @@ function SideMenu() {
   return (
     <div className="side-menu" id="side-menu">
       <div className="min-menu" id="min-menu">
-        <Link to="home" className="link" data-index={0} >
-          <span class="material-symbols-outlined">home</span>
-          <p>Home</p>
+        <Link to="dashboard" className="link" data-index={0} >
+          <span class="material-symbols-outlined">dashboard</span>
+          <p>Dashboard</p>
         </Link>
         <Link to="courses" className="link" data-index={1}>
           <span class="material-symbols-outlined">school</span>
@@ -272,9 +263,9 @@ function SideMenu() {
         </Link>
       </div>
       <div className="menu-options disable" id="menu-options">
-        <Link to="home" className="min-link" data-index={0}>
-        <span class="material-symbols-outlined">home</span>
-          <div>Home</div>
+        <Link to="dashboard" className="min-link" data-index={0}>
+        <span class="material-symbols-outlined">dashboard</span>
+          <div>Dashboard</div>
         </Link>
         <Link to="courses" className="min-link" data-index={1}>
           <span class="material-symbols-outlined">school</span>

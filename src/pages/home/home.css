@@ -823,6 +823,10 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
       margin-left: auto;
     }
 
+    .App .nav > .right{
+      justify-self: right;
+    }
+
      .App > .nav.toggle .options{
       justify-content: start;
       padding: 15px;

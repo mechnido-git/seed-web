@@ -83,7 +83,8 @@ function About() {
           <Link to="/" smooth>
             <img src={logo} alt="" />
           </Link>
-          <div className="options">
+        </div>
+        <div className="options">
             <div className="links">
               <ul>
                 <li className="link">
@@ -99,7 +100,6 @@ function About() {
               </ul>
             </div>
           </div>
-        </div>
         <div className="right">
           <div className="account" id="account">
             {userName ? (

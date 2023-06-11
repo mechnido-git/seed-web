@@ -29,6 +29,7 @@
    display: flex;
    align-items: end;
    gap: 1rem;
+   
 }
 .side-menu > .menu-options > a > span{
     font-size: 20px;
@@ -88,6 +89,9 @@
     gap: 5px;
     padding: .5rem;
     border-radius: 1rem;
+    aspect-ratio: 1 / 1;
+    justify-content: center;
+    border: 2px solid rgba(0, 0, 0, 0);
 }
 .min-menu > a:hover{
     box-shadow: #006aff  0px 0px 0px 1.5px;

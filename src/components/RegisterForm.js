@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./register.css";
 import { Link } from "react-router-dom";
 import { addDoc, arrayUnion, collection, doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
@@ -6,6 +6,10 @@ import { auth, db } from "../firebase/config";
 import { onAuthStateChanged } from "firebase/auth";
 import Spinner from "./Spinner";
 import Terms from "../pages/events/terms/Terms";
+import logo from "../images/man.png";
+import MemberForm from "../pages/events/eventConfig/MemberForm";
+import FacultyForm from "../pages/events/eventConfig/FacultyForm";
+
 
 function RegisterForm({ event }) {
   const [teamName, setTeamName] = useState("");
@@ -27,68 +31,364 @@ function RegisterForm({ event }) {
   const [state, setState] = useState('')
   const [pincode, setPincode] = useState('')
 
+  const [members, setMembers] = useState([])
+  const [memberForm, setMemberForm] = useState(false)
+
+  const [faculty, setFaculty] = useState([])
+  const [facForm, setFacForm] = useState(false)
+  const [facN, setFacN] = useState(null)
+
+  const [current, setCurrent] = useState(0)
   const onSumbitHandler = (e) => {
-    console.log(e);
     e.preventDefault();
-
+    console.log('hi');
     setLoading(true)
-    onAuthStateChanged(auth, user=>{
-        if(user){
-            getDoc(doc(db, 'events', event.id)).then(data=>{
-                if(data){
-                    const enrolled = data.data().enrolled
-                    if(enrolled && enrolled.includes(user.uid)){
-                        alert('You are alredy enrolled')
-                        window.location.reload()
-                        return
-                    }
-                    
-                }
+    onAuthStateChanged(auth, user => {
+      if (user) {
+        getDoc(doc(db, 'events', event.id)).then(data => {
+          if (data) {
+            const enrolled = data.data().enrolled
+            if (enrolled && enrolled.includes(user.uid)) {
+              alert('You are alredy enrolled')
+              window.location.reload()
+              return
+            }
 
-                addDoc(collection(db, 'enrolled'),{
-                    id: user.uid,
-                    eventId: event.id,
-                    teamName,
-                    teamEmail,
-                    teamMembers,
-                    capName,
-                    kartType,
-                    contact,
-                    collegeName,
-                    fac,
-                    adress,
-                    city,
-                    state,
-                    pincode
-                }).then(()=>{
-                    updateDoc(doc(db, 'events', event.id),{
-                        enrolled: arrayUnion(user.uid)
-                    }).then(()=>window.location.reload()).catch(err=>console.log(err))
-                }).catch(err=>console.log(err))
-                
-            }).catch(err=>console.log(err))
-            
-            
-        }
+          }
+
+          addDoc(collection(db, 'enrolled'), {
+            id: user.uid,
+            eventId: event.id,
+            teamName,
+            teamEmail,
+            teamMembers,
+            capName,
+            kartType,
+            contact,
+            collegeName,
+            fac,
+            adress,
+            city,
+            state,
+            pincode,
+            members,
+            faculty
+          }).then(() => {
+            updateDoc(doc(db, 'events', event.id), {
+              enrolled: arrayUnion(user.uid)
+            }).then(() => window.location.reload()).catch(err => console.log(err))
+          }).catch(err => console.log(err))
+
+        }).catch(err => console.log(err))
+
+
+      }
     })
   };
 
-  const validate = (e) =>{
+  useEffect(()=>{
+    if(fac === 'one') setFacN(1)
+    if(fac === 'two') setFacN(2)
+  }, [fac])
+
+  const validate = (e) => {
     const inputs = document.querySelectorAll('input')
-    inputs.forEach((inp ,i) => {
-      if(inp.value === '' && i != 0 ){
+    inputs.forEach((inp, i) => {
+      if (inp.value === '' && i != 0) {
         console.log(inp);
         inp.style.border = '2px solid red'
       }
     });
   }
 
+
+  const removeMember = (index) => {
+    let temp = members;
+    temp.splice(index, 1)
+    setMembers(temp)
+  }
+
+  const removeFac = (index) => {
+    let temp = faculty;
+    temp.splice(index, 1)
+    setFaculty(temp)
+  }
+
+  const getNextPage = (e) => {
+    e.preventDefault()
+    //if(current === 0) updateMembers(teamMembers)
+    const inputs = document.querySelectorAll(`#page-${current + 1} > .input-div > input`)
+    let flag = false
+    inputs.forEach((inp, i) => {
+      if (inp.value === '') {
+        console.log(inp);
+        inp.style.border = '2px solid red'
+      }
+
+    });
+    const invalid = document.querySelectorAll(`#page-${current + 1} > .input-div > :invalid`)
+    console.log(invalid);
+    console.log(invalid.length === 0);
+    if (invalid.length === 0) setCurrent(current + 1)
+  }
+
+  const getFields = (page) => {
+    switch (page) {
+      case 0:
+        return <form id="page-1">
+          <div className="input-div">
+            <label htmlFor="team-name">Team Name</label> :
+            <input
+              minLength={3}
+              value={teamName}
+              type="text"
+              name="teamName"
+              required
+              onChange={(e) => setTeamName(e.target.value.toUpperCase())}
+              placeholder="Name"
+            />
+          </div>
+
+          <div className="input-div">
+            <label htmlFor="team-email">Team Email Id</label> :
+            <input
+              value={teamEmail}
+              type="email"
+              name="teamEmail"
+              required
+              onChange={(e) => setTeamEmail(e.target.value)}
+              placeholder="example@gmail.com"
+              pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+            />
+          </div>
+
+          <div className="input-div">
+            <label htmlFor="team-members">No of Team Members</label> :
+            <input
+              value={teamMembers}
+              type="number"
+              min={3}
+              max={25}
+              name="teamMembers"
+              required
+              onChange={(e) => {
+                setTeamMembers(e.target.value)
+
+              }}
+              placeholder="3-25"
+              id="members"
+            />
+          </div>
+
+          <div className="input-div">
+            <label htmlFor="team-captain">Captain Name</label> :
+            <input
+              minLength={3}
+              value={capName}
+              type="text"
+              name="capName"
+              required
+              onChange={(e) => setCapName(e.target.value.toUpperCase())}
+              placeholder="Name"
+            />
+          </div>
+
+          <div className="input-div">
+            <label htmlFor="Kart Type">Kart Type</label> :
+            <select
+              name="kartType"
+              id="kartType"
+              value={kartType}
+              onChange={(e) => setKartType(e.target.value)}
+            >
+              <option value="gokart">Go-kart</option>
+              <option value="ekart">E-Kart</option>
+            </select>
+          </div>
+
+          <div className="input-div">
+            <label htmlFor="team-contact">Contact Number</label> :
+            <input
+              value={contact}
+              type="tel"
+              min={10}
+              name="contact"
+              required
+              onChange={(e) => setContact(e.target.value)}
+              pattern="[6789][0-9]{9}" title="Please enter valid phone number"
+              placeholder="6234567890"
+            />
+          </div>
+          <div className="btns">
+            <button className="cntrl" style={{ marginLeft: 'auto' }} onClick={getNextPage} type="submit">Next</button>
+          </div>
+        </form>;
+
+      case 1:
+        return <div className="members">
+          <div className="members-container">
+            {members.map((item, i) => <div key={i} className="member">
+              <h4>{item.name}</h4>
+              <span class="material-symbols-outlined" onClick={() => removeMember(i)}>
+                delete
+              </span>
+            </div>)}
+          </div>
+          <button type="button" className={`${members.length === parseInt(teamMembers) && 'opacity'}`} onClick={() => { if (members.length < parseInt(teamMembers)) setMemberForm(true) }}>Add Members</button>
+          <div className="btns">
+            <button className="cntrl" onClick={() => setCurrent(current - 1)} type="button">back</button><button className={`cntrl ${members.length < parseInt(teamMembers) && 'opacity'}`} onClick={members.length === parseInt(teamMembers) && getNextPage} type="button">Next</button>
+          </div>
+        </div>;
+
+      case 2:
+        return <form id="page-3">
+          <div className="input-div">
+            <label htmlFor="college-name">College Name</label> :
+            <input
+              minLength={3}
+              value={collegeName}
+              type="text"
+              name="adress"
+              required
+              onChange={(e) => setCollegeName(e.target.value)}
+              placeholder="College"
+            />
+          </div>
+
+          <div className="input-div">
+            <label htmlFor="college-name">College Adress</label> :
+            <textarea
+              value={adress}
+              onChange={(e) => setAdress(e.target.value)}
+              rows={5}
+              cols={5}
+              placeholder="Address"
+            />
+          </div>
+
+          <div className="input-div">
+            <label htmlFor="college-name">City</label> :
+            <input
+              minLength={3}
+              value={city}
+              type="text"
+              name="city"
+              required
+              onChange={(e) => setCity(e.target.value)}
+              placeholder="City"
+            />
+          </div>
+
+          <div className="input-div">
+            <label htmlFor="college-name">State</label> :
+            <input
+              minLength={3}
+              value={state}
+              type="text"
+              name="state"
+              required
+              onChange={(e) => setState(e.target.value)}
+              placeholder="Tamil Nadu"
+            />
+          </div>
+          Member
+          <div className="input-div no-arrow">
+            <label htmlFor="college-name">Pincode</label> :
+            <input
+              min={6}
+              value={pincode}
+              type="number"
+              name="pincode"
+              required
+              onChange={(e) => setPincode(e.target.value)}
+              placeholder="65251"
+              pattern="[1-9][0-9]{5}" title="Please enter a valid zip code, example: 65251"
+            />
+          </div>
+          <div className="btns">
+            <button className="cntrl" type="button" onClick={() => setCurrent(current - 1)}>back</button><button className="cntrl" onClick={getNextPage} type="submit">Next</button>
+          </div>
+        </form>;
+
+      case 3:
+        return <form id="page-4">
+          <div className="input-div" onChange={(e) => setFac(e.target.value)}>
+            <label htmlFor="pincode">Faculty</label> :
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "5px",
+                textAlign: "center",
+              }}
+            >
+              <input
+                checked={fac == 'one' ? true : false}
+                type="radio"
+                name="fac"
+                style={{ height: "100%", padding: "10px" }}
+                value='one'
+              />
+              One
+              <input type="radio" name="fac" value="two" checked={fac == 'two' ? true : false} />
+              Two
+            </div>
+          </div>
+          <div className="btns">
+            <button className="cntrl" type="button" onClick={() => setCurrent(current - 1)}>back</button><button className="cntrl" onClick={getNextPage} type="submit">Next</button>
+          </div>
+        </form>;
+
+      case 4:
+        return <div className="facs">
+          <div className="facs-container">
+            {faculty.map((item, i) => <div key={i} className="member">
+              <h4>{item.name}</h4>
+              <span class="material-symbols-outlined" onClick={() => removeFac(i)}>
+                delete
+              </span>
+            </div>)}
+          </div>
+          <button type="button" className={`${faculty.length === parseInt(facN) && 'opacity'}`} onClick={() => { if (faculty.length < parseInt(facN)) setFacForm(true) }}>Add Faculty</button>
+          <div className="btns">
+            <button className="cntrl" onClick={() => setCurrent(current - 1)} type="button">back</button><button className={`cntrl ${faculty.length < parseInt(facN) && 'opacity'}`} onClick={faculty.length === parseInt(facN) && getNextPage} type="button">Next</button>
+          </div>
+        </div>;
+
+        case 5: return <div className="register">
+        <div className="terms">
+          <input type="checkbox" checked={terms} required onChange={()=>setTerms(!terms)} name="terms" />
+          <label htmlFor="terms">
+            I hereby agree to all{" "}
+            <span id="terms" onClick={()=>setTermsDiv(true)}>
+              *Terms and Conditions*
+            </span>
+          </label>
+        </div>
+              <div className="btns">
+              <button className="cntrl" onClick={() => setCurrent(current - 1)} type="button">back</button>
+        <input type="submit" value="Register" />
+              </div>
+        </div>;
+
+      default:
+        break;
+    }
+  }
+
   return (
     <div className="register-form">
-        {loading && <Spinner loading={loading} />}
+      {loading && <Spinner loading={loading} />}
       <h3>{event.name}</h3>
       <form onSubmit={onSumbitHandler}>
-        <div className="input-div">
+
+        <div className="fields">
+          {getFields(current)}
+        </div>
+        {/* <div className="btns">
+          <button className="cntrl" type="button">back</button><button className="cntrl" onClick={getNextPage} type="button">Next</button>
+        </div> */}
+        {/* <div className="input-div">
           <label htmlFor="team-name">Team Name</label> :
           <input
             minLength={3}
@@ -256,7 +556,7 @@ function RegisterForm({ event }) {
           </div>
         </div>
 
-        {/*<div className="input-div">
+        <div className="input-div">
           <label htmlFor="password">Password</label> :
           <input
             value={password}
@@ -276,7 +576,7 @@ function RegisterForm({ event }) {
             required
             onChange={(e) => setConfPassword(e.target.value)}
           />
-        </div>*/}
+        </div>
 
         <div className="terms">
           <input type="checkbox" checked={terms} required onChange={()=>setTerms(!terms)} name="terms" />
@@ -288,11 +588,23 @@ function RegisterForm({ event }) {
           </label>
         </div>
 
-        <input type="submit" value="Register" onClick={validate} />
+        <input type="submit" value="Register" onClick={validate} /> */}
       </form>
       {termsDiv && <div className="wrapper">
         <Terms close={setTermsDiv} />
       </div>}
+      {memberForm && (
+        <div className="wrapper-reg">
+          <div className="blocker" onClick={() => setMemberForm(false)}></div>
+          <MemberForm setMembers={setMembers} members={members} setMemberForm={setMemberForm} />
+        </div>
+      )}
+      {facForm && (
+        <div className="wrapper-reg">
+          <div className="blocker" onClick={() => setFacForm(false)}></div>
+          <FacultyForm setFaculty={setFaculty} faculty={faculty} setFacForm={setFacForm} />
+        </div>
+      )}
     </div>
   );
 }
