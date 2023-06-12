@@ -544,7 +544,7 @@ const Store = ({ children }) => {
 
     {
       id: 2,
-      name: "Reverse engineering",
+      name: "Reverse Engineering",
       thumbnail: "../../images/course.jpg",
       metrics: {
         students: 600,

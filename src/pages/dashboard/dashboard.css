@@ -54,6 +54,12 @@
   inset: 0;
   background-color: white;
   padding: 1rem;
+  font-size: 20px;
+  color: #282828;
+}
+
+.dashboard > .main > .section .price{
+  font-size: 14px;
 }
 
 .dashboard > .main > .section > .enrolled-courses,
@@ -87,6 +93,7 @@
 
 .dashboard > .main > .section > .links > .card{
   flex-direction: row;
+  align-items: center;
 }
 
 .dashboard > .main > .section > .messages > .message{
@@ -102,8 +109,9 @@
   align-self: center;
 }
 
-.dashboard > .main > .section > .courses > .card > .details > p{
-  font-size: 14px;
+.dashboard > .main > .section  p{
+  font-size: 13px;
+  color: #727984
 }
 
 .dashboard > .main > .section > .courses > .card > .details > .price{
@@ -111,9 +119,10 @@
   margin-bottom: 10px;
 }
 
-.dashboard > .main > .section > .enrolled-courses > .card > h4, .dashboard > .main > .section > .courses > .card > h4{
-  font-size: 18px;
+.dashboard > .main > .section .card h4{
+  font-size: 16px;
   font-weight: 500;
+  color: #484D57;
 }
 
 @property --event-progress-value {

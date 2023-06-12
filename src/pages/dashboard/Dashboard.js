@@ -16,8 +16,24 @@ import { HashLink } from "react-router-hash-link";
 const EnrolledCourse = ({ dragger }) => {
   const [drag, setDrag] = useState(false)
   const [enrolledCourses, setEnrolledCourses] = useState([]);
+  const [enrolledEvents, setEnrolledEvents] = useState([]);
 
   const fetch = async (user) => {
+
+    const eventQ = query(
+      collection(db, "events"),
+      where("enrolled", "array-contains", user.uid)
+    );
+
+    const snap2 = await getDocs(eventQ)
+    const list2 = snap2.docs.map((list) => {
+      return {
+        ...list.data(),
+        id: list.id
+      }
+    })
+    setEnrolledEvents(list2)
+
     const q = query(
       collection(db, "courses"),
       where("enrolled_arr", "array-contains", user.uid)
@@ -29,6 +45,7 @@ const EnrolledCourse = ({ dragger }) => {
         id: list.id
       }
     })
+
     setEnrolledCourses(lists)
   }
 
@@ -39,22 +56,51 @@ const EnrolledCourse = ({ dragger }) => {
   }, [])
 
   return <div onDragStart={dragger} draggable={drag} className="section">
-    <h4 onMouseDownCapture={() => setDrag(true)} onMouseLeave={() => setDrag(false)}>Enrolled Courses</h4>
+    <h4 onMouseDownCapture={() => setDrag(true)} onMouseLeave={() => setDrag(false)}>My Enrollment</h4>
     <div className="enrolled-courses">
-      {enrolledCourses.length !== 0 && enrolledCourses.map((item) => {
-        return <div className="card">
-          <h4>{item.name}</h4>
+      {enrolledCourses.length !== 0 && enrolledEvents.length !== 0 ? <>
+        {enrolledEvents.length !== 0 && enrolledEvents.map((item) => {
+          return <div className="card">
+            <h4>{item.name}</h4>
 
-        </div>
-      })}
+          </div>
+        })}
+        {enrolledCourses.length !== 0 && enrolledCourses.map((item) => {
+          return <div className="card">
+            <h4>{item.name}</h4>
+
+          </div>
+        })}
+      </> : " "}
     </div>
   </div>
 }
 
 const CourseCatalog = () => {
   const [drag, setDrag] = useState(false)
+  const [data, setData] = useState([])
 
-  const { courses } = useContext(StoreContext)
+  const { courses, user } = useContext(StoreContext)
+
+  useEffect(()=>{
+    let temp = []
+    console.log();
+    if(user){
+      
+      courses?.forEach(course => {
+        let flag = false
+        console.log(course)
+        course.enrolled_arr?.forEach(item=>{
+          if(item === user.uid) flag = true
+        })
+
+        if(!flag) temp.push({...course})
+        if(flag) console.log(course)
+        
+      });
+      setData(temp)
+    }
+  }, [user, courses])
 
   const ReadMore = ({ children }) => {
     const text = children;
@@ -75,12 +121,12 @@ const CourseCatalog = () => {
   return <div draggable={drag} className="section">
     <h4 onMouseDownCapture={() => setDrag(true)} onMouseLeave={() => setDrag(false)}>Courses Catalog</h4>
     <div className="courses">
-      {courses.length !== 0 && courses.map((item) => {
+      {data?.length !== 0 && data?.map((item) => {
         return <div className="card">
           <h4>{item.name}</h4>
           <div className="details">
             <div className="price">{"₹ "}{item.fee[0].price}</div>
-            <ReadMore>{item.description_L[2]}</ReadMore>
+            <p>{item.description_L[2].slice(0, 50)}...</p>
           </div>
         </div>
       })}
@@ -168,7 +214,7 @@ const QuickLinks = () => {
         const content = <>
           <span class="material-symbols-outlined">
             link
-          </span>{item.name}
+          </span><h4>{item.name}</h4>
         </>;
         if (item.hash) return <HashLink smooth to={item.link} className="card">{content}</HashLink>;
         return <Link className="card" to={item.link} >{content}</Link>
@@ -183,17 +229,17 @@ const Announcement = () => {
 
   return <div draggable={drag} className="section">
     <h4 onMouseDownCapture={() => setDrag(true)} onMouseLeave={() => setDrag(false)}>Announcements</h4>
-    <div className="messages">
+    <div className="messages card">
       <div className="message">
-        <h5 style={{ fontSize: '16px' }}>Welcome</h5>
-        <p style={{ fontSize: '14px' }}>Happy to see you</p>
+        <h4 >Welcome</h4>
+        <p >Happy to see you</p>
         <span class="material-symbols-outlined">
           notifications
         </span>
       </div>
       <div className="message">
-        <h5 style={{ fontSize: '16px' }}>Welcome</h5>
-        <p style={{ fontSize: '14px' }}>Happy to see you</p>
+        <h4 >Welcome</h4>
+        <p >Happy to see you</p>
         <span class="material-symbols-outlined">
           notifications
         </span>
@@ -226,9 +272,8 @@ function Dashboard() {
   const [events, setEvents] = useState([]);
   const [courses, setCourses] = useState([]);
   const [enolledEvents, setEnrolledEvents] = useState([]);
-  const [user, setUser] = useState(null)
 
-  const [cover, setCover] = useState(localStorage.getItem('cover'))
+  const [cover, setCover] = useState(((localStorage.getItem('cover') === 'true') || (localStorage.getItem('cover') === null) ? true: false))
   const navigate = useNavigate();
   console.log(cover);
 
@@ -236,52 +281,6 @@ function Dashboard() {
   const getEventDetails = (index) => {
     navigate(`/menu/events/${events[index].id}`)
   };
-
-  const doFetch = async (user) => {
-    const q1 = query(
-      collection(db, "events"),
-      where("enrolled", "array-contains", user.uid)
-    );
-    const q2 = query(
-      collection(db, "courses"),
-      where("enrolled_arr", "array-contains", user.uid)
-    );
-    try {
-      const snap1 = await getDocs(q1);
-      const list1 = snap1.docs.map((list) => {
-        return {
-          ...list.data(),
-          id: list.id,
-        };
-      });
-
-      const snap2 = await getDocs(q2)
-      const list2 = snap2.docs.map((list) => {
-        return {
-          ...list.data(),
-          id: list.id
-        }
-      })
-      console.log(list2);
-      console.log(list1)
-      console.log(list1.length === 0 && list2.length === 0);
-
-      if (list1.length === 0 && list2.length === 0) {
-        localStorage.setItem('cover', true)
-        setCover(true)
-      } else {
-        localStorage.setItem('cover', false)
-        setCover(false)
-      }
-
-      setEnrolledEvents(list1);
-      setLoading(false);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-
 
   let dynamicStyles = null;
   function addAnimation(body) {
@@ -303,6 +302,7 @@ function Dashboard() {
     console.log('jii');
   }
 
+  const {setUser} = useContext(StoreContext)
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -313,7 +313,7 @@ function Dashboard() {
         setUsername(user.displayName);
         setEmail(user.email);
         if (user.photoURL) setDp(user.photoURL);
-        doFetch(user);
+        setLoading(false)
       } else {
         setLoading(false);
       }
@@ -331,7 +331,7 @@ function Dashboard() {
 
 
 
-  const [items, setItems] = useState([<EnrolledCourse user={user} dragger={drag} />, <CourseCatalog />, <QuickLinks />, <EventDetails />, <Announcement />, <LearningResources />])
+  const [items, setItems] = useState([<EnrolledCourse  dragger={drag} />, <CourseCatalog  />, <EventDetails  />, <QuickLinks />, <Announcement />, <LearningResources />])
 
   const skipCover = () => {
     localStorage.setItem('cover', true)
@@ -347,11 +347,11 @@ function Dashboard() {
           {loggedIn ? (
             <>
 
-              {(cover === null || cover) ? <div className="cover">
+              {cover ? <div className="cover">
                 <Path setCover={setCover} skip={skipCover} />
               </div> :
                 <>
-                  <h2>Dashboard</h2>
+                  <h1>Dashboard</h1>
                   <div className="main" onDragOver={containerDrag}>
                     {items.map(item => item)}
                   </div>

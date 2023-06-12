@@ -247,8 +247,8 @@ function SideMenu() {
   };
 
   return (
-    <div className="side-menu" id="side-menu">
-      <div className="min-menu" id="min-menu">
+    <div className={`side-menu ${window.innerWidth > 650 && 'border'}`} id="side-menu">
+      <div className={`min-menu ${window.innerWidth > 650 && 'disable'}`} id="min-menu">
         <Link to="dashboard" className="link" data-index={0} >
           <span class="material-symbols-outlined">dashboard</span>
           <p>Dashboard</p>
@@ -262,7 +262,7 @@ function SideMenu() {
           <p>Events</p>
         </Link>
       </div>
-      <div className="menu-options disable" id="menu-options">
+      <div className={`menu-options ${window.innerWidth < 650 && 'disable'}`} id="menu-options">
         <Link to="dashboard" className="min-link" data-index={0}>
         <span class="material-symbols-outlined">dashboard</span>
           <div>Dashboard</div>

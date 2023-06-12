@@ -46,8 +46,6 @@ function ProfileDrop({ userName, onClickOutside, show, setLoading }) {
       <h3>{userName}</h3>
       <ul>
         <li onClick={getMyAccount}>My Account</li>
-        <li>My Courses</li>
-        <li>My Events</li>
         <li onClick={logout}>Sign Out</li>
       </ul>
     </div>

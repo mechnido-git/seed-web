@@ -8,9 +8,11 @@ import SignIn from '../signin/SignIn'
 
 function Index() {
   const [signIn, setSignIn] = useState(false);
+
+  console.log(window.innerWidth);
   
   return (
-    <div className='index' id='index'>
+    <div className={`index ${window.innerWidth > 650 && 'index-toggle'}`} id='index'>
       <Navbar signIn={setSignIn} />
       <Outlet context={{ signIn, setSignIn}}  />
       {/* Outlet will render the inner component of the route */}

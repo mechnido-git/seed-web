@@ -30,19 +30,19 @@ function RegisterInfo({ date, data }) {
         <div className="time-div">
           <div className="days-div">
             <h3>Days</h3>
-            <p>{days}</p>
+            <p>{days <= 0? 0 : days}</p>
           </div>
           <div className="hour-div">
             <h3>Hours</h3>
-            <p>{hours}</p>
+            <p>{hours <= 0? 0 : hours}</p>
           </div>
           <div className="minute-div">
             <h3>Minutes</h3>
-            <p>{minutes}</p>
+            <p>{minutes <= 0? 0 : minutes}</p>
           </div>
           <div className="second-div">
             <h3>Seconds</h3>
-            <p>{seconds}</p>
+            <p>{seconds <= 0? 0 : seconds}</p>
           </div>
         </div>
       </div>

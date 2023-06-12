@@ -22,14 +22,14 @@ function Path({skip}) {
 
   const goCourse = () => {
     navigate("/menu/courses");
-   // localStorage.setItem('cover', true)
-    //window.location.reload()
+   localStorage.setItem('cover', false)
+  window.location.reload()
   }
   
   const goEvents = () => {
     navigate("/menu/events");
-    //localStorage.setItem('cover', true)
-    //window.location.reload()
+    localStorage.setItem('cover', false)
+    window.location.reload()
   }
 
   return (

@@ -11,12 +11,15 @@ import ProfileDrop from "../../pages/home/ProfileDrop";
 import profile from "../../images/profile.png"
 import { StoreContext } from "../../store/StoreContext";
 
-function Navbar({signIn}) {
+function Navbar({ signIn }) {
   const [userName, setUserName] = useState(null);
   const [loading, setLoading] = useState(true)
   const [index, setIndex] = useState(null);
   const [profileDrop, setProfileShowDrop] = useState(false)
   const [dp, setDp] = useState(profile)
+  const [input, setInput] = useState('')
+  const [results, setResults] = useState([])
+  const [output, setOutput] = useState(false)
 
   const navigate = useNavigate()
 
@@ -25,15 +28,16 @@ function Navbar({signIn}) {
     document.getElementById("index").classList.toggle("index-toggle");
     document.getElementById("min-menu").classList.toggle("disable");
     document.getElementById("side-menu").classList.toggle("border");
+    document.getElementById("toggle").classList.toggle("clicked");
   };
 
-  const { setUserId } = useContext(StoreContext)
+  const { setUserId, courses } = useContext(StoreContext)
 
   const logout = () => {
     setLoading(true)
     signOut(auth).then(() => {
       // Sign-out successful.
-      
+
       console.log('hikk');
     }).catch((error) => {
       // An error happened.
@@ -43,7 +47,7 @@ function Navbar({signIn}) {
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
-      if (user){
+      if (user) {
         setUserName(user.displayName)
         setUserId(user.uid)
         if (user.photoURL) setDp(user.photoURL);
@@ -58,9 +62,22 @@ function Navbar({signIn}) {
     signIn(true);
   };
   const viewProfile = (e) => {
-    if(e) e.stopPropagation()
+    if (e) e.stopPropagation()
     document.getElementById('account').classList.toggle('clicked')
     setProfileShowDrop(!profileDrop)
+  }
+
+  const handleSearch = (e) => {
+    setInput(e.target.value)
+    if(e.target.value.length > 0) setOutput(true)
+    if (courses.length !== 0) {
+      let value = e.target.value.toLowerCase();
+      const items = courses.filter(item => {
+        return value && item && item.name && item.name.toLowerCase().includes(value)
+      })
+      console.log(items)
+      setResults(items)
+    }
   }
 
 
@@ -68,22 +85,30 @@ function Navbar({signIn}) {
     <div className="navbar">
       {loading && <Spinner other={"globel"} loading={loading} />}
       <div className="left">
-        <span onClick={toggle} id="toggle" class="material-symbols-outlined">
+        <span onClick={toggle} id="toggle" className={`material-symbols-outlined ${window.innerWidth > 650 && 'clicked'}`}>
           menu
         </span>
-          <img src={logo} alt="" />
+        <img src={logo} alt="" />
       </div>
       <div className="search-bar">
         <img src={search} alt="" />
         <div className="input-div">
-          <input type="text" placeholder="Search" />
+          <input type="text" value={input} onChange={handleSearch} placeholder="Search" />
         </div>
+        {results.length !== 0 && output && <div className="results">
+          {results.map((item, key) => {
+            return <Link onClick={()=>{setOutput(false); setInput(item.name)}} to={`/menu/courses/details/${item.order}`} onc key={key} >{item.name}</Link>
+          })}
+        </div>}
+        {output && input && <span onClick={()=>{setOutput(false); setInput('')}} class="material-symbols-outlined">
+          close
+        </span>}
       </div>
       <div className="right">
-      <span id="bell" class="material-symbols-outlined">
-            campaign
-          </span>
-      <div className="account" id="account">
+        <span id="bell" class="material-symbols-outlined">
+          campaign
+        </span>
+        <div className="account" id="account">
           {userName ? (
             <>
               <img referrerPolicy="no-referrer" src={dp} alt="" onClick={viewProfile} />
