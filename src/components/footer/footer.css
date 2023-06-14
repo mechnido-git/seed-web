@@ -38,6 +38,10 @@
     gap: 15px;
   }
 
+  .index .footer > .links > .section li> a:hover{
+    color: #0055cc;
+  }
+
   .index .footer > .links > .section a{
     color: #727984;
   }
