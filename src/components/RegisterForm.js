@@ -86,9 +86,9 @@ function RegisterForm({ event }) {
     })
   };
 
-  useEffect(()=>{
-    if(fac === 'one') setFacN(1)
-    if(fac === 'two') setFacN(2)
+  useEffect(() => {
+    if (fac === 'one') setFacN(1)
+    if (fac === 'two') setFacN(2)
   }, [fac])
 
   const validate = (e) => {
@@ -118,7 +118,6 @@ function RegisterForm({ event }) {
     e.preventDefault()
     //if(current === 0) updateMembers(teamMembers)
     const inputs = document.querySelectorAll(`#page-${current + 1} > .input-div > input`)
-    let flag = false
     inputs.forEach((inp, i) => {
       if (inp.value === '') {
         console.log(inp);
@@ -126,10 +125,96 @@ function RegisterForm({ event }) {
       }
 
     });
-    const invalid = document.querySelectorAll(`#page-${current + 1} > .input-div > :invalid`)
-    console.log(invalid);
-    console.log(invalid.length === 0);
-    if (invalid.length === 0) setCurrent(current + 1)
+    const error = document.querySelectorAll('.error')
+    error.forEach(item => item.innerHTML = "")
+    var letters = /^[A-Za-z]+$/;
+    var email = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/
+    var pin = /[1-9][0-9]{5}/
+    console.log(teamName.match(letters));
+    let flag = false;
+    switch (current) {
+      case 0:
+        if (teamName.length < 3) {
+          document.getElementById('team-name').innerText = "Name Must be more than 3 characters";
+          flag = true;
+        } else if (!teamName.match(letters)) {
+          document.getElementById('team-name').innerText = "Team Name Must be in Alphabetics";
+          flag = true;
+        }
+
+        if (teamEmail.length === 0) {
+          document.getElementById('team-email').innerText = "Email cannot be empty";
+          flag = true;
+        } else if (!teamEmail.match(email)) {
+          document.getElementById('team-email').innerText = "Please include an '@' symbol and a valid domain extension such as .com or .net.";
+          flag = true;
+        }
+
+        if (capName.length < 3) {
+          document.getElementById('cap-name').innerText = "Name Must be more than 3 characters";
+          flag = true;
+        } else if (!capName.match(letters)) {
+          document.getElementById('cap-name').innerText = "Name Must be in Alphabetics";
+          flag = true;
+        }
+
+        if (contact.length === 0) {
+          document.getElementById('team-contact').innerText = "Contact cannot be empty";
+          flag = true;
+        } else if (contact.length < 10) {
+          document.getElementById('team-contact').innerText = "Contact must be 10 numbers";
+          flag = true;
+        } else if (!(!isNaN(contact) && !isNaN(parseFloat(contact)))) {
+          document.getElementById('team-contact').innerText = "Contact must be numeric";
+          flag = true;
+        }
+        if (!flag) setCurrent(current + 1);
+        break
+
+      case 2:
+        flag = false;
+        if (collegeName.length < 3) {
+          document.getElementById('college-name').innerText = "College Name Must be more than 3 characters";
+          flag = true;
+        } else if (!collegeName.match(letters)) {
+          document.getElementById('college-name').innerText = "College Name Must be in Alphabetics";
+          flag = true;
+        }
+
+        if (adress.length < 3) {
+          document.getElementById('college-address').innerText = "Address must be more than 3 characters";
+          flag = true;
+        }
+
+        if (city.length < 3) {
+          document.getElementById('college-city').innerText = "City must be more than 3 characters";
+          flag = true;
+        } else if (!city.match(letters)) {
+          document.getElementById('college-city').innerText = "City must be in Alphabetics";
+          flag = true;
+        }
+
+        if (state.length < 3) {
+          document.getElementById('college-state').innerText = "State must be more than 3 characters";
+          flag = true;
+        } else if (!state.match(letters)) {
+          document.getElementById('college-state').innerText = "State must be in Alphabetics";
+          flag = true;
+        }
+
+        if (pincode.length === 0) {
+          document.getElementById('college-pin').innerText = "pin cannot be empty";
+          flag = true;
+        } else if (!pincode.match(pin)) {
+          document.getElementById('college-pin').innerText = "Enter a valid pin number";
+          flag = true;
+        }
+        if (!flag) setCurrent(current + 1);
+        break
+
+
+      default: return
+    }
   }
 
   const getFields = (page) => {
@@ -147,6 +232,7 @@ function RegisterForm({ event }) {
               onChange={(e) => setTeamName(e.target.value.toUpperCase())}
               placeholder="Name"
             />
+            <div className="error" id="team-name"></div>
           </div>
 
           <div className="input-div">
@@ -159,25 +245,9 @@ function RegisterForm({ event }) {
               onChange={(e) => setTeamEmail(e.target.value)}
               placeholder="example@gmail.com"
               pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+              title="Email format is not valid"
             />
-          </div>
-
-          <div className="input-div">
-            <label htmlFor="team-members">No of Team Members</label> :
-            <input
-              value={teamMembers}
-              type="number"
-              min={3}
-              max={25}
-              name="teamMembers"
-              required
-              onChange={(e) => {
-                setTeamMembers(e.target.value)
-
-              }}
-              placeholder="3-25"
-              id="members"
-            />
+            <div className="error" id="team-email"></div>
           </div>
 
           <div className="input-div">
@@ -191,6 +261,7 @@ function RegisterForm({ event }) {
               onChange={(e) => setCapName(e.target.value.toUpperCase())}
               placeholder="Name"
             />
+            <div className="error" id="cap-name"></div>
           </div>
 
           <div className="input-div">
@@ -215,9 +286,9 @@ function RegisterForm({ event }) {
               name="contact"
               required
               onChange={(e) => setContact(e.target.value)}
-              pattern="[6789][0-9]{9}" title="Please enter valid phone number"
               placeholder="6234567890"
             />
+            <div className="error" id="team-contact"></div>
           </div>
           <div className="btns">
             <button className="cntrl" style={{ marginLeft: 'auto' }} onClick={getNextPage} type="submit">Next</button>
@@ -226,6 +297,7 @@ function RegisterForm({ event }) {
 
       case 1:
         return <div className="members">
+          <MemberForm setMembers={setMembers} members={members} />
           <div className="members-container">
             {members.map((item, i) => <div key={i} className="member">
               <h4>{item.name}</h4>
@@ -234,9 +306,8 @@ function RegisterForm({ event }) {
               </span>
             </div>)}
           </div>
-          <button type="button" className={`${members.length === parseInt(teamMembers) && 'opacity'}`} onClick={() => { if (members.length < parseInt(teamMembers)) setMemberForm(true) }}>Add Members</button>
           <div className="btns">
-            <button className="cntrl" onClick={() => setCurrent(current - 1)} type="button">back</button><button className={`cntrl ${members.length < parseInt(teamMembers) && 'opacity'}`} onClick={members.length === parseInt(teamMembers) && getNextPage} type="button">Next</button>
+            <button className="cntrl" onClick={() => setCurrent(current - 1)} type="button">back</button><button className={`cntrl ${members.length < 3 && 'opacity'}`} onClick={members.length >= 3 ? () => setCurrent(current + 1) : null} type="button">Next</button>
           </div>
         </div>;
 
@@ -253,6 +324,7 @@ function RegisterForm({ event }) {
               onChange={(e) => setCollegeName(e.target.value)}
               placeholder="College"
             />
+            <div className="error" id="college-name"></div>
           </div>
 
           <div className="input-div">
@@ -264,6 +336,7 @@ function RegisterForm({ event }) {
               cols={5}
               placeholder="Address"
             />
+            <div className="error" id="college-address"></div>
           </div>
 
           <div className="input-div">
@@ -277,6 +350,7 @@ function RegisterForm({ event }) {
               onChange={(e) => setCity(e.target.value)}
               placeholder="City"
             />
+            <div className="error" id="college-city"></div>
           </div>
 
           <div className="input-div">
@@ -290,8 +364,8 @@ function RegisterForm({ event }) {
               onChange={(e) => setState(e.target.value)}
               placeholder="Tamil Nadu"
             />
+            <div className="error" id="college-state"></div>
           </div>
-          Member
           <div className="input-div no-arrow">
             <label htmlFor="college-name">Pincode</label> :
             <input
@@ -304,6 +378,7 @@ function RegisterForm({ event }) {
               placeholder="65251"
               pattern="[1-9][0-9]{5}" title="Please enter a valid zip code, example: 65251"
             />
+            <div className="error" id="college-pin"></div>
           </div>
           <div className="btns">
             <button className="cntrl" type="button" onClick={() => setCurrent(current - 1)}>back</button><button className="cntrl" onClick={getNextPage} type="submit">Next</button>
@@ -311,37 +386,9 @@ function RegisterForm({ event }) {
         </form>;
 
       case 3:
-        return <form id="page-4">
-          <div className="input-div" onChange={(e) => setFac(e.target.value)}>
-            <label htmlFor="pincode">Faculty</label> :
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "5px",
-                textAlign: "center",
-              }}
-            >
-              <input
-                checked={fac == 'one' ? true : false}
-                type="radio"
-                name="fac"
-                style={{ height: "100%", padding: "10px" }}
-                value='one'
-              />
-              One
-              <input type="radio" name="fac" value="two" checked={fac == 'two' ? true : false} />
-              Two
-            </div>
-          </div>
-          <div className="btns">
-            <button className="cntrl" type="button" onClick={() => setCurrent(current - 1)}>back</button><button className="cntrl" onClick={getNextPage} type="submit">Next</button>
-          </div>
-        </form>;
-
-      case 4:
-        return <div className="facs">
-          <div className="facs-container">
+        return <div className="members">
+            <FacultyForm setFaculty={setFaculty} faculty={faculty} />
+          <div className="members-container">
             {faculty.map((item, i) => <div key={i} className="member">
               <h4>{item.name}</h4>
               <span class="material-symbols-outlined" onClick={() => removeFac(i)}>
@@ -349,27 +396,26 @@ function RegisterForm({ event }) {
               </span>
             </div>)}
           </div>
-          <button type="button" className={`${faculty.length === parseInt(facN) && 'opacity'}`} onClick={() => { if (faculty.length < parseInt(facN)) setFacForm(true) }}>Add Faculty</button>
           <div className="btns">
-            <button className="cntrl" onClick={() => setCurrent(current - 1)} type="button">back</button><button className={`cntrl ${faculty.length < parseInt(facN) && 'opacity'}`} onClick={faculty.length === parseInt(facN) && getNextPage} type="button">Next</button>
+            <button className="cntrl" onClick={() => setCurrent(current - 1)} type="button">back</button><button className={`cntrl ${faculty.length < 1 && 'opacity'}`} onClick={faculty.length >= 1? () => setCurrent(current + 1) : null} type="button">Next</button>
           </div>
         </div>;
 
-        case 5: return <div className="register">
+      case 4: return <div className="register">
         <div className="terms">
-          <input type="checkbox" checked={terms} required onChange={()=>setTerms(!terms)} name="terms" />
+          <input type="checkbox" checked={terms} required onChange={() => setTerms(!terms)} name="terms" />
           <label htmlFor="terms">
             I hereby agree to all{" "}
-            <span id="terms" onClick={()=>setTermsDiv(true)}>
+            <span id="terms" onClick={() => setTermsDiv(true)}>
               *Terms and Conditions*
             </span>
           </label>
         </div>
-              <div className="btns">
-              <button className="cntrl" onClick={() => setCurrent(current - 1)} type="button">back</button>
-        <input type="submit" value="Register" />
-              </div>
-        </div>;
+        <div className="btns">
+          <button className="cntrl" onClick={() => setCurrent(current - 1)} type="button">back</button>
+          <input type="submit" value="Register" />
+        </div>
+      </div>;
 
       default:
         break;

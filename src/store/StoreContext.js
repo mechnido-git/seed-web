@@ -13,6 +13,7 @@ import p8 from "../images/p8.jpg";
 import s1 from "../images/slide1.png";
 import s2 from "../images/slide.jpg";
 import s3 from "../images/slide3.jpg";
+import { useLocation } from "react-router-dom";
 
 export const StoreContext = createContext(null);
 
@@ -22,6 +23,7 @@ const Store = ({ children }) => {
   const [user, setUser] = useState(null);
   const [change, setChange] = useState(true);
   const [courses, setCourses] = useState(null);
+  const [section, setSection] = useState(null);
   const courseList = [
     {
       id: 0,
@@ -2304,6 +2306,8 @@ const Store = ({ children }) => {
         courseList,
         courses,
         setCourses,
+        section,
+        setSection
       }}
     >
       {children}

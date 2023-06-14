@@ -21,6 +21,8 @@ function Navbar({ signIn }) {
   const [results, setResults] = useState([])
   const [output, setOutput] = useState(false)
 
+  const [selected, setSelected] = useState(-1)
+
   const navigate = useNavigate()
 
   const toggle = () => {
@@ -69,6 +71,7 @@ function Navbar({ signIn }) {
 
   const handleSearch = (e) => {
     setInput(e.target.value)
+    setSelected(-1)
     if(e.target.value.length > 0) setOutput(true)
     if (courses.length !== 0) {
       let value = e.target.value.toLowerCase();
@@ -80,6 +83,38 @@ function Navbar({ signIn }) {
     }
   }
 
+  const handleKeyDown = (e) => {
+    console.log(selected);
+    if(selected < results.length){
+      if(e.key === "ArrowUp" && selected > 0){
+        setSelected(prev=> prev -1)
+      }else if(e.key === "ArrowDown" && selected < results.length -1){
+        setSelected(prev => prev + 1)
+      }else if(e.key === "Enter" && selected >= 0){
+        navigate(`/menu/courses/details/${results[selected].order}`)
+        setOutput(false);
+        setInput(results[selected].name)
+        window.location.reload()
+      }
+    }else{
+      setSelected(-1)
+    }
+
+  }
+
+  const go = (e, order)=>{
+    e.preventDefault()
+    navigate(`/menu/courses/details/${order}`)
+
+        window.location.reload()
+  }
+
+
+  const handleClose = () => {
+    setOutput(false);
+    setInput('');
+    setSelected(-1)
+  }
 
   return (
     <div className="navbar">
@@ -93,14 +128,14 @@ function Navbar({ signIn }) {
       <div className="search-bar">
         <img src={search} alt="" />
         <div className="input-div">
-          <input type="text" value={input} onChange={handleSearch} placeholder="Search" />
+          <input onKeyDown={handleKeyDown} type="text" value={input} onChange={handleSearch} placeholder="Search" />
         </div>
         {results.length !== 0 && output && <div className="results">
           {results.map((item, key) => {
-            return <Link onClick={()=>{setOutput(false); setInput(item.name)}} to={`/menu/courses/details/${item.order}`} onc key={key} >{item.name}</Link>
+            return <Link className={selected === key && 'selected'} onClick={(e)=>go(e, item.order)} key={key} >{item.name}</Link>
           })}
         </div>}
-        {output && input && <span onClick={()=>{setOutput(false); setInput('')}} class="material-symbols-outlined">
+        {input && <span onClick={handleClose} class="material-symbols-outlined">
           close
         </span>}
       </div>

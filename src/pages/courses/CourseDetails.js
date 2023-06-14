@@ -159,7 +159,7 @@ function CourseDetails() {
           </div>
           <div className="card">
             <img src={img} alt="" />
-            <button>Enroll Now</button>
+            <button onClick={enroll} >Enroll Now</button>
             <hr />
             <div className="body">
               <h3>

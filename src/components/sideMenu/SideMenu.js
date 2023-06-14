@@ -8,13 +8,19 @@ import { auth } from "../../firebase/config";
 import SignIn from "../../pages/signin/SignIn";
 import { StoreContext } from "../../store/StoreContext";
 
+export const toggle = () => {
+  //  document.getElementById("menu-options").classList.toggle("disable");
+    document.getElementById("index").classList.toggle("index-toggle");
+    document.getElementById("min-menu").classList.toggle("disable");
+    document.getElementById("side-menu").classList.toggle("border");
+  };
+
 function SideMenu() {
   // const {loc, setLoc} = useContext(ToggleContext)
   const [user, setUser] = useState(false);
   const [prev, setPrev] = useState(null);
-  const location = useLocation();
-  const [loc, setLoc] = useState(location.pathname.split("/"))
-  const [section, setSection] = useState(null);
+   
+  // const [loc, setLoc] = useState(location.pathname.split("/"))
   const navigator = useNavigate();
 
   // setLoc(location.pathname.split("/"))
@@ -22,14 +28,11 @@ function SideMenu() {
   //const loc = location.pathname.split("/");
   //const [loc, setLoc] = useState()
   const { setSignIn } = useOutletContext();
-  const { change } = useContext(StoreContext)
+  const { change, setLoc, section, setSection } = useContext(StoreContext)
+  // setLoc(location.split("/"))
+  // console.log(location.split("/"));
 
-  const toggle = () => {
-  //  document.getElementById("menu-options").classList.toggle("disable");
-    document.getElementById("index").classList.toggle("index-toggle");
-    document.getElementById("min-menu").classList.toggle("disable");
-    document.getElementById("side-menu").classList.toggle("border");
-  };
+
   const mobile = window.innerWidth < 430 ? true : false;
 
   function click(e) {
@@ -60,7 +63,8 @@ function SideMenu() {
   }
 
   useEffect(() => {
-    console.log(change);
+    const loc = window.location.href.split("/")
+      console.log(loc);
     console.log('hehe');
     onAuthStateChanged(auth, (user) => {
       if (user) setUser(true);
@@ -69,6 +73,7 @@ function SideMenu() {
     let pos = 1
     if(loc[loc.length - 1].length <= 1) pos = 2;
     if(loc[loc.length - 1].length == 1) pos = 3;
+    console.log(loc[loc.length - pos]);
     switch (loc[loc.length - pos]) {
       case "courses":
         elem = 1;
@@ -85,6 +90,7 @@ function SideMenu() {
       default:
         return;
     }
+    console.log(elem);
     console.log(elem);
     document.querySelectorAll(".link").forEach((link, index) => {
       if (prev === null) {

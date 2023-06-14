@@ -38,7 +38,14 @@
 .navbar > .search-bar > img{
     width: 20px;
     padding: 5px 7px;
-}
+
+ }
+
+ .selected{
+  opacity: .7;
+  background-color: #0055cc;
+  color: white;
+ }
 
 .navbar > .search-bar > span{
   cursor: pointer;
