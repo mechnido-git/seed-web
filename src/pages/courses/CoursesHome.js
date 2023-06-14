@@ -103,11 +103,15 @@ export const CardBuilder = ({ arr, limit, viewDetails }) => (
     {arr.map((item, index) => {
       if (limit != null && index >= limit) return;
       return (
-        <div className="card" key={index} onClick={()=>viewDetails(index)}>
+        <div className="card" key={index} onClick={() => viewDetails(item.order)}>
           <img src={require("../../images/courses.jpg")} alt="" />
           <div className="body">
-            <h4>{item.name}</h4>
-            <p>{item.description}</p>
+
+            <h4>
+              {item.flag ? <>The Flagship <br /></> : ''}
+              {item.name}
+            </h4>
+            <p>{item.description_L[2].slice(0, 100)}</p>
             <div>
               {item.rating && <h5>Rating:{item.rating}</h5>}
             </div>
@@ -154,7 +158,7 @@ function CoursesHome() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const { register, setRegister } = useOutletContext();
 
-  const {courseList, courses, userId} = useContext(StoreContext)
+  const { courseList, courses, userId } = useContext(StoreContext)
 
   const [buy, setbuy] = useState(false)
 
@@ -168,10 +172,14 @@ function CoursesHome() {
     );
   }, []);
 
-  useEffect(()=>{
-    if(courses)
-    setLoading(false)
+  useEffect(() => {
+    if (courses)
+      setLoading(false)
   }, [courses])
+
+  const getCours = (index) => {
+    navigate(`/menu/courses/details/${index}`)
+  }
 
   const filterItems = (item, e) => {
     //const btns = document.querySelectorAll('.filter')
@@ -193,24 +201,24 @@ function CoursesHome() {
 
   const viewDetails = () => {
     navigate(`/menu/courses/details/${currentSlide}`)
-  } 
+  }
 
   const enroll = () => {
     //navigate(`/menu/courses/enroll/${currentSlide}`)
     let flag = false
-    if(userId){
+    if (userId) {
       console.log(courses);
       console.log(courses[currentSlide]);
-      courses[currentSlide].enrolled?.forEach(item=>{
-        if(item.userId === userId ) flag = true
+      courses[currentSlide].enrolled?.forEach(item => {
+        if (item.userId === userId) flag = true
       })
-      if(flag) return window.alert("Alredy enrolled")
+      if (flag) return window.alert("Alredy enrolled")
       setbuy(true)
 
-    }else{
+    } else {
       window.alert("Sign in First")
     }
-  } 
+  }
 
   return (
     <>
@@ -236,7 +244,7 @@ function CoursesHome() {
                   setCurrentSlide(splide.index);
                 }}
               >
-                {courses.map((item, i)=><SplideSlide key={i}>
+                {courses?.map((item, i) => <SplideSlide key={i}>
                   <img src={courseList[i].slide} style={{ objectFit: "contain", width: "100%" }} alt="" />
                 </SplideSlide>)}
               </Splide>
@@ -263,11 +271,16 @@ function CoursesHome() {
               <div id="recommended" className="section">
                 <h2>Recommended for You</h2>
                 <div className="card-container-div">
-                  <CardBuilder
+                  {/* <CardBuilder
                     arr={recomended.filter((item) =>
                       filter === "All" ? item : filter == item.category
                     )}
                     limit={4}
+                  /> */}
+                  <CardBuilder
+                    arr={courses?.filter((item, i) => i < 2)}
+                    limit={4}
+                    viewDetails={getCours}
                   />
                 </div>
               </div>
@@ -275,24 +288,28 @@ function CoursesHome() {
                 <h2>Trending Now</h2>
                 <div className="card-container-div">
                   <CardBuilder
-                    arr={trending.filter((item) =>
-                      filter === "All" ? item : filter == item.category
-                    )}
+                    arr={courses?.filter((item, i) => i > 1 && i < 5)}
                     limit={4}
+                    viewDetails={getCours}
                   />
                 </div>
               </div>
               <div id="team" className="section">
                 <h2>Team Picks</h2>
                 <div className="card-container-div">
-                  <CardBuilder arr={recomended} limit={4} />
+                  {/* <CardBuilder arr={recomended} limit={4} /> */}
+                  <CardBuilder
+                    arr={courses?.filter((item, i) => i > 4 && i < 8)}
+                    limit={4}
+                    viewDetails={getCours}
+                  />
                 </div>
               </div>
             </section>
             <Footer />
           </>
         )}
-        
+
       </div>
       {buy && (
         <div className="wrapper">

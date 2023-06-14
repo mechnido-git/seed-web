@@ -7,6 +7,7 @@ import insta from "../../images/insta.png";
 function Footer() {
   return (
     <div className="footer">
+      <h3>Quick Links</h3>
       <div className="links">
         <div className="section">
           <h3>Home</h3>

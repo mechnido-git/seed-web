@@ -78,7 +78,7 @@ function Navbar({ signIn }) {
   const handleSearch = (e) => {
     setInput(e.target.value)
     setSelected(-1)
-    if(e.target.value.length > 0) setOutput(true)
+    if (e.target.value.length > 0) setOutput(true)
     if (courses.length !== 0) {
       let value = e.target.value.toLowerCase();
       const items = courses.filter(item => {
@@ -91,28 +91,28 @@ function Navbar({ signIn }) {
 
   const handleKeyDown = (e) => {
     console.log(selected);
-    if(selected < results.length){
-      if(e.key === "ArrowUp" && selected > 0){
-        setSelected(prev=> prev -1)
-      }else if(e.key === "ArrowDown" && selected < results.length -1){
+    if (selected < results.length) {
+      if (e.key === "ArrowUp" && selected > 0) {
+        setSelected(prev => prev - 1)
+      } else if (e.key === "ArrowDown" && selected < results.length - 1) {
         setSelected(prev => prev + 1)
-      }else if(e.key === "Enter" && selected >= 0){
+      } else if (e.key === "Enter" && selected >= 0) {
         navigate(`/menu/courses/details/${results[selected].order}`)
         setOutput(false);
         setInput(results[selected].name)
         window.location.reload()
       }
-    }else{
+    } else {
       setSelected(-1)
     }
 
   }
 
-  const go = (e, order)=>{
+  const go = (e, order) => {
     e.preventDefault()
     navigate(`/menu/courses/details/${order}`)
 
-        window.location.reload()
+    window.location.reload()
   }
 
 
@@ -129,7 +129,7 @@ function Navbar({ signIn }) {
         <span onClick={toggle} id="toggle" className={`material-symbols-outlined ${window.innerWidth > 650 && 'clicked'}`}>
           menu
         </span>
-        <img src={logo} alt="" />
+        <img src={logo} alt="" onClick={()=>navigate("/")} />
       </div>
       <div className="search-bar">
         <img src={search} alt="" />
@@ -138,7 +138,7 @@ function Navbar({ signIn }) {
         </div>
         {results.length !== 0 && output && <div className="results">
           {results.map((item, key) => {
-            return <Link className={selected === key && 'selected'} onClick={(e)=>go(e, item.order)} key={key} >{item.name}</Link>
+            return <Link className={selected === key && 'selected'} onClick={(e) => go(e, item.order)} key={key} >{item.name}</Link>
           })}
         </div>}
         {input && <span onClick={handleClose} class="material-symbols-outlined">
@@ -146,7 +146,10 @@ function Navbar({ signIn }) {
         </span>}
       </div>
       <div className="right">
-        <button onClick={()=>setGetInTouch(true)}>Contact Us</button>
+
+        <span onClick={() => setGetInTouch(true)} class="material-symbols-outlined">
+          perm_contact_calendar
+        </span>
         <div className="account" id="account">
           {userName ? (
             <>

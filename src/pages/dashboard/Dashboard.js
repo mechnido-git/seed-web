@@ -18,6 +18,8 @@ const EnrolledCourse = ({ dragger }) => {
   const [drag, setDrag] = useState(false)
   const [enrolledCourses, setEnrolledCourses] = useState([]);
   const [enrolledEvents, setEnrolledEvents] = useState([]);
+  const [loading, setLoading] = useState(true)
+  const navigate = useNavigate()
 
   const fetch = async (user) => {
 
@@ -46,8 +48,14 @@ const EnrolledCourse = ({ dragger }) => {
         id: list.id
       }
     })
-
+    console.log(lists.length + "=>l");
     setEnrolledCourses(lists)
+    setLoading(false)
+  }
+
+  const getCours = (index) => {
+    console.log('hi');
+    navigate(`/menu/courses/details/${index}`)
   }
 
   useEffect(() => {
@@ -59,20 +67,28 @@ const EnrolledCourse = ({ dragger }) => {
   return <div onDragStart={dragger} draggable={drag} className="section">
     <h4 onMouseDownCapture={() => setDrag(true)} onMouseLeave={() => setDrag(false)}>My Enrollment</h4>
     <div className="enrolled-courses">
-      {enrolledCourses.length !== 0 && enrolledEvents.length !== 0 ? <>
-        {enrolledEvents.length !== 0 && enrolledEvents.map((item) => {
-          return <div className="card">
-            <h4>{item.name}</h4>
+      {loading ? <Spinner other={'height'} loading={loading} /> : <>
+        {enrolledCourses.length !== 0 || enrolledEvents.length !== 0 ? <>
+          {enrolledEvents.length !== 0 && enrolledEvents.map((item, key) => {
+            return <div style={{ cursor: 'pointer' }} className="card" key={key} >
+              <h4>{item.name}</h4>
 
-          </div>
-        })}
-        {enrolledCourses.length !== 0 && enrolledCourses.map((item) => {
-          return <div className="card">
-            <h4>{item.name}</h4>
+            </div>
+          })}
+          {enrolledCourses.length !== 0 && enrolledCourses.map((item) => {
+            return <div className="card" style={{ cursor: 'pointer' }} onClick={() => getCours(item.order)}>
+              <h4>{item.name}</h4>
 
+            </div>
+          })}
+        </> : <>
+          <p>You are not enrolled to any courses or events, Please Enroll</p>
+          <div className="btns">
+            <button onClick={() => navigate("/menu/courses")} >Courses</button><button onClick={() => navigate("/menu/events")}>Events</button>
           </div>
-        })}
-      </> : " "}
+        </>}
+      </>}
+
     </div>
   </div>
 }
@@ -80,27 +96,29 @@ const EnrolledCourse = ({ dragger }) => {
 const CourseCatalog = () => {
   const [drag, setDrag] = useState(false)
   const [data, setData] = useState([])
+  const [loading, setLoading] = useState(true)
 
   const { courses, user } = useContext(StoreContext)
   const navigate = useNavigate()
 
-  useEffect(()=>{
+  useEffect(() => {
     let temp = []
     console.log();
-    if(user){
-      
+    if (user) {
+
       courses?.forEach(course => {
         let flag = false
         console.log(course)
-        course.enrolled_arr?.forEach(item=>{
-          if(item === user.uid) flag = true
+        course.enrolled_arr?.forEach(item => {
+          if (item === user.uid) flag = true
         })
 
-        if(!flag) temp.push({...course})
-        if(flag) console.log(course)
-        
+        if (!flag) temp.push({ ...course })
+        if (flag) console.log(course)
+
       });
       setData(temp)
+      if(courses) setLoading(false)
     }
   }, [user, courses])
 
@@ -129,15 +147,21 @@ const CourseCatalog = () => {
   return <div draggable={drag} className="section">
     <h4 onMouseDownCapture={() => setDrag(true)} onMouseLeave={() => setDrag(false)}>Courses Catalog</h4>
     <div className="courses" >
-      {data?.length !== 0 && data?.map((item) => {
-        return <div className="card" onClick={()=>getCours(item.order)}>
-          <h4>{item.name}</h4>
-          <div className="details">
-            <div className="price">{"₹ "}{item.fee[0].price}</div>
-            <p>{item.description_L[2].slice(0, 50)}...</p>
+      {loading ? <Spinner other={'height'} loading={loading} /> : <>
+        {data?.length !== 0 && data?.map((item) => {
+          return <div className="card" onClick={() => getCours(item.order)}>
+            <div className="title">
+              <h4>{item.name}</h4>
+              <div className="price">{"₹ "}{item.fee[0].price}</div>
+
+            </div>
+            <div className="details">
+              <p>{item.description_L[2].slice(0, 50)}...</p>
+            </div>
           </div>
-        </div>
-      })}
+        })}
+      </>}
+
     </div>
   </div>
 }
@@ -232,8 +256,8 @@ const QuickLinks = () => {
     minLinks.forEach((link) => {
       link.classList.remove("clicked");
     });
-   // const index = e.target.closest("[data-index]").dataset.index;
-    console.log(index+"jiii");
+    // const index = e.target.closest("[data-index]").dataset.index;
+    console.log(index + "jiii");
     if (index == 0) {
       console.log(links[0], "k");
       links[0].classList.add("clicked");
@@ -261,8 +285,8 @@ const QuickLinks = () => {
             link
           </span><h4>{item.name}</h4>
         </>;
-        if (item.hash) return <HashLink onClick={()=>{if(item.index) click(item.index)}} smooth to={item.link} className="card">{content}</HashLink>;
-        return <Link className="card" onClick={()=>{if(item.index) click(item.index)}}  to={item.link} >{content}</Link>
+        if (item.hash) return <HashLink onClick={() => { if (item.index) click(item.index) }} smooth to={item.link} className="card">{content}</HashLink>;
+        return <Link className="card" onClick={() => { if (item.index) click(item.index) }} to={item.link} >{content}</Link>
       })}
     </div>
 
@@ -318,7 +342,7 @@ function Dashboard() {
   const [courses, setCourses] = useState([]);
   const [enolledEvents, setEnrolledEvents] = useState([]);
 
-  const [cover, setCover] = useState(((localStorage.getItem('cover') === 'true') || (localStorage.getItem('cover') === null) ? true: false))
+  const [cover, setCover] = useState(((localStorage.getItem('cover') === 'true') || (localStorage.getItem('cover') === null) ? true : false))
   const navigate = useNavigate();
   console.log(cover);
 
@@ -347,7 +371,7 @@ function Dashboard() {
     console.log('jii');
   }
 
-  const {setUser} = useContext(StoreContext)
+  const { setUser } = useContext(StoreContext)
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -376,7 +400,7 @@ function Dashboard() {
 
 
 
-  const [items, setItems] = useState([<EnrolledCourse  dragger={drag} />, <CourseCatalog  />, <EventDetails  />, <QuickLinks />, <Announcement />, <LearningResources />])
+  const [items, setItems] = useState([<EnrolledCourse dragger={drag} />, <CourseCatalog />, <EventDetails />, <QuickLinks />, <Announcement />, <LearningResources />])
 
   const skipCover = () => {
     localStorage.setItem('cover', true)

@@ -178,31 +178,31 @@ function SideMenu() {
             <Link
               className="sub"
               onClick={mobile ? toggle : null}
-              to="marketing"
+              to="#"
             >
               <span class="material-symbols-outlined">campaign</span>
               <div>Marketing</div>
             </Link>
-            <Link className="sub" onClick={mobile ? toggle : null} to="sell">
+            <Link className="sub" onClick={mobile ? toggle : null} to="#">
               <span class="material-symbols-outlined">sell</span>
               <div>Sell Online</div>
             </Link>
-            <Link className="sub" to="services">
+            <Link className="sub" to="#">
               <span class="material-symbols-outlined">prescriptions</span>
               <div>Services & Events</div>
             </Link>
-            <Link className="sub" onClick={mobile ? toggle : null} to="media">
+            <Link className="sub" onClick={mobile ? toggle : null} to="#">
               <span class="material-symbols-outlined">perm_media</span>
               <div>Media & Content</div>
             </Link>
-            <Link className="sub" onClick={mobile ? toggle : null} to="design">
+            <Link className="sub" onClick={mobile ? toggle : null} to="#">
               <span class="material-symbols-outlined">design_services</span>
               <div>Design Elements</div>
             </Link>
             <Link
               className="sub"
               onClick={mobile ? toggle : null}
-              to="communication"
+              to="#"
             >
               <span class="material-symbols-outlined">hub</span>
               <div>communication</div>

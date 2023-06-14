@@ -1,5 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './info.css'
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../../firebase/config';
+import Spinner from '../../components/Spinner';
 
 function InfoForm() {
 
@@ -13,6 +16,19 @@ function InfoForm() {
     const [year, setYear] = useState('');
     const [address, setAddress] = useState('');
 
+    const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+        onAuthStateChanged(auth, (user) => {
+          if (user) {
+            setFname(user.displayName);
+            setEmail(user.email);
+            setLoading(false);
+          } else {
+            setLoading(false);
+          }
+        });
+      }, []);
 
     const validate = (e) =>{
         const inputs = document.querySelectorAll('input')
@@ -24,6 +40,7 @@ function InfoForm() {
         });
       }
 
+
       const submitHandler = (e) => {
         e.preventDefault()
         console.log(fname, gender, dob, number, email, college, department, year, address);
@@ -32,6 +49,7 @@ function InfoForm() {
     return (
         <div className='user-info'>
             <h2>My Account</h2>
+            {loading? <Spinner loading={loading} /> : <>
             <form onSubmit={submitHandler}>
                 <div className="input-div">
                     <label htmlFor="fname">Full Name</label>:
@@ -81,6 +99,8 @@ function InfoForm() {
                 </div>
                 <input type="submit" onClick={validate} value="submit" />
             </form>
+            </>}
+
         </div>
     )
 }

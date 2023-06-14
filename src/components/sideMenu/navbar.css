@@ -280,9 +280,16 @@
 
   .navbar > .right{
     display: flex;
-    gap: 20px;
+    gap: 10px;
     align-items: center;
     
+  }
+
+  .navbar > .right > span{
+    font-size: 35px;
+    cursor: pointer;
+    color: #006aff;
+    padding: .5rem;
   }
 
   .navbar .get-in-touch{

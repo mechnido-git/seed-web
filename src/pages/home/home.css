@@ -629,6 +629,7 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 
   .contact-us{
     position: relative;
+    
   }
 
   .contact-us input[type=text], .contact-us select, .contact-us textarea, .contact-us input[type=email] {
