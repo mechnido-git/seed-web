@@ -21,7 +21,13 @@ function Navbar({ signIn }) {
   const [results, setResults] = useState([])
   const [output, setOutput] = useState(false)
 
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [msg, setMsg] = useState("");
+
   const [selected, setSelected] = useState(-1)
+
+  const [getInTouch, setGetInTouch] = useState(false)
 
   const navigate = useNavigate()
 
@@ -140,9 +146,7 @@ function Navbar({ signIn }) {
         </span>}
       </div>
       <div className="right">
-        <span id="bell" class="material-symbols-outlined">
-          campaign
-        </span>
+        <button onClick={()=>setGetInTouch(true)}>Contact Us</button>
         <div className="account" id="account">
           {userName ? (
             <>
@@ -158,6 +162,56 @@ function Navbar({ signIn }) {
         </div>
 
       </div>
+      {getInTouch && (
+        <div className="wrapper-reg">
+          <div className="blocker" onClick={() => setGetInTouch(false)}></div>
+          <div className="get-in-touch">
+            <div id="get-in-touch"></div>
+            <h2>Get in Touch</h2>
+            <div className="content">
+              <div class="container-div contact-us">
+                <form action="">
+                  <label htmlFor="name">Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Your name"
+                    required
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                  />
+
+                  <label htmlFor="email">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="example@gmail.com"
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                  />
+
+                  <label htmlFor="subject">Subject</label>
+                  <textarea
+                    id="subject"
+                    name="subject"
+                    placeholder="Write something"
+                    style={{ height: "200px" }}
+                    required
+                    value={msg}
+                    onChange={(e) => setMsg(e.target.value)}
+                  ></textarea>
+
+                  <input type="submit" value="Submit" />
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

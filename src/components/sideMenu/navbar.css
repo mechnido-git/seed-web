@@ -285,6 +285,30 @@
     
   }
 
+  .navbar .get-in-touch{
+    background-color: white;
+    border-radius: 5px;
+    width: 50%;
+  }
+
+  .navbar .get-in-touch .content{
+    grid-template-columns: 1fr;
+    
+  }
+
+  .navbar > .right > button{
+    padding: .7rem 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #006aff;
+    color: white;
+    cursor: pointer;
+  }
+
+  .navbar > .right > button:hover{
+    background-color: #0055cc;
+  }
+
   #bell{
     font-size: 2rem;
     cursor: pointer;
