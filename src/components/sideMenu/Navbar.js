@@ -57,6 +57,8 @@ function Navbar({ signIn }) {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setUserName(user.displayName)
+        setName(user.displayName)
+        setEmail(user.email)
         setUserId(user.uid)
         if (user.photoURL) setDp(user.photoURL);
       };
