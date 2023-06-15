@@ -45,20 +45,23 @@
     color: #006aff;
 }
 
+.user-info .error{
+    grid-column: 3 / 4;
+}
 
-.user-info > form >   .input-div > input[type = "text"],
-.user-info > form >  .input-div > input[type = "number"],
-.user-info > form >  .input-div > input[type = "tel"],
-.user-info > form >  .input-div > input[type = "email"],
-.user-info > form >  .input-div > select,
-.user-info > form >  .input-div > textarea{
+.user-info form >   .input-div > input[type = "text"],
+.user-info form >  .input-div > input[type = "number"],
+.user-info form >  .input-div > input[type = "tel"],
+.user-info form >  .input-div > input[type = "email"],
+.user-info form >  .input-div > select,
+.user-info form >  .input-div > textarea{
     padding: 5px;
     border: 1px solid #CACACA ;
     border-radius: 5px;
     font-size: large;
 }
 
-.user-info> form > input[type = "submit"]{
+.user-info> form > input[type = "button"]{
     margin: 0 auto;
     background-color: #006aff;
     color: white;
