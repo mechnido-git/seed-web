@@ -111,7 +111,7 @@ export const CardBuilder = ({ arr, limit, viewDetails }) => (
               {item.flag ? <>The Flagship <br /></> : ''}
               {item.name}
             </h4>
-            <p>{item.description_L[2].slice(0, 100)}</p>
+            <p>{item.description_L[2].slice(0, 100)}...</p>
             <div>
               {item.rating && <h5>Rating:{item.rating}</h5>}
             </div>
