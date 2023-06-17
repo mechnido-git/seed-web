@@ -103,7 +103,6 @@ const CourseCatalog = () => {
 
   useEffect(() => {
     let temp = []
-    console.log();
     if (user) {
 
       courses?.forEach(course => {

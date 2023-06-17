@@ -20,6 +20,7 @@ import Path from "./pages/path/Path";
 import CourseDetails from "./pages/courses/CourseDetails";
 import Enroll from "./pages/payment/Enroll";
 import InfoForm from "./pages/myAccount/InfoForm";
+import Sower from "./pages/sower/Sower";
 
 function Router() {
   return (
@@ -28,6 +29,7 @@ function Router() {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/about" element={<About />} />
+        <Route exact path="/sower" element={<Sower />} />
         <Route path="/menu" exact element={<Index />}>
           <Route element={<HomeIndex />}>
             <Route index element={<Navigate to='courses' />} />

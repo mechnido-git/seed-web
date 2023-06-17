@@ -1,10 +1,13 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { recomended } from "../courses/CoursesHome";
 import { CardBuilder } from "../courses/CoursesHome";
 import { category } from "../courses/CoursesHome";
 import { addIcon } from "../courses/CoursesHome";
 import kart from "../../images/slide.jpg";
 import sp from "../../images/sponsor.jpg";
+import { StoreContext } from "../../store/StoreContext";
+import { collection, getDocs, orderBy, query } from "firebase/firestore";
+import { db } from "../../firebase/config";
 
 function Drop({ onClickOutside, show }) {
   const [offerSwitch, setOfferSwitch] = useState(0);
@@ -12,16 +15,40 @@ function Drop({ onClickOutside, show }) {
   const [eventSwitch, setEventSwitch] = useState(0);
   const ref = useRef();
 
+  const { setCourses, courses, setUserName } = useContext(StoreContext);
+
   const selcectOffer = (e) => {
     const list = document.querySelectorAll(".offer");
     list.forEach((item) => {
       item.classList.remove("clicked");
     });
     e.target.classList.add("clicked");
-    setOfferSwitch(offerSwitch === 0 ? 1 : 0);
+    if(offerSwitch != e.target.dataset.index) setOfferSwitch(offerSwitch === 0 ? 1 : 0);
+  };
+
+  const doFetch = async () => {
+    const q = query(collection(db, "courses"), orderBy("order", "asc"));
+    const querySnapshot = await getDocs(q);
+    const temp = [];
+    querySnapshot?.forEach((doc) => {
+      // doc.data() is never undefined for query doc snapshots
+      //console.log(doc.id, " => ", doc.data());
+      console.log(doc.data());
+      temp.push({ ...doc.data(), id: doc.id });
+    });
+    console.log(temp);
+    setCourses(temp);
+
+    // const washingtonRef = doc(db, "courses", "r8weEIiW3iJ8ocAkeTtJ");
+
+    // // Set the "capital" field of the city 'DC'
+    // await updateDoc(washingtonRef, {
+      
+    // });
   };
 
   useEffect(() => {
+    doFetch()
     document.body.classList.add("disable-scroll");
     console.log("hi");
     return () => document.body.classList.remove("disable-scroll");
@@ -73,13 +100,14 @@ function Drop({ onClickOutside, show }) {
     </>
   );
 
+
   return (
     <div className="drop-menu" ref={ref}>
       <ul>
-        <li className="offer clicked" onClick={selcectOffer}>
+        <li className="offer clicked" data-index={0} onClick={selcectOffer}>
           Courses
         </li>
-        <li className="offer" onClick={selcectOffer}>
+        <li className="offer" data-index={1} onClick={selcectOffer}>
           Events
         </li>
       </ul>
@@ -107,9 +135,9 @@ function Drop({ onClickOutside, show }) {
                 })}
               </ul>
               <div className="cards">
-                <CardBuilder
-                  arr={recomended.filter((item) => filter === item.category)}
-                />
+                {courses.length !== 0 && <CardBuilder
+                  arr={courses}
+                />}
               </div>
             </div>
           </>

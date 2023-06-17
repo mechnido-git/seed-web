@@ -1,24 +1,20 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
-import logo from "../../images/logo_round.png";
+import React, { useEffect, useRef, useState } from "react";
 import "./home.css";
 import trophy from "../../images/trophy.png";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { useNavigate } from "react-router-dom";
-import SignIn from "../signin/SignIn";
-import { StoreContext } from "../../store/StoreContext";
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import { auth } from "../../firebase/config";
+import { auth, db } from "../../firebase/config";
 import Spinner from "../../components/Spinner";
 import { HashLink } from "react-router-hash-link";
 import { FiPlus } from "react-icons/fi";
 import fb from "../../images/fb.png";
 import insta from "../../images/insta.png";
-import { Link } from "react-router-dom";
 import profile from "../../images/profile.png";
-import Drop from "./Drop";
-import ProfileDrop from "./ProfileDrop";
 import intro from "../../images/intro.jpg";
 import sponsor from "../../images/sponsor.jpg";
+import HomeNav from "./homeNav/HomeNav";
+import { Link } from "react-router-dom";
 
 function Home() {
   const [signIn, setSignIn] = useState(false);
@@ -31,11 +27,7 @@ function Home() {
   const [msg, setMsg] = useState("");
   const [dp, setDp] = useState(profile);
 
-  const [index, setIndex] = useState(null);
   const [redirect, setRedirect] = useState(null);
-
-  const [showDrop, setShowDrop] = useState(false);
-  const [profileDrop, setProfileShowDrop] = useState(false);
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -98,92 +90,20 @@ function Home() {
     });
   };
 
-  const popup = (i) => {
-    document.body.classList.add("disable-scroll");
-    setIndex(i);
-    setSignIn(true);
-  };
-  const close = () => {
-    document.body.classList.remove("disable-scroll");
-    setSignIn(false);
-  };
-
-  const toggle = () => {
-    const nav = document.getElementById("nav");
-    if (nav.className === "nav") {
-      nav.className += " toggle";
-      document.getElementById("home").addEventListener("click", toggle);
-    } else {
-      nav.className = "nav";
-      document.getElementById("home").removeEventListener("click", toggle);
-    }
-  };
-
-  const toggleOffer = (e) => {
-    if (e) e.stopPropagation();
-    const nav = document.getElementById("nav");
-    nav.classList.toggle("offer");
-    setShowDrop(!showDrop);
-    if (profileDrop) viewProfile();
-  };
-
-  const viewProfile = (e) => {
-    if (e) e.stopPropagation();
-    document.getElementById("account").classList.toggle("clicked");
-    setProfileShowDrop(!profileDrop);
-    if (showDrop) toggleOffer();
-  };
-
   return (
     <>
       {loading && <Spinner other="globel" loading={loading} />}
-      <div className="nav" id="nav">
-        <div className="left">
-          <HashLink to="#home" smooth>
-            <img src={logo} alt="" />
-          </HashLink>
-        </div>
-        <div className="options">
-          <div className="links">
-            <ul>
-              <li className="link">
-                <Link to="/about">
-                  About
-                </Link>
-              </li>
-              <li className="link">
-                <Link to="#" id="offer" onClick={toggleOffer}>
-                  Offerings
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="right">
-          <div className="account" id="account">
-            {userName ? (
-              <>
-                <img src={dp} referrerPolicy="no-referrer" alt="" onClick={viewProfile} />
-                <ProfileDrop
-                  userName={userName}
-                  show={profileDrop}
-                  onClickOutside={viewProfile}
-                  setLoading={setLoading}
-                />
-              </>
-            ) : (
-              <>
-                <button onClick={() => popup(false)}>Sign In</button>
-                <button onClick={() => popup(true)}>Sign Up</button>
-              </>
-            )}
-          </div>
-          <span onClick={toggle} id="menu" class="material-symbols-outlined">
-            menu
-          </span>
-        </div>
-        {showDrop && <Drop show={showDrop} onClickOutside={toggleOffer} />}
-      </div>
+
+      <HomeNav
+        bodyId={'home'}
+        links={[<Link to="/about">About</Link>, <Link to="/sower">Become a Sower</Link>]}
+        dp={dp}
+        redirect={redirect}
+        setLoading={setLoading}
+        userName={userName}
+        setSignIn={setSignIn}
+        signIn={signIn} />
+
       <div className="home" id="home">
         <div className="hero">
           <h2>
@@ -639,12 +559,6 @@ function Home() {
         </div>
         <p>© 2023, Mechnido Pvt. Ltd. All Rights Reserved</p>
       </div>
-      {signIn && (
-        <div className="wrapper">
-          <div className="blocker" onClick={close}></div>
-          <SignIn index={index} redirect={redirect} />
-        </div>
-      )}
     </>
   );
 }

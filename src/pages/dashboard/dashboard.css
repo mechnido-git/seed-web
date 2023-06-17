@@ -50,13 +50,10 @@
 
 .dashboard > .main > .section > h4{
   user-select: none;
-  position: sticky;
-  inset: 0;
   background-color: white;
   padding: 1rem;
   font-size: 20px;
   color: #282828;
-  z-index: 5;
 }
 
 .dashboard > .main > .section .price{

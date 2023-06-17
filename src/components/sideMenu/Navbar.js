@@ -131,7 +131,7 @@ function Navbar({ signIn }) {
         <span onClick={toggle} id="toggle" className={`material-symbols-outlined ${window.innerWidth > 650 && 'clicked'}`}>
           menu
         </span>
-        <img src={logo} alt="" onClick={()=>navigate("/")} />
+        <img src={logo} alt="" onClick={() => navigate("/")} />
       </div>
       <div className="search-bar">
         <img src={search} alt="" />
@@ -148,9 +148,8 @@ function Navbar({ signIn }) {
         </span>}
       </div>
       <div className="right">
-
         <span onClick={() => setGetInTouch(true)} class="material-symbols-outlined">
-          perm_contact_calendar
+          forum
         </span>
         <div className="account" id="account">
           {userName ? (

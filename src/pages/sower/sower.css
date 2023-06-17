@@ -1,0 +1,184 @@
+.sower {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    position: relative;
+    width: 100%;
+    overflow-y: auto;
+    z-index: 2;
+    background-color: #f5f5f5;
+    margin-top: 80px;
+    gap: 40px;
+}
+
+.sower > .hero{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    background-color: #ecf8e5;
+    padding: 1rem 2rem;
+}
+
+.sower > .hero > .right > img{
+    width: 470px;
+}
+
+
+.sower > .hero > .left{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+}
+.sower > .hero > .right{
+    justify-self: center;
+    padding: 3rem;
+}
+
+.sower > .hero > .left .title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    padding: 0 5rem;
+    gap: 40px;
+}
+
+.sower > .hero > .left > img{
+    width: 200px;
+}
+
+.sower > .hero > .left .title > h1{
+    color: #347571;
+    font-size: 50px;
+}
+
+.sower .sower-btn{
+    background-color: #5ec57e;
+    color: white;
+    padding: 1rem 3rem;
+    border-radius: 30px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+}
+
+.sower > .description{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3rem;
+    gap: 50px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.sower > .description .left img{
+    width: 300px;
+}
+
+.sower > .description .left{
+    padding: 4rem;
+}
+
+.sower > .description .right{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 30px;
+}
+
+.sower h2{
+    color: #5ec57e;
+    font-size: 40px;
+}
+
+.sower > .description ul{
+    list-style-type: disc;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 1rem 2rem;
+}
+
+.sower > .description ul > li{
+    color: #347571;
+    font-size: 20px;
+}
+
+.sower > .details{
+    display: flex;
+    flex-direction: column;
+}
+
+.sower > .details > h2, .sower > .steps > h2{
+    margin: 0 auto;
+}
+
+.sower > .details > .lists{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 10px;
+    padding: 100px 150px;
+}
+
+.sower > .details > .lists .card{
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.sower > .details > .lists .card img{
+    width: 100px;
+}
+
+.sower h3{
+    color: #5ec57e;
+    font-size: 25px;
+}
+
+.sower > .details > .lists .card p{
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.544);
+}
+
+.sower > .steps{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 1rem;
+    align-items: center;
+}
+.sower > .steps > .lists{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+
+}
+
+.sower > .steps > .lists .card{
+    padding: 5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+}
+
+.sower > .steps > .lists .card img{
+    width: 70px;
+}
+
+.sower .footer::before{
+    width: 60%;
+}
+
+.sower .footer > .links{
+    justify-content: first baseline;
+}
+
+.sower .footer > p{
+    color: #347571;
+}
