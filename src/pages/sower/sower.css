@@ -176,7 +176,7 @@
 }
 
 .sower .footer > .links{
-    justify-content: first baseline;
+    justify-content: space-around;
 }
 
 .sower .footer > p{

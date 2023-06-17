@@ -66,6 +66,18 @@ function Footer() {
           </ul>
         </div>
 
+        <div className="section">
+          <h3>Become a sower</h3>
+          <ul>
+            <li>
+              <HashLink smooth to="#">
+                Apply now
+              </HashLink>
+            </li>
+
+          </ul>
+        </div>
+
         <div className="section get-in-touch">
           <h3>Get in touch</h3>
           <ul>
