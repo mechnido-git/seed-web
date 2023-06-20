@@ -87,14 +87,12 @@ function Home() {
   };
 
   const goToLink = (link) => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
+      if (userName) {
         navigate("/menu/dashboard");
       } else {
-        setRedirect(true);
+        setRedirect("/menu/dashboard");
         setSignIn(true);
       }
-    });
   };
 
   return (
