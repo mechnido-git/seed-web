@@ -9,6 +9,7 @@ import Terms from "../pages/events/terms/Terms";
 import logo from "../images/man.png";
 import MemberForm from "../pages/events/eventConfig/MemberForm";
 import FacultyForm from "../pages/events/eventConfig/FacultyForm";
+import axios from "axios";
 
 
 function RegisterForm({ event }) {
@@ -38,10 +39,29 @@ function RegisterForm({ event }) {
   const [facForm, setFacForm] = useState(false)
   const [facN, setFacN] = useState(null)
 
+  const base = "https://real-lime-iguana-coat.cyclic.app"
+   // const base = 'http://localhost:4242'
+
+  const sentMail = async(eventId, name, email, teamName) => {
+    const url = `${base}/event/email`;
+    const data = {
+        eventId,
+        name,
+        teamName,
+        email
+    }
+    try {
+      const res = await axios.post(url, data)
+      console.log(res);
+      window.location.reload()
+    } catch (error) {
+      alert(error)
+    }
+  }
+
   const [current, setCurrent] = useState(0)
   const onSumbitHandler = (e) => {
     e.preventDefault();
-    console.log('hi');
     setLoading(true)
     onAuthStateChanged(auth, user => {
       if (user) {
@@ -76,7 +96,9 @@ function RegisterForm({ event }) {
           }).then(() => {
             updateDoc(doc(db, 'events', event.id), {
               enrolled: arrayUnion(user.uid)
-            }).then(() => window.location.reload()).catch(err => console.log(err))
+            }).then(() => {
+              sentMail(event.id, capName, teamEmail, teamName)
+            }).catch(err => console.log(err))
           }).catch(err => console.log(err))
 
         }).catch(err => console.log(err))
@@ -217,6 +239,10 @@ function RegisterForm({ event }) {
     }
   }
 
+  const onChangeNumber = (value, setValue, current) => {
+    if(value.length <= 10) setValue(current.length <= 10? current: value )
+  }
+
   const getFields = (page) => {
     switch (page) {
       case 0:
@@ -285,7 +311,7 @@ function RegisterForm({ event }) {
               min={10}
               name="contact"
               required
-              onChange={(e) => setContact(e.target.value)}
+              onChange={(e) => onChangeNumber(contact, setContact, e.target.value)}
               placeholder="6234567890"
             />
             <div className="error" id="team-contact"></div>
@@ -307,7 +333,10 @@ function RegisterForm({ event }) {
             </div>)}
           </div>
           <div className="btns">
-            <button className="cntrl" onClick={() => setCurrent(current - 1)} type="button">back</button><button className={`cntrl ${members.length < 3 && 'opacity'}`} onClick={members.length >= 3 ? () => setCurrent(current + 1) : null} type="button">Next</button>
+            <button className="cntrl"  onClick={() => setCurrent(current - 1)} type="button">Back</button><button onMouseLeave={()=>{members.length < 3 && document.querySelector('.disable-msg').classList.remove("show")}} onMouseEnter={()=>{members.length < 3 && document.querySelector('.disable-msg').classList.add("show")}} className={`cntrl ${members.length < 3 && 'opacity'}`} onClick={members.length >= 3 ? () => setCurrent(current + 1) : null} type="button">Next</button>
+            <div className="disable-msg">
+            <p>Add minimum 3 members and maximum 25 members</p>
+            </div>
           </div>
         </div>;
 
@@ -397,7 +426,10 @@ function RegisterForm({ event }) {
             </div>)}
           </div>
           <div className="btns">
-            <button className="cntrl" onClick={() => setCurrent(current - 1)} type="button">back</button><button className={`cntrl ${faculty.length < 1 && 'opacity'}`} onClick={faculty.length >= 1? () => setCurrent(current + 1) : null} type="button">Next</button>
+            <button className="cntrl" onClick={() => setCurrent(current - 1)} type="button">Back</button><button className={`cntrl ${faculty.length < 1 && 'opacity'}`} onMouseLeave={()=>{faculty.length < 1 && document.querySelector('.disable-msg').classList.remove("show")}} onMouseEnter={()=>{faculty.length < 1 && document.querySelector('.disable-msg').classList.add("show")}}  onClick={faculty.length >= 1? () => setCurrent(current + 1) : null} type="button">Next</button>
+            <div className="disable-msg">
+            <p>Add minimum 1 faculty and maximum 2 faculties</p>
+            </div>
           </div>
         </div>;
 

@@ -3,6 +3,7 @@
     z-index: 4;
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
+    z-index: 11;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');

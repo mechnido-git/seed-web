@@ -16,16 +16,16 @@ function FacultyForm({ faculty, setFaculty, setFacForm }) {
     var dd = today.getDate();
     var mm = today.getMonth() + 1;
     var yyyy = today.getFullYear();
+    var minY = yyyy - 13
     if (dd < 10) dd = "0" + dd;
     if (mm < 10) mm = "0" + mm;
     today = yyyy + "-" + mm + "-" + dd;
     let temp = value.split("-");
-    if (temp[0] >= yyyy && temp[1] >= mm && temp[2] > dd) {
-      document.getElementById("fac-dob").innerText =
-        "dob cannot be future date";
-      setDob("");
+    if (temp[0] < minY? true : temp[0] == minY ? temp[1] < mm? true : temp[1] == mm? temp[2] <= dd ? true : false : false : false ) {
+      setDob(e.target.value)
     } else {
-      setDob(e.target.value);
+      document.getElementById('fac-dob').innerText = "Minimum age is 13"
+      setDob("")
     }
   };
 
@@ -83,7 +83,7 @@ function FacultyForm({ faculty, setFaculty, setFacForm }) {
     }
 
     if (dob.length === 0) {
-      document.getElementById("fac-dob").innerText = "select a valid date";
+      document.getElementById("fac-dob").innerText = "Select a valid date";
       flag = true;
     }
 
@@ -123,9 +123,12 @@ function FacultyForm({ faculty, setFaculty, setFacForm }) {
     }
   };
 
+  const onChangeNumber = (value, setValue, current) => {
+    if(value.length <= 10) setValue(current.length <= 10? current: value )
+  }
+
   return (
     <div className="fac-div">
-      <p >Add minimum 1 faculty and maximum 2 faculties</p>
       <form className="fac">
         <h3>Facualty Advisor</h3>
         {/* <div className="input-div">
@@ -177,7 +180,7 @@ function FacultyForm({ faculty, setFaculty, setFacForm }) {
             name="dep"
             required
             onChange={(e) => setDes(e.target.value)}
-            placeholder="Designationt"
+            placeholder="Designation"
           />
           <div className="error" id="fac-dep"></div>
         </div>
@@ -211,7 +214,7 @@ function FacultyForm({ faculty, setFaculty, setFacForm }) {
             min={10}
             name="contact"
             required
-            onChange={(e) => setMobile(e.target.value)}
+            onChange={(e) => onChangeNumber(mobile, setMobile, e.target.value)}
             placeholder="6234567890"
           />
           <div className="error" id="fac-mobile"></div>

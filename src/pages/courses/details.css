@@ -34,6 +34,7 @@
     line-height: 113%;
     font-weight: 600;
     margin: 2rem 0;
+    text-transform: uppercase;
 }
 
 .course-details .title > p{

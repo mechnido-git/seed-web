@@ -225,29 +225,6 @@
     gap: 1rem;
 }
 
-.slides-sponsors{
-    padding: 0rem 1rem;
-    margin: 1rem 0;
-}
-
-.slides-sponsors .splide{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 3rem 1rem;
-}
-
-.slides-sponsors  .splide__slide{
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-    align-items: center;
-    gap: 1rem;
-}
-
-.slides-sponsors  .splide__slide img{
-    border-radius: 50%;
-}
 
 .register-info > section{
     pointer-events: none;

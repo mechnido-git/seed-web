@@ -8,6 +8,7 @@
     background-color: white;
     padding: 4rem 2rem;
     border-radius: 5px;
+    z-index: 11;
 }
 
 .enroll-div > .card{

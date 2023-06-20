@@ -155,6 +155,7 @@
 .courses-home > .main-div > .section > .card-container-div > .card > .body > h4{
     color: #484D57;
     font-size: 1.2rem;
+    text-transform: uppercase;
 }
 
 .courses-home > .main-div > .section > .card-container-div > .card > .body > p{

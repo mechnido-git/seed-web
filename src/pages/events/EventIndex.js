@@ -30,19 +30,19 @@ function RegisterInfo({ date, data }) {
         <div className="time-div">
           <div className="days-div">
             <h3>Days</h3>
-            <p>{days <= 0? 0 : days}</p>
+            <p>{days <= 0 ? 0 : days}</p>
           </div>
           <div className="hour-div">
             <h3>Hours</h3>
-            <p>{hours <= 0? 0 : hours}</p>
+            <p>{hours <= 0 ? 0 : hours}</p>
           </div>
           <div className="minute-div">
             <h3>Minutes</h3>
-            <p>{minutes <= 0? 0 : minutes}</p>
+            <p>{minutes <= 0 ? 0 : minutes}</p>
           </div>
           <div className="second-div">
             <h3>Seconds</h3>
-            <p>{seconds <= 0? 0 : seconds}</p>
+            <p>{seconds <= 0 ? 0 : seconds}</p>
           </div>
         </div>
       </div>
@@ -79,7 +79,7 @@ function EventIndex() {
   const [signIn, setSignIn] = useState(false);
   const [currentEvent, setCurrentEvent] = useState(0);
   const [user, setUser] = useState(false);
-  const [uid, setUid] = useState('')
+  const [uid, setUid] = useState("");
   const imgWidth = window.innerWidth < 1024 ? "100%" : "200px";
   const gap = window.innerWidth < 1024 ? "1rem" : "4rem";
   const { register, setRegister } = useOutletContext();
@@ -93,29 +93,28 @@ function EventIndex() {
   const [days, hours, minutes, seconds] = useCountdown(eventDate);
   const eventList = ["Event One", "Event Two", "Event Three"];
 
-  const tru = () => {
-    const arrows = document.querySelectorAll(".splide__arrow");
-    arrows.forEach(
-      (arrow) =>
-        (arrow.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 96 960 960" width="48"><path d="m561 814-43-42 168-168H160v-60h526L517 375l43-42 241 241-240 240Z"/></svg>`)
-    );
-  };
-
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) setUser(user.displayName);
-      if (user) setUid(user.uid)
+      if (user) setUid(user.uid);
     });
     const temp = [];
     getDocs(collection(db, "events"))
       .then((snaps) => {
-        snaps.forEach((doc) =>
-          temp.push({ id: doc.id, ...doc.data() })
-        );
+        snaps.forEach((doc) => temp.push({ id: doc.id, ...doc.data() }));
         setEvents(temp);
       })
       .catch()
-      .finally(() => setLoading(false));
+      .finally(() => {
+        setLoading(false);
+        const loc = window.location.href.split("/");
+        const last = loc[loc.length - 1];
+        if (last[0] === "#") {
+          const id = last.slice(1, last.length);
+          console.log(id);
+          document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+        }
+      });
   }, []);
   const ref = useRef();
   const ref2 = useRef();
@@ -123,13 +122,13 @@ function EventIndex() {
   const getRegister = () => {
     let flag = false;
     console.log(events);
-    events[currentEvent].enrolled?.forEach(item=>{
-      if(item === uid) flag = true
-    })
+    events[currentEvent].enrolled?.forEach((item) => {
+      if (item === uid) flag = true;
+    });
     console.log(flag);
-    if(flag) return alert('Alredy registered')
-    setRegister(true)
-  }
+    if (flag) return alert("Alredy registered");
+    setRegister(true);
+  };
 
   return (
     <>
@@ -186,9 +185,7 @@ function EventIndex() {
 
               <div className="btns">
                 <button
-                  onClick={() =>
-                    user ? getRegister() : alert("login first")
-                  }
+                  onClick={() => (user ? getRegister() : alert("login first"))}
                 >
                   Register
                 </button>
@@ -221,9 +218,9 @@ function EventIndex() {
                   //ref2.current.splide.Components.Contro.move(splide.index)
                 }}
               >
-                {events.map((item, i)=>{
+                {events.map((item, i) => {
                   const date = ["5/25/2023", "5/26/2023", "5/27/2023"];
-                  return <RegisterInfo data={item} key={i} date={date[i]} />
+                  return <RegisterInfo data={item} key={i} date={date[i]} />;
                 })}
               </Splide>
             </div>

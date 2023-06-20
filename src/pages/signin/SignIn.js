@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import "./signin.css";
 import google from "./pngwing.com.png";
 import {
@@ -13,8 +13,9 @@ import {
 import { auth } from "../../firebase/config";
 import Spinner from "../../components/Spinner";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-function SignIn({index, redirect}) {
+function SignIn({index, redirect, setRedirect}) {
   const [signin, setSigin] = useState(!index? true : false);
   const [loading, setLoading] = useState(false);
 
@@ -38,6 +39,8 @@ function SignIn({index, redirect}) {
   const [forgotPass, setForgotPass] = useState(false);
   const [forgEmail, setForgEmail] = useState("");
   const [sent, setSent] = useState(false);
+
+  const click = useRef()
 
   const showPassword = (e) => {
     let pwFields =
@@ -93,7 +96,17 @@ function SignIn({index, redirect}) {
         const user = userCredential.user;
         //console.log(user);
         // ...
-        redirect? navigate("/menu/dashboard") : window.location.reload();
+       // navigate("/menu/dashboard");
+       if(redirect){
+        window.location.reload()
+        window.open(redirect,'_blank')
+        setRedirect(null)
+        }else{
+        window.location.reload()
+        window.open('/menu/dashboard','_blank')
+        }
+      //  const evt = new Event('click', {bubbles: true})
+      //  document.getElementById('red').dispatchEvent(evt)
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -116,7 +129,15 @@ function SignIn({index, redirect}) {
         const user = result.user;
         // IdP data available using getAdditionalUserInfo(result)
         // ...
-        redirect? navigate("/menu/dashboard") : window.location.reload();
+        //navigate("/menu/dashboard");
+        if(redirect){
+        window.location.reload()
+        window.open(redirect,'_blank')
+        setRedirect(null)
+        }else{
+        window.location.reload()
+        window.open('/menu/dashboard','_blank')
+        }
       })
       .catch((error) => {
         // Handle Errors here.
@@ -202,6 +223,7 @@ function SignIn({index, redirect}) {
   return (
     <div className="signin-div form login">
       {loading && <Spinner loading={loading} />}
+      <Link id="red" to="/menu/dashboard" target="_blank" ref={click} />
       {signin ? (
         <>
           {forgotPass ? (

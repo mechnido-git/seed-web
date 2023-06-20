@@ -30,6 +30,8 @@ function Home() {
   const [redirect, setRedirect] = useState(null);
 
   useEffect(() => {
+    const loc = window.location.href.split("/")
+    const last = loc[loc.length -1]
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setUserName(user.displayName);
@@ -37,6 +39,11 @@ function Home() {
         setEmail(user.email);
         if (user.photoURL) setDp(user.photoURL);
         setLoading(false);
+        if(last[0] === "#"){
+          const id = last.slice(1, last.length)
+          console.log(id);
+          document.getElementById(id).scrollIntoView({behavior: 'smooth'});
+        }
       } else {
         setLoading(false);
       }
@@ -102,7 +109,9 @@ function Home() {
         setLoading={setLoading}
         userName={userName}
         setSignIn={setSignIn}
+        setRedirect={setRedirect}
         signIn={signIn} />
+        
 
       <div className="home" id="home">
         <div className="hero">

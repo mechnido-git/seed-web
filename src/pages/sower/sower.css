@@ -172,7 +172,7 @@
 }
 
 .sower .footer::before{
-    width: 60%;
+    width: 90%;
 }
 
 .sower .footer > .links{
@@ -181,4 +181,37 @@
 
 .sower .footer > p{
     color: #347571;
+}
+
+.apply-now{
+    z-index: 11;
+    background-color: white;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    border-radius: 5px;
+}
+
+.apply-now form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.apply-now form button{
+    background-color: #5ec57e;
+    color: white;
+    padding: .5rem 2rem;
+    border-radius: 30px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+}
+
+.apply-now form p{
+    color: red;
 }

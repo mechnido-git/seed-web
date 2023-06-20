@@ -190,7 +190,7 @@ const QuickLinks = () => {
       index: 1,
     },
     {
-      name: 'Trenidng',
+      name: 'Trending',
       link: '/menu/courses/#trending',
       hash: true,
       index: 1,
@@ -220,27 +220,32 @@ const QuickLinks = () => {
     },
     {
       name: 'Home',
-      link: '/'
+      link: '/',
+      new: true,
     },
     {
       name: 'Achievements',
       link: '/#achievements',
-      hash: true
+      hash: true,
+      new: true,
     },
     {
       name: 'Testimonials',
       link: '/#testimonials',
-      hash: true
+      hash: true,
+      new: true
     },
     {
       name: 'Sponsors',
       link: '/#sponsors',
-      hash: true
+      hash: true,
+      new: true,
     },
     {
       name: 'FAQ',
       link: '/#faq',
-      hash: true
+      hash: true,
+      new: true
     },
   ]
 
@@ -284,8 +289,8 @@ const QuickLinks = () => {
             link
           </span><h4>{item.name}</h4>
         </>;
-        if (item.hash) return <HashLink onClick={() => { if (item.index) click(item.index) }} smooth to={item.link} className="card">{content}</HashLink>;
-        return <Link className="card" onClick={() => { if (item.index) click(item.index) }} to={item.link} >{content}</Link>
+        if (item.hash) return <HashLink target={item.new ? "_blank": null} onClick={() => { if (item.index) click(item.index) }} smooth to={item.link} className="card">{content}</HashLink>;
+        return <Link className="card" target={item.new ? "_blank": null} onClick={() => { if (item.index) click(item.index) }} to={item.link} >{content}</Link>
       })}
     </div>
 
@@ -334,12 +339,8 @@ function Dashboard() {
   const [loading, setLoading] = useState(true);
   const [dp, setDp] = useState(logo);
   const [loggedIn, setLoggedIn] = useState(false);
-  const [username, setUsername] = useState("");
-  const [uid, setUid] = useState();
-  const [email, setEmail] = useState("");
   const [events, setEvents] = useState([]);
-  const [courses, setCourses] = useState([]);
-  const [enolledEvents, setEnrolledEvents] = useState([]);
+  const [loadingTwo, setLoadingTwo] = useState(true)
 
   const [cover, setCover] = useState(((localStorage.getItem('cover') === 'true') || (localStorage.getItem('cover') === null) ? true : false))
   const navigate = useNavigate();
@@ -377,10 +378,6 @@ function Dashboard() {
       if (user) {
         setUser(user)
         setLoggedIn(true);
-        setUid(user.uid);
-        setUsername(user.displayName);
-        setEmail(user.email);
-        if (user.photoURL) setDp(user.photoURL);
         setLoading(false)
       } else {
         setLoading(false);
@@ -396,7 +393,24 @@ function Dashboard() {
     `);
   }, []);
 
+  const { courses, user } = useContext(StoreContext)
 
+  useEffect(() => {
+    if (user) {
+      courses?.forEach(course => {
+        let flag = false
+        console.log(course)
+        course.enrolled_arr?.forEach(item => {
+          if (item === user.uid) flag = true
+        })
+        if (flag){
+          localStorage.setItem('cover', false)
+          setCover(false)
+        }
+        setLoadingTwo(false)
+      });
+    }
+  }, [user, courses])
 
 
   const [items, setItems] = useState([<EnrolledCourse dragger={drag} />, <CourseCatalog />, <EventDetails />, <QuickLinks />, <Announcement />, <LearningResources />])
@@ -408,7 +422,7 @@ function Dashboard() {
 
   return (
     <div className="dashboard">
-      {loading ? (
+      {loading || loadingTwo ? (
         <Spinner loading={loading} />
       ) : (
         <>

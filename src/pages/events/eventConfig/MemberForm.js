@@ -17,16 +17,21 @@ function MemberForm({ members, setMembers }) {
     var dd = today.getDate();
     var mm = today.getMonth() + 1;
     var yyyy = today.getFullYear();
+    var minY = yyyy - 13;
     if (dd < 10) dd = '0' + dd;
     if (mm < 10) mm = '0' + mm;
     today = yyyy + '-' + mm + '-' + dd;
     let temp = value.split('-')
-    if (temp[0] >= yyyy && temp[1] >= mm && temp[2] > dd) {
-      document.getElementById('member-dob').innerText = "dob cannot be future date"
-      setDob("")
-    } else {
+    if (temp[0] < minY? true : temp[0] == minY ? temp[1] < mm? true : temp[1] == mm? temp[2] <= dd ? true : false : false : false ) {
       setDob(e.target.value)
+    } else {
+      document.getElementById('member-dob').innerText = "Minimum age is 13"
+      setDob("")
     }
+  }
+
+  const onChangeNumber = (value, setValue, current) => {
+    if(value.length <= 10) setValue(current.length <= 10? current: value )
   }
 
   const validate = (e) => {
@@ -70,7 +75,7 @@ function MemberForm({ members, setMembers }) {
     }
 
     if (dob.length === 0) {
-      document.getElementById('member-dob').innerText = "select a valid date";
+      document.getElementById('member-dob').innerText = "Select a valid date";
       flag = true;
     }
 
@@ -110,7 +115,6 @@ function MemberForm({ members, setMembers }) {
 
   return (
     <div className="fac-div">
-      <p >Add minimum 3 members and maximum 25 members</p>
       <form className="fac" >
         <h3>Team Member</h3>
         {/* <div className="input-div">
@@ -195,7 +199,7 @@ function MemberForm({ members, setMembers }) {
             min={10}
             name="contact"
             required
-            onChange={(e) => setMobile(e.target.value)}
+            onChange={(e) => onChangeNumber(mobile, setMobile, e.target.value)}
             placeholder="6234567890"
           />
           <div className="error" id="member-mobile"></div>

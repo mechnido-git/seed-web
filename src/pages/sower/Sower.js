@@ -19,6 +19,7 @@ import s3 from "../../images/step_3.png"
 import s4 from "../../images/step_4.png"
 import s5 from "../../images/step_5.png"
 import Footer from '../../components/footer/Footer';
+import ApplyNow from './ApplyNow';
 
 const detailList = [
   {
@@ -82,12 +83,16 @@ function Sower() {
   const [userName, setUserName] = useState(null);
   const [loading, setLoading] = useState(true);
   const [dp, setDp] = useState(profile);
+  const [apply, setApply] = useState(false);
+  const [userId, setUserId] = useState(null)
+
 
   useEffect(() => {
     document.getElementById('nav').style.backgroundColor = "rgb(91,148,58,0.537)";
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setUserName(user.displayName);
+        setUserId(user.uid)
         if (user.photoURL) setDp(user.photoURL);
         setLoading(false);
       } else {
@@ -95,6 +100,14 @@ function Sower() {
       }
     });
   }, []);
+
+  const applyNow = () =>{
+    if(userId){
+      setApply(true)
+    }else{
+      alert("Log in first")
+    }
+  }
 
   return (
     <>
@@ -106,7 +119,7 @@ function Sower() {
           <img src={logo} alt="" />
           <div className="title">
             <h1>Become a Sower on SEED</h1>
-            <button className='sower-btn'>Apply Now</button>
+            <button className='sower-btn' onClick={applyNow}>Apply Now</button>
           </div>
           </div>
           <div className="right">
@@ -124,7 +137,7 @@ function Sower() {
               <li>Are you an expert in your field, eager to inspire and empower learners? </li>
               <li>Look no further - join the MECHNIDO'S SEED Trainer Program and embark on a fulfilling journey of becoming a trainer.</li>
             </ul>
-            <button className='sower-btn'>Apply Now</button>
+            <button className='sower-btn'onClick={applyNow}>Apply Now</button>
           </div>
         </div>
         <div className="details">
@@ -147,10 +160,16 @@ function Sower() {
               <p>{item.desc}</p>
             </div>)}
           </div>
-          <button className='sower-btn'>Apply Now</button>
+          <button className='sower-btn' onClick={applyNow}>Apply Now</button>
         </div>
       <Footer />
       </div>
+      {apply && (
+        <div className="wrapper-reg">
+          <div className="blocker" onClick={() => setApply(false)}></div>
+          <ApplyNow name={userName} uid={userId} setLoading={setLoading}  />
+        </div>
+      )}
     </>
   )
 }

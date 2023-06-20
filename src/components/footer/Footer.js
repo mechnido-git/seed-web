@@ -38,6 +38,11 @@ function Footer() {
           <h3>Cources</h3>
           <ul>
             <li>
+            <HashLink smooth to="/menu/courses/#recommended">
+                Recommended
+              </HashLink>
+            </li>
+            <li>
               <HashLink smooth to="/menu/courses/#trending">
                 Trending now
               </HashLink>
@@ -82,15 +87,6 @@ function Footer() {
           <h3>Get in touch</h3>
           <ul>
             <li>
-              <div className="details">
-                <p>
-                  5/4b Lakshmi Vinayagar Kovil Land, 8th Street, Ganapathy
-                  Coimbatore, Tamil Nadu 641006{" "}
-                </p>
-              </div>
-
-            </li>
-            <li>
 
                   <div className="details">
                     <p>
@@ -127,6 +123,15 @@ function Footer() {
                       <img style={{ width: "2.5rem" }} src={insta} alt="" />
                     </a>
                   </div>
+            </li>
+                        <li>
+              <div className="details">
+                <p>
+                  5/4b Lakshmi Vinayagar Kovil Land, 8th Street, Ganapathy
+                  Coimbatore, Tamil Nadu 641006{" "}
+                </p>
+              </div>
+
             </li>
           </ul>
         </div>

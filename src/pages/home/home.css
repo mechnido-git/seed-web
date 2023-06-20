@@ -90,9 +90,7 @@
 }
 
 .home > .main{
-    padding: 1rem;
-    margin: 1rem;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
     gap: 3rem;
@@ -229,10 +227,35 @@
     margin: .5rem 0;
   }
 
-  #achievements, #testimonials, #faq, #contact-us, #get-in-touch{
+  #achievements, #testimonials, #faq, #contact-us, #get-in-touch, #sponsors{
     position: absolute;
     top: -100px;
   }
+
+  .slides-sponsors{
+    padding: 0rem 1rem;
+    margin: 1rem 0;
+    position: relative;
+}
+
+.slides-sponsors .splide{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1rem;
+}
+
+.slides-sponsors  .splide__slide{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    align-items: center;
+    gap: 1rem;
+}
+
+.slides-sponsors  .splide__slide img{
+    border-radius: 50%;
+}
 
 
   .about > .left{

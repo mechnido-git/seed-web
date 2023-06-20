@@ -7,6 +7,7 @@
     width: 60%;
     display: flex;
     flex-direction: column;
+    z-index: 11;
 }
 
 .register-form > h3{
@@ -99,6 +100,44 @@
 .register-form > form .btns{
     display: flex;
     justify-content: space-between;
+    position: relative;
+}
+
+.register-form > form .btns > .disable-msg{
+    position: absolute;
+    background-color: #006aff;
+    color: white;
+    padding: 8px;
+    font-size: 13px;
+    right: -20px;
+    top: -45px;
+    z-index: 12;
+    border-radius: 5px;
+    opacity: 0;
+    transition: .3s;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.register-form > form .btns > .disable-msg p{
+    z-index: 13;
+    position: relative;
+}
+
+.register-form > form .btns > .disable-msg::after{
+    content: "";
+    display: flex;
+    width: 30px;
+    height: 30px;
+    background-color: #006aff;
+    position: absolute;
+    transform: rotate(45deg);
+    z-index: 12;
+    bottom: -5px;
+    right: 16px;
+}
+
+.register-form > form .btns > .disable-msg.show{
+    opacity: 1;
 }
 
 .register-form > form .members{

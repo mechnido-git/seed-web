@@ -164,18 +164,24 @@ function CoursesHome() {
 
   const navigate = useNavigate()
 
-  useEffect(() => {
-    const arrows = document.querySelectorAll(".splide__arrow");
-    arrows.forEach(
-      (arrow) =>
-        (arrow.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 96 960 960" width="48"><path d="m561 814-43-42 168-168H160v-60h526L517 375l43-42 241 241-240 240Z"/></svg>`)
-    );
-  }, []);
+
 
   useEffect(() => {
-    if (courses)
+    if (courses){
       setLoading(false)
+    }
   }, [courses])
+
+  useEffect(()=>{
+    if(!loading){
+      const loc = window.location.href.split("/")
+      const last = loc[loc.length -1]
+      if(last[0] === "#"){
+        const id = last.slice(1, last.length)
+        document.getElementById(id).scrollIntoView({behavior: 'smooth'});
+      }
+    }
+  }, [loading])
 
   const getCours = (index) => {
     navigate(`/menu/courses/details/${index}`)

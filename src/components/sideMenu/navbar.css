@@ -296,6 +296,7 @@
     background-color: white;
     border-radius: 5px;
     width: 50%;
+    z-index: 11;
   }
 
   .navbar .get-in-touch .content{

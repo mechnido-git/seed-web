@@ -7,13 +7,19 @@ import kart from "../../images/slide.jpg";
 import sp from "../../images/sponsor.jpg";
 import { StoreContext } from "../../store/StoreContext";
 import { collection, getDocs, orderBy, query } from "firebase/firestore";
-import { db } from "../../firebase/config";
+import { auth, db } from "../../firebase/config";
+import { onAuthStateChanged } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
-function Drop({ onClickOutside, show }) {
+function Drop({ onClickOutside, show, dropIndex, redirect, setRedirect, setSignIn }) {
   const [offerSwitch, setOfferSwitch] = useState(0);
   const [filter, setFilter] = useState(category[1]);
   const [eventSwitch, setEventSwitch] = useState(0);
+  const [user, setUser] = useState(null)
   const ref = useRef();
+  const navigate = useNavigate()
+
+  console.log(dropIndex);
 
   const { setCourses, courses, setUserName } = useContext(StoreContext);
 
@@ -49,8 +55,8 @@ function Drop({ onClickOutside, show }) {
 
   useEffect(() => {
     doFetch()
+    onAuthStateChanged(auth, (user)=>setUser(user))
     document.body.classList.add("disable-scroll");
-    console.log("hi");
     return () => document.body.classList.remove("disable-scroll");
   }, []);
 
@@ -61,9 +67,9 @@ function Drop({ onClickOutside, show }) {
         onClickOutside && onClickOutside();
       }
     };
-    document.addEventListener("click", handleClickOutside);
+    document.getElementById('root').addEventListener("click", handleClickOutside);
     return () => {
-      document.removeEventListener("click", handleClickOutside);
+      document.getElementById('root').removeEventListener("click", handleClickOutside);
     };
   }, [onClickOutside]);
 
@@ -100,19 +106,30 @@ function Drop({ onClickOutside, show }) {
     </>
   );
 
+  const viewCourseDetails = (index) => {
+    console.log('clicked');
+      if(user){
+        window.location.reload()
+        return window.open(`/menu/courses/details/${index}`,'_blank')
+      }else{
+        setRedirect(`/menu/courses/details/${index}`)
+        return setSignIn(true)
+      }
+  }
+
 
   return (
     <div className="drop-menu" ref={ref}>
-      <ul>
+      {/* <ul>
         <li className="offer clicked" data-index={0} onClick={selcectOffer}>
           Courses
         </li>
         <li className="offer" data-index={1} onClick={selcectOffer}>
           Events
         </li>
-      </ul>
+      </ul> */}
       <div className="lists">
-        {offerSwitch === 0 ? (
+        {parseInt(dropIndex) === 0 ? (
           <>
             <div className="courses">
               <ul>
@@ -137,6 +154,7 @@ function Drop({ onClickOutside, show }) {
               <div className="cards">
                 {courses.length !== 0 && <CardBuilder
                   arr={courses}
+                  viewDetails={viewCourseDetails}
                 />}
               </div>
             </div>
