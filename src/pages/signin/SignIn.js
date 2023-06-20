@@ -117,6 +117,22 @@ function SignIn({index, redirect, setRedirect}) {
       });
   };
 
+  const open = () => {
+    let clickEvent = new Event('click');
+    const btn = document.getElementById('red')
+    
+    if(redirect){
+      btn.addEventListener('click', ()=>window.open(redirect,'_blank'))
+      btn.dispatchEvent(clickEvent);
+      window.location.reload()
+      setRedirect(null)
+      }else{
+        btn.addEventListener('click', ()=>window.open('/menu/dashboard','_blank'))
+        btn.dispatchEvent(clickEvent);
+      window.location.reload()
+      }
+  }
+
   const signInGoogle = (e) => {
     e.preventDefault();
     const provider = new GoogleAuthProvider();
@@ -130,14 +146,8 @@ function SignIn({index, redirect, setRedirect}) {
         // IdP data available using getAdditionalUserInfo(result)
         // ...
         //navigate("/menu/dashboard");
-        if(redirect){
-        window.location.reload()
-        window.open(redirect,'_blank')
-        setRedirect(null)
-        }else{
-        window.location.reload()
-        window.open('/menu/dashboard','_blank')
-        }
+       open()
+
       })
       .catch((error) => {
         // Handle Errors here.
