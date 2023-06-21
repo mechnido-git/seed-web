@@ -1,5 +1,5 @@
 .navbar{
-    background-color: white;
+    background-color: var(--secondary);
     display: flex;
     align-items: center;
     padding: .5rem 1rem;
@@ -21,7 +21,7 @@
     justify-content: center;
 }
 .navbar > .search-bar:hover{
-    background-color: rgb(224, 224, 255);
+    background-color: var(--secondary);
 }
 
 .navbar > .search-bar > .input-div{
@@ -43,8 +43,8 @@
 
  .selected{
   opacity: .7;
-  background-color: #0055cc;
-  color: white;
+  background-color: var(--primary);
+  color: var(--secondary);
  }
 
 .navbar > .search-bar > span{
@@ -69,7 +69,7 @@
   overflow-x: hidden;
   position: absolute;
   top: 60px;
-  background-color: #ffffff;
+  background-color: var(--secondary);
   width: 100%;
   margin: 0 auto;
   align-self: center;
@@ -86,8 +86,8 @@
 }
 
 .navbar > .search-bar .results > a:hover{
-  background-color: #006aff;
-  color: #fff;
+  background-color: var(--primary);
+  color: var(--secondary);
 }
 
 .navbar > .search-bar > .input-div > input:focus{
@@ -96,7 +96,7 @@
 
 .navbar > .search-bar:focus-within{
     border: 1px solid rgb(33, 33, 255);
-    background-color: white;
+    background-color: var(--secondary);
     box-shadow: rgba(156, 191, 255, 0.584) 0px 0px 0px 4px
 }
 
@@ -120,11 +120,11 @@
 }
 
 .navbar > .left > span.clicked{
-  box-shadow: rgba(17, 87, 218, 0.649) 0px 0px 0px 5px;
+  box-shadow: var(--primary) 0px 0px 0px 5px;
 }
 
 .navbar > .left > span:hover{
-    box-shadow: rgba(156, 191, 255, 0.584) 0px 0px 0px 7px
+    box-shadow: var(--tertiary) 0px 0px 0px 7px
 }
 
 
@@ -136,7 +136,6 @@
 }
 
 .navbar > .btns > button {
-    --color: #fff;
     font-family: inherit;
     display: inline-block;
     width: 5em;
@@ -145,15 +144,15 @@
     overflow: hidden;
     font-size: 13px;
     z-index: 1;
-    color: var(--color);
+    color: var(--secondary);
     border: 1px solid rgb(145, 145, 145);
     border-radius: 6px;
     position: relative;
-    background-color: #006aff;
+    background-color: var(--primary);
   }
 
   .navbar > .btns > button:hover{
-    background-color: #0055cc;
+    background-color: var(--primary);
   }
   
   .navbar > .btns > button::before {
@@ -195,7 +194,7 @@
 }
   .navbar .account{
     display: flex;
-    color: white;
+    color: var(--secondary);
     align-items: center;
     gap: 10px;
     margin-right: 1rem;
@@ -206,7 +205,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: white;
+  background-color: var(--secondary);
   color: black;
   border-radius: 5px;
   display: none;
@@ -232,8 +231,8 @@
   transition: .2s;
 }
   .navbar .account > .options > ul > li:hover{
-  background-color: #0055cc;
-  color: white;
+  background-color: var(--primary);
+  color: var(--secondary);
 }
   .navbar .account img{
   cursor: pointer;
@@ -241,7 +240,7 @@
   border-radius: 50%;
 }
   .navbar .account > button {
-    --color: #fff;
+    --color: var(--secondary);
     font-family: inherit;
     display: inline-block;
     width: 5em;
@@ -254,12 +253,12 @@
     border: none;
     border-radius: 6px;
     position: relative;
-    background-color: #006aff;
+    background-color: var(--primary);
     cursor: pointer;
   }
 
   .navbar .account > button:hover{
-    background-color: #0055cc;
+    background-color: var(--primary);
   }
   
   .navbar .account > button::before {
@@ -288,12 +287,12 @@
   .navbar > .right > span{
     font-size: 35px;
     cursor: pointer;
-    color: #006aff;
+    color: var(--primary);
     padding: .5rem;
   }
 
   .navbar .get-in-touch{
-    background-color: white;
+    background-color: var(--secondary);
     border-radius: 5px;
     width: 50%;
     z-index: 11;
@@ -308,13 +307,13 @@
     padding: .7rem 1rem;
     border: none;
     border-radius: 5px;
-    background-color: #006aff;
-    color: white;
+    background-color: var(--primary);
+    color: var(--secondary);
     cursor: pointer;
   }
 
   .navbar > .right > button:hover{
-    background-color: #0055cc;
+    background-color: var(--primary);
   }
 
   #bell{

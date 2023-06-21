@@ -41,6 +41,7 @@ a{
     grid-template-rows: 60px auto;
     transition: .5s;
     gap: .5rem;
+    background-color: var(--secondary);
 }
 
 .spinner{
@@ -79,3 +80,8 @@ a{
     overflow: hidden;
 }
 
+:root{
+    --primary: #00B17B;
+    --secondary: #F4F4F4;
+    --tertiary: #2E2F2F;
+}

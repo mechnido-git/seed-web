@@ -168,9 +168,9 @@ function EventIndex() {
                       pagination: window.innerWidth < 770 ? false : true,
                     }}
                   >
-                    {events.map((item) => {
+                    {events.map((item, i) => {
                       return (
-                        <SplideSlide>
+                        <SplideSlide key={i}>
                           <img
                             style={{ objectFit: "contain", width: "100%" }}
                             src={image}

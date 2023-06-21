@@ -4,7 +4,7 @@
     align-items: center;
     gap: .5rem;
     transition: .5s;
-    background-color: white;
+    background-color: var(--secondary);
     padding: 10px 0px;
     grid-column:  1 / 2;
     z-index: 3;
@@ -36,8 +36,8 @@
 }
 
 .side-menu > .menu-options > a:hover{
-    background-color: #0055cc;
-    color: white;
+    background-color: var(--primary);
+    color: var(--secondary);
 }
 
 .side-menu  hr{
@@ -94,15 +94,15 @@
     border: 2px solid rgba(0, 0, 0, 0);
 }
 .min-menu > a:hover{
-    box-shadow: #006aff  0px 0px 0px 1.5px;
+    box-shadow: var(--primary)  0px 0px 0px 1.5px;
 }
 
 .min-menu > .link.clicked{
-    border: 2px solid #006aff !important;
+    border: 2px solid var(--primary) !important;
 }
 .menu-options > .min-link.clicked{
-    background-color: #006aff;
-    color: white;
+    background-color: var(--primary);
+    color: var(--secondary);
 }
 
 
@@ -112,8 +112,8 @@
 }
 
 .menu-options > .sub:hover{
-    background-color: white !important;
-    color: #006aff !important;
+    background-color: var(--primary) !important;
+    color: var(--secondary) !important;
 }
 
 .menu-options .cover{
@@ -140,7 +140,7 @@
     border: 1px solid rgb(145, 145, 145);
     border-radius: 6px;
     position: relative;
-    background-color: #006aff;
+    background-color: var(--primary);
   }
 
   .menu-options > .cover > button:hover{
@@ -178,7 +178,7 @@
         display: flex !important;
         flex-direction: column;
         width: fit-content !important;
-        background-color: white;
+        background-color: var(--primary);
         top: 51.49px;
         height: -webkit-fill-available;
         position: absolute !important;

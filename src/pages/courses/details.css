@@ -55,11 +55,12 @@
     box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px ;
     border-radius: 5px;
     overflow: hidden;
-    background-color: white;
+    background-color: var(--secondary);
 }
 
 .course-details > .hero > .course > .card > img,  .course-details > .explore > .content > .card img{
     width: 20rem;
+    mix-blend-mode: darken;
 }
 
 .course-details > .hero > .course > .card > .body,  .course-details > .explore > .content > .card > .body{
@@ -89,9 +90,9 @@
     font-size: 20px;
     font-weight: 500;
     border-radius: 5px;
-    border: 2px solid #006aff;
-    background-color: #006aff;
-    color: white;
+    border: 2px solid var(--primary);
+    background-color: var(--primary);
+    color: var(--secondary);
     cursor: pointer;
     margin:  1rem auto;
     transition: .2s;
@@ -101,8 +102,8 @@
 }
 
 .course-details > .hero > .course > .card > button:hover, .course-details .title button:hover,  .course-details > .explore > .content > .card > button:hover{
-    color: #006aff;
-    background-color: white;
+    color: var(--primary);
+    background-color: var(--secondary);
 }
 
 .fee-li{
@@ -191,7 +192,7 @@
     flex-direction: column;
     gap: 10px;
     cursor: pointer;
-    background-color: white;
+    background-color: var(--secondary);
     border-radius: 10px;
 }
 
@@ -210,10 +211,10 @@
 .course-details > .explore .main > ol > li > h4{
     padding: 1.5rem;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
-    color: white;
+    color: var(--secondary);
     border-radius: 10px;
     font-size: 20px;
-    background-color: #006aff;
+    background-color: var(--primary);
 
 }
 
@@ -347,7 +348,7 @@
 
 .course-details > .metrics > .content > .section > h4{
     font-size: 27px;
-    color: #006aff;
+    color: var(--primary);
 }
 
 .course-details > .metrics > .content > .section > span{

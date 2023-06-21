@@ -10,7 +10,7 @@
     z-index: 3;
     backdrop-filter: blur(6px);
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    background-color: rgba(64, 88, 118, 0.537);
+    background-color: #00b17b99 ;
     gap: 1rem;
     transition: .4s;
 }
@@ -59,13 +59,13 @@
       height: 2px;
       content: "";
       position: absolute;
-      background-color: #006aff;
+      background-color: var(--tertiary);
       width: 0%;
       margin-top: 20px;
   }
   
   .App > .nav  .links > ul > li:hover:not(#bell){
-      color: #006aff;
+      color: var(--tertiary);
   }
   
   .App > .nav  .links > ul > li:hover::before{
@@ -91,38 +91,7 @@
     display: none;
     transition: .3s;
   }
-  
-  .App > .nav .drop-menu > ul{
-    list-style: none;
-    display: flex;
-    background-color: rgb(255, 255, 255);
-    width: -moz-available;          /* WebKit-based browsers will ignore this. */
-    width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
-    width: fill-available;
-    overflow: hidden;
-    background-color: #f5f5f5;
-  }
-  
-  .nav.offer .drop-menu > ul > li{
-    padding: 1rem;
-    text-align: center;
-    cursor: pointer;
-    transition: .3s;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    align-items: center;
-  }
-  
-  .nav.offer .drop-menu > ul > li.clicked::after{
-    content: "";
-    background-color: #0055cc;
-    height: 3px;
-    position: absolute;
-    width: 80%;
-    bottom: 0;
-  }
-  
+   
   .nav .drop-menu > .lists{
     display: flex;
     overflow-y: auto;
@@ -139,7 +108,7 @@
   .nav.offer .drop-menu > .lists ul{
     list-style: none;
     color: black;
-    background-color: rgb(255, 255, 255);
+    background-color: var(--secondary);
     border-radius: 10px;
     width: -moz-available;          /* WebKit-based browsers will ignore this. */
     width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
@@ -175,8 +144,8 @@
   }
   
   .nav.offer .drop-menu > .lists ul > li:hover{
-    background-color: #006aff;
-    color: white;
+    background-color: var(--primary);
+    color: var(--secondary);
   }
   
   .nav.offer .drop-menu > .lists ul > li:hover::after{
@@ -202,7 +171,7 @@
     flex-direction: column;
     gap: 10px;
     width: 80vw;
-    background-color: white;
+    background-color: var(--secondary);
     overflow-y: auto;
     height: 100%;
   }
@@ -220,7 +189,7 @@
   }
   
   .nav.offer .drop-menu > .lists .cards{
-    background-color: white;
+    background-color: var(--secondary);
     border-radius: 10px;
     padding: .5rem;
     display: grid;
@@ -264,6 +233,7 @@
   .nav.offer .drop-menu > .lists .cards > .card > img{
     width: 100%;
     align-self: center;
+    mix-blend-mode: darken;
   }
   
   .nav.offer .drop-menu > .lists .cards > .card > .body{
@@ -336,7 +306,6 @@
   }
   
   .App > .nav .account > button {
-      --color: #fff;
       font-family: inherit;
       display: inline-block;
       width: 5em;
@@ -345,16 +314,18 @@
       overflow: hidden;
       font-size: 13px;
       z-index: 1;
-      color: var(--color);
+      color: var(--secondary);
       border: none;
       border-radius: 6px;
       position: relative;
-      background-color: #006aff;
+      background-color: var(--primary);
       cursor: pointer;
+      transition: .3s;
     }
   
     .App > .nav .account > button:hover{
-      background-color: #0055cc;
+      background-color: var(--secondary);
+      color: var(--primary);
     }
     
     .App > .nav .account > button::before {
