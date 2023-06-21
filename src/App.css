@@ -24,7 +24,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: var(--secondary);
     z-index: 99 !important;
   }
 

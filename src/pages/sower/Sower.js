@@ -88,7 +88,6 @@ function Sower() {
 
 
   useEffect(() => {
-    document.getElementById('nav').style.backgroundColor = "rgb(91,148,58,0.537)";
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setUserName(user.displayName);
@@ -101,8 +100,18 @@ function Sower() {
     });
   }, []);
 
+  useEffect(()=>{
+
+    if(apply){
+      document.body.classList.add("disable-scroll");
+    }else{
+      document.body.classList.remove("disable-scroll");
+    }
+  }, [apply])
+
   const applyNow = () =>{
     if(userId){
+      
       setApply(true)
     }else{
       alert("Log in first")
@@ -165,7 +174,7 @@ function Sower() {
       <Footer />
       </div>
       {apply && (
-        <div className="wrapper-reg">
+        <div className="wrapper">
           <div className="blocker" onClick={() => setApply(false)}></div>
           <ApplyNow name={userName} uid={userId} setLoading={setLoading}  />
         </div>

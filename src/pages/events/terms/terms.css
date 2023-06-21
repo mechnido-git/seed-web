@@ -3,27 +3,27 @@
     flex-direction: column;
     gap: 10px;
     padding: 1rem;
-    background-color: white;
+    background-color: var(--secondary);
     max-width: 80%;
     border-radius: 5px;
 }
 
 .terms-page > .upper > h3{
-    color: #006aff;
+    color: var(--primary);
 }
 
 .terms-page > .upper > span{
-    border: 2px solid #006aff;
-    background-color: white;
-    color: #006aff;
+    border: 2px solid var(--primary);
+    background-color: var(--secondary);
+    color: var(--primary);
     border-radius: 50%;
     cursor: pointer;
     transition: .4s;
 }
 
 .terms-page > .upper > span:hover{
-    background-color: #006aff;
-    color: white;
+    background-color: var(--primary);
+    color: var(--secondary);
 }
 
 .terms-page > .upper{

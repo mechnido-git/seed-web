@@ -1,5 +1,5 @@
 .register-form{
-    background-color: white;
+    background-color: var(--secondary);
     padding: 1rem;
     border-radius: 10px;
     z-index: 4;
@@ -85,11 +85,12 @@
 }
 
 .register-form > form input[type = "submit"]{
-    background-color: #006aff;
-    color: white;
+    background-color: var(--parimary);
+    color: var(--secondary);
     padding: 10px;
     border: none;
     border-radius: 5px;
+    border: 2px solid var(--parimary);
     cursor: pointer;
 }
 
@@ -105,8 +106,8 @@
 
 .register-form > form .btns > .disable-msg{
     position: absolute;
-    background-color: #006aff;
-    color: white;
+    background-color: var(--parimary);
+    color: var(--secondary);
     padding: 8px;
     font-size: 13px;
     right: -20px;
@@ -128,7 +129,7 @@
     display: flex;
     width: 30px;
     height: 30px;
-    background-color: #006aff;
+    background-color: var(--parimary);
     position: absolute;
     transform: rotate(45deg);
     z-index: 12;
@@ -154,9 +155,9 @@
 
 .register-form > form .members > button{
     padding: .6rem 1rem;
-    background-color: #006aff;
-    border: 2px solid #006aff;
-    color: white;
+    background-color: var(--parimary);
+    border: 2px solid var(--parimary);
+    color: var(--secondary);
     border-radius: 5px;
     cursor: pointer;
     margin-right: auto;
@@ -168,13 +169,13 @@
 }
 
 .register-form > form .members > button:hover{
-    background-color: white;
-    color: #006aff;
+    background-color: var(--secondary);
+    color: var(--parimary);
 }
 
 .register-form > form .members > .members-container > .member{
     padding: .5rem;
-    border: 1px solid #006aff;
+    border: 1px solid var(--primary);
     display: flex;
     gap: 10px;
     border-radius: 5px;
@@ -193,23 +194,28 @@
 
 .register-form > form .cntrl{
     padding: .6rem 1rem;
-    background-color: #006aff;
-    color: white;
-    border: none;
+    background-color: var(--primary);
+    color: var(--secondary);
+    border: 2px solid var(--primary);
     border-radius: 5px;
     cursor: pointer;
+    transition: .3s;
 }
 
 .register-form > form .btns > .cntrl:hover{
-    background-color: #0055CC;
+    background-color: var(--secondary);
+    color: var(--primary);
+
 }
 
 .register-form > form input[type = "submit"]:hover{
-    background-color: #0055CC;
+    background-color: var(--secondary);
+    color: var(--parimary);
+    transition: .3s;
 }
 
 #terms{
-    color: #0055CC;
+    color: var(--parimary);
     cursor: pointer;
 }
 

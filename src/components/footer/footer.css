@@ -2,6 +2,7 @@
     padding: 2rem;
     position: relative;
     padding-bottom: 0;
+    background-color: var(--secondary);
   }
 
   .footer::before, .sower .footer::before{

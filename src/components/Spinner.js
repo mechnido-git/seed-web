@@ -5,7 +5,7 @@ function Spinner({loading, other}) {
   return (
     <div className={`spinner ${other}`}>
       <ClipLoader
-        color={'#006aff'}
+        color={'#00B17B'}
         loading={loading}
         size={40}
         aria-label="Loading Spinner"

@@ -158,7 +158,6 @@ function EventIndex() {
                     tag="section"
                     aria-labelledby="My Favorite Images"
                     options={{
-                      type: "loop",
                       speed: 1000,
                       pauseOnHover: false,
                       pauseOnFocus: true,
@@ -203,7 +202,6 @@ function EventIndex() {
                   arrows: false,
                   pagination: false,
                   width: "100%",
-                  type: "loop",
                 }}
                 onMove={(splide, prev, next) => {
                   setCurrentEvent(splide.index);
