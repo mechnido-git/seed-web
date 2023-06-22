@@ -85,12 +85,12 @@
 }
 
 .register-form > form input[type = "submit"]{
-    background-color: var(--parimary);
+    background-color: var(--primary);
     color: var(--secondary);
     padding: 10px;
     border: none;
     border-radius: 5px;
-    border: 2px solid var(--parimary);
+    border: 2px solid var(--primary);
     cursor: pointer;
 }
 
@@ -106,7 +106,7 @@
 
 .register-form > form .btns > .disable-msg{
     position: absolute;
-    background-color: var(--parimary);
+    background-color: var(--primary);
     color: var(--secondary);
     padding: 8px;
     font-size: 13px;
@@ -129,7 +129,7 @@
     display: flex;
     width: 30px;
     height: 30px;
-    background-color: var(--parimary);
+    background-color: var(--primary);
     position: absolute;
     transform: rotate(45deg);
     z-index: 12;
@@ -155,8 +155,8 @@
 
 .register-form > form .members > button{
     padding: .6rem 1rem;
-    background-color: var(--parimary);
-    border: 2px solid var(--parimary);
+    background-color: var(--primary);
+    border: 2px solid var(--primary);
     color: var(--secondary);
     border-radius: 5px;
     cursor: pointer;
@@ -170,7 +170,7 @@
 
 .register-form > form .members > button:hover{
     background-color: var(--secondary);
-    color: var(--parimary);
+    color: var(--primary);
 }
 
 .register-form > form .members > .members-container > .member{
@@ -210,12 +210,12 @@
 
 .register-form > form input[type = "submit"]:hover{
     background-color: var(--secondary);
-    color: var(--parimary);
+    color: var(--primary);
     transition: .3s;
 }
 
 #terms{
-    color: var(--parimary);
+    color: var(--primary);
     cursor: pointer;
 }
 

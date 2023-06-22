@@ -127,7 +127,7 @@
 
 .courses-home > .main-div > .section > h2{
     font-size: 25px;
-    color: #282828;
+    color: var(--tertiary);
     margin: 1rem 0rem;
 }
 
@@ -283,7 +283,7 @@
     }
     .courses-home > .main-div > .section > h2{
         font-size: 20px;
-        color: #282828;
+        color: var(--tertiary);
         margin: 1rem
     }
     .courses-home > .main-div > .categories-div{

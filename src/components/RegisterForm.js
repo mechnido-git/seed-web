@@ -410,7 +410,7 @@ function RegisterForm({ event }) {
             <div className="error" id="college-pin"></div>
           </div>
           <div className="btns">
-            <button className="cntrl" type="button" onClick={() => setCurrent(current - 1)}>back</button><button className="cntrl" onClick={getNextPage} type="submit">Next</button>
+            <button className="cntrl" type="button" onClick={() => setCurrent(current - 1)}>Back</button><button className="cntrl" onClick={getNextPage} type="submit">Next</button>
           </div>
         </form>;
 
@@ -461,7 +461,7 @@ function RegisterForm({ event }) {
       <form onSubmit={onSumbitHandler}>
 
         <div className="fields">
-          {getFields(current)}
+          {getFields(3)}
         </div>
         {/* <div className="btns">
           <button className="cntrl" type="button">back</button><button className="cntrl" onClick={getNextPage} type="button">Next</button>

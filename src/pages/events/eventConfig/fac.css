@@ -35,9 +35,14 @@
 
 .fac-div .fac .input-div input{
     padding: 5px;
-    border: 2px solid #0055CC;
+    border: 2px solid var(--primary);
     border-radius: 5px;
     font-size: large;
+}
+
+.fac-div .fac> h3{
+    font-size: 25px;
+    text-align: center;
 }
 
 @media only screen and (max-width: 490px){

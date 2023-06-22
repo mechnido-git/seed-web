@@ -130,7 +130,7 @@ function FacultyForm({ faculty, setFaculty, setFacForm }) {
   return (
     <div className="fac-div">
       <form className="fac">
-        <h3>Facualty Advisor</h3>
+        <h3>Faculty Advisor</h3>
         {/* <div className="input-div">
             <label htmlFor="photo">Passport Image</label>:
             <div className="div"></div>

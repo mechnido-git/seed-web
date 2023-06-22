@@ -4,7 +4,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { auth, db } from "../../firebase/config";
 import Spinner from "../../components/Spinner";
 import logo from "../../images/man.png";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useOutletContext } from "react-router-dom";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { Link } from "react-router-dom";
 import slide from "../../images/slide.jpg";
@@ -20,6 +20,8 @@ const EnrolledCourse = ({ dragger }) => {
   const [enrolledEvents, setEnrolledEvents] = useState([]);
   const [loading, setLoading] = useState(true)
   const navigate = useNavigate()
+
+  
 
   const fetch = async (user) => {
 
@@ -213,7 +215,7 @@ const QuickLinks = () => {
       index: 2,
     },
     {
-      name: 'Upcomming Events',
+      name: 'Upcoming Events',
       link: '/menu/events/#upcoming',
       hash: true,
       index: 2,
@@ -341,6 +343,7 @@ function Dashboard() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [events, setEvents] = useState([]);
   const [loadingTwo, setLoadingTwo] = useState(true)
+  const {setSignIn} = useOutletContext()
 
   const [cover, setCover] = useState(((localStorage.getItem('cover') === 'true') || (localStorage.getItem('cover') === null) ? true : false))
   const navigate = useNavigate();

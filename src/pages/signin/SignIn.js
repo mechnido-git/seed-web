@@ -96,15 +96,15 @@ function SignIn({index, redirect, setRedirect}) {
         const user = userCredential.user;
         //console.log(user);
         // ...
-       // navigate("/menu/dashboard");
-       if(redirect){
-        window.location.reload()
-        window.open(redirect,'_blank')
-        setRedirect(null)
-        }else{
-        window.location.reload()
-        window.open('/menu/dashboard','_blank')
-        }
+       navigate("/menu/dashboard");
+      //  if(redirect){
+      //   window.location.reload()
+      //   window.open(redirect,'_blank')
+      //   setRedirect(null)
+      //   }else{
+      //   window.location.reload()
+      //   window.open('/menu/dashboard','_blank')
+      //   }
       //  const evt = new Event('click', {bubbles: true})
       //  document.getElementById('red').dispatchEvent(evt)
       })
@@ -145,8 +145,8 @@ function SignIn({index, redirect, setRedirect}) {
         const user = result.user;
         // IdP data available using getAdditionalUserInfo(result)
         // ...
-        //navigate("/menu/dashboard");
-       open()
+        navigate("/menu/dashboard");
+      // open()
 
       })
       .catch((error) => {

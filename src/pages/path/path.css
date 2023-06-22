@@ -5,6 +5,7 @@
     align-items: center;
     grid-column: 1 / 4;
     grid-row: 2 / 3;
+    background-color: var(--secondary);
 }
 
 .path-div > .intro{
@@ -57,11 +58,13 @@
     width: 15rem;
     aspect-ratio: 1 / 1;
     object-fit: contain;
+    mix-blend-mode: darken;
 }
 .path-div > .paths .event-path > img{
     width: 15rem;
     aspect-ratio: 1 / 1;
     object-fit: contain;
+    mix-blend-mode: darken;
 }
 
 .path-div > .paths .course-path, .path-div > .paths .event-path{
@@ -83,9 +86,9 @@
 .path-div .paths button{
     padding: .8rem 2rem;
     margin: 0 auto;
-    border: 2px solid #006aff;
-    background-color: #006aff;
-    color: white;
+    border: 2px solid var(--primary);
+    background-color: var(--primary);
+    color: var(--secondary);
     font-size: 1.2rem;
     border-radius: 5px;
     cursor: pointer;
@@ -93,15 +96,15 @@
 }
 
 .path-div .paths button:hover{
-    color: #006aff;
-    background-color: white;
+    color: var(--primary);
+    background-color: var(--secondary);
 }
 
 .path-div #skip{
     margin-top: auto;
         border: none;
-        background-color: white;
-        color: #006aff;
+        background-color: var(--secondary);
+        color: var(--primary);
         cursor: pointer;
         font-size: 1rem;
         font-weight: bold;

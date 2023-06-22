@@ -7,13 +7,14 @@
     gap: 1rem;
     position: relative;
     background-color: var(--secondary);
+    color: var(--tertiary);
 }
 
 .dashboard > .cover{
   position: absolute;
   width: -webkit-fill-available;
   width: -moz-available;
-  background-color: white;
+  background-color: var(--secondary);
   height: 90vh;
   padding: 1rem;
   display: flex;
@@ -67,7 +68,7 @@
   background-color: var(--secondary);
   padding: 1rem;
   font-size: 20px;
-  color: #282828;
+  color: var(--tertiary);
 }
 
 .dashboard > .main > .section .price{
@@ -119,10 +120,13 @@
   border-radius: 5px;
   cursor: pointer;
   font-size: 18px;
+  border: 2px solid var(--primary);
+  transition: .3s;
 }
 
 .dashboard > .main > .section > .enrolled-courses .btns >button:hover{
-  background-color: #0055cc;;
+  background-color: var(--secondary);
+  color: var(--primary);
 }
 
 .dashboard > .main > .section > .links > .card:hover{

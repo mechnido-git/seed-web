@@ -1,5 +1,5 @@
 .signin-div{
-    background-color: white;
+    background-color: var(--secondary);
     z-index: 4;
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
@@ -20,7 +20,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #006AAF;
+    background-color: var(--primary);
     column-gap: 30px;
 }
 .signin-div.form{
@@ -94,11 +94,11 @@ header{
 .field input:focus{
     border-bottom-width: 2px;
 }
-.signin-div input:not(:focus):not(:placeholder-shown):invalid {
+.signin-div input:not([type="submit"]):not(:placeholder-shown):invalid {
     border: 2px solid red !important;
   }
 
-  input:not(:focus):not(:placeholder-shown):valid {
+  input:not([type="submit"]):not(:placeholder-shown):valid {
     border: 1px solid #CACACA !important;
   }
 
@@ -113,13 +113,15 @@ header{
     padding: 5px;
 }
 .field input[type="submit"]{
-    color: #fff;
-    background-color: #006AAF;
-    transition: all 0.3s ease;
+    color: var(--secondary);
+    background-color: var(--primary);
+    transition: .3s;
     cursor: pointer;
+    border: 2px solid var(--primary) !important;
 }
 .field input[type="submit"]:hover{
-    background-color: #0055CC;
+    background-color: var(--secondary);
+    color: var(--primary);
 }
 .form-link{
     text-align: center;
@@ -132,7 +134,7 @@ header{
     color: #232836;
 }
 .form a{
-    color: #0171d3;
+    color: var(--primary);
     text-decoration: none;
 }
 .form-content a:hover{
@@ -161,19 +163,19 @@ header{
     justify-content: center;
 }
 a.facebook{
-    color: #fff;
+    color: var(--secondary);
     background-color: #4267b2;
 }
 a.facebook .facebook-icon{
     height: 28px;
     width: 28px;
-    color: #0171d3;
+    color: #4267b2;
     font-size: 20px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #fff;
+    background-color: var(--secondary);
 }
 .facebook-icon,
 img.google-img{

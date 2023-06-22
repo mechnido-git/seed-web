@@ -7,7 +7,7 @@ import insta from "../../images/insta.png";
 function Footer() {
   return (
     <div className="footer">
-      <h3>Quick Links</h3>
+      <h2>Quick Links</h2>
       <div className="links">
         <div className="section">
           <h3>Home</h3>
@@ -75,7 +75,7 @@ function Footer() {
           <h3>Become a sower</h3>
           <ul>
             <li>
-              <HashLink smooth to="#">
+              <HashLink smooth to="/sower">
                 Apply now
               </HashLink>
             </li>

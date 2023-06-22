@@ -25,8 +25,14 @@ function HomeIndex() {
     window.addEventListener("popstate", () => window.location.reload());
 
     onAuthStateChanged(auth, (user) => {
-      if (user) setUserName(user.displayName);
+      if (user){
+        setUserName(user.displayName)
+      }else{
+        setSignIn(true)
+      }
     });
+
+  
 
     const doFetch = async () => {
       const q = query(collection(db, "courses"), orderBy("order", "asc"));
@@ -54,6 +60,17 @@ function HomeIndex() {
       window.removeEventListener("popstate", () => window.location.reload());
     };
   }, []);
+
+  useEffect(()=>{
+      if(!signIn){
+        onAuthStateChanged(auth, (user) => {
+          if (user){
+          }else{
+            setSignIn(true)
+          }
+        });
+      }
+  }, [signIn])
 
   return (
     <>
