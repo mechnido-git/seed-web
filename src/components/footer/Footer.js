@@ -64,7 +64,7 @@ function Footer() {
               </HashLink>
             </li>
             <li>
-              <HashLink smooth to="/menu/events/#upcomming">
+              <HashLink smooth to="/menu/events/#upcoming">
                 Upcoming Events
               </HashLink>
             </li>

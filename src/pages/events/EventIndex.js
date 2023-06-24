@@ -107,13 +107,6 @@ function EventIndex() {
       .catch()
       .finally(() => {
         setLoading(false);
-        const loc = window.location.href.split("/");
-        const last = loc[loc.length - 1];
-        if (last[0] === "#") {
-          const id = last.slice(1, last.length);
-          console.log(id);
-          document.getElementById(id).scrollIntoView({ behavior: "smooth" });
-        }
       });
   }, []);
   const ref = useRef();
@@ -129,6 +122,18 @@ function EventIndex() {
     if (flag) return alert("Alredy registered");
     setRegister(true);
   };
+
+  useEffect(()=>{
+    if(!loading){
+      const loc = window.location.href.split("/")
+      const last = loc[loc.length -1]
+      if(last[0] === "#"){
+        const id = last.slice(1, last.length)
+        console.log(id);
+        document.getElementById(id).scrollIntoView({behavior: 'smooth'});
+      }
+    }
+  }, [loading])
 
   return (
     <>
