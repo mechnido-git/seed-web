@@ -200,6 +200,7 @@
     border-radius: 5px;
     cursor: pointer;
     transition: .3s;
+    align-self: end;
 }
 
 .register-form > form .btns > .cntrl:hover{
@@ -221,4 +222,21 @@
 
 .register-form > .wrapper{
     background-color: rgba(0, 0, 0, 0.53);
+}
+
+@media only screen and (max-width: 768px){
+    .register-form{
+        width: 90%;
+    }
+    .register-form > form .input-div{
+       display: flex;
+       flex-direction: column;
+       align-items: start;
+    }
+    .col{
+        display: none;
+    }
+    .register-form > form .input-div > input[type = "text"],.register-form > form .input-div > input[type = "date"], .register-form > form .input-div > input[type = "number"], .register-form > form .input-div > input[type = "tel"], .register-form > form .input-div > input[type = "password"], .register-form > form .input-div > input[type = "email"], .register-form > form .input-div > select, .register-form > form .input-div > textarea{
+        width: 100%;
+    }
 }

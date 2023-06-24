@@ -164,7 +164,8 @@ function EventIndex() {
                       keyboard: true,
                       gap: "1rem",
                       width: "100%",
-                      pagination: window.innerWidth < 770 ? false : true,
+                      pagination: true,
+                      arrows: window.innerWidth < 770 ? false : true,
                     }}
                   >
                     {events.map((item, i) => {

@@ -17,7 +17,7 @@
     margin-top: 5rem;
   }
   .about-container  > .about h2{
-    color: #484D57;
+    color: var(--tertiary);
     font-size: 1.4rem;
   }
   .about-container > .about p{
@@ -56,15 +56,6 @@
   .about-container .footer::before{
     width: 90%;
 }
-
-.about-container .footer > .links{
-    justify-content: space-around;
-}
-
-.about-container .footer > p{
-    color: #347571;
-}
-
 
   @media only screen and (max-width: 840px){
     .about-container > .about > section{

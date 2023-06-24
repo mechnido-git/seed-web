@@ -178,11 +178,12 @@
         display: flex !important;
         flex-direction: column;
         width: fit-content !important;
-        background-color: var(--primary);
+        background-color: var(--secondary);
         top: 51.49px;
         height: -webkit-fill-available;
         position: absolute !important;
         padding-top: 20px;
+        min-width: 200px;
 
     }
     .menu-options > a:hover{

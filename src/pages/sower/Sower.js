@@ -121,13 +121,13 @@ function Sower() {
   return (
     <>
     {loading && <Spinner other="globel" loading={loading} />}
-      <HomeNav bodyId={'sower'} dp={dp} links={[<Link to="/">Home</Link>, <Link to="/about">About</Link>]} setLoading={setLoading} setSignIn={setSignIn} signIn={signIn} userName={userName} />
+      <HomeNav bodyId={'sower'} dp={dp} links={[<Link to="/">Home</Link>, <Link to="/about">About</Link>]} order={[0,3,1,2]} setLoading={setLoading} setSignIn={setSignIn} signIn={signIn} userName={userName} />
       <div className="sower">
         <div className="hero">
           <div className="left">
           <img src={logo} alt="" />
           <div className="title">
-            <h1>Become a Sower on SEED</h1>
+            <h1>Become a Sower</h1>
             <button className='sower-btn' onClick={applyNow}>Apply Now</button>
           </div>
           </div>

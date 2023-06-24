@@ -244,7 +244,8 @@ function CoursesHome() {
                   keyboard: true,
                   gap: "1rem",
                   width: "100%",
-                  pagination: window.innerWidth < 770 ? false : true,
+                  pagination: true,
+                  arrows: window.innerWidth < 770 ? false : true,
                 }}
                 onMove={(splide, prev, next) => {
                   setCurrentSlide(splide.index);
@@ -284,7 +285,7 @@ function CoursesHome() {
                     limit={4}
                   /> */}
                   <CardBuilder
-                    arr={courses?.filter((item, i) => i < 2)}
+                    arr={courses?.filter((item, i) => i < 3)}
                     limit={4}
                     viewDetails={getCours}
                   />
@@ -294,7 +295,7 @@ function CoursesHome() {
                 <h2>Trending Now</h2>
                 <div className="card-container-div">
                   <CardBuilder
-                    arr={courses?.filter((item, i) => i > 1 && i < 5)}
+                    arr={courses?.filter((item, i) => i > 2 && i < 6)}
                     limit={4}
                     viewDetails={getCours}
                   />
@@ -305,7 +306,7 @@ function CoursesHome() {
                 <div className="card-container-div">
                   {/* <CardBuilder arr={recomended} limit={4} /> */}
                   <CardBuilder
-                    arr={courses?.filter((item, i) => i > 4 && i < 8)}
+                    arr={courses?.filter((item, i) => i > 5 && i < 10)}
                     limit={4}
                     viewDetails={getCours}
                   />

@@ -38,64 +38,77 @@ function FacultyForm({ faculty, setFaculty, setFacForm }) {
       }
     });
     const error = document.querySelectorAll(".error");
+    error.forEach(item=>item.style.display = "none")
     error.forEach((item) => (item.innerHTML = ""));
     var letters = /^[A-Za-z]+$/;
     var pattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
 
     let flag = false;
     if (name.length < 3) {
+      document.getElementById('fac-name').style.display = 'block'
       document.getElementById("fac-name").innerText =
         "Name Must be more than 3 characters";
       flag = true;
     } else if (!name.match(letters)) {
+      document.getElementById('fac-name').style.display = 'block'
       document.getElementById("fac-name").innerText =
         "Name Must be in Alphabetics";
       flag = true;
     }
 
     if (dep.length < 3) {
+      document.getElementById('fac-dep').style.display = 'block'
       document.getElementById("fac-dep").innerText =
         "Department Must be more than 3 characters";
       flag = true;
     } else if (!dep.match(letters)) {
+      document.getElementById('fac-dep').style.display = 'block'
       document.getElementById("fac-dep").innerText =
         "Department Must be in Alphabetics";
       flag = true;
     }
 
     if (des.length < 3) {
+      document.getElementById('fac-dep').style.display = 'block'
       document.getElementById("fac-dep").innerText =
         "Designation Must be more than 3 characters";
       flag = true;
     } else if (!des.match(letters)) {
+      document.getElementById('fac-dep').style.display = 'block'
       document.getElementById("fac-dep").innerText =
         "Designation Must be in Alphabetics";
       flag = true;
     }
 
     if (email.length === 0) {
+      document.getElementById('fac-email').style.display = 'block'
       document.getElementById("fac-email").innerText = "Email cannot be empty";
       flag = true;
     } else if (!email.match(pattern)) {
+      document.getElementById('fac-email').style.display = 'block'
       document.getElementById("fac-email").innerText =
         "Please include an '@' symbol and a valid domain extension such as .com or .net.";
       flag = true;
     }
 
     if (dob.length === 0) {
+      document.getElementById('fac-dob').style.display = 'block'
       document.getElementById("fac-dob").innerText = "Select a valid date";
       flag = true;
     }
 
     if (mobile.length === 0) {
+      document.getElementById('fac-mobile').style.display = 'block'
       document.getElementById("fac-mobile").innerText =
         "Mobile cannot be empty";
       flag = true;
     } else if (mobile.length < 10) {
+      document.getElementById('fac-mobile').style.display = 'block'
       document.getElementById("fac-mobile").innerText =
         "Mobile must be 10 numbers";
       flag = true;
     } else if (!(!isNaN(mobile) && !isNaN(parseFloat(mobile)))) {
+      document.getElementById('fac-mobile').style.display = 'block'
       document.getElementById("fac-mobile").innerText =
         "Mobile must be numeric";
       flag = true;
@@ -143,7 +156,7 @@ function FacultyForm({ faculty, setFaculty, setFacForm }) {
 
         <div className="input-div">
           <label htmlFor="college">Name</label>
-          :
+          <p className="col">:</p>
           <input
             minLength={3}
             value={name}
@@ -153,11 +166,11 @@ function FacultyForm({ faculty, setFaculty, setFacForm }) {
             onChange={(e) => setName(e.target.value.toUpperCase())}
             placeholder="Name"
           />
-          <div className="error" id="fac-name"></div>
+          <div style={{display: 'none'}} className="error" id="fac-name"></div>
         </div>
         <div className="input-div">
           <label htmlFor="college">Department</label>
-          :
+          <p className="col">:</p>
           <input
             minLength={3}
             value={dep}
@@ -167,12 +180,12 @@ function FacultyForm({ faculty, setFaculty, setFacForm }) {
             onChange={(e) => setDep(e.target.value)}
             placeholder="Department"
           />
-          <div className="error" id="fac-dep"></div>
+          <div style={{display: 'none'}} className="error" id="fac-dep"></div>
         </div>
 
         <div className="input-div">
           <label htmlFor="college">Designation</label>
-          :
+          <p className="col">:</p>
           <input
             minLength={3}
             value={des}
@@ -182,18 +195,18 @@ function FacultyForm({ faculty, setFaculty, setFacForm }) {
             onChange={(e) => setDes(e.target.value)}
             placeholder="Designation"
           />
-          <div className="error" id="fac-dep"></div>
+          <div style={{display: 'none'}} className="error" id="fac-dep"></div>
         </div>
 
         <div className="input-div">
           <label htmlFor="college">Date of Birth</label>
-          :
+          <p className="col">:</p>
           <input type="date" value={dob} onChange={onDateChange} />
-          <div className="error" id="fac-dob"></div>
+          <div style={{display: 'none'}} className="error" id="fac-dob"></div>
         </div>
         <div className="input-div">
           <label htmlFor="college">Email ID</label>
-          :
+          <p className="col">:</p>
           <input
             value={email}
             type="email"
@@ -203,11 +216,11 @@ function FacultyForm({ faculty, setFaculty, setFacForm }) {
             placeholder="example@gmail.com"
             pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
           />
-          <div className="error" id="fac-email"></div>
+          <div style={{display: 'none'}} className="error" id="fac-email"></div>
         </div>
         <div className="input-div">
           <label htmlFor="college">Mobile</label>
-          :
+          <p className="col">:</p>
           <input
             value={mobile}
             type="tel"
@@ -217,7 +230,7 @@ function FacultyForm({ faculty, setFaculty, setFacForm }) {
             onChange={(e) => onChangeNumber(mobile, setMobile, e.target.value)}
             placeholder="6234567890"
           />
-          <div className="error" id="fac-mobile"></div>
+          <div style={{display: 'none'}} className="error" id="fac-mobile"></div>
         </div>
         <input
           className={`cntrl ${faculty.length >= 2 && 'opacity'}`}

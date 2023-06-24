@@ -54,3 +54,11 @@
         align-content: start;
     }
 }
+
+@media only screen and (max-width: 768px){
+    .fac-div .fac .input-div{
+        display: flex;
+       flex-direction: column;
+       align-items: start;
+    }
+}

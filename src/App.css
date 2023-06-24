@@ -12,6 +12,7 @@
     position: relative;
     overflow-x: hidden;
     overflow-y: auto;
+    background-color: var(--secondary);
 }
 
 .spinner.globel{

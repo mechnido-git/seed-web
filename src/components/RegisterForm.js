@@ -148,6 +148,7 @@ function RegisterForm({ event }) {
 
     });
     const error = document.querySelectorAll('.error')
+    error.forEach(item=>item.style.display = "none")
     error.forEach(item => item.innerHTML = "")
     var letters = /^[A-Za-z]+$/;
     var email = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/
@@ -157,36 +158,45 @@ function RegisterForm({ event }) {
     switch (current) {
       case 0:
         if (teamName.length < 3) {
+          document.getElementById('team-name').style.display = 'block'
           document.getElementById('team-name').innerText = "Name Must be more than 3 characters";
           flag = true;
         } else if (!teamName.match(letters)) {
+          document.getElementById('team-name').style.display = 'block'
           document.getElementById('team-name').innerText = "Team Name Must be in Alphabetics";
           flag = true;
         }
 
         if (teamEmail.length === 0) {
+          document.getElementById('team-email').style.display = 'block'
           document.getElementById('team-email').innerText = "Email cannot be empty";
           flag = true;
         } else if (!teamEmail.match(email)) {
+          document.getElementById('team-email').style.display = 'block'
           document.getElementById('team-email').innerText = "Please include an '@' symbol and a valid domain extension such as .com or .net.";
           flag = true;
         }
 
         if (capName.length < 3) {
+          document.getElementById('cap-name').style.display = 'block'
           document.getElementById('cap-name').innerText = "Name Must be more than 3 characters";
           flag = true;
         } else if (!capName.match(letters)) {
+          document.getElementById('cap-name').style.display = 'block'
           document.getElementById('cap-name').innerText = "Name Must be in Alphabetics";
           flag = true;
         }
 
         if (contact.length === 0) {
+          document.getElementById('team-contact').style.display = 'block'
           document.getElementById('team-contact').innerText = "Contact cannot be empty";
           flag = true;
         } else if (contact.length < 10) {
+          document.getElementById('team-contact').style.display = 'block'
           document.getElementById('team-contact').innerText = "Contact must be 10 numbers";
           flag = true;
         } else if (!(!isNaN(contact) && !isNaN(parseFloat(contact)))) {
+          document.getElementById('team-contact').style.display = 'block'
           document.getElementById('team-contact').innerText = "Contact must be numeric";
           flag = true;
         }
@@ -196,38 +206,47 @@ function RegisterForm({ event }) {
       case 2:
         flag = false;
         if (collegeName.length < 3) {
+          document.getElementById('college-name').style.display = 'block'
           document.getElementById('college-name').innerText = "College Name Must be more than 3 characters";
           flag = true;
         } else if (!collegeName.match(letters)) {
+          document.getElementById('college-name').style.display = 'block'
           document.getElementById('college-name').innerText = "College Name Must be in Alphabetics";
           flag = true;
         }
 
         if (adress.length < 3) {
+          document.getElementById('college-address').style.display = 'block'
           document.getElementById('college-address').innerText = "Address must be more than 3 characters";
           flag = true;
         }
 
         if (city.length < 3) {
+          document.getElementById('college-city').style.display = 'block'
           document.getElementById('college-city').innerText = "City must be more than 3 characters";
           flag = true;
         } else if (!city.match(letters)) {
+          document.getElementById('college-city').style.display = 'block'
           document.getElementById('college-city').innerText = "City must be in Alphabetics";
           flag = true;
         }
 
         if (state.length < 3) {
+          document.getElementById('college-state').style.display = 'block'
           document.getElementById('college-state').innerText = "State must be more than 3 characters";
           flag = true;
         } else if (!state.match(letters)) {
+          document.getElementById('college-state').style.display = 'block'
           document.getElementById('college-state').innerText = "State must be in Alphabetics";
           flag = true;
         }
 
         if (pincode.length === 0) {
+          document.getElementById('college-pin').style.display = 'block'
           document.getElementById('college-pin').innerText = "pin cannot be empty";
           flag = true;
         } else if (!pincode.match(pin)) {
+          document.getElementById('college-pin').style.display = 'block'
           document.getElementById('college-pin').innerText = "Enter a valid pin number";
           flag = true;
         }
@@ -248,7 +267,8 @@ function RegisterForm({ event }) {
       case 0:
         return <form id="page-1">
           <div className="input-div">
-            <label htmlFor="team-name">Team Name</label> :
+            <label htmlFor="team-name">Team Name</label>
+            <p className="col">:</p>
             <input
               minLength={3}
               value={teamName}
@@ -258,11 +278,12 @@ function RegisterForm({ event }) {
               onChange={(e) => setTeamName(e.target.value.toUpperCase())}
               placeholder="Name"
             />
-            <div className="error" id="team-name"></div>
+            <div style={{display: 'none'}} className="error" id="team-name"></div>
           </div>
 
           <div className="input-div">
-            <label htmlFor="team-email">Team Email Id</label> :
+            <label htmlFor="team-email">Team Email Id</label>
+            <p className="col">:</p>
             <input
               value={teamEmail}
               type="email"
@@ -273,11 +294,12 @@ function RegisterForm({ event }) {
               pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
               title="Email format is not valid"
             />
-            <div className="error" id="team-email"></div>
+            <div style={{display: 'none'}} className="error" id="team-email"></div>
           </div>
 
           <div className="input-div">
-            <label htmlFor="team-captain">Captain Name</label> :
+            <label htmlFor="team-captain">Captain Name</label>
+            <p className="col">:</p>
             <input
               minLength={3}
               value={capName}
@@ -287,11 +309,12 @@ function RegisterForm({ event }) {
               onChange={(e) => setCapName(e.target.value.toUpperCase())}
               placeholder="Name"
             />
-            <div className="error" id="cap-name"></div>
+            <div style={{display: 'none'}} className="error" id="cap-name"></div>
           </div>
 
           <div className="input-div">
-            <label htmlFor="Kart Type">Kart Type</label> :
+            <label htmlFor="Kart Type">Kart Type</label>
+            <p className="col">:</p>
             <select
               name="kartType"
               id="kartType"
@@ -304,7 +327,8 @@ function RegisterForm({ event }) {
           </div>
 
           <div className="input-div">
-            <label htmlFor="team-contact">Contact Number</label> :
+            <label htmlFor="team-contact">Contact Number</label>
+            <p className="col">:</p>
             <input
               value={contact}
               type="tel"
@@ -314,7 +338,7 @@ function RegisterForm({ event }) {
               onChange={(e) => onChangeNumber(contact, setContact, e.target.value)}
               placeholder="6234567890"
             />
-            <div className="error" id="team-contact"></div>
+            <div style={{display: 'none'}} className="error" id="team-contact"></div>
           </div>
           <div className="btns">
             <button className="cntrl" style={{ marginLeft: 'auto' }} onClick={getNextPage} type="submit">Next</button>
@@ -343,7 +367,8 @@ function RegisterForm({ event }) {
       case 2:
         return <form id="page-3">
           <div className="input-div">
-            <label htmlFor="college-name">College Name</label> :
+            <label htmlFor="college-name">College Name</label>
+            <p className="col">:</p>
             <input
               minLength={3}
               value={collegeName}
@@ -353,11 +378,12 @@ function RegisterForm({ event }) {
               onChange={(e) => setCollegeName(e.target.value)}
               placeholder="College"
             />
-            <div className="error" id="college-name"></div>
+            <div style={{display: 'none'}} className="error" id="college-name"></div>
           </div>
 
           <div className="input-div">
-            <label htmlFor="college-name">College Adress</label> :
+            <label htmlFor="college-name">College Adress</label>
+            <p className="col">:</p>
             <textarea
               value={adress}
               onChange={(e) => setAdress(e.target.value)}
@@ -365,11 +391,12 @@ function RegisterForm({ event }) {
               cols={5}
               placeholder="Address"
             />
-            <div className="error" id="college-address"></div>
+            <div style={{display: 'none'}} className="error" id="college-address"></div>
           </div>
 
           <div className="input-div">
-            <label htmlFor="college-name">City</label> :
+            <label htmlFor="college-name">City</label>
+            <p className="col">:</p>
             <input
               minLength={3}
               value={city}
@@ -379,11 +406,12 @@ function RegisterForm({ event }) {
               onChange={(e) => setCity(e.target.value)}
               placeholder="City"
             />
-            <div className="error" id="college-city"></div>
+            <div style={{display: 'none'}} className="error" id="college-city"></div>
           </div>
 
           <div className="input-div">
-            <label htmlFor="college-name">State</label> :
+            <label htmlFor="college-name">State</label>
+            <p className="col">:</p>
             <input
               minLength={3}
               value={state}
@@ -393,10 +421,11 @@ function RegisterForm({ event }) {
               onChange={(e) => setState(e.target.value)}
               placeholder="Tamil Nadu"
             />
-            <div className="error" id="college-state"></div>
+            <div style={{display: 'none'}} className="error" id="college-state"></div>
           </div>
           <div className="input-div no-arrow">
-            <label htmlFor="college-name">Pincode</label> :
+            <label htmlFor="college-name">Pincode</label>
+            <p className="col">:</p>
             <input
               min={6}
               value={pincode}
@@ -404,10 +433,10 @@ function RegisterForm({ event }) {
               name="pincode"
               required
               onChange={(e) => setPincode(e.target.value)}
-              placeholder="65251"
-              pattern="[1-9][0-9]{5}" title="Please enter a valid zip code, example: 65251"
+              placeholder="652512"
+              pattern="[1-9][0-9]{5}" title="Please enter a valid zip code, example: 652512"
             />
-            <div className="error" id="college-pin"></div>
+            <div style={{display: 'none'}} className="error" id="college-pin"></div>
           </div>
           <div className="btns">
             <button className="cntrl" type="button" onClick={() => setCurrent(current - 1)}>Back</button><button className="cntrl" onClick={getNextPage} type="submit">Next</button>
@@ -444,7 +473,7 @@ function RegisterForm({ event }) {
           </label>
         </div>
         <div className="btns">
-          <button className="cntrl" onClick={() => setCurrent(current - 1)} type="button">back</button>
+          <button className="cntrl" onClick={() => setCurrent(current - 1)} type="button">Back</button>
           <input type="submit" value="Register" />
         </div>
       </div>;
@@ -461,7 +490,7 @@ function RegisterForm({ event }) {
       <form onSubmit={onSumbitHandler}>
 
         <div className="fields">
-          {getFields(current)}
+          {getFields(4)}
         </div>
         {/* <div className="btns">
           <button className="cntrl" type="button">back</button><button className="cntrl" onClick={getNextPage} type="button">Next</button>

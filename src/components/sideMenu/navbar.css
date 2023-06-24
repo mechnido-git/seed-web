@@ -20,9 +20,6 @@
     position: relative;
     justify-content: center;
 }
-.navbar > .search-bar:hover{
-    background-color: var(--secondary);
-}
 
 .navbar > .search-bar > .input-div{
     flex: 1;
@@ -322,6 +319,8 @@
   }
 
 
+
+
   @media only screen and (max-width: 430px) {
     .navbar{
         position: fixed;
@@ -360,4 +359,17 @@
     }
 }
 
+@media only screen and (max-width: 650px){
+.navbar > .search-bar:has(.input-div > input:focus){
+  background-color: var(--secondary);
+    position: absolute;
+    z-index: 10;
+    width: 90%;
+}
+}
 
+@media only screen and (max-width: 768px){
+  .navbar .get-in-touch{
+    width: 90%;
+  }
+}

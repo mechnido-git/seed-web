@@ -16,7 +16,8 @@ function HomeNav({
   setSignIn,
   signIn,
   links,
-  setRedirect
+  setRedirect,
+  order
 }) {
   const [index, setIndex] = useState(null);
 
@@ -27,10 +28,14 @@ function HomeNav({
   const popup = (i) => {
     document.body.classList.add("disable-scroll");
     setIndex(i);
+    console.log(redirect);
+    console.log(bodyId !== 'sower');
+    if(bodyId !== 'sower') setRedirect("/menu/dashboard")
     setSignIn(true);
   };
   const close = () => {
     document.body.classList.remove("disable-scroll");
+    setRedirect(null)
     setSignIn(false);
   };
 
@@ -40,11 +45,11 @@ function HomeNav({
     if (!nav.classList.contains("toggle")) {
       //nav.className += " toggle";
       nav.classList.add("toggle");
-      document.getElementById(bodyId).addEventListener("click", toggle);
+      document.getElementById(bodyId)?.addEventListener("click", toggle);
     } else {
       //nav.className = "nav";
       nav.classList.remove("toggle");
-      document.getElementById(bodyId).removeEventListener("click", toggle);
+      document.getElementById(bodyId)?.removeEventListener("click", toggle);
     }
   };
 
@@ -75,6 +80,22 @@ function HomeNav({
     if (showDrop) toggleOffer();
   };
 
+  const arrangeOrder = () => {
+    const lists = [
+      <li className="link">{links[0]}</li>,
+      <li className="link"><Link to="#" id="offer" data-index={0} onClick={toggleOffer}>Courses</Link></li>,
+      <li className="link"><Link to="#" id="offer" data-index={1} onClick={toggleOffer}>Events</Link></li>,
+      <li>{links[1]}</li>
+    ]
+    if(order){
+      let temp = []
+      order.forEach(item=>temp.push(lists[item]))
+      return temp.map(item=><>{item}</>)
+    }else{
+      return lists.map(item=><>{item}</>)
+    }
+  }
+
   return (
     <div className="nav" id="nav">
       <div className="left">
@@ -85,7 +106,7 @@ function HomeNav({
       <div className="options">
         <div className="links">
           <ul>
-            <li className="link">{links[0]}</li>
+            {/* <li className="link">{links[0]}</li>
             <li className="link">
               <Link to="#" id="offer" data-index={0} onClick={toggleOffer}>
                 Courses
@@ -96,7 +117,8 @@ function HomeNav({
                 Events
               </Link>
             </li>
-            <li>{links[1]}</li>
+            <li>{links[1]}</li> */}
+            {arrangeOrder(links)}
           </ul>
         </div>
       </div>

@@ -36,7 +36,7 @@ function Path({skip}) {
     <div className="path-div">
           <div className="intro">
             <p>Hi {userName}. We are happy to have you on board</p>
-            <h2>You should start with  any  of this</h2>
+            <h2>You might have to start with any of this</h2>
           </div>
       <div className="paths">
         <div className="path">

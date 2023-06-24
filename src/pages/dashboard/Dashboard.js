@@ -432,7 +432,7 @@ function Dashboard() {
           {loggedIn ? (
             <>
 
-              {cover ? <div className="cover">
+              {cover? <div className="cover">
                 <Path setCover={setCover} skip={skipCover} />
               </div> :
                 <>

@@ -9,7 +9,7 @@ import SignIn from "../../pages/signin/SignIn";
 import { StoreContext } from "../../store/StoreContext";
 
 export const toggle = () => {
-  //  document.getElementById("menu-options").classList.toggle("disable");
+  // document.getElementById("menu-options").classList.toggle("disable");
     document.getElementById("index").classList.toggle("index-toggle");
     document.getElementById("min-menu").classList.toggle("disable");
     document.getElementById("side-menu").classList.toggle("border");

@@ -18,7 +18,8 @@
 }
 
 .course-details h3{
-    color: #484D57;
+    color: var(--tertiary);
+    
 }
 
 .course-details > .hero{
@@ -385,6 +386,7 @@
 .course-details > .other-courses .individual > .card > h4{
     font-size: 16px;
     font-weight: bolder;
+    text-transform: uppercase;
 }
 
 .course-details > .other-courses .divider{
@@ -420,6 +422,29 @@
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
+@media only screen and (max-width: 1300px){
+    .course-details > .other-courses > .content{
+        grid-template-columns: 1fr;
+    }
+    .course-details > .other-courses > .content > #individual{
+        grid-row: 1 / 2;
+    }
+    .course-details > .other-courses > .content > .individual{
+        grid-row: 2 / 3;
+    }
+    .course-details > .other-courses .divider{
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        grid-row: 3 / 4;
+    }
+    .course-details > .other-courses .divider::after, .course-details > .other-courses .divider::before{
+        border-left: unset;
+        width: 40%;
+        height: 1px;
+        background-color: var(--tertiary);
+    }
+}
 
 @media only screen and (max-width: 930px){
 

@@ -2290,6 +2290,952 @@ const Store = ({ children }) => {
         },
       ],
     },
+    {
+      id: 7,
+      name: "ELECTRIC VEHICLE DESIGN & TECHNOLOGY",
+      thumbnail: "../../images/course.jpg",
+      slide: s3,
+      order: 7,
+      description:
+        "This Program offers students to get clear insights of product development concepts by hands-on training which will be handled by Mechnido's faculty and industrial experts.",
+      description_L: [
+        "This Program offers students to get clear insights of product development concepts by hands-on training which will be handled by Mechnido's faculty and industrial experts.",
+        "In 30 hours sessions, students will get an overview to Develop a comprehensive understanding of personality theories and their implications for personal growth.students will get certificates from Mechnido.",
+        "The Electric Vehicle Design and Technology online advanced course is designed to provide participants with in-depth knowledge and practical skills in the field of electric vehicle (EV) design and technology. Participants will gain a comprehensive understanding of EV components, systems, and design principles. They will also explore the latest advancements in EV technology and learn about emerging trends in the industry",
+      ],
+      duration: [
+        "Flexible Timing",
+        "Weekend : 2 Sessions",
+        "    Saturday & Sunday - 4 Hrs",
+        "Weekday : 2 Sessions (Any 2 Days)",
+        "    Monday to Friday - 4 Hrs",
+      ],
+      certificate: {
+        title: "Requirements for Certification",
+        imgURL:
+          "https://firebasestorage.googleapis.com/v0/b/idea-website-9344a.appspot.com/o/courses%2FTywbW8r6AzeENPcyJBAQ%2Fcertificates%2Fcert.jpg?alt=media&token=8a73a5f3-91f7-4f83-bb6e-58eae7962803",
+        sub: [
+          "An individual enrolled in the program should complete the training within the program's time limit.",
+          "To acquire the certification, you must complete all the course's assignments, tests, case studies, projects, and other criteria.",
+          "To acquire certification, the student must show up to every session that the instructor provides.",
+        ],
+      },
+      fee: [
+        {
+          id: 0,
+          type: "One time",
+          price: 2000,
+        },
+      ],
+      schedule: [
+        {
+          name: "INTRO TO ELECTRIC VEHICLE TECHNOLOGY ",
+          topics: [
+            {
+              name: "Welcome and Course Introduction",
+              SUB: [
+                "Introduction to the facilitator and course objectives",
+                "Overview of the session agenda",
+              ],
+            },
+            {
+              name: "Types of Electric Vehicles",
+              SUB: [
+                "Differentiating between BEVs, HEVs, and PHEVs.",
+                "Exploring the characteristics and use cases of each vehicle type.",
+                "Understanding the concept of range anxiety and its implications.",
+              ],
+            },
+            {
+              name: "Electric Vehicle Components",
+              SUB: [
+                "Electric motors: types, operation, and efficiency",
+                "Battery technologies: lithium-ion, solid-state, and future advancements",
+                "Power electronics: inverters, converters, and motor controllers",
+                "Energy storage and management systems.",
+              ],
+            },
+            {
+              name: "Charging Infrastructure and Standards ",
+              SUB: [
+                "Overview of electric vehicle charging infrastructure",
+                "Charging standards: CHAdeMO, CCS, and Tesla Supercharger",
+                "Exploring emerging wireless charging technologies",
+                "Different types of charging stations: AC and DC charging",
+              ],
+            },
+            {
+              name: "Safety Considerations in EV Design",
+              SUB: [
+                "Electrical safety: high voltage systems and insulation requirements",
+                "Battery safety: thermal management and protection systems",
+                "Crash safety and structural integrity of electric vehicles",
+                "Emergency response procedures for electric vehicle incidents",
+              ],
+            },
+            {
+              name: "Emerging Trends in EV Technology",
+              SUB: [
+                "Current advancements in electric vehicle technology",
+                "Development of solid-state batteries and their potential impact",
+                "Vehicle-to-Grid (V2G) integration and smart charging technologies",
+                "Exploring the role of artificial intelligence and autonomous driving in electric vehicles",
+              ],
+            },
+          ],
+        },
+        {
+          name: "ELECTRIC VEHICLE SYSTEM ARCHITECTURE",
+          topics: [
+            {
+              name: "Vehicle Dynamics and Control Systems in EV",
+              SUB: [
+                "Overview of vehicle dynamics and handling characteristics in Ev",
+                "Electric vehicle stability control systems and traction control",
+                "Regenerative braking and its impact on vehicle dynamics",
+                "Drive modes and driving experience in electric vehicles",
+              ],
+            },
+            {
+              name: "Electric Motor Types and Characteristics",
+              SUB: [
+                "Induction motors, permanent magnet synchronous motors, and switched reluctance motors",
+                "Motor characteristics: torque-speed curve, efficiency, and power density",
+                "Selection criteria for electric motors in different EV applications",
+                "Thermal management considerations for electric motors",
+              ],
+            },
+            {
+              name: "Power Electronics & Motor Control Strategies ",
+              SUB: [
+                "Power electronics components: inverters, converters, and DC-DC converters",
+                "Motor control strategies: Field-Oriented Control (FOC), Direct Torque Control (DTC), and sensorless control",
+              ],
+            },
+            {
+              name: "BMS and Optimization Techniques",
+              SUB: [
+                "BMS: monitoring, balancing, and state-of-charge estimation",
+                "Energy optimization algorithms and control strategies",
+                "Maximizing range and efficiency through intelligent energy management",
+              ],
+            },
+            {
+              name: "Regenerative Braking & Energy Recovery Systems",
+              SUB: [
+                "Principles and benefits of regenerative braking in electric vehicles",
+                "Energy recovery systems: supercapacitors, flywheels, and hydraulic systems",
+                "Integration of regenerative braking into the vehicle's BMS",
+              ],
+            },
+            {
+              name: "V2G and Smart Grid Technologies ",
+              SUB: [
+                "Concept of Vehicle-to-Grid (V2G) and Vehicle-to-Home (V2H) integration",
+                "Potential benefits and challenges of V2G technology",
+                "Smart grid technologies and their role in enabling V2G integration",
+              ],
+            },
+          ],
+        },
+        {
+          name: "ELECTRIC VEHICLE DESIGN AND MANUFACTURING",
+          topics: [
+            {
+              name: "EV Design Principles and Considerations ",
+              SUB: [
+                "Design considerations for electric vehicles: aerodynamics, weight reduction, and packaging",
+                "Importance of vehicle efficiency and range optimization",
+                "Battery placement and thermal management considerations",
+                "Designing for crash safety and occupant protection",
+              ],
+            },
+            {
+              name: "Chassis and Suspension Systems for EV",
+              SUB: [
+                "Chassis design considerations for EVs: structural integrity & rigidity",
+                "Suspension systems and their impact on ride comfort and handling",
+                "Optimizing chassis and suspension for weight reduction & energy efficiency",
+                "Integration of electric powertrain components into the vehicle structure",
+              ],
+            },
+            {
+              name: "Battery Integration and Thermal Management ",
+              SUB: [
+                "Battery pack design and integration into the vehicle",
+                "Thermal management systems for battery cooling and heating",
+                "Ensuring optimal battery performance, longevity, and safety",
+                "Challenges and solutions for thermal management in EVs",
+              ],
+            },
+            {
+              name: "Manufacturing Processes for Electric Vehicles",
+              SUB: [
+                "Overview of manufacturing processes specific to EVs",
+                "Lightweight materials and their use in EV manufacturing",
+                "Assembly techniques and automation in EV production",
+                "Quality control and assurance in EV manufacturing",
+              ],
+            },
+            {
+              name: "Testing, Validation, and Certification of EV",
+              SUB: [
+                "Testing protocols for EV : performance, safety, and emissions",
+                "Validation processes for electric vehicle components and systems",
+                "Compliance with industry standards and regulations",
+                "Certification requirements for electric vehicles in different markets",
+              ],
+            },
+            {
+              name: "Emerging Trends EV - Design & Manufacturing ",
+              SUB: [
+                "Advancements in EV design and manufacturing technologies",
+                "3D printing and additive manufacturing applications in EV production",
+                "Sustainable manufacturing practices in the EV industry",
+              ],
+            },
+          ],
+        },
+        {
+          name: "ADVANCED ELECTRIC VEHICLE TECHNOLOGIES",
+          topics: [
+            {
+              name: "Advanced Electric Propulsion Systems",
+              SUB: [
+                "Comparison between BEVs and FCEVs",
+                "Pros and cons of different propulsion systems for specific applications",
+                "Future trends and developments in electric propulsion",
+              ],
+            },
+            {
+              name: "Next-Generation Energy Storage Solutions",
+              SUB: [
+                "Advancements in battery technologies: solid-state batteries, lithium-air batteries, and beyond",
+                "Exploring the potential of alternative energy storage solutions",
+                "Challenges and opportunities in improving energy density and charging capabilities",
+                "Impact of advanced energy storage on EV performance and range",
+              ],
+            },
+            {
+              name: "Charging Infrastructure and Fast Charging Technologies",
+              SUB: [
+                "Rapid charging technologies: high-power DC fast charging and ultra-fast charging",
+                "Vehicle-to-Grid (V2G) and bidirectional charging capabilities",
+                "Exploring advancements in wireless charging technologies",
+              ],
+            },
+            {
+              name: "Autonomous Driving and Electric Vehicles",
+              SUB: [
+                "Introduction to autonomous driving technologies and levels of automation",
+                "Integration of autonomous driving features into electric vehicles",
+                "Benefits and challenges of autonomous electric vehicles",
+              ],
+            },
+            {
+              name: "Connected Technologies & Intelligent Mobility",
+              SUB: [
+                "Role of connectivity and smart systems in electric vehicles",
+                "Vehicle-to-Vehicle (V2V) and Vehicle-to-Infrastructure (V2I) communication",
+                "Intelligent mobility solutions: ride-sharing, car-sharing, and mobility-as-a-service (MaaS)",
+              ],
+            },
+          ],
+        },
+        {
+          name: "EV PERFORMANCE AND FUTURE TRENDS",
+          topics: [
+            {
+              name: "Electric Vehicle Performance Metrics",
+              SUB: [
+                "Key performance indicators for electric vehicles: acceleration, top speed, range, and efficiency",
+                "Comparing EV performance with IC Engine vehicles",
+                "Impact of battery capacity, motor power, and vehicle weight on performance",
+              ],
+            },
+            {
+              name: "Vehicle Dynamics and Handling in EV",
+              SUB: [
+                "Understanding the unique characteristics of EV dynamics",
+                "Impact of battery placement on vehicle balance and handling",
+                "Suspension tuning for optimal ride comfort and stability",
+                "Design considerations for enhancing EV handling and performance ",
+              ],
+            },
+            {
+              name: "Energy Efficiency and Range Optimization",
+              SUB: [
+                "Factors influencing energy efficiency in electric vehicles",
+                "Aerodynamics and its role in reducing energy consumption",
+                "Efficient powertrain design and drivetrain optimization",
+                "Strategies for maximizing range and addressing range anxiety",
+              ],
+            },
+            {
+              name: "Emerging Trends in EV Technology ",
+              SUB: [
+                "Exploring the latest advancements in EV technology",
+                "Lightweight materials and their use in electric vehicle design",
+                "Battery technology advancements and their impact on EV performance",
+                "Integration of smart systems and connectivity in EVs",
+              ],
+            },
+            {
+              name: "Future Trends and Outlook for EV",
+              SUB: [
+                "Emerging trends in electric vehicle design, technology, and market adoption",
+                "Government policies and incentives driving EV adoption",
+                "Impact of electric vehicles on the energy grid and renewable energy integration",
+                "Exploring the future of electric mobility and its potential implications",
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 8,
+      name: "PERSONALITY DEVELOPMENT",
+      thumbnail: "../../images/course.jpg",
+      slide: s3,
+      order: 8,
+      description:
+        "This Program offers students to get clear insights of product development concepts by hands-on training which will be handled by Mechnido's faculty and industrial experts.",
+      description_L: [
+        "This Program offers students to get clear insights of product development concepts by hands-on training which will be handled by Mechnido's faculty and industrial experts.",
+        "In 40 hours sessions, students will get an overview to Develop a comprehensive understanding of personality theories and their implications for personal growth.students will get certificates from Mechnido.",
+        "The Personality Development  Advanced Online Course is designed to provide individuals with an in-depth understanding of personality development while equipping them with the necessary skills and techniques to excel in job interviews.",
+        "This course combines advanced concepts in personality development with practical job interview training to enhance personal and professional growth.",
+      ],
+      duration: [
+        "Flexible Timing",
+        "Weekend : 2 Sessions",
+        "    Saturday & Sunday - 4 Hrs",
+        "Weekday : 2 Sessions (Any 2 Days)",
+        "    Monday to Friday - 4 Hrs",
+      ],
+      certificate: {
+        title: "Requirements for Certification",
+        imgURL:
+          "https://firebasestorage.googleapis.com/v0/b/idea-website-9344a.appspot.com/o/courses%2FGuww3uxKDIz7ijtX0PYg%2Fcertificates%2Fcert.jpg?alt=media&token=d0563321-9f6e-4ed6-af2d-be14f2f7df49",
+        sub: [
+          "An individual enrolled in the program should complete the training within the program's time limit.",
+          "To acquire the certification, you must complete all the course's assignments, tests, case studies, projects, and other criteria.",
+          "To acquire certification, the student must show up to every session that the instructor provides.",
+        ],
+      },
+      fee: [
+        {
+          id: 0,
+          type: "One time",
+          price: 2000,
+        },
+      ],
+      schedule: [
+        {
+          name: "PERSONALITY TRAITS AND ASSESSMENT",
+          topics: [
+            {
+              name: "Welcome and Course Introduction",
+              SUB: [
+                "Introduction to the facilitator and course objectives",
+                "Overview of the session agenda",
+              ],
+            },
+            {
+              name: "Exploring Personality Assessment Tools",
+              SUB: [
+                "Introduction to common personality assessment tools and inventories ",
+                "Understanding the purpose and applications of personality assessments",
+                "Comparing different assessment tools and their strengths and limitations",
+              ],
+            },
+            {
+              name: "The Big Five Personality Traits",
+              SUB: [
+                "In-depth exploration of the Big Five personality traits and their sub-facets",
+                "Understanding the characteristics and behavioral tendencies associated with each trait",
+                "Assessing one's own personality traits using the Big Five model",
+              ],
+            },
+            {
+              name: "Interpreting Personality Assessment Results ",
+              SUB: [
+                "Techniques for interpreting personality assessment results accurately",
+                "Analyzing and understanding the meaning of scores and profiles",
+                "Identifying strengths, areas for development, and potential career preferences based on assessment results",
+              ],
+            },
+            {
+              name: "Self-Reflection and Personal Growth",
+              SUB: [
+                "Engaging in self-reflection exercises to gain insights into personal strengths and areas for growth",
+                "Developing an action plan for leveraging strengths and addressing areas for improvement",
+                "Sharing personal experiences and insights in a group discussion",
+              ],
+            },
+          ],
+        },
+        {
+          name: " EMOTIONAL INTELLIGENCE AND SELF-MANAGEMENT",
+          topics: [
+            {
+              name: "Emotional Intelligence",
+              SUB: [
+                "Understanding the concept of emotional intelligence and its relevance in personal and professional settings",
+                "Exploring the components of emotional intelligence: self-awareness, self-regulation, social awareness, relationship management",
+                "Recognizing the benefits of developing emotional intelligence skills",
+              ],
+            },
+            {
+              name: "Developing Self-Awareness",
+              SUB: [
+                "Understanding the importance of self-awareness in emotional intelligence",
+                "Reflecting on personal emotions, triggers, and patterns of behavior. Practicing mindfulness techniques for enhancing self-awareness",
+              ],
+            },
+            {
+              name: "Emotion Regulation and Stress Management",
+              SUB: [
+                "Techniques for managing and regulating emotions effectively",
+                "Developing strategies to handle stress and pressure in a healthy manner",
+                "Exploring coping mechanisms and relaxation techniques",
+              ],
+            },
+            {
+              name: "Building Empathy and Social Awareness",
+              SUB: [
+                "Introduction to prototyping techniques and materials",
+                "Building low-fidelity and high-fidelity prototypes",
+                "Conducting user testing and gathering feedback for refinement.",
+              ],
+            },
+            {
+              name: "Resilience and Self-Care ",
+              SUB: [
+                "Understanding the concept of resilience and its importance in personal and professional life",
+                "Identifying strategies for building resilience and bouncing back from setbacks.",
+              ],
+            },
+            {
+              name: "Personal Growth and Action Planning",
+              SUB: [
+                "Reflecting on personal strengths and areas for development in emotional intelligence",
+                "Setting goals for personal growth and developing an action plan",
+                "Identifying opportunities to apply emotional intelligence skills in various areas of life",
+              ],
+            },
+          ],
+        },
+        {
+          name: "COMMUNICATION AND INTERPERSONAL SKILLS",
+          topics: [
+            {
+              name: "Effective Communication Basics",
+              SUB: [
+                "Understanding the importance of effective communication in personal and professional contexts",
+                "Exploring the components of effective communication: verbal, nonverbal, and listening skills",
+                "Overcoming common communication barriers and challenges",
+              ],
+            },
+            {
+              name: "Active Listening & Empathetic Communication",
+              SUB: [
+                "Developing active listening skills to enhance understanding and empathy",
+                "Practicing reflective listening techniques and paraphrasing",
+                "Cultivating empathy in communication to build rapport and trust",
+              ],
+            },
+            {
+              name: "Nonverbal Communication & Body Language ",
+              SUB: [
+                "Understanding the impact of nonverbal communication on interpersonal interactions",
+                "Interpreting and using body language effectively",
+                "Developing awareness of personal nonverbal cues and their implications.",
+              ],
+            },
+            {
+              name: "Assertive Communication & Conflict Resolution",
+              SUB: [
+                "Exploring assertive communication techniques for expressing thoughts, feelings, and needs",
+                "Managing conflicts constructively and seeking win-win solutions",
+                "Practicing effective negotiation and compromise strategies",
+              ],
+            },
+            {
+              name: "Building Rapport & Positive Relationships",
+              SUB: [
+                "Strategies for building rapport and establishing connections with others",
+                "Developing interpersonal skills to foster positive relationships",
+                "Recognizing and adapting to different communication styles",
+              ],
+            },
+          ],
+        },
+        {
+          name: "JOB INTERVIEW PREPARATION",
+          topics: [
+            {
+              name: "Understanding the Job Interview Process",
+              SUB: [
+                "Overview of different types of job interviews: behavioral, situational, panel, etc.",
+                "Exploring the stages of the interview process: pre-interview, during the interview, and post-interview",
+                "Understanding the expectations and objectives of interviewers",
+              ],
+            },
+            {
+              name: "Researching the Company and Position",
+              SUB: [
+                "Techniques for conducting thorough research on the company and the role",
+                "Identifying key information to demonstrate knowledge and interest during the interview",
+                "Understanding the company's values, culture, and industry trends",
+              ],
+            },
+            {
+              name: "Crafting a Strong Resume and Cover Letter",
+              SUB: [
+                "Optimizing the resume to highlight relevant skills and experiences",
+                "Writing a compelling cover letter that aligns with the job requirements",
+                "Tailoring the resume and cover letter for specific job applications",
+              ],
+            },
+            {
+              name: "Developing Effective Interview Responses",
+              SUB: [
+                "Identifying common interview questions and understanding their purpose",
+                "Formulating concise and impactful responses using the STAR technique (Situation, Task, Action, Result). Showcasing relevant skills, accomplishments, and experiences during the interview",
+              ],
+            },
+            {
+              name: "Mock Interviews and Feedback ",
+              SUB: [
+                "Conducting mock interviews to simulate real interview scenarios",
+                "Providing constructive feedback and guidance on interview performance",
+                "Identifying strengths and areas for improvement",
+              ],
+            },
+            {
+              name: "Documentation Skills",
+              SUB: [
+                "Structuring Documents for Clarity",
+                "Writing Concise and Clear Content",
+                "Formatting and Visual Presentation",
+                "Proofreading and Editing Techniques ",
+              ],
+            },
+          ],
+        },
+        {
+          name: "PERSONAL GROWTH AND CAREER DEVELOPMENT",
+          topics: [
+            {
+              name: "Self-Assessment and Goal Setting ",
+              SUB: [
+                "Engaging in self-assessment exercises to identify personal values, interests, and strengths",
+                "Setting SMART (Specific, Measurable, Achievable, Relevant, Time-bound) goals for personal and career development",
+              ],
+            },
+            {
+              name: "Exploring Career Paths and Opportunities",
+              SUB: [
+                "Researching and identifying potential career paths and industries of interest",
+                "Understanding the current job market and emerging trends in different industries",
+                "Exploring career development opportunities, such as mentorship programs, networking events, and professional associations",
+              ],
+            },
+            {
+              name: "Developing a Personal Brand",
+              SUB: [
+                "Understanding the concept of personal branding and its importance in career development",
+                "Crafting a compelling personal brand statement and elevator pitch",
+                "Utilizing online platforms and social media to showcase skills and expertise.",
+              ],
+            },
+            {
+              name: "Networking and Relationship Building",
+              SUB: [
+                "Strategies for building and nurturing professional relationships",
+                "Exploring networking opportunities, both online and offline",
+                "Practicing effective communication and networking techniques",
+              ],
+            },
+            {
+              name: "Creating a Personal Development Plan ",
+              SUB: [
+                "Synthesizing self-assessment results, career goals, and skill development plans into a personal development plan",
+                "Identifying short-term and long-term actions to achieve personal and career objectives",
+                "Setting milestones and regularly reviewing and updating the personal development plan",
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 9,
+      name: "PRODUCT DESIGN & DEVELOPMENT",
+      thumbnail: "../../images/course.jpg",
+      slide: s3,
+      order: 9,
+      description:
+        "This Program offers students to get clear insights of product development concepts by hands-on training which will be handled by Mechnido's faculty and industrial experts.",
+      description_L: [
+        "This Program offers students to get clear insights of product development concepts by hands-on training which will be handled by Mechnido's faculty and industrial experts.",
+        "In 60 hours sessions, students will get an overview of the concepts and potential opportunities in the field. Moreover, students will get certificates from Mechnido.",
+        "The Product Design and Development online course is designed to provide participants with a comprehensive understanding of the product design and development process. Throughout this 60-hours course, participants will learn the key principles, techniques, and strategies involved in creating successful products from concept to launch. Through a combination of theoretical lessons, case studies, and hands-on exercises, participants will develop the skills necessary to design, engineer, and bring innovative products to market.",
+      ],
+      duration: [
+        "Flexible Timing",
+        "Weekend : 2 Sessions",
+        "    Saturday & Sunday - 4 Hrs",
+        "Weekday : 2 Sessions (Any 2 Days)",
+        "    Monday to Friday - 4 Hrs",
+      ],
+      certificate: {
+        title: "Requirements for Certification",
+        imgURL:
+          "https://firebasestorage.googleapis.com/v0/b/idea-website-9344a.appspot.com/o/courses%2Fk3OeP7wFOwIDFHK6lab1%2Fcertificates%2Fcert.jpg?alt=media&token=3378be37-3210-4027-84ea-a5e1d3e2515a",
+        sub: [
+          "An individual enrolled in the program should complete the training within the program's time limit.",
+          "To acquire the certification, you must complete all the course's assignments, tests, case studies, projects, and other criteria.",
+          "To acquire certification, the student must show up to every session that the instructor provides.",
+        ],
+      },
+      fee: [
+        {
+          id: 0,
+          type: "One time",
+          price: 2500,
+        },
+      ],
+      schedule: [
+        {
+          name: "INTRO TO PRODUCT DESIGN & DEVELOPMENT",
+          topics: [
+            {
+              name: "Welcome and Course Introduction",
+              SUB: [
+                "Introduction to the facilitator and course objectives",
+                "Overview of the session agenda",
+                "Role of product design in achieving business objectives",
+                "Overview of the product development lifecycle",
+              ],
+            },
+            {
+              name: "Understand - User Needs & Market Research",
+              SUB: [
+                "Identifying customer needs and preferences",
+                "Conducting market research and analysis",
+                "Using market insights to drive product development decisions",
+              ],
+            },
+            {
+              name: "Idea Generation and Creativity Techniques",
+              SUB: [
+                "Techniques for generating innovative product ideas",
+                "Brainstorming and ideation sessions",
+                "Leveraging design thinking principles for idea generation",
+              ],
+            },
+            {
+              name: "Concept Development and Evaluation",
+              SUB: [
+                "Translating ideas into viable product concepts",
+                "Developing concept sketches and prototypes",
+                "Methods for evaluating and selecting the most promising concepts",
+              ],
+            },
+            {
+              name: "Product Design Documentation & Communication",
+              SUB: [
+                "Creating effective product design documents and specifications",
+                "Importance of clear communication in product development teams",
+                "Collaborating with cross-functional teams for design success",
+              ],
+            },
+            {
+              name: "Case Studies and Practical Examples",
+              SUB: [
+                "Analyzing real-world product design and development case studies",
+                "Examining successful product launches and their design strategies",
+                "Learning from failures and lessons learned in product development",
+              ],
+            },
+          ],
+        },
+        {
+          name: "PRODUCT REQUIREMENTS AND CONCEPT DEVELOPMENT",
+          topics: [
+            {
+              name: "Define Product Requirement & Specification",
+              SUB: [
+                "Importance of clear and specific product requirements",
+                "Techniques for gathering customer needs and preferences",
+                "Prioritizing requirements based on importance and feasibility",
+              ],
+            },
+            {
+              name: "Market and Competitive Analysis",
+              SUB: [
+                "Conducting a thorough analysis of the market landscape",
+                "Identifying key competitors and their product offerings",
+                "Analyzing market trends and customer preferences",
+              ],
+            },
+            {
+              name: "Concept Generation Techniques",
+              SUB: [
+                "Divergent thinking and ideation methods",
+                "Brainstorming variations and alternatives for product concepts",
+                "Stimulating creativity and innovation in concept development",
+              ],
+            },
+            {
+              name: "Concept Evaluation and Selection",
+              SUB: [
+                "Establishing criteria for evaluating product concepts",
+                "Conducting concept assessments using qualitative and quantitative methods",
+                "Selecting the most promising concepts for further development",
+              ],
+            },
+            {
+              name: "Prototyping and Iteration",
+              SUB: [
+                "Introduction to prototyping techniques and materials",
+                "Building low-fidelity and high-fidelity prototypes",
+                "Conducting user testing and gathering feedback for refinement.",
+              ],
+            },
+            {
+              name: "Considerations for Feasibility and Viability",
+              SUB: [
+                "Assessing technical feasibility and manufacturability of concepts",
+                "Evaluating the economic viability of product concepts",
+                "Balancing customer needs, business objectives, and technical constraints",
+              ],
+            },
+            {
+              name: "Case Studies and Practical Examples",
+              SUB: [
+                "Analyzing real-world examples of successful product requirements and concept development",
+                "Examining challenges and lessons learned in concept selection",
+                "Learning from both successful and unsuccessful product launches",
+              ],
+            },
+          ],
+        },
+        {
+          name: "PRODUCT DESIGN AND ENGINEERING",
+          topics: [
+            {
+              name: "Effective Communication Basics",
+              SUB: [
+                "Understanding the importance of effective communication in personal and professional contexts",
+                "Exploring the components of effective communication: verbal, nonverbal, and listening skills",
+                "Overcoming common communication barriers and challenges",
+              ],
+            },
+            {
+              name: "Principles of Product Design and Engineering",
+              SUB: [
+                "Understanding the role of design in product development",
+                "Key considerations for effective product design",
+                "Balancing aesthetics, functionality, and user experience",
+              ],
+            },
+            {
+              name: "Design for Manufacturing and Assembly",
+              SUB: [
+                "Overview of DFMA principles and methodologies",
+                "Designing products for efficient and cost-effective manufacturing",
+                "Streamlining assembly processes and reducing production time",
+              ],
+            },
+            {
+              name: "CAD Tools and Software",
+              SUB: [
+                "Introduction to CAD tools and their applications in product design",
+                "Hands-on demonstration of CAD software functionalities",
+                "Creating 2D and 3D product designs using CAD tools",
+              ],
+            },
+            {
+              name: "Materials Selection and Considerations",
+              SUB: [
+                "Understanding different types of materials and their properties",
+                "Factors to consider in materials selection for product design",
+                "Balancing cost, performance, and sustainability in material choices",
+              ],
+            },
+            {
+              name: "Design Verification and Validation",
+              SUB: [
+                "Importance of design verification and validation in product development",
+                "Techniques for testing and evaluating product designs",
+                "Iterative refinement based on testing results and user feedback",
+              ],
+            },
+            {
+              name: "Ergonomics and Human Factors in Design",
+              SUB: [
+                "Designing products that optimize user comfort and usability",
+                "Considerations for ergonomics & human factors in product design",
+                "User-centered design principles and methodologies",
+              ],
+            },
+            {
+              name: "Design for Sustainability",
+              SUB: [
+                "Incorporating sustainable design principles and practices",
+                "Minimizing environmental impact through material choices and lifecycle considerations.",
+              ],
+            },
+            {
+              name: "Case Studies and Practical Examples",
+              SUB: [
+                "Analyzing real-world product design and engineering case studies",
+                "Examining successful product designs and their impact on market success.",
+              ],
+            },
+          ],
+        },
+        {
+          name: "MANUFACTURING AND PRODUCTION PLANNING",
+          topics: [
+            {
+              name: "Manufacturing Processes and Technologies",
+              SUB: [
+                "Introduction to various manufacturing processes (e.g., machining, molding, 3D printing)",
+                "Understanding the advantages and limitations of different manufacturing technologies. ",
+              ],
+            },
+            {
+              name: "Designing for Efficient Production",
+              SUB: [
+                "Design considerations for manufacturability and assembly",
+                "Reducing complexity and optimizing product designs for cost-effective production, Collaborating with manufacturing engineers for design improvements",
+              ],
+            },
+            {
+              name: "Production Planning and Scheduling",
+              SUB: [
+                "Introduction to production planning and scheduling methodologies",
+                "Creating production plans based on demand forecasts and capacity constraints",
+                "Utilizing tools and techniques for efficient production scheduling",
+              ],
+            },
+            {
+              name: "QC and QA in Manufacturing",
+              SUB: [
+                "Implementing quality control measures throughout the manufacturing process",
+                "SPC techniques for monitoring and improving product quality",
+                "Ensuring compliance with quality standards and regulations",
+              ],
+            },
+            {
+              name: "SCM in Product Development",
+              SUB: [
+                "Understanding the role of SCM in product development",
+                "Supplier selection and management for timely and high-quality material procurement",
+                "Logistics and inventory management considerations in the SCM",
+              ],
+            },
+            {
+              name: "Lean Manufacturing Principles and Practices",
+              SUB: [
+                "Introduction to lean manufacturing principles",
+                "Identifying and eliminating waste in the manufacturing process",
+                "Implementing continuous improvement initiatives",
+              ],
+            },
+            {
+              name: "Cost Management and Value Engineering",
+              SUB: [
+                "Techniques for managing costs throughout the manufacturing process",
+                "Value engineering methodologies for optimizing product costs and performance",
+                "Balancing cost considerations with quality and customer value",
+              ],
+            },
+            {
+              name: "Case Studies and Practical Examples",
+              SUB: [
+                "Analyzing real-world manufacturing and production case studies",
+                "Examining successful product launches and their manufacturing strategies",
+              ],
+            },
+          ],
+        },
+        {
+          name: "LAUNCHING AND COMMERCIALIZING THE PRODUCT",
+          topics: [
+            {
+              name: "Intro-Product Launch and Commercialization",
+              SUB: [
+                "Importance of a well-planned and executed product launch",
+                "Key considerations for successful commercialization",
+                "Overview of the product lifecycle stages",
+              ],
+            },
+            {
+              name: "Marketing Strategies and Branding",
+              SUB: [
+                "Developing effective marketing strategies for product promotion",
+                "Defining target markets and customer segments",
+                "Branding strategies for creating a strong brand identity",
+              ],
+            },
+            {
+              name: "Sales and Distribution Channels",
+              SUB: [
+                "Identifying appropriate sales and distribution channels",
+                "Selecting and managing retail partners, distributors, and e-commerce platforms",
+                "Developing effective channel strategies for product reach",
+              ],
+            },
+            {
+              name: "Pricing and Revenue Management",
+              SUB: [
+                "Pricing strategies and considerations",
+                "Pricing models and revenue management techniques",
+                "Balancing profitability with market competitiveness",
+              ],
+            },
+            {
+              name: "Customer Support and After-sales Service",
+              SUB: [
+                "Establishing effective customer support channels",
+                "Providing excellent after-sales service and support",
+                "Handling customer inquiries, feedback, and complaints",
+              ],
+            },
+            {
+              name: "Gathering and Utilizing Customer Feedback",
+              SUB: [
+                "Methods for collecting customer feedback and insights",
+                "Analyzing customer data for product improvements",
+                "Incorporating customer feedback into product updates and iterations",
+              ],
+            },
+            {
+              name: "Product Lifecycle Management",
+              SUB: [
+                "Understanding the different stages of the product lifecycle",
+                "Developing strategies for product extensions, upgrades, and end-of-life management",
+                "Assessing market trends and planning for product obsolescence",
+              ],
+            },
+            {
+              name: "Intellectual Property & Legal Considerations",
+              SUB: [
+                "Protecting intellectual property rights during product launch",
+                "Ensuring compliance with regulations and standards",
+                "Navigating legal considerations in the commercialization process",
+              ],
+            },
+          ],
+        },
+      ],
+    },
   ];
 
   return (
@@ -2307,7 +3253,7 @@ const Store = ({ children }) => {
         courses,
         setCourses,
         section,
-        setSection
+        setSection,
       }}
     >
       {children}

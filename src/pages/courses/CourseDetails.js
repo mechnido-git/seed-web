@@ -268,9 +268,9 @@ function CourseDetails() {
       <div className="other-courses">
         <h2>Enroll Now!!</h2>
         <div className="content">
-          <h3>Individual courses</h3>
-          <h3></h3>
-          <h3>Offer pack</h3>
+          <h3 id="individual">Individual courses</h3>
+          <h3 id="divider" ></h3>
+          <h3 id="pack" >Offer pack</h3>
           <div className="individual">
             {courses?.map((item, i) => <div className="card" key={i}>
               <h4>

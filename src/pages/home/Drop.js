@@ -107,7 +107,6 @@ function Drop({ onClickOutside, show, dropIndex, redirect, setRedirect, setSignI
   );
 
   const viewCourseDetails = (index) => {
-    console.log('clicked');
       if(user){
         window.location.reload()
         return window.open(`/menu/courses/details/${index}`,'_blank')
