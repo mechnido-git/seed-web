@@ -490,7 +490,7 @@ function RegisterForm({ event }) {
       <form onSubmit={onSumbitHandler}>
 
         <div className="fields">
-          {getFields(4)}
+          {getFields(current)}
         </div>
         {/* <div className="btns">
           <button className="cntrl" type="button">back</button><button className="cntrl" onClick={getNextPage} type="button">Next</button>
