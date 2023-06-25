@@ -381,6 +381,7 @@
     flex-direction: column;
     gap: 10px;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .course-details > .other-courses .individual > .card > h4{

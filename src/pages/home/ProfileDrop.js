@@ -14,7 +14,6 @@ function ProfileDrop({ userName, onClickOutside, show, setLoading }) {
       .then(() => {
         // Sign-out successful.
         navigate("/")
-        localStorage.removeItem('cover')
         setLoading(false)
         window.location.reload();
       })

@@ -8,6 +8,7 @@
     padding: 10px 0px;
     grid-column:  1 / 2;
     z-index: 3;
+    border-right: 1px solid #0000001a;
 }
 
 .side-menu > h2{

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { StoreContext } from "../../store/StoreContext";
 import img from "../../images/courses.jpg";
 import side from "../../images/side.jpg";
@@ -14,6 +14,7 @@ import Footer from "../../components/footer/Footer";
 function CourseDetails() {
   const { index } = useParams();
   const loc = useLocation();
+  const navigate = useNavigate()
 
   const otherCourses = [
     {
@@ -75,6 +76,11 @@ function CourseDetails() {
     console.log(e.target.parentElement);
     e.target.parentElement.classList.toggle("show");
   };
+
+  const getCours = (index) => {
+    navigate(`/menu/courses/details/${index}`)
+    window.location.reload()
+  }
 
   return (
     <div className="course-details">
@@ -272,7 +278,7 @@ function CourseDetails() {
           <h3 id="divider" ></h3>
           <h3 id="pack" >Offer pack</h3>
           <div className="individual">
-            {courses?.map((item, i) => <div className="card" key={i}>
+            {courses?.map((item, i) => <div className="card" onClick={()=>getCours(item.order)} key={i}>
               <h4>
                 {item.flag ? <>The Flagship <br /></> : ''}
                 {item.name}

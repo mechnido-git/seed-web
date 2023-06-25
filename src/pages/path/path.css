@@ -26,6 +26,7 @@
     grid-template-rows: 1fr;
     gap: 20px;
    align-items: center;
+   justify-items: center;
 }
 
 .path-div > .paths .divider{
