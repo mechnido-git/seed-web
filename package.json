@@ -21,7 +21,7 @@
     "styled-components": "^5.3.9",
     "web-vitals": "^2.1.4"
   },
-  "homepage": "https://gregarious-griffin-da22a3.netlify.app",
+  "homepage": "https://stupendous-speculoos-1389e0.netlify.app",
   "scripts": {
     "start": "react-scripts start",
     "predeploy": "npm run build",

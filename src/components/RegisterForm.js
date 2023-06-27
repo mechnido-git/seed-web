@@ -39,7 +39,7 @@ function RegisterForm({ event }) {
   const [facForm, setFacForm] = useState(false)
   const [facN, setFacN] = useState(null)
 
-  const base = "https://real-lime-iguana-coat.cyclic.app"
+  const base = "https://wandering-ruby-fish.cyclic.app"
    // const base = 'http://localhost:4242'
 
   const sentMail = async(eventId, name, email, teamName) => {
