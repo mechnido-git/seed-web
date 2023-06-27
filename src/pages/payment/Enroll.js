@@ -17,8 +17,8 @@ function Enroll({index}) {
     const [email, setEmail] = useState(null)
     const [userName, setUserName] = useState(null)
 
-     const base = "https://wandering-ruby-fish.cyclic.app"
-    // const base = 'http://localhost:4242'
+     //const base = "https://wandering-ruby-fish.cyclic.app"
+     const base = 'http://localhost:4242'
 
     const change = (e) => {
         console.log(typeof range);
@@ -52,7 +52,7 @@ function Enroll({index}) {
           const res = await axios.post(url, data);
           console.log(res.data.order);
           var options = {
-            key: "rzp_test_NWomFOohCdnvuS", // Enter the Key ID generated from the Dashboard
+            key: process.env.RAZOR_ID, // Enter the Key ID generated from the Dashboard
             amount: Number(res.data.order.amount ), // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
             currency: "INR",
             order_id: res.data.order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
