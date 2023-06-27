@@ -14,6 +14,7 @@ import {
   updateDoc,
 } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
+import axios from "axios";
 
 function HomeIndex() {
   const [register, setRegister] = useState(false);
@@ -25,14 +26,12 @@ function HomeIndex() {
     window.addEventListener("popstate", () => window.location.reload());
 
     onAuthStateChanged(auth, (user) => {
-      if (user){
-        setUserName(user.displayName)
-      }else{
-        setSignIn(true)
+      if (user) {
+        setUserName(user.displayName);
+      } else {
+        setSignIn(true);
       }
     });
-
-  
 
     const doFetch = async () => {
       const q = query(collection(db, "courses"), orderBy("order", "asc"));
@@ -51,8 +50,9 @@ function HomeIndex() {
 
       // // Set the "capital" field of the city 'DC'
       // await updateDoc(washingtonRef, {
-        
+
       // });
+      
     };
     doFetch();
     console.log("hello");
@@ -61,16 +61,16 @@ function HomeIndex() {
     };
   }, []);
 
-  useEffect(()=>{
-      if(!signIn){
-        onAuthStateChanged(auth, (user) => {
-          if (user){
-          }else{
-            setSignIn(true)
-          }
-        });
-      }
-  }, [signIn])
+  useEffect(() => {
+    if (!signIn) {
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+        } else {
+          setSignIn(true);
+        }
+      });
+    }
+  }, [signIn]);
 
   return (
     <>
