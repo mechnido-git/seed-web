@@ -2,13 +2,14 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./path.css";
 import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../../firebase/config";
+import { auth, db } from "../../firebase/config";
 import { StoreContext } from "../../store/StoreContext";
 import courseImg from "../../images/path2.jpg"
 import eventImg from "../../images/path1.jpg"
+import { doc, setDoc } from "firebase/firestore";
 
 
-function Path({skip}) {
+function Path({ user }) {
   const navigate = useNavigate();
 
   const { userName } = useContext(StoreContext);
@@ -20,42 +21,44 @@ function Path({skip}) {
     });
   }, []);
 
-  const goCourse = () => {
+  const goCourse = async() => {
     navigate("/menu/courses");
-   localStorage.setItem('cover', false)
-  window.location.reload()
+    const cityRef = doc(db, 'users', user.uid);
+    await setDoc(cityRef, { cover: false }, { merge: true });
+    window.location.reload()
   }
-  
-  const goEvents = () => {
+
+  const goEvents = async() => {
     navigate("/menu/events");
-    localStorage.setItem('cover', false)
+    const cityRef = doc(db, 'users', user.uid);
+    await setDoc(cityRef, { cover: false }, { merge: true });
     window.location.reload()
   }
 
   return (
     <div className="path-div">
-          <div className="intro">
-            <p>Hi {userName}. We are happy to have you on board</p>
-            <h2>You might have to start with any of this</h2>
-          </div>
+      <div className="intro">
+        <p>Hi {userName}. We are happy to have you on board</p>
+        <h2>You might have to start with any of this</h2>
+      </div>
       <div className="paths">
         <div className="path">
-        <div className="course-path" >
-          <img src={courseImg} alt="" />
-          <p> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-        </div>
+          <div className="course-path" >
+            <img src={courseImg} alt="" />
+            <p> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+          </div>
           <button onClick={goCourse}>Courses</button>
         </div>
         <div className="divider">
-        <div className="circle">
-          OR
-        </div>
+          <div className="circle">
+            OR
+          </div>
         </div>
         <div className="path">
-        <div className="event-path">
-          <img src={eventImg} alt="" />
-          <p> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-        </div>
+          <div className="event-path">
+            <img src={eventImg} alt="" />
+            <p> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+          </div>
           <button onClick={goEvents} >Events</button>
         </div>
       </div>

@@ -10,17 +10,18 @@ import {
   signInWithPopup,
   updateProfile,
 } from "firebase/auth";
-import { auth } from "../../firebase/config";
+import { auth, db } from "../../firebase/config";
 import Spinner from "../../components/Spinner";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 
-function SignIn({index, redirect, setRedirect}) {
-  const [signin, setSigin] = useState(!index? true : false);
+function SignIn({ index, redirect, setRedirect }) {
+  const [signin, setSigin] = useState(!index ? true : false);
   const [loading, setLoading] = useState(false);
 
   const [error, setError] = useState("");
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   //sign up
   const [fullName, setFullName] = useState("");
@@ -40,7 +41,7 @@ function SignIn({index, redirect, setRedirect}) {
   const [forgEmail, setForgEmail] = useState("");
   const [sent, setSent] = useState(false);
 
-  const click = useRef()
+  const click = useRef();
 
   const showPassword = (e) => {
     let pwFields =
@@ -54,8 +55,30 @@ function SignIn({index, redirect, setRedirect}) {
       password.type = "password";
       e.target.classList.replace("bx-show", "bx-hide");
     });
-  }
+  };
 
+  const open = async (user) => {
+    const docRef = doc(db, "users", user.uid);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+     // console.log("Document data:", docSnap.data());
+    } else {
+      // docSnap.data() will be undefined in this case
+      console.log("No such document!");
+      await setDoc(doc(db, "users", user.uid), {
+        name: user.displayName,
+        email: user.email,
+        cover: true
+      });
+    }
+    if (redirect) {
+      navigate(redirect);
+      setRedirect(null);
+    } else {
+      window.location.reload();
+    }
+  };
 
   const handleSignUp = (e) => {
     setLoading(true);
@@ -69,7 +92,7 @@ function SignIn({index, redirect, setRedirect}) {
         })
           .then(() => {
             console.log("updated");
-            redirect? navigate("/menu/dashboard") : window.location.reload();
+            open(user)
           })
           .catch((err) => {
             console.log(err);
@@ -80,7 +103,7 @@ function SignIn({index, redirect, setRedirect}) {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorMessage);
-        alert(errorMessage)
+        alert(errorMessage);
         // ..
         setLoading(false);
       });
@@ -96,15 +119,10 @@ function SignIn({index, redirect, setRedirect}) {
         const user = userCredential.user;
         //console.log(user);
         // ...
-       //navigate("/menu/dashboard");
-       if(redirect){
-        navigate(redirect)
-        setRedirect(null)
-        }else{
-        window.location.reload()
-        }
-      //  const evt = new Event('click', {bubbles: true})
-      //  document.getElementById('red').dispatchEvent(evt)
+        //navigate("/menu/dashboard");
+       open(user)
+        //  const evt = new Event('click', {bubbles: true})
+        //  document.getElementById('red').dispatchEvent(evt)
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -115,21 +133,7 @@ function SignIn({index, redirect, setRedirect}) {
       });
   };
 
-  const open = () => {
-    let clickEvent = new Event('click');
-    const btn = document.getElementById('red')
-    
-    if(redirect){
-      btn.addEventListener('click', ()=>window.open(redirect,'_blank'))
-      btn.dispatchEvent(clickEvent);
-      window.location.reload()
-      setRedirect(null)
-      }else{
-        btn.addEventListener('click', ()=>window.open('/menu/dashboard','_blank'))
-        btn.dispatchEvent(clickEvent);
-      window.location.reload()
-      }
-  }
+
 
   const signInGoogle = (e) => {
     e.preventDefault();
@@ -141,17 +145,12 @@ function SignIn({index, redirect, setRedirect}) {
         const token = credential.accessToken;
         // The signed-in user info.
         const user = result.user;
+
         // IdP data available using getAdditionalUserInfo(result)
         // ...
         //navigate("/menu/dashboard");
-        if(redirect){
-          navigate(redirect)
-          setRedirect(null)
-          }else{
-          window.location.reload()
-          }
-      // open()
 
+        open(user);
       })
       .catch((error) => {
         // Handle Errors here.
@@ -180,7 +179,7 @@ function SignIn({index, redirect, setRedirect}) {
 
         // IdP data available using getAdditionalUserInfo(result)
         // ...
-        redirect? navigate("/menu/dashboard") : window.location.reload();
+        redirect ? navigate("/menu/dashboard") : window.location.reload();
       })
       .catch((error) => {
         console.log(error);
@@ -284,8 +283,8 @@ function SignIn({index, redirect, setRedirect}) {
               ) : (
                 <>
                   <div className="success">
-                  <span class="material-symbols-outlined">check_circle</span>
-                  Email Sent
+                    <span class="material-symbols-outlined">check_circle</span>
+                    Email Sent
                   </div>
                 </>
               )}
@@ -319,7 +318,10 @@ function SignIn({index, redirect, setRedirect}) {
                       pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                       title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
                     />
-                    <i onClick={showPassword} className="bx bx-hide eye-icon"></i>
+                    <i
+                      onClick={showPassword}
+                      className="bx bx-hide eye-icon"
+                    ></i>
                   </div>
                   <div className="error">{passError}</div>
 

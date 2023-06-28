@@ -5,7 +5,7 @@ import { auth, db } from "../../firebase/config";
 import Spinner from "../../components/Spinner";
 import logo from "../../images/man.png";
 import { useNavigate, useOutletContext } from "react-router-dom";
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { collection, doc, getDoc, getDocs, query, where } from "firebase/firestore";
 import { Link } from "react-router-dom";
 import slide from "../../images/slide.jpg";
 import { trending } from "../courses/CoursesHome";
@@ -21,7 +21,7 @@ const EnrolledCourse = ({ dragger }) => {
   const [loading, setLoading] = useState(true)
   const navigate = useNavigate()
 
-  
+
 
   const fetch = async (user) => {
 
@@ -119,7 +119,7 @@ const CourseCatalog = () => {
 
       });
       setData(temp)
-      if(courses) setLoading(false)
+      if (courses) setLoading(false)
     }
   }, [user, courses])
 
@@ -291,8 +291,8 @@ const QuickLinks = () => {
             link
           </span><h4>{item.name}</h4>
         </>;
-        if (item.hash) return <HashLink target={item.new ? "_blank": null} onClick={() => { if (item.index) click(item.index) }} smooth to={item.link} className="card">{content}</HashLink>;
-        return <Link className="card" target={item.new ? "_blank": null} onClick={() => { if (item.index) click(item.index) }} to={item.link} >{content}</Link>
+        if (item.hash) return <HashLink target={item.new ? "_blank" : null} onClick={() => { if (item.index) click(item.index) }} smooth to={item.link} className="card">{content}</HashLink>;
+        return <Link className="card" target={item.new ? "_blank" : null} onClick={() => { if (item.index) click(item.index) }} to={item.link} >{content}</Link>
       })}
     </div>
 
@@ -343,9 +343,9 @@ function Dashboard() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [events, setEvents] = useState([]);
   const [loadingTwo, setLoadingTwo] = useState(true)
-  const {setSignIn} = useOutletContext()
+  const { setSignIn } = useOutletContext()
 
-  const [cover, setCover] = useState(((localStorage.getItem('cover') === 'true') || (localStorage.getItem('cover') === null) ? true : false))
+  const [cover, setCover] = useState(true)
   const navigate = useNavigate();
   console.log(cover);
 
@@ -381,7 +381,25 @@ function Dashboard() {
       if (user) {
         setUser(user)
         setLoggedIn(true);
-        setLoading(false)
+        const doFetch = async (user) => {
+          const docRef = doc(db, "users", user.uid);
+          try {
+            const docSnap = await getDoc(docRef);
+
+          if (docSnap.exists()) {
+            console.log("Document data:", docSnap.data());
+            setCover(docSnap.data().cover)
+          } else {
+            // docSnap.data() will be undefined in this case
+            console.log("No such document!");
+          }
+          } catch (error) {
+            console.log(error);
+          }
+          setLoading(false)
+        }
+        doFetch(user)
+          
       } else {
         setLoading(false);
       }
@@ -396,24 +414,9 @@ function Dashboard() {
     `);
   }, []);
 
-  const { courses, user } = useContext(StoreContext)
+  useEffect(()=>{console.log(cover+" yess");}, [cover])
 
-  useEffect(() => {
-    if (user) {
-      courses?.forEach(course => {
-        let flag = false
-        console.log(course)
-        course.enrolled_arr?.forEach(item => {
-          if (item === user.uid) flag = true
-        })
-        if (flag){
-          localStorage.setItem('cover', false)
-          setCover(false)
-        }
-        setLoadingTwo(false)
-      });
-    }
-  }, [user, courses])
+  const { courses, user } = useContext(StoreContext)
 
 
   const [items, setItems] = useState([<EnrolledCourse dragger={drag} />, <CourseCatalog />, <EventDetails />, <QuickLinks />, <Announcement />, <LearningResources />])
@@ -425,15 +428,15 @@ function Dashboard() {
 
   return (
     <div className="dashboard">
-      {loading || loadingTwo ? (
+      {loading ? (
         <Spinner loading={loading} />
       ) : (
         <>
           {loggedIn ? (
             <>
 
-              {cover? <div className="cover">
-                <Path setCover={setCover} skip={skipCover} />
+              {cover ? <div className="cover">
+                <Path setCover={setCover} user={user} skip={skipCover} />
               </div> :
                 <>
                   <h1>Dashboard</h1>
