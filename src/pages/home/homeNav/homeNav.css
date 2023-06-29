@@ -31,7 +31,6 @@
   .App > .nav a > #logo{
       width: 7rem;
       margin-left: 1rem;
-      mix-blend-mode: darken;
   }
   
   .App > .nav .links > ul{
