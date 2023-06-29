@@ -34,6 +34,10 @@
     border: none;
 }
 
+.fixed > button > div{
+    text-transform: capitalize;
+}
+
 .fixed > button > span{
     pointer-events: none;
 }
@@ -211,12 +215,6 @@
 
 .courses-home > .main-div > .categories-div > section img{
     width: 250px;
-}
-
-.active{
-   /* box-shadow: rgba(156, 191, 255, 0.584) 0px 0px 0px 4px */
-   color: var(--primary) !important;
-   border: 2px solid var(--primary) !important;
 }
 
 @media only screen and (max-width: 770px){

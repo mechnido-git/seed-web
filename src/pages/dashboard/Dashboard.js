@@ -86,7 +86,7 @@ const EnrolledCourse = ({ dragger }) => {
         </> : <>
           <p>You are not enrolled to any courses or events, Please Enroll</p>
           <div className="btns">
-            <button onClick={() => navigate("/menu/courses")} >Courses</button><button onClick={() => navigate("/menu/events")}>Events</button>
+            <button onClick={() => {navigate("/menu/courses");window.location.reload()}} >Courses</button><button onClick={() => {navigate("/menu/events");window.location.reload()}}>Events</button>
           </div>
         </>}
       </>}

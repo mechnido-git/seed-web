@@ -7,6 +7,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../firebase/config";
 import SignIn from "../../pages/signin/SignIn";
 import { StoreContext } from "../../store/StoreContext";
+import { addIcon, category, filterItems } from "../../pages/courses/CoursesHome";
 
 export const toggle = () => {
   // document.getElementById("menu-options").classList.toggle("disable");
@@ -19,6 +20,7 @@ function SideMenu() {
   // const {loc, setLoc} = useContext(ToggleContext)
   const [user, setUser] = useState(false);
   const [prev, setPrev] = useState(null);
+  const {filter, setFilter} =  useContext(StoreContext);
    
   // const [loc, setLoc] = useState(location.pathname.split("/"))
   const navigator = useNavigate();
@@ -175,7 +177,18 @@ function SideMenu() {
             </HashLink>
             <hr />
             <h3>CATEGORIES</h3>
-            <Link
+            {category.map((item, i)=>
+              <Link
+              key={i}
+              className={i === 0 ? `filter sub active ${item.replace(" ", "-")}` : `filter sub ${item.replace(" ", "-")}`}
+              onClick={(e)=>{if(mobile) toggle(); filterItems(filter, setFilter, item, e)}}
+              to="#"
+            >
+              <span class="material-symbols-outlined">{addIcon(item)}</span>
+              <div>{item.toLowerCase()}</div>
+            </Link>
+            )}
+            {/* <Link
               className="sub"
               onClick={mobile ? toggle : null}
               to="#"
@@ -206,7 +219,7 @@ function SideMenu() {
             >
               <span class="material-symbols-outlined">hub</span>
               <div>communication</div>
-            </Link>
+            </Link> */}
           </>
         );
       case 2:

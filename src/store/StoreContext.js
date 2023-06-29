@@ -24,6 +24,7 @@ const Store = ({ children }) => {
   const [change, setChange] = useState(true);
   const [courses, setCourses] = useState([]);
   const [section, setSection] = useState(null);
+  const [filter, setFilter] = useState("All")
   const courseList = [
     {
       id: 0,
@@ -3254,6 +3255,8 @@ const Store = ({ children }) => {
         setCourses,
         section,
         setSection,
+        filter,
+        setFilter
       }}
     >
       {children}

@@ -58,6 +58,12 @@ a{
     z-index: 3;
 }
 
+.active{
+    /* box-shadow: rgba(156, 191, 255, 0.584) 0px 0px 0px 4px */
+    color: var(--primary) !important;
+    border: 2px solid var(--primary) !important;
+ }
+
 @media only screen and (max-width: 650px) {
     .index{
         display: grid;

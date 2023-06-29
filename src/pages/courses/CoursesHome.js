@@ -124,36 +124,71 @@ export const CardBuilder = ({ arr, limit, viewDetails }) => (
 
 export const category = [
   "All",
-  "Marketing",
-  "Sell Online",
-  "Services & Events",
-  "Media Content",
-  "Design Elements",
-  "Communication",
+  "PRODUCT DEVELOPMENT",
+  "MANAGEMENT",
+  "DESIGN ELEMENTS",
+  "PERSONAL DELVELOPMENT",
+  "BUSINESS",
+  "SOFTWARE",
 ];
 
 export const addIcon = (item) => {
   switch (item) {
     case "All":
       return "apps";
-    case "Marketing":
+    case "PRODUCT DEVELOPMENT":
       return "campaign";
-    case "Sell Online":
+    case "MANAGEMENT":
       return "sell";
-    case "Services & Events":
+    case "PERSONAL DELVELOPMENT":
       return "prescriptions";
-    case "Media Content":
+    case "BUSINESS":
       return "perm_media";
-    case "Design Elements":
+    case "DESIGN ELEMENTS":
       return "design_services";
-    case "Communication":
+    case "SOFTWARE":
       return "hub";
   }
 };
 
+
+export const filterItems = (filter, setFilter, item, e) => {
+  e.preventDefault()
+  //const btns = document.querySelectorAll('.filter')
+  const active = document.querySelectorAll(".active");
+  const allBtn = document.querySelectorAll(".All");
+  console.log(active);
+  if (active[0]) {
+    if ((active[0].innerHTML == e.target.closest(".filter").innerHTML) || (active[1].innerHTML == e.target.closest(".filter").innerHTML)) {
+      active[0].classList.toggle("active");
+      active[1].classList.toggle("active");
+      allBtn[0].classList.add("active");
+      allBtn[1].classList.add("active");
+    } else {
+      active[0].classList.remove("active");
+      active[1].classList.remove("active");
+      //e.target.classList.add("active");
+      category.map(item=>{
+
+        if(e.target.closest(".filter").className.includes(item.replace(" ", "-"))){
+          const btns = document.querySelectorAll(`.${item.replace(" ", "-")}`)
+          btns.forEach(item=> item.classList.add("active"))
+        }
+      })
+    }
+  } else {
+    e.target.closest(".filter").classList.add("active");
+  }
+  setFilter(filter === "All" ? item : filter == item ? "All" : item);
+};
+
 function CoursesHome() {
-  const [filter, setFilter] = useState("All");
+  const {filter, setFilter} =  useContext(StoreContext);
   const [loading, setLoading] = useState(true);
+
+  const [recommended, setRecommended] = useState([])
+  const [trending, setTrending] = useState([])
+  const [team, setTeam] = useState([])
 
   const [currentSlide, setCurrentSlide] = useState(0);
   const { register, setRegister } = useOutletContext();
@@ -168,6 +203,9 @@ function CoursesHome() {
 
   useEffect(() => {
     if (courses){
+      setRecommended(courses.filter((item, i) => i < 3))
+      setTrending(courses?.filter((item, i) => i > 2 && i < 6))
+      setTeam(courses?.filter((item, i) => i > 5 && i < 10))
       setLoading(false)
     }
   }, [courses])
@@ -187,23 +225,6 @@ function CoursesHome() {
     navigate(`/menu/courses/details/${index}`)
   }
 
-  const filterItems = (item, e) => {
-    //const btns = document.querySelectorAll('.filter')
-    const active = document.getElementsByClassName("active");
-    const allBtn = document.getElementById("All");
-    if (active[0]) {
-      if (active[0].innerHTML == e.target.innerHTML) {
-        active[0].classList.toggle("active");
-        allBtn.classList.add("active");
-      } else {
-        active[0].classList.remove("active");
-        e.target.classList.add("active");
-      }
-    } else {
-      e.target.classList.add("active");
-    }
-    setFilter(filter === "All" ? item : filter == item ? "All" : item);
-  };
 
   const viewDetails = () => {
     navigate(`/menu/courses/details/${currentSlide}`)
@@ -265,12 +286,12 @@ function CoursesHome() {
               {category.map((item, index) => (
                 <button
                   id={index === 0 ? "All" : null}
-                  className={index === 0 ? "filter active" : "filter"}
-                  onClick={(e) => filterItems(item, e)}
+                  className={index === 0 ? `filter active ${item}` : `filter ${item.replace(" ", "-")}`}
+                  onClick={(e) => filterItems(filter, setFilter, item, e)}
                   key={index}
                 >
                   <span class="material-symbols-outlined">{addIcon(item)}</span>
-                  {item}
+                  <div>{item.toLowerCase()}</div>
                 </button>
               ))}
             </div>
@@ -285,7 +306,9 @@ function CoursesHome() {
                     limit={4}
                   /> */}
                   <CardBuilder
-                    arr={courses?.filter((item, i) => i < 3)}
+                    arr={recommended.filter((item) =>
+                      filter === "All" ? item : filter == item.category
+                    )}
                     limit={4}
                     viewDetails={getCours}
                   />
@@ -295,7 +318,9 @@ function CoursesHome() {
                 <h2>Trending Now</h2>
                 <div className="card-container-div">
                   <CardBuilder
-                    arr={courses?.filter((item, i) => i > 2 && i < 6)}
+                    arr={trending.filter((item) =>
+                      filter === "All" ? item : filter == item.category
+                    )}
                     limit={4}
                     viewDetails={getCours}
                   />
@@ -306,7 +331,9 @@ function CoursesHome() {
                 <div className="card-container-div">
                   {/* <CardBuilder arr={recomended} limit={4} /> */}
                   <CardBuilder
-                    arr={courses?.filter((item, i) => i > 5 && i < 10)}
+                    arr={team.filter((item) =>
+                      filter === "All" ? item : filter == item.category
+                    )}
                     limit={4}
                     viewDetails={getCours}
                   />

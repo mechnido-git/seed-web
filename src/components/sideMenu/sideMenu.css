@@ -32,6 +32,9 @@
    gap: 1rem;
    
 }
+.side-menu > .menu-options > a > div{
+    text-transform: capitalize;
+}
 .side-menu > .menu-options > a > span{
     font-size: 20px;
 }
