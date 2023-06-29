@@ -105,8 +105,8 @@
 }
 
 .navbar > .left img{
-    width: 4rem;
-    mix-blend-mode: darken;
+    width: 7rem;
+    mix-blend-mode: darken; 
 }
 
 .navbar > .left > span{

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { HashLink } from "react-router-hash-link";
-import logo from "../../../images/logo_round.png";
+import logo from "../../../images/seed_logo/Seed.svg";
 import { Link } from "react-router-dom";
 import ProfileDrop from "../ProfileDrop";
 import Drop from "../Drop";

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Spinner from "../../components/Spinner";
 import { auth } from "../../firebase/config";
 import kart from "../../images/kart_logo.png";
-import logo from "../../images/logo_round.png";
+import logo from "../../images/seed_logo/Seed Joined.svg";
 import mech from "../../images/mech_logo.png";
 import profile from "../../images/profile.png";
 import "./about.css";

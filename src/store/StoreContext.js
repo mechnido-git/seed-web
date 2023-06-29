@@ -24,7 +24,7 @@ const Store = ({ children }) => {
   const [change, setChange] = useState(true);
   const [courses, setCourses] = useState([]);
   const [section, setSection] = useState(null);
-  const [filter, setFilter] = useState("All")
+  const [filter, setFilter] = useState("All");
   const courseList = [
     {
       id: 0,
@@ -3237,6 +3237,499 @@ const Store = ({ children }) => {
         },
       ],
     },
+    {
+      id: 10,
+      name: "GD&T",
+      thumbnail: "../../images/course.jpg",
+      slide: s3,
+      order: 10,
+      description:
+        "This Program offers students to get clear insights of  GD&T concepts by Practical training which will be handled by Mechnido's faculty and industrial experts.",
+      description_L: [
+        "This Program offers students to get clear insights of  GD&T concepts by Practical training which will be handled by Mechnido's faculty and industrial experts.",
+        "In 20+ hours sessions, students will get an overview of the concepts and potential opportunities in the field. Moreover, students will get certificates from Mechnido.",
+        "The Advanced GD&T (Geometric Dimensioning and Tolerancing) Training online course is designed to provide participants with an in-depth understanding and application of advanced concepts and techniques related to GD&T. The course aims to enhance participants' skills in interpreting and applying GD&T principles to engineering drawings and manufacturing processes.",
+      ],
+      duration: [
+        "Flexible Timing",
+        "Weekend : 2 Sessions",
+        "    Saturday & Sunday - 4 Hrs",
+        "Weekday : 2 Sessions (Any 2 Days)",
+        "    Monday to Friday - 4 Hrs",
+      ],
+      certificate: {
+        title: "Requirements for Certification",
+        imgURL:
+          "https://firebasestorage.googleapis.com/v0/b/seed-25898.appspot.com/o/courses%2FMXrd9ZIr70JJbqHvDiLt%2Fcertificates%2Fcert.jpg?alt=media&token=d2a3be38-0236-41ce-a13b-9e94d24116ea",
+        sub: [
+          "An individual enrolled in the program should complete the training within the program's time limit.",
+          "To acquire the certification, you must complete all the course's assignments, tests, case studies, projects, and other criteria.",
+          "To acquire certification, the student must show up to every session that the instructor provides.",
+        ],
+      },
+      fee: [
+        {
+          id: 0,
+          type: "One time",
+          price: 1500,
+        },
+      ],
+      schedule: [
+        {
+          name: "INTRO TO GD&T PRINCIPLES & SYMBOLS",
+          topics: [
+            {
+              name: "Welcome and Course Introduction",
+              SUB: [
+                "Introduction to the facilitator and course objectives",
+                "Overview of the session agenda",
+              ],
+            },
+            {
+              name: "Introduction to GD&T",
+              SUB: [
+                "What is GD&T and why is it important in engineering and manufacturing?",
+                "Advantages of using GD&T over traditional dimensioning and tolerancing methods",
+                "Overview of the GD&T system and its components",
+              ],
+            },
+            {
+              name: "GD&T Symbols and Feature Control Frames",
+              SUB: [
+                "Understanding the basic GD&T symbols and their meanings",
+                "Introduction to feature control frames and their components",
+                "Interpreting GD&T callouts on engineering drawings",
+              ],
+            },
+            {
+              name: "Datums and Datum Reference Frames",
+              SUB: [
+                "Definition and significance of datums in GD&T",
+                "Understanding datum feature symbols and their usage",
+                "Establishing datum reference frames for part inspection and assembly",
+              ],
+            },
+            {
+              name: "Tolerance Zones and Feature Control",
+              SUB: [
+                "Creating effective product design documents and specifications",
+                "Importance of clear communication in product development teams",
+                "Collaborating with cross-functional teams for design success",
+              ],
+            },
+            {
+              name: "Case Studies and Practical Examples",
+              SUB: [
+                "Introduction to tolerance zones and their representation in GD&T",
+                "Exploring different types of tolerance zones: cylindrical, parallel, flatness, etc.",
+                "Interpreting feature control frames and understanding the permissible variations.",
+              ],
+            },
+          ],
+        },
+        {
+          name: "ADVANCED GD&T PRINCIPLES & APPLICATIONS ",
+          topics: [
+            {
+              name: "Advanced Geometric Controls",
+              SUB: [
+                "Exploring advanced geometric controls: circularity, cylindricity, profile of a surface, etc.",
+                "Understanding the interpretation and application of advanced geometric controls",
+              ],
+            },
+            {
+              name: "Composite Tolerancing",
+              SUB: [
+                "Introduction to composite tolerancing and its advantages",
+                "Understanding composite position, profile, and concentricity tolerances",
+                "Interpreting composite tolerances in engineering drawings",
+              ],
+            },
+            {
+              name: "Positional Tolerancing",
+              SUB: [
+                "Importance of positional tolerancing in GD&T",
+                "Defining positional tolerances and their applications",
+                "Interpreting positional tolerances in engineering drawings",
+              ],
+            },
+            {
+              name: "GD&T for Functional Requirements ",
+              SUB: [
+                "Exploring the use of GD&T to specify functional requirements and ensure proper assembly, mating, and interchangeability of components",
+                "Discussing the application of GD&T in critical functional features, such as hole patterns, shaft fits, and assembly interfaces",
+              ],
+            },
+            {
+              name: "Case Studies and Examples ",
+              SUB: [
+                "Presenting real-world case studies that demonstrate the application of advanced GD&T principles in various industries",
+                "Analyzing examples to illustrate the challenges, solutions, and benefits of incorporating GD&T in engineering design and manufacturing processes.",
+              ],
+            },
+          ],
+        },
+        {
+          name: "GD&T INSPECTION & MEASUREMENT TECHNIQUES ",
+          topics: [
+            {
+              name: "Inspection Tools for GD&T",
+              SUB: [
+                "Overview of inspection tools used in GD&T, such as CMMs, height gauges, and micrometers",
+                "Understanding the capabilities and limitations of different inspection tools",
+                "Selecting the appropriate inspection tools for specific GD&T requirements",
+              ],
+            },
+            {
+              name: "Measurement Instruments for GD&T",
+              SUB: [
+                "Introduction to measurement instruments used in GD&T, such as calipers, dial indicators, and coordinate measuring machines (CMMs)",
+                "Understanding the measurement techniques and best practices for GD&T verification",
+                "Calibration and maintenance of measurement instruments",
+              ],
+            },
+            {
+              name: "GD&T Inspection & Verification Techniques",
+              SUB: [
+                "Step-by-step process for inspecting and verifying GD&T requirements",
+                "Common challenges and considerations in GD&T inspection",
+                "Practical tips and techniques for ensuring accurate GD&T measurements",
+              ],
+            },
+            {
+              name: "Case Studies and Practical Examples",
+              SUB: [
+                "Presenting real-world case studies that highlight the challenges and solutions in GD&T inspection",
+                "Analyzing examples to illustrate the proper application of measurement techniques and interpretation of inspection results",
+              ],
+            },
+          ],
+        },
+        {
+          name: "GD&T APPLICATIONS AND INTERPRETATION",
+          topics: [
+            {
+              name: "GD&T Applications in Different Industries",
+              SUB: [
+                "Exploring the application of GD&T in various industries, such as automotive, aerospace, and manufacturing",
+                "Industry-specific GD&T standards and requirements",
+                "Case studies of GD&T implementation in real-world engineering projects",
+              ],
+            },
+            {
+              name: "GD&T Datum Systems & Coordinate Reference",
+              SUB: [
+                "Understanding the concept of datum systems and their importance in GD&T",
+                "Explanation of datum feature selection, datum reference frames, and the use of datum targets",
+                "Interpretation of geometric tolerances based on the established datum system",
+              ],
+            },
+            {
+              name: "GD&T in Assembly and Mating",
+              SUB: [
+                "Exploring the use of GD&T to ensure proper assembly, mating, and interchangeability of components",
+                "Discussing the application of GD&T in assembly features, positional tolerancing, and datum references",
+              ],
+            },
+            {
+              name: "Case Studies and Practical Examples",
+              SUB: [
+                "Presenting real-world case studies that illustrate the effective application and interpretation of GD&T in practical scenarios",
+                "Analyzing examples to highlight the challenges, solutions, and benefits of incorporating GD&T in design, manufacturing, and inspection processes",
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 11,
+      name: "3D CAD MODELING",
+      thumbnail: "../../images/course.jpg",
+      slide: s3,
+      order: 11,
+      description:
+        "This Program offers students to get clear insights of  3D CAD Modeling concepts by Practical training which will be handled by Mechnido's faculty and industrial experts.",
+      description_L: [
+        "This Program offers students to get clear insights of  3D CAD Modeling concepts by Practical training which will be handled by Mechnido's faculty and industrial experts.",
+        "In 50+ hours sessions, students will get an overview of the concepts and potential opportunities in the field. Moreover, students will get certificates from Mechnido.",
+        "The Advanced 3D CAD Modeling course is designed to take your CAD skills to the next level and empower you with advanced techniques and strategies for creating complex 3D models. This comprehensive online course focuses on enhancing your proficiency in CAD software and equipping you with the knowledge and skills needed to tackle challenging modeling projects.",
+      ],
+      duration: [
+        "Flexible Timing",
+        "Weekend : 2 Sessions",
+        "    Saturday & Sunday - 4 Hrs",
+        "Weekday : 2 Sessions (Any 2 Days)",
+        "    Monday to Friday - 4 Hrs",
+      ],
+      certificate: {
+        title: "Requirements for Certification",
+        imgURL:
+          "https://firebasestorage.googleapis.com/v0/b/seed-25898.appspot.com/o/courses%2FsE2QV4XJjyCVPWjA8XNs%2Fcertificates%2Fcert.jpg?alt=media&token=3b067e65-919d-4e7c-854e-a6f71c7a297a",
+        sub: [
+          "An individual enrolled in the program should complete the training within the program's time limit.",
+          "To acquire the certification, you must complete all the course's assignments, tests, case studies, projects, and other criteria.",
+          "To acquire certification, the student must show up to every session that the instructor provides.",
+        ],
+      },
+      fee: [
+        {
+          id: 0,
+          type: "One time",
+          price: 2500,
+        },
+      ],
+      schedule: [
+        {
+          name: "INTRO TO 3D CAD MODELING PRINCIPLES",
+          topics: [
+            {
+              name: "Welcome and Course Introduction",
+              SUB: [
+                "Introduction to the facilitator and course objectives",
+                "Overview of the session agenda",
+              ],
+            },
+            {
+              name: "Introduction to 3D CAD Modeling",
+              SUB: [
+                "Overview of 3D CAD modeling and its significance in various industries",
+                "Explanation of the advantages and benefits of using CAD software for design and visualization",
+              ],
+            },
+            {
+              name: "Understanding CAD Software",
+              SUB: [
+                "Familiarization with the user interface and tools of the chosen CAD software",
+                "Navigating the workspace, customizing preferences, and accessing essential features",
+              ],
+            },
+            {
+              name: "2D Sketching and Constraints",
+              SUB: [
+                "Introduction to 2D sketching techniques, including lines, arcs, circles, and splines",
+                "Applying sketch constraints to control the dimensions and relationships of sketch entities",
+              ],
+            },
+            {
+              name: "3D Modeling Basics",
+              SUB: [
+                "Creating 3D features such as extrusions, revolves, and sweeps based on 2D sketches",
+                "Understanding the concept of parametric modeling and its role in maintaining design intent",
+              ],
+            },
+            {
+              name: "Advanced 3D Modeling Techniques ",
+              SUB: [
+                "Exploring advanced modeling tools and operations, such as fillets, chamfers, and patterns Applying techniques for creating complex geometry, including lofts, sweeps, and blends",
+              ],
+            },
+            {
+              name: "Assemblies and Component Relationships ",
+              SUB: [
+                "Introduction to assemblies and their role in representing multiple components",
+                "Establishing relationships and constraints between components to define their positions and movements",
+              ],
+            },
+            {
+              name: "Visualization and Presentation",
+              SUB: [
+                "Utilizing visualization tools to enhance the appearance of 3D models",
+                "Creating rendered images and realistic simulations for presentation purposes",
+              ],
+            },
+          ],
+        },
+        {
+          name: "ADVANCED 3D CAD MODELING TECHNIQUES ",
+          topics: [
+            {
+              name: "Advanced Sketching Techniques",
+              SUB: [
+                "Exploring advanced sketching tools and features, such as splines, ellipses, and advanced sketch constraints",
+                "Applying sketch patterns and guide curves to create complex sketch geometry",
+              ],
+            },
+            {
+              name: "Advanced 3D Feature Creation",
+              SUB: [
+                "Delving into advanced feature creation techniques, including sweeps along guides, variable fillets, and draft angles",
+                "Exploring advanced surfacing tools and commands for creating complex surface features",
+              ],
+            },
+            {
+              name: "Complex Geometry Creation ",
+              SUB: [
+                "Applying techniques for creating organic shapes, freeform surfaces, and complex curvature",
+                "Exploring sculpting and deformation tools for manipulating geometry",
+              ],
+            },
+            {
+              name: "Assembly Design and Management ",
+              SUB: [
+                "Advanced assembly modeling techniques, including top-down and bottom-up approaches",
+                "Utilizing advanced assembly features, such as mates, flexible components, and configurations",
+              ],
+            },
+            {
+              name: "Advanced Parametric Modeling",
+              SUB: [
+                "Exploring advanced parametric modeling techniques, including equations, design tables, and configurations",
+                "Applying design automation techniques to improve efficiency and productivity",
+              ],
+            },
+            {
+              name: "Design Optimization and Analysis ",
+              SUB: [
+                "Introduction to design optimization techniques using CAD software",
+                "Utilizing simulation and analysis tools to evaluate and validate designs",
+              ],
+            },
+          ],
+        },
+        {
+          name: "PARAMETRIC DESIGN AND DESIGN AUTOMATION",
+          topics: [
+            {
+              name: "Introduction to Parametric Design ",
+              SUB: [
+                "Understanding the principles and benefits of parametric modeling in CAD",
+                "Exploring the concept of design intent and how it drives parametric modeling",
+              ],
+            },
+            {
+              name: "Advanced Parametric Modeling Techniques",
+              SUB: [
+                "Exploring advanced dimensioning and constraints to control and modify models",
+                "Applying equations, variables, and global parameters to create dynamic models",
+              ],
+            },
+            {
+              name: "Design Automation Basics",
+              SUB: [
+                "Introduction to design automation and its advantages in repetitive design tasks",
+                "Understanding the fundamentals of creating and managing design automation features",
+              ],
+            },
+            {
+              name: "Creating Design Tables",
+              SUB: [
+                "Utilizing design tables to automate changes in model dimensions and configurations",
+                "Exploring advanced techniques for creating and managing design tables effectively.",
+              ],
+            },
+            {
+              name: "Configurations and Variants",
+              SUB: [
+                "Creating and managing multiple design configurations within a single model",
+                "Applying configurations and variants to streamline the design process",
+              ],
+            },
+            {
+              name: "Design Automation with Macros",
+              SUB: [
+                "Introduction to macros and their role in automating repetitive tasks",
+                "Building and executing macros for common design operations",
+              ],
+            },
+          ],
+        },
+        {
+          name: "ADVANCED CAD MODELING ANALYSIS AND SIMULATION",
+          topics: [
+            {
+              name: "Intro to CAD Analysis and Simulation",
+              SUB: [
+                "Understanding the importance of analysis and simulation in the design process",
+                "Overview of different types of analysis and simulation techniques available in CAD software",
+              ],
+            },
+            {
+              name: "Structural Analysis ",
+              SUB: [
+                "Conducting static and dynamic structural analysis on 3D models",
+                "Understanding stress analysis, deformation analysis, and factor of safety calculations",
+              ],
+            },
+            {
+              name: "Thermal Analysis",
+              SUB: [
+                "Simulating heat transfer and thermal behavior of 3D models",
+                "Analyzing temperature distribution, heat flow, and thermal stress",
+              ],
+            },
+            {
+              name: "Fluid Flow Analysis",
+              SUB: [
+                "Introduction to computational fluid dynamics (CFD) analysis",
+                "Analyzing fluid flow patterns, pressure distribution, and velocity profiles",
+              ],
+            },
+            {
+              name: "Motion Analysis",
+              SUB: [
+                "Simulating and analyzing the motion of assemblies and mechanisms",
+                "Exploring kinematics, dynamics, and collision detection",
+              ],
+            },
+            {
+              name: "Optimization and Design Validation",
+              SUB: [
+                "Utilizing optimization tools to improve design performance and efficiency",
+                "Validating design changes through analysis iterations",
+              ],
+            },
+          ],
+        },
+        {
+          name: "ADVANCED CAD MODELING VISUALIZATION & DOCUMENTATION",
+          topics: [
+            {
+              name: "Advanced Visualization Techniques ",
+              SUB: [
+                "Understanding the importance of visualization in communicating design intent",
+                "Overview of advanced visualization techniques available in CAD software",
+              ],
+            },
+            {
+              name: "Material and Texture Application ",
+              SUB: [
+                "Applying realistic materials and textures to 3D models for enhanced visualization",
+                "Exploring advanced material properties and texture mapping techniques",
+              ],
+            },
+            {
+              name: "Lighting and Rendering ",
+              SUB: [
+                "Setting up and controlling lighting conditions for realistic renderings",
+                "Exploring rendering techniques and settings to achieve high-quality visual outputs",
+              ],
+            },
+            {
+              name: "Exploded Views and Sectioning ",
+              SUB: [
+                "Creating exploded views to showcase assembly sequences and part relationships",
+                "Utilizing sectioning techniques to highlight internal components and features",
+              ],
+            },
+            {
+              name: "Technical Documentation & 2D Drawing Generation",
+              SUB: [
+                "Generating comprehensive technical documentation, including assembly drawings and part drawings",
+                "Utilizing dimensioning, annotations, and symbols to communicate design specifications",
+              ],
+            },
+            {
+              name: "Design Presentation and Collaboration",
+              SUB: [
+                "Preparing design presentations for effective communication with stakeholders",
+                "Exploring collaborative features and file sharing options for design review and feedback",
+              ],
+            },
+          ],
+        },
+      ],
+    },
   ];
 
   return (
@@ -3256,7 +3749,7 @@ const Store = ({ children }) => {
         section,
         setSection,
         filter,
-        setFilter
+        setFilter,
       }}
     >
       {children}

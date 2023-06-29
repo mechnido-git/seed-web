@@ -28,7 +28,7 @@
    padding: .5rem 1.2rem;
    cursor: pointer;
    display: flex;
-   align-items: end;
+   align-items: center;
    gap: 1rem;
    
 }

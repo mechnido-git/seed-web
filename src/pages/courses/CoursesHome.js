@@ -159,14 +159,14 @@ export const filterItems = (filter, setFilter, item, e) => {
   const allBtn = document.querySelectorAll(".All");
   console.log(active);
   if (active[0]) {
-    if ((active[0].innerHTML == e.target.closest(".filter").innerHTML) || (active[1].innerHTML == e.target.closest(".filter").innerHTML)) {
-      active[0].classList.toggle("active");
-      active[1].classList.toggle("active");
-      allBtn[0].classList.add("active");
-      allBtn[1].classList.add("active");
+    if ((active[0]?.innerHTML == e.target.closest(".filter").innerHTML) || (active[1]?.innerHTML == e.target.closest(".filter").innerHTML)) {
+      active[0]?.classList.toggle("active");
+      active[1]?.classList.toggle("active");
+      allBtn[0]?.classList.add("active");
+      allBtn[1]?.classList.add("active");
     } else {
-      active[0].classList.remove("active");
-      active[1].classList.remove("active");
+      active[0]?.classList.remove("active");
+      active[1]?.classList.remove("active");
       //e.target.classList.add("active");
       category.map(item=>{
 
@@ -203,9 +203,9 @@ function CoursesHome() {
 
   useEffect(() => {
     if (courses){
-      setRecommended(courses.filter((item, i) => i < 3))
-      setTrending(courses?.filter((item, i) => i > 2 && i < 6))
-      setTeam(courses?.filter((item, i) => i > 5 && i < 10))
+      setRecommended(courses.filter((item, i) => i < 4))
+      setTrending(courses?.filter((item, i) => i > 3 && i < 8))
+      setTeam(courses?.filter((item, i) => i > 7 && i < 12))
       setLoading(false)
     }
   }, [courses])
@@ -286,7 +286,7 @@ function CoursesHome() {
               {category.map((item, index) => (
                 <button
                   id={index === 0 ? "All" : null}
-                  className={index === 0 ? `filter active ${item}` : `filter ${item.replace(" ", "-")}`}
+                  className={filter === item ? `filter active ${item}` : `filter ${item.replace(" ", "-")}`}
                   onClick={(e) => filterItems(filter, setFilter, item, e)}
                   key={index}
                 >
