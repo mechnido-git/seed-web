@@ -108,8 +108,7 @@ function Drop({ onClickOutside, show, dropIndex, redirect, setRedirect, setSignI
 
   const viewCourseDetails = (index) => {
       if(user){
-        window.location.reload()
-        return window.open(`/menu/courses/details/${index}`,'_blank')
+        navigate(`/menu/courses/details/${index}`)
       }else{
         setRedirect(`/menu/courses/details/${index}`)
         return setSignIn(true)
