@@ -59,24 +59,27 @@ function SignIn({ index, redirect, setRedirect }) {
 
   const open = async (user) => {
     const docRef = doc(db, "users", user.uid);
-    const docSnap = await getDoc(docRef);
-
-    if (docSnap.exists()) {
-     // console.log("Document data:", docSnap.data());
-    } else {
-      // docSnap.data() will be undefined in this case
-      console.log("No such document!");
-      await setDoc(doc(db, "users", user.uid), {
-        name: user.displayName,
-        email: user.email,
-        cover: true
-      });
-    }
-    if (redirect) {
-      navigate(redirect);
-      setRedirect(null);
-    } else {
-      window.location.reload();
+    try {
+      const docSnap = await getDoc(docRef);
+      if (docSnap.exists()) {
+        // console.log("Document data:", docSnap.data());
+       } else {
+         // docSnap.data() will be undefined in this case
+         await setDoc(doc(db, "users", user.uid), {
+           name: user.displayName,
+           email: user.email,
+           cover: true
+         });
+       }
+       if (redirect) {
+         navigate(redirect);
+         setRedirect(null);
+       } else {
+         window.location.reload();
+       }
+      
+    } catch (error) {
+      alert(error)
     }
   };
 
@@ -138,6 +141,7 @@ function SignIn({ index, redirect, setRedirect }) {
   const signInGoogle = (e) => {
     e.preventDefault();
     const provider = new GoogleAuthProvider();
+    
     signInWithPopup(auth, provider)
       .then((result) => {
         // This gives you a Google Access Token. You can use it to access the Google API.
