@@ -10,12 +10,14 @@ import { collection, getDocs, orderBy, query } from "firebase/firestore";
 import { auth, db } from "../../firebase/config";
 import { onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import Spinner from "../../components/Spinner";
 
 function Drop({ onClickOutside, show, dropIndex, redirect, setRedirect, setSignIn }) {
   const [offerSwitch, setOfferSwitch] = useState(0);
   const [filter, setFilter] = useState(category[1]);
   const [eventSwitch, setEventSwitch] = useState(0);
   const [user, setUser] = useState(null)
+  const [loading, setLoading] = useState(true)
   const ref = useRef();
   const navigate = useNavigate()
 
@@ -44,7 +46,7 @@ function Drop({ onClickOutside, show, dropIndex, redirect, setRedirect, setSignI
     });
     console.log(temp);
     setCourses(temp);
-
+    setLoading(false)
     // const washingtonRef = doc(db, "courses", "r8weEIiW3iJ8ocAkeTtJ");
 
     // // Set the "capital" field of the city 'DC'
@@ -115,6 +117,7 @@ function Drop({ onClickOutside, show, dropIndex, redirect, setRedirect, setSignI
       }
   }
 
+  
 
   return (
     <div className="drop-menu" ref={ref}>
@@ -150,6 +153,7 @@ function Drop({ onClickOutside, show, dropIndex, redirect, setRedirect, setSignI
                 })}
               </ul>
               <div className="cards">
+                {loading && <Spinner loading={true} />}
                 {courses.length !== 0 && <CardBuilder
                   arr={courses}
                   viewDetails={viewCourseDetails}
@@ -180,6 +184,7 @@ function Drop({ onClickOutside, show, dropIndex, redirect, setRedirect, setSignI
                 </li>
               </ul>
               <div className="cards">
+              {loading && <Spinner loading={true} />}
                 {eventSwitch == 0
                   ? cardBuilder()
                   : eventSwitch == 1

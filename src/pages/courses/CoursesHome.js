@@ -209,7 +209,7 @@ function CoursesHome() {
       setRecommended(courses.filter((item, i) => i < 4))
       setTrending(courses?.filter((item, i) => i > 3 && i < 8))
       setTeam(courses?.filter((item, i) => i > 7 && i < 12))
-      setTimeout(()=>{setLoading(false)}, 2000)
+      setLoading(false)
     }
   }, [courses])
 

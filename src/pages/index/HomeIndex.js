@@ -15,10 +15,12 @@ import {
 } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
 import axios from "axios";
+import Spinner from "../../components/Spinner";
 
 function HomeIndex() {
   const [register, setRegister] = useState(false);
   const { event, signIn, setSignIn } = useOutletContext();
+  const [loading, setLoading] = useState(true)
 
   const { setCourses, courses, setUserName } = useContext(StoreContext);
 
@@ -45,7 +47,7 @@ function HomeIndex() {
       });
       console.log(temp);
       setCourses(temp);
-
+      setLoading(false)
       // const washingtonRef = doc(db, "courses", "sE2QV4XJjyCVPWjA8XNs");
 
       // // Set the "capital" field of the city 'DC'
@@ -71,6 +73,8 @@ function HomeIndex() {
       });
     }
   }, [signIn]);
+
+  if(loading) return <Spinner loading={true} />
 
   return (
     <>
