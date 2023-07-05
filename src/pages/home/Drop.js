@@ -153,6 +153,7 @@ function Drop({ onClickOutside, show, dropIndex, redirect, setRedirect, setSignI
                 {courses.length !== 0 && <CardBuilder
                   arr={courses}
                   viewDetails={viewCourseDetails}
+
                 />}
               </div>
             </div>

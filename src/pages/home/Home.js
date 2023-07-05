@@ -60,27 +60,33 @@ function Home() {
   const contentRef3 = useRef(null);
 
   useEffect(() => {
-    contentRef1.current.style.maxHeight = active1
+    if(contentRef1.current){
+      contentRef1.current.style.maxHeight = active1
       ? `${contentRef1.current.scrollHeight}px`
       : "0px";
+    }
   }, [contentRef1, active1]);
 
   const toggleAccordion1 = () => {
     setActive1(!active1);
   };
   useEffect(() => {
-    contentRef2.current.style.maxHeight = active2
+    if(contentRef2.current){
+      contentRef2.current.style.maxHeight = active2
       ? `${contentRef2.current.scrollHeight}px`
       : "0px";
+    }
   }, [contentRef2, active2]);
 
   const toggleAccordion2 = () => {
     setActive2(!active2);
   };
   useEffect(() => {
-    contentRef3.current.style.maxHeight = active3
+    if(contentRef3.current){
+      contentRef3.current.style.maxHeight = active3
       ? `${contentRef3.current.scrollHeight}px`
       : "0px";
+    }
   }, [contentRef3, active3]);
 
   const toggleAccordion3 = () => {
@@ -96,10 +102,10 @@ function Home() {
       }
   };
 
+  if(loading) return <Spinner other="globel" loading={loading} />
+
   return (
     <>
-      {loading && <Spinner other="globel" loading={loading} />}
-
       <HomeNav
         bodyId={'home'}
         links={[<Link to="/about">About</Link>, <Link to="/sower">Become a Sower</Link>]}
@@ -115,8 +121,8 @@ function Home() {
       <div className="home" id="home">
         <div className="hero">
           <h2>
-            "Revolutionizing Possibilities: A Showcase of Engineering
-            Excellence!"
+            Revolutionizing Possibilities: A Showcase of Engineering
+            Excellence!
           </h2>
           <div className="btns">
             <button onClick={goToLink}>Get started</button>

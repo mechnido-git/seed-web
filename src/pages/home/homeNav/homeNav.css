@@ -13,6 +13,7 @@
     background-color: #00b17b99 ;
     gap: 1rem;
     transition: .4s;
+    min-height: 60px;
 }
 
 .App > .nav .options{
@@ -29,7 +30,7 @@
   }
   
   .App > .nav a > #logo{
-      width: 7rem;
+      width: 120px;
       margin-left: 1rem;
   }
   
@@ -399,12 +400,19 @@
          grid-column: 3 / 4;
          grid-row: 1 / 2 ;
        }
+       .App > .nav.toggle .options{
+        padding: 10px;
+        width: 100%;
+       }
+
    
         .App > .nav.toggle .options ul{
          display: flex;
-         flex-direction: column;
          align-items: center;
-         gap: 1.5rem;
+        justify-content: space-evenly;
+        gap: 10px;
+        font-size: 14px;
+        width: 100%;
        }
    
         .App > .nav.toggle .right{
@@ -418,7 +426,7 @@
         .App > .nav.toggle .options > .links{
          flex-direction: column;
          align-items: start;
-         margin: 0 auto;
+         margin: 0 10px;
        }
       .App > .nav.toggle .options{
          flex-direction: column-reverse;
@@ -454,4 +462,18 @@
          font-size: 13px;
          white-space: nowrap;
        }
+    }
+
+    @media only screen and (max-width: 425px){
+      .App > .nav a > #logo{
+        width: 100px;
+      }
+      .App .nav > .right{
+        gap: 0;
+      }
+      .home > .hero > h2 {
+        font-size: 22px;
+        line-height: 30px;
+        letter-spacing: 2px;
+    }
     }

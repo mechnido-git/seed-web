@@ -17,6 +17,7 @@ import Spinner from "../../components/Spinner";
 import soon from "../../images/soon.jpg";
 import { useCountdown } from "../../hooks/useCountDown";
 import Footer from "../../components/footer/Footer";
+import ImageLoader from "../../components/imageLoader/ImageLoader";
 
 function RegisterInfo({ date, data }) {
   const [eventDate, setEventDate] = useState(new Date(date));
@@ -106,7 +107,9 @@ function EventIndex() {
       })
       .catch()
       .finally(() => {
-        setLoading(false);
+        setTimeout(() => {
+          setLoading(false);
+        }, 1000);
       });
   }, []);
   const ref = useRef();
@@ -176,11 +179,12 @@ function EventIndex() {
                     {events.map((item, i) => {
                       return (
                         <SplideSlide key={i}>
-                          <img
+                          <ImageLoader src={image} style={{ objectFit: "contain", width: "100%" }} />
+                          {/* <img
                             style={{ objectFit: "contain", width: "100%" }}
                             src={image}
                             alt="Image 1"
-                          />
+                          /> */}
                         </SplideSlide>
                       );
                     })}

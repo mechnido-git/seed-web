@@ -134,9 +134,9 @@ function Navbar({ signIn }) {
         <img src={logo} alt="" onClick={() => navigate("/")} />
       </div>
       <div className="search-bar">
-        <img src={search} alt="" />
+        <img src={search} alt="" onClick={()=>{document.getElementById('search').focus()}} />
         <div className="input-div">
-          <input onKeyDown={handleKeyDown} type="text" value={input} onChange={handleSearch} placeholder="Search" />
+          <input id="search" onKeyDown={handleKeyDown}  type="text" value={input} onChange={handleSearch} placeholder="Search" />
         </div>
         {results.length !== 0 && output && <div className="results">
           {results.map((item, key) => {

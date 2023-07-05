@@ -44,6 +44,8 @@
   font-size: 30px;
   margin: 1rem;
   margin-top: 5rem;
+  text-shadow: 2px 2px 2px #444444;
+  font-weight: 600;
 }
 .home > .hero > .btns{
     display: flex;

@@ -11,6 +11,8 @@ import Spinner from "../../components/Spinner";
 import { StoreContext } from "../../store/StoreContext";
 import Enroll from "../payment/Enroll";
 import Footer from "../../components/footer/Footer";
+import CardLoader from "../../components/cardLoader/cardLoader";
+import ImageLoader from "../../components/imageLoader/ImageLoader";
 
 export const recomended = [
   {
@@ -98,13 +100,14 @@ export const trending = [
   },
 ];
 
-export const CardBuilder = ({ arr, limit, viewDetails }) => (
+export const CardBuilder = ({ arr, limit, viewDetails, loading }) => (
   <>
     {arr.map((item, index) => {
       if (limit != null && index >= limit) return;
       return (
         <div className="card" key={index} onClick={() => viewDetails(item.order)}>
-          <img src={require("../../images/courses.jpg")} alt="" />
+          {/* <img src={require("../../images/courses.jpg")} alt="" /> */}
+          <ImageLoader src={require("../../images/courses.jpg")} />
           <div className="body">
 
             <h4>
@@ -206,7 +209,7 @@ function CoursesHome() {
       setRecommended(courses.filter((item, i) => i < 4))
       setTrending(courses?.filter((item, i) => i > 3 && i < 8))
       setTeam(courses?.filter((item, i) => i > 7 && i < 12))
-      setLoading(false)
+      setTimeout(()=>{setLoading(false)}, 2000)
     }
   }, [courses])
 
@@ -251,7 +254,7 @@ function CoursesHome() {
     <>
       <div className="courses-home">
         {loading ? (
-          <Spinner loading={loading} />
+          <Spinner loading={true} />
         ) : (
           <>
             <div className="slides">
@@ -273,7 +276,8 @@ function CoursesHome() {
                 }}
               >
                 {courses?.map((item, i) => <SplideSlide key={i}>
-                  <img src={courseList[i].slide} style={{ objectFit: "contain", width: "100%" }} alt="" />
+                  {/* <img src={courseList[i].slide} style={{ objectFit: "contain", width: "100%" }} alt="" /> */}
+                  <ImageLoader src={courseList[i].slide} style={{ objectFit: "contain", width: "100%" }} />
                 </SplideSlide>)}
               </Splide>
 
@@ -306,6 +310,7 @@ function CoursesHome() {
                     limit={4}
                   /> */}
                   <CardBuilder
+                    loading={loading}
                     arr={recommended.filter((item) =>
                       filter === "All" ? item : filter == item.category
                     )}

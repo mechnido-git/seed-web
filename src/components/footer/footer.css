@@ -103,3 +103,20 @@
       padding: 1rem .5rem;
     }
   }
+
+  @media only screen and (max-width: 420px){
+    .footer > h2{
+      font-size: 18px !important;
+    }
+    .home > .footer > .links > .section > h3{
+      font-size: 16px !important;
+    }
+    .footer > .links > .section a, .sower .footer > .links > .section a{
+      font-size: 14px !important;
+    }
+
+    .footer > .links, .sower .footer > .links{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
