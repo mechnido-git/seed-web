@@ -101,8 +101,8 @@ function Home() {
         setSignIn(true);
       }
   };
-
-  if(loading) return <Spinner other="globel" loading={loading} />
+  
+  if(loading) return <Spinner other="globel" loading={true} />
 
   return (
     <>
