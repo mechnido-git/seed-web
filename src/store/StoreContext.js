@@ -3732,6 +3732,337 @@ const Store = ({ children }) => {
     },
   ];
 
+const event_list= [
+  {
+    title:"",
+    about:{
+      img:"",
+      title:"ABOUT TNKC",
+      description:" TNKC stands for TAMILNADU KARTING CHAMPIONSHIP is powered by Mechnido's Seed and supported by the Tamilnadu Government. It is an offline event encouraging budding engineers in designing a Go-kart or E-kart with proper engineering techniques. It aims at developing appropriate designing skills and understanding of the relevant scientific theories. It is a team event. The participating teams have to develop a model of Go-kart or an E-kart, analyze and optimize virtually, under ideal conditions using modern computer applications, scientific theories and engineering calculations. The teams are then evaluated based on various relevant aspects required to design a fully functional vehicle."
+    },
+
+    why:{
+      img:"",
+      heading:" Why TNKC 2023",
+      sibling:[
+        {
+          title:"EXPERIENTIAL LEARNING",
+          description:"learning through doing, while experiential education incorporates the pedagogies and structures that support this process"
+        },
+        {
+          title:"PARTICLE EXPOSURE",
+          description:"We introduce engineering students to actual workplace scenarios"
+        },
+        {
+          title:"NETWORKING WITH EXPERT",
+          description:"Network with experts to learn about new trends, share insights and receive"
+        },
+        {
+          title:"TEAMWORK",
+          description:" Characterized by effective communication, mutual respect, shared goals and objectives, and a willingness to work together to achieve those goals"
+        },
+        {
+          title:"COMPETITIVE SPIRIT",
+          description:"Desire to succeed, be the best,and win"
+        },
+        {
+          title:"ENTREPRENEURIAL SKILLS", 
+          description:"Possess creative problem-solving skills, an  engineer’s mindset and a toolkit of  experience based on agile practices, multitasking and self-drive."
+        },
+        {
+          title:"CHALLENGE",
+          description:"Facing challenges and ensure their honourable profession is continued into future generation"
+        },
+        {
+          title:"CAREER DEVELOPMENT",
+          description:" Involves acquiring new skills and knowledge, setting goals, and developing strategies to achieve those goals"
+        }
+      ]
+
+
+    },
+    features:{
+      img:"",
+      sib:[{
+        title:"Internships for Champions & Runner",
+        image:""
+      },
+      {
+        title:"Placements for Champions & Runner ",
+        image:""
+      },
+      {
+        title:"Workshops will  be provided to all participants",
+        image:""
+      },
+      {
+        title:"2 Lakhs Cash Prize & Awards",
+        image:""
+      },
+      {
+        title:"20% Discount on complete Female Participants",
+        image:""
+      }
+
+    ]
+    },
+    workflow:{
+      title:"Event Work Flow",
+      data:[
+        "EVENT LAUNCH & REGISTRATION OPEN SPONCERS",
+        "OFFLINE & ONLINE MARKETING",
+        "REGISTRATION CLOSING",
+        " TEAM DETAILS COLLECTION",
+        "WORKSHOP","VIRTUAL EVENT",
+        " REPORT COLLECTION",
+        "COLLEGE LEVEL TI",
+        "TEAM PROMO VIDEO",
+        "FINAL EVENT VENUE",
+        "FACILITY ARRANGEMENTS",
+        "CLOSING CERMONY ARRANGEMENTS "
+      ]
+    },
+
+    schedule:{
+      title:"Event Schedule",
+      data:[
+        {
+          task:"Registration Starts",
+          date:"15.07.2023"
+        },
+        {
+          task:"Payment Last Date",
+          date:"At the Time of Registration"
+        },
+        {
+          task:"Registration Ends",
+          date:"15.08.2023"
+        },
+        {
+          task:"Team Details Submission End",
+          date:"17.08.2023"
+        },
+        {
+          task:"Workshop",
+          date:"21.08.2023"
+        },
+        {
+          task:"Phase 1 Design Report Submission Start",
+          date:"11.09.2023"
+        },
+        {
+          task:"Phase 1 Design Report Submission End",
+          date:"12.09.2023"
+        },
+        {
+          task:"Presentation Report Submission Start",
+          date:"11.09.2023"
+        },
+        {
+          task:"Presentation Report Submission End",
+          date:"12.09.2023"
+        },
+        {
+          task:"Virtual Event Day 1",
+          date:"15.09.2023"
+        },
+        {
+          task:"Virtual Event Day 2",
+          date:"16.09.2023"
+        },
+        {
+          task:"Virtual Results",
+          date:"17.09.2023"
+        },
+        {
+          task:"Final Design Report Submission Start",
+          date:"23.10.2023"
+        },
+        {
+          task:"Final Design Report Submission End",
+          date:"24.10.2023"
+        },
+        {
+          task:"College Level Technical inspection",
+          date:"25.10.2023"
+        },
+        {
+          task:"Team Promo Video Submission",
+          date:"25.10.2023"
+        },
+        {
+          task:"Final Event Starts",
+          date:"09.11.2023"
+        },
+        {
+          task:"Final Event Ends",
+          date:"11.11.2023"
+        }
+      ]
+    },
+    prize:{
+      title:"Cash Prize & Awards",
+      img:"",
+      sib:[{
+        img:"",
+        text:"IC Engine",
+        description:"Overall Cash Prize",
+        money:"95,000 INR"
+      },
+      {
+        img:"",
+        text:"Electric",
+        description:"Overall Cash Prize",
+        money:"80,000 INR"
+      }]
+    },
+    awards:
+    {
+      img:"",
+      array:
+      [
+      {
+        title:"IC Engine",
+
+        data:[
+          {
+            h1:"Runner Up",
+            p:"Trophy + Cash Prize",
+            money:"20,000 INR"
+          },
+          {
+            h1:"Champion",
+            p:"Trophy + Cash Prize",
+            money:"40,000 INR"
+          },
+          {
+            h1:"Best Endurance",
+            p:"Trophy + Cash Prize",
+            money:"10,000 INR"
+          },
+          {
+            h1:"Design & CAE",
+            p:"Trophy + Cash Prize",
+            money:"5,000 INR"
+          },
+          {
+            h1:"BMC",
+            p:"Trophy + Cash Prize",
+            money:"5,000 INR"
+          },
+          {
+            h1:"Innovation",
+            p:"Trophy + Cash Prize",
+            money:"5,000 INR"
+          },
+          {
+            h1:"Aesthetics",
+            p:"Trophy + Cash Prize",
+            money:"5,000 INR"
+          },
+          {
+            h1:"Acceleration",
+            p:"Trophy + Cash Prize",
+            money:"5,000 INR"
+          },
+          {
+            h1:"SkidPad",
+            p:"Trophy + Cash Prize",
+            money:"5,000 INR"
+          },
+          {
+            h1:"Autocross",
+            p:"Trophy + Cash Prize",
+            money:"5,000 INR"
+          },
+          {
+            h1:"Team Strategy",
+            p:"Trophy + Cash Prize",
+            money:"5,000 INR"
+          },
+          {
+            h1:"Dronacharya",
+            p:"Trophy + Cash Prize",
+            money:"5,000 INR"
+          },
+        
+        ]
+      },
+      {
+        title:"",
+        data:[
+          {
+            h1:"Runner Up",
+            p:"Trophy + Cash Prize",
+            money:"15,000 INR"
+          },
+          {
+            h1:"Champion",
+            p:"Trophy + Cash Prize",
+            money:"30,000 INR"
+          },
+          {
+            h1:"Best Endurance",
+            p:"Trophy + Cash Prize",
+            money:"10,000 INR"
+          },
+          {
+            h1:"Design & CAE",
+            p:"Trophy + Cash Prize",
+            money:"5,000 INR"
+          },
+          {
+            h1:"BMC",
+            p:"Trophy + Cash Prize",
+            money:"5,000 INR"
+          },
+          {
+            h1:"Innovation",
+            p:"Trophy + Cash Prize",
+            money:"5,000 INR"
+          },
+          {
+            h1:"Aesthetics",
+            p:"Trophy + Cash Prize",
+            money:"5,000 INR"
+          },
+          {
+            h1:"Acceleration",
+            p:"Trophy + Cash Prize",
+            money:"5,000 INR"
+          },
+          {
+            h1:"SkidPad",
+            p:"Trophy + Cash Prize",
+            money:"5,000 INR"
+          },
+          {
+            h1:"Autocross",
+            p:"Trophy + Cash Prize",
+            money:"5,000 INR"
+          },
+          {
+            h1:"Team Strategy",
+            p:"Trophy + Cash Prize",
+            money:"5,000 INR"
+          },
+          {
+            h1:"Dronacharya",
+            p:"Trophy + Cash Prize",
+            money:"5,000 INR"
+          }
+
+          
+        ]
+      }
+    ]}
+  }  // till here one event
+
+
+]
+
+
+
   return (
     <StoreContext.Provider
       value={{
