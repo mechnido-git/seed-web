@@ -1,0 +1,9 @@
+.event-details{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    overflow-y: auto;
+    grid-column: 2 / 4;
+    grid-row: 2 / 3;
+    padding: 2rem 3rem;
+}
