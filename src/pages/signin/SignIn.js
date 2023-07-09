@@ -8,6 +8,7 @@ import {
   sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
+  signInWithRedirect,
   updateProfile,
 } from "firebase/auth";
 import { auth, db } from "../../firebase/config";
@@ -58,6 +59,7 @@ function SignIn({ index, redirect, setRedirect }) {
   };
 
   const open = async (user) => {
+    alert("yes")
     const docRef = doc(db, "users", user.uid);
     try {
       const docSnap = await getDoc(docRef);
@@ -141,8 +143,8 @@ function SignIn({ index, redirect, setRedirect }) {
   const signInGoogle = (e) => {
     e.preventDefault();
     const provider = new GoogleAuthProvider();
-    
-    signInWithPopup(auth, provider)
+
+    signInWithRedirect(auth, provider)
       .then((result) => {
         // This gives you a Google Access Token. You can use it to access the Google API.
         const credential = GoogleAuthProvider.credentialFromResult(result);
@@ -153,7 +155,7 @@ function SignIn({ index, redirect, setRedirect }) {
         // IdP data available using getAdditionalUserInfo(result)
         // ...
         //navigate("/menu/dashboard");
-
+        alert("yes")
         open(user);
       })
       .catch((error) => {

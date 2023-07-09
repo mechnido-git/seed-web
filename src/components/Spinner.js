@@ -1,10 +1,11 @@
 import React from 'react'
+import ScaleLoader from 'react-spinners/ScaleLoader';
 import ClipLoader from "react-spinners/ClipLoader";
 
 function Spinner({loading, other}) {
   return (
     <div className={`spinner ${other}`}>
-      <ClipLoader
+      <ScaleLoader
         color={'#00B17B'}
         loading={loading}
         size={40}
