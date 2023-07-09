@@ -3,7 +3,7 @@ import "./home.css";
 import trophy from "../../images/trophy.png";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { useNavigate } from "react-router-dom";
-import { onAuthStateChanged, signOut } from "firebase/auth";
+import { GoogleAuthProvider, getRedirectResult, onAuthStateChanged, signOut } from "firebase/auth";
 import { auth, db } from "../../firebase/config";
 import Spinner from "../../components/Spinner";
 import { HashLink } from "react-router-hash-link";
@@ -16,6 +16,7 @@ import sponsor from "../../images/sponsor.jpg";
 import HomeNav from "./homeNav/HomeNav";
 import { Link } from "react-router-dom";
 import Footer from "../../components/footer/Footer";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 
 function Home() {
   const [signIn, setSignIn] = useState(false);
@@ -29,11 +30,56 @@ function Home() {
   const [dp, setDp] = useState(profile);
 
   const [redirect, setRedirect] = useState(null);
+  const [redirectLoad, setRedirectLoad] = useState(false)
+
+  const checkUser = async(user) => {
+    
+     const docRef = doc(db, "users", user.uid);
+    try {
+      const docSnap = await getDoc(docRef);
+      if (docSnap.exists()) {
+        // console.log("Document data:", docSnap.data());
+       } else {
+         // docSnap.data() will be undefined in this case
+         await setDoc(doc(db, "users", user.uid), {
+           name: user.displayName,
+           email: user.email,
+           cover: true
+         });
+       }
+       const redirect = localStorage.getItem('redirect')
+       localStorage.removeItem('redirect')
+       if(redirect) navigate(redirect)
+      } catch (error) {
+        alert(error)
+      }
+  }
 
   useEffect(() => {
     const loc = window.location.href.split("/")
     const last = loc[loc.length -1]
     onAuthStateChanged(auth, (user) => {
+      getRedirectResult(auth)
+  .then((result) => {
+    // This gives you a Google Access Token. You can use it to access Google APIs.
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    setRedirectLoad(true)
+    const token = credential.accessToken;
+    // The signed-in user info.
+    const user = result.user;
+    // IdP data available using getAdditionalUserInfo(result)
+    checkUser(user)
+   
+  }).catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.customData.email;
+    // The AuthCredential type that was used.
+    const credential = GoogleAuthProvider.credentialFromError(error);
+    // ...
+  });
       if (user) {
         setUserName(user.displayName);
         setName(user.displayName);
@@ -101,8 +147,7 @@ function Home() {
         setSignIn(true);
       }
   };
-  
-  if(loading) return <Spinner other="globel" loading={true} />
+  if(loading || redirectLoad) return <Spinner other="globel" loading={true} />
 
   return (
     <>

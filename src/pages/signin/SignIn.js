@@ -59,7 +59,6 @@ function SignIn({ index, redirect, setRedirect }) {
   };
 
   const open = async (user) => {
-    alert("yes")
     const docRef = doc(db, "users", user.uid);
     try {
       const docSnap = await getDoc(docRef);
@@ -143,31 +142,10 @@ function SignIn({ index, redirect, setRedirect }) {
   const signInGoogle = (e) => {
     e.preventDefault();
     const provider = new GoogleAuthProvider();
-
+    if (redirect) {
+      localStorage.setItem('redirect', redirect)
+    }
     signInWithRedirect(auth, provider)
-      .then((result) => {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-        // The signed-in user info.
-        const user = result.user;
-
-        // IdP data available using getAdditionalUserInfo(result)
-        // ...
-        //navigate("/menu/dashboard");
-        alert("yes")
-        open(user);
-      })
-      .catch((error) => {
-        // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // The email of the user's account used.
-        const email = error.customData.email;
-        // The AuthCredential type that was used.
-        const credential = GoogleAuthProvider.credentialFromError(error);
-        // ...
-      });
   };
 
   const signInFB = (e) => {
