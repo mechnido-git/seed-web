@@ -16,41 +16,6 @@ function CourseDetails() {
   const loc = useLocation();
   const navigate = useNavigate()
 
-  const otherCourses = [
-    {
-      name: "Course 1",
-      price: 200
-    },
-    {
-      name: "Course 2",
-      price: 200
-    },
-    {
-      name: "Course 3",
-      price: 200
-    },
-    {
-      name: "Course 4",
-      price: 200
-    },
-    {
-      name: "Course 5",
-      price: 200
-    },
-    {
-      name: "Course 6",
-      price: 200
-    },
-    {
-      name: "Course 7",
-      price: 200
-    },
-    {
-      name: "Course 8",
-      price: 200
-    },
-  ]
-
   const { courseList, courses, userId } = useContext(StoreContext);
 
   console.log(courseList[index]);

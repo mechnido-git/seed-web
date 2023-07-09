@@ -2,13 +2,11 @@ import React, { useContext, useEffect, useState, useRef } from "react";
 import "./eventIndex.css";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import image from "../../images/slide3.png";
-import poster from "../../images/aa7.jpg";
 import kart from "../../images/kart.jpg";
-import trophy from "../../images/trophy.png";
 import medal from "../../images/medal.png";
 
 import "@splidejs/react-splide/css";
-import { useLocation, useOutletContext } from "react-router-dom";
+import { useNavigate, useOutletContext } from "react-router-dom";
 import RegisterForm from "../../components/RegisterForm";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth, db } from "../../firebase/config";
@@ -77,22 +75,14 @@ function RegisterInfo({ date, data }) {
 }
 
 function EventIndex() {
-  const [signIn, setSignIn] = useState(false);
   const [currentEvent, setCurrentEvent] = useState(0);
   const [user, setUser] = useState(false);
   const [uid, setUid] = useState("");
-  const imgWidth = window.innerWidth < 1024 ? "100%" : "200px";
-  const gap = window.innerWidth < 1024 ? "1rem" : "4rem";
   const { register, setRegister } = useOutletContext();
   const [loading, setLoading] = useState(true);
   const [events, setEvents] = useState(null);
-  const [yes, setYes] = useState(false);
 
-  let eventDate = new Date("5/27/2023");
-  let currentDate = new Date();
-
-  const [days, hours, minutes, seconds] = useCountdown(eventDate);
-  const eventList = ["Event One", "Event Two", "Event Three"];
+  const navigate = useNavigate()
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -138,6 +128,10 @@ function EventIndex() {
     }
   }, [loading])
 
+  const viewDetails = () => {
+    navigate(`/menu/events/details/${currentEvent}`)
+  }
+
   return (
     <>
       <div className="events-index">
@@ -152,6 +146,7 @@ function EventIndex() {
                   <Splide
                     ref={ref}
                     onMove={(splide, prev, next) => {
+
                       setCurrentEvent(splide.index);
                       console.log(prev, splide.index, next);
                       console.log(
@@ -197,6 +192,11 @@ function EventIndex() {
                   onClick={() => (user ? getRegister() : alert("login first"))}
                 >
                   Register
+                </button>
+                <button
+                onClick={viewDetails}
+                >
+                  Know More
                 </button>
               </div>
             </div>
