@@ -3732,9 +3732,10 @@ const Store = ({ children }) => {
     },
   ];
 
-const event_list= [
+const eventList = [
   {
-    title:"",
+    title:"TNKC",
+    subtitle:"TAMILNADU KARTING CHAMPIONSHIP",
     about:{
       img:"",
       title:"ABOUT TNKC",
@@ -4081,6 +4082,7 @@ const event_list= [
         setSection,
         filter,
         setFilter,
+        eventList
       }}
     >
       {children}
