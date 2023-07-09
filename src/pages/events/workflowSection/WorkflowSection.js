@@ -1,11 +1,8 @@
 import React from 'react'
 
-function WorkflowSection({event}) {
+function WorkflowSection() {
   return (
-    <div>
-        <h1>{event.title}</h1>
-        <h3>{event.subtitle}</h3>
-    </div>
+    <div>WorkflowSection</div>
   )
 }
 
