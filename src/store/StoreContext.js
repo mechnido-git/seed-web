@@ -3741,7 +3741,6 @@ const eventList = [
       title:"ABOUT TNKC",
       description:" TNKC stands for TAMILNADU KARTING CHAMPIONSHIP is powered by Mechnido's Seed and supported by the Tamilnadu Government. It is an offline event encouraging budding engineers in designing a Go-kart or E-kart with proper engineering techniques. It aims at developing appropriate designing skills and understanding of the relevant scientific theories. It is a team event. The participating teams have to develop a model of Go-kart or an E-kart, analyze and optimize virtually, under ideal conditions using modern computer applications, scientific theories and engineering calculations. The teams are then evaluated based on various relevant aspects required to design a fully functional vehicle."
     },
-
     why:{
       img:"",
       heading:" Why TNKC 2023",

@@ -1,0 +1,32 @@
+
+.grid-container{
+    display: grid;
+    margin-top: 10px;
+    grid-template-columns: auto auto auto auto;
+    border-radius: 10px;
+    background-color: var(--secondary); 
+    /* background-color: var(--primary); */
+}
+.grid-item {
+    /* background-color: rgba(255, 255, 255, 0.8); */
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+    height: 240px;
+  }
+.devdes{
+    margin-top: 5px;
+    font-size: 17px;
+}
+.devimg{
+    margin-bottom: 5px;
+    mix-blend-mode: darken;
+}
+.devtitle{
+    font-size: large;
+    margin-bottom: 15px;
+}
+.whyh1{
+    line-height: 100px;
+    font-size: 40px;
+}
