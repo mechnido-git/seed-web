@@ -1,0 +1,66 @@
+.mainsection{
+    display: flex;
+    gap:40px
+}
+.title{
+    display: block;
+    width: 50%;
+}
+.title h1{
+    display: block;
+   
+    font-size: 55px;
+     line-height: 113%; 
+    font-weight: 600;
+    /* margin: 2rem 0; */
+    text-transform: uppercase;
+}
+.subtitle{
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+.title p{
+    /* margin: 5px; */
+    /* font-size: medium; */
+    font-size: 17px;
+    line-height: 26px;
+    font-weight: 400;
+}
+
+.btn{
+    padding: .8rem 4rem;
+    font-size: 20px;
+    font-weight: 500;
+    border-radius: 5px;
+    border: 2px solid var(--primary);
+    background-color: var(--primary);
+    color: var(--secondary);
+    cursor: pointer;
+    margin:  1rem auto;
+    transition: .2s;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+.titleimage{
+    /* display: inline; */
+    flex:1;
+    margin-top: 40px;
+    width: 40%;
+    
+
+}
+.image{
+    width: 600px;
+    border-radius: 10px;
+    /* margin-left: 50px; */
+    margin-top: 70px;
+    height: 300px;
+    mix-blend-mode: darken;
+    
+}
+/* .image:hover{
+    cursor: pointer;
+    transition: .5s;
+    box-shadow: 5px 5px grey;
+} */
