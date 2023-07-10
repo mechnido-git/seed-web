@@ -6,6 +6,8 @@ import NeedSection from './needSection/NeedSection';
 import GraphSection from './graphSection/GraphSection';
 import WorkflowSection from './workflowSection/WorkflowSection';
 import { StoreContext } from '../../store/StoreContext';
+import ScheduleSection from './scheduleSection/ScheduleSection';
+import AwardSection from './awardsSection/AwardSection';
 
 function EventDetails() {
     const { index } = useParams();
@@ -16,6 +18,8 @@ function EventDetails() {
         <NeedSection event={eventList[index]} />
         <GraphSection event={eventList[index]} />
         <WorkflowSection event={eventList[index]} />
+        <ScheduleSection event={eventList[index]} />
+        <AwardSection event={eventList[index]} />
     </div>
   )
 }
