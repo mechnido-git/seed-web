@@ -3786,23 +3786,23 @@ const eventList = [
       img:"",
       sib:[{
         title:"Internships for Champions & Runner",
-        image:""
+        image:"https://img.icons8.com/?size=512&id=Shgdq9ciSCMx&format=png"
       },
       {
         title:"Placements for Champions & Runner ",
-        image:""
+        image:"https://img.icons8.com/?size=512&id=Shgdq9ciSCMx&format=png"
       },
       {
         title:"Workshops will  be provided to all participants",
-        image:""
+        image:"https://img.icons8.com/?size=512&id=Shgdq9ciSCMx&format=png"
       },
       {
         title:"2 Lakhs Cash Prize & Awards",
-        image:""
+        image:"https://img.icons8.com/?size=512&id=Shgdq9ciSCMx&format=png"
       },
       {
         title:"20% Discount on complete Female Participants",
-        image:""
+        image:"https://img.icons8.com/?size=512&id=Shgdq9ciSCMx&format=png"
       }
 
     ]
