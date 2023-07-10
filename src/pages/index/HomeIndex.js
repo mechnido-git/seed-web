@@ -25,16 +25,6 @@ function HomeIndex() {
   const { setCourses, courses, setUserName } = useContext(StoreContext);
 
   useEffect(() => {
-    window.addEventListener("popstate", () => window.location.reload());
-
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUserName(user.displayName);
-      } else {
-        setSignIn(true);
-      }
-    });
-
     const doFetch = async () => {
       const q = query(collection(db, "courses"), orderBy("order", "asc"));
       const querySnapshot = await getDocs(q);
@@ -56,11 +46,15 @@ function HomeIndex() {
       // });
       
     };
-    doFetch();
-    console.log("hello");
-    return () => {
-      window.removeEventListener("popstate", () => window.location.reload());
-    };
+
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUserName(user.displayName);
+        doFetch();
+      } else {
+        setSignIn(true);
+      }
+    });
   }, []);
 
   useEffect(() => {
