@@ -1,8 +1,12 @@
 import React from 'react'
-
-function MainSection() {
+import "./mainsectionstyle.css";
+function MainSection({event}) {
   return (
-    <div>MainSection</div>
+    <div className="title"> 
+      <h1>TNKC</h1>
+      <h2>TAMILNADU CARTING CHAMPIONSHIP</h2>
+
+    </div>
   )
 }
 
