@@ -6,7 +6,7 @@ function NeedSection({event}) {
     <div>
        <div className='whysection'> 
     <div>
-      <h1 className='whyh1'>{event.why.heading}</h1>
+      <h2 className='whyh1'>{event.why.heading}</h2>
       <div class="grid-container">
   <div class="grid-item">
    <img className='devimg' src={tick} alt="image1"/>
