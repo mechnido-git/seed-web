@@ -7,3 +7,7 @@
     grid-row: 2 / 3;
     padding: 2rem 3rem;
 }
+.event-details h2{
+    font-size: 35px;
+    margin:15px;
+}
