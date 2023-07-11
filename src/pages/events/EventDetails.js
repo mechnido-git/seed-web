@@ -8,6 +8,7 @@ import WorkflowSection from './workflowSection/WorkflowSection';
 import { StoreContext } from '../../store/StoreContext';
 import ScheduleSection from './scheduleSection/ScheduleSection';
 import AwardSection from './awardsSection/AwardSection';
+import Footer from '../../components/footer/Footer';
 
 function EventDetails() {
     const { index } = useParams();
@@ -20,6 +21,7 @@ function EventDetails() {
         <WorkflowSection event={eventList[index]} />
         <ScheduleSection event={eventList[index]} />
         <AwardSection event={eventList[index]} />
+        <Footer />
     </div>
   )
 }
