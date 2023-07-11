@@ -13,3 +13,9 @@
 .graph-container > .feature > img{
     width: 80px;
 }
+
+.graph-section{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
