@@ -2,38 +2,17 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 20px;
-    padding: 2rem 0;
     align-items: center;
     position: relative;
 }
 
 .workflow-container > .content {
     display: grid;
-    grid-template-columns: auto minmax(700px, auto);
+    grid-template-columns: auto 1fr;
     gap: 10px;
     align-items: center;
     justify-content: center;
     position: relative;
-}
-
-.workflow-container > .back {
-    position: absolute;
-    width: 100%;
-    top: 20px;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 150px;
-}
-
-.workflow-container > .back > img {
-    width: 200px;
-    mix-blend-mode: darken;
-}
-
-.workflow-container  > .back  > img:nth-child(even) {
-    justify-self: end;
-    -webkit-transform: scaleX(-1);
-    transform: scaleX(-1);
 }
 
 .workflow-container > .content > h3 {
@@ -49,12 +28,12 @@
 
 }
 
-.workflow-container > .content > p {
+.workflow-container > .content > h4 {
     padding: 1.5rem;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
     color: var(--secondary);
     border-radius: 10px;
-    font-size: 17px;
+    font-size: 20px;
     background-color: var(--primary);
     grid-column: 2 / 3;
     
@@ -72,5 +51,80 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    
+}
+
+.workflow-section{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.workflow-section > .body{
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 20px;
+    align-items: start;
+    position: relative;
+}
+
+.card-event {
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: var(--secondary);
+    position: sticky;
+    position: -webkit-sticky;
+    top: 10px;  
+}
+
+.card-event > img{
+    width: 20rem;
+    mix-blend-mode: darken;
+    padding: 1rem;
+}
+
+.card-event > button{
+    padding: 0.8rem 4rem;
+    font-size: 20px;
+    font-weight: 500;
+    border-radius: 5px;
+    border: 2px solid var(--primary);
+    background-color: var(--primary);
+    color: var(--secondary);
+    cursor: pointer;
+    margin: 1rem auto;
+    transition: .2s;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+.card-event > .card-body{
+    padding: 1rem;
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+}
+
+.card-event > .card-body > h3{
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    margin-top: 1rem;
+}
+
+.card-event > .card-body > ul{
+    list-style-position: inside;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 0 1rem;
+}
+
+.card-event > .card-body > ul > li{
+    list-style-position: initial;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 5px;
 }
