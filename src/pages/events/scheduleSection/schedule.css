@@ -1,0 +1,35 @@
+.gc{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap:15px;
+
+}
+.schdat{
+    display: flex;
+    gap:10px;
+    color:var(--secondary);
+    
+
+}
+.sch{
+    flex:1;
+    background-color: grey;
+    font-size: 18px;
+    border-radius: 30px;
+    text-align: center;
+     padding: 10px; 
+    vertical-align: middle;
+    height: 40px;
+
+}
+.dat{
+    flex:1;
+    background-color:var(--primary);
+    font-size: 18px;
+    border-radius: 30px;
+    text-align: center;
+    padding: 5px;
+    vertical-align: middle;
+    padding-top: 20px;
+
+}

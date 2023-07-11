@@ -3989,7 +3989,7 @@ const eventList = [
         ]
       },
       {
-        title:"",
+        title:"Electric",
         data:[
           {
             h1:"Runner Up",
