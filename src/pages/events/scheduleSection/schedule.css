@@ -5,17 +5,15 @@
 
 }
 .schdat{
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 170px;
     gap:10px;
     color:var(--secondary);
-    
-
 }
 .sch{
     display: flex;
     align-items: center;
     justify-content: center;
-    flex:1;
     background-color: grey;
     font-size: 18px;
     border-radius: 30px;
@@ -26,13 +24,13 @@
     color: white !important
 }
 .dat{
-    flex:1;
     background-color:var(--primary);
     font-size: 18px;
     border-radius: 30px;
     text-align: center;
     padding: 5px;
-    vertical-align: middle;
-    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: white !important
 }
