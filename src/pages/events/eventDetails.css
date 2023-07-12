@@ -8,6 +8,14 @@
     padding: 2rem 3rem;
 }
 .event-details h2{
-    font-size: 35px;
-    margin:15px 0;
+    font-size: 32px;
+    margin:5px 0;
+}
+
+.event-details .footer > h2{
+    font-size: 25px;
+}
+
+.event-details p{
+  color: #727984;
 }
