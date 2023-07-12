@@ -8,9 +8,11 @@
     position: fixed;
     width: 100%;
     z-index: 3;
-    backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px); 
+    
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    background-color: #00b17b99 ;
+    /* background-color: #00b17b99 ; */
+    background-color: var(--secondary);
     gap: 1rem;
     transition: .4s;
     min-height: 60px;
@@ -38,7 +40,7 @@
       list-style: none;
       display: flex;
       gap: 20px;
-      color: var(--secondary);
+      color: var(--tertiary);
       align-items: center;
   }
   
@@ -60,13 +62,14 @@
       height: 2px;
       content: "";
       position: absolute;
-      background-color: var(--tertiary);
+      background-color: var(--primary);
       width: 0%;
       margin-top: 20px;
   }
   
   .App > .nav  .links > ul > li:hover:not(#bell){
-      color: var(--tertiary);
+      /* color: var(--tertiary); */
+      color:var(--primary)
   }
   
   .App > .nav  .links > ul > li:hover::before{

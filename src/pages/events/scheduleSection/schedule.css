@@ -1,6 +1,6 @@
 .gc{
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: repeat(auto-fill, minmax(400px,1fr));
     gap:15px;
 
 }
@@ -12,13 +12,16 @@
 
 }
 .sch{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex:1;
     background-color: grey;
     font-size: 18px;
     border-radius: 30px;
     text-align: center;
-     padding: 10px; 
-    vertical-align: middle;
+    padding: 10px; 
+    /* vertical-align: middle; */
     height: 40px;
     color: white !important
 }
