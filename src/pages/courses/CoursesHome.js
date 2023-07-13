@@ -196,7 +196,8 @@ function CoursesHome() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const { register, setRegister } = useOutletContext();
 
-  const { courseList, courses, userId } = useContext(StoreContext)
+  const { courseList, courses, userId, setSection } = useContext(StoreContext)
+  setSection(1)
 
   const [buy, setbuy] = useState(false)
 

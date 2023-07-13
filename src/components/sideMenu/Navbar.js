@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import search from "../../images/search.png";
 import "./navbar.css";
-import logo from "../../images/seed_logo/Seed.svg";
+import logo from "../../images/seed_logo/Seed.png";
 import { Link, useNavigate } from "react-router-dom";
 import SignIn from "../../pages/signin/SignIn";
 import { onAuthStateChanged, signOut } from "firebase/auth";

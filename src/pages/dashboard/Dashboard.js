@@ -15,7 +15,7 @@ import { HashLink } from "react-router-hash-link";
 import { toggle } from "../../components/sideMenu/SideMenu";
 
 const EnrolledCourse = ({ dragger }) => {
-  const [drag, setDrag] = useState(false)
+  //const [drag, setDrag] = useState(false)
   const [enrolledCourses, setEnrolledCourses] = useState([]);
   const [enrolledEvents, setEnrolledEvents] = useState([]);
   const [loading, setLoading] = useState(true)
@@ -66,8 +66,8 @@ const EnrolledCourse = ({ dragger }) => {
     })
   }, [])
 
-  return <div onDragStart={dragger} draggable={drag} className="section">
-    <h4 onMouseDownCapture={() => setDrag(true)} onMouseLeave={() => setDrag(false)}>My Enrollment</h4>
+  return <div className="section">
+    <h4 >My Enrollment</h4>
     <div className="enrolled-courses">
       {loading ? <Spinner other={'height'} loading={loading} /> : <>
         {enrolledCourses.length !== 0 || enrolledEvents.length !== 0 ? <>
@@ -96,11 +96,12 @@ const EnrolledCourse = ({ dragger }) => {
 }
 
 const CourseCatalog = () => {
-  const [drag, setDrag] = useState(false)
+ // const [drag, setDrag] = useState(false)
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(true)
 
-  const { courses, user } = useContext(StoreContext)
+  const { courses, user, setSection } = useContext(StoreContext)
+  setSection(null)
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -127,8 +128,8 @@ const CourseCatalog = () => {
     navigate(`/menu/courses/details/${index}`)
   }
 
-  return <div draggable={drag} className="section">
-    <h4 onMouseDownCapture={() => setDrag(true)} onMouseLeave={() => setDrag(false)}>Courses Catalog</h4>
+  return <div className="section">
+    <h4>Courses Catalog</h4>
     <div className="courses" >
       {loading ? <Spinner other={'height'} loading={loading} /> : <>
         {data?.length !== 0 && data?.map((item) => {
@@ -151,15 +152,15 @@ const CourseCatalog = () => {
 
 
 const EventDetails = () => {
-  const [drag, setDrag] = useState(false)
+ // const [drag, setDrag] = useState(false)
 
-  return <div draggable={drag} className="section">
-    <h4 onMouseDownCapture={() => setDrag(true)} onMouseLeave={() => setDrag(false)}>Event Catalog</h4>
+  return <div className="section">
+    <h4 >Event Catalog</h4>
   </div>
 }
 
 const QuickLinks = () => {
-  const [drag, setDrag] = useState(false)
+ // const [drag, setDrag] = useState(false)
 
   const links = [
     {
@@ -263,8 +264,8 @@ const QuickLinks = () => {
   }
 
 
-  return <div draggable={drag} className="section">
-    <h4 onMouseDownCapture={() => setDrag(true)} onMouseLeave={() => setDrag(false)}>Quick Links</h4>
+  return <div className="section">
+    <h4 >Quick Links</h4>
     <div className="links">
 
       {links.map((item, key) => {
@@ -282,10 +283,10 @@ const QuickLinks = () => {
 }
 
 const Announcement = () => {
-  const [drag, setDrag] = useState(false)
+ // const [drag, setDrag] = useState(false)
 
-  return <div draggable={drag} className="section">
-    <h4 onMouseDownCapture={() => setDrag(true)} onMouseLeave={() => setDrag(false)}>Announcements</h4>
+  return <div className="section">
+    <h4 >Announcements</h4>
     <div className="messages card">
       <div className="message">
         <h4 >Welcome</h4>
@@ -306,10 +307,10 @@ const Announcement = () => {
 }
 
 const LearningResources = () => {
-  const [drag, setDrag] = useState(false)
+ // const [drag, setDrag] = useState(false)
 
-  return <div draggable={drag} className="section">
-    <h4 onMouseDownCapture={() => setDrag(true)} onMouseLeave={() => setDrag(false)}>Learning Recources</h4>
+  return <div className="section">
+    <h4>Learning Recources</h4>
     <div className="links">
       <div className="card">Link #1</div>
       <div className="card">Link #2</div>
