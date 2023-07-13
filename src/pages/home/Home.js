@@ -139,6 +139,13 @@ function Home() {
     setActive3(!active3);
   };
 
+  const getInTouchSubmit = event =>{
+    document.getElementById("subject").value= "";
+    alert("Details submited");
+    event.preventDefault();
+   
+  }
+
   const goToLink = (link) => {
       if (userName) {
         navigate("/menu/dashboard");
@@ -161,8 +168,6 @@ function Home() {
         setSignIn={setSignIn}
         setRedirect={setRedirect}
         signIn={signIn} />
-        
-
       <div className="home" id="home">
         <div className="hero">
           <h2>
@@ -472,8 +477,8 @@ function Home() {
             <div id="get-in-touch"></div>
             <h2>Get in Touch</h2>
             <div className="content">
-              <div class="container-div contact-us">
-                <form action="">
+              <div className="container-div contact-us">
+                <form action="" onSubmit={getInTouchSubmit}>
                   <label htmlFor="name">Name</label>
                   <input
                     type="text"
@@ -513,7 +518,7 @@ function Home() {
               </div>
               <div className="cards">
                 <div className="section">
-                  <span class="material-symbols-outlined">location_on</span>
+                  <span className="material-symbols-outlined">location_on</span>
                   <div className="details">
                     <p>
                       5/4b Lakshmi Vinayagar Kovil Land, 8th Street, Ganapathy
@@ -522,7 +527,7 @@ function Home() {
                   </div>
                 </div>
                 <div className="section">
-                  <span class="material-symbols-outlined">call</span>
+                  <span className="material-symbols-outlined">call</span>
                   <div className="details">
                     <p>
                       +91-9047363963 <br /> +91-8220662798
@@ -530,7 +535,7 @@ function Home() {
                   </div>
                 </div>
                 <div className="section">
-                  <span class="material-symbols-outlined">mail</span>
+                  <span className="material-symbols-outlined">mail</span>
                   <div className="details">
                     <p style={{ width: "100%", height: "100%" }}>
                       <a
@@ -549,7 +554,7 @@ function Home() {
                   </div>
                 </div>
                 <div className="section">
-                  <span class="material-symbols-outlined">group</span>
+                  <span className="material-symbols-outlined">group</span>
                   <div className="details">
                     <a
                       href="https://www.facebook.com/IDEATECHEVENTS"
