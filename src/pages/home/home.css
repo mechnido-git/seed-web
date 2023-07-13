@@ -234,6 +234,7 @@
 
   .answer > p{
     margin: .5rem 0;
+    color: var(--secondary) !important;
   }
 
   #achievements, #testimonials, #faq, #contact-us, #get-in-touch, #sponsors{

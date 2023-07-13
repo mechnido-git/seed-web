@@ -121,7 +121,7 @@ function Sower() {
   return (
     <>
     {loading && <Spinner other="globel" loading={loading} />}
-      <HomeNav bodyId={'sower'} dp={dp} links={[<Link to="/">Home</Link>, <Link to="/about">About</Link>]} order={[0,3,1,2]} setLoading={setLoading} setSignIn={setSignIn} signIn={signIn} userName={userName} />
+      <HomeNav initial={2} bodyId={'sower'} dp={dp} links={[<Link to="/">Home</Link>, <Link to="/about">About</Link>]} order={[0,3,1,2]} setLoading={setLoading} setSignIn={setSignIn} signIn={signIn} userName={userName} />
       <div className="sower">
         <div className="hero">
           <div className="left">

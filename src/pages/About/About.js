@@ -17,6 +17,7 @@ function About() {
   const [userName, setUserName] = useState(null);
   const [loading, setLoading] = useState(true);
   const [redirect, setRedirect] = useState(null);
+  const [signIn, setSignin] = useState(false)
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -33,7 +34,7 @@ function About() {
   return (
     <>
     {loading && <Spinner other="globel" loading={loading} />}
-      <HomeNav bodyId={'about'} dp={dp} redirect={redirect} userName={userName} setLoading={setLoading} links={[<Link to="/">Home</Link>, <Link to="/sower">Become a Sower</Link>]} />
+      <HomeNav initial={1} bodyId={'about'} dp={dp} setSignIn={setSignin} signIn={signIn}  redirect={redirect} setRedirect={setRedirect} userName={userName} setLoading={setLoading} links={[<Link to="/">Home</Link>, <Link to="/sower">Become a Sower</Link>]} />
       <div className="about-container">
         {loading && <Spinner loading={loading} />}
 
