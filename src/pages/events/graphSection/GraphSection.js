@@ -4,7 +4,7 @@ import './graphSection.css'
 function GraphSection({event}) {
   return (
     <div className='graph-section'>
-      <h2>Features</h2>
+      <h2>Perks</h2>
       <div className="graph-container">
         {event.features.sib.map((item, key)=>
           <div key={key} className='feature'>
