@@ -55,21 +55,29 @@ function HomeNav({
   };
 
   const toggleOffer = (e) => {
-    if (e) e.stopPropagation();
+   if (e) e.stopPropagation();
     if ((e? e.target?.dataset.index == dropIndex: true) || (dropIndex === null)) {
       setDropIndex(e? e.target.dataset.index: null);
       if(e? e.target?.dataset.index == dropIndex: true) setDropIndex(null);
       const nav = document.getElementById("nav");
       nav.classList.toggle("offer");
-      if(e) e.target.parentElement.classList.toggle("offer")
+      if(e){
+        e.target.parentElement.classList.toggle("offer")
+        e.target.parentElement.classList.toggle("highlight")
+        
+      }else{
+        const links = document.querySelectorAll('.nav .link')
+        links.forEach(item=>{item.classList.remove("offer"); item.classList.remove("highlight");})
+      }
       setShowDrop(!showDrop);
       if(showDrop === false)
       if (profileDrop) viewProfile();
     }else{
       const links = document.querySelectorAll('.nav .link')
-      links.forEach(item=>item.classList.remove("offer"))
+      links.forEach(item=>{item.classList.remove("offer"); item.classList.remove("highlight");})
       console.log(links);
       e.target.parentElement.classList.add("offer")
+      e.target.parentElement.classList.add("highlight")
       setDropIndex(e.target.dataset.index);
     }
   };
@@ -82,19 +90,23 @@ function HomeNav({
   };
 
   const handleNavClick = (e) => {
-      const links = document.querySelectorAll('.nav-link')
-      links.forEach(item=>item.classList.remove('highlight'))
-      const item = e.target.closest('.nav-link')
-      if(!item.classList.contains('highlight') && !item.classList.contains('.link')) item.classList.add('highlight')
-      if(item.classList.contains('.link')) item.classList.toggle('highlight')
+    const links = document.querySelectorAll(".nav-link")
+    links.forEach(item=>item.classList.remove("highlight"))
+    e.target.classList.add("highlight")
   }
 
   useEffect(()=>{
-    const links = document.querySelectorAll('.nav-link')
+    const links = document.querySelectorAll('.nav .nav-link')
     links[initial].classList.add('highlight')
     links.forEach(item=>{
       item.addEventListener('click', handleNavClick)
     })
+
+    return () => {
+    links.forEach(item=>{
+      item.removeEventListener('click', handleNavClick)
+    })
+    }
   }, [])
 
   return (
@@ -112,12 +124,12 @@ function HomeNav({
                 Home
               </Link>
             </li>
-            <li className="link nav-link">
+            <li className="link">
               <Link to="#" id="offer" data-index={0} onClick={toggleOffer}>
                 Courses
               </Link>
             </li>
-            <li className="link nav-link">
+            <li className="link">
               <Link to="#" id="offer" data-index={1} onClick={toggleOffer}>
                 Events
               </Link>
