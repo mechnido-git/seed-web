@@ -162,7 +162,7 @@ function HomeNav({
       {signIn && (
         <div className="wrapper">
           <div className="blocker" onClick={close}></div>
-          <SignIn index={index} redirect={redirect} setRedirect={setRedirect} />
+          <SignIn index={index} redirect={redirect} setSignIn={setSignIn} setRedirect={setRedirect}/>
         </div>
       )}
     </div>
