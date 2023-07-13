@@ -5,7 +5,7 @@ function ScheduleSection({event}) {
   const dt = event.schedule.data; 
   return (
     <>
-    <h2>{event.schedule.title}</h2>
+    <h2 id='schedule'>{event.schedule.title}</h2>
     <div className='gc'>
      {
       dt.map((element)=>{

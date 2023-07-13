@@ -7,7 +7,7 @@ import { DetailsCard } from '../workflowSection/WorkflowSection';
 function MainSection({event}) {
   return (
     <>
-    <div className='main-section'>
+    <div className='main-section' id='intro'>
       
     <div className="title"> 
       <h1><span style={{color:"var(--primary)"}}>TN</span>KC</h1>

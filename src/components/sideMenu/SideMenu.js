@@ -339,7 +339,7 @@ function SideMenu() {
             <h3>MENU</h3>
             <HashLink
               onClick={mobile ? toggle : null}
-              to={`/menu/courses/details/${eventIndex}/#intro`}
+              to={`/menu/events/details/${eventIndex}/#intro`}
               smooth
               className="sub"
             >
@@ -350,7 +350,7 @@ function SideMenu() {
             </HashLink>
             <HashLink
               onClick={mobile ? toggle : null}
-              to={`/menu/courses/details/${eventIndex}/#features`}
+              to={`/menu/events/details/${eventIndex}/#features`}
               smooth
               className="sub"
             >
@@ -361,7 +361,7 @@ function SideMenu() {
             </HashLink>
             <HashLink
               onClick={mobile ? toggle : null}
-              to={`/menu/courses/details/${eventIndex}/#perks`}
+              to={`/menu/events/details/${eventIndex}/#perks`}
               smooth
               className="sub"
             >
@@ -372,7 +372,7 @@ function SideMenu() {
             </HashLink>
             <HashLink
               onClick={mobile ? toggle : null}
-              to={`/menu/courses/details/${eventIndex}/#workflow`}
+              to={`/menu/events/details/${eventIndex}/#workflow`}
               smooth
               className="sub"
             >
@@ -383,7 +383,7 @@ function SideMenu() {
             </HashLink>
             <HashLink
               onClick={mobile ? toggle : null}
-              to={`/menu/courses/details/${eventIndex}/#schedule`}
+              to={`/menu/events/details/${eventIndex}/#schedule`}
               smooth
               className="sub"
             >
@@ -394,7 +394,7 @@ function SideMenu() {
             </HashLink>
             <HashLink
               onClick={mobile ? toggle : null}
-              to={`/menu/courses/details/${eventIndex}/#awards`}
+              to={`/menu/events/details/${eventIndex}/#awards`}
               smooth
               className="sub"
             >

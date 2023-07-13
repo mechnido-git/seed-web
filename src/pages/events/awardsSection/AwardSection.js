@@ -6,7 +6,7 @@ function AwardSection({event}) {
   const pt= event.awards.array[1].data;
   return (
     <>
-    <h2>Awards & Prizes</h2>
+    <h2 id='awards'>Awards & Prizes</h2>
     <div className='titletrophy'>
    <h3 className='awtitle'>{event.awards.array[0].title}</h3>
     {/* <img className='tphy' src={trophyy} alt="this is trophy "/> */}
