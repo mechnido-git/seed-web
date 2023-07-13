@@ -38,7 +38,6 @@ function WorkflowSection({ event }) {
         <div className="workflow-container">
           {event.workflow.data.map((item, key) => (
             <div className="content">
-              <h3>{key + 1}</h3>
               <h4>{item}</h4>
             </div>
           ))}
