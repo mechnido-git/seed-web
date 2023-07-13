@@ -61,10 +61,10 @@ function About() {
           <section>
             <div className="details">
               <h2>
-                About INNOVATIVE DESIGN AND ENGINEERING ANALYSIS (I.D.E.A)
+                About SEED- A Unit of Mechnido
               </h2>
               <p>
-                Innovative design and engineering analysis is a group of events
+                Seed is a group of events
                 presented by M/S MECHNIDO, comprising of various national level
                 events which acts as a platform for engineers to apply and
                 enhance their engineering skills in real world applications. It
@@ -72,7 +72,7 @@ function About() {
                 designed with sound engineering practices.{" "}
               </p>
               <p>
-                All the events included under brand name I.D.E.A. are exclusive
+                All the events included under brand name SEED are exclusive
                 events and cannot be associated with other events conducted by
                 M/S MECHNIDO.{" "}
               </p>
@@ -98,16 +98,15 @@ function About() {
           </section>
           <section>
             <div className="logo">
-              <img src={kart} alt="" />
+              <img src={logo} alt="" />
             </div>
             <div className="details">
               <h2>
-                About INNOVATIVE DESIGN AND ENGINEERING ANALYSIS FOR VIRTUAL
+                About SEED - VIRTUAL
                 KART{" "}
               </h2>
               <p>
-                I.D.E.A V-Kart stands for Innovative Design and Engineering
-                Analysis for virtual kart. It is an online event encouraging
+                SEED virtual kart is an online event encouraging
                 budding engineers in designing a Go-kart or E-kart with proper
                 engineering techniques. It aims at developing appropriate
                 designing skills and understanding of the relevant scientific

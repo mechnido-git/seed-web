@@ -9,7 +9,7 @@ function AwardSection({event}) {
     <h2>Awards & Prizes</h2>
     <div className='titletrophy'>
    <h3 className='awtitle'>{event.awards.array[0].title}</h3>
-    <img className='tphy' src={trophyy} alt="this is trophy "/>
+    {/* <img className='tphy' src={trophyy} alt="this is trophy "/> */}
    </div>
     
     <div className='grid-container'>
@@ -25,7 +25,7 @@ function AwardSection({event}) {
    
     <div className='titletrophy'>
    <h3 className='awtitle'>{event.awards.array[1].title}</h3>
-    <img className='tphy' src={trophyy} alt="this is trophy "/>
+    {/* <img className='tphy' src={trophyy} alt="this is trophy "/> */}
    </div>
    
 
