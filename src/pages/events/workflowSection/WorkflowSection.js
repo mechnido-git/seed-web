@@ -32,7 +32,7 @@ export const DetailsCard = ({ enroll, prize }) => {
 function WorkflowSection({ event }) {
 
   return (
-    <div className='workflow-section'>
+    <div className='workflow-section' id='workflow'>
       <h2>{event.workflow.title}</h2>
       <div className="body">
         <div className="workflow-container">

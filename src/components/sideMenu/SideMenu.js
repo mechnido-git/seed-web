@@ -11,17 +11,17 @@ import { addIcon, category, filterItems } from "../../pages/courses/CoursesHome"
 
 export const toggle = () => {
   // document.getElementById("menu-options").classList.toggle("disable");
-    document.getElementById("index").classList.toggle("index-toggle");
-    document.getElementById("min-menu").classList.toggle("disable");
-    document.getElementById("side-menu").classList.toggle("border");
-  };
+  document.getElementById("index").classList.toggle("index-toggle");
+  document.getElementById("min-menu").classList.toggle("disable");
+  document.getElementById("side-menu").classList.toggle("border");
+};
 
 function SideMenu() {
   // const {loc, setLoc} = useContext(ToggleContext)
   const [user, setUser] = useState(false);
   const [prev, setPrev] = useState(null);
-  const {filter, setFilter} =  useContext(StoreContext);
-   
+  const { filter, setFilter, courseIndex, eventIndex } = useContext(StoreContext);
+
   // const [loc, setLoc] = useState(location.pathname.split("/"))
   const navigator = useNavigate();
 
@@ -47,7 +47,7 @@ function SideMenu() {
       link.classList.remove("clicked");
     });
     const index = e.target.closest("[data-index]").dataset.index;
-    console.log(index+"jiii");
+    console.log(index + "jiii");
     if (index == 0) {
       console.log(links[0], "k");
       links[0].classList.add("clicked");
@@ -66,15 +66,15 @@ function SideMenu() {
 
   useEffect(() => {
     const loc = window.location.href.split("/")
-      console.log(loc);
+    console.log(loc);
     console.log('hehe');
     onAuthStateChanged(auth, (user) => {
       if (user) setUser(true);
     });
     let elem = -1;
     let pos = 1
-    if(loc[loc.length - 1].length <= 1) pos = 2;
-    if(loc[loc.length - 1].length == 1) pos = 3;
+    if (loc[loc.length - 1].length <= 1) pos = 2;
+    if (loc[loc.length - 1].length == 1) pos = 3;
     console.log(loc[loc.length - pos]);
     switch (loc[loc.length - pos]) {
       case "courses":
@@ -177,16 +177,16 @@ function SideMenu() {
             </HashLink>
             <hr />
             <h3>CATEGORIES</h3>
-            {category.map((item, i)=>
+            {category.map((item, i) =>
               <Link
-              key={i}
-              className={i === 0 ? `filter sub active ${item.replace(" ", "-")}` : `filter sub ${item.replace(" ", "-")}`}
-              onClick={(e)=>{if(mobile) toggle(); filterItems(filter, setFilter, item, e)}}
-              to="#"
-            >
-              <span class="material-symbols-outlined">{addIcon(item)}</span>
-              <div>{item.toLowerCase()}</div>
-            </Link>
+                key={i}
+                className={i === 0 ? `filter sub active ${item.replace(" ", "-")}` : `filter sub ${item.replace(" ", "-")}`}
+                onClick={(e) => { if (mobile) toggle(); filterItems(filter, setFilter, item, e) }}
+                to="#"
+              >
+                <span class="material-symbols-outlined">{addIcon(item)}</span>
+                <div>{item.toLowerCase()}</div>
+              </Link>
             )}
             {/* <Link
               className="sub"
@@ -260,6 +260,152 @@ function SideMenu() {
             )}
           </>
         );
+
+      case 3:
+        return (
+          <>
+            <h3>MENU</h3>
+            <HashLink
+              onClick={mobile ? toggle : null}
+              to={`/menu/courses/details/${courseIndex}/#intro`}
+              smooth
+              className="sub"
+            >
+              <span class="material-symbols-outlined">
+                description
+              </span>
+              <div>Intro</div>
+            </HashLink>
+            <HashLink
+              onClick={mobile ? toggle : null}
+              to={`/menu/courses/details/${courseIndex}/#about`}
+              smooth
+              className="sub"
+            >
+              <span class="material-symbols-outlined">
+                info
+              </span>
+              <div>About</div>
+            </HashLink>
+            <HashLink
+              onClick={mobile ? toggle : null}
+              to={`/menu/courses/details/${courseIndex}/#syllabus`}
+              smooth
+              className="sub"
+            >
+              <span class="material-symbols-outlined">
+                import_contacts
+              </span>
+              <div>Syllabus</div>
+            </HashLink>
+            <HashLink
+              onClick={mobile ? toggle : null}
+              to={`/menu/courses/details/${courseIndex}/#certificate`}
+              smooth
+              className="sub"
+            >
+              <span class="material-symbols-outlined">
+                badge
+              </span>
+              <div>Certificate</div>
+            </HashLink>
+            <HashLink
+              onClick={mobile ? toggle : null}
+              to={`/menu/courses/details/${courseIndex}/#metrics`}
+              smooth
+              className="sub"
+            >
+              <span class="material-symbols-outlined">
+                bar_chart
+              </span>
+              <div>Metrics</div>
+            </HashLink>
+            <HashLink
+              onClick={mobile ? toggle : null}
+              to={`/menu/courses/details/${courseIndex}/#feedbacks`}
+              smooth
+              className="sub"
+            >
+              <span class="material-symbols-outlined">
+                rate_review
+              </span>
+              <div>Feedbacks</div>
+            </HashLink>
+          </>);
+
+      case 4:
+        return (
+          <>
+            <h3>MENU</h3>
+            <HashLink
+              onClick={mobile ? toggle : null}
+              to={`/menu/events/details/${eventIndex}/#intro`}
+              smooth
+              className="sub"
+            >
+              <span class="material-symbols-outlined">
+                description
+              </span>
+              <div>Intro</div>
+            </HashLink>
+            <HashLink
+              onClick={mobile ? toggle : null}
+              to={`/menu/events/details/${eventIndex}/#features`}
+              smooth
+              className="sub"
+            >
+              <span class="material-symbols-outlined">
+                description
+              </span>
+              <div>Features</div>
+            </HashLink>
+            <HashLink
+              onClick={mobile ? toggle : null}
+              to={`/menu/events/details/${eventIndex}/#perks`}
+              smooth
+              className="sub"
+            >
+              <span class="material-symbols-outlined">
+                description
+              </span>
+              <div>Perks</div>
+            </HashLink>
+            <HashLink
+              onClick={mobile ? toggle : null}
+              to={`/menu/events/details/${eventIndex}/#workflow`}
+              smooth
+              className="sub"
+            >
+              <span class="material-symbols-outlined">
+                description
+              </span>
+              <div>Workflow</div>
+            </HashLink>
+            <HashLink
+              onClick={mobile ? toggle : null}
+              to={`/menu/events/details/${eventIndex}/#schedule`}
+              smooth
+              className="sub"
+            >
+              <span class="material-symbols-outlined">
+                description
+              </span>
+              <div>Schedule</div>
+            </HashLink>
+            <HashLink
+              onClick={mobile ? toggle : null}
+              to={`/menu/events/details/${eventIndex}/#awards`}
+              smooth
+              className="sub"
+            >
+              <span class="material-symbols-outlined">
+                description
+              </span>
+              <div>Awards & Prizes</div>
+            </HashLink>
+          </>
+        )
+
       default:
         return <></>;
     }
@@ -283,7 +429,7 @@ function SideMenu() {
       </div>
       <div className={`menu-options ${window.innerWidth < 650 && 'disable'}`} id="menu-options">
         <Link to="dashboard" className="min-link" data-index={0}>
-        <span class="material-symbols-outlined">dashboard</span>
+          <span class="material-symbols-outlined">dashboard</span>
           <div>Dashboard</div>
         </Link>
         <Link to="courses" className="min-link" data-index={1}>

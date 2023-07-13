@@ -16,6 +16,7 @@ import soon from "../../images/soon.jpg";
 import { useCountdown } from "../../hooks/useCountDown";
 import Footer from "../../components/footer/Footer";
 import ImageLoader from "../../components/imageLoader/ImageLoader";
+import { StoreContext } from "../../store/StoreContext";
 
 function RegisterInfo({ date, data }) {
   const [eventDate, setEventDate] = useState(new Date(date));
@@ -81,6 +82,9 @@ function EventIndex() {
   const { register, setRegister } = useOutletContext();
   const [loading, setLoading] = useState(true);
   const [events, setEvents] = useState(null);
+
+  const { setSection } = useContext(StoreContext)
+  setSection(2)
 
   const navigate = useNavigate()
 

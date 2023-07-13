@@ -12,11 +12,13 @@ import Enroll from "../payment/Enroll";
 import Footer from "../../components/footer/Footer";
 
 function CourseDetails() {
+  const { courseList, courses, userId, setSection, setCourseIndex } = useContext(StoreContext);
   const { index } = useParams();
+  setCourseIndex(index)
+  setSection(3)
   const loc = useLocation();
   const navigate = useNavigate()
 
-  const { courseList, courses, userId } = useContext(StoreContext);
 
   console.log(courseList[index]);
   const [buy, setbuy] = useState(false)
@@ -47,9 +49,18 @@ function CourseDetails() {
     window.location.reload()
   }
 
+  useEffect(()=>{
+      const loc = window.location.href.split("/")
+      const last = loc[loc.length -1]
+      if(last[0] === "#"){
+        const id = last.slice(1, last.length)
+        document.getElementById(id).scrollIntoView({behavior: 'smooth'});
+      }
+  }, [])
+
   return (
-    <div className="course-details">
-      <div className="hero">
+    <div className="course-details" >
+      <div className="hero" id="intro">
         <div className="title">
           <h1>
             {data.flag ? <>The Flagship <br /></> : ''}
@@ -94,6 +105,7 @@ function CourseDetails() {
         </div>
       </div>
       <div className="about">
+        <div id="about"></div>
         <h2>About the Course</h2>
         <div className="details">
           <div className="left">
@@ -107,6 +119,7 @@ function CourseDetails() {
         </div>
       </div>
       <div className="explore" id="explore">
+        <div id="syllabus"></div>
         <h2>Explore the course</h2>
         <div className="content">
           <div className="topics">
@@ -161,6 +174,7 @@ function CourseDetails() {
         </div>
       </div>
       <div className="certificate">
+        <div id="certificate"></div>
         <h2>
           Certificate
           <span class="material-symbols-outlined">workspace_premium</span>
@@ -178,6 +192,7 @@ function CourseDetails() {
         </div>
       </div>
       {data.metrics && <div className="metrics">
+        <div id="metrics"></div>
         <h2>Our Metrics</h2>
         <div className="content">
           <div className="section">
@@ -198,6 +213,7 @@ function CourseDetails() {
         </div>
       </div>}
       {data.feedback && <div className="feedback">
+        <div id="feedbacks"></div>
         <h2>Feedbacks</h2>
         <Splide
           tag="section"

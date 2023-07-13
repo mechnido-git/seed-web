@@ -11,8 +11,10 @@ import AwardSection from './awardsSection/AwardSection';
 import Footer from '../../components/footer/Footer';
 
 function EventDetails() {
+  const { eventList, setSection, setEventIndex } = useContext(StoreContext)
     const { index } = useParams();
-    const { eventList } = useContext(StoreContext)
+    setEventIndex(index)
+    setSection(4)
   return (
     <div className="event-details">
         <MainSection event={eventList[index]} />

@@ -4,7 +4,7 @@ import "./need.css";
 function NeedSection({event}) {
   return (
     <div>
-       <div className='whysection'> 
+       <div className='whysection' id='features'> 
     <div>
       <h2 className='whyh1'>{event.why.heading}</h2>
       <div class="grid-container">

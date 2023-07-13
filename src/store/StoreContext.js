@@ -25,6 +25,10 @@ const Store = ({ children }) => {
   const [courses, setCourses] = useState([]);
   const [section, setSection] = useState(null);
   const [filter, setFilter] = useState("All");
+
+  const [courseIndex, setCourseIndex] = useState(null)
+  const [eventIndex, setEventIndex] = useState(null)
+
   const courseList = [
     {
       id: 0,
@@ -4081,7 +4085,9 @@ const eventList = [
         setSection,
         filter,
         setFilter,
-        eventList
+        eventList,
+        courseIndex, setCourseIndex,
+        eventIndex, setEventIndex
       }}
     >
       {children}

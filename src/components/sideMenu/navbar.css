@@ -102,10 +102,11 @@
     align-items: end;
     gap: 10px;
     margin-left: 6px;
+    align-items: center;
 }
 
 .navbar > .left img{
-    width: 7rem;
+    width: 50px;
     mix-blend-mode: darken; 
 }
 
