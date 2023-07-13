@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import "./signin.css";
+import icon from "../../images/cancel_icon.png";
 import google from "./pngwing.com.png";
 import {
   createUserWithEmailAndPassword,
@@ -17,7 +18,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 
-function SignIn({ index, redirect, setRedirect }) {
+function SignIn({ index, redirect, setRedirect,setSignIn }) {
   const [signin, setSigin] = useState(!index ? true : false);
   const [loading, setLoading] = useState(false);
 
@@ -43,6 +44,12 @@ function SignIn({ index, redirect, setRedirect }) {
   const [sent, setSent] = useState(false);
 
   const click = useRef();
+
+  const handleclose=()=>{
+    document.body.classList.remove("disable-scroll");
+    setRedirect(null)
+    setSignIn(false);
+  }
 
   const showPassword = (e) => {
     let pwFields =
@@ -219,7 +226,9 @@ function SignIn({ index, redirect, setRedirect }) {
   return (
     <div className="signin-div form login">
       {loading && <Spinner loading={loading} />}
-      <Link id="red" to="/menu/dashboard" target="_blank" ref={click} />
+      <img  className="closebtn" src={icon} alt="closeImage" onClick={handleclose}/>
+     {/* <button className="closebtn" onClick={handleclose}>X</button> */}
+      {/* <Link id="red" to="/menu/dashboard" target="_blank" ref={click} /> */}
       {signin ? (
         <>
           {forgotPass ? (
