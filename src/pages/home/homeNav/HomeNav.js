@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { HashLink } from "react-router-hash-link";
 import logo from "../../../images/seed_logo/Seed.svg";
+import logo_joined from "../../../images/seed_logo/Seed Joined.svg";
 import { Link } from "react-router-dom";
 import ProfileDrop from "../ProfileDrop";
 import Drop from "../Drop";
@@ -15,9 +16,9 @@ function HomeNav({
   redirect,
   setSignIn,
   signIn,
-  links,
   setRedirect,
-  order
+  joined,
+  initial
 }) {
   const [index, setIndex] = useState(null);
 
@@ -80,45 +81,57 @@ function HomeNav({
     if (showDrop) toggleOffer();
   };
 
-  const arrangeOrder = () => {
-    const lists = [
-      <li className="link">{links[0]}</li>,
-      <li className="link"><Link to="#" id="offer" data-index={0} onClick={toggleOffer}>Courses</Link></li>,
-      <li className="link"><Link to="#" id="offer" data-index={1} onClick={toggleOffer}>Events</Link></li>,
-      <li>{links[1]}</li>
-    ]
-    if(order){
-      let temp = []
-      order.forEach(item=>temp.push(lists[item]))
-      return temp.map(item=><>{item}</>)
-    }else{
-      return lists.map(item=><>{item}</>)
-    }
+  const handleNavClick = (e) => {
+      const links = document.querySelectorAll('.nav-link')
+      links.forEach(item=>item.classList.remove('highlight'))
+      const item = e.target.closest('.nav-link')
+      if(!item.classList.contains('highlight') && !item.classList.contains('.link')) item.classList.add('highlight')
+      if(item.classList.contains('.link')) item.classList.toggle('highlight')
   }
+
+  useEffect(()=>{
+    const links = document.querySelectorAll('.nav-link')
+    links[initial].classList.add('highlight')
+    links.forEach(item=>{
+      item.addEventListener('click', handleNavClick)
+    })
+  }, [])
 
   return (
     <div className="nav" id="nav">
       <div className="left">
-        <HashLink to="#home" smooth>
-          <img src={logo} id="logo" alt="" />
-        </HashLink>
+        <Link to="/" smooth>
+          <img src={joined ? logo_joined : logo} style={{width: joined? '200px': '120px'}} id="logo" alt="" />
+        </Link>
       </div>
       <div className="options">
         <div className="links">
           <ul>
-            {/* <li className="link">{links[0]}</li>
-            <li className="link">
+            <li className="nav-link">
+            <Link to="/">
+                Home
+              </Link>
+            </li>
+            <li className="link nav-link">
               <Link to="#" id="offer" data-index={0} onClick={toggleOffer}>
                 Courses
               </Link>
             </li>
-            <li className="link">
+            <li className="link nav-link">
               <Link to="#" id="offer" data-index={1} onClick={toggleOffer}>
                 Events
               </Link>
             </li>
-            <li>{links[1]}</li> */}
-            {arrangeOrder(links)}
+            <li className="nav-link">
+            <Link to="/about">
+                About
+              </Link>
+            </li>
+            <li className="nav-link">
+            <Link to="/sower">
+                Become a Sower
+              </Link>
+            </li>
           </ul>
         </div>
       </div>

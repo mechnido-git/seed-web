@@ -153,16 +153,17 @@ function Home() {
     <>
       <HomeNav
         bodyId={'home'}
-        links={[<Link to="/about">About</Link>, <Link to="/sower">Become a Sower</Link>]}
         dp={dp}
         redirect={redirect}
         setLoading={setLoading}
         userName={userName}
         setSignIn={setSignIn}
         setRedirect={setRedirect}
-        signIn={signIn} />
-        
-
+        signIn={signIn}
+        joined={true}
+        initial={0}
+      />
+      
       <div className="home" id="home">
         <div className="hero">
           <h2>
