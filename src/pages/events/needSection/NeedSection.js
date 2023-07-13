@@ -1,5 +1,5 @@
 import React from 'react'
-import tick from "../../../images/tickpic.png";
+import tick from "../../../images/tick64.png";
 import "./need.css";
 function NeedSection({event}) {
   return (

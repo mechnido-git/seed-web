@@ -3747,7 +3747,7 @@ const eventList = [
       sibling:[
         {
           title:"EXPERIENTIAL LEARNING",
-          description:"learning through doing, while experiential education incorporates the pedagogies and structures that support this process"
+          description:"Learning through doing, while experiential education incorporates the pedagogies and structures that support this process"
         },
         {
           title:"PARTICLE EXPOSURE",
