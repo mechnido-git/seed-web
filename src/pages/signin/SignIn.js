@@ -386,7 +386,8 @@ function SignIn({ index, redirect, setRedirect,setSignIn }) {
                   onChange={(e) => setUpEmail(e.target.value)}
                   placeholder="Email"
                   className="input"
-                  pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                  pattern=" /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"
+                  // pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                 />
               </div>
               <div className="field input-field">
@@ -397,6 +398,7 @@ function SignIn({ index, redirect, setRedirect,setSignIn }) {
                   onChange={(e) => setPhone(e.target.value)}
                   placeholder="Phone"
                   className="input"
+                  pattern=  "^[0-9]{10}$"
                 />
               </div>
 
