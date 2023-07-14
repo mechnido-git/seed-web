@@ -10,7 +10,7 @@ import Spinner from "../Spinner";
 import ProfileDrop from "../../pages/home/ProfileDrop";
 import profile from "../../images/profile.png"
 import { StoreContext } from "../../store/StoreContext";
-
+import cancellogo from "../../images/cancel_icon.png";
 function Navbar({ signIn }) {
   const [userName, setUserName] = useState(null);
   const [loading, setLoading] = useState(true)
@@ -170,6 +170,7 @@ function Navbar({ signIn }) {
         <div className="wrapper-reg">
           <div className="blocker" onClick={() => setGetInTouch(false)}></div>
           <div className="get-in-touch">
+          <img className='clbtn' src={cancellogo} onClick={()=>{setGetInTouch(false)}} alt="close button"/>
             <div id="get-in-touch"></div>
             <h2>Get in Touch</h2>
             <div className="content">
