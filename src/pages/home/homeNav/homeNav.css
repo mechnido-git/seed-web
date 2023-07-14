@@ -96,6 +96,7 @@
     display: none;
     transition: .3s;
     overflow-y: hidden;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   }
 
   .App > .nav .drop-menu::-webkit-scrollbar{
@@ -135,7 +136,6 @@
     flex-direction: column;
     gap: 10px;
     position: relative;
-  border: 2px solid var(--primary);
   }
   
   .nav.offer .drop-menu > .lists ul::after{
@@ -161,7 +161,7 @@
     padding-right: 3rem;
   }
   
-  .nav.offer .drop-menu > .lists ul > li:hover{
+  .nav.offer .drop-menu > .lists ul > li:hover, .nav.offer .drop-menu > .lists ul > li.cat-on{
     background-color: var(--primary);
     color: var(--secondary);
   }
@@ -213,6 +213,7 @@
     gap: 10px;
     align-content: flex-start;
     overflow-y: auto;
+    position: relative;
   }
   .nav.offer .drop-menu > .lists .cards::-webkit-scrollbar{
     width: 10px;

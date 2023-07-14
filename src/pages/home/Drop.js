@@ -12,9 +12,9 @@ import { onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import Spinner from "../../components/Spinner";
 
-function Drop({ onClickOutside, show, dropIndex, redirect, setRedirect, setSignIn }) {
+function Drop({ onClickOutside, show, dropIndex, redirect, setRedirect, setSignIn, navRef }) {
   const [offerSwitch, setOfferSwitch] = useState(0);
-  const [filter, setFilter] = useState(category[1]);
+  const [filter, setFilter] = useState(category[0]);
   const [eventSwitch, setEventSwitch] = useState(0);
   const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(true)
@@ -69,6 +69,7 @@ function Drop({ onClickOutside, show, dropIndex, redirect, setRedirect, setSignI
         onClickOutside && onClickOutside();
       }
     };
+
     document.getElementById('root').addEventListener("click", handleClickOutside);
     return () => {
       document.getElementById('root').removeEventListener("click", handleClickOutside);
@@ -117,7 +118,12 @@ function Drop({ onClickOutside, show, dropIndex, redirect, setRedirect, setSignI
       }
   }
 
-  
+  const listSelector = (e) => {
+    const lists = document.querySelectorAll("li.category")
+    lists.forEach(item=>item.classList.remove("cat-on"))
+    console.log(e);
+    e.target.classList.add("cat-on")
+  }
 
   return (
     <div className="drop-menu" ref={ref}>
@@ -135,12 +141,12 @@ function Drop({ onClickOutside, show, dropIndex, redirect, setRedirect, setSignI
             <div className="courses">
               <ul>
                 {category.map((item, index) => {
-                  if (index != 0)
                     return (
                       <li
-                        onMouseEnter={() => {
-                          console.log(item);
+                        className={`category ${Number(index) == 0? 'cat-on': 'h'}`}
+                        onMouseEnter={(e) => {
                           setFilter(item);
+                          listSelector(e)
                         }}
                         key={index}
                       >
@@ -155,7 +161,9 @@ function Drop({ onClickOutside, show, dropIndex, redirect, setRedirect, setSignI
               <div className="cards">
                 {loading && <Spinner loading={true} />}
                 {courses.length !== 0 && <CardBuilder
-                  arr={courses}
+                  arr={courses.filter((item) =>
+                    filter === "All" ? item : filter == item.category
+                  )}
                   viewDetails={viewCourseDetails}
 
                 />}

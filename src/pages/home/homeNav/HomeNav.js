@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { HashLink } from "react-router-hash-link";
 import logo from "../../../images/seed_logo/Seed.svg";
 import logo_joined from "../../../images/seed_logo/Seed Joined.svg";
@@ -25,6 +25,8 @@ function HomeNav({
   const [showDrop, setShowDrop] = useState(false);
   const [dropIndex, setDropIndex] = useState(null);
   const [profileDrop, setProfileShowDrop] = useState(false);
+
+  const navRef = useRef();
 
   const popup = (i) => {
     document.body.classList.add("disable-scroll");
@@ -110,10 +112,10 @@ function HomeNav({
   }, [])
 
   return (
-    <div className="nav" id="nav">
+    <div className="nav" id="nav" ref={navRef}>
       <div className="left">
         <Link to="/" smooth>
-          <img src={joined ? logo_joined : logo} style={{width: joined? '200px': '120px'}} id="logo" alt="" />
+          <img src={logo_joined} style={{width:'200px'}} id="logo" alt="" />
         </Link>
       </div>
       <div className="options">
@@ -125,12 +127,12 @@ function HomeNav({
               </Link>
             </li>
             <li className="link">
-              <Link to="#" id="offer" data-index={0} onClick={toggleOffer}>
+              <Link to="#" id="offer" data-index={0} onMouseEnter={!showDrop? toggleOffer: dropIndex != 0? toggleOffer: null} onClick={toggleOffer}>
                 Courses
               </Link>
             </li>
             <li className="link">
-              <Link to="#" id="offer" data-index={1} onClick={toggleOffer}>
+              <Link to="#" id="offer" data-index={1} onMouseEnter={!showDrop? toggleOffer: dropIndex != 1? toggleOffer: null} onClick={toggleOffer}>
                 Events
               </Link>
             </li>
@@ -177,6 +179,7 @@ function HomeNav({
       </div>
       {showDrop && (
         <Drop
+        navRef={navRef}
           dropIndex={dropIndex}
           show={showDrop}
           onClickOutside={toggleOffer}
