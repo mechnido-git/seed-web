@@ -12,7 +12,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import Spinner from "../../components/Spinner";
 
-function Drop({ onClickOutside, show, dropIndex, redirect, setRedirect, setSignIn, navRef }) {
+function Drop({ onClickOutside, show, dropIndex, redirect, setRedirect, setSignIn, linkRef1, linkRef2, linkRef3, navRef }) {
   const [offerSwitch, setOfferSwitch] = useState(0);
   const [filter, setFilter] = useState(category[0]);
   const [eventSwitch, setEventSwitch] = useState(0);
@@ -31,7 +31,7 @@ function Drop({ onClickOutside, show, dropIndex, redirect, setRedirect, setSignI
       item.classList.remove("clicked");
     });
     e.target.classList.add("clicked");
-    if(offerSwitch != e.target.dataset.index) setOfferSwitch(offerSwitch === 0 ? 1 : 0);
+    if (offerSwitch != e.target.dataset.index) setOfferSwitch(offerSwitch === 0 ? 1 : 0);
   };
 
   const doFetch = async () => {
@@ -44,20 +44,19 @@ function Drop({ onClickOutside, show, dropIndex, redirect, setRedirect, setSignI
       console.log(doc.data());
       temp.push({ ...doc.data(), id: doc.id });
     });
-    console.log(temp);
     setCourses(temp);
     setLoading(false)
     // const washingtonRef = doc(db, "courses", "r8weEIiW3iJ8ocAkeTtJ");
 
     // // Set the "capital" field of the city 'DC'
     // await updateDoc(washingtonRef, {
-      
+
     // });
   };
 
   useEffect(() => {
     doFetch()
-    onAuthStateChanged(auth, (user)=>setUser(user))
+    onAuthStateChanged(auth, (user) => setUser(user))
     document.body.classList.add("disable-scroll");
     return () => document.body.classList.remove("disable-scroll");
   }, []);
@@ -70,9 +69,25 @@ function Drop({ onClickOutside, show, dropIndex, redirect, setRedirect, setSignI
       }
     };
 
+    const mouseOutside = (event) => {
+      if (ref.current && !ref.current.contains(event.target) && !navRef.current.contains(event.target)) {
+        onClickOutside && onClickOutside();
+      }
+      if (ref.current && !ref.current.contains(event.target) &&
+         (linkRef1.current.contains(event.target)
+          || linkRef2.current.contains(event.target)
+          || linkRef3.current.contains(event.target)
+         )
+      ) {
+        onClickOutside && onClickOutside();
+      }
+    };
+
     document.getElementById('root').addEventListener("click", handleClickOutside);
+    document.getElementById('root').addEventListener("mouseover", mouseOutside);
     return () => {
       document.getElementById('root').removeEventListener("click", handleClickOutside);
+      document.getElementById('root').removeEventListener("mouseover", mouseOutside);
     };
   }, [onClickOutside]);
 
@@ -102,7 +117,7 @@ function Drop({ onClickOutside, show, dropIndex, redirect, setRedirect, setSignI
       {li.map((item, index) => {
         return (
           <div className="card" key={index}>
-            <img  style={{width: '5rem', borderRadius: '50%', padding: '1rem'}} src={sp} alt="" />
+            <img style={{ width: '5rem', borderRadius: '50%', padding: '1rem' }} src={sp} alt="" />
           </div>
         );
       })}
@@ -110,17 +125,17 @@ function Drop({ onClickOutside, show, dropIndex, redirect, setRedirect, setSignI
   );
 
   const viewCourseDetails = (index) => {
-      if(user){
-        navigate(`/menu/courses/details/${index}`)
-      }else{
-        setRedirect(`/menu/courses/details/${index}`)
-        return setSignIn(true)
-      }
+    if (user) {
+      navigate(`/menu/courses/details/${index}`)
+    } else {
+      setRedirect(`/menu/courses/details/${index}`)
+      return setSignIn(true)
+    }
   }
 
   const listSelector = (e) => {
     const lists = document.querySelectorAll("li.category")
-    lists.forEach(item=>item.classList.remove("cat-on"))
+    lists.forEach(item => item.classList.remove("cat-on"))
     console.log(e);
     e.target.classList.add("cat-on")
   }
@@ -141,21 +156,21 @@ function Drop({ onClickOutside, show, dropIndex, redirect, setRedirect, setSignI
             <div className="courses">
               <ul>
                 {category.map((item, index) => {
-                    return (
-                      <li
-                        className={`category ${Number(index) == 0? 'cat-on': 'h'}`}
-                        onMouseEnter={(e) => {
-                          setFilter(item);
-                          listSelector(e)
-                        }}
-                        key={index}
-                      >
-                        <span class="material-symbols-outlined">
-                          {addIcon(item)}
-                        </span>
-                        {item}
-                      </li>
-                    );
+                  return (
+                    <li
+                      className={`category ${Number(index) == 0 ? 'cat-on' : 'h'}`}
+                      onMouseEnter={(e) => {
+                        setFilter(item);
+                        listSelector(e)
+                      }}
+                      key={index}
+                    >
+                      <span class="material-symbols-outlined">
+                        {addIcon(item)}
+                      </span>
+                      {item}
+                    </li>
+                  );
                 })}
               </ul>
               <div className="cards">
@@ -192,12 +207,12 @@ function Drop({ onClickOutside, show, dropIndex, redirect, setRedirect, setSignI
                 </li>
               </ul>
               <div className="cards">
-              {loading && <Spinner loading={true} />}
+                {loading && <Spinner loading={true} />}
                 {eventSwitch == 0
                   ? cardBuilder()
                   : eventSwitch == 1
-                  ? cardBuilder()
-                  : sponserCard()}
+                    ? cardBuilder()
+                    : sponserCard()}
               </div>
             </div>
           </>
