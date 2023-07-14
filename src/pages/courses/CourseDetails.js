@@ -280,7 +280,7 @@ function CourseDetails() {
       {buy && (
         <div className="wrapper">
           <div className="blocker" onClick={() => setbuy(false)}></div>
-          <Enroll index={index} />
+          <Enroll index={index} setbuy={setbuy} />
         </div>
       )}
       <Footer />
