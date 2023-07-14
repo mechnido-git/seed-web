@@ -27,6 +27,9 @@ function HomeNav({
   const [profileDrop, setProfileShowDrop] = useState(false);
 
   const navRef = useRef();
+  const linkRef1 = useRef();
+  const linkRef2 = useRef();
+  const linkRef3 = useRef();
 
   const popup = (i) => {
     document.body.classList.add("disable-scroll");
@@ -55,6 +58,14 @@ function HomeNav({
       document.getElementById(bodyId)?.removeEventListener("click", toggle);
     }
   };
+
+  useEffect(()=>{
+    
+    if(!showDrop){
+      const nav = document.getElementById("nav");
+      nav.classList.remove("offer");
+    }
+  }, [showDrop])
 
   const toggleOffer = (e) => {
    if (e) e.stopPropagation();
@@ -121,7 +132,7 @@ function HomeNav({
       <div className="options">
         <div className="links">
           <ul>
-            <li className="nav-link">
+            <li className="nav-link" ref={linkRef1}>
             <Link to="/">
                 Home
               </Link>
@@ -131,17 +142,17 @@ function HomeNav({
                 Courses
               </Link>
             </li>
-            <li className="link">
+            <li className="link" >
               <Link to="#" id="offer" data-index={1} onMouseEnter={!showDrop? toggleOffer: dropIndex != 1? toggleOffer: null} onClick={toggleOffer}>
                 Events
               </Link>
             </li>
-            <li className="nav-link">
+            <li className="nav-link" ref={linkRef2}>
             <Link to="/about">
                 About
               </Link>
             </li>
-            <li className="nav-link">
+            <li className="nav-link" ref={linkRef3}>
             <Link to="/sower">
                 Become a Sower
               </Link>
@@ -179,7 +190,10 @@ function HomeNav({
       </div>
       {showDrop && (
         <Drop
-        navRef={navRef}
+          navRef={navRef}
+          linkRef1={linkRef1}
+          linkRef2={linkRef2}
+          linkRef3={linkRef3}
           dropIndex={dropIndex}
           show={showDrop}
           onClickOutside={toggleOffer}
