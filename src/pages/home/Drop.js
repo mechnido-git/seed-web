@@ -70,7 +70,6 @@ function Drop({ onClickOutside, show, dropIndex, redirect, setRedirect, setSignI
     };
 
     const mouseOutside = (event) => {
-      console.log('hi');
       if (ref.current && !ref.current.contains(event.target) && !navRef.current.contains(event.target)) {
         onClickOutside && onClickOutside();
       }
@@ -88,6 +87,7 @@ function Drop({ onClickOutside, show, dropIndex, redirect, setRedirect, setSignI
     document.getElementById('root').addEventListener("mouseover", mouseOutside);
     return () => {
       document.getElementById('root').removeEventListener("click", handleClickOutside);
+      document.getElementById('root').removeEventListener("mouseover", mouseOutside);
     };
   }, [onClickOutside]);
 
