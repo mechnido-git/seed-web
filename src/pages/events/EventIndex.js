@@ -394,8 +394,8 @@ function EventIndex() {
       </div>
       {register && (
         <div className="wrapper-reg">
-          <div className="blocker" onClick={() => setRegister(false)}></div>
-          <RegisterForm event={events[currentEvent]} />
+          <div className="blocker"></div>
+          <RegisterForm event={events[currentEvent]} setRegister={setRegister}/>
         </div>
       )}
     </>

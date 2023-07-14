@@ -10,9 +10,10 @@ import logo from "../images/man.png";
 import MemberForm from "../pages/events/eventConfig/MemberForm";
 import FacultyForm from "../pages/events/eventConfig/FacultyForm";
 import axios from "axios";
+import cancellogo from "../images/cancel_icon.png";
 
 
-function RegisterForm({ event }) {
+function RegisterForm({ event , setRegister }) {
   const [teamName, setTeamName] = useState("");
   const [teamEmail, setTeamEmail] = useState("");
   const [teamMembers, setTeamMembers] = useState(3);
@@ -266,6 +267,7 @@ function RegisterForm({ event }) {
     switch (page) {
       case 0:
         return <form id="page-1">
+           
           <div className="input-div">
             <label htmlFor="team-name">Team Name</label>
             <p className="col">:</p>
@@ -485,6 +487,7 @@ function RegisterForm({ event }) {
 
   return (
     <div className="register-form">
+      <img className='clbt' src={cancellogo} onClick={()=>{setRegister(false)}} alt="close button"/>
       {loading && <Spinner loading={loading} />}
       <h3>{event.name}</h3>
       <form onSubmit={onSumbitHandler}>
