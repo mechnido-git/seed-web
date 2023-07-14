@@ -6,7 +6,7 @@
     position: relative;
     align-items: center;
     background-color: var(--secondary);
-    padding: 4rem 2rem;
+    padding: 2rem 1rem;
     border-radius: 5px;
     z-index: 11;
 }
@@ -51,4 +51,13 @@
     transition: .2s;
     display: inline-block;
     box-sizing: border-box;
+}
+
+.enroll-div .clbt{
+    width:40px;
+    height:40px;
+    margin-left: 500px;
+}
+.clbt:hover{
+    cursor: pointer;
 }

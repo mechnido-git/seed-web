@@ -346,7 +346,7 @@ function SideMenu() {
               <span class="material-symbols-outlined">
                 description
               </span>
-              <div>Intro</div>
+              <div>TNKC 2023</div>
             </HashLink>
             <HashLink
               onClick={mobile ? toggle : null}
@@ -357,7 +357,7 @@ function SideMenu() {
               <span class="material-symbols-outlined">
                 description
               </span>
-              <div>Features</div>
+              <div>Why TNKC 2023?</div>
             </HashLink>
             <HashLink
               onClick={mobile ? toggle : null}
@@ -379,7 +379,7 @@ function SideMenu() {
               <span class="material-symbols-outlined">
                 description
               </span>
-              <div>Workflow</div>
+              <div>Event Workflow</div>
             </HashLink>
             <HashLink
               onClick={mobile ? toggle : null}
@@ -390,7 +390,7 @@ function SideMenu() {
               <span class="material-symbols-outlined">
                 description
               </span>
-              <div>Schedule</div>
+              <div> Event Schedule</div>
             </HashLink>
             <HashLink
               onClick={mobile ? toggle : null}

@@ -5,7 +5,7 @@ import tnkc from "../../../images/tnkcimage.png";
 export const DetailsCard = ({ enroll, prize }) => {
   return (
     <div className="card-event">
-      <img src={tnkc} alt="" />
+      <img src={tnkc} alt="tnkc image" />
       <button onClick={enroll} >Enroll Now</button>
       <hr />
       <div className="card-body">

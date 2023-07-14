@@ -6,8 +6,9 @@ import axios from 'axios';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../../firebase/config';
 import Spinner from '../../components/Spinner';
+import cancellogo from "../../images/cancel_icon.png";
 
-function Enroll({index}) {
+function Enroll({index , setbuy}) {
     const { courseList, courses } = useContext(StoreContext);
     const [data, setData]= useState(courses[index])
     const [range, setRange] = useState(null);
@@ -87,10 +88,14 @@ function Enroll({index}) {
           setLoading(false)
         }
     }
-
+    const handleclose=()=>{
+      setbuy(false);
+    }
   return (
     <div className='enroll-div'>
+       <img className='clbt' src={cancellogo} onClick={handleclose} alt="close button"/>
       {loading && <Spinner other={"globel"} loading={loading} />}
+      {/* <img className='clbt' src={cancellogo} alt="close button"/> */}
         <h1>{data.name}</h1>
         <h4>Select pay range</h4>
         <div className="card" >

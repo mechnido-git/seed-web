@@ -3747,7 +3747,7 @@ const eventList = [
     },
     why:{
       img:"",
-      heading:" Why TNKC 2023",
+      heading:" Why TNKC 2023?",
       sibling:[
         {
           title:"EXPERIENTIAL LEARNING",
@@ -3811,7 +3811,7 @@ const eventList = [
     ]
     },
     workflow:{
-      title:"Event Work Flow",
+      title:"Event Workflow",
       data:[
         "EVENT LAUNCH & REGISTRATION OPEN SPONCERS",
         "OFFLINE & ONLINE MARKETING",

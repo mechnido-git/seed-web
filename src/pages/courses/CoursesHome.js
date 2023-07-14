@@ -13,6 +13,7 @@ import Enroll from "../payment/Enroll";
 import Footer from "../../components/footer/Footer";
 import CardLoader from "../../components/cardLoader/cardLoader";
 import ImageLoader from "../../components/imageLoader/ImageLoader";
+import cancellogo from "../../images/cancel_icon.png";
 
 export const recomended = [
   {
@@ -353,8 +354,11 @@ function CoursesHome() {
       </div>
       {buy && (
         <div className="wrapper">
-          <div className="blocker" onClick={() => setbuy(false)}></div>
-          <Enroll index={currentSlide} />
+          <div className="blocker" onClick={() => setbuy(false)}>
+          
+          </div>
+        
+          <Enroll index={currentSlide} setbuy= {setbuy} />
         </div>
       )}
     </>
