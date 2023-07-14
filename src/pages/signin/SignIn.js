@@ -386,19 +386,9 @@ function SignIn({ index, redirect, setRedirect,setSignIn }) {
                   onChange={(e) => setUpEmail(e.target.value)}
                   placeholder="Email"
                   className="input"
-                  pattern=" /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"
+                  pattern="^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$"
+                  // pattern=" /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"
                   // pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-                />
-              </div>
-              <div className="field input-field">
-                <input
-                  required
-                  type="phone"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  placeholder="Phone"
-                  className="input"
-                  pattern=  "^[0-9]{10}$"
                 />
               </div>
 
@@ -415,6 +405,19 @@ function SignIn({ index, redirect, setRedirect,setSignIn }) {
                 />
                 <i onClick={showPassword} className="bx bx-hide eye-icon"></i>
               </div>
+              <div className="field input-field">
+                <input
+                  required
+                  type="phone"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  placeholder="Phone"
+                  className="input"
+                  pattern=  "^[0-9]{10}$"
+                />
+              </div>
+
+            
 
               <div className="form-link">
                 <i className="bx bx-info-circle"></i>{" "}
