@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import profile from "../../images/profile.png";
 import Spinner from '../../components/Spinner';
 import hero from "../../images/sower_hero.png"
-import logo from "../../images/seed_logo/Seed Joined.svg"
+import logo from "../../images/seed_logo/Seed.svg"
 import descImg from "../../images/description_sower.png"
 import d1 from "../../images/details_1.png"
 import d2 from "../../images/details_2.png"
