@@ -212,6 +212,11 @@
     color: red;
 }
 
+.apply-now form .mess{
+    color:black;
+    font-size: 13px
+}
+
 .sower > .footer > h2{
     font-size: 25px;
 }
