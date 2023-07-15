@@ -2,7 +2,7 @@ import { useState } from "react";
 
 const TextLimiter = ({ text, number = 100, color = 'var(--tertiary)' }) => {
     const [isReadMore, setIsReadMore] = useState(true);
-    const temp = { color: color, whiteSpace: 'nowrap', cursor: 'pointer' }
+    const temp = { color: color, whiteSpace: 'nowrap', cursor: 'pointer', fontWeight: 'bold' }
     const [styles, setIsStyles] = useState(temp);
     const toggleReadMore = () => {
       setIsReadMore(!isReadMore);

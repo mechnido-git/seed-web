@@ -53,7 +53,8 @@
 .card-event > img{
     width: 20rem;
     mix-blend-mode: darken;
-    padding: 1rem;
+     padding: 1rem 1rem 0rem 1rem; 
+    
 }
 
 .card-event > button{
@@ -65,7 +66,8 @@
     background-color: var(--primary);
     color: var(--secondary);
     cursor: pointer;
-    margin: 1rem auto;
+    margin:  0rem auto;
+    margin-bottom: 14px;
     transition: .2s;
     display: inline-block;
     box-sizing: border-box;

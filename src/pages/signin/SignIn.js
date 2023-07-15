@@ -381,6 +381,17 @@ function SignIn({ index, redirect, setRedirect,setSignIn }) {
               <div className="field input-field">
                 <input
                   required
+                  type="phone"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  placeholder="Phone"
+                  className="input"
+                  pattern=  "^[0-9]{10}$"
+                />
+              </div>
+              <div className="field input-field">
+                <input
+                  required
                   type="email"
                   value={upEmail}
                   onChange={(e) => setUpEmail(e.target.value)}
@@ -406,17 +417,7 @@ function SignIn({ index, redirect, setRedirect,setSignIn }) {
                 />
                 <i onClick={showPassword} className="bx bx-hide eye-icon"></i>
               </div>
-              <div className="field input-field">
-                <input
-                  required
-                  type="phone"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  placeholder="Phone"
-                  className="input"
-                  pattern=  "^[0-9]{10}$"
-                />
-              </div>
+              
 
             
 

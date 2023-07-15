@@ -33,7 +33,7 @@ function ApplyNow({name, uid, setLoading}) {
         <h2>Upload your CV</h2>
         <form onSubmit={uploadFile} >
            <input type="file" name="cv" accept="application/pdf, application/msword , application/vnd.openxmlformats-officedocument.wordprocessingml.document " onChange={onFileChange} id="cv" />
-           <p>Choose *word/*pdf/ files</p>
+           <p className='mess'>Choose *word/*pdf/ files</p>
             <button type='submit'>Upload</button> 
             <p>{error}</p>
         </form>
