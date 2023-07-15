@@ -21,7 +21,10 @@
     height: 100vh;
     top: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.8) !important;
+    /* background-color: rgba(0, 0, 0, 0.8) !important; */
+    /* background-color: #c1d1cc; */
+    background-image: url("../src/images/loading_bg_img.jpg");
+    
     display: flex;
     justify-content: center;
     align-items: center;

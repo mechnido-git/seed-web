@@ -4298,7 +4298,8 @@ const quotations=
         setFilter,
         eventList,
         courseIndex, setCourseIndex,
-        eventIndex, setEventIndex
+        eventIndex, setEventIndex,
+        quotations
       }}
     >
       {children}

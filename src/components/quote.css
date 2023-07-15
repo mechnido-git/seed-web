@@ -1,0 +1,33 @@
+
+.loading-container{
+    display: inline-block;
+    width: 500px;
+    height:max-content;
+  
+    text-align: center;
+  
+    padding: 4rem;
+   
+}
+
+.loading-container img{
+    width: 160px;
+    height:50px;
+   
+   
+}
+.quotes{
+    text-align: center;
+    display: block;
+    margin: auto;
+    color:var(--tertiary);
+   padding:2rem;
+   
+}
+.loader{
+    text-align: center;
+    display: block;
+    margin: auto;
+    padding: 2rem;
+   
+}
