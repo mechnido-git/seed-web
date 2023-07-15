@@ -18,7 +18,7 @@ function MainSection({event}) {
       <HashLink className="btn" to={`${loc.pathname}/#workflow`} smooth>
             Explore
         </HashLink>
-      {/* <div className='btn'>Explore</div> */}
+     
     </div>
 
     {/* <div className='titleimage'>
