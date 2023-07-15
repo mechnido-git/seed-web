@@ -1,27 +1,36 @@
 .workflow-container {
     display: grid;
     grid-template-columns: 1fr;
+    justify-content: center;
     gap: 20px;
     align-items: center;
     position: relative;
 }
 
-.workflow-container > .content {
+.workflow-container > .contents{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.workflow-container .content {
     display: grid;
     grid-template-columns: 1fr;
     gap: 10px;
-    align-items: center;
     justify-content: center;
-    position: relative;
+    align-items: end;
+    width: 90%;
+    justify-self: center;
 }
 
-.workflow-container > .content > h4 {
+.workflow-container .content > h4 {
     padding: 1.5rem;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
     color: var(--secondary);
     border-radius: 10px;
     font-size: 20px;
     background-color: var(--primary);
+    z-index: 2;
 }
 
 .workflow-section{
@@ -100,4 +109,116 @@
     display: inline-flex;
     flex-direction: column;
     gap: 5px;
+}
+
+.workflow-container .content::before, .workflow-container .content::after{
+    content: "";
+    position: absolute;
+    border: 5px solid var(--primary);
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 20px;
+    width: 50%;
+    height: 85px;
+    translate: 0 55px;
+    z-index: 1;
+}
+
+.workflow-container .content::before{
+    left: 0;
+    border-right: none;
+    box-shadow: rgba(0, 0, 0, 0.2) 30px 0px 28px -25px inset, rgba(0, 0, 0, 0.1) -29px 0px 50px -15px;
+}
+
+.workflow-container .content:nth-child(odd):not(:first-child):before{
+    display: none;
+}
+
+.workflow-container .content:first-child:before{
+    border-left: none;
+    border-bottom: none;
+    box-shadow: none;
+    border-radius: 0;
+    border: none;
+    height: 5px;
+    background-color: var(--primary);
+    translate: 0 0;
+    align-self: center;
+    transform: translateX(5px);
+}
+
+
+.workflow-container .content::after{
+    right: 0;
+    border-left: none;
+    box-shadow: rgba(0, 0, 0, 0.2) 30px 0px 28px -25px, rgba(0, 0, 0, 0.1) -29px 0px 50px -15px inset;
+}
+
+.workflow-container .content:nth-child(even):after{
+    display: none;
+}
+
+.workflow-container .content.even-last::before{
+    border-left: none;
+    border-bottom: none;
+    box-shadow: none;
+    border-radius: 0;
+    transform: translateX(5px);
+}
+
+.workflow-container .content.odd-last::after{
+    border-right: none;
+    border-bottom: none;
+    box-shadow: none;
+    border-radius: 0;
+    transform: translateX(-5px);
+}
+
+.workflow-container .numbers{
+    position: absolute;
+    display: grid;
+    grid-template-columns: 1fr;
+    height: 100%;
+    gap: 20px;
+    width: 100%;
+    z-index: 2;
+}
+
+.workflow-container .numbers > .num{
+    width: 35px;
+    height: 35px;
+    color: var(--secondary);
+    background-color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border-radius: 50%;
+}
+
+.workflow-container .numbers > .num p{
+    color: var(--secondary);
+}
+
+.workflow-container .numbers > .num:first-child{
+    align-self: center;
+}
+
+.workflow-container .numbers > .num:not(:first-child):not(:last-child){
+    translate: 0 -32px;
+}
+
+.workflow-container .numbers > .num:nth-child(even){
+    justify-self: end;
+    transform: translateX(15px);
+}
+
+.workflow-container .numbers > .num:nth-child(odd):not(:first-child):not(:last-child){
+    transform: translateX(-15px);
+}
+
+.workflow-container .numbers > .num:last-child{
+    position: absolute;
+    bottom: 15px;
+    align-self: center;
+    border-radius: 50%;
 }

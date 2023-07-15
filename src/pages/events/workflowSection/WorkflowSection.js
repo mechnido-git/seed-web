@@ -31,16 +31,41 @@ export const DetailsCard = ({ enroll, prize }) => {
 
 function WorkflowSection({ event }) {
 
+ useEffect(()=>{
+  const last = document.querySelector('.workflow-container .content:last-child')
+  if(event?.workflow.data.length % 2 === 0){
+    last.classList.add('even-last')
+  }else{
+    last.classList.add('odd-last')
+  }
+ }, [event])
+
   return (
     <div className='workflow-section' id='workflow'>
       <h2>{event.workflow.title}</h2>
       <div className="body">
+
         <div className="workflow-container">
+        <div className="numbers">
+        {event.workflow.data.map((item, key) => (
+            <div className="num" >
+              <p>{key+1}</p>
+            </div>
+          ))}
+          <div className="num" >
+          <span class="material-symbols-outlined">
+tour
+</span>
+            </div>
+        </div>
+
+          <div className="contents">
           {event.workflow.data.map((item, key) => (
-            <div className="content">
+            <div className="content" >
               <h4>{item}</h4>
             </div>
           ))}
+          </div>
         </div>
         <DetailsCard prize={event.prize} />
       </div>
