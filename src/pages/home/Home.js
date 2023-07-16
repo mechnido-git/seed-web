@@ -154,7 +154,9 @@ function Home() {
         setSignIn(true);
       }
   };
-  if(loading || redirectLoad) return <Spinner other="globel" loading={true} />
+  if(loading || redirectLoad) 
+  return <Spinner other="globel" loading={true} />
+ 
 
   return (
     <>
