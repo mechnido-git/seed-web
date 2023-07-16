@@ -33,10 +33,14 @@ function WorkflowSection({ event }) {
 
  useEffect(()=>{
   const last = document.querySelector('.workflow-container .content:last-child')
+  const lastNum = document.querySelector('.workflow-container .num:last-child')
+  console.log(lastNum);
   if(event?.workflow.data.length % 2 === 0){
     last.classList.add('even-last')
+    lastNum.style.transform = 'translateX(-17px)'
   }else{
     last.classList.add('odd-last')
+    lastNum.style.transform = 'translateX(17px)'
   }
  }, [event])
 
@@ -52,7 +56,7 @@ function WorkflowSection({ event }) {
               <p>{key+1}</p>
             </div>
           ))}
-          <div className="num" >
+          <div className="num">
           <span class="material-symbols-outlined">
 tour
 </span>

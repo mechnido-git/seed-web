@@ -186,8 +186,9 @@
 .workflow-container .numbers > .num{
     width: 35px;
     height: 35px;
-    color: var(--secondary);
-    background-color: var(--primary);
+    color: var(--primary);
+    background-color: var(--secondary);
+    border: 3px solid var(--primary);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -196,7 +197,7 @@
 }
 
 .workflow-container .numbers > .num p{
-    color: var(--secondary);
+    color: var(--primary);
 }
 
 .workflow-container .numbers > .num:first-child{
@@ -209,16 +210,16 @@
 
 .workflow-container .numbers > .num:nth-child(even){
     justify-self: end;
-    transform: translateX(15px);
+    transform: translateX(17px);
 }
 
-.workflow-container .numbers > .num:nth-child(odd):not(:first-child):not(:last-child){
-    transform: translateX(-15px);
+.workflow-container .numbers > .num:nth-child(odd):not(:last-child){
+    transform: translateX(-17px);
 }
 
 .workflow-container .numbers > .num:last-child{
     position: absolute;
-    bottom: 15px;
+    bottom: 13px;
     align-self: center;
     border-radius: 50%;
 }
