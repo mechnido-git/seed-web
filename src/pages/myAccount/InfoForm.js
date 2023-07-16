@@ -3,7 +3,8 @@ import './info.css'
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../../firebase/config';
 import Spinner from '../../components/Spinner';
-import '../events/eventConfig/fac.css'
+import '../events/eventConfig/fac.css';
+import UserProfile from "../myAccount/UserProfile";
 
 function InfoForm() {
 
@@ -15,13 +16,17 @@ function InfoForm() {
   const [dob, setDob] = useState("");
   const [email, setEmail] = useState("");
   const [mobile, setMobile] = useState("");
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
+  const [page, setPage] = useState(true);
+ 
+  
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setName(user.displayName);
         setEmail(user.email);
+        setPage(false);
         setLoading(false);
       } else {
         setLoading(false);
@@ -61,7 +66,8 @@ function InfoForm() {
     const error = document.querySelectorAll('.error')
     error.forEach(item=>item.style.display = "none")
     error.forEach(item => item.innerHTML = "")
-    var letters = /^[A-Za-z]+$/;
+    // var letters = /^[A-Za-z]+$/;
+    var letters= /^[a-z ,.'-]+$/i;
     var pattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/
 
     let flag = false;
@@ -124,33 +130,37 @@ function InfoForm() {
       document.getElementById('member-mobile').innerText = "Mobile must be numeric";
       flag = true;
     }
-
+  
     if (!flag) {
-      let temp = []
-      temp.push({
-        name,
-        dep,
-        year,
-        dob,
-        email,
-        mobile
-      })
-      setName("")
-      setDep("")
-      setYear("")
-      setDob("")
-      setEmail("")
-      setMobile("")
-      inputs.forEach((inp, i) => {
-        inp.style.border = ''
-      });
+      // temp=[];
+      // temp.push({
+      //   name,
+      //   dep,
+      //   year,
+      //   dob,
+      //   email,
+      //   mobile
+      // })
+      // setName("")
+      // setDep("")
+      // setYear("")
+      // setDob("")
+      // setEmail("")
+      // setMobile("")
+      // inputs.forEach((inp, i) => {
+      //   inp.style.border = ''
+      // });
+      setPage(false);
     }
   }
+
+ 
+ 
   return (
     <div className="user-info">
-      {loading ? <Spinner loading={loading} /> : <>
+      {loading ? <Spinner loading={loading} /> : page ?<>
         <h2>My Account</h2>
-        <form className="fac" >
+        <form  className="fac" >
 
           <div className="input-div">
             <label htmlFor="college">Name</label>
@@ -167,7 +177,7 @@ function InfoForm() {
             <div style={{display: 'none'}} className="error" id='member-name'></div>
           </div>
           <div className="input-div">
-            <label htmlFor="gender">Gander</label>
+            <label htmlFor="gender">Gender</label>
             <p className="col">:</p>
             <div className="inp" onChange={(e) => setGender(e.target.value)}>
               <input required value='male' checked={gender === 'male' ? true : false} type="radio" name='gender' /> Male
@@ -246,7 +256,7 @@ function InfoForm() {
           </div>
           <input className={`cntrl`} onClick={validate} type="button" value="Submit" />
         </form>
-      </>}
+      </>:<UserProfile setPage={setPage} name={name} gender= {gender} college = {college} dep = {dep} year = {year} dob = {dob} email={email} mobile={mobile} />}
     </div>
   )
 }
