@@ -104,6 +104,54 @@
     text-align: center;
 }
 
+.form-data{
+    margin:40px auto ;
+    padding:10px
+}
+.form-data h2{
+Margin-left:25%
+
+}
+
+.form-data button{
+    padding: 5px 10px;
+    border: 2px solid var(--primary);
+    background-color: var(--primary);
+    color:var(--secondary);
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: medium;
+    margin-left: 27%;
+}
+.data{
+    display: block;
+}
+.labels{
+    display:inline-block;
+    width: 200px;
+    height: 70px;
+    margin-left:10px;
+    margin-bottom: 10px;
+   
+}
+.values{
+    display:inline-block;
+    width: 400px;
+    height: 70px;
+   margin-left:10px;
+    margin-bottom: 10px;
+   
+}
+.labels p{
+    padding: 35px 0;
+    font-size: larger;
+    
+}
+.values p{
+    padding: 35px 0;
+    font-size: large;
+}
+
 @media only screen and (max-width: 650px){
 .user-info {
     grid-column: 1 / 4;
