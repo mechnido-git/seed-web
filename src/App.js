@@ -7,13 +7,9 @@ import { auth } from "./firebase/config";
 
 function App() { 
   
-  const {setUser, setQuote, quotations } = useContext(StoreContext); 
+  const {setUser } = useContext(StoreContext); 
 
   useEffect(()=>{
-    setQuote(true);
-    // let num = Math.ceil(Math.random()*100);
-    // setQuote(quotations[num]);
-  
     const unsubscribe = onAuthStateChanged(auth, user=>{
       if(user){
         setUser(user)

@@ -34,7 +34,7 @@ function Router() {
             <Route index element={<Navigate to='dashboard' />} /> {/* DEFAULT ROUTE -> /menu/dashboard */}
             <Route exaact path="dashboard" element={<Dashboard />} /> {/* DASHBOARD */}
             <Route exact path="courses" element={<CoursesHome />} /> {/* COURSES HOME */}
-            <Route exact path="courses/details/:index" element={<CourseDetails />} /> {/* DEATAILS OF SINGLE COURSE */}
+            <Route path="courses/details/:index" element={<CourseDetails />} /> {/* DEATAILS OF SINGLE COURSE */}
             <Route path="events" element={<EventIndex />} /> {/* EVENTS HOME */}
             <Route exact path="events/details/:index" element={<EventDetails />} /> {/* DEATAILS OF SINGLE EVENT */}
             <Route path="account" element={<InfoForm />} /> {/* USER INFO SUBMISSION */}

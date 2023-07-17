@@ -1,6 +1,4 @@
-import { getAuth } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
-import { app } from "../firebase/config";
 import p1 from "../images/p1.jpg";
 import p2 from "../images/p2.jpg";
 import p3 from "../images/p3.jpg";
@@ -13,7 +11,6 @@ import p8 from "../images/p8.jpg";
 import s1 from "../images/slide1.png";
 import s2 from "../images/slide.jpg";
 import s3 from "../images/slide3.jpg";
-import { useLocation } from "react-router-dom";
 
 export const StoreContext = createContext(null);
 
@@ -28,8 +25,9 @@ const Store = ({ children }) => {
 
   const [courseIndex, setCourseIndex] = useState(null)
   const [eventIndex, setEventIndex] = useState(null)
-  const[quotes, setQuote] = useState(true);
-  const[num, setNum] = useState(0);
+
+  const [metrics, setMetrics] = useState(true)
+  const [feedback, setFeedback] = useState(true)
 
   const courseList = [
     {
@@ -4275,7 +4273,7 @@ const quotations=
          quote:"If you can dream it, you can achieve it.",author:"Zig Ziglar"}
   ]
 
-
+  const[quotes, setQuote] = useState(quotations[Math.ceil(Math.random()*100)]);
 
   return (
     <StoreContext.Provider
@@ -4299,7 +4297,8 @@ const quotations=
         courseIndex, setCourseIndex,
         eventIndex, setEventIndex,
         quotations,
-        quotes, setQuote,num, setNum
+        quotes, setQuote,
+        metrics, setMetrics, feedback, setFeedback
       }}
     >
       {children}
