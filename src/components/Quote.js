@@ -1,12 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useContext } from 'react'
 import { StoreContext } from '../store/StoreContext';
 import './quote.css';
 export default function Quote() {
 
   const {quotations} = useContext(StoreContext); 
+  let num= 0;
+  useEffect(() => {
+    num = Math.ceil(Math.random()*101);
+  }, []);
   
-  let num = Math.ceil(Math.random()*101);
+
   const [index, setIndex] = useState(num);
   return (
    

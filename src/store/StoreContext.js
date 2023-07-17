@@ -4082,8 +4082,7 @@ const quotations=
          quote:"I attribute my success to this: I never gave or took any excuse.",author:"Florence Nightingale"},
   {
          quote:"You miss 100% of the shots you don’t take.",author:"Wayne Gretzky"},
-  {
-         quote:"I’ve missed more than 9000 shots in my career. I’ve lost almost 300 games. 26 times I’ve been trusted to take the game winning shot and missed. I’ve failed over and over and over again in my life. And that is why I succeed.",author:"Michael Jordan"},
+  
   {
          quote:"The most difficult thing is the decision to act, the rest is merely tenacity.",author:"Amelia Earhart"},
   {
@@ -4096,8 +4095,7 @@ const quotations=
          quote:"Life is what happens to you while you’re busy making other plans.",author:"John Lennon"},
   {
          quote:"We become what we think about.",author:"Earl Nightingale"},
-  {
-         quote:"Twenty years from now you will be more disappointed by the things that you didn’t do than by the ones you did do, so throw off the bowlines, sail away from safe harbor, catch the trade winds in your sails.  Explore, Dream, Discover.",author:"Mark Twain"},
+  
   {
          quote:"Life is 10% what happens to me and 90% of how I react to it.",author:"Charles Swindoll"},
   {
@@ -4234,8 +4232,7 @@ const quotations=
          quote:"I have learned over the years that when one’s mind is made up, this diminishes fear.",author:"Rosa Parks"},
   {
          quote:"It does not matter how slowly you go as long as you do not stop.",author:"Confucius"},
-  {
-         quote:"If you look at what you have in life, you’ll always have more. If you look at what you don’t have in life, you’ll never have enough.",author:"Oprah Winfrey"},
+ 
   {
          quote:"Remember that not getting what you want is sometimes a wonderful stroke of luck.",author:"Dalai Lama"},
   {

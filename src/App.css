@@ -22,9 +22,9 @@
     top: 0;
     left: 0;
     /* background-color: rgba(0, 0, 0, 0.8) !important; */
-    /* background-color: #c1d1cc; */
-    background-image: url("../src/images/loading_bg_img.jpg");
-    
+     /* background-color: #c1d1cc;   */
+    /* background-image: url("../src/images/loading_bg_img.jpg"); */
+    background-color: var(--secondary);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -94,4 +94,11 @@ a{
     --primary: #00B17B;
     --secondary: #F4F4F4;
     --tertiary: #2E2F2F;
+}
+
+.dark-mode{
+    --primary:rgb(81, 78, 78);
+    --secondary:rgb(29, 27, 27);
+    --tertiary: #F4F4F4;
+    
 }
