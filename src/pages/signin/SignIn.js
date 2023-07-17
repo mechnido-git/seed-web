@@ -94,6 +94,7 @@ function SignIn({ index, redirect, setRedirect,setSignIn }) {
   const handleSignUp = (e) => {
     setLoading(true);
     e.preventDefault();
+
     createUserWithEmailAndPassword(auth, upEmail, upPassword)
       .then((userCredential) => {
         // Signed in
@@ -121,10 +122,25 @@ function SignIn({ index, redirect, setRedirect,setSignIn }) {
   };
 
   const handleSignIn = (e) => {
-    setLoading(true);
+    //setLoading(true);
     e.preventDefault();
-    console.log(email);
-    signInWithEmailAndPassword(auth, email, password)
+
+    const error = document.querySelectorAll('.error')
+    error.forEach(item=>item.style.display = "none")
+    error.forEach(item => item.innerHTML = "")
+
+    var pattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/
+    let flag = false;
+    if(email.length === 0){
+      document.getElementById('in-email').style.display = "block"
+      document.getElementById('in-email').innerText = "Email cannot be empty"
+      flag = true
+    }else if(!email.match(pattern)){
+      document.getElementById('in-email').innerText = "Please include an '@' symbol and a valid domain extension such as .com or .net.";
+    }
+    console.log(flag);
+    if(!flag){
+      signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
@@ -142,6 +158,7 @@ function SignIn({ index, redirect, setRedirect,setSignIn }) {
         alert(errorMessage);
         setLoading(false);
       });
+    }
   };
 
 
@@ -285,7 +302,7 @@ function SignIn({ index, redirect, setRedirect,setSignIn }) {
             <>
               <div className="form-content">
                 <header>Sign in</header>
-                <form onSubmit={handleSignIn}>
+                <form >
                   <div className="field input-field">
                     <input
                       type="email"
@@ -297,7 +314,7 @@ function SignIn({ index, redirect, setRedirect,setSignIn }) {
                       pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                     />
                   </div>
-                  <span className="error">{emailError}</span>
+                  <span className="error" id="in-email">{emailError}</span>
 
                   <div className="field input-field">
                     <input
@@ -327,7 +344,7 @@ function SignIn({ index, redirect, setRedirect,setSignIn }) {
                   </div>
 
                   <div className="field button-field">
-                    <input type="submit" value="Sign in" />
+                    <input type="button" onClick={handleSignIn} value="Sign in" />
                   </div>
                 </form>
 

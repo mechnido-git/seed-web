@@ -94,13 +94,13 @@ header{
 .field input:focus{
     border-bottom-width: 2px;
 }
-.signin-div input:not([type="submit"]):not(:placeholder-shown):invalid {
+/* .signin-div input:not([type="submit"]):not(:placeholder-shown):invalid {
     border: 2px solid red !important;
   }
 
   input:not([type="submit"]):not(:placeholder-shown):valid {
     border: 1px solid #CACACA !important;
-  }
+  } */
 
 .eye-icon{
     position: absolute;
