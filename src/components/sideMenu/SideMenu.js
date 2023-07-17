@@ -353,7 +353,7 @@ function SideMenu() {
                 description
               </span> */}
               <img className="menu-icon" src={intro} alt="tnkc icon"/>
-              <div>TNKC 2023</div>
+              <div>Intro</div>
             </HashLink>
             <HashLink
               onClick={mobile ? toggle : null}
@@ -389,7 +389,7 @@ function SideMenu() {
                 description
               </span> */}
                <img className="menu-icon"  src={workflow} alt="tnkc icon"/>
-              <div>Event Workflow</div>
+              <div>Workflow</div>
             </HashLink>
             <HashLink
               onClick={mobile ? toggle : null}
@@ -401,7 +401,7 @@ function SideMenu() {
                 description
               </span> */}
                <img className="menu-icon" src={sch} alt="tnkc icon"/>
-              <div> Event Schedule</div>
+              <div>Schedule</div>
             </HashLink>
             <HashLink
               onClick={mobile ? toggle : null}
