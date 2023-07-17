@@ -208,7 +208,7 @@ function Drop({ onClickOutside, show, dropIndex, redirect, setRedirect, setSignI
                 </li>
               </ul>
               <div className="cards">
-                {loading && <Spinner loading={true} />}
+                {loading && <Spinner loading={true} normal={true} />}
                 {eventSwitch == 0
                   ? cardBuilder()
                   : eventSwitch == 1
