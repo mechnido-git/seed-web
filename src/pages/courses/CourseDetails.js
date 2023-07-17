@@ -12,7 +12,7 @@ import Enroll from "../payment/Enroll";
 import Footer from "../../components/footer/Footer";
 
 function CourseDetails() {
-  const { courseList, courses, userId, setSection, setCourseIndex } = useContext(StoreContext);
+  const { courseList, courses, userId, setSection, setCourseIndex, setFeedback, setMetrics } = useContext(StoreContext);
   const { index } = useParams();
   setCourseIndex(index)
   setSection(3)
@@ -20,7 +20,6 @@ function CourseDetails() {
   const navigate = useNavigate()
 
 
-  console.log(courseList[index]);
   const [buy, setbuy] = useState(false)
   const [data, setData] = useState(courseList[index]);
 
@@ -45,16 +44,29 @@ function CourseDetails() {
   };
 
   const getCours = (index) => {
-    navigate(`/menu/courses/details/${index}`)
-    window.location.reload()
+
+   // navigate(`/menu/courses/details/${index}`)
+   // navigate(`/menu/courses/details/${index}`, { replace: true })
+   window.location.href = `/menu/courses/details/${index}`
+   // navigate(0)
+   
   }
 
   useEffect(()=>{
+
+     if(!courseList[index].metrics) setMetrics(false)
+     if(!courseList[index].feedback) setFeedback(false)
+
       const loc = window.location.href.split("/")
       const last = loc[loc.length -1]
       if(last[0] === "#"){
         const id = last.slice(1, last.length)
         document.getElementById(id).scrollIntoView({behavior: 'smooth'});
+      }
+
+      return ()=>{
+        setMetrics(true)
+        setFeedback(true)
       }
   }, [])
 

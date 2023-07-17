@@ -26,7 +26,7 @@ function SideMenu() {
   // const {loc, setLoc} = useContext(ToggleContext)
   const [user, setUser] = useState(false);
   const [prev, setPrev] = useState(null);
-  const { filter, setFilter, courseIndex, eventIndex } = useContext(StoreContext);
+  const { filter, setFilter, courseIndex, eventIndex, metrics, feedback } = useContext(StoreContext);
 
   // const [loc, setLoc] = useState(location.pathname.split("/"))
   const navigator = useNavigate();
@@ -315,7 +315,7 @@ function SideMenu() {
               </span>
               <div>Certificate</div>
             </HashLink>
-            <HashLink
+           {metrics && <HashLink
               onClick={mobile ? toggle : null}
               to={`/menu/courses/details/${courseIndex}/#metrics`}
               smooth
@@ -325,8 +325,8 @@ function SideMenu() {
                 bar_chart
               </span>
               <div>Metrics</div>
-            </HashLink>
-            <HashLink
+            </HashLink> }
+            {feedback && <HashLink
               onClick={mobile ? toggle : null}
               to={`/menu/courses/details/${courseIndex}/#feedbacks`}
               smooth
@@ -336,7 +336,7 @@ function SideMenu() {
                 rate_review
               </span>
               <div>Feedbacks</div>
-            </HashLink>
+            </HashLink> }
           </>);
 
       case 4:
