@@ -41,7 +41,6 @@ function Drop({ onClickOutside, show, dropIndex, redirect, setRedirect, setSignI
     querySnapshot?.forEach((doc) => {
       // doc.data() is never undefined for query doc snapshots
       //console.log(doc.id, " => ", doc.data());
-      console.log(doc.data());
       temp.push({ ...doc.data(), id: doc.id });
     });
     setCourses(temp);
@@ -174,14 +173,16 @@ function Drop({ onClickOutside, show, dropIndex, redirect, setRedirect, setSignI
                 })}
               </ul>
               <div className="cards">
-                {loading && <Spinner loading={true} />}
-                {courses.length !== 0 && <CardBuilder
+                {loading ? <Spinner loading={loading} normal={true} />:(<>
+                  {courses.length !== 0 && <CardBuilder
                   arr={courses.filter((item) =>
                     filter === "All" ? item : filter == item.category
                   )}
                   viewDetails={viewCourseDetails}
 
                 />}
+                </>)}
+
               </div>
             </div>
           </>
@@ -207,7 +208,7 @@ function Drop({ onClickOutside, show, dropIndex, redirect, setRedirect, setSignI
                 </li>
               </ul>
               <div className="cards">
-                {loading && <Spinner loading={true} />}
+                {loading && <Spinner loading={true} normal={true} />}
                 {eventSwitch == 0
                   ? cardBuilder()
                   : eventSwitch == 1
