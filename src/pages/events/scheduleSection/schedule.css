@@ -34,3 +34,21 @@
     align-items: center;
     color: white !important
 }
+
+@media only screen and (max-width: 435px){
+    .sch{
+        font-size: 14px;
+        padding: 5px;
+    }
+    .dat{
+        font-size: 14px;
+        padding: 5px;
+    }
+    .gc{
+        grid-template-columns: 1fr;
+    }
+    .schdat{
+        grid-template-columns: 1fr 105px;
+    }
+
+}

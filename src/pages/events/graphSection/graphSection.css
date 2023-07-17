@@ -19,3 +19,20 @@
     flex-direction: column;
     gap: 20px;
 }
+
+@media only screen and (max-width: 860px){
+    .graph-container{
+        display: flex;
+        gap: 20px;
+        overflow: auto;
+        padding: 10px;
+        scroll-snap-type: x mandatory;
+    }
+    .graph-container::-webkit-scrollbar{
+        display: none;
+    }
+    .graph-container > .feature {
+        min-width: 200px;
+        scroll-snap-align: center;
+    }
+}

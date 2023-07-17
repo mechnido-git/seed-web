@@ -6,10 +6,10 @@
     border-radius: 10px;
     background-color: var(--secondary); 
     /* background-color: var(--primary); */
+    gap: 20px;
 }
 .grid-item {
     /* background-color: rgba(255, 255, 255, 0.8); */
-    padding: 20px;
     font-size: 30px;
     text-align: center;
     height: 240px;
@@ -31,3 +31,28 @@
     line-height: 100px;
     font-size: 40px;
 } */
+
+@media only screen and (max-width: 1024px){
+    .devtitle{
+        font-size: 16px;
+    }
+    .devdes{
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 860px){
+    .grid-container{
+        display: flex;
+        gap: 20px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+    }
+    .grid-container::-webkit-scrollbar{
+        display: none;
+    }
+    .grid-item{
+        min-width: 200px;
+        scroll-snap-align: center;
+    }
+}
