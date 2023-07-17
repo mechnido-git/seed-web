@@ -33,6 +33,10 @@ export default function UserProfile({ name ,gender, college , dep , year, dob , 
       <div className='labels'><p>Department</p></div>:
       <div className='values'><p>{dep}</p></div>
      </div>
+     <div className='data'>
+      <div className='labels'><p>Mobile</p></div>:
+      <div className='values'><p>{mobile}</p></div>
+     </div>
        
     <button onClick={()=>{setPage(true)}}>Edit</button>
    
