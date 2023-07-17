@@ -357,12 +357,21 @@ function InfoForm() {
                 id="member-mobile"
               ></div>
             </div>
+            <div className="sbtn">
             <input
               className={`cntrl`}
               onClick={validate}
               type="button"
               value="Submit"
             />
+            <input
+              className={`cntrl`}
+              onClick={()=>{setPage(false)}}
+              type="button"
+              value="Cancel"
+            />
+            </div>
+            
           </form>
         </>
       ) : (
