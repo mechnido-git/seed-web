@@ -8,6 +8,12 @@ import { auth } from "../../firebase/config";
 import SignIn from "../../pages/signin/SignIn";
 import { StoreContext } from "../../store/StoreContext";
 import { addIcon, category, filterItems } from "../../pages/courses/CoursesHome";
+import intro from "../../images/intro.png";
+import why from "../../images/why.png";
+import perk from"../../images/perk.png";
+import sch from "../../images/sch.png";
+import tro from "../../images/tro.png";
+import workflow from "../../images/workflow.png";
 
 export const toggle = () => {
   // document.getElementById("menu-options").classList.toggle("disable");
@@ -343,9 +349,10 @@ function SideMenu() {
               smooth
               className="sub"
             >
-              <span class="material-symbols-outlined">
+              {/* <span class="material-symbols-outlined">
                 description
-              </span>
+              </span> */}
+              <img className="menu-icon" src={intro} alt="tnkc icon"/>
               <div>TNKC 2023</div>
             </HashLink>
             <HashLink
@@ -354,9 +361,10 @@ function SideMenu() {
               smooth
               className="sub"
             >
-              <span class="material-symbols-outlined">
+              {/* <span class="material-symbols-outlined">
                 description
-              </span>
+              </span> */}
+              <img className="menu-icon"  src={why} alt="tnkc icon"/>
               <div>Why TNKC 2023?</div>
             </HashLink>
             <HashLink
@@ -365,9 +373,10 @@ function SideMenu() {
               smooth
               className="sub"
             >
-              <span class="material-symbols-outlined">
+              {/* <span class="material-symbols-outlined">
                 description
-              </span>
+              </span> */}
+               <img className="menu-icon"  src={perk} alt="tnkc icon"/>
               <div>Perks</div>
             </HashLink>
             <HashLink
@@ -376,9 +385,10 @@ function SideMenu() {
               smooth
               className="sub"
             >
-              <span class="material-symbols-outlined">
+              {/* <span class="material-symbols-outlined">
                 description
-              </span>
+              </span> */}
+               <img className="menu-icon"  src={workflow} alt="tnkc icon"/>
               <div>Event Workflow</div>
             </HashLink>
             <HashLink
@@ -387,9 +397,10 @@ function SideMenu() {
               smooth
               className="sub"
             >
-              <span class="material-symbols-outlined">
+              {/* <span class="material-symbols-outlined">
                 description
-              </span>
+              </span> */}
+               <img className="menu-icon" src={sch} alt="tnkc icon"/>
               <div> Event Schedule</div>
             </HashLink>
             <HashLink
@@ -398,9 +409,10 @@ function SideMenu() {
               smooth
               className="sub"
             >
-              <span class="material-symbols-outlined">
+              {/* <span class="material-symbols-outlined">
                 description
-              </span>
+              </span> */}
+               <img className="menu-icon" src={tro} alt="tnkc icon"/>
               <div>Awards & Prizes</div>
             </HashLink>
           </>
