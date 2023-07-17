@@ -28,6 +28,8 @@ const Store = ({ children }) => {
 
   const [courseIndex, setCourseIndex] = useState(null)
   const [eventIndex, setEventIndex] = useState(null)
+  const[quotes, setQuote] = useState(true);
+  const[num, setNum] = useState(0);
 
   const courseList = [
     {
@@ -4296,7 +4298,8 @@ const quotations=
         eventList,
         courseIndex, setCourseIndex,
         eventIndex, setEventIndex,
-        quotations
+        quotations,
+        quotes, setQuote,num, setNum
       }}
     >
       {children}
