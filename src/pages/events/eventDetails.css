@@ -19,3 +19,13 @@
 .event-details p{
   color: #727984;
 }
+
+@media only screen and (max-width: 1140px){
+    .event-details{
+        padding: 1.5rem 1.4rem;
+    }
+    .event-details h2{
+        font-size: 28px;
+        margin:5px 0;
+    }
+}

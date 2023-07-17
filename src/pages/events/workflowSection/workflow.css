@@ -1,27 +1,36 @@
 .workflow-container {
     display: grid;
     grid-template-columns: 1fr;
+    justify-content: center;
     gap: 20px;
     align-items: center;
     position: relative;
 }
 
-.workflow-container > .content {
+.workflow-container > .contents{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.workflow-container .content {
     display: grid;
     grid-template-columns: 1fr;
     gap: 10px;
-    align-items: center;
     justify-content: center;
-    position: relative;
+    align-items: end;
+    width: 90%;
+    justify-self: center;
 }
 
-.workflow-container > .content > h4 {
+.workflow-container .content > h4 {
     padding: 1.5rem;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
     color: var(--secondary);
     border-radius: 10px;
     font-size: 20px;
     background-color: var(--primary);
+    z-index: 2;
 }
 
 .workflow-section{
@@ -47,13 +56,14 @@
     background-color: var(--secondary);
     position: sticky;
     position: -webkit-sticky;
-    top: 10px;  
+    top: 10px;
 }
 
 .card-event > img{
-    width: 20rem;
+    width: 320px;
     mix-blend-mode: darken;
      padding: 1rem 1rem 0rem 1rem; 
+     align-self: center;
     
 }
 
@@ -100,4 +110,216 @@
     display: inline-flex;
     flex-direction: column;
     gap: 5px;
+}
+
+.workflow-container .content::before, .workflow-container .content::after{
+    content: "";
+    position: absolute;
+    border: 5px solid var(--primary);
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 20px;
+    width: 50%;
+    height: 85px;
+    translate: 0 55px;
+    z-index: 1;
+}
+
+.workflow-container .content::before{
+    left: 0;
+    border-right: none;
+    box-shadow: rgba(0, 0, 0, 0.2) 30px 0px 28px -25px inset, rgba(0, 0, 0, 0.1) -29px 0px 50px -15px;
+}
+
+.workflow-container .content:nth-child(odd):not(:first-child):before{
+    display: none;
+}
+
+.workflow-container .content:first-child:before{
+    border-left: none;
+    border-bottom: none;
+    box-shadow: none;
+    border-radius: 0;
+    border: none;
+    height: 5px;
+    background-color: var(--primary);
+    translate: 0 0;
+    align-self: center;
+    transform: translateX(5px);
+}
+
+
+.workflow-container .content::after{
+    right: 0;
+    border-left: none;
+    box-shadow: rgba(0, 0, 0, 0.2) 30px 0px 28px -25px, rgba(0, 0, 0, 0.1) -29px 0px 50px -15px inset;
+}
+
+.workflow-container .content:nth-child(even):after{
+    display: none;
+}
+
+.workflow-container .content.even-last::before{
+    border-left: none;
+    border-bottom: none;
+    box-shadow: none;
+    border-radius: 0;
+    transform: translateX(5px);
+}
+
+.workflow-container .content.odd-last::after{
+    border-right: none;
+    border-bottom: none;
+    box-shadow: none;
+    border-radius: 0;
+    transform: translateX(-5px);
+}
+
+.workflow-container .numbers{
+    position: absolute;
+    display: grid;
+    grid-template-columns: 1fr;
+    height: 100%;
+    gap: 20px;
+    width: 100%;
+    z-index: 2;
+}
+
+.workflow-container .numbers > .num{
+    width: 35px;
+    height: 35px;
+    color: var(--primary);
+    background-color: var(--secondary);
+    border: 3px solid var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border-radius: 50%;
+}
+
+.workflow-container .numbers > .num p{
+    color: var(--primary);
+}
+
+.workflow-container .numbers > .num:first-child{
+    align-self: center;
+}
+
+.workflow-container .numbers > .num:not(:first-child):not(:last-child){
+    translate: 0 -32px;
+}
+
+.workflow-container .numbers > .num:nth-child(even){
+    justify-self: end;
+    transform: translateX(17px);
+}
+
+.workflow-container .numbers > .num:nth-child(odd):not(:last-child){
+    transform: translateX(-17px);
+}
+
+.workflow-container .numbers > .num:last-child{
+    position: absolute;
+    bottom: 13px;
+    align-self: center;
+    border-radius: 50%;
+}
+
+@media only screen and (max-width: 1300px){
+    .workflow-container .content > h4{
+        font-size: 18px;
+    }
+    .workflow-section .card-event > img{
+        width: 300px;
+    }
+    .workflow-section .card-event > .card-body > h3{
+        font-size: 19px;
+    }
+    .workflow-section .card-event > .card-body > ul > li > h4{
+        font-size: 17px;
+    }
+    .workflow-section .card-event > .card-body > ul > li > p{
+        font-size: 15px;
+    }
+    .workflow-section .card-event > button{
+        font-size: 18px;
+        padding: .75rem 3.5rem;
+    }
+}
+
+@media only screen and (max-width: 1245px){
+    .workflow-container .content > h4{
+        font-size: 16px;
+    }
+    .workflow-section .card-event > img{
+        width: 250px;
+    }
+    .workflow-section .card-event > .card-body > h3{
+        font-size: 18px;
+    }
+    .workflow-section .card-event > .card-body > ul > li > h4{
+        font-size: 16px;
+    }
+    .workflow-section .card-event > .card-body > ul > li > p{
+        font-size: 14px;
+    }
+    .workflow-section .card-event > button{
+        font-size: 18px;
+        padding: .7rem 3rem;
+    }
+}
+
+@media only screen and (max-width: 1140px){
+    .workflow-section .card-event > img{
+        width: 210px;
+    }
+    .workflow-section .card-event > .card-body > h3{
+        font-size: 16px;
+    }
+    .workflow-section .card-event > .card-body > ul > li > h4{
+        font-size: 14px;
+    }
+    .workflow-section .card-event > .card-body > ul > li > p{
+        font-size: 12px;
+    }
+    .workflow-section .card-event > button{
+        font-size: 16px;
+        padding: .65rem 2.5rem;
+    }
+    
+}
+
+@media only screen and (max-width: 985px){
+    .workflow-section .card-event{
+        display: none;
+    }
+    .workflow-section > .body{
+        grid-template-columns: 1fr;
+    }
+}
+
+@media only screen and (max-width: 650px){
+    .workflow-section{
+        padding: 10px;
+    }
+}
+
+@media only screen and (max-width: 570px){
+    
+    .workflow-container .numbers > .num{
+        width: 28px;
+        height: 28px;
+    }
+    .workflow-container .content{
+        width: 85%;
+        max-height: 60px;
+    }
+    .workflow-container .content h4{
+        font-size: 14px;
+        padding: 20px 12px;
+    }
+}
+
+@media only screen and (max-width: 490px){
+
 }

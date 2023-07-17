@@ -150,6 +150,17 @@
   .menu-options > .cover > button:hover{
     background-color: #0055cc;
   }
+
+  @media only screen and (max-width: 1300px){
+    .index-toggle{
+        grid-template-columns: 180px 1fr !important;;
+    }
+    .side-menu > .menu-options > a{
+        font-size: 13px;
+        gap: 10px;
+        padding: .4rem 1rem;
+    }
+  }
   
 
 
@@ -164,10 +175,11 @@
         align-items: start;
         height: 100vh;
         width: 100vw;
-        z-index: 2;
+        z-index: 3;
         background-color: rgba(0, 0, 0, 0.514);
         display: none;
         padding: 0;
+        overflow: hidden;
     }
 
     .border{

@@ -12,7 +12,7 @@ function AwardSection({event}) {
     {/* <img className='tphy' src={trophyy} alt="this is trophy "/> */}
    </div>
     
-    <div className='grid-container'>
+    <div className='award-container'>
       {
         dt.map((element)=>{
           return <>
@@ -29,7 +29,7 @@ function AwardSection({event}) {
    </div>
    
 
-    <div className='grid-container'>
+    <div className='award-container'>
       {
         pt.map((element)=>{
           return <>
