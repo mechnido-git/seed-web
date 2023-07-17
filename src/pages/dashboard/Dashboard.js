@@ -411,7 +411,7 @@ function Dashboard() {
 
   return (
     <div className="dashboard">
-      {loading ? (
+      { loading? (
         <Spinner loading={loading} normal={true} />
       ) : (
         <>
