@@ -136,9 +136,10 @@ function SignIn({ index, redirect, setRedirect,setSignIn }) {
       document.getElementById('in-email').innerText = "Email cannot be empty"
       flag = true
     }else if(!email.match(pattern)){
+      document.getElementById('in-email').style.display = "block"
       document.getElementById('in-email').innerText = "Please include an '@' symbol and a valid domain extension such as .com or .net.";
     }
-    console.log(flag);
+
     if(!flag){
       signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
