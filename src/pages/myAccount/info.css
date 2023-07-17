@@ -53,9 +53,26 @@
     border-radius: 5px;
     font-size: large;
 }
-
+/* 
 .user-info> form > input[type = "button"]{
+    display: inline-block;
     margin: 0 auto;
+    background-color: var(--primary);
+    color: var(--secondary);
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+} */
+
+.user-info .sbtn{
+ text-align: center;
+}
+
+.user-info .sbtn .cntrl{
+    display: inline-block;
+    margin: 0 auto;
+    margin-right: 10px;
     background-color: var(--primary);
     color: var(--secondary);
     padding: 10px;
@@ -93,6 +110,7 @@
 }
 
 .user-info > form .input-div input{
+   
     padding: 5px;
     border: 2px solid var(--primary);
     border-radius: 5px;
@@ -121,7 +139,7 @@ Margin-left:25%
     cursor: pointer;
     border-radius: 5px;
     font-size: medium;
-    margin-left: 27%;
+    margin-left: 30%;
 }
 .data{
     display: block;
