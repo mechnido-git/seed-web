@@ -151,6 +151,11 @@
     background-color: #0055cc;
   }
 
+  .menu-icon{
+    width: 20px;
+    height:20px
+  }
+
   @media only screen and (max-width: 1300px){
     .index-toggle{
         grid-template-columns: 180px 1fr !important;;
