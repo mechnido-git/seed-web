@@ -6,6 +6,10 @@
     font-family: Inter, sans-serif;
 }
 
+body.disable-scroll .App{
+    padding-right: 15px;
+    width: auto;
+}
 
 .App{
     width: 100%;

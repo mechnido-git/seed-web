@@ -69,7 +69,7 @@ const EnrolledCourse = ({ dragger }) => {
   return <div className="section">
     <h4 >My Enrollment</h4>
     <div className="enrolled-courses">
-      {loading ? <Spinner other={'height'} loading={loading} /> : <>
+      {loading ? <Spinner other={'height'} normal={true} loading={loading} /> : <>
         {enrolledCourses.length !== 0 || enrolledEvents.length !== 0 ? <>
           {enrolledEvents.length !== 0 && enrolledEvents.map((item, key) => {
             return <div style={{ cursor: 'pointer' }} className="card" key={key} >
@@ -131,7 +131,7 @@ const CourseCatalog = () => {
   return <div className="section">
     <h4>Courses Catalog</h4>
     <div className="courses" >
-      {loading ? <Spinner other={'height'} loading={loading} /> : <>
+      {loading ? <Spinner other={'height'} normal={true} loading={loading} /> : <>
         {data?.length !== 0 && data?.map((item) => {
           return <div className="card" onClick={() => getCours(item.order)}>
             <div className="title">
@@ -412,7 +412,7 @@ function Dashboard() {
   return (
     <div className="dashboard">
       {loading ? (
-        <Spinner loading={loading} />
+        <Spinner loading={loading} normal={true} />
       ) : (
         <>
           {loggedIn ? (
