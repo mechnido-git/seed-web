@@ -88,36 +88,6 @@ function SignIn({ index, redirect, setRedirect,setSignIn }) {
     }
   };
 
-  const handleSignUp = (e) => {
-    setLoading(true);
-    e.preventDefault();
-
-    createUserWithEmailAndPassword(auth, upEmail, upPassword)
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        updateProfile(auth.currentUser, {
-          displayName: fullName,
-        })
-          .then(() => {
-            console.log("updated");
-            open(user)
-          })
-          .catch((err) => {
-            console.log(err);
-            setLoading(false);
-          });
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorMessage);
-        alert(errorMessage);
-        // ..
-        setLoading(false);
-      });
-  };
-
   const displayError = (inputField, errorField, msg) => {
     errorField.style.display = "block";
     errorField.innerText = msg;
@@ -149,10 +119,93 @@ function SignIn({ index, redirect, setRedirect,setSignIn }) {
     if (name.length < 3) {
       return {error: true, msg: "Name Must be more than 3 characters"}
     } else if (!name.match(letters)) {
-      return {error: true, msg: "Team Name Must be in Alphabetics"}
+      return {error: true, msg: "Name Must be in Alphabetics"}
     }
     return {error: false}
   }
+
+  const validatePhone = (phone) => {
+    if (phone.length === 0) {
+      return {error: true, msg: "Phone cannot be empty"}
+    } else if (phone.length < 10) {
+      return {error: true, msg: "Phone must be 10 numbers"}
+    } else if (!(!isNaN(phone) && !isNaN(parseFloat(phone)))) {
+      return {error: true, msg: "Phone must be numeric"}
+    } else if(phone.length > 10){
+      return {error: true, msg: "phone must be 10 numbers"}
+    }
+    return {error: false}
+  }
+
+  const handleSignUp = (e) => {
+    setLoading(true);
+    e.preventDefault();
+
+    const nameField = document.getElementById('up-name')
+    const phoneField = document.getElementById('up-phone')
+    const emailField = document.getElementById('up-email')
+    const passField = document.getElementById('up-pass')
+
+
+    const nameError = document.getElementById('up-name-error')
+    const phoneError = document.getElementById('up-phone-error')
+    const emailError = document.getElementById('up-email-error')
+    const passError = document.getElementById('up-pass-error')
+
+    const nameResult = validateName(fullName)
+    const emailResult = validateEmail(upEmail)
+    const phoneResult = validatePhone(phone)
+    const passResult = validatePassword(upPassword)
+
+    let flag = false
+
+    if(nameResult.error){
+      displayError(nameField, nameError, nameResult.msg)
+      flag = true
+    }
+    if(emailResult.error){
+      displayError(emailField, emailError, emailResult.msg)
+      flag = true
+    }
+    if(phoneResult.error){
+      displayError(phoneField, phoneError, phoneResult.msg)
+      flag = true
+    }
+    if(passResult.error){
+      displayError(passField, passError, passResult.msg)
+      flag = true
+    }
+
+    if(!flag){
+      createUserWithEmailAndPassword(auth, upEmail, upPassword)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        updateProfile(auth.currentUser, {
+          displayName: fullName,
+        })
+          .then(() => {
+            console.log("updated");
+            open(user)
+          })
+          .catch((err) => {
+            console.log(err);
+            setLoading(false);
+          });
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorMessage);
+        alert(errorMessage);
+        // ..
+        setLoading(false);
+      });
+    }else{
+      setLoading(false)
+    }
+
+  };
 
   const handleSignIn = (e) => {
     setLoading(true);
@@ -214,6 +267,13 @@ function SignIn({ index, redirect, setRedirect,setSignIn }) {
     }else if(type === "password"){
       const passResult = validatePassword(e.target.value)
       if(passResult.error) displayError(e.target, error, passResult.msg)
+    }else if(type === "name"){
+      setValue(e.target.value.toUpperCase())
+      const nameResult = validateName(e.target.value)
+      if(nameResult.error) displayError(e.target, error, nameResult.msg)
+    }else if(type === "phone"){
+      const phoneResult = validatePhone(e.target.value)
+      if(phoneResult.error) displayError(e.target, error, phoneResult.msg)
     }
   }
 
@@ -471,6 +531,8 @@ function SignIn({ index, redirect, setRedirect,setSignIn }) {
               <div className="error" id="up-email-error"></div>
               <div className="field input-field">
                 <input
+                  id="up-pass"
+                  data-type="password"
                   required
                   type="password"
                   placeholder="Password"
@@ -484,7 +546,7 @@ function SignIn({ index, redirect, setRedirect,setSignIn }) {
               </div>
               <div className="error" id="up-pass-error"></div>
               <div className="field button-field">
-                <input onClick={handleSignUp} type="button" name="" id="" value="Sign up" />
+                <input onClick={handleSignUp} className="submit-btn" type="button" name="" id="" value="Sign up" />
               </div>
             </form>
 
