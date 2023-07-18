@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { HashLink } from "react-router-hash-link";
 import logo from "../../../images/seed_logo/Seed.svg";
 import logo_joined from "../../../images/seed_logo/Seed Joined.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ProfileDrop from "../ProfileDrop";
 import Drop from "../Drop";
 import SignIn from "../../signin/SignIn";
@@ -30,6 +30,9 @@ function HomeNav({
   const linkRef1 = useRef();
   const linkRef2 = useRef();
   const linkRef3 = useRef();
+
+  const mobile = window.innerWidth < 840 ? true : false;
+  const navigate = useNavigate()
 
   const popup = (i) => {
     document.body.classList.add("disable-scroll");
@@ -126,7 +129,7 @@ function HomeNav({
     <div className="nav" id="nav" ref={navRef}>
       <div className="left">
         <Link to="/" smooth>
-          <img src={logo_joined} style={{width:'200px'}} id="logo" alt="" />
+          <img src={logo_joined} id="logo" alt="" />
         </Link>
       </div>
       <div className="options">
@@ -138,12 +141,12 @@ function HomeNav({
               </Link>
             </li>
             <li className="link">
-              <Link to="#" id="offer" data-index={0} onMouseEnter={!showDrop? toggleOffer: dropIndex != 0? toggleOffer: null} onClick={toggleOffer}>
+              <Link to="#" id="offer" data-index={0} onMouseEnter={!mobile? !showDrop? toggleOffer: dropIndex != 0? toggleOffer: null : null} onClick={!mobile? toggleOffer : ()=>navigate("/menu/courses")}>
                 Courses
               </Link>
             </li>
             <li className="link" >
-              <Link to="#" id="offer" data-index={1} onMouseEnter={!showDrop? toggleOffer: dropIndex != 1? toggleOffer: null} onClick={toggleOffer}>
+              <Link to="#" id="offer" data-index={1} onMouseEnter={!mobile? !showDrop? toggleOffer: dropIndex != 1? toggleOffer: null : null} onClick={!mobile? toggleOffer : ()=>navigate("/menu/events")}>
                 Events
               </Link>
             </li>
