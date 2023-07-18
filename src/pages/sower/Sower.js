@@ -125,7 +125,7 @@ function Sower() {
       <div className="sower">
         <div className="hero">
           <div className="left">
-          <img src={logo} alt="" />
+           {/* <img src={logo} alt="" />  */}
           <div className="title">
             <h1>Become a Sower</h1>
             <button className='sower-btn' onClick={applyNow}>Apply Now</button>
