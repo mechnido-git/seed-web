@@ -6,9 +6,11 @@
     font-family: Inter, sans-serif;
 }
 
-body.disable-scroll .App{
-    padding-right: 15px;
-    width: auto;
+@media only screen and (min-width: 840px) {
+    body.disable-scroll .App{
+        padding-right: 15px;
+        width: auto;
+    }
 }
 
 .App{

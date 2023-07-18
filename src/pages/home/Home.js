@@ -180,7 +180,7 @@ function Home() {
             Excellence!
           </h2>
           <div className="btns">
-            <button onClick={goToLink}>Get started</button>
+            <button onClick={()=>navigate("/menu/dashboard")}>Get started</button>
           </div>
         </div>
         <div className="main">

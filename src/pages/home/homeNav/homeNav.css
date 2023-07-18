@@ -1,5 +1,5 @@
 .App > .nav{
-    padding: .5rem 0;
+    padding: 18px 0;
     display: grid;
     grid-template-columns: .5fr 1fr auto;
     align-items: center;
@@ -15,7 +15,6 @@
     background-color: var(--secondary);
     gap: 1rem;
     transition: .4s;
-    min-height: 60px;
 }
 
 .App > .nav .options{
@@ -413,6 +412,11 @@
    
         .App > .nav {
          justify-content: space-between;
+         grid-template-columns: auto 1fr;
+       }
+
+       .App > .nav .options{
+        display: none;
        }
    
         .App > .nav .account{
@@ -424,6 +428,7 @@
        }
    
         .App > .nav.toggle .options{
+          display: flex;
          justify-content: start;
          padding: 15px;
          gap: 1rem;
@@ -445,14 +450,16 @@
        .App > .nav.toggle .options{
         padding: 10px;
         width: 100%;
+        transition: .3s;
        }
 
    
         .App > .nav.toggle .options ul{
          display: flex;
          align-items: center;
+         flex-direction: column;
         justify-content: space-evenly;
-        gap: 10px;
+        gap: 20px;
         font-size: 14px;
         width: 100%;
        }
@@ -508,7 +515,8 @@
 
     @media only screen and (max-width: 425px){
       .App > .nav a > #logo{
-        width: 100px;
+        width: 135px;
+        margin-left: 5px;
       }
       .App .nav > .right{
         gap: 0;

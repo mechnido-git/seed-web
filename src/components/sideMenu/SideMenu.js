@@ -41,7 +41,7 @@ function SideMenu() {
   // console.log(location.split("/"));
 
 
-  const mobile = window.innerWidth < 430 ? true : false;
+  const mobile = window.innerWidth < 840 ? true : false;
 
   function click(e) {
     const links = document.querySelectorAll(".link");
