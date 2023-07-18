@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./info.css";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth, db } from "../../firebase/config";
@@ -6,6 +6,7 @@ import Spinner from "../../components/Spinner";
 import "../events/eventConfig/fac.css";
 import UserProfile from "../myAccount/UserProfile";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { StoreContext } from "../../store/StoreContext";
 
 function InfoForm() {
   const [name, setName] = useState("");
@@ -19,6 +20,8 @@ function InfoForm() {
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(true);
 
+  const { setSection } = useContext(StoreContext);
+  setSection(null)
   const doFetch = async (uid) => {
     try {
       const docRef = doc(db, "users", uid);

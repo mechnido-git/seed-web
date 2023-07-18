@@ -94,13 +94,13 @@ header{
 .field input:focus{
     border-bottom-width: 2px;
 }
-.signin-div input:not([type="submit"]):not(:placeholder-shown):invalid {
+/* .signin-div input:not([type="submit"]):not(:placeholder-shown):invalid {
     border: 2px solid red !important;
   }
 
   input:not([type="submit"]):not(:placeholder-shown):valid {
     border: 1px solid #CACACA !important;
-  }
+  } */
 
 .eye-icon{
     position: absolute;
@@ -112,14 +112,14 @@ header{
     cursor: pointer;
     padding: 5px;
 }
-.field input[type="submit"]{
+.field input[type="submit"], .submit-btn{
     color: var(--secondary);
     background-color: var(--primary);
     transition: .3s;
     cursor: pointer;
     border: 2px solid var(--primary) !important;
 }
-.field input[type="submit"]:hover{
+.field input[type="submit"]:hover, .submit-btn:hover{
     background-color: var(--secondary);
     color: var(--primary);
 }
@@ -216,6 +216,11 @@ a.google span{
 .closebtn:hover{
     cursor: pointer;
 }
+
+input.inp-error{
+    border: 2px solid red;
+}
+
 @media screen and (max-width: 400px) {
     .form{
         padding: 20px 10px;

@@ -151,7 +151,7 @@ function RegisterForm({ event , setRegister }) {
     const error = document.querySelectorAll('.error')
     error.forEach(item=>item.style.display = "none")
     error.forEach(item => item.innerHTML = "")
-    var letters = /^[A-Za-z]+$/;
+    var letters = /^[a-zA-Z ]*$/
     var email = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/
     var pin = /[1-9][0-9]{5}/
     console.log(teamName.match(letters));

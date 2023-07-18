@@ -35,9 +35,6 @@ function SignIn({ index, redirect, setRedirect,setSignIn }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const [emailError, setEmailError] = useState("");
-  const [passError, setPassError] = useState("");
-
   //forgot passs
   const [forgotPass, setForgotPass] = useState(false);
   const [forgEmail, setForgEmail] = useState("");
@@ -91,10 +88,96 @@ function SignIn({ index, redirect, setRedirect,setSignIn }) {
     }
   };
 
+  const displayError = (inputField, errorField, msg) => {
+    errorField.style.display = "block";
+    errorField.innerText = msg;
+    inputField.classList.add("inp-error")
+  }
+
+  const validateEmail = (email) => {
+    var pattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/
+    if(email.length === 0){
+      return {error: true, msg: "Email cannot be empty"}
+    }else if(!email.match(pattern)){
+      return {error: true, msg: "Please include an '@' symbol and a valid domain extension such as .com or .net."}
+    }
+    return {error: false}
+  }
+
+  const validatePassword = (password)  => {
+    var validRegex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
+    if(password.length === 0){
+      return {error: true, msg: "Password cannot be empty"}
+    }else if (!password.match(validRegex)){
+      return {error: true, msg: "Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"}
+    }
+    return {error: false}
+  }
+
+  const validateName = (name) => {
+    var letters = /^[a-zA-Z ]*$/
+    if (name.length < 3) {
+      return {error: true, msg: "Name Must be more than 3 characters"}
+    } else if (!name.match(letters)) {
+      return {error: true, msg: "Name Must be in Alphabetics"}
+    }
+    return {error: false}
+  }
+
+  const validatePhone = (phone) => {
+    if (phone.length === 0) {
+      return {error: true, msg: "Phone cannot be empty"}
+    } else if (phone.length < 10) {
+      return {error: true, msg: "Phone must be 10 numbers"}
+    } else if (!(!isNaN(phone) && !isNaN(parseFloat(phone)))) {
+      return {error: true, msg: "Phone must be numeric"}
+    } else if(phone.length > 10){
+      return {error: true, msg: "phone must be 10 numbers"}
+    }
+    return {error: false}
+  }
+
   const handleSignUp = (e) => {
     setLoading(true);
     e.preventDefault();
-    createUserWithEmailAndPassword(auth, upEmail, upPassword)
+
+    const nameField = document.getElementById('up-name')
+    const phoneField = document.getElementById('up-phone')
+    const emailField = document.getElementById('up-email')
+    const passField = document.getElementById('up-pass')
+
+
+    const nameError = document.getElementById('up-name-error')
+    const phoneError = document.getElementById('up-phone-error')
+    const emailError = document.getElementById('up-email-error')
+    const passError = document.getElementById('up-pass-error')
+
+    const nameResult = validateName(fullName)
+    const emailResult = validateEmail(upEmail)
+    const phoneResult = validatePhone(phone)
+    const passResult = validatePassword(upPassword)
+
+    let flag = false
+
+    if(nameResult.error){
+      displayError(nameField, nameError, nameResult.msg)
+      flag = true
+    }
+    if(emailResult.error){
+      displayError(emailField, emailError, emailResult.msg)
+      flag = true
+    }
+    if(phoneResult.error){
+      displayError(phoneField, phoneError, phoneResult.msg)
+      flag = true
+    }
+    if(passResult.error){
+      displayError(passField, passError, passResult.msg)
+      flag = true
+    }
+
+    if(!flag){
+      createUserWithEmailAndPassword(auth, upEmail, upPassword)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
@@ -118,22 +201,46 @@ function SignIn({ index, redirect, setRedirect,setSignIn }) {
         // ..
         setLoading(false);
       });
+    }else{
+      setLoading(false)
+    }
+
   };
 
   const handleSignIn = (e) => {
     setLoading(true);
     e.preventDefault();
-    console.log(email);
-    signInWithEmailAndPassword(auth, email, password)
+
+    const error = document.querySelectorAll('.error')
+    error.forEach(item=>item.style.display = "none")
+    error.forEach(item => item.innerHTML = "")
+
+    const emailError = document.getElementById('in-email-error')
+    const emailInput = document.getElementById('in-email')
+
+    const passError = document.getElementById('in-pass-error')
+    const passInput = document.getElementById('in-pass')
+    
+    let flag = false;
+    const emailResult = validateEmail(email)
+    const passResult = validatePassword(password)
+    if(emailResult.error){
+      displayError(emailInput, emailError, emailResult.msg)
+      flag = true
+    }
+    if(passResult.error){
+      displayError(passInput, passError, passResult.msg)
+      flag = true
+    }
+
+    if(!flag){
+      signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        //console.log(user);
-        // ...
-        //navigate("/menu/dashboard");
+
        open(user)
-        //  const evt = new Event('click', {bubbles: true})
-        //  document.getElementById('red').dispatchEvent(evt)
+
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -142,7 +249,33 @@ function SignIn({ index, redirect, setRedirect,setSignIn }) {
         alert(errorMessage);
         setLoading(false);
       });
+    }else{
+      setLoading(false);
+    }
   };
+
+  const onChangeInput = (e, setValue, errorId) => {
+    setValue(e.target.value)
+    const error = document.getElementById(errorId)
+    e.target.classList.remove("inp-error")
+    error.innerHTML = ""
+    error.style.display = "none"
+    const type = e.target.dataset.type
+    if(type === "email"){
+      const emailResult = validateEmail(e.target.value)
+      if(emailResult.error) displayError(e.target, error, emailResult.msg)
+    }else if(type === "password"){
+      const passResult = validatePassword(e.target.value)
+      if(passResult.error) displayError(e.target, error, passResult.msg)
+    }else if(type === "name"){
+      setValue(e.target.value.toUpperCase())
+      const nameResult = validateName(e.target.value)
+      if(nameResult.error) displayError(e.target, error, nameResult.msg)
+    }else if(type === "phone"){
+      const phoneResult = validatePhone(e.target.value)
+      if(phoneResult.error) displayError(e.target, error, phoneResult.msg)
+    }
+  }
 
 
 
@@ -186,23 +319,6 @@ function SignIn({ index, redirect, setRedirect,setSignIn }) {
       });
   };
 
-  const checkEmail = (e, setter) => {
-    var validRegex =
-      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    if (!e.target.value.match(validRegex)) {
-      setter("Invalid Email");
-    }
-  };
-
-  const checkPassword = (e, setter) => {
-    var validRegex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
-    if (!e.target.value.match(validRegex)) {
-      setter(
-        "Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
-      );
-    }
-  };
-
   const handleForgetPass = (e) => {
     e.preventDefault();
     setLoading(true);
@@ -225,7 +341,7 @@ function SignIn({ index, redirect, setRedirect,setSignIn }) {
 
   return (
     <div className="signin-div form login">
-      {loading && <Spinner loading={loading} />}
+      {loading && <Spinner loading={loading} normal={true} />}
       <img  className="closebtn" src={icon} alt="closeImage" onClick={handleclose}/>
      {/* <button className="closebtn" onClick={handleclose}>X</button> */}
       {/* <Link id="red" to="/menu/dashboard" target="_blank" ref={click} /> */}
@@ -249,7 +365,7 @@ function SignIn({ index, redirect, setRedirect,setSignIn }) {
                           pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                         />
                       </div>
-                      <span className="error">{emailError}</span>
+                      <span className="error"></span>
 
                       <div className="field button-field">
                         <input type="submit" value="Sent Reset Email" />
@@ -285,25 +401,29 @@ function SignIn({ index, redirect, setRedirect,setSignIn }) {
             <>
               <div className="form-content">
                 <header>Sign in</header>
-                <form onSubmit={handleSignIn}>
+                <form >
                   <div className="field input-field">
                     <input
+                    data-type="email"
+                      id="in-email"
                       type="email"
                       placeholder="Email"
                       className="input"
                       value={email}
-                      onChange={(e) => setEmail(e.target.value)}
+                      onChange={(e)=>onChangeInput(e, setEmail, "in-email-error")}
                       required
                       pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                     />
                   </div>
-                  <span className="error">{emailError}</span>
+                  <span className="error" id="in-email-error"></span>
 
                   <div className="field input-field">
                     <input
+                    data-type="password"
+                      id="in-pass"
                       required
                       value={password}
-                      onChange={(e) => setPassword(e.target.value)}
+                      onChange={(e) => onChangeInput(e, setPassword, "in-pass-error")}
                       type="password"
                       placeholder="Password"
                       className="password"
@@ -315,7 +435,7 @@ function SignIn({ index, redirect, setRedirect,setSignIn }) {
                       className="bx bx-hide eye-icon"
                     ></i>
                   </div>
-                  <div className="error">{passError}</div>
+                  <div className="error" id="in-pass-error"></div>
 
                   <div className="form-link">
                     <a
@@ -327,7 +447,7 @@ function SignIn({ index, redirect, setRedirect,setSignIn }) {
                   </div>
 
                   <div className="field button-field">
-                    <input type="submit" value="Sign in" />
+                    <input type="button" className="submit-btn" onClick={handleSignIn} value="Sign in" />
                   </div>
                 </form>
 
@@ -363,38 +483,43 @@ function SignIn({ index, redirect, setRedirect,setSignIn }) {
         <>
           <div className="form-content">
             <header>Create account</header>
-            <form onSubmit={handleSignUp}>
+            <form >
               <div className="field input-field">
                 <input
+                  id="up-name"
                   required
+                  data-type="name"
                   type="text"
                   minLength={3}
                   value={fullName}
-                  onChange={(e) => setFullName(e.target.value)}
+                  onChange={(e) => onChangeInput(e, setFullName, "up-name-error")}
                   placeholder="Full Name"
                   className="input"
-                  onFocus={(e) => {
-                    e.target.classList.remove("error-inp");
-                  }}
                 />
               </div>
+              <div className="error" id="up-name-error"></div>
               <div className="field input-field">
                 <input
+                  id="up-phone"
                   required
+                  data-type="phone"
                   type="phone"
                   value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
+                  onChange={(e) => onChangeInput(e, setPhone, "up-phone-error")}
                   placeholder="Phone"
                   className="input"
                   pattern=  "^[0-9]{10}$"
                 />
               </div>
+              <div className="error" id="up-phone-error"></div>
               <div className="field input-field">
                 <input
                   required
+                  id="up-email"
+                  data-type="email"
                   type="email"
                   value={upEmail}
-                  onChange={(e) => setUpEmail(e.target.value)}
+                  onChange={(e) => onChangeInput(e, setUpEmail, "up-email-error")}
                   placeholder="Email"
                   className="input"
                   pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$"
@@ -403,35 +528,25 @@ function SignIn({ index, redirect, setRedirect,setSignIn }) {
                   ///^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.
                 />
               </div>
-
+              <div className="error" id="up-email-error"></div>
               <div className="field input-field">
                 <input
+                  id="up-pass"
+                  data-type="password"
                   required
                   type="password"
                   placeholder="Password"
                   className="password"
                   value={upPassword}
-                  onChange={(e) => setUpPassword(e.target.value)}
+                  onChange={(e) => onChangeInput(e, setUpPassword, "up-pass-error")}
                   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                   title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
                 />
                 <i onClick={showPassword} className="bx bx-hide eye-icon"></i>
               </div>
-              
-
-            
-
-              <div className="form-link">
-                <i className="bx bx-info-circle"></i>{" "}
-                <label className="info">
-                  Your password should contain at least 8 characters, including
-                  one uppercase letter (A-Z), one lowercase letter (a-z), one
-                  number (0-9), and one special character.
-                </label>
-              </div>
-
+              <div className="error" id="up-pass-error"></div>
               <div className="field button-field">
-                <input type="submit" name="" id="" value="Sign up" />
+                <input onClick={handleSignUp} className="submit-btn" type="button" name="" id="" value="Sign up" />
               </div>
             </form>
 
