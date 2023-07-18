@@ -1,0 +1,92 @@
+#faq{
+    padding: 80px;
+    padding-top: 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+#faq > .questions{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 10px 50px;
+}
+
+#faq > .title{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#faq .title > span{
+    font-size: 40px;
+}
+
+#faq > .questions > .topics {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    cursor: pointer;
+    background-color: var(--secondary);
+    border-radius: 10px;
+    
+}
+
+#faq > .questions > .topics > h4{
+    padding: 1.5rem;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+    color: var(--secondary);
+    border-radius: 10px;
+    font-size: 20px;
+    background-color: var(--primary);
+    display: inline-flex;
+}
+
+#faq > .questions > .topics > h4 > span{
+    margin: 0 10px;
+}
+
+#faq > .questions > .topics > h4::after{
+    content: ">";
+    display: inline-block;
+    transform: rotate(90deg);
+    font-size: 1.2rem;
+    margin: 0 1rem;
+    transition: .3s;
+    transform-origin: center center;
+}
+
+#faq > .questions > .topics > ul{
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    padding: 1rem 2rem;
+    list-style-position: inside;
+    transition: .3s;
+}
+
+#faq > .questions > .topics.show {
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+}
+
+#faq > .questions > .topics.show > ul{
+    display: flex;
+}
+
+#faq > .questions > .topics.show > h4::after{
+    transform: rotate(270deg);
+}
+
+#faq > .questions > .topics > ul > li{
+    color: var(--tertiary);
+    list-style: none;
+    display: inline-flex;
+    gap: 10px;
+}
+
+#faq > .questions > p{
+    color: var(--tertiary);
+    margin: 30px 0;
+    display: inline-flex;
+    gap: 10px;
+}

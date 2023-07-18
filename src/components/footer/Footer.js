@@ -28,7 +28,7 @@ function Footer() {
               </HashLink>
             </li>
             <li>
-              <HashLink smooth to="/#faq">
+              <HashLink smooth to="/faq">
                 FAQ
               </HashLink>
             </li>

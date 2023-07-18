@@ -237,7 +237,7 @@
     color: var(--secondary) !important;
   }
 
-  #achievements, #testimonials, #faq, #contact-us, #get-in-touch, #sponsors{
+  #achievements, #testimonials, #contact-us, #get-in-touch, #sponsors{
     position: absolute;
     top: -100px;
   }

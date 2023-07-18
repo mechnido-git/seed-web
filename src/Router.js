@@ -20,6 +20,7 @@ import Enroll from "./pages/payment/Enroll";
 import InfoForm from "./pages/myAccount/InfoForm";
 import Sower from "./pages/sower/Sower";
 import EventDetails from "./pages/events/EventDetails";
+import Faq from "./pages/faq/Faq";
 
 function Router() {
   return (
@@ -29,6 +30,7 @@ function Router() {
         <Route exact path="/" element={<Home />} />   {/* WEBISTE route*/}
         <Route exact path="/about" element={<About />} /> {/* ABOUT route */}
         <Route exact path="/sower" element={<Sower />} /> {/* SOWER route */}
+        <Route exact path="/faq" element={<Faq />} /> {/* FAQ route */}
         <Route path="/menu" exact element={<Index />}> {/* NESTED ROUTE TO WEB APPLICATION */}
           <Route element={<HomeIndex />}> {/* NESTED ROUTE */}
             <Route index element={<Navigate to='dashboard' />} /> {/* DEFAULT ROUTE -> /menu/dashboard */}

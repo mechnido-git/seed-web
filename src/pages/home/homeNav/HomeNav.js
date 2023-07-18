@@ -113,7 +113,9 @@ function HomeNav({
 
   useEffect(()=>{
     const links = document.querySelectorAll('.nav .nav-link')
-    links[initial].classList.add('highlight')
+    console.log(links);
+    console.log(initial);
+    if(initial !== null) links[initial]?.classList.add('highlight')
     links.forEach(item=>{
       item.addEventListener('click', handleNavClick)
     })
