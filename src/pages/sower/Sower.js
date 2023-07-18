@@ -46,7 +46,7 @@ const detailList = [
 
 const stepList = [
   {
-    title: "Applyc as Sower",
+    title: "Apply as Sower",
     desc: "Apply by filling in a  Registration form.",
     color: "#f7fdf3",
     img: s1,
@@ -161,7 +161,7 @@ function Sower() {
         </div>
 
         <div className="steps">
-          <h2>Become an sower in 5 easy steps</h2>
+          <h2>Become a sower in 5 easy steps</h2>
           <div className="lists">
             {stepList.map(item => <div style={{backgroundColor: `${item.color}`}} className='card'>
               <img src={item.img} alt="" />
