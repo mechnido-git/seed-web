@@ -175,7 +175,7 @@ function Home() {
       
       <div className="home" id="home">
         <div className="hero">
-          <h2>
+          <h2 >
             Revolutionizing Possibilities: A Showcase of Engineering
             Excellence!
           </h2>

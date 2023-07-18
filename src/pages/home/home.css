@@ -553,3 +553,13 @@
       padding: 0;
     }
   }
+
+  .courses .cards{
+    color:var(--tertiary);
+   
+}
+    
+  
+  .courses{
+    color: var(--tertiary);
+  }

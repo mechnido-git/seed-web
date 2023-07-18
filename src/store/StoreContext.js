@@ -28,6 +28,8 @@ const Store = ({ children }) => {
 
   const [metrics, setMetrics] = useState(true)
   const [feedback, setFeedback] = useState(true)
+  const [theme, setTheme] = useState('Light-mode');
+  const [check, setCheck] = useState(false);
 
   const courseList = [
     {
@@ -4298,7 +4300,9 @@ const quotations=
         eventIndex, setEventIndex,
         quotations,
         quotes, setQuote,
-        metrics, setMetrics, feedback, setFeedback
+        metrics, setMetrics, feedback, setFeedback,
+        theme, setTheme,
+        check, setCheck
       }}
     >
       {children}
