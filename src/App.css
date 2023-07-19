@@ -102,9 +102,15 @@ a{
     --tertiary: #2E2F2F;
 }
 
-.dark-mode{
-    --primary:rgb(81, 78, 78);
-    --secondary:rgb(29, 27, 27);
+.Dark-mode{
+    --primary: #00B17B;
+    --secondary: #2E2F2F;
     --tertiary: #F4F4F4;
+    color: #F4F4F4;
     
+}
+.Light-mode{
+    --primary: #00B17B;
+    --secondary: #F4F4F4;
+    --tertiary: #2E2F2F;
 }

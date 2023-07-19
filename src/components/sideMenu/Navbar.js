@@ -11,6 +11,7 @@ import ProfileDrop from "../../pages/home/ProfileDrop";
 import profile from "../../images/profile.png"
 import { StoreContext } from "../../store/StoreContext";
 import cancellogo from "../../images/cancel_icon.png";
+import Themes from "../Themes";
 function Navbar({ signIn }) {
   const [userName, setUserName] = useState(null);
   const [loading, setLoading] = useState(true)
@@ -146,6 +147,7 @@ function Navbar({ signIn }) {
         {input && <span onClick={handleClose} class="material-symbols-outlined">
           close
         </span>}
+       
       </div>
       <div className="right">
         <span onClick={() => setGetInTouch(true)} class="material-symbols-outlined">
@@ -156,11 +158,14 @@ function Navbar({ signIn }) {
             <>
               <img referrerPolicy="no-referrer" src={dp} alt="" onClick={viewProfile} />
               <ProfileDrop userName={userName} setLoading={setLoading} show={profileDrop} onClickOutside={viewProfile} signOut={logout} />
+              <Themes/>
             </>
+            
           ) : (
             <>
               <button onClick={() => popup(false)}>Sign In</button>
               <button onClick={() => popup(true)}>Sign Up</button>
+              <Themes/>
             </>
           )}
         </div>

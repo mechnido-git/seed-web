@@ -36,6 +36,7 @@
 
 .fixed > button > div{
     text-transform: capitalize;
+    color:var(--tertiary);
 }
 
 .fixed > button > span{
@@ -165,8 +166,9 @@
 }
 
 .courses-home > .main-div > .section > .card-container-div > .card > .body > p{
-    color: #727984;
-}
+    color: #727984; 
+    /* color:var(--tertiary);*/
+} 
 
 .courses-home > .main-div > .section > .card-container-div > .card:hover{
  transform: translateY(-8px);
@@ -176,7 +178,7 @@
 .courses-home > .main-div > .section > .card-container-div > .card > img{
     max-width: 220px;
     align-self: center;
-    mix-blend-mode: darken;
+    /* mix-blend-mode: darken; */
 }
 
 .courses-home > .main-div > .section > .card-container-div > .card > .body{
