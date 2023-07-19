@@ -129,7 +129,7 @@
   
   .nav.offer .drop-menu > .lists ul{
     list-style: none;
-    color: black;
+    color: var(--tertiary);
     background-color: var(--secondary);
     border-radius: 10px;
     width: -moz-available;          /* WebKit-based browsers will ignore this. */
@@ -168,7 +168,7 @@
   
   .nav.offer .drop-menu > .lists ul > li:hover, .nav.offer .drop-menu > .lists ul > li.cat-on{
     background-color: var(--primary);
-    color: var(--secondary);
+    color: var(--tertiary);
   }
   
   .nav.offer .drop-menu > .lists ul > li:hover::after{
@@ -249,11 +249,13 @@
     flex-direction: column;
     cursor: pointer;
     transition: .2s;
-    color: #727984;
+    /* color: #727984; */
+    color:var(--tertiary);
   }
   
   .nav.offer .drop-menu > .lists .cards > .card > .body > h4{
-    color: #484D57;
+    /* color: #484D57; */
+    color:var(--tertiary);
     font-size: 13px;
     text-transform: uppercase;
   }
@@ -272,7 +274,7 @@
   .nav.offer .drop-menu > .lists .cards > .card > img{
     width: 100%;
     align-self: center;
-    mix-blend-mode: darken;
+    /* mix-blend-mode: darken; */
   }
   
   .nav.offer .drop-menu > .lists .cards > .card > .body{

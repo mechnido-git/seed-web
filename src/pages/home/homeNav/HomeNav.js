@@ -7,7 +7,7 @@ import ProfileDrop from "../ProfileDrop";
 import Drop from "../Drop";
 import SignIn from "../../signin/SignIn";
 import "./homeNav.css";
-
+import Themes from "../../../components/Themes";
 function HomeNav({
   bodyId,
   dp,
@@ -182,6 +182,7 @@ function HomeNav({
                 onClickOutside={viewProfile}
                 setLoading={setLoading}
               />
+              <Themes/>
             </>
           ) : (
             <>

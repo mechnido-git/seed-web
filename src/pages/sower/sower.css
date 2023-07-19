@@ -144,9 +144,10 @@
 
 .sower > .details > .lists .card p{
     font-size: 15px;
-    color: rgba(0, 0, 0, 0.544);
+    /* color: rgba(0, 0, 0, 0.544);
+*/
+color: var(--tertiary);
 }
-
 .sower > .steps{
     display: flex;
     flex-direction: column;
@@ -168,6 +169,8 @@
     justify-content: center;
     text-align: center;
     gap: 20px;
+    color: black;
+    
 }
 
 .sower > .steps > .lists .card img{
