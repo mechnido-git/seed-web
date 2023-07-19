@@ -430,7 +430,7 @@
   }
 
   .home p{
-    color: #727984;
+    color: var(--textcolor);
   }
 
   @media only screen and (max-width: 840px){

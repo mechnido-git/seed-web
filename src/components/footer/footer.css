@@ -27,7 +27,7 @@
   .footer > .links > .section >  h3, .sower .footer > .links > .section > h3{
     font-weight: 500;
     font-size: 19px;
-    color: #484D57;
+    color: var(--subHeading);
   }
 
   .footer > .links > .section, .sower .footer > .links > .section{
@@ -44,7 +44,7 @@
   }
 
   .footer > .links > .section a, .sower .footer > .links > .section a{
-    color: #727984;
+    color: var(--textcolor)
   }
 
   .footer > .links > .section.get-in-touch li, .sower .footer > .links > .section.get-in-touch li{
@@ -69,7 +69,7 @@
 
   .footer > .links > .section.get-in-touch li p, .sower .footer > .links > .section.get-in-touch li p{
     font-size: 13px;
-    color: #727984;
+    color:var(--textcolor);
   }
 
   .footer ul, .sower .footer ul{
