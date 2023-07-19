@@ -9,11 +9,11 @@
 }
 
 .course-details h2, .course-details h4 {
-    color: #484D57;
+    color: var(--subHeading);
 }
 
 .course-details p, .course-details li{
-    color: #727984;
+    color: var(--textcolor);
     list-style-position: initial;
 }
 
@@ -61,7 +61,7 @@
 
 .course-details > .hero > .course > .card > img,  .course-details > .explore > .content > .card img{
     width: 20rem;
-    mix-blend-mode: darken;
+    /* mix-blend-mode: darken; */
 }
 
 .course-details > .hero > .course > .card > .body,  .course-details > .explore > .content > .card > .body{

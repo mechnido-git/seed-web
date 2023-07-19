@@ -64,7 +64,7 @@
 header{
     font-size: 25px;
     font-weight: 600;
-    color: #282828;
+    color: var(--heading);
     text-align: center;
     margin: 1rem 0 !important;
 }
@@ -196,7 +196,7 @@ a.google{
 a.google span{
     font-weight: 500;
     opacity: 0.6;
-    color: #484D57;
+    color: var(--subHeading);
 }
 
 .signin-div > .success{

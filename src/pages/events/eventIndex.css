@@ -67,7 +67,7 @@
     height: fit-content;  
 }
 .events-index > .slides > .btns > button:hover{
-    background-color: var(--secondary);
+    background-color: var(--btnhover);
     color: var(--primary);
 }
 
@@ -142,6 +142,7 @@
 
 .time-container > h4{
     font-size: larger;
+    color:var(--tertiary);
 }
 
 .time-div > div{
@@ -151,7 +152,7 @@
     align-items: center;
     gap: 5px;
     background-color: var(--primary);
-    color: white;
+    color: var(--secondary);
     height: 60px;
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
