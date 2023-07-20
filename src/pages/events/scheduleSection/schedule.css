@@ -14,14 +14,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: grey;
+    background-color: var(--schbtn);
     font-size: 18px;
     border-radius: 30px;
     text-align: center;
     padding: 10px; 
     /* vertical-align: middle; */
     height: 40px;
-    color: white !important
+    /* color: white !important */
+    color:var(--secondary);
 }
 .dat{
     background-color:var(--primary);
@@ -32,7 +33,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white !important
+    /* color: white !important */
+    color:var(--secondary);
 }
 
 @media only screen and (max-width: 435px){

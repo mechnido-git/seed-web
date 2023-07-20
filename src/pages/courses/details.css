@@ -36,6 +36,7 @@
     font-weight: 600;
     margin: 2rem 0;
     text-transform: uppercase;
+    color:var(--tertiary);
 }
 
 .course-details .title > p{
@@ -99,12 +100,17 @@
     transition: .2s;
     display: inline-block;
     box-sizing: border-box;
+
     
+}
+.course-details .title > a:hover{
+    background-color: var(--btnhover);
+    color:var(--primary);
 }
 
 .course-details > .hero > .course > .card > button:hover, .course-details .title button:hover,  .course-details > .explore > .content > .card > button:hover{
     color: var(--primary);
-    background-color: var(--secondary);
+    background-color: var(--btnhover);
 }
 
 .fee-li{

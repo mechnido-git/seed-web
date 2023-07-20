@@ -165,13 +165,20 @@
     padding-right: 3rem;
     font-size: 15px !important;
     background-color: var(--seconday);
+    color:var(--tertiary);
   }
+  .nav.offer .drop-menu > .lists ul > li .material-symbols-outlined {
+    color:var(--tertiary);
+}
   
   .nav.offer .drop-menu > .lists ul > li:hover, .nav.offer .drop-menu > .lists ul > li.cat-on{
-    background-color: var(--listhover);
-    color: var(--tertiary);
+    background-color: var(--primary);
+    color: var(--secondary);
   }
-  
+  .nav.offer .drop-menu > .lists ul > li:hover .material-symbols-outlined, .nav.offer .drop-menu > .lists ul > li.cat-on  {
+    color:var(--secondary);
+}
+
   .nav.offer .drop-menu > .lists ul > li:hover::after{
     content: ">";
     margin-left: auto;
@@ -370,7 +377,7 @@
     }
   
     .App > .nav .account > button:hover{
-      background-color: var(--secondary);
+      background-color: var(--btnhover);
       color: var(--primary);
     }
     

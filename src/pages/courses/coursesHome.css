@@ -47,6 +47,8 @@
     color:var(--tertiary);
 }
 
+
+
 .courses-home > .slides{
     position: relative;
     display: flex;
