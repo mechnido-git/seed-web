@@ -18,8 +18,6 @@ function Enroll({index , setbuy}) {
     const [email, setEmail] = useState(null)
     const [userName, setUserName] = useState(null)
 
-     const base = "https://wandering-ruby-fish.cyclic.app"
-    //  const base = 'http://localhost:4242'
 
     const change = (e) => {
         console.log(typeof range);
@@ -42,7 +40,7 @@ function Enroll({index , setbuy}) {
         if(range === null) return
 
         setLoading(true)
-        const url = `${base}/order`;
+        const url = `${process.env.REACT_APP_SERVER_URL}/order`;
         const data = {
             id: String(id),
             range: range,
@@ -50,6 +48,7 @@ function Enroll({index , setbuy}) {
             userId: uid,
         }
         try {
+
           const res = await axios.post(url, data);
           console.log(res.data.order);
           var options = {
@@ -60,7 +59,7 @@ function Enroll({index , setbuy}) {
             handler: async function (response){
                 try {
                   setLoading(true)
-                  const res = await axios.post(`${base}/verify`, {
+                  const res = await axios.post(`${process.env.REACT_APP_SERVER_URL}/verify`, {
                     response,
                     userId: uid,
                     range: range,
@@ -69,6 +68,7 @@ function Enroll({index , setbuy}) {
                     userName,
                     item  : String(courseList[index].name)
                   })
+                  console.log(res);
                   window.location.reload()
                 } catch (error) {
                   alert(error)
@@ -78,11 +78,12 @@ function Enroll({index , setbuy}) {
                 color: "#3399cc"
             }
         };
+        console.log(process.env.REACT_APP_RAZOR_ID);
         var rzp1 = new window.Razorpay(options);
         rzp1.open()
     
         } catch (error) {
-          console.log(error+ "hihi");
+          console.log(error);
     
         } finally{
           setLoading(false)

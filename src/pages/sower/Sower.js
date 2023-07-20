@@ -46,7 +46,7 @@ const detailList = [
 
 const stepList = [
   {
-    title: "Applyc as Sower",
+    title: "Apply as Sower",
     desc: "Apply by filling in a  Registration form.",
     color: "#f7fdf3",
     img: s1,
@@ -121,7 +121,7 @@ function Sower() {
   return (
     <>
     {loading && <Spinner other="globel" loading={loading} />}
-      <HomeNav initial={2} bodyId={'sower'} dp={dp} links={[<Link to="/">Home</Link>, <Link to="/about">About</Link>]} order={[0,3,1,2]} setLoading={setLoading} setSignIn={setSignIn} signIn={signIn} userName={userName} />
+      <HomeNav initial={2} bodyId={'sower'} dp={dp} setLoading={setLoading} setSignIn={setSignIn} signIn={signIn} userName={userName} />
       <div className="sower">
         <div className="hero">
           <div className="left">
@@ -161,7 +161,7 @@ function Sower() {
         </div>
 
         <div className="steps">
-          <h2>Become an sower in 5 easy steps</h2>
+          <h2>Become a sower in 5 easy steps</h2>
           <div className="lists">
             {stepList.map(item => <div style={{backgroundColor: `${item.color}`}} className='card'>
               <img src={item.img} alt="" />
