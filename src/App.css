@@ -43,6 +43,10 @@ a{
     color: inherit;
 }
 
+
+
+
+
 .index{
     height: 100vh;
     width: 100vw;
@@ -100,17 +104,34 @@ a{
     --primary: #00B17B;
     --secondary: #F4F4F4;
     --tertiary: #2E2F2F;
+    --heading:#282828;
+    --subHeading :#484D57;
+    --textcolor:#727984 ;
+    --btnhover:#F4F4F4;
+    --listhover: #00B17B;
 }
 
 .Dark-mode{
-    --primary: #00B17B;
+    --primary: #F4F4F4;
     --secondary: #2E2F2F;
     --tertiary: #F4F4F4;
-    color: #F4F4F4;
-    
+    /* color: #F4F4F4; */
+    --heading:#F4F4F4;
+    --subHeading :#F4F4F4;
+    --textcolor:#b8b4b4d1;
+    --btnhover: #9E9E9E;
+    --listhover:#F4F4F4;
+    --schbtn:rgba(210, 204, 204, 0.927);
+    /* --listhover:rgba(255, 255, 255, 0.237); */
 }
 .Light-mode{
     --primary: #00B17B;
     --secondary: #F4F4F4;
     --tertiary: #2E2F2F;
+    --heading:#282828;
+    --subHeading :#484D57;
+    --textcolor:#727984 ;
+    --btnhover:#F4F4F4;
+    --listhover: #00B17B;
+    --schbtn:grey;
 }

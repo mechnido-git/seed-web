@@ -4,8 +4,8 @@ export default function ScheduleItem(props) {
   return (
     <>
       <div className="schdat">
-        <p className='sch'>{props.schdata}</p>
-        <p className='dat'>{props.date}</p>
+        <span className='sch'>{props.schdata}</span>
+        <span className='dat'>{props.date}</span>
       </div>
     </>
   )

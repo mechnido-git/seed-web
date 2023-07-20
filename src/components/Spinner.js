@@ -2,7 +2,7 @@ import React from "react";
 import ScaleLoader from "react-spinners/ScaleLoader";
 import ClipLoader from "react-spinners/ClipLoader";
 import Quote from "../components/Quote";
-import logo from "../images/seed_logo/Seed.svg";
+import logo from "../images/seed_logo/Seed Joined.svg";
 import "./quote.css";
 function Spinner({ loading, other, normal }) {
   return (

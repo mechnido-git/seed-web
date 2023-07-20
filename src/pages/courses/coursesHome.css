@@ -43,6 +43,12 @@
     pointer-events: none;
 }
 
+.material-symbols-outlined {
+    color:var(--tertiary);
+}
+
+
+
 .courses-home > .slides{
     position: relative;
     display: flex;
@@ -98,7 +104,7 @@
     height: fit-content;
 }
 .courses-home > .slides > .btns > button:hover{
-    background-color: var(--secondary);
+    background-color: var(--btnhover);
     color: var(--primary);
 }
 
@@ -156,17 +162,17 @@
     flex-direction: column;
     cursor: pointer;
     transition: .2s;
-    color: #727984;
+    color: var(--textcolor);
 }
 
 .courses-home > .main-div > .section > .card-container-div > .card > .body > h4{
-    color: #484D57;
+    color: var(--subHeading);
     font-size: 1.2rem;
     text-transform: uppercase;
 }
 
 .courses-home > .main-div > .section > .card-container-div > .card > .body > p{
-    color: #727984; 
+    color: var(--textcolor);
     /* color:var(--tertiary);*/
 } 
 

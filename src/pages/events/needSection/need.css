@@ -18,14 +18,14 @@
     margin-top: 5px;
     font-size: 17px;
 }
-.devimg{
-    margin-bottom: 5px;
-    mix-blend-mode: darken;
+.grid-item .material-symbols-outlined{
+    
+    /* mix-blend-mode: darken; */
 }
 .devtitle{
     font-size: large;
     margin-bottom: 15px;
-    
+    color:var(--subHeading);
 }
 /* .whyh1{
     line-height: 100px;

@@ -9,6 +9,7 @@
     grid-column:  1 / 2;
     z-index: 3;
     border-right: 1px solid #0000001a;
+    color: var(--tertiary);
 }
 
 .side-menu > h2{
@@ -43,6 +44,9 @@
     background-color: var(--primary);
     color: var(--secondary);
 }
+.side-menu > .menu-options > a:hover .material-symbols-outlined{
+    color:var(--secondary);
+}
 
 .side-menu  hr{
     width: 85%;
@@ -51,7 +55,7 @@
 }
 
 .side-menu > .menu-options > h3{
-    color: rgba(0, 0, 0, 0.423);
+    color: var(--heading);
     margin: .5rem 1.2rem;
     font-size: 13px;
 }
@@ -108,7 +112,9 @@
     background-color: var(--primary);
     color: var(--secondary);
 }
-
+.menu-options > .min-link.clicked .material-symbols-outlined {
+    color:var(--secondary);
+}
 
 .min-menu > a > p{
     font-size: small;

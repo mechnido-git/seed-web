@@ -188,6 +188,7 @@ function HomeNav({
             <>
               <button onClick={() => popup(false)}>Sign In</button>
               <button onClick={() => popup(true)}>Sign Up</button>
+              <Themes/>
             </>
           )}
         </div>

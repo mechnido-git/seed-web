@@ -10,6 +10,7 @@ function NeedSection({event}) {
       <div class="grid-container">
   <div class="grid-item">
    <img className='devimg' src={tick} alt="image1"/>
+   
     <h5 className='devtitle'>{event.why.sibling[0].title}</h5>
     <p className='devdes'>{event.why.sibling[0].description}</p>
   </div>

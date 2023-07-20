@@ -152,7 +152,7 @@
 }
 
 .dashboard > .main > .section > .enrolled-courses .btns >button:hover{
-  background-color: var(--secondary);
+  background-color: var(--btnhover);
   color: var(--primary);
 }
 
@@ -181,7 +181,7 @@
 
 .dashboard > .main > .section  p{
   font-size: 13px;
-  color: #727984
+  color: var(--textcolor);
 }
 
 .dashboard > .main > .section > .courses > .card .title{
@@ -204,7 +204,7 @@
 .dashboard > .main > .section .card h4{
   font-size: 16px;
   font-weight: 500;
-  color: #484D57;
+  color: var(--subHeading);
   text-transform: uppercase;
 }
 

@@ -164,13 +164,21 @@
     position: relative;
     padding-right: 3rem;
     font-size: 15px !important;
+    background-color: var(--seconday);
+    color:var(--tertiary);
   }
+  .nav.offer .drop-menu > .lists ul > li .material-symbols-outlined {
+    color:var(--tertiary);
+}
   
   .nav.offer .drop-menu > .lists ul > li:hover, .nav.offer .drop-menu > .lists ul > li.cat-on{
     background-color: var(--primary);
-    color: var(--tertiary);
+    color: var(--secondary);
   }
-  
+  .nav.offer .drop-menu > .lists ul > li:hover .material-symbols-outlined, .nav.offer .drop-menu > .lists ul > li.cat-on  {
+    color:var(--secondary);
+}
+
   .nav.offer .drop-menu > .lists ul > li:hover::after{
     content: ">";
     margin-left: auto;
@@ -250,18 +258,19 @@
     cursor: pointer;
     transition: .2s;
     /* color: #727984; */
-    color:var(--tertiary);
+    color:var(--textcolor);
   }
   
   .nav.offer .drop-menu > .lists .cards > .card > .body > h4{
-    /* color: #484D57; */
-    color:var(--tertiary);
+    /* color: #484D57;  */
+    /* color:var(--tertiary); */
+    color:var(--subHeading);
     font-size: 13px;
     text-transform: uppercase;
   }
   
   .nav.offer .drop-menu > .lists .cards > .card > .body > p{
-    color: #727984;
+    color: var(--textcolor);
     font-size: 12px;
   
   }
@@ -326,6 +335,7 @@
     width: 100%;
   }
   .App > .nav .account > .options > h3{
+    color:var(--tertiary);
     margin: 10px 20px;
   }
   .App > .nav .account > .options > ul > li{
@@ -333,6 +343,7 @@
     cursor: pointer;
     padding: 10px 20px;
     transition: .2s;
+    color:var(--tertiary);
   }
   
   .App > .nav .account > .options > ul > li:hover:not(span){
@@ -366,7 +377,7 @@
     }
   
     .App > .nav .account > button:hover{
-      background-color: var(--secondary);
+      background-color: var(--btnhover);
       color: var(--primary);
     }
     
