@@ -122,6 +122,18 @@
     text-align: center;
 }
 
+.accounts-page button{
+    padding: 5px 10px;
+    border: 2px solid var(--primary);
+    background-color: var(--primary);
+    color:var(--secondary);
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: medium;
+    margin-left:45%;
+    margin-bottom: 20px;
+}
+/* 
 .form-data{
     margin:40px auto ;
     padding:10px
@@ -168,8 +180,60 @@ Margin-left:25%
 .values p{
     padding: 35px 0;
     font-size: large;
+} */
+
+.accounts-page{
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.form-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2px;
+    /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
+    padding: 20px;
+    height:max-content;
+   
+}
+.form-data{ 
+    padding: 20px;
+    
+    border-color: var(--seconday) ;
+   height: max-content;
+}
+.head-data{
+    margin:  10px 15px ;
+    color:var(--heading);
 }
 
+.data{
+    margin: 18px 5px ;
+    height: 45px;
+    width: 500px;
+    border: 2px solid;
+    color:var(--subHeading);
+    border-radius: 20px;
+    background-color: rgba(132, 125, 125, 0.27);
+    
+}
+.data p{
+    font-size: larger;
+    padding: 10px;
+}
+.h2 div{
+    display: inline-block;
+    margin-left:15px;
+
+    margin-top: 20px;
+    font-size: larger;
+}
+
+.h2 img{
+    position:relative;
+    float:right;
+    height:25px;
+    width: 25px;
+    margin:4px
+}
 @media only screen and (max-width: 650px){
 .user-info {
     grid-column: 1 / 4;
