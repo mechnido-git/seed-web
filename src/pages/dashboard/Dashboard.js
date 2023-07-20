@@ -19,6 +19,7 @@ const EnrolledCourse = ({ dragger }) => {
   const [enrolledCourses, setEnrolledCourses] = useState([]);
   const [enrolledEvents, setEnrolledEvents] = useState([]);
   const [loading, setLoading] = useState(true)
+  const [user, setUser] = useState(null)
   const navigate = useNavigate()
 
 
@@ -55,6 +56,16 @@ const EnrolledCourse = ({ dragger }) => {
     setLoading(false)
   }
 
+  const getInvoice = (course) => {
+    let invoice = null;
+    course.enrolled.forEach(item=>{
+      if(item.userId === user.uid){
+        invoice = item.invoice
+      }
+    })
+    return invoice
+  }
+
   const getCours = (index) => {
     console.log('hi');
     navigate(`/menu/courses/details/${index}`)
@@ -62,6 +73,7 @@ const EnrolledCourse = ({ dragger }) => {
 
   useEffect(() => {
     onAuthStateChanged(auth, user => {
+      setUser(user)
       fetch(user)
     })
   }, [])
@@ -80,13 +92,17 @@ const EnrolledCourse = ({ dragger }) => {
           {enrolledCourses.length !== 0 && enrolledCourses.map((item) => {
             return <div className="card" style={{ cursor: 'pointer' }} onClick={() => getCours(item.order)}>
               <h4>{item.name}</h4>
-
+              {getInvoice(item) && <div className="invoice">
+                <a onClick={(e)=>e.stopPropagation()} href={getInvoice(item)} rel="noreferrer" target="_blank">Invoice <span class="material-symbols-outlined">
+                  download
+                </span></a>
+              </div>}
             </div>
           })}
         </> : <>
           <p>You are not enrolled to any courses or events, Please Enroll</p>
           <div className="btns">
-            <button onClick={() => {navigate("/menu/courses");window.location.reload()}} >Courses</button><button onClick={() => {navigate("/menu/events");window.location.reload()}}>Events</button>
+            <button onClick={() => { navigate("/menu/courses"); window.location.reload() }} >Courses</button><button onClick={() => { navigate("/menu/events"); window.location.reload() }}>Events</button>
           </div>
         </>}
       </>}
@@ -96,7 +112,7 @@ const EnrolledCourse = ({ dragger }) => {
 }
 
 const CourseCatalog = () => {
- // const [drag, setDrag] = useState(false)
+  // const [drag, setDrag] = useState(false)
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(true)
 
@@ -152,7 +168,7 @@ const CourseCatalog = () => {
 
 
 const EventDetails = () => {
- // const [drag, setDrag] = useState(false)
+  // const [drag, setDrag] = useState(false)
 
   return <div className="section">
     <h4 >Event Catalog</h4>
@@ -160,7 +176,7 @@ const EventDetails = () => {
 }
 
 const QuickLinks = () => {
- // const [drag, setDrag] = useState(false)
+  // const [drag, setDrag] = useState(false)
 
   const links = [
     {
@@ -283,7 +299,7 @@ const QuickLinks = () => {
 }
 
 const Announcement = () => {
- // const [drag, setDrag] = useState(false)
+  // const [drag, setDrag] = useState(false)
 
   return <div className="section">
     <h4 >Announcements</h4>
@@ -307,7 +323,7 @@ const Announcement = () => {
 }
 
 const LearningResources = () => {
- // const [drag, setDrag] = useState(false)
+  // const [drag, setDrag] = useState(false)
 
   return <div className="section">
     <h4>Learning Recources</h4>
@@ -369,20 +385,20 @@ function Dashboard() {
           try {
             const docSnap = await getDoc(docRef);
 
-          if (docSnap.exists()) {
-            console.log("Document data:", docSnap.data());
-            setCover(docSnap.data().cover)
-          } else {
-            // docSnap.data() will be undefined in this case
-            console.log("No such document!");
-          }
+            if (docSnap.exists()) {
+              console.log("Document data:", docSnap.data());
+              setCover(docSnap.data().cover)
+            } else {
+              // docSnap.data() will be undefined in this case
+              console.log("No such document!");
+            }
           } catch (error) {
             console.log(error);
           }
           setLoading(false)
         }
         doFetch(user)
-          
+
       } else {
         setLoading(false);
       }
@@ -397,7 +413,7 @@ function Dashboard() {
     `);
   }, []);
 
-  useEffect(()=>{console.log(cover+" yess");}, [cover])
+  useEffect(() => { console.log(cover + " yess"); }, [cover])
 
   const { courses, user } = useContext(StoreContext)
 
@@ -411,8 +427,8 @@ function Dashboard() {
 
   return (
     <div className="dashboard">
-      { loading? (
-        <Spinner loading={loading} normal={true} />
+      {loading ? (
+        <Spinner loading={loading} />
       ) : (
         <>
           {loggedIn ? (

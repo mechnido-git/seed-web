@@ -97,47 +97,47 @@ function Home() {
     });
   }, []);
 
-  const [active1, setActive1] = useState(false);
-  const [active2, setActive2] = useState(false);
-  const [active3, setActive3] = useState(false);
+  // const [active1, setActive1] = useState(false);
+  // const [active2, setActive2] = useState(false);
+  // const [active3, setActive3] = useState(false);
 
-  const contentRef1 = useRef(null);
-  const contentRef2 = useRef(null);
-  const contentRef3 = useRef(null);
+  // const contentRef1 = useRef(null);
+  // const contentRef2 = useRef(null);
+  // const contentRef3 = useRef(null);
 
-  useEffect(() => {
-    if(contentRef1.current){
-      contentRef1.current.style.maxHeight = active1
-      ? `${contentRef1.current.scrollHeight}px`
-      : "0px";
-    }
-  }, [contentRef1, active1]);
+  // useEffect(() => {
+  //   if(contentRef1.current){
+  //     contentRef1.current.style.maxHeight = active1
+  //     ? `${contentRef1.current.scrollHeight}px`
+  //     : "0px";
+  //   }
+  // }, [contentRef1, active1]);
 
-  const toggleAccordion1 = () => {
-    setActive1(!active1);
-  };
-  useEffect(() => {
-    if(contentRef2.current){
-      contentRef2.current.style.maxHeight = active2
-      ? `${contentRef2.current.scrollHeight}px`
-      : "0px";
-    }
-  }, [contentRef2, active2]);
+  // const toggleAccordion1 = () => {
+  //   setActive1(!active1);
+  // };
+  // useEffect(() => {
+  //   if(contentRef2.current){
+  //     contentRef2.current.style.maxHeight = active2
+  //     ? `${contentRef2.current.scrollHeight}px`
+  //     : "0px";
+  //   }
+  // }, [contentRef2, active2]);
 
-  const toggleAccordion2 = () => {
-    setActive2(!active2);
-  };
-  useEffect(() => {
-    if(contentRef3.current){
-      contentRef3.current.style.maxHeight = active3
-      ? `${contentRef3.current.scrollHeight}px`
-      : "0px";
-    }
-  }, [contentRef3, active3]);
+  // const toggleAccordion2 = () => {
+  //   setActive2(!active2);
+  // };
+  // useEffect(() => {
+  //   if(contentRef3.current){
+  //     contentRef3.current.style.maxHeight = active3
+  //     ? `${contentRef3.current.scrollHeight}px`
+  //     : "0px";
+  //   }
+  // }, [contentRef3, active3]);
 
-  const toggleAccordion3 = () => {
-    setActive3(!active3);
-  };
+  // const toggleAccordion3 = () => {
+  //   setActive3(!active3);
+  // };
 
   const getInTouchSubmit = event =>{
     document.getElementById("subject").value= "";
@@ -398,85 +398,6 @@ function Home() {
                 <img src={sponsor} style={{ width: "100px" }} />
               </SplideSlide>
             </Splide>
-          </div>
-          <div className="faq">
-            <div id="faq"></div>
-            <h2>FAQ</h2>
-            <div>
-              <button
-                className={`question-section ${active1}`}
-                onClick={toggleAccordion1}
-              >
-                <div>
-                  <div className="question-align">
-                    <h4 className="question-style">
-                      Why do you like web developemnt
-                    </h4>
-                    <FiPlus
-                      className={
-                        active1 ? `question-icon rotate` : `question-icon`
-                      }
-                    />
-                  </div>
-                  <div
-                    ref={contentRef1}
-                    className={active1 ? `answer answer-divider` : `answer`}
-                  >
-                    <p>Because I love coding</p>
-                  </div>
-                </div>
-              </button>
-            </div>
-            <div>
-              <button
-                className={`question-section ${active2}`}
-                onClick={toggleAccordion2}
-              >
-                <div>
-                  <div className="question-align">
-                    <h4 className="question-style">
-                      Why do you like web developemnt
-                    </h4>
-                    <FiPlus
-                      className={
-                        active2 ? `question-icon rotate` : `question-icon`
-                      }
-                    />
-                  </div>
-                  <div
-                    ref={contentRef2}
-                    className={active2 ? `answer answer-divider` : `answer`}
-                  >
-                    <p>Because I love coding</p>
-                  </div>
-                </div>
-              </button>
-            </div>
-            <div>
-              <button
-                className={`question-section ${active3}`}
-                onClick={toggleAccordion3}
-              >
-                <div>
-                  <div className="question-align">
-                    <h4 className="question-style">
-                      Why do you like web developemnt
-                    </h4>
-                    <FiPlus
-                      className={
-                        active3 ? `question-icon rotate` : `question-icon`
-                      }
-                    />
-                  </div>
-                  <div
-                    ref={contentRef3}
-                    className={active3 ? `answer answer-divider` : `answer`}
-                  >
-                    <p>Because I love coding</p>
-                  </div>
-                </div>
-              </button>
-            </div>
           </div>
           <div className="get-in-touch">
             <div id="get-in-touch"></div>

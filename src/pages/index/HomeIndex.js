@@ -68,7 +68,7 @@ function HomeIndex() {
     }
   }, [signIn]);
 
-  if(loading) return <Spinner loading={true} />
+  if(loading) return <Spinner loading={true}  />
 
   return (
     <>
