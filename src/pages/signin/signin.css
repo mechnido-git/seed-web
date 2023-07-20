@@ -29,7 +29,7 @@
     width: 100%;
     padding: 30px;
     border-radius: 6px;
-    background: #FFF;
+    background: var(--secondary);
 
 }
 
@@ -120,7 +120,7 @@ header{
     border: 2px solid var(--primary) !important;
 }
 .field input[type="submit"]:hover, .submit-btn:hover{
-    background-color: var(--secondary);
+    background-color: var(--btnhover);
     color: var(--primary);
 }
 .form-link{
@@ -131,8 +131,10 @@ header{
 .form-link a{
     font-size: 16px;
     font-weight: 400;
-    color: #232836;
+    color: var(--tertiary);
 }
+
+
 .form a{
     color: var(--primary);
     text-decoration: none;

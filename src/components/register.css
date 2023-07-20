@@ -13,6 +13,7 @@
 .register-form > h3{
     font-size: 35px;
     margin: 0 auto;
+    color:var(--tertiary);
 }
 
 .register-form .error{
@@ -21,12 +22,18 @@
 
 .register-form label{
     font-size: 20px;
+    color:var(--heading);
 }
 
 .register-form > form form{
     display: flex;
     flex-direction: column;
+    background-color: var(--secondary);
 }
+.register-form > form h3{
+    color:var(--tertiary);
+}
+
 
 .register-form  > form{
     display: flex;
@@ -204,7 +211,7 @@
 }
 
 .register-form > form .btns > .cntrl:hover{
-    background-color: var(--secondary);
+    background-color: var(--btnhover);
     color: var(--primary);
 
 }

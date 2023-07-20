@@ -352,7 +352,10 @@ function SideMenu() {
               {/* <span class="material-symbols-outlined">
                 description
               </span> */}
-              <img className="menu-icon" src={intro} alt="tnkc icon"/>
+              {/* <img className="menu-icon" src={intro} alt="tnkc icon"/> */}
+              <span class="material-symbols-outlined">
+info
+</span>
               <div>Intro</div>
             </HashLink>
             <HashLink
@@ -364,7 +367,10 @@ function SideMenu() {
               {/* <span class="material-symbols-outlined">
                 description
               </span> */}
-              <img className="menu-icon"  src={why} alt="tnkc icon"/>
+              {/* <img className="menu-icon"  src={why} alt="tnkc icon"/> */}
+              <span class="material-symbols-outlined">
+help
+</span>
               <div>Why TNKC 2023?</div>
             </HashLink>
             <HashLink
@@ -376,7 +382,10 @@ function SideMenu() {
               {/* <span class="material-symbols-outlined">
                 description
               </span> */}
-               <img className="menu-icon"  src={perk} alt="tnkc icon"/>
+               {/* <img className="menu-icon"  src={perk} alt="tnkc icon"/> */}
+               <span class="material-symbols-outlined">
+interests
+</span>
               <div>Perks</div>
             </HashLink>
             <HashLink
@@ -388,7 +397,10 @@ function SideMenu() {
               {/* <span class="material-symbols-outlined">
                 description
               </span> */}
-               <img className="menu-icon"  src={workflow} alt="tnkc icon"/>
+               {/* <img className="menu-icon"  src={workflow} alt="tnkc icon"/> */}
+               <span class="material-symbols-outlined">
+rebase
+</span>
               <div>Workflow</div>
             </HashLink>
             <HashLink
@@ -400,7 +412,10 @@ function SideMenu() {
               {/* <span class="material-symbols-outlined">
                 description
               </span> */}
-               <img className="menu-icon" src={sch} alt="tnkc icon"/>
+               {/* <img className="menu-icon" src={sch} alt="tnkc icon"/> */}
+               <span class="material-symbols-outlined">
+calendar_month
+</span>
               <div>Schedule</div>
             </HashLink>
             <HashLink
@@ -412,7 +427,10 @@ function SideMenu() {
               {/* <span class="material-symbols-outlined">
                 description
               </span> */}
-               <img className="menu-icon" src={tro} alt="tnkc icon"/>
+               {/* <img className="menu-icon" src={tro} alt="tnkc icon"/> */}
+               <span class="material-symbols-outlined">
+celebration
+</span>
               <div>Awards & Prizes</div>
             </HashLink>
           </>

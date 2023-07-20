@@ -15,7 +15,8 @@
     display: flex;
     gap: 5px;
     align-items: center;
-    border: .5px solid rgba(0, 0, 0, 0.245);
+     /* border: .5px solid rgba(0, 0, 0, 0.245);*/
+    border: .5px solid var(--subHeading);
     border-radius: 2rem;
     position: relative;
     justify-content: center;
@@ -32,12 +33,13 @@
     background-color: rgba(240, 248, 255, 0);
 }
 
-.navbar > .search-bar > img{
-    width: 20px;
+.navbar > .search-bar > .material-symbols-outlined{
+    width: 25px;
     padding: 5px 7px;
+    color:var(--primary);
 
  }
-
+ 
  .selected{
   opacity: .7;
   background-color: var(--primary);
@@ -57,6 +59,7 @@
     border-top-right-radius: 1rem;
     border-bottom-right-radius: 1rem;
     outline: unset;
+    color:var(--tertiary);
 }
 
 .navbar > .search-bar .results{
@@ -80,6 +83,7 @@
   padding: 1rem;
   cursor: pointer;
   transition: .3s;
+  color:var(--tertiary);
 }
 
 .navbar > .search-bar .results > a:hover{
@@ -92,9 +96,11 @@
 }
 
 .navbar > .search-bar:focus-within{
-    border: 1px solid rgb(33, 33, 255);
+    /* border: 1px solid rgb(33, 33, 255); */
+    border :1px solid var(--subHeading);
     background-color: var(--secondary);
-    box-shadow: rgba(156, 191, 255, 0.584) 0px 0px 0px 4px
+    /* box-shadow: rgba(156, 191, 255, 0.584) 0px 0px 0px 4px */
+    box-shadow: var(--secondary) 0px 0px 0px 4px;
 }
 
 .navbar > .left{
@@ -107,7 +113,7 @@
 
 .navbar > .left img{
     width: 50px;
-    mix-blend-mode: darken; 
+    /* mix-blend-mode: darken;  */
 }
 
 .navbar > .left > span{
@@ -204,7 +210,7 @@
   flex-direction: column;
   align-items: center;
   background-color: var(--secondary);
-  color: black;
+  color: var(--tertiary);
   border-radius: 5px;
   display: none;
   gap: 7px;

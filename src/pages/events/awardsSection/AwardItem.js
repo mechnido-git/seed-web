@@ -4,9 +4,9 @@ export default function AwardItem(props) {
   return (
     <>
       <div className='rewarditem'>
-      <p className='rn'>{props.con}</p>
-      <p className='pd'>{props.pr}</p>
-      <p className='pm'>{props.inr}</p>
+      <span className='rn'>{props.con}</span>
+      <span className='pd'>{props.pr}</span>
+      <span className='pm'>{props.inr}</span>
       </div>
      
     </>
