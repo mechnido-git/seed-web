@@ -130,8 +130,13 @@
     cursor: pointer;
     border-radius: 5px;
     font-size: medium;
-    margin-left:45%;
-    margin-bottom: 20px;
+    margin-left:44%;
+    margin-bottom: 20px; 
+    width: 97px;
+    height: 35px;
+    font-size: large;
+
+   
 }
 /* 
 .form-data{
