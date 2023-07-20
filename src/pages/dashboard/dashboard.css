@@ -130,6 +130,7 @@
 
 .dashboard > .main > .section > .enrolled-courses > .card > .invoice span{
   font-size: 18px;
+  color: inherit
 }
 
 .dashboard > .main > .section > .enrolled-courses .btns{

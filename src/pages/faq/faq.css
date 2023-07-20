@@ -20,6 +20,11 @@
 
 #faq .title > span{
     font-size: 40px;
+    color: var(--tertiary);
+}
+
+#faq .title > h1{
+    color: var(--tertiary);
 }
 
 #faq > .questions > .topics {
@@ -44,6 +49,7 @@
 
 #faq > .questions > .topics > h4 > span{
     margin: 0 10px;
+    color: var(--secondary);
 }
 
 #faq > .questions > .topics > h4::after{

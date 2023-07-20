@@ -84,6 +84,7 @@ function InfoForm() {
 
   const validate = (e) => {
     e.preventDefault();
+    setLoading(true)
     const inputs = document.querySelectorAll(".fac-div input");
     inputs.forEach((inp, i) => {
       if (inp.value === "") {
@@ -181,7 +182,7 @@ function InfoForm() {
         mobile,
         college,
         gender,
-      };
+      }
 
       onAuthStateChanged(auth, (user) => {
         doUpdate(user.uid, temp);
@@ -196,6 +197,8 @@ function InfoForm() {
       // inputs.forEach((inp, i) => {
       //   inp.style.border = ''
       // });
+    }else{
+      setLoading(false)
     }
   };
 
@@ -207,8 +210,10 @@ function InfoForm() {
         ...data,
       });
       setPage(false);
+      setLoading(false)
     } catch (error) {
       console.log(error);
+      setLoading(false)
     }
   };
 
