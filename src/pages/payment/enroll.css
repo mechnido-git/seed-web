@@ -10,6 +10,9 @@
     border-radius: 5px;
     z-index: 11;
 }
+.enroll-div h1 , h4{
+    color:var(--tertiary);
+}
 
 .enroll-div > .card{
     padding: 2rem;
@@ -24,6 +27,8 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    color:var(--tertiary);
+    background-color: var(--secondary);
 }
 
 .enroll-div > .card form > .inp{
@@ -32,6 +37,7 @@
     border: 1px solid rgb(182, 182, 182);
     padding: 1rem;
     border-radius: 5px;
+    
 }
 
 .enroll-div > .card form > .inp > label > span{
@@ -51,6 +57,12 @@
     transition: .2s;
     display: inline-block;
     box-sizing: border-box;
+    transition:0.2s;
+}
+
+.enroll-div > .card form > button:hover{
+    color:var(--tertiary);
+    background-color: var(--btnhover);
 }
 
 .enroll-div .clbt{
