@@ -109,6 +109,17 @@ function Faq() {
         });
     }, []);
 
+    useEffect(()=>{
+        if(!loading){
+          const loc = window.location.href.split("/")
+          const last = loc[loc.length -1]
+          if(last[0] === "#"){
+            const id = last.slice(1, last.length)
+            document.getElementById(id).scrollIntoView({behavior: 'smooth'});
+          }
+        }
+      }, [loading])
+
     const showSubs = (e) => {
         console.log(e.target.parentElement);
         e.target.parentElement.classList.toggle("show");

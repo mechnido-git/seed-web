@@ -105,6 +105,33 @@
   gap: 10px;
 }
 
+.dashboard > .main > .section > .enrolled-courses > .card > .invoice, .dashboard > .main > .section > .enrolled-courses > .card > .invoice a{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: end;
+  color: var(--tertiary);
+  font-size: 16px;
+}
+
+.dashboard > .main > .section > .enrolled-courses > .card > .invoice a{
+  padding: 5px;
+  color: var(--secondary);
+  border: 2px solid var(--primary);
+  border-radius: 5px;
+  background-color: var(--primary);
+  transition: .3s;
+}
+
+.dashboard > .main > .section > .enrolled-courses > .card > .invoice a:hover{
+  background-color: var(--secondary);
+  color: var(--primary);
+}
+
+.dashboard > .main > .section > .enrolled-courses > .card > .invoice span{
+  font-size: 18px;
+}
+
 .dashboard > .main > .section > .enrolled-courses .btns{
   display: flex;
   flex-direction: column;
