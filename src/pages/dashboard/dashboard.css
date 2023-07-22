@@ -59,9 +59,9 @@
   cursor: pointer;
 }
 
-.dashboard > .main > .section.dragging{
-  /* opacity: .5; */
-}
+/* .dashboard > .main > .section.dragging{
+  /* opacity: .5; 
+} */
 
 .dashboard > .main > .section > h4{
   user-select: none;
@@ -104,16 +104,21 @@
   flex-direction: column;
   gap: 10px;
 }
+.dashboard > .main > .section > .enrolled-courses > .card{
+  flex-direction: row;
+  justify-content: space-between; 
+}
 
-.dashboard > .main > .section > .enrolled-courses > .card > .invoice, .dashboard > .main > .section > .enrolled-courses > .card > .invoice a{
+
+.dashboard > .main > .section > .enrolled-courses > .card > .invoice, .dashboard > .main > .section > .enrolled-courses > .card > .invoice span{
   display: flex;
   align-items: center;
   gap: 5px;
-  justify-content: end;
-  color: var(--tertiary);
+ 
+  /* color: var(--tertiary); */
   font-size: 16px;
 }
-
+/* 
 .dashboard > .main > .section > .enrolled-courses > .card > .invoice a{
   padding: 5px;
   color: var(--secondary);
@@ -121,12 +126,12 @@
   border-radius: 5px;
   background-color: var(--primary);
   transition: .3s;
-}
-
+} */
+/* 
 .dashboard > .main > .section > .enrolled-courses > .card > .invoice a:hover{
   background-color: var(--secondary);
   color: var(--primary);
-}
+} */
 
 .dashboard > .main > .section > .enrolled-courses > .card > .invoice span{
   font-size: 18px;

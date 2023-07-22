@@ -75,6 +75,16 @@ useEffect(() => {
   })
 }, [])
 
+const getInvoice = (course) => {
+  let invoice = null;
+  course.enrolled.forEach(item=>{
+    if(item.userId === user.uid){
+      invoice = item.invoice
+    }
+  })
+  return invoice
+}
+
 
   return (
     <>
@@ -150,6 +160,8 @@ useEffect(() => {
                     arr={enrolledCourses}
                     viewDetails={getCours}
                   />
+
+                  
              </>
           }
         </> : <>
@@ -185,6 +197,7 @@ useEffect(() => {
                     arr={enrolledEvents}
                     viewDetails={getCours}
                   />
+                 
              </>
           }
         </> : <>
