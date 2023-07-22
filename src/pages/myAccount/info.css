@@ -135,8 +135,13 @@
     width: 97px;
     height: 35px;
     font-size: large;
+    transition:0.3s;
 
    
+}
+.accounts-page button:hover{
+    background-color: var(--btnhover);
+    color:var(--tertiary);
 }
 /* 
 .form-data{
@@ -239,6 +244,58 @@ Margin-left:25%
     width: 25px;
     margin:4px
 }
+
+/* css enrolled course card display on the my account page */
+
+.enroll-card-container{
+    width: 270px;
+    height: max-content;
+    display:grid;
+    grid-template-columns: auto auto auto auto;
+    gap:25px;
+    margin:20px
+}
+.enroll-card-container .card img{
+    width:238px;
+    height: 200px;
+    padding:1rem;
+}
+.enroll-card-container .card{
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .2s;
+    color: var(--textcolor);
+}
+.enroll-card-container .card .body{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 0.5rem;
+    height: 100%;
+
+}
+.enroll-card-container .request-enroll{
+    display:block;
+    width: max-content;
+
+}
+.request-enroll p{
+    margin-bottom: 10px;
+} 
+.request-enroll button{
+    display: inline;
+    margin:auto;
+    margin-left:30px;
+    transition:0.3s;
+}
+.request-enroll button:hover{
+    background-color: var(--btnhover);
+    color:var(--tertiary);
+}
+
+
+/* css for the mobile view of the acccounts  page*/
 @media only screen and (max-width: 650px){
 .user-info {
     grid-column: 1 / 4;

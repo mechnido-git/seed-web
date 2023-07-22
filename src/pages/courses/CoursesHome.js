@@ -104,6 +104,7 @@ export const trending = [
 export const CardBuilder = ({ arr, limit, viewDetails, loading }) => (
   <>
     {arr.map((item, index) => {
+      console.log(index);
       if (limit != null && index >= limit) return;
       return (
         <div className="card" key={index} onClick={() => viewDetails(item.order)}>

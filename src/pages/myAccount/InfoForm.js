@@ -249,16 +249,16 @@ function InfoForm() {
               <div className="inp" onChange={(e) => setGender(e.target.value)}>
                 <input
                   required
-                  value="male"
-                  checked={gender === "male" ? true : false}
+                  value="Male"
+                  checked={gender === "Male" ? true : false}
                   type="radio"
                   name="gender"
                 />{" "}
                 Male
                 <input
                   required
-                  value="female"
-                  checked={gender === "female" ? true : false}
+                  value="Female"
+                  checked={gender === "Female" ? true : false}
                   type="radio"
                   name="gender"
                 />{" "}
