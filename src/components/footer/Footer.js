@@ -3,6 +3,7 @@ import "./footer.css";
 import { HashLink } from "react-router-hash-link";
 import fb from "../../images/fb.png";
 import insta from "../../images/insta.png";
+const social_icons = require('svg-social-icons');
 
 function Footer() {
   return (
@@ -114,6 +115,8 @@ function Footer() {
                     >
                       {" "}
                       <img style={{ width: "2.5rem" }} src={fb} alt="" />
+                        {/* {social_icons('facebook',{color:"red", class:'sqs-svg-icon--list'})} */}
+                       
                     </a>
                     <a
                       href="https://www.instagram.com/mechnido/?igshid=YmMyMTA2M2Y%3D&__coig_restricted=1"
