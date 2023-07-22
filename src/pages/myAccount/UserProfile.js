@@ -78,7 +78,7 @@ useEffect(() => {
 
   return (
     <>
-    {loading? <Spinner other={'height'} normal={true} loading={loading} />:
+    {loading? <Spinner other={'height'} normal={true} loading={loading} />  :
 <div className='accounts-page'>
 <div className='h2'><div><h2>My Profile</h2></div>  </div>
   <div className='form-container'>
@@ -125,15 +125,16 @@ useEffect(() => {
   </div>
   <button onClick={()=>{setPage(true)}}>Edit</button>
 </div>
-
-  }
+}
 
 {/*------------------------Courses enrolled----------------------------------------------  */}
+
+  
 <div className='accounts-page'>
 <div className='h2'><div><h2>My Courses</h2></div>  </div>               
 <div className='enroll-card-container'>
-{false ? <Spinner other={'height'} normal={true} loading={loading} /> : <>
-        {enrolledCourses.length !== 0 || enrolledEvents.length !== 0 ? <>
+{loading ? <Spinner other={'height'} normal={true} loading={loading} /> : <>
+        {enrolledCourses.length !== 0 ? <>
           {/* {enrolledEvents.length !== 0 && enrolledEvents.map((item, key) => {
             return <div style={{ cursor: 'pointer' }} className="card" key={key} >
               <h4>{item.name}</h4>
@@ -200,9 +201,7 @@ useEffect(() => {
 </div>
 </div>
 
-</>
-        
-        
 
-  )
+</>
+)
 }
