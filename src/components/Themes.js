@@ -10,23 +10,29 @@ const {theme, setTheme , check, setCheck} = useContext(StoreContext);
  const toggleTheme= ()=>{
     if(theme==='Light-mode'){
         setTheme('Dark-mode');
-        setCheck(true);
+       
+        setCheck(false);
     }
     else{
         setTheme('Light-mode');
-        setCheck(false);
+        
+        setCheck(true);
     }
+    localStorage.setItem('theme', theme);
  }
 
+
+
  useEffect(()=>{
-   document.body.className = theme; 
+   document.body.className = localStorage.getItem('theme');; 
  },[theme])
 
  useEffect(()=>{
-     if (document.body.className==='Light-mode')
+     if ( localStorage.getItem('theme')==='Light-mode')
      setCheck(false);
      else
      setCheck(true);
+     
  },[])
 
   return (
