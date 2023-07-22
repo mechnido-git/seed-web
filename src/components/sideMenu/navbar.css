@@ -306,6 +306,9 @@
     grid-template-columns: 1fr;
     
   }
+  .navbar .get-in-touch label{
+    color:var(--tertiary);
+  }
 
   .navbar > .right > button{
     padding: .7rem 1rem;

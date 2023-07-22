@@ -286,7 +286,7 @@ Margin-left:25%
 .request-enroll button{
     display: inline;
     margin:auto;
-    margin-left:30px;
+    /* margin-left:30px; */
     transition:0.3s;
 }
 .request-enroll button:hover{
