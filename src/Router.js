@@ -10,7 +10,6 @@ import CoursesHome from "./pages/courses/CoursesHome";
 import EventIndex from "./pages/events/EventIndex";
 import Home from "./pages/home/Home";
 import Index from "./pages/index/Index";
-import Terms from "./pages/events/terms/Terms";
 import HomeIndex from "./pages/index/HomeIndex";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Store from "./store/StoreContext";
@@ -21,6 +20,9 @@ import InfoForm from "./pages/myAccount/InfoForm";
 import Sower from "./pages/sower/Sower";
 import EventDetails from "./pages/events/EventDetails";
 import Faq from "./pages/faq/Faq";
+import PrivacyPolicy from "./pages/privacyPolicy/PrivacyPolicy";
+import Terms from "./pages/terms/Terms";
+import RefundPolicy from "./pages/refundPolicy/RefundPolicy";
 
 function Router() {
   return (
@@ -43,6 +45,8 @@ function Router() {
           </Route>
         </Route>
         <Route path="/terms" element={<Terms />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/refund-policy" element={<RefundPolicy />} />
       </Routes>
     </BrowserRouter>
   

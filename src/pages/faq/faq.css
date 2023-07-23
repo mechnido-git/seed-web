@@ -38,7 +38,7 @@
 }
 
 #faq > .questions > .topics > h4{
-    padding: 1.5rem;
+    padding: 15px;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
     color: var(--secondary);
     border-radius: 10px;
@@ -53,7 +53,7 @@
 }
 
 #faq > .questions > .topics > h4::after{
-    content: ">";
+    /* content: ">"; */
     display: inline-block;
     transform: rotate(90deg);
     font-size: 1.2rem;

@@ -109,16 +109,16 @@ function Faq() {
         });
     }, []);
 
-    useEffect(()=>{
-        if(!loading){
-          const loc = window.location.href.split("/")
-          const last = loc[loc.length -1]
-          if(last[0] === "#"){
-            const id = last.slice(1, last.length)
-            document.getElementById(id).scrollIntoView({behavior: 'smooth'});
-          }
+    useEffect(() => {
+        if (!loading) {
+            const loc = window.location.href.split("/")
+            const last = loc[loc.length - 1]
+            if (last[0] === "#") {
+                const id = last.slice(1, last.length)
+                document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+            }
         }
-      }, [loading])
+    }, [loading])
 
     const showSubs = (e) => {
         console.log(e.target.parentElement);
@@ -143,11 +143,11 @@ function Faq() {
                     <span class="material-symbols-outlined">
                         quiz
                     </span>
-                    <h1>Frequently Asked Questions (FAQs) for Mechnido's Seed Learning Hub </h1>
+                    <h1>Frequently Asked Questions (FAQs)</h1>
                 </div>
-                <div className="questions">
-                    {faq.map((item, i) => <div className="topics" key={i} >
-                        <h4 onClick={showSubs}>
+                <div className="questions show">
+                    {faq.map((item, i) => <div className="topics show" key={i} >
+                        <h4 onClick={null}>
                             <span class="material-symbols-outlined">
                                 quiz
                             </span> {item.question}</h4>
