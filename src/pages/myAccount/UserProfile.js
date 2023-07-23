@@ -88,7 +88,7 @@ const getInvoice = (course) => {
 
   return (
     <>
-    {loading? <Spinner other={'height'} normal={true} loading={loading} />  :
+    {loading ? <Spinner other={'height'} normal={true} loading={loading} />  :
 <div className='accounts-page'>
 <div className='h2'><div><h2>My Profile</h2></div>  </div>
   <div className='form-container'>
@@ -169,7 +169,7 @@ const getInvoice = (course) => {
           <p>You are not enrolled to any courses, Please Enroll</p>
           <div className="btns">
             <button onClick={() => { navigate("/menu/courses"); window.location.reload() }} >Courses</button>
-            <button onClick={() => { navigate("/menu/events"); window.location.reload() }}>Events</button>
+            {/* <button onClick={() => { navigate("/menu/events"); window.location.reload() }}>Events</button> */}
           </div>
           </div>
         </>}
@@ -180,7 +180,7 @@ const getInvoice = (course) => {
 <div className='accounts-page'>
 <div className='h2'><div><h2>My Events</h2></div>  </div>               
 <div className='enroll-card-container'>
-{false ? <Spinner other={'height'} normal={true} loading={loading} /> : <>
+{loading ? <Spinner other={'height'} normal={true} loading={loading} /> : <>
         { enrolledEvents.length !== 0 ? <>
           {/* {enrolledEvents.length !== 0 && enrolledEvents.map((item, key) => {
             return <div style={{ cursor: 'pointer' }} className="card" key={key} >
@@ -204,7 +204,7 @@ const getInvoice = (course) => {
           <div className='request-enroll'>
           <p>You are not enrolled to any events, Please Enroll</p>
           <div className="btns">
-            <button onClick={() => { navigate("/menu/courses"); window.location.reload() }} >Courses</button>
+            {/* <button onClick={() => { navigate("/menu/courses"); window.location.reload() }} >Courses</button> */}
             <button onClick={() => { navigate("/menu/events"); window.location.reload() }}>Events</button>
           </div>
           </div>
