@@ -22,6 +22,7 @@ import EventDetails from "./pages/events/EventDetails";
 import Faq from "./pages/faq/Faq";
 import PrivacyPolicy from "./pages/privacyPolicy/PrivacyPolicy";
 import Terms from "./pages/terms/Terms";
+import RefundPolicy from "./pages/refundPolicy/RefundPolicy";
 
 function Router() {
   return (
@@ -45,6 +46,7 @@ function Router() {
         </Route>
         <Route path="/terms" element={<Terms />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/refund-policy" element={<RefundPolicy />} />
       </Routes>
     </BrowserRouter>
   

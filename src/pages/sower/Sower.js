@@ -122,7 +122,7 @@ function Sower() {
     <>
     {loading && <Spinner other="globel" loading={loading} />}
       <HomeNav initial={2} bodyId={'sower'} dp={dp} setLoading={setLoading} setSignIn={setSignIn} signIn={signIn} userName={userName} />
-      <div className="sower">
+      <div className="sower" id='sower'>
         <div className="hero">
           <div className="left">
            {/* <img src={logo} alt="" />  */}
