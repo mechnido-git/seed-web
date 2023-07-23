@@ -13,6 +13,11 @@ function Footer() {
         <div className="section">
           <h3>Home</h3>
           <ul>
+          <li>
+              <HashLink smooth to="/about/#about">
+                About
+              </HashLink>
+            </li>
             <li>
               <HashLink smooth to="/#achievements">
                 Achievements
@@ -81,6 +86,27 @@ function Footer() {
               </HashLink>
             </li>
 
+          </ul>
+        </div>
+
+        <div className="section">
+          <h3>Policies</h3>
+          <ul>
+            <li>
+              <HashLink smooth to="/privacy-policy/#privacy">
+                Privacy Policy
+              </HashLink>
+            </li>
+            <li>
+              <HashLink smooth to="/refund-policy/#refund">
+                Refund Plocy
+              </HashLink>
+            </li>
+            <li>
+              <HashLink smooth to="/terms/#terms">
+                Terms & Conditions
+              </HashLink>
+            </li>
           </ul>
         </div>
 

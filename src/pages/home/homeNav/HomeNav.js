@@ -138,14 +138,14 @@ function HomeNav({
         <div className="links">
           <ul>
             <li className="nav-link" ref={linkRef1}>
-            <Link to="/">
+            <HashLink to="/#home" smooth>
                 Home
-              </Link>
+              </HashLink>
             </li>
             <li className="nav-link" ref={linkRef2}>
-            <Link to="/about">
+            <HashLink to="/about/#about" smooth >
                 About
-              </Link>
+              </HashLink>
             </li>
             <li className="link">
               <Link to="#" id="offer" data-index={0} onMouseEnter={!mobile? !showDrop? toggleOffer: dropIndex != 0? toggleOffer: null : null} onClick={!mobile? toggleOffer : ()=>navigate("/menu/courses")}>
@@ -159,9 +159,9 @@ function HomeNav({
             </li>
            
             <li className="nav-link" ref={linkRef3}>
-            <Link to="/sower">
+            <HashLink to="/sower/#sower" smooth>
                 Become a Sower
-              </Link>
+              </HashLink>
             </li>
           </ul>
         </div>

@@ -195,7 +195,7 @@ function EventIndex() {
                 <button
                   onClick={() => (user ? getRegister() : alert("login first"))}
                 >
-                  Enroll
+                  Register
                 </button>
                 <button
                 onClick={viewDetails}

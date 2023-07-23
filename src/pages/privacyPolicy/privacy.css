@@ -1,0 +1,84 @@
+#privacy{
+    padding: 80px;
+    padding-top: 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: var(--tertiary);
+}
+
+#privacy > p{
+    font-size: 17px;
+}
+
+#privacy li{
+    list-style-type: none;
+}
+
+
+#privacy > .content h3{
+    padding: 15px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+    color: var(--secondary);
+    border-radius: 10px;
+    font-size: 20px;
+    background-color: var(--primary);
+    display: inline-flex;
+    
+}
+
+#privacy > .content h3::after{
+
+    display: inline-block;
+    transform: rotate(90deg);
+    font-size: 1.2rem;
+    margin: 0 1rem;
+    transition: .3s;
+    transform-origin: center center;
+}
+
+#privacy .sub-topic > li.show h3::after{
+    transform: rotate(270deg);
+}
+
+#privacy > .content h2{
+    font-weight: normal;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#privacy > .content{
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+    gap: 10px;
+}
+
+#privacy > .content .sub-topic{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 10px 20px;
+    list-style-type: square;
+}
+
+#privacy > .content .sub-topic .paras{
+    margin: 20px;
+    flex-direction: column;
+    gap: 10px;
+    display: none;
+    list-style-position: inside;
+    transition: .3s;
+}
+
+#privacy > .content .sub-topic > li.show > .paras{
+    display: flex;
+}
+
+#privacy > .content .sub-topic > li.show{
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+    display: grid;
+    grid-template-columns: 1fr;
+    border-radius: 10px;
+}
