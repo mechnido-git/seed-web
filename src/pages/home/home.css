@@ -319,7 +319,7 @@
   
   /* When moving the mouse over the submit button, add a darker green color */
   .container-div input[type=submit]:hover {
-    background-color: var(--secondary);
+    background-color: var(--btnhover);
     color: var(--primary);
   }
   
@@ -351,6 +351,7 @@
 
   .get-in-touch > h2{
     margin: 1rem;
+    color:var(--tertiary);
   }
 
 

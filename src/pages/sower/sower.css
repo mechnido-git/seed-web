@@ -63,6 +63,11 @@
     font-size: 18px;
     border: none;
     cursor: pointer;
+    transition: 0.3s;
+}
+.sower .sower-btn:hover{
+    color:var(--tertiary);
+    background-color: var(--btnhover);
 }
 
 .sower > .description{
@@ -169,7 +174,7 @@ color: var(--tertiary);
     justify-content: center;
     text-align: center;
     gap: 20px;
-    color: black;
+  
     
 }
 
