@@ -123,7 +123,7 @@ function FacultyForm({ faculty, setFaculty, setFacForm }) {
         email,
         mobile,
       });
-      setFaculty(temp);
+      setFaculty([...temp]);
       setName("");
       setDep("");
       setDes("");

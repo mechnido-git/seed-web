@@ -36,6 +36,7 @@ function MemberForm({ members, setMembers }) {
 
   const validate = (e) => {
     e.preventDefault()
+    console.log("click");
     const inputs = document.querySelectorAll('.fac-div input')
     inputs.forEach((inp, i) => {
       if (inp.value === '') {
@@ -100,6 +101,7 @@ function MemberForm({ members, setMembers }) {
       document.getElementById('member-mobile').innerText = "Mobile must be numeric";
       flag = true;
     }
+    console.log(flag);
 
     if (!flag) {
       let temp = members;
@@ -111,7 +113,8 @@ function MemberForm({ members, setMembers }) {
         email,
         mobile
       })
-      setMembers(temp)
+      console.log(temp);
+      setMembers([...temp])
       setName("")
       setDep("")
       setYear("")
@@ -121,6 +124,9 @@ function MemberForm({ members, setMembers }) {
       inputs.forEach((inp, i) => {
         inp.style.border = ''
       });
+    }else{
+      console.log("no added");
+      console.log(flag);
     }
   }
 
