@@ -95,6 +95,7 @@
     }
     .main-section .card-event > img{
         width: 250px;
+        border-radius: 10px;
     }
     .main-section .card-event > button{
         padding: .7rem 3rem;

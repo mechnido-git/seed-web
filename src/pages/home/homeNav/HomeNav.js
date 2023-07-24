@@ -157,6 +157,11 @@ function HomeNav({
                 Events
               </Link>
             </li>
+            <li className="nav-link">
+            <HashLink smooth to="/faq/#faq">
+                FAQ
+              </HashLink>
+            </li>
            
             <li className="nav-link" ref={linkRef3}>
             <HashLink to="/sower/#sower" smooth>

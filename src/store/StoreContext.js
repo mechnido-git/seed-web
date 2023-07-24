@@ -3812,7 +3812,7 @@ const eventList = [
     ]
     },
     workflow:{
-      title:"Event Workflow",
+      title:"Workflow",
       data:[
         "EVENT LAUNCH & REGISTRATION OPEN SPONCERS",
         "OFFLINE & ONLINE MARKETING",
@@ -3829,7 +3829,7 @@ const eventList = [
     },
 
     schedule:{
-      title:"Event Schedule",
+      title:"Schedule",
       data:[
         {
           task:"Registration Starts",

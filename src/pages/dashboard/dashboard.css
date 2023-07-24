@@ -105,19 +105,21 @@
   gap: 10px;
 }
 .dashboard > .main > .section > .enrolled-courses > .card{
-  flex-direction: row;
-  justify-content: space-between; 
+  flex-direction: column;
+  /* justify-content: flex-end;  */
 }
 
 
-.dashboard > .main > .section > .enrolled-courses > .card > .invoice, .dashboard > .main > .section > .enrolled-courses > .card > .invoice span{
+.dashboard > .main > .section > .enrolled-courses > .card > .invoice {
   display: flex;
-  align-items: center;
+  /* align-items: end; */
   gap: 5px;
- 
+ justify-content: end;
   /* color: var(--tertiary); */
   font-size: 16px;
 }
+
+
 /* 
 .dashboard > .main > .section > .enrolled-courses > .card > .invoice a{
   padding: 5px;

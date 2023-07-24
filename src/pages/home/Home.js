@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState ,useContext} from "react";
 import "./home.css";
 import trophy from "../../images/trophy.png";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
@@ -18,6 +18,11 @@ import { Link } from "react-router-dom";
 import Footer from "../../components/footer/Footer";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 
+import fbwhite from "../../images/facebookwhite.png";
+import instawhite from "../../images/instawhite.png";
+import { StoreContext } from "../../store/StoreContext";
+
+
 function Home() {
   const [signIn, setSignIn] = useState(false);
   const [userName, setUserName] = useState(null);
@@ -31,6 +36,15 @@ function Home() {
 
   const [redirect, setRedirect] = useState(null);
   const [redirectLoad, setRedirectLoad] = useState(false)
+
+  
+const {theme,setCheck,setTheme, check}= useContext(StoreContext);
+ 
+const [fbsrc, setFbsrc] = useState(fb);
+const [insrc, setInsrc] = useState(insta);
+ useEffect(()=>{
+   console.log(" check value is ",check);
+ },[theme]);
 
   const checkUser = async(user) => {
     
@@ -487,14 +501,14 @@ function Home() {
                       target="_blank"
                     >
                       {" "}
-                      <img style={{ width: "2.5rem" }} src={fb} alt="" />
+                      <img  style={{width: "40px",height:'40px' }} src={check ? fbwhite : fb} alt="" />
                     </a>
                     <a
                       href="https://www.instagram.com/mechnido/?igshid=YmMyMTA2M2Y%3D&__coig_restricted=1"
                       target="_blank"
                     >
                       {" "}
-                      <img style={{ width: "2.5rem" }} src={insta} alt="" />
+                      <img style={{ width: "40px",height:'40px' }} src={check ? instawhite : insta} alt="Insta link " />
                     </a>
                   </div>
                 </div>

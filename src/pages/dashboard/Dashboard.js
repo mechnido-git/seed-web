@@ -93,9 +93,10 @@ const EnrolledCourse = ({ dragger }) => {
             return <div className="card" style={{ cursor: 'pointer' }} onClick={() => getCours(item.order)}>
               <h4>{item.name}</h4>
               {getInvoice(item) && <div className="invoice">
-                <a onClick={(e)=>e.stopPropagation()} href={getInvoice(item)} rel="noreferrer" target="_blank"><span class="material-symbols-outlined">
+                <a onClick={(e)=>e.stopPropagation()} href={getInvoice(item)} rel="noreferrer" target="_blank"><span className="hm">Invoice</span> <span class="material-symbols-outlined">
                   download
                 </span></a>
+                
               </div>}
             </div>
           })}
