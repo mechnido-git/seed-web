@@ -114,7 +114,8 @@ function EventIndex() {
   const getRegister = () => {
     let flag = false;
     console.log(events);
-    events[currentEvent].enrolled?.forEach((item) => {
+    console.log(uid);
+    events[currentEvent].enrolled_arr?.forEach((item) => {
       if (item === uid) flag = true;
     });
     console.log(flag);
