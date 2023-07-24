@@ -64,6 +64,7 @@
 
 .register-form > form .terms{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     gap: 5px;
     margin: 1rem;
@@ -222,7 +223,7 @@
     transition: .3s;
 }
 
-#terms{
+#terms-btn{
     color: var(--primary);
     cursor: pointer;
 }

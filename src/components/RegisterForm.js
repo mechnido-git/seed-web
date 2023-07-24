@@ -13,7 +13,7 @@ import axios from "axios";
 import cancellogo from "../images/cancel_icon.png";
 
 
-function RegisterForm({ event , setRegister }) {
+function RegisterForm({ event, setRegister, email, userName }) {
   const [teamName, setTeamName] = useState("");
   const [teamEmail, setTeamEmail] = useState("");
   const [teamMembers, setTeamMembers] = useState(3);
@@ -41,15 +41,15 @@ function RegisterForm({ event , setRegister }) {
   const [facN, setFacN] = useState(null)
 
   const base = "https://wandering-ruby-fish.cyclic.app"
-   // const base = 'http://localhost:4242'
+  // const base = 'http://localhost:4242'
 
-  const sentMail = async(eventId, name, email, teamName) => {
+  const sentMail = async (eventId, name, email, teamName) => {
     const url = `${base}/event/email`;
     const data = {
-        eventId,
-        name,
-        teamName,
-        email
+      eventId,
+      name,
+      teamName,
+      email
     }
     try {
       const res = await axios.post(url, data)
@@ -61,12 +61,12 @@ function RegisterForm({ event , setRegister }) {
   }
 
   const [current, setCurrent] = useState(0)
-  const onSumbitHandler = (e) => {
+  const onSumbitHandler = async (e) => {
     e.preventDefault();
     setLoading(true)
     onAuthStateChanged(auth, user => {
       if (user) {
-        getDoc(doc(db, 'events', event.id)).then(data => {
+        getDoc(doc(db, 'events', event.id)).then(async (data) => {
           if (data) {
             const enrolled = data.data().enrolled
             if (enrolled && enrolled.includes(user.uid)) {
@@ -77,7 +77,7 @@ function RegisterForm({ event , setRegister }) {
 
           }
 
-          addDoc(collection(db, 'enrolled'), {
+          const eventData = {
             id: user.uid,
             eventId: event.id,
             teamName,
@@ -94,13 +94,56 @@ function RegisterForm({ event , setRegister }) {
             pincode,
             members,
             faculty
-          }).then(() => {
-            updateDoc(doc(db, 'events', event.id), {
-              enrolled: arrayUnion(user.uid)
-            }).then(() => {
-              sentMail(event.id, capName, teamEmail, teamName)
-            }).catch(err => console.log(err))
-          }).catch(err => console.log(err))
+          }
+
+          const url = `${process.env.REACT_APP_SERVER_URL}/register`;
+          const info = {
+            id: event.id,
+            name: event.name,
+            userId: user.uid,
+          }
+
+          try {
+
+            const res = await axios.post(url, info);
+            console.log(res.data.order);
+            var options = {
+              key: process.env.REACT_APP_RAZOR_ID, // Enter the Key ID generated from the Dashboard
+              amount: Number(res.data.order.amount), // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+              currency: "INR",
+              order_id: res.data.order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+              handler: async function (response) {
+                try {
+                  setLoading(true)
+                  const res = await axios.post(`${process.env.REACT_APP_SERVER_URL}/register-verify`, {
+                    response,
+                    userId: user.uid,
+                    eventData: eventData,
+                    eventId: event.id,
+                    email: email,
+                    userName,
+                    item  : event.name,
+                  })
+                  console.log(res);
+                  window.location.reload()
+                } catch (error) {
+                  alert(error)
+                }
+              },
+              theme: {
+                color: "#3399cc"
+              }
+            };
+            console.log(process.env.REACT_APP_RAZOR_ID);
+            var rzp1 = new window.Razorpay(options);
+            rzp1.open()
+
+          } catch (error) {
+            console.log(error);
+
+          } finally {
+            setLoading(false)
+          }
 
         }).catch(err => console.log(err))
 
@@ -149,7 +192,7 @@ function RegisterForm({ event , setRegister }) {
 
     });
     const error = document.querySelectorAll('.error')
-    error.forEach(item=>item.style.display = "none")
+    error.forEach(item => item.style.display = "none")
     error.forEach(item => item.innerHTML = "")
     var letters = /^[a-zA-Z ]*$/
     var email = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/
@@ -260,14 +303,16 @@ function RegisterForm({ event , setRegister }) {
   }
 
   const onChangeNumber = (value, setValue, current) => {
-    if(value.length <= 10) setValue(current.length <= 10? current: value )
+    if (value.length <= 10) setValue(current.length <= 10 ? current : value)
   }
+
+  console.log(event);
 
   const getFields = (page) => {
     switch (page) {
       case 0:
         return <form id="page-1">
-           
+
           <div className="input-div">
             <label htmlFor="team-name">Team Name</label>
             <p className="col">:</p>
@@ -280,7 +325,7 @@ function RegisterForm({ event , setRegister }) {
               onChange={(e) => setTeamName(e.target.value.toUpperCase())}
               placeholder="Name"
             />
-            <div style={{display: 'none'}} className="error" id="team-name"></div>
+            <div style={{ display: 'none' }} className="error" id="team-name"></div>
           </div>
 
           <div className="input-div">
@@ -296,7 +341,7 @@ function RegisterForm({ event , setRegister }) {
               pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
               title="Email format is not valid"
             />
-            <div style={{display: 'none'}} className="error" id="team-email"></div>
+            <div style={{ display: 'none' }} className="error" id="team-email"></div>
           </div>
 
           <div className="input-div">
@@ -311,7 +356,7 @@ function RegisterForm({ event , setRegister }) {
               onChange={(e) => setCapName(e.target.value.toUpperCase())}
               placeholder="Name"
             />
-            <div style={{display: 'none'}} className="error" id="cap-name"></div>
+            <div style={{ display: 'none' }} className="error" id="cap-name"></div>
           </div>
 
           <div className="input-div">
@@ -340,7 +385,7 @@ function RegisterForm({ event , setRegister }) {
               onChange={(e) => onChangeNumber(contact, setContact, e.target.value)}
               placeholder="6234567890"
             />
-            <div style={{display: 'none'}} className="error" id="team-contact"></div>
+            <div style={{ display: 'none' }} className="error" id="team-contact"></div>
           </div>
           <div className="btns">
             <button className="cntrl" style={{ marginLeft: 'auto' }} onClick={getNextPage} type="submit">Next</button>
@@ -359,9 +404,9 @@ function RegisterForm({ event , setRegister }) {
             </div>)}
           </div>
           <div className="btns">
-            <button className="cntrl"  onClick={() => setCurrent(current - 1)} type="button">Back</button><button onMouseLeave={()=>{members.length < 3 && document.querySelector('.disable-msg').classList.remove("show")}} onMouseEnter={()=>{members.length < 3 && document.querySelector('.disable-msg').classList.add("show")}} className={`cntrl ${members.length < 3 && 'opacity'}`} onClick={members.length >= 3 ? () => setCurrent(current + 1) : null} type="button">Next</button>
+            <button className="cntrl" onClick={() => setCurrent(current - 1)} type="button">Back</button><button onMouseLeave={() => { members.length < 3 && document.querySelector('.disable-msg').classList.remove("show") }} onMouseEnter={() => { members.length < 3 && document.querySelector('.disable-msg').classList.add("show") }} className={`cntrl ${members.length < 3 && 'opacity'}`} onClick={members.length >= 3 ? () => setCurrent(current + 1) : null} type="button">Next</button>
             <div className="disable-msg">
-            <p>Add minimum 3 members and maximum 25 members</p>
+              <p>Add minimum 3 members and maximum 25 members</p>
             </div>
           </div>
         </div>;
@@ -380,7 +425,7 @@ function RegisterForm({ event , setRegister }) {
               onChange={(e) => setCollegeName(e.target.value)}
               placeholder="College"
             />
-            <div style={{display: 'none'}} className="error" id="college-name"></div>
+            <div style={{ display: 'none' }} className="error" id="college-name"></div>
           </div>
 
           <div className="input-div">
@@ -393,7 +438,7 @@ function RegisterForm({ event , setRegister }) {
               cols={5}
               placeholder="Address"
             />
-            <div style={{display: 'none'}} className="error" id="college-address"></div>
+            <div style={{ display: 'none' }} className="error" id="college-address"></div>
           </div>
 
           <div className="input-div">
@@ -408,7 +453,7 @@ function RegisterForm({ event , setRegister }) {
               onChange={(e) => setCity(e.target.value)}
               placeholder="City"
             />
-            <div style={{display: 'none'}} className="error" id="college-city"></div>
+            <div style={{ display: 'none' }} className="error" id="college-city"></div>
           </div>
 
           <div className="input-div">
@@ -423,7 +468,7 @@ function RegisterForm({ event , setRegister }) {
               onChange={(e) => setState(e.target.value)}
               placeholder="Tamil Nadu"
             />
-            <div style={{display: 'none'}} className="error" id="college-state"></div>
+            <div style={{ display: 'none' }} className="error" id="college-state"></div>
           </div>
           <div className="input-div no-arrow">
             <label htmlFor="college-name">Pincode</label>
@@ -438,7 +483,7 @@ function RegisterForm({ event , setRegister }) {
               placeholder="652512"
               pattern="[1-9][0-9]{5}" title="Please enter a valid zip code, example: 652512"
             />
-            <div style={{display: 'none'}} className="error" id="college-pin"></div>
+            <div style={{ display: 'none' }} className="error" id="college-pin"></div>
           </div>
           <div className="btns">
             <button className="cntrl" type="button" onClick={() => setCurrent(current - 1)}>Back</button><button className="cntrl" onClick={getNextPage} type="submit">Next</button>
@@ -447,7 +492,7 @@ function RegisterForm({ event , setRegister }) {
 
       case 3:
         return <div className="members">
-            <FacultyForm setFaculty={setFaculty} faculty={faculty} />
+          <FacultyForm setFaculty={setFaculty} faculty={faculty} />
           <div className="members-container">
             {faculty.map((item, i) => <div key={i} className="member">
               <h4>{item.name}</h4>
@@ -457,22 +502,27 @@ function RegisterForm({ event , setRegister }) {
             </div>)}
           </div>
           <div className="btns">
-            <button className="cntrl" onClick={() => setCurrent(current - 1)} type="button">Back</button><button className={`cntrl ${faculty.length < 1 && 'opacity'}`} onMouseLeave={()=>{faculty.length < 1 && document.querySelector('.disable-msg').classList.remove("show")}} onMouseEnter={()=>{faculty.length < 1 && document.querySelector('.disable-msg').classList.add("show")}}  onClick={faculty.length >= 1? () => setCurrent(current + 1) : null} type="button">Next</button>
+            <button className="cntrl" onClick={() => setCurrent(current - 1)} type="button">Back</button><button className={`cntrl ${faculty.length < 1 && 'opacity'}`} onMouseLeave={() => { faculty.length < 1 && document.querySelector('.disable-msg').classList.remove("show") }} onMouseEnter={() => { faculty.length < 1 && document.querySelector('.disable-msg').classList.add("show") }} onClick={faculty.length >= 1 ? () => setCurrent(current + 1) : null} type="button">Next</button>
             <div className="disable-msg">
-            <p>Add minimum 1 faculty and maximum 2 faculties</p>
+              <p>Add minimum 1 faculty and maximum 2 faculties</p>
             </div>
           </div>
         </div>;
 
       case 4: return <div className="register">
         <div className="terms">
-          <input type="checkbox" checked={terms} required onChange={() => setTerms(!terms)} name="terms" />
-          <label htmlFor="terms">
-            I hereby agree to all{" "}
-            <span id="terms" onClick={() => setTermsDiv(true)}>
-              *Terms and Conditions*
-            </span>
-          </label>
+          <div className="check">
+            <input type="checkbox" checked={terms} required onChange={() => setTerms(!terms)} name="terms" />
+            <label htmlFor="terms">
+              I hereby agree to all{" "}
+              <span id="terms-btn" onClick={() => setTermsDiv(true)}>
+                *Terms and Conditions*
+              </span>
+            </label>
+          </div>
+          <div className="fee">
+            <h4>Regisration fee : {event.fee}</h4>
+          </div>
         </div>
         <div className="btns">
           <button className="cntrl" onClick={() => setCurrent(current - 1)} type="button">Back</button>
@@ -487,7 +537,7 @@ function RegisterForm({ event , setRegister }) {
 
   return (
     <div className="register-form">
-      <img className='clbt' src={cancellogo} onClick={()=>{setRegister(false)}} alt="close button"/>
+      <img className='clbt' src={cancellogo} onClick={() => { setRegister(false) }} alt="close button" />
       {loading && <Spinner loading={loading} />}
       <h3>{event.name}</h3>
       <form onSubmit={onSumbitHandler}>

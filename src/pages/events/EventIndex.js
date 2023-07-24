@@ -79,6 +79,7 @@ function EventIndex() {
   const [currentEvent, setCurrentEvent] = useState(0);
   const [user, setUser] = useState(false);
   const [uid, setUid] = useState("");
+  const [email, setEmail] = useState(null)
   const { register, setRegister } = useOutletContext();
   const [loading, setLoading] = useState(true);
   const [events, setEvents] = useState(null);
@@ -92,6 +93,7 @@ function EventIndex() {
     onAuthStateChanged(auth, (user) => {
       if (user) setUser(user.displayName);
       if (user) setUid(user.uid);
+      if (user) setEmail(user.email)
     });
     const temp = [];
     getDocs(collection(db, "events"))
@@ -395,7 +397,7 @@ function EventIndex() {
       {register && (
         <div className="wrapper-reg">
           <div className="blocker"></div>
-          <RegisterForm event={events[currentEvent]} setRegister={setRegister}/>
+          <RegisterForm event={events[currentEvent]} userName={user} email={email} setRegister={setRegister}/>
         </div>
       )}
     </>
