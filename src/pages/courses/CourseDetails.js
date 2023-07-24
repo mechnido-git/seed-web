@@ -173,7 +173,7 @@ function CourseDetails() {
               <ul>
                 {data.fee.map((item, i) => (
                   <li className="fee-li" key={i}>
-                    <span>{item.type}</span>: <span>{item.price}₹</span>{" "}
+                    <span>{item.type}</span>: <span>₹{item.price}</span>{" "}
                   </li>
                 ))}
               </ul>

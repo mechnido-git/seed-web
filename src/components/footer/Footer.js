@@ -1,11 +1,26 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./footer.css";
 import { HashLink } from "react-router-hash-link";
 import fb from "../../images/fb.png";
 import insta from "../../images/insta.png";
-const social_icons = require('svg-social-icons');
+import fbwhite from "../../images/facebookwhite.png";
+import instawhite from "../../images/instawhite.png";
+import { StoreContext } from "../../store/StoreContext";
 
 function Footer() {
+const {theme,setCheck,setTheme, check}= useContext(StoreContext);
+ 
+ const [fbsrc, setFbsrc] = useState(fb);
+ const [insrc, setInsrc] = useState(insta);
+  useEffect(()=>{
+    console.log(" check value is ",check);
+  },[theme]);
+
+// useEffect(()=>{
+//   console.log("the theme changes");
+// },[check]);
+
+
   return (
     <div className="footer">
       <h2>Quick Links</h2>
@@ -140,8 +155,10 @@ function Footer() {
                       target="_blank"
                     >
                       {" "}
-                      <img style={{ width: "2.5rem" }} src={fb} alt="" />
-                        {/* {social_icons('facebook',{color:"red", class:'sqs-svg-icon--list'})} */}
+                     
+                      <img  style={{width:"2.5rem" }} src={check ? fbwhite : fb} alt="" />
+                      {/* <img style={{display: check ? "inline " : "none"  }} src={} alt="" /> */}
+                        {/*  {social_icons('facebook',{color:"red", class:'sqs-svg-icon--list'})} */}
                        
                     </a>
                     <a
@@ -149,7 +166,10 @@ function Footer() {
                       target="_blank"
                     >
                       {" "}
-                      <img style={{ width: "2.5rem" }} src={insta} alt="" />
+                     
+                    <img style={{ width: "2.5rem" }} src={check ? instawhite : insta} alt="facebook link " />
+                      
+                      
                     </a>
                   </div>
             </li>

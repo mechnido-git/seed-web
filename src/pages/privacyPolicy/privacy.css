@@ -9,6 +9,7 @@
 
 #privacy > p{
     font-size: 17px;
+    color:var(--textcolor);
 }
 
 #privacy li{
@@ -70,6 +71,7 @@
     display: none;
     list-style-position: inside;
     transition: .3s;
+    color:var(--textcolor);
 }
 
 #privacy > .content .sub-topic > li.show > .paras{
