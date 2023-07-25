@@ -503,7 +503,7 @@ function RegisterForm({ event, setRegister, email, userName }) {
       <form onSubmit={onSumbitHandler}>
 
         <div className="fields">
-          {getFields(4)}
+          {getFields(current)}
         </div>
       </form>
       {termsDiv && <div className="wrapper">
