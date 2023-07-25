@@ -3736,6 +3736,328 @@ const Store = ({ children }) => {
         },
       ],
     },
+
+    {
+      id: 12,
+      name: "CSS MASTERCLASS ",
+      thumbnail: "../../images/course.jpg",
+      slide: s3,
+      order: 12,
+
+      description:
+        "This comprehensive course is designed to take you on a journey from understanding the basics of CSS to mastering advanced techniques and best practices",
+      description_L: [
+        "This comprehensive course is designed to take you on a journey from understanding the basics of CSS to mastering advanced techniques and best practices",
+        "Whether you're a beginner looking to build a strong foundation or an experienced web developer seeking to level up your CSS skills, this course is tailored to meet your needs.",
+        "Your CSS mastery will open doors to exciting opportunities in web development and design",
+        "This Program offers students to get clear insights of CSS by Practical training which will be handled by Mechnido's faculty and industrial experts." 
+        
+      ],
+      duration: [
+        "Flexible Timing",
+        "Weekend : 2 Sessions",
+        "    Saturday & Sunday - 4 Hrs",
+        "Weekday : 2 Sessions (Any 2 Days)",
+        "    Monday to Friday - 4 Hrs",
+      ],
+      certificate: {
+        title: "Requirements for Certification",
+        imgURL:
+          "https://firebasestorage.googleapis.com/v0/b/seed-25898.appspot.com/o/courses%2FsE2QV4XJjyCVPWjA8XNs%2Fcertificates%2Fcert.jpg?alt=media&token=3b067e65-919d-4e7c-854e-a6f71c7a297a",
+        sub: [
+          "An individual enrolled in the program should complete the training within the program's time limit.",
+          "To acquire the certification, you must complete all the course's assignments, tests, case studies, projects, and other criteria. ",
+          "To acquire certification, the student must show up to every session that the instructor provides.",
+        ],
+      },
+      fee: [
+        {
+          id: 0,
+          type: "One time",
+          price: 2500,
+        },
+      ],
+      schedule: [
+        {
+          name: "INTRO TO CSS AND BASIC STYLING",
+          topics: [
+            {
+              name: "Welcome and Course Introduction",
+              SUB: [
+                "Introduction to the facilitator and course objectives",
+                "Overview of the session agenda",
+              ],
+            },
+            {
+              name:"Introduction to CSS",
+              SUB:[
+                "Understanding the role & importance of CSS in web development",
+                "The separation of concerns: HTML for structure, CSS for styling"
+              ]
+            },
+            {
+              name:"Inline CSS and Internal CSS",
+              SUB:[
+                "Adding inline styles directly to HTML elements",
+                "Styling individual web pages using internal CSS"
+              ]
+            },
+            {
+              name:"External CSS",
+              SUB:[
+                "Creating separate CSS files for better code organization",
+                "Linking external CSS files to HTML documents"
+              ]
+            },
+            {
+              name:"Introduction to CSS",
+              SUB:[
+                "Understanding the role & importance of CSS in web development",
+                "The separation of concerns: HTML for structure, CSS for styling"
+              ]
+            },
+            {
+              name:"CSS Comments",
+              SUB:[
+                "Using comments to document your CSS code and improve code readability"
+              ]
+            },
+            {
+              name:"CSS Properties",
+              SUB:[
+                "Introduction to various CSS properties for styling elements",
+                "Changing text color, background color, font size, etc."
+              ]
+            },
+            {
+              name:"Styling Backgrounds",
+              SUB:[
+                "Applying background colors and images to elements",
+               " Using CSS gradients for visually appealing backgrounds"
+              ]
+            },
+            {
+              name:"CSS Border",
+              SUB:[
+                "Adding borders to elements with different styles, widths, and colors"
+              ]
+            },
+            {
+              name:"CSS Display and Float",
+              SUB:[
+                "Understanding the display property and its values (block, inline, inline-block)",
+                "Using the float property for layout and alignment"
+              ]
+            }
+          ]
+        },
+        {
+          name:"TYPOGRAPHY AND LAYOUT CONTROL",
+          topics:[
+            {
+              name:"CSS Font",
+              SUB:[
+                "Understanding font families, weights, and styles",
+                "Applying custom fonts using @font-face"
+              ]
+            },
+            {
+              name:"CSS Line Height",
+              SUB:[
+                "Controlling line spacing for better readability"
+              ]
+            },
+            {
+              name:"CSS Margin and Padding",
+              SUB:[
+                "Creating space around elements using margin",
+                "Adding space within elements using padding"
+              ]
+            },
+            {
+              name:"CSS Opacity and Visibility",
+              SUB:[
+                "Making elements transparent with opacity",
+                "Controlling element visibility with visibility property"
+              ]
+            },
+            {
+              name:"CSS Overflow",
+              SUB:[
+                "Handling overflow content within elements"
+              ]
+            },
+            {
+              name:"CSS Position",
+              SUB:[
+                "Understanding the position property and its values (relative, absolute, fixed, static)",
+                "Creating layouts with positioned elements"
+              ]
+            },
+            {
+              name:"CSS Vertical Align",
+              SUB:[
+                "Aligning elements vertically within their containers"
+              ]
+            },
+            {
+              name:"CSS White Space",
+              SUB:[
+                "Managing white space and controlling text wrapping"
+              ]
+            },
+            {
+              name:"CSS Width",
+              SUB:[
+                "Specifying width for elements and containers"
+              ]
+            }
+          ]
+        },
+        {
+          name:"ADVANCED STYLING TECHNIQUES",
+          topics:[
+            {
+              name:"Working with Counters",
+              SUB:[
+                "Utilizing CSS counters for automatic numbering and list styling"
+              ]
+            },
+            {
+              name:"CSS Animations",
+              SUB:[
+                "Understanding keyframes and animation properties",
+                "Creating smooth animations with CSS"
+              ]
+            },
+            {
+              name:"CSS Transitions",
+              SUB:[
+                "Implementing transitions for smooth element changes",
+                "Transitioning properties like color, size, and position"
+              ]
+            },
+            {
+              name:"Adding Tooltips with CSS",
+              SUB:[
+                "Creating tooltip elements using CSS",
+                "Styling and positioning tooltips for user interaction"
+              ]
+            },
+            {
+              name:"Tooltip Animation",
+              SUB:[
+                "Applying animations to tooltips for a visually engaging experience"
+              ]
+            },
+            {
+              name:"Creating CSS Arrows",
+              SUB:[
+                "Using CSS techniques to add arrow elements to designs"
+              ]
+            },
+            {
+              name:"CSS Flexbox",
+              SUB:[
+                "Understanding the flex container and flex item model",
+                "Building flexible and responsive layouts with Flexbox"
+                
+              ]
+            },
+            {
+              name:"Implementing @media Queries",
+              SUB:[
+                "Building responsive designs with media queries",
+                "Adapting layouts for different screen sizes"
+              ]
+            },
+            {
+              name:"Enhancing User Interface with CSS",
+              SUB:[
+                "Styling form elements and customizing checkboxes and radio buttons",
+                "Creating interactive buttons and hover effects"
+              ]
+            }
+          ]
+
+        },
+        {
+          name:"3D, AURAL, PAGE LAYOUT AND TABLES",
+          topics:
+          [
+            {
+              name:"CSS 3D Transforms",
+              SUB:[
+                "Understanding the 3D space in CSS transforms",
+                "Applying 3D effects like rotation, perspective, and scaling"
+              ]
+            },
+            {
+              name:"2D Transforms",
+              SUB:[
+                "Using CSS transforms for rotation, scaling, and skewing",
+                "Creating 2D effects with CSS"
+              ]
+            },
+            {
+              name:"CSS Aural Media",
+              SUB:[
+                "Implementing CSS for speech synthesis and sound",
+                "Adding sound effects and audio to web pages"
+              ]
+            },
+            {
+              name:"Page Layout with CSS",
+              SUB:[
+                "Reviewing CSS-based layouts for web pages",
+                "Creating fixed, fluid, and responsive layouts"
+                
+              ]
+            },
+            {
+              name:"CSS Pagination",
+              SUB:[
+                "Building pagination for long content and articles"
+              ]
+            },
+            {
+              name:"CSS Table Styling",
+              SUB:[
+                "Styling HTML tables with CSS for better presentation",
+                "Customizing table elements, headers, and cells"
+              ]
+            },
+            {
+              name:"CSS Layout for Multi-Column Content",
+              SUB:[
+                "Creating multi-column layouts with CSS"
+              ]
+            }
+          ]
+        },
+        {
+          name:"PRACTICES AND INTERVIEW PREPARATION",
+          topics:[
+            {
+              name:"Hands-On Exercises",
+              SUB:[
+                "Engaging in practical CSS exercises to reinforce concepts learned in previous sessions",
+                "Creating real-world scenarios to apply CSS techniques to different web page elements",
+                "Reviewing solutions and discussing best practices"
+              ]
+            },
+            {
+              name:"Interview Preparation",
+              SUB:[
+                "Reviewing common CSS interview questions and potential answers",
+                "Discussing tips and strategies for effectively answering interview questions",
+                "Preparing for technical and non-technical aspects of interviews"
+              ]
+            }
+          ]
+        }
+      ]
+    }
   ];
 
 const eventList = [
