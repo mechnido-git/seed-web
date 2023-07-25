@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./register.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { addDoc, arrayUnion, collection, doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 import { auth, db } from "../firebase/config";
 import { onAuthStateChanged } from "firebase/auth";
@@ -11,6 +11,7 @@ import MemberForm from "../pages/events/eventConfig/MemberForm";
 import FacultyForm from "../pages/events/eventConfig/FacultyForm";
 import axios from "axios";
 import cancellogo from "../images/cancel_icon.png";
+import { displayError, onChangeInput, validateEmail, validateName, validatePassword, validatePhone } from "../pages/signin/SignIn";
 
 
 function RegisterForm({ event, setRegister, email, userName }) {
@@ -21,8 +22,6 @@ function RegisterForm({ event, setRegister, email, userName }) {
   const [kartType, setKartType] = useState("gokart");
   const [contact, setContact] = useState("");
   const [collegeName, setCollegeName] = useState("");
-  const [password, setPassword] = useState("");
-  const [confPassword, setConfPassword] = useState("");
   const [fac, setFac] = useState('one');
   const [terms, setTerms] = useState(false);
   const [uid, setUid] = useState(null);
@@ -34,33 +33,11 @@ function RegisterForm({ event, setRegister, email, userName }) {
   const [pincode, setPincode] = useState('')
 
   const [members, setMembers] = useState([])
-  const [memberForm, setMemberForm] = useState(false)
-
   const [faculty, setFaculty] = useState([])
-  const [facForm, setFacForm] = useState(false)
-  const [facN, setFacN] = useState(null)
-
-  const base = "https://wandering-ruby-fish.cyclic.app"
-  // const base = 'http://localhost:4242'
-
-  const sentMail = async (eventId, name, email, teamName) => {
-    const url = `${base}/event/email`;
-    const data = {
-      eventId,
-      name,
-      teamName,
-      email
-    }
-    try {
-      const res = await axios.post(url, data)
-      console.log(res);
-      window.location.reload()
-    } catch (error) {
-      alert(error)
-    }
-  }
-
   const [current, setCurrent] = useState(0)
+
+  const navigate = useNavigate()
+  
   const onSumbitHandler = async (e) => {
     e.preventDefault();
     setLoading(true)
@@ -152,11 +129,6 @@ function RegisterForm({ event, setRegister, email, userName }) {
     })
   };
 
-  useEffect(() => {
-    if (fac === 'one') setFacN(1)
-    if (fac === 'two') setFacN(2)
-  }, [fac])
-
   const validate = (e) => {
     const inputs = document.querySelectorAll('input')
     inputs.forEach((inp, i) => {
@@ -195,55 +167,40 @@ function RegisterForm({ event, setRegister, email, userName }) {
     error.forEach(item => item.style.display = "none")
     error.forEach(item => item.innerHTML = "")
     var letters = /^[a-zA-Z ]*$/
-    var email = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/
     var pin = /[1-9][0-9]{5}/
-    console.log(teamName.match(letters));
     let flag = false;
     switch (current) {
       case 0:
-        if (teamName.length < 3) {
-          document.getElementById('team-name').style.display = 'block'
-          document.getElementById('team-name').innerText = "Name Must be more than 3 characters";
-          flag = true;
-        } else if (!teamName.match(letters)) {
-          document.getElementById('team-name').style.display = 'block'
-          document.getElementById('team-name').innerText = "Team Name Must be in Alphabetics";
-          flag = true;
-        }
+        let validator = [
+          {
+            input: document.getElementById('team-name'),
+            error: document.getElementById('team-name-error'),
+            result: validateName(teamName)
+          },
+          {
+            input: document.getElementById('team-email'),
+            error: document.getElementById('team-email-error'),
+            result: validateEmail(teamEmail)
+          },
+          {
+            input: document.getElementById('cap-name'),
+            error: document.getElementById('cap-name-error'),
+            result: validateName(capName)
+          },
+          {
+            input: document.getElementById('team-contact'),
+            error: document.getElementById('team-contact-error'),
+            result: validatePhone(contact)
+          }
+        ]
 
-        if (teamEmail.length === 0) {
-          document.getElementById('team-email').style.display = 'block'
-          document.getElementById('team-email').innerText = "Email cannot be empty";
-          flag = true;
-        } else if (!teamEmail.match(email)) {
-          document.getElementById('team-email').style.display = 'block'
-          document.getElementById('team-email').innerText = "Please include an '@' symbol and a valid domain extension such as .com or .net.";
-          flag = true;
-        }
+        validator.forEach(item=>{
+          if(item.result.error){
+            displayError(item.input, item.error, item.result.msg)
+            flag = true
+          }
+        })
 
-        if (capName.length < 3) {
-          document.getElementById('cap-name').style.display = 'block'
-          document.getElementById('cap-name').innerText = "Name Must be more than 3 characters";
-          flag = true;
-        } else if (!capName.match(letters)) {
-          document.getElementById('cap-name').style.display = 'block'
-          document.getElementById('cap-name').innerText = "Name Must be in Alphabetics";
-          flag = true;
-        }
-
-        if (contact.length === 0) {
-          document.getElementById('team-contact').style.display = 'block'
-          document.getElementById('team-contact').innerText = "Contact cannot be empty";
-          flag = true;
-        } else if (contact.length < 10) {
-          document.getElementById('team-contact').style.display = 'block'
-          document.getElementById('team-contact').innerText = "Contact must be 10 numbers";
-          flag = true;
-        } else if (!(!isNaN(contact) && !isNaN(parseFloat(contact)))) {
-          document.getElementById('team-contact').style.display = 'block'
-          document.getElementById('team-contact').innerText = "Contact must be numeric";
-          flag = true;
-        }
         if (!flag) setCurrent(current + 1);
         break
 
@@ -306,8 +263,6 @@ function RegisterForm({ event, setRegister, email, userName }) {
     if (value.length <= 10) setValue(current.length <= 10 ? current : value)
   }
 
-  console.log(event);
-
   const getFields = (page) => {
     switch (page) {
       case 0:
@@ -320,12 +275,14 @@ function RegisterForm({ event, setRegister, email, userName }) {
               minLength={3}
               value={teamName}
               type="text"
-              name="teamName"
+              name="team-name"
+              data-type="name"
               required
-              onChange={(e) => setTeamName(e.target.value.toUpperCase())}
+              onChange={(e) => onChangeInput(e, setTeamName, "team-name-error")}
+              
               placeholder="Name"
             />
-            <div style={{ display: 'none' }} className="error" id="team-name"></div>
+            <span style={{ display: 'none' }} className="error" id="team-name-error"></span>
           </div>
 
           <div className="input-div">
@@ -334,14 +291,15 @@ function RegisterForm({ event, setRegister, email, userName }) {
             <input
               value={teamEmail}
               type="email"
-              name="teamEmail"
+              name="team-email"
               required
-              onChange={(e) => setTeamEmail(e.target.value)}
+              onChange={(e) => onChangeInput(e, setTeamEmail, "team-email-error")}
+              data-type='email'
               placeholder="example@gmail.com"
               pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
               title="Email format is not valid"
             />
-            <div style={{ display: 'none' }} className="error" id="team-email"></div>
+            <div style={{ display: 'none' }} className="error" id="team-email-error"></div>
           </div>
 
           <div className="input-div">
@@ -351,12 +309,13 @@ function RegisterForm({ event, setRegister, email, userName }) {
               minLength={3}
               value={capName}
               type="text"
-              name="capName"
+              name="cap-name"
               required
-              onChange={(e) => setCapName(e.target.value.toUpperCase())}
+              onChange={(e) => onChangeInput(e, setCapName, "cap-name-error")}
+              data-type="name"
               placeholder="Name"
             />
-            <div style={{ display: 'none' }} className="error" id="cap-name"></div>
+            <div style={{ display: 'none' }} className="error" id="cap-name-error"></div>
           </div>
 
           <div className="input-div">
@@ -368,8 +327,7 @@ function RegisterForm({ event, setRegister, email, userName }) {
               value={kartType}
               onChange={(e) => setKartType(e.target.value)}
             >
-              <option value="gokart">Go-kart</option>
-              <option value="ekart">E-Kart</option>
+              {event.types.map(item=><option value={item}>{item}</option>)}
             </select>
           </div>
 
@@ -378,14 +336,16 @@ function RegisterForm({ event, setRegister, email, userName }) {
             <p className="col">:</p>
             <input
               value={contact}
+              id="team-contact"
               type="tel"
               min={10}
               name="contact"
               required
-              onChange={(e) => onChangeNumber(contact, setContact, e.target.value)}
+              data-type='phone'
+              onChange={(e) => onChangeInput(e, setContact, "team-contact-error")}
               placeholder="6234567890"
             />
-            <div style={{ display: 'none' }} className="error" id="team-contact"></div>
+            <div style={{ display: 'none' }} className="error" id="team-contact-error"></div>
           </div>
           <div className="btns">
             <button className="cntrl" style={{ marginLeft: 'auto' }} onClick={getNextPage} type="submit">Next</button>
@@ -515,7 +475,7 @@ function RegisterForm({ event, setRegister, email, userName }) {
             <input type="checkbox" checked={terms} required onChange={() => setTerms(!terms)} name="terms" />
             <label htmlFor="terms">
               I hereby agree to all{" "}
-              <span id="terms-btn" onClick={() => setTermsDiv(true)}>
+              <span id="terms-btn" onClick={() => window.open("/terms", "_blank")}>
                 *Terms and Conditions*
               </span>
             </label>
@@ -539,232 +499,16 @@ function RegisterForm({ event, setRegister, email, userName }) {
     <div className="register-form">
       <img className='clbt' src={cancellogo} onClick={() => { setRegister(false) }} alt="close button" />
       {loading && <Spinner loading={loading} />}
-      <h3>{event.name}</h3>
+      <h3>{event.title}</h3>
       <form onSubmit={onSumbitHandler}>
 
         <div className="fields">
-          {getFields(current)}
+          {getFields(4)}
         </div>
-        {/* <div className="btns">
-          <button className="cntrl" type="button">back</button><button className="cntrl" onClick={getNextPage} type="button">Next</button>
-        </div> */}
-        {/* <div className="input-div">
-          <label htmlFor="team-name">Team Name</label> :
-          <input
-            minLength={3}
-            value={teamName}
-            type="text"
-            name="teamName"
-            required
-            onChange={(e) => setTeamName(e.target.value.toUpperCase())}
-            placeholder="Name"
-          />
-        </div>
-
-        <div className="input-div">
-          <label htmlFor="team-email">Team Email Id</label> :
-          <input
-            value={teamEmail}
-            type="email"
-            name="teamEmail"
-            required
-            onChange={(e) => setTeamEmail(e.target.value)}
-            placeholder="example@gmail.com"
-            pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-          />
-        </div>
-
-        <div className="input-div">
-          <label htmlFor="team-members">No of Team Members</label> :
-          <input
-            value={teamMembers}
-            type="number"
-            min={3}
-            max={25}
-            name="teamMembers"
-            required
-            onChange={(e) => setTeamMembers(e.target.value)}
-            placeholder="3-25"
-            id="members"
-          />
-        </div>
-
-        <div className="input-div">
-          <label htmlFor="team-captain">Captain Name</label> :
-          <input
-            minLength={3}
-            value={capName}
-            type="text"
-            name="capName"
-            required
-            onChange={(e) => setCapName(e.target.value.toUpperCase())}
-            placeholder="Name"
-          />
-        </div>
-
-        <div className="input-div">
-          <label htmlFor="Kart Type">Kart Type</label> :
-          <select
-            name="kartType"
-            id="kartType"
-            value={kartType}
-            onChange={(e) => setKartType(e.target.value)}
-          >
-            <option value="gokart">Go-kart</option>
-            <option value="ekart">E-Kart</option>
-          </select>
-        </div>
-
-        <div className="input-div">
-          <label htmlFor="team-contact">Contact Number</label> :
-          <input
-            value={contact}
-            type="tel"
-            min={10}
-            name="contact"
-            required
-            onChange={(e) => setContact(e.target.value)}
-            pattern="[6789][0-9]{9}" title="Please enter valid phone number"
-            placeholder="6234567890"
-          />
-        </div>
-
-        <div className="input-div">
-          <label htmlFor="college-name">College Name</label> :
-          <input
-            minLength={3}
-            value={collegeName}
-            type="text"
-            name="adress"
-            required
-            onChange={(e) => setCollegeName(e.target.value)}
-            placeholder="College"
-          />
-        </div>
-
-        <div className="input-div">
-          <label htmlFor="college-name">College Adress</label> :
-          <textarea
-          value={adress}
-          onChange={(e)=>setAdress(e.target.value)}
-          rows={5}
-          cols={5}
-          placeholder="Address"
-        />
-        </div>
-
-        <div className="input-div">
-          <label htmlFor="college-name">City</label> :
-          <input
-            minLength={3}
-            value={city}
-            type="text"
-            name="city"
-            required
-            onChange={(e) => setCity(e.target.value)}
-            placeholder="City"
-          />
-        </div>
-
-        <div className="input-div">
-          <label htmlFor="college-name">State</label> :
-          <input
-            minLength={3}
-            value={state}
-            type="text"
-            name="state"
-            required
-            onChange={(e) => setState(e.target.value)}
-            placeholder="Tamil Nadu"
-          />
-        </div>
-
-        <div className="input-div no-arrow">
-          <label htmlFor="college-name">Pincode</label> :
-          <input
-            min={6}
-            value={pincode}
-            type="number"
-            name="pincode"
-            required
-            onChange={(e) => setPincode(e.target.value)}
-            placeholder="65251"
-            pattern="[1-9][0-9]{5}" title="Please enter a valid zip code, example: 65251" 
-          />
-        </div>
-
-        <div className="input-div" onChange={(e)=>setFac(e.target.value)}>
-          <label htmlFor="pincode">Faculty</label> :
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "5px",
-              textAlign: "center",
-            }}
-          >
-            <input
-            checked={fac == 'one'? true : false}
-              type="radio"
-              name="fac"
-              style={{ height: "100%", padding: "10px" }}
-              value='one'
-            />
-            One
-            <input type="radio" name="fac" value="two" checked={fac == 'two'? true : false} />
-            Two
-          </div>
-        </div>
-
-        <div className="input-div">
-          <label htmlFor="password">Password</label> :
-          <input
-            value={password}
-            type="password"
-            name="password"
-            required
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-
-        <div className="input-div">
-          <label htmlFor="confirm-password">Confirm Passwrd</label> :
-          <input
-            value={confPassword}
-            type="password"
-            name="confPassword"
-            required
-            onChange={(e) => setConfPassword(e.target.value)}
-          />
-        </div>
-
-        <div className="terms">
-          <input type="checkbox" checked={terms} required onChange={()=>setTerms(!terms)} name="terms" />
-          <label htmlFor="terms">
-            I hereby agree to all{" "}
-            <span id="terms" onClick={()=>setTermsDiv(true)}>
-              *Terms and Conditions*
-            </span>
-          </label>
-        </div>
-
-        <input type="submit" value="Register" onClick={validate} /> */}
       </form>
       {termsDiv && <div className="wrapper">
         <Terms close={setTermsDiv} />
       </div>}
-      {memberForm && (
-        <div className="wrapper-reg">
-          <div className="blocker" onClick={() => setMemberForm(false)}></div>
-          <MemberForm setMembers={setMembers} members={members} setMemberForm={setMemberForm} />
-        </div>
-      )}
-      {facForm && (
-        <div className="wrapper-reg">
-          <div className="blocker" onClick={() => setFacForm(false)}></div>
-          <FacultyForm setFaculty={setFaculty} faculty={faculty} setFacForm={setFacForm} />
-        </div>
-      )}
     </div>
   );
 }

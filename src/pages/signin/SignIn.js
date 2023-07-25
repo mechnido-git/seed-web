@@ -18,6 +18,79 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 
+export const displayError = (inputField, errorField, msg) => {
+  errorField.style.display = "block";
+  errorField.innerText = msg;
+  inputField.classList.add("inp-error")
+}
+
+export const validateEmail = (email) => {
+  var pattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/
+  if(email.length === 0){
+    return {error: true, msg: "Email cannot be empty"}
+  }else if(!email.match(pattern)){
+    return {error: true, msg: "Please include an '@' symbol and a valid domain extension such as .com or .net."}
+  }
+  return {error: false}
+}
+
+export const validatePassword = (password)  => {
+  var validRegex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
+  if(password.length === 0){
+    return {error: true, msg: "Password cannot be empty"}
+  }else if (!password.match(validRegex)){
+    return {error: true, msg: "Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"}
+  }
+  return {error: false}
+}
+
+export const validateName = (name) => {
+  var letters = /^[a-zA-Z ]*$/
+  if (name.length < 3) {
+    return {error: true, msg: "Name Must be more than 3 characters"}
+  } else if (!name.match(letters)) {
+    return {error: true, msg: "Name Must be in Alphabetics"}
+  }
+  return {error: false}
+}
+
+export const validatePhone = (phone) => {
+  if (phone.length === 0) {
+    return {error: true, msg: "Phone cannot be empty"}
+  } else if (phone.length < 10) {
+    return {error: true, msg: "Phone must be 10 numbers"}
+  } else if (!(!isNaN(phone) && !isNaN(parseFloat(phone)))) {
+    return {error: true, msg: "Phone must be numeric"}
+  } else if(phone.length > 10){
+    return {error: true, msg: "phone must be 10 numbers"}
+  }
+  return {error: false}
+}
+
+export const onChangeInput = (e, setValue, errorId) => {
+  setValue(e.target.value)
+  const error = document.getElementById(errorId)
+  e.target.classList.remove("inp-error")
+  error.innerHTML = ""
+  error.style.display = "none"
+  const type = e.target.dataset.type
+  if(type === "email"){
+    const emailResult = validateEmail(e.target.value)
+    if(emailResult.error) displayError(e.target, error, emailResult.msg)
+  }else if(type === "password"){
+    const passResult = validatePassword(e.target.value)
+    if(passResult.error) displayError(e.target, error, passResult.msg)
+  }else if(type === "name"){
+    setValue(e.target.value.toUpperCase())
+    const nameResult = validateName(e.target.value)
+    if(nameResult.error) displayError(e.target, error, nameResult.msg)
+  }else if(type === "phone"){
+    const phoneResult = validatePhone(e.target.value)
+    if(phoneResult.error) displayError(e.target, error, phoneResult.msg)
+  }
+}
+
+
 function SignIn({ index, redirect, setRedirect,setSignIn }) {
   const [signin, setSigin] = useState(!index ? true : false);
   const [loading, setLoading] = useState(false);
@@ -88,54 +161,6 @@ function SignIn({ index, redirect, setRedirect,setSignIn }) {
     }
   };
 
-  const displayError = (inputField, errorField, msg) => {
-    errorField.style.display = "block";
-    errorField.innerText = msg;
-    inputField.classList.add("inp-error")
-  }
-
-  const validateEmail = (email) => {
-    var pattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/
-    if(email.length === 0){
-      return {error: true, msg: "Email cannot be empty"}
-    }else if(!email.match(pattern)){
-      return {error: true, msg: "Please include an '@' symbol and a valid domain extension such as .com or .net."}
-    }
-    return {error: false}
-  }
-
-  const validatePassword = (password)  => {
-    var validRegex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
-    if(password.length === 0){
-      return {error: true, msg: "Password cannot be empty"}
-    }else if (!password.match(validRegex)){
-      return {error: true, msg: "Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"}
-    }
-    return {error: false}
-  }
-
-  const validateName = (name) => {
-    var letters = /^[a-zA-Z ]*$/
-    if (name.length < 3) {
-      return {error: true, msg: "Name Must be more than 3 characters"}
-    } else if (!name.match(letters)) {
-      return {error: true, msg: "Name Must be in Alphabetics"}
-    }
-    return {error: false}
-  }
-
-  const validatePhone = (phone) => {
-    if (phone.length === 0) {
-      return {error: true, msg: "Phone cannot be empty"}
-    } else if (phone.length < 10) {
-      return {error: true, msg: "Phone must be 10 numbers"}
-    } else if (!(!isNaN(phone) && !isNaN(parseFloat(phone)))) {
-      return {error: true, msg: "Phone must be numeric"}
-    } else if(phone.length > 10){
-      return {error: true, msg: "phone must be 10 numbers"}
-    }
-    return {error: false}
-  }
 
   const handleSignUp = (e) => {
     setLoading(true);
@@ -253,31 +278,6 @@ function SignIn({ index, redirect, setRedirect,setSignIn }) {
       setLoading(false);
     }
   };
-
-  const onChangeInput = (e, setValue, errorId) => {
-    setValue(e.target.value)
-    const error = document.getElementById(errorId)
-    e.target.classList.remove("inp-error")
-    error.innerHTML = ""
-    error.style.display = "none"
-    const type = e.target.dataset.type
-    if(type === "email"){
-      const emailResult = validateEmail(e.target.value)
-      if(emailResult.error) displayError(e.target, error, emailResult.msg)
-    }else if(type === "password"){
-      const passResult = validatePassword(e.target.value)
-      if(passResult.error) displayError(e.target, error, passResult.msg)
-    }else if(type === "name"){
-      setValue(e.target.value.toUpperCase())
-      const nameResult = validateName(e.target.value)
-      if(nameResult.error) displayError(e.target, error, nameResult.msg)
-    }else if(type === "phone"){
-      const phoneResult = validatePhone(e.target.value)
-      if(phoneResult.error) displayError(e.target, error, phoneResult.msg)
-    }
-  }
-
-
 
   const signInGoogle = (e) => {
     e.preventDefault();
