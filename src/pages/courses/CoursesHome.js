@@ -101,7 +101,18 @@ export const trending = [
   },
 ];
 
-export const CardBuilder = ({ arr, limit, viewDetails, loading }) => (
+
+const getInvoice = (course , user) => {
+  let invoice = null;
+ 
+  course.enrolled.forEach(item=>{
+    if(item.userId === user.uid){
+      invoice = item.invoice
+    }
+  })
+  return invoice
+}
+export const CardBuilder = ({ arr, limit, viewDetails, loading , user , download}) => (
   <>
     {arr.map((item, index) => {
       console.log(index);
@@ -120,6 +131,13 @@ export const CardBuilder = ({ arr, limit, viewDetails, loading }) => (
             <div>
               {item.rating && <h5>Rating:{item.rating}</h5>}
             </div>
+        
+            {download && getInvoice(item, user) && <div className="invoice">
+                <a  onClick={(e)=>e.stopPropagation()} href={getInvoice(item , user)} rel="noreferrer" target="_blank">Invoice <span class="material-symbols-outlined">
+                  download
+                </span> </a>
+                
+              </div>}
           </div>
         </div>
       );
