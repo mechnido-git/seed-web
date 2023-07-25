@@ -10,6 +10,7 @@
 
 #terms > p{
     font-size: 17px;
+    color:var(--textcolor);
 }
 
 #terms li{
@@ -71,6 +72,7 @@
     display: none;
     list-style-position: inside;
     transition: .3s;
+    color: var(--textcolor);
 }
 
 #terms > .content .sub-topic > li.show > .paras{
