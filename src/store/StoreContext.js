@@ -3827,6 +3827,7 @@ const eventList = [
         "CLOSING CERMONY ARRANGEMENTS "
       ]
     },
+    register_end: "08/15/2023",
 
     schedule:{
       title:"Schedule",
@@ -3905,6 +3906,7 @@ const eventList = [
         }
       ]
     },
+    types: ["IC Engine", "Electric"],
     prize:{
       title:"Cash Prize & Awards",
       img:"",

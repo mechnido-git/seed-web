@@ -50,7 +50,7 @@ function RegisterInfo({ date, data }) {
         <h4>Prize Category</h4>
         <div className="prize-list">
           <ul>
-            <li>
+            {/* <li>
               Overall winner <img src={medal} />
             </li>
             <li>
@@ -67,7 +67,18 @@ function RegisterInfo({ date, data }) {
             </li>
             <li>
               Best business plan <img src={medal} />
-            </li>
+            </li> */}
+            {data.awards.array[0].data.map((item, key) => {
+              if (key < 6) {
+                return (
+                  <li>
+                    {item.h1}
+                     <img src={medal} />
+                     {item.money}
+                  </li>
+                );
+              }
+            })}
           </ul>
         </div>
       </div>
@@ -79,27 +90,28 @@ function EventIndex() {
   const [currentEvent, setCurrentEvent] = useState(0);
   const [user, setUser] = useState(false);
   const [uid, setUid] = useState("");
-  const [email, setEmail] = useState(null)
+  const [email, setEmail] = useState(null);
   const { register, setRegister } = useOutletContext();
   const [loading, setLoading] = useState(true);
   const [events, setEvents] = useState(null);
 
-  const { setSection } = useContext(StoreContext)
-  setSection(2)
+  const { setSection, eventList } = useContext(StoreContext);
+  setSection(2);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) setUser(user.displayName);
       if (user) setUid(user.uid);
-      if (user) setEmail(user.email)
+      if (user) setEmail(user.email);
     });
     const temp = [];
     getDocs(collection(db, "events"))
       .then((snaps) => {
         snaps.forEach((doc) => temp.push({ id: doc.id, ...doc.data() }));
-        setEvents(temp);
+        // setEvents(temp);
+        setEvents(eventList);
       })
       .catch()
       .finally(() => {
@@ -114,7 +126,8 @@ function EventIndex() {
   const getRegister = () => {
     let flag = false;
     console.log(events);
-    events[currentEvent].enrolled?.forEach((item) => {
+    console.log(uid);
+    events[currentEvent].enrolled_arr?.forEach((item) => {
       if (item === uid) flag = true;
     });
     console.log(flag);
@@ -122,21 +135,21 @@ function EventIndex() {
     setRegister(true);
   };
 
-  useEffect(()=>{
-    if(!loading){
-      const loc = window.location.href.split("/")
-      const last = loc[loc.length -1]
-      if(last[0] === "#"){
-        const id = last.slice(1, last.length)
+  useEffect(() => {
+    if (!loading) {
+      const loc = window.location.href.split("/");
+      const last = loc[loc.length - 1];
+      if (last[0] === "#") {
+        const id = last.slice(1, last.length);
         console.log(id);
-        document.getElementById(id).scrollIntoView({behavior: 'smooth'});
+        document.getElementById(id).scrollIntoView({ behavior: "smooth" });
       }
     }
-  }, [loading])
+  }, [loading]);
 
   const viewDetails = () => {
-    navigate(`/menu/events/details/${currentEvent}`)
-  }
+    navigate(`/menu/events/details/${currentEvent}`);
+  };
 
   return (
     <>
@@ -152,7 +165,6 @@ function EventIndex() {
                   <Splide
                     ref={ref}
                     onMove={(splide, prev, next) => {
-
                       setCurrentEvent(splide.index);
                       console.log(prev, splide.index, next);
                       console.log(
@@ -180,7 +192,10 @@ function EventIndex() {
                     {events.map((item, i) => {
                       return (
                         <SplideSlide key={i}>
-                          <ImageLoader src={image} style={{ objectFit: "contain", width: "100%" }} />
+                          <ImageLoader
+                            src={image}
+                            style={{ objectFit: "contain", width: "100%" }}
+                          />
                           {/* <img
                             style={{ objectFit: "contain", width: "100%" }}
                             src={image}
@@ -199,11 +214,7 @@ function EventIndex() {
                 >
                   Register
                 </button>
-                <button
-                onClick={viewDetails}
-                >
-                  Know More
-                </button>
+                <button onClick={viewDetails}>Know More</button>
               </div>
             </div>
 
@@ -234,7 +245,13 @@ function EventIndex() {
               >
                 {events.map((item, i) => {
                   const date = ["5/25/2023", "5/26/2023", "5/27/2023"];
-                  return <RegisterInfo data={item} key={i} date={date[i]} />;
+                  return (
+                    <RegisterInfo
+                      data={item}
+                      key={i}
+                      date={item.register_end}
+                    />
+                  );
                 })}
               </Splide>
             </div>
@@ -397,7 +414,12 @@ function EventIndex() {
       {register && (
         <div className="wrapper-reg">
           <div className="blocker"></div>
-          <RegisterForm event={events[currentEvent]} userName={user} email={email} setRegister={setRegister}/>
+          <RegisterForm
+            event={events[currentEvent]}
+            userName={user}
+            email={email}
+            setRegister={setRegister}
+          />
         </div>
       )}
     </>

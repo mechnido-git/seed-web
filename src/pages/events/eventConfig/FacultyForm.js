@@ -40,7 +40,7 @@ function FacultyForm({ faculty, setFaculty, setFacForm }) {
     const error = document.querySelectorAll(".error");
     error.forEach(item=>item.style.display = "none")
     error.forEach((item) => (item.innerHTML = ""));
-    var letters = /^[A-Za-z]+$/;
+    var letters = /^[A-Za-z ]+$/;
     var pattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
 
     let flag = false;

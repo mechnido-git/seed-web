@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './fac.css'
+import { onChangeInput } from '../../signin/SignIn';
 
 function MemberForm({ members, setMembers }) {
 
@@ -48,37 +49,37 @@ function MemberForm({ members, setMembers }) {
     const error = document.querySelectorAll('.error')
     error.forEach(item=>item.style.display = "none")
     error.forEach(item => item.innerHTML = "")
-    var letters = /^[A-Za-z]+$/;
+    var letters = /^[A-Za-z ]+$/;
     var pattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/
 
     let flag = false;
     if (name.length < 3) {
-      document.getElementById('member-name').style.display = 'block'
-      document.getElementById('member-name').innerText = "Name Must be more than 3 characters";
+      document.getElementById('member-name-error').style.display = 'block'
+      document.getElementById('member-name-error').innerText = "Name Must be more than 3 characters";
       flag = true;
     } else if (!name.match(letters)) {
-      document.getElementById('member-name').style.display = 'block'
-      document.getElementById('member-name').innerText = "Name Must be in Alphabetics";
+      document.getElementById('member-name-error').style.display = 'block'
+      document.getElementById('member-name-error').innerText = "Name Must be in Alphabetics";
       flag = true;
     }
 
     if (dep.length < 3) {
-      document.getElementById('member-dep').style.display = 'block'
-      document.getElementById('member-dep').innerText = "Department Must be more than 3 characters";
+      document.getElementById('member-dep-error').style.display = 'block'
+      document.getElementById('member-dep-error').innerText = "Department Must be more than 3 characters";
       flag = true;
     } else if (!dep.match(letters)) {
-      document.getElementById('member-dep').style.display = 'block'
-      document.getElementById('member-dep').innerText = "Department Must be in Alphabetics";
+      document.getElementById('member-dep-error').style.display = 'block'
+      document.getElementById('member-dep-error').innerText = "Department Must be in Alphabetics";
       flag = true;
     }
 
     if (email.length === 0) {
-      document.getElementById('member-email').style.display = 'block'
-      document.getElementById('member-email').innerText = "Email cannot be empty";
+      document.getElementById('member-email-error').style.display = 'block'
+      document.getElementById('member-email-error').innerText = "Email cannot be empty";
       flag = true;
     } else if (!email.match(pattern)) {
-      document.getElementById('member-email').style.display = 'block'
-      document.getElementById('member-email').innerText = "Please include an '@' symbol and a valid domain extension such as .com or .net.";
+      document.getElementById('member-email-error').style.display = 'block'
+      document.getElementById('member-email-error').innerText = "Please include an '@' symbol and a valid domain extension such as .com or .net.";
       flag = true;
     }
 
@@ -89,16 +90,16 @@ function MemberForm({ members, setMembers }) {
     }
 
     if (mobile.length === 0) {
-      document.getElementById('member-mobile').style.display = 'block'
-      document.getElementById('member-mobile').innerText = "Mobile cannot be empty";
+      document.getElementById('member-mobile-error').style.display = 'block'
+      document.getElementById('member-mobile-error').innerText = "Mobile cannot be empty";
       flag = true;
     } else if (mobile.length < 10) {
-      document.getElementById('member-mobile').style.display = 'block'
-      document.getElementById('member-mobile').innerText = "Mobile must be 10 numbers";
+      document.getElementById('member-mobile-error').style.display = 'block'
+      document.getElementById('member-mobile-error').innerText = "Mobile must be 10 numbers";
       flag = true;
     } else if (!(!isNaN(mobile) && !isNaN(parseFloat(mobile)))) {
-      document.getElementById('member-mobile').style.display = 'block'
-      document.getElementById('member-mobile').innerText = "Mobile must be numeric";
+      document.getElementById('member-mobile-error').style.display = 'block'
+      document.getElementById('member-mobile-error').innerText = "Mobile must be numeric";
       flag = true;
     }
     console.log(flag);
@@ -134,16 +135,6 @@ function MemberForm({ members, setMembers }) {
     <div className="fac-div">
       <form className="fac" >
         <h3>Team Member</h3>
-        {/* <div className="input-div">
-            <label htmlFor="photo">Passport Image</label>:
-            <div className="div"></div>
-          </div>
-          <div className="input-div">
-            <label htmlFor="college">College Id</label>
-            :
-            <input type="text" />
-          </div> */}
-
         <div className="input-div">
           <label htmlFor="college">Name</label>
           <p className="col">:</p>
@@ -153,10 +144,11 @@ function MemberForm({ members, setMembers }) {
             type="text"
             name="name"
             required
-            onChange={(e) => setName(e.target.value.toUpperCase())}
+            onChange={(e) => onChangeInput(e, setName, "member-name-error")}
+            data-type='name'
             placeholder="Name"
           />
-          <div style={{display: 'none'}} className="error" id='member-name'></div>
+          <div style={{display: 'none'}} className="error" id='member-name-error'></div>
         </div>
         <div className="input-div">
           <label htmlFor="college">Department</label>
@@ -202,11 +194,12 @@ function MemberForm({ members, setMembers }) {
             type="email"
             name="teamEmail"
             required
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => onChangeInput(e, setEmail, "member-email-error")}
+            data-type='email'
             placeholder="example@gmail.com"
             pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
           />
-          <div style={{display: 'none'}} className="error" id="member-email"></div>
+          <div style={{display: 'none'}} className="error" id="member-email-error"></div>
         </div>
         <div className="input-div">
           <label htmlFor="college">Mobile</label>
@@ -217,10 +210,11 @@ function MemberForm({ members, setMembers }) {
             min={10}
             name="contact"
             required
-            onChange={(e) => onChangeNumber(mobile, setMobile, e.target.value)}
+            onChange={(e) => onChangeInput(e, setMobile, "member-mobile-error")}
+            
             placeholder="6234567890"
           />
-          <div style={{display: 'none'}} className="error" id="member-mobile"></div>
+          <div style={{display: 'none'}} className="error" id="member-mobile-error"></div>
         </div>
         <input className={`cntrl ${members.length >= 25 && 'opacity'}`} onClick={members.length < 25 ? validate : null} type="button" value="Add" />
       </form>
