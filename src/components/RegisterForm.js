@@ -32,6 +32,8 @@ function RegisterForm({ event, setRegister, email, userName }) {
   const [state, setState] = useState('')
   const [pincode, setPincode] = useState('')
 
+  console.log(event);
+
   const [members, setMembers] = useState([])
   const [faculty, setFaculty] = useState([])
   const [current, setCurrent] = useState(0)
@@ -41,46 +43,48 @@ function RegisterForm({ event, setRegister, email, userName }) {
   const onSumbitHandler = async (e) => {
     e.preventDefault();
     setLoading(true)
-    onAuthStateChanged(auth, user => {
-      if (user) {
-        getDoc(doc(db, 'events', event.id)).then(async (data) => {
-          if (data) {
-            const enrolled = data.data().enrolled
-            if (enrolled && enrolled.includes(user.uid)) {
-              alert('You are alredy enrolled')
-              window.location.reload()
-              return
-            }
-
-          }
-
-          const eventData = {
-            id: user.uid,
-            eventId: event.id,
-            teamName,
-            teamEmail,
-            teamMembers,
-            capName,
-            kartType,
-            contact,
-            collegeName,
-            fac,
-            adress,
-            city,
-            state,
-            pincode,
-            members,
-            faculty
-          }
-
-          const url = `${process.env.REACT_APP_SERVER_URL}/register`;
-          const info = {
-            id: event.id,
-            name: event.name,
-            userId: user.uid,
-          }
-
+    onAuthStateChanged(auth, async(user) => {
           try {
+            if (user) {
+              console.log(event.id);
+              console.log(user.uid);
+              const data = await getDoc(doc(db, 'events', event.id))
+                if (data) {
+                  const enrolled = data.data().enrolled
+                  if (enrolled && enrolled.includes(user.uid)) {
+                    alert('You are alredy enrolled')
+                    window.location.reload()
+                    return
+                  }
+      
+                }
+      
+                const eventData = {
+                  id: user.uid,
+                  eventId: event.id,
+                  teamName,
+                  teamEmail,
+                  teamMembers,
+                  capName,
+                  kartType,
+                  contact,
+                  collegeName,
+                  fac,
+                  adress,
+                  city,
+                  state,
+                  pincode,
+                  members,
+                  faculty
+                }
+      
+                const url = `${process.env.REACT_APP_SERVER_URL}/register`;
+                const info = {
+                  id: event.id,
+                  name: event.name,
+                  userId: user.uid,
+                }
+      
 
             const res = await axios.post(url, info);
             console.log(res.data.order);
@@ -99,7 +103,7 @@ function RegisterForm({ event, setRegister, email, userName }) {
                     eventId: event.id,
                     email: email,
                     userName,
-                    item  : event.name,
+                    item  : event.title,
                   })
                   console.log(res);
                   window.location.reload()
@@ -114,18 +118,13 @@ function RegisterForm({ event, setRegister, email, userName }) {
             console.log(process.env.REACT_APP_RAZOR_ID);
             var rzp1 = new window.Razorpay(options);
             rzp1.open()
-
+          }
           } catch (error) {
             console.log(error);
 
           } finally {
             setLoading(false)
           }
-
-        }).catch(err => console.log(err))
-
-
-      }
     })
   };
 

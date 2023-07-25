@@ -95,6 +95,8 @@ function EventIndex() {
   const [loading, setLoading] = useState(true);
   const [events, setEvents] = useState(null);
 
+  const [temp, setTemp] = useState(null)
+
   const { setSection, eventList } = useContext(StoreContext);
   setSection(2);
 
@@ -112,6 +114,8 @@ function EventIndex() {
         snaps.forEach((doc) => temp.push({ id: doc.id, ...doc.data() }));
         // setEvents(temp);
         setEvents(eventList);
+        setTemp(temp)
+        console.log(eventList);
       })
       .catch()
       .finally(() => {
@@ -125,9 +129,9 @@ function EventIndex() {
 
   const getRegister = () => {
     let flag = false;
-    console.log(events);
+    console.log(temp);
     console.log(uid);
-    events[currentEvent].enrolled_arr?.forEach((item) => {
+    temp[currentEvent].enrolled_arr?.forEach((item) => {
       if (item === uid) flag = true;
     });
     console.log(flag);
