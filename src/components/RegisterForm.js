@@ -99,7 +99,7 @@ function RegisterForm({ event, setRegister, email, userName }) {
                     eventId: event.id,
                     email: email,
                     userName,
-                    item  : event.name,
+                    item  : event.title,
                   })
                   console.log(res);
                   window.location.reload()
