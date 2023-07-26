@@ -26,9 +26,10 @@ const EnrolledCourse = ({ dragger }) => {
 
   const fetch = async (user) => {
 
+  try {
     const eventQ = query(
       collection(db, "events"),
-      where("enrolled", "array-contains", user.uid)
+      where("enrolled_arr", "array-contains", user.uid)
     );
 
     const snap2 = await getDocs(eventQ)
@@ -54,6 +55,9 @@ const EnrolledCourse = ({ dragger }) => {
     console.log(lists.length + "=>l");
     setEnrolledCourses(lists)
     setLoading(false)
+  } catch (error) {
+    console.log(error);
+  }
   }
 
   const getInvoice = (course) => {
@@ -71,6 +75,11 @@ const EnrolledCourse = ({ dragger }) => {
     navigate(`/menu/courses/details/${index}`)
   }
 
+  const getEvent = (index) => {
+    console.log('hi');
+    navigate(`/menu/events/details/${index}`)
+  }
+
   useEffect(() => {
     onAuthStateChanged(auth, user => {
       setUser(user)
@@ -84,9 +93,14 @@ const EnrolledCourse = ({ dragger }) => {
       {loading ? <Spinner other={'height'} normal={true} loading={loading} /> : <>
         {enrolledCourses.length !== 0 || enrolledEvents.length !== 0 ? <>
           {enrolledEvents.length !== 0 && enrolledEvents.map((item, key) => {
-            return <div style={{ cursor: 'pointer' }} className="card" key={key} >
+            return <div style={{ cursor: 'pointer' }} onClick={() => getEvent(item.order)} className="card" key={key} >
               <h4>{item.name}</h4>
-
+              {getInvoice(item) && <div className="invoice">
+                <a onClick={(e)=>e.stopPropagation()} href={getInvoice(item)} rel="noreferrer" target="_blank"><span className="hm">Invoice</span> <span class="material-symbols-outlined">
+                  download
+                </span></a>
+                
+              </div>}
             </div>
           })}
           {enrolledCourses.length !== 0 && enrolledCourses.map((item) => {
