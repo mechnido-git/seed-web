@@ -176,7 +176,8 @@ function Navbar({ signIn }) {
         <div className="wrapper-reg">
           <div className="blocker" onClick={() => setGetInTouch(false)}></div>
           <div className="get-in-touch">
-          <img className='clbtn' src={cancellogo} onClick={()=>{setGetInTouch(false)}} alt="close button"/>
+          <span className="material-symbols-outlined" onClick={()=>{setGetInTouch(false)}}>close</span>
+          {/* <img className='clbtn' src={cancellogo} onClick={()=>{setGetInTouch(false)}} alt="close button"/> */}
             <div id="get-in-touch"></div>
             <h2>Get in Touch</h2>
             <div className="content">

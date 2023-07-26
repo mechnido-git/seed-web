@@ -259,8 +259,8 @@ function CoursesHome() {
     //navigate(`/menu/courses/enroll/${currentSlide}`)
     let flag = false
     if (userId) {
-      console.log(courses);
-      console.log(courses[currentSlide]);
+      // console.log(courses);
+      // console.log(courses[currentSlide]);
       courses[currentSlide].enrolled?.forEach(item => {
         if (item.userId === userId) flag = true
       })

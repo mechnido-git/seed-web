@@ -342,9 +342,9 @@ function SignIn({ index, redirect, setRedirect,setSignIn }) {
   return (
     <div className="signin-div form login">
       {loading && <Spinner loading={loading} normal={true} />}
-      <img  className="closebtn" src={icon} alt="closeImage" onClick={handleclose}/>
-     {/* <button className="closebtn" onClick={handleclose}>X</button> */}
-      {/* <Link id="red" to="/menu/dashboard" target="_blank" ref={click} /> */}
+      <span class="material-symbols-outlined"  alt="closeImage" onClick={handleclose}>close</span>
+      {/* <img  className="closebtn" src={icon} alt="closeImage" onClick={handleclose}/> */}
+   
       {signin ? (
         <>
           {forgotPass ? (

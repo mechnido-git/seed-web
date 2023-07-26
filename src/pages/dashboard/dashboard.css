@@ -105,19 +105,22 @@
   gap: 10px;
 }
 .dashboard > .main > .section > .enrolled-courses > .card{
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
   /* justify-content: flex-end;  */
 }
 
 
-.dashboard > .main > .section > .enrolled-courses > .card > .invoice {
+.dashboard > .main > .section > .enrolled-courses > .card > .invoice  {
   display: flex;
   /* align-items: end; */
   gap: 5px;
- justify-content: end;
+ justify-content: space-between;
   /* color: var(--tertiary); */
   font-size: 16px;
+  
 }
+
 
 
 /* 
@@ -129,15 +132,21 @@
   background-color: var(--primary);
   transition: .3s;
 } */
-/* 
-.dashboard > .main > .section > .enrolled-courses > .card > .invoice a:hover{
+
+/* .dashboard > .main > .section > .enrolled-courses > .card > .invoice a:hover{
   background-color: var(--secondary);
   color: var(--primary);
-} */
+}  */
 
-.dashboard > .main > .section > .enrolled-courses > .card > .invoice span{
-  font-size: 18px;
-  color: inherit
+.dashboard > .main > .section > .enrolled-courses > .card > .invoice .hm{
+  font-size: 13px;
+  color: var(--tertiary);
+}
+/* .dashboard > .main > .section > .enrolled-courses > .card > .invoice .hm:hover{
+  color:var(--primary);
+} */
+.dashboard > .main > .section > .enrolled-courses > .card > .invoice .hm:hover{
+  color:var(--primary);
 }
 
 .dashboard > .main > .section > .enrolled-courses .btns{
@@ -214,6 +223,7 @@
   font-weight: 500;
   color: var(--subHeading);
   text-transform: uppercase;
+  width:230px;
 }
 
 @property --event-progress-value {
