@@ -127,7 +127,7 @@ export const CardBuilder = ({ arr, limit, viewDetails, loading , user , download
               {item.flag ? <>The Flagship <br /></> : ''}
               {item.name}
             </h4>
-            <p>{item.description_L[2].slice(0, 100)}...</p>
+            {item.description_L && <p>{item?.description_L[2]?.slice(0, 100)}...</p>}
             <div>
               {item.rating && <h5>Rating:{item.rating}</h5>}
             </div>
@@ -227,9 +227,10 @@ function CoursesHome() {
 
   useEffect(() => {
     if (courses){
+      console.log(courses);
       setRecommended(courses.filter((item, i) => i < 4))
       setTrending(courses?.filter((item, i) => i > 3 && i < 8))
-      setTeam(courses?.filter((item, i) => i > 7 && i < 12))
+      setTeam(courses?.filter((item, i) => i > 7 && i < 15))
       setLoading(false)
     }
   }, [courses])
@@ -360,7 +361,7 @@ function CoursesHome() {
                     arr={team.filter((item) =>
                       filter === "All" ? item : filter == item.category
                     )}
-                    limit={4}
+                    limit={7}
                     viewDetails={getCours}
                   />
                 </div>

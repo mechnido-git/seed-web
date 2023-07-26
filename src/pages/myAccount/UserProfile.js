@@ -22,35 +22,40 @@ const [user, setUser] = useState(null);
 
 const fetch = async (user) => {
 
-  const eventQ = query(
-    collection(db, "events"),
-    where("enrolled", "array-contains", user.uid)
-  );
-
-  const snap2 = await getDocs(eventQ)
-  const list2 = snap2.docs.map((list) => {
-    return {
-      ...list.data(),
-      id: list.id
-    }
-  })
-  setEnrolledEvents(list2)
-
-  const q = query(
-    collection(db, "courses"),
-    where("enrolled_arr", "array-contains", user.uid)
-  );
-  const snaps = await getDocs(q)
-  const lists = snaps.docs.map((list) => {
-    return {
-      ...list.data(),
-      id: list.id
-    }
-  })
-  console.log(lists.length + "=>l");
-  setEnrolledCourses(lists)
-  console.log(lists);
-  setLoading(false)
+  try {
+    const eventQ = query(
+      collection(db, "events"),
+      where("enrolled_arr", "array-contains", user.uid)
+    );
+  
+    const snap2 = await getDocs(eventQ)
+    const list2 = snap2.docs.map((list) => {
+      return {
+        ...list.data(),
+        id: list.id
+      }
+    })
+    console.log(list2);
+    setEnrolledEvents(list2)
+  
+    const q = query(
+      collection(db, "courses"),
+      where("enrolled_arr", "array-contains", user.uid)
+    );
+    const snaps = await getDocs(q)
+    const lists = snaps.docs.map((list) => {
+      return {
+        ...list.data(),
+        id: list.id
+      }
+    })
+    console.log(lists.length + "=>l");
+    setEnrolledCourses(lists)
+    console.log(lists);
+    setLoading(false)
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 // const getInvoice = (course) => {
@@ -66,6 +71,11 @@ const fetch = async (user) => {
 const getCours = (index) => {
   console.log('hi');
   navigate(`/menu/courses/details/${index}`)
+}
+
+const getEvent = (index) => {
+  console.log('hi');
+  navigate(`/menu/events/details/${index}`)
 }
 
 useEffect(() => {
@@ -197,7 +207,7 @@ const getInvoice = (course) => {
               <CardBuilder
                     loading={loading}
                     arr={enrolledEvents}
-                    viewDetails={getCours}
+                    viewDetails={getEvent}
                     download={true}
                     user= {user}
                   />
