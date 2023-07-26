@@ -128,12 +128,12 @@ function RefundPolicy() {
             return (
               <li>
                 <h2>
-                  <span class="material-symbols-outlined">request_quote</span>
+                  {num1+1}.
                   {item.head}
                 </h2>
                 <ul className="sub-topic">
                   {item.sub_topic.map((item, num2) => (
-                    <li className="show">
+                    <li >
                       {item.sub_head && <h3 onClick={null}>{item.sub_head}</h3>}
                       <div className="paras">
                         {item.paras.map((item) => (
