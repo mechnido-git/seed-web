@@ -94,7 +94,8 @@ function Enroll({index , setbuy}) {
     }
   return (
     <div className='enroll-div'>
-       <img className='clbt' src={cancellogo} onClick={handleclose} alt="close button"/>
+       {/* <img className='clbt' src={cancellogo} onClick={handleclose} alt="close button"/> */}
+       <span className="material-symbols-outlined" onClick={handleclose} alt="close button">close</span>
       {loading && <Spinner other={"globel"} loading={loading} />}
       {/* <img className='clbt' src={cancellogo} alt="close button"/> */}
         <h1>{data.name}</h1>

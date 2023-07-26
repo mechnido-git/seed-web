@@ -27,7 +27,7 @@
     position: absolute;
     max-width: 490px;
     width: 100%;
-    padding: 30px;
+    padding: 20px;
     border-radius: 6px;
     background: var(--secondary);
 
@@ -210,12 +210,11 @@ a.google span{
     color: green;
 }
 
-.signin-div .closebtn{
-    width:40px;
-    height:40px;
-    float: right;
+.signin-div .material-symbols-outlined{
+   color:var(--primary);
+   float: right;
 }
-.closebtn:hover{
+.signin-div .material-symbols-outlined:hover{
     cursor: pointer;
 }
 

@@ -1,14 +1,15 @@
 .enroll-div{
-    padding:10px;
+    
     display: flex;
     flex-direction: column;
     gap: .6rem;
     position: relative;
     align-items: center;
     background-color: var(--secondary);
-    padding: 2rem 1rem;
+    padding: 1rem 1rem;
     border-radius: 5px;
     z-index: 11;
+
 }
 .enroll-div h1 , h4{
     color:var(--tertiary);
@@ -65,11 +66,14 @@
     background-color: var(--btnhover);
 }
 
-.enroll-div .clbt{
-    width:40px;
-    height:40px;
-    margin-left: 500px;
+.enroll-div .material-symbols-outlined{
+    /* width:40px;
+    height:40px; */
+    align-self: end;
+    margin-left: 10px;
+  margin:5px 5px;
+  color:var(--primary);
 }
-.clbt:hover{
+.enroll-div .material-symbols-outlined:hover{
     cursor: pointer;
 }
