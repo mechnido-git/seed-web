@@ -23,12 +23,12 @@ const Store = ({ children }) => {
   const [section, setSection] = useState(null);
   const [filter, setFilter] = useState("All");
 
-  const [courseIndex, setCourseIndex] = useState(null)
-  const [eventIndex, setEventIndex] = useState(null)
+  const [courseIndex, setCourseIndex] = useState(null);
+  const [eventIndex, setEventIndex] = useState(null);
 
-  const [metrics, setMetrics] = useState(true)
-  const [feedback, setFeedback] = useState(true)
-  const [theme, setTheme] = useState('Light-mode');
+  const [metrics, setMetrics] = useState(true);
+  const [feedback, setFeedback] = useState(true);
+  const [theme, setTheme] = useState("Light-mode");
   const [check, setCheck] = useState(false);
 
   const courseList = [
@@ -3750,8 +3750,7 @@ const Store = ({ children }) => {
         "This comprehensive course is designed to take you on a journey from understanding the basics of CSS to mastering advanced techniques and best practices",
         "Whether you're a beginner looking to build a strong foundation or an experienced web developer seeking to level up your CSS skills, this course is tailored to meet your needs.",
         "Your CSS mastery will open doors to exciting opportunities in web development and design",
-        "This Program offers students to get clear insights of CSS by Practical training which will be handled by Mechnido's faculty and industrial experts." 
-        
+        "This Program offers students to get clear insights of CSS by Practical training which will be handled by Mechnido's faculty and industrial experts.",
       ],
       duration: [
         "Flexible Timing",
@@ -3763,13 +3762,14 @@ const Store = ({ children }) => {
       certificate: {
         title: "Requirements for Certification",
         imgURL:
-          "https://firebasestorage.googleapis.com/v0/b/seed-25898.appspot.com/o/courses%2FsE2QV4XJjyCVPWjA8XNs%2Fcertificates%2Fcert.jpg?alt=media&token=3b067e65-919d-4e7c-854e-a6f71c7a297a",
+          "https://firebasestorage.googleapis.com/v0/b/seed-25898.appspot.com/o/courses%2Fp27VFrEl2726xBbjQdxJ%2Fcertificates%2Fcert.jpg?alt=media&token=6c5d7ab9-4b3b-407a-ac90-8b1f14f020df",
         sub: [
           "An individual enrolled in the program should complete the training within the program's time limit.",
           "To acquire the certification, you must complete all the course's assignments, tests, case studies, projects, and other criteria. ",
           "To acquire certification, the student must show up to every session that the instructor provides.",
         ],
       },
+      category: "SOFTWARE",
       fee: [
         {
           id: 0,
@@ -3789,817 +3789,1415 @@ const Store = ({ children }) => {
               ],
             },
             {
-              name:"Introduction to CSS",
-              SUB:[
+              name: "Introduction to CSS",
+              SUB: [
                 "Understanding the role & importance of CSS in web development",
-                "The separation of concerns: HTML for structure, CSS for styling"
-              ]
+                "The separation of concerns: HTML for structure, CSS for styling",
+              ],
             },
             {
-              name:"Inline CSS and Internal CSS",
-              SUB:[
+              name: "Inline CSS and Internal CSS",
+              SUB: [
                 "Adding inline styles directly to HTML elements",
-                "Styling individual web pages using internal CSS"
-              ]
+                "Styling individual web pages using internal CSS",
+              ],
             },
             {
-              name:"External CSS",
-              SUB:[
+              name: "External CSS",
+              SUB: [
                 "Creating separate CSS files for better code organization",
-                "Linking external CSS files to HTML documents"
-              ]
+                "Linking external CSS files to HTML documents",
+              ],
             },
             {
-              name:"Introduction to CSS",
-              SUB:[
+              name: "Introduction to CSS",
+              SUB: [
                 "Understanding the role & importance of CSS in web development",
-                "The separation of concerns: HTML for structure, CSS for styling"
-              ]
+                "The separation of concerns: HTML for structure, CSS for styling",
+              ],
             },
             {
-              name:"CSS Comments",
-              SUB:[
-                "Using comments to document your CSS code and improve code readability"
-              ]
+              name: "CSS Comments",
+              SUB: [
+                "Using comments to document your CSS code and improve code readability",
+              ],
             },
             {
-              name:"CSS Properties",
-              SUB:[
+              name: "CSS Properties",
+              SUB: [
                 "Introduction to various CSS properties for styling elements",
-                "Changing text color, background color, font size, etc."
-              ]
+                "Changing text color, background color, font size, etc.",
+              ],
             },
             {
-              name:"Styling Backgrounds",
-              SUB:[
+              name: "Styling Backgrounds",
+              SUB: [
                 "Applying background colors and images to elements",
-               " Using CSS gradients for visually appealing backgrounds"
-              ]
+                " Using CSS gradients for visually appealing backgrounds",
+              ],
             },
             {
-              name:"CSS Border",
-              SUB:[
-                "Adding borders to elements with different styles, widths, and colors"
-              ]
+              name: "CSS Border",
+              SUB: [
+                "Adding borders to elements with different styles, widths, and colors",
+              ],
             },
             {
-              name:"CSS Display and Float",
-              SUB:[
+              name: "CSS Display and Float",
+              SUB: [
                 "Understanding the display property and its values (block, inline, inline-block)",
-                "Using the float property for layout and alignment"
-              ]
-            }
-          ]
+                "Using the float property for layout and alignment",
+              ],
+            },
+          ],
         },
         {
-          name:"TYPOGRAPHY AND LAYOUT CONTROL",
-          topics:[
+          name: "TYPOGRAPHY AND LAYOUT CONTROL",
+          topics: [
             {
-              name:"CSS Font",
-              SUB:[
+              name: "CSS Font",
+              SUB: [
                 "Understanding font families, weights, and styles",
-                "Applying custom fonts using @font-face"
-              ]
+                "Applying custom fonts using @font-face",
+              ],
             },
             {
-              name:"CSS Line Height",
-              SUB:[
-                "Controlling line spacing for better readability"
-              ]
+              name: "CSS Line Height",
+              SUB: ["Controlling line spacing for better readability"],
             },
             {
-              name:"CSS Margin and Padding",
-              SUB:[
+              name: "CSS Margin and Padding",
+              SUB: [
                 "Creating space around elements using margin",
-                "Adding space within elements using padding"
-              ]
+                "Adding space within elements using padding",
+              ],
             },
             {
-              name:"CSS Opacity and Visibility",
-              SUB:[
+              name: "CSS Opacity and Visibility",
+              SUB: [
                 "Making elements transparent with opacity",
-                "Controlling element visibility with visibility property"
-              ]
+                "Controlling element visibility with visibility property",
+              ],
             },
             {
-              name:"CSS Overflow",
-              SUB:[
-                "Handling overflow content within elements"
-              ]
+              name: "CSS Overflow",
+              SUB: ["Handling overflow content within elements"],
             },
             {
-              name:"CSS Position",
-              SUB:[
+              name: "CSS Position",
+              SUB: [
                 "Understanding the position property and its values (relative, absolute, fixed, static)",
-                "Creating layouts with positioned elements"
-              ]
+                "Creating layouts with positioned elements",
+              ],
             },
             {
-              name:"CSS Vertical Align",
-              SUB:[
-                "Aligning elements vertically within their containers"
-              ]
+              name: "CSS Vertical Align",
+              SUB: ["Aligning elements vertically within their containers"],
             },
             {
-              name:"CSS White Space",
-              SUB:[
-                "Managing white space and controlling text wrapping"
-              ]
+              name: "CSS White Space",
+              SUB: ["Managing white space and controlling text wrapping"],
             },
             {
-              name:"CSS Width",
-              SUB:[
-                "Specifying width for elements and containers"
-              ]
-            }
-          ]
+              name: "CSS Width",
+              SUB: ["Specifying width for elements and containers"],
+            },
+          ],
         },
         {
-          name:"ADVANCED STYLING TECHNIQUES",
-          topics:[
+          name: "ADVANCED STYLING TECHNIQUES",
+          topics: [
             {
-              name:"Working with Counters",
-              SUB:[
-                "Utilizing CSS counters for automatic numbering and list styling"
-              ]
+              name: "Working with Counters",
+              SUB: [
+                "Utilizing CSS counters for automatic numbering and list styling",
+              ],
             },
             {
-              name:"CSS Animations",
-              SUB:[
+              name: "CSS Animations",
+              SUB: [
                 "Understanding keyframes and animation properties",
-                "Creating smooth animations with CSS"
-              ]
+                "Creating smooth animations with CSS",
+              ],
             },
             {
-              name:"CSS Transitions",
-              SUB:[
+              name: "CSS Transitions",
+              SUB: [
                 "Implementing transitions for smooth element changes",
-                "Transitioning properties like color, size, and position"
-              ]
+                "Transitioning properties like color, size, and position",
+              ],
             },
             {
-              name:"Adding Tooltips with CSS",
-              SUB:[
+              name: "Adding Tooltips with CSS",
+              SUB: [
                 "Creating tooltip elements using CSS",
-                "Styling and positioning tooltips for user interaction"
-              ]
+                "Styling and positioning tooltips for user interaction",
+              ],
             },
             {
-              name:"Tooltip Animation",
-              SUB:[
-                "Applying animations to tooltips for a visually engaging experience"
-              ]
+              name: "Tooltip Animation",
+              SUB: [
+                "Applying animations to tooltips for a visually engaging experience",
+              ],
             },
             {
-              name:"Creating CSS Arrows",
-              SUB:[
-                "Using CSS techniques to add arrow elements to designs"
-              ]
+              name: "Creating CSS Arrows",
+              SUB: ["Using CSS techniques to add arrow elements to designs"],
             },
             {
-              name:"CSS Flexbox",
-              SUB:[
+              name: "CSS Flexbox",
+              SUB: [
                 "Understanding the flex container and flex item model",
-                "Building flexible and responsive layouts with Flexbox"
-                
-              ]
+                "Building flexible and responsive layouts with Flexbox",
+              ],
             },
             {
-              name:"Implementing @media Queries",
-              SUB:[
+              name: "Implementing @media Queries",
+              SUB: [
                 "Building responsive designs with media queries",
-                "Adapting layouts for different screen sizes"
-              ]
+                "Adapting layouts for different screen sizes",
+              ],
             },
             {
-              name:"Enhancing User Interface with CSS",
-              SUB:[
+              name: "Enhancing User Interface with CSS",
+              SUB: [
                 "Styling form elements and customizing checkboxes and radio buttons",
-                "Creating interactive buttons and hover effects"
-              ]
-            }
-          ]
-
+                "Creating interactive buttons and hover effects",
+              ],
+            },
+          ],
         },
         {
-          name:"3D, AURAL, PAGE LAYOUT AND TABLES",
-          topics:
-          [
+          name: "3D, AURAL, PAGE LAYOUT AND TABLES",
+          topics: [
             {
-              name:"CSS 3D Transforms",
-              SUB:[
+              name: "CSS 3D Transforms",
+              SUB: [
                 "Understanding the 3D space in CSS transforms",
-                "Applying 3D effects like rotation, perspective, and scaling"
-              ]
+                "Applying 3D effects like rotation, perspective, and scaling",
+              ],
             },
             {
-              name:"2D Transforms",
-              SUB:[
+              name: "2D Transforms",
+              SUB: [
                 "Using CSS transforms for rotation, scaling, and skewing",
-                "Creating 2D effects with CSS"
-              ]
+                "Creating 2D effects with CSS",
+              ],
             },
             {
-              name:"CSS Aural Media",
-              SUB:[
+              name: "CSS Aural Media",
+              SUB: [
                 "Implementing CSS for speech synthesis and sound",
-                "Adding sound effects and audio to web pages"
-              ]
+                "Adding sound effects and audio to web pages",
+              ],
             },
             {
-              name:"Page Layout with CSS",
-              SUB:[
+              name: "Page Layout with CSS",
+              SUB: [
                 "Reviewing CSS-based layouts for web pages",
-                "Creating fixed, fluid, and responsive layouts"
-                
-              ]
+                "Creating fixed, fluid, and responsive layouts",
+              ],
             },
             {
-              name:"CSS Pagination",
-              SUB:[
-                "Building pagination for long content and articles"
-              ]
+              name: "CSS Pagination",
+              SUB: ["Building pagination for long content and articles"],
             },
             {
-              name:"CSS Table Styling",
-              SUB:[
+              name: "CSS Table Styling",
+              SUB: [
                 "Styling HTML tables with CSS for better presentation",
-                "Customizing table elements, headers, and cells"
-              ]
+                "Customizing table elements, headers, and cells",
+              ],
             },
             {
-              name:"CSS Layout for Multi-Column Content",
-              SUB:[
-                "Creating multi-column layouts with CSS"
-              ]
-            }
-          ]
+              name: "CSS Layout for Multi-Column Content",
+              SUB: ["Creating multi-column layouts with CSS"],
+            },
+          ],
         },
         {
-          name:"PRACTICES AND INTERVIEW PREPARATION",
-          topics:[
+          name: "PRACTICES AND INTERVIEW PREPARATION",
+          topics: [
             {
-              name:"Hands-On Exercises",
-              SUB:[
+              name: "Hands-On Exercises",
+              SUB: [
                 "Engaging in practical CSS exercises to reinforce concepts learned in previous sessions",
                 "Creating real-world scenarios to apply CSS techniques to different web page elements",
-                "Reviewing solutions and discussing best practices"
-              ]
+                "Reviewing solutions and discussing best practices",
+              ],
             },
             {
-              name:"Interview Preparation",
-              SUB:[
+              name: "Interview Preparation",
+              SUB: [
                 "Reviewing common CSS interview questions and potential answers",
                 "Discussing tips and strategies for effectively answering interview questions",
-                "Preparing for technical and non-technical aspects of interviews"
-              ]
-            }
-          ]
-        }
-      ]
-    }
+                "Preparing for technical and non-technical aspects of interviews",
+              ],
+            },
+          ],
+        },
+      ],
+    },
+
+    {
+      id: 13,
+      name: "AUTO-CAD BOOTCAMP",
+      thumbnail: "../../images/course.jpg",
+      slide: s3,
+      order: 13,
+
+      description:
+        "AUTO-CAD Course is a well-structured and in-depth program designed to provide participants with a comprehensive understanding of AutoCAD, a leading software for computer-aided design and drafting.",
+      description_L: [
+        "This Program offers students to get clear insights of  AUTOCAD Software by Practical training which will be handled by Mechnido's faculty and industrial experts.",
+        "In 60+ hours sessions, students will get an overview of the concepts and potential opportunities in the field. Moreover, students will get certificates from Mechnido.",
+        "AUTO-CAD Course is a well-structured and in-depth program designed to provide participants with a comprehensive understanding of AutoCAD, a leading software for computer-aided design and drafting.",
+        "This course is divided into three modules, each catering to participants with different levels of experience: Beginner, Intermediate, and Advanced.",
+      ],
+      duration: [
+        "Flexible Timing",
+        "Weekend : 2 Sessions",
+        "    Saturday & Sunday - 4 Hrs",
+        "Weekday : 2 Sessions (Any 2 Days)",
+        "    Monday to Friday - 4 Hrs",
+      ],
+      certificate: {
+        title: "Requirements for Certification",
+        imgURL:
+          "https://firebasestorage.googleapis.com/v0/b/seed-25898.appspot.com/o/courses%2FWQr8ckDkU1WtOt5Vtnxl%2Fcertificates%2Fcert.jpg?alt=media&token=8b0c14ae-7155-4a85-908f-64d6c28fac5d",
+        sub: [
+          "An individual enrolled in the program should complete the training within the program's time limit.",
+          "To acquire the certification, you must complete all the course's assignments, tests, case studies, projects, and other criteria. ",
+          "To acquire certification, the student must show up to every session that the instructor provides.",
+        ],
+      },
+      category: "SOFTWARE",
+      fee: [
+        {
+          id: 0,
+          type: "One time",
+          price: 2500,
+        },
+      ],
+      schedule: [
+        {
+          name: "BEGINNER LEVEL",
+          topics: [
+            {
+              name: "Welcome and Course Introduction",
+              SUB: [
+                "Introduction to the facilitator and course objectives",
+                "Overview of the session agenda",
+              ],
+            },
+            {
+              name: "Introduction to AUTOCAD",
+              SUB: [
+                "Understanding the purpose and applications of AutoCAD",
+                "Exploring the interface and navigation tools",
+              ],
+            },
+            {
+              name: "Basic Drawing Commands",
+              SUB: [
+                "Line, Circle, Arc, Rectangle, and other basic shape commands",
+                "Using coordinate systems to draw accurately",
+              ],
+            },
+            {
+              name: "Editing Tools",
+              SUB: [
+                "Modify, Move, Copy, Rotate, Scale, and Mirror commands",
+                "Erase, Trim, and Extend tools for editing drawings",
+              ],
+            },
+            {
+              name: "Object Properties",
+              SUB: [
+                "Understanding and manipulating object properties like color, layer, and linetype",
+                "Using object selection methods",
+              ],
+            },
+            {
+              name: "Precision Drawing",
+              SUB: [
+                "Snapping tools (Endpoint, Midpoint, Intersection, etc.) for precise drawing & Using Polar and Object Tracking",
+              ],
+            },
+            {
+              name: "Layers and Linetypes",
+              SUB: [
+                "Working with layers to organize drawings effectively",
+                "Creating and managing custom linetypes",
+              ],
+            },
+            {
+              name: "Annotating Drawings",
+              SUB: [
+                "Adding text with the Text and Multiline Text commands",
+                "Dimensioning using Dimension and Dimension Style tools",
+              ],
+            },
+            {
+              name: "Blocks and References",
+              SUB: [
+                "Creating and inserting blocks for reusable content",
+                "Using external references (Xrefs) to link drawings.",
+              ],
+            },
+            {
+              name: "Hatching and Gradients",
+              SUB: [
+                "Applying hatches and gradients to add context and depth to drawings",
+                "Editing and managing hatch patterns",
+              ],
+            },
+            {
+              name: "Layouts and Printing",
+              SUB: [
+                "Setting up layouts for plotting and printing",
+                "Configuring plot styles and page setups.",
+              ],
+            },
+          ],
+        },
+        {
+          name: "INTERMEDIATE LEVEL",
+          topics: [
+            {
+              name: "Advanced Editing Commands",
+              SUB: [
+                "Exploring more editing tools like Offset, Fillet, Chamfer, and Blend",
+                "Understanding the use of grips for quick editing",
+              ],
+            },
+            {
+              name: "Working with Advanced Object Types",
+              SUB: [
+                "Using Polyline and Spline for complex shapes and curves",
+                "Editing and converting between different object types",
+              ],
+            },
+            {
+              name: "Mastering Layers and Layer Properties",
+              SUB: [
+                "Advanced layer management and organization",
+                "Layer states and layer properties overrides",
+              ],
+            },
+            {
+              name: "Advanced Dimensioning",
+              SUB: [
+                "Dimension styles and customizing dimension appearance",
+                "Dimensioning techniques for complex drawings",
+              ],
+            },
+            {
+              name: "Advanced Block and Attribute Management",
+              SUB: [
+                "Creating dynamic blocks with custom properties and actions",
+                "Using attributes to add information to blocks",
+              ],
+            },
+            {
+              name: "External References (Xrefs)",
+              SUB: [
+                "Advanced techniques for working with Xrefs",
+                "Xref overlays and clip options",
+              ],
+            },
+            {
+              name: "Advanced Layouts and Annotation Scaling",
+              SUB: [
+                "Working with multiple viewports in layouts",
+                "Implementing annotation scaling for different viewport scales",
+              ],
+            },
+            {
+              name: "Isometric Drawing",
+              SUB: [
+                "Setting up and using isometric snap and isometric grid",
+                "Drawing and editing in isometric view",
+              ],
+            },
+            {
+              name: "Introduction to 3D Modeling Concepts",
+              SUB: [
+                "Understanding the 3D workspace and viewing tools",
+                "Introduction to 3D solid and surface modeling",
+              ],
+            },
+            {
+              name: "3D Modeling in AutoCAD",
+              SUB: [
+                "Creating basic 3D shapes (extrude, revolve, loft, sweep, etc.)",
+                "Editing 3D objects using grips and gizmos",
+              ],
+            },
+            {
+              name: "Working with 3D Surfaces and Meshes",
+              SUB: [
+                "Creating and editing 3D surfaces",
+                "Importing and modifying mesh models",
+              ],
+            },
+            {
+              name: "Applying Materials and Textures",
+              SUB: [
+                "Assigning materials to 3D objects for realistic rendering",
+                "Applying textures and mapping",
+              ],
+            },
+            {
+              name: "Lights and Rendering in 3D",
+              SUB: [
+                "Adding light sources to the 3D scene",
+                "Basic rendering settings and producing rendered images",
+              ],
+            },
+          ],
+        },
+        {
+          name: "ADVANCED LEVEL",
+          topics: [
+            {
+              name: "Advanced 3D Editing Tools",
+              SUB: [
+                "Working with UCS (User Coor for complex 3D editing",
+                "Advanced editing commands for 3D objects",
+              ],
+            },
+            {
+              name: "3D Mesh Modeling",
+              SUB: [
+                "Creating and editing 3D mesh models",
+                "Converting mesh models to 3D solids or surfaces",
+              ],
+            },
+            {
+              name: "Navigating the 3D Workspace",
+              SUB: [
+                "Understanding 3D views and using the ViewCube",
+                "Working with the SteeringWheels tool",
+              ],
+            },
+            {
+              name: "Advanced Rendering Techniques",
+              SUB: [
+                "Fine-tuning rendering settings for high-quality output",
+                "Using environment and background settings for better realism",
+              ],
+            },
+            {
+              name: "Advanced 3D Modeling Techniques",
+              SUB: [
+                "Lofting between splines and faces for complex shapes",
+                "Advanced use of Boolean operations (Union, Subtract, Intersect)",
+              ],
+            },
+            {
+              name: "Parametric Constraints in 3D",
+              SUB: [
+                "Applying geometric and dimensional constraints to 3D models",
+                "Creating fully constrained 3D models",
+              ],
+            },
+            {
+              name: "Working with Point Clouds",
+              SUB: [
+                "Importing and managing point cloud data in AutoCAD",
+                "Using point clouds for modeling and visualization",
+              ],
+            },
+            {
+              name: "Customizing AutoCAD",
+              SUB: [
+                "Introduction to AutoLISP and creating simple scripts",
+                "Customizing tool palettes, menus, and ribbon panels",
+              ],
+            },
+            {
+              name: "Data Extraction and Linking",
+              SUB: [
+                "Extracting data from drawings for analysis and reporting",
+                "Linking AutoCAD data with external databases or spreadsheets",
+              ],
+            },
+            {
+              name: "Collaborating with AutoCAD Design Center",
+              SUB: [
+                "Using Design Center to access and reuse content",
+                "Working with tool palettes and content libraries",
+              ],
+            },
+            {
+              name: "Introduction to Sheet Sets",
+              SUB: [
+                "Creating and managing sheet sets for better project organization",
+                "Automating title blocks and layouts",
+              ],
+            },
+            {
+              name: "Industry-Specific Features ",
+              SUB: [
+                "Exploring industry-specific tools and features (e.g., AutoCAD Architecture, AutoCAD MEP, etc.)",
+              ],
+            },
+          ],
+        },
+        {
+          name: "PRACTICES & INTERVIEW PREPARATION",
+          topics: [
+            {
+              name: "Beginner - Practices ",
+              SUB: [
+                "Practice 1: Advanced 3D Editing",
+                "Practice 2: 3D Modeling Techniques ",
+                "Practice 3: Rendering and Visualization ",
+                "Practice 4: Customization ",
+                "Practice 5: Comprehensive Project ",
+              ],
+            },
+            {
+              name: "Intermediate - Practices",
+              SUB: [
+                "Practice 1: Advanced Editing ",
+                "Practice 2: 3D Modeling Basics ",
+                "Practice 3: Advanced Dimensioning ",
+                "Practice 4: Dynamic Blocks & Attributes ",
+                "Practice 5: 3D Modeling Exercises ",
+              ],
+            },
+            {
+              name: "Advanced - Practices ",
+              SUB: [
+                "Practice 1: Advanced 3D Editing ",
+                "Practice 2: 3D Modeling Techniques ",
+                "Practice 3: Rendering and Visualization ",
+                "Practice 4: Customization ",
+                "Practice 5: Comprehensive Project ",
+              ],
+            },
+            {
+              name: "Interview Preparation",
+              SUB: [
+                "Reviewing common AUTOCAD interview questions and potential answers",
+                "Discussing tips and strategies for effectively answering interview questions",
+                "Preparing for technical and non-technical aspects of interviews",
+              ],
+            },
+          ],
+        },
+      ],
+    },
   ];
 
-const eventList = [
-  {
-    id: 'hUaPM58nSpDcAbUNXSf7',
-    title:"TNKC",
-    subtitle:"TAMILNADU KARTING CHAMPIONSHIP",
-    about:{
-      img:"",
-      title:"ABOUT TNKC",
-      description:" TNKC stands for TAMILNADU KARTING CHAMPIONSHIP is powered by Mechnido's Seed and supported by the Tamilnadu Government. It is an offline event encouraging budding engineers in designing a Go-kart or E-kart with proper engineering techniques. It aims at developing appropriate designing skills and understanding of the relevant scientific theories. It is a team event. The participating teams have to develop a model of Go-kart or an E-kart, analyze and optimize virtually, under ideal conditions using modern computer applications, scientific theories and engineering calculations. The teams are then evaluated based on various relevant aspects required to design a fully functional vehicle."
-    },
-    fee: 2500,
-    why:{
-      img:"",
-      heading:" Why TNKC 2023?",
-      sibling:[
-        {
-          title:"EXPERIENTIAL LEARNING",
-          description:"Learning through doing, while experiential education incorporates the pedagogies and structures that support this process"
-        },
-        {
-          title:"PARTICLE EXPOSURE",
-          description:"We introduce engineering students to actual workplace scenarios"
-        },
-        {
-          title:"NETWORKING WITH EXPERT",
-          description:"Network with experts to learn about new trends, share insights and receive"
-        },
-        {
-          title:"TEAMWORK",
-          description:" Characterized by effective communication, mutual respect, shared goals and objectives, and a willingness to work together to achieve those goals"
-        },
-        {
-          title:"COMPETITIVE SPIRIT",
-          description:"Desire to succeed, be the best,and win"
-        },
-        {
-          title:"ENTREPRENEURIAL SKILLS", 
-          description:"Possess creative problem-solving skills, an  engineer’s mindset and a toolkit of  experience based on agile practices, multitasking and self-drive."
-        },
-        {
-          title:"CHALLENGE",
-          description:"Facing challenges and ensure their honourable profession is continued into future generation"
-        },
-        {
-          title:"CAREER DEVELOPMENT",
-          description:" Involves acquiring new skills and knowledge, setting goals, and developing strategies to achieve those goals"
-        }
-      ]
-    },
-    features:{
-      img:"",
-      sib:[{
-        title:"Internships for Champions & Runner",
-        image:"https://img.icons8.com/?size=512&id=Shgdq9ciSCMx&format=png"
-      },
-      {
-        title:"Placements for Champions & Runner ",
-        image:"https://img.icons8.com/?size=512&id=Shgdq9ciSCMx&format=png"
-      },
-      {
-        title:"Workshops will  be provided to all participants",
-        image:"https://img.icons8.com/?size=512&id=Shgdq9ciSCMx&format=png"
-      },
-      {
-        title:"2 Lakhs Cash Prize & Awards",
-        image:"https://img.icons8.com/?size=512&id=Shgdq9ciSCMx&format=png"
-      },
-      {
-        title:"20% Discount on complete Female Participants",
-        image:"https://img.icons8.com/?size=512&id=Shgdq9ciSCMx&format=png"
-      }
-
-    ]
-    },
-    workflow:{
-      title:"Workflow",
-      data:[
-        "EVENT LAUNCH & REGISTRATION OPEN SPONCERS",
-        "OFFLINE & ONLINE MARKETING",
-        "REGISTRATION CLOSING",
-        " TEAM DETAILS COLLECTION",
-        "WORKSHOP","VIRTUAL EVENT",
-        " REPORT COLLECTION",
-        "COLLEGE LEVEL TI",
-        "TEAM PROMO VIDEO",
-        "FINAL EVENT VENUE",
-        "FACILITY ARRANGEMENTS",
-        "CLOSING CERMONY ARRANGEMENTS "
-      ]
-    },
-    register_end: "08/15/2023",
-
-    schedule:{
-      title:"Schedule",
-      data:[
-        {
-          task:"Registration Starts",
-          date:"15.07.2023"
-        },
-        {
-          task:"Payment Last Date",
-          date:"At the Time of Registration"
-        },
-        {
-          task:"Registration Ends",
-          date:"15.08.2023"
-        },
-        {
-          task:"Team Details Submission End",
-          date:"17.08.2023"
-        },
-        {
-          task:"Workshop",
-          date:"21.08.2023"
-        },
-        {
-          task:"Phase 1 Design Report Submission Start",
-          date:"11.09.2023"
-        },
-        {
-          task:"Phase 1 Design Report Submission End",
-          date:"12.09.2023"
-        },
-        {
-          task:"Presentation Report Submission Start",
-          date:"11.09.2023"
-        },
-        {
-          task:"Presentation Report Submission End",
-          date:"12.09.2023"
-        },
-        {
-          task:"Virtual Event Day 1",
-          date:"15.09.2023"
-        },
-        {
-          task:"Virtual Event Day 2",
-          date:"16.09.2023"
-        },
-        {
-          task:"Virtual Results",
-          date:"17.09.2023"
-        },
-        {
-          task:"Final Design Report Submission Start",
-          date:"23.10.2023"
-        },
-        {
-          task:"Final Design Report Submission End",
-          date:"24.10.2023"
-        },
-        {
-          task:"College Level Technical inspection",
-          date:"25.10.2023"
-        },
-        {
-          task:"Team Promo Video Submission",
-          date:"25.10.2023"
-        },
-        {
-          task:"Final Event Starts",
-          date:"09.11.2023"
-        },
-        {
-          task:"Final Event Ends",
-          date:"11.11.2023"
-        }
-      ]
-    },
-    types: ["IC Engine", "Electric"],
-    prize:{
-      title:"Cash Prize & Awards",
-      img:"",
-      sib:[{
-        img:"",
-        text:"IC Engine",
-        description:"Overall Cash Prize",
-        money:"95,000 INR"
-      },
-      {
-        img:"",
-        text:"Electric",
-        description:"Overall Cash Prize",
-        money:"80,000 INR"
-      }]
-    },
-    awards:
+  const eventList = [
     {
-      img:"",
-      array:
-      [
-      {
-        title:"IC Engine",
-
-        data:[
-          {
-            h1:"Runner Up",
-            p:"Trophy + Cash Prize",
-            money:"20,000 INR"
-          },
-          {
-            h1:"Champion",
-            p:"Trophy + Cash Prize",
-            money:"40,000 INR"
-          },
-          {
-            h1:"Best Endurance",
-            p:"Trophy + Cash Prize",
-            money:"10,000 INR"
-          },
-          {
-            h1:"Design & CAE",
-            p:"Trophy + Cash Prize",
-            money:"5,000 INR"
-          },
-          {
-            h1:"BMC",
-            p:"Trophy + Cash Prize",
-            money:"5,000 INR"
-          },
-          {
-            h1:"Innovation",
-            p:"Trophy + Cash Prize",
-            money:"5,000 INR"
-          },
-          {
-            h1:"Aesthetics",
-            p:"Trophy + Cash Prize",
-            money:"5,000 INR"
-          },
-          {
-            h1:"Acceleration",
-            p:"Trophy + Cash Prize",
-            money:"5,000 INR"
-          },
-          {
-            h1:"SkidPad",
-            p:"Trophy + Cash Prize",
-            money:"5,000 INR"
-          },
-          {
-            h1:"Autocross",
-            p:"Trophy + Cash Prize",
-            money:"5,000 INR"
-          },
-          {
-            h1:"Team Strategy",
-            p:"Trophy + Cash Prize",
-            money:"5,000 INR"
-          },
-          {
-            h1:"Dronacharya",
-            p:"Trophy + Cash Prize",
-            money:"5,000 INR"
-          },
-        
-        ]
+      id: "hUaPM58nSpDcAbUNXSf7",
+      title: "TNKC",
+      subtitle: "TAMILNADU KARTING CHAMPIONSHIP",
+      about: {
+        img: "",
+        title: "ABOUT TNKC",
+        description:
+          " TNKC stands for TAMILNADU KARTING CHAMPIONSHIP is powered by Mechnido's Seed and supported by the Tamilnadu Government. It is an offline event encouraging budding engineers in designing a Go-kart or E-kart with proper engineering techniques. It aims at developing appropriate designing skills and understanding of the relevant scientific theories. It is a team event. The participating teams have to develop a model of Go-kart or an E-kart, analyze and optimize virtually, under ideal conditions using modern computer applications, scientific theories and engineering calculations. The teams are then evaluated based on various relevant aspects required to design a fully functional vehicle.",
       },
-      {
-        title:"Electric",
-        data:[
+      fee: 2500,
+      why: {
+        img: "",
+        heading: " Why TNKC 2023?",
+        sibling: [
           {
-            h1:"Runner Up",
-            p:"Trophy + Cash Prize",
-            money:"15,000 INR"
+            title: "EXPERIENTIAL LEARNING",
+            description:
+              "Learning through doing, while experiential education incorporates the pedagogies and structures that support this process",
           },
           {
-            h1:"Champion",
-            p:"Trophy + Cash Prize",
-            money:"30,000 INR"
+            title: "PARTICLE EXPOSURE",
+            description:
+              "We introduce engineering students to actual workplace scenarios",
           },
           {
-            h1:"Best Endurance",
-            p:"Trophy + Cash Prize",
-            money:"10,000 INR"
+            title: "NETWORKING WITH EXPERT",
+            description:
+              "Network with experts to learn about new trends, share insights and receive",
           },
           {
-            h1:"Design & CAE",
-            p:"Trophy + Cash Prize",
-            money:"5,000 INR"
+            title: "TEAMWORK",
+            description:
+              " Characterized by effective communication, mutual respect, shared goals and objectives, and a willingness to work together to achieve those goals",
           },
           {
-            h1:"BMC",
-            p:"Trophy + Cash Prize",
-            money:"5,000 INR"
+            title: "COMPETITIVE SPIRIT",
+            description: "Desire to succeed, be the best,and win",
           },
           {
-            h1:"Innovation",
-            p:"Trophy + Cash Prize",
-            money:"5,000 INR"
+            title: "ENTREPRENEURIAL SKILLS",
+            description:
+              "Possess creative problem-solving skills, an  engineer’s mindset and a toolkit of  experience based on agile practices, multitasking and self-drive.",
           },
           {
-            h1:"Aesthetics",
-            p:"Trophy + Cash Prize",
-            money:"5,000 INR"
+            title: "CHALLENGE",
+            description:
+              "Facing challenges and ensure their honourable profession is continued into future generation",
           },
           {
-            h1:"Acceleration",
-            p:"Trophy + Cash Prize",
-            money:"5,000 INR"
+            title: "CAREER DEVELOPMENT",
+            description:
+              " Involves acquiring new skills and knowledge, setting goals, and developing strategies to achieve those goals",
+          },
+        ],
+      },
+      features: {
+        img: "",
+        sib: [
+          {
+            title: "Internships for Champions & Runner",
+            image:
+              "https://img.icons8.com/?size=512&id=Shgdq9ciSCMx&format=png",
           },
           {
-            h1:"SkidPad",
-            p:"Trophy + Cash Prize",
-            money:"5,000 INR"
+            title: "Placements for Champions & Runner ",
+            image:
+              "https://img.icons8.com/?size=512&id=Shgdq9ciSCMx&format=png",
           },
           {
-            h1:"Autocross",
-            p:"Trophy + Cash Prize",
-            money:"5,000 INR"
+            title: "Workshops will  be provided to all participants",
+            image:
+              "https://img.icons8.com/?size=512&id=Shgdq9ciSCMx&format=png",
           },
           {
-            h1:"Team Strategy",
-            p:"Trophy + Cash Prize",
-            money:"5,000 INR"
+            title: "2 Lakhs Cash Prize & Awards",
+            image:
+              "https://img.icons8.com/?size=512&id=Shgdq9ciSCMx&format=png",
           },
           {
-            h1:"Dronacharya",
-            p:"Trophy + Cash Prize",
-            money:"5,000 INR"
-          }
+            title: "20% Discount on complete Female Participants",
+            image:
+              "https://img.icons8.com/?size=512&id=Shgdq9ciSCMx&format=png",
+          },
+        ],
+      },
+      workflow: {
+        title: "Workflow",
+        data: [
+          "EVENT LAUNCH & REGISTRATION OPEN SPONCERS",
+          "OFFLINE & ONLINE MARKETING",
+          "REGISTRATION CLOSING",
+          " TEAM DETAILS COLLECTION",
+          "WORKSHOP",
+          "VIRTUAL EVENT",
+          " REPORT COLLECTION",
+          "COLLEGE LEVEL TI",
+          "TEAM PROMO VIDEO",
+          "FINAL EVENT VENUE",
+          "FACILITY ARRANGEMENTS",
+          "CLOSING CERMONY ARRANGEMENTS ",
+        ],
+      },
+      register_end: "08/15/2023",
 
-          
-        ]
-      }
-    ]}
-  }  // till here one event
+      schedule: {
+        title: "Schedule",
+        data: [
+          {
+            task: "Registration Starts",
+            date: "15.07.2023",
+          },
+          {
+            task: "Payment Last Date",
+            date: "At the Time of Registration",
+          },
+          {
+            task: "Registration Ends",
+            date: "15.08.2023",
+          },
+          {
+            task: "Team Details Submission End",
+            date: "17.08.2023",
+          },
+          {
+            task: "Workshop",
+            date: "21.08.2023",
+          },
+          {
+            task: "Phase 1 Design Report Submission Start",
+            date: "11.09.2023",
+          },
+          {
+            task: "Phase 1 Design Report Submission End",
+            date: "12.09.2023",
+          },
+          {
+            task: "Presentation Report Submission Start",
+            date: "11.09.2023",
+          },
+          {
+            task: "Presentation Report Submission End",
+            date: "12.09.2023",
+          },
+          {
+            task: "Virtual Event Day 1",
+            date: "15.09.2023",
+          },
+          {
+            task: "Virtual Event Day 2",
+            date: "16.09.2023",
+          },
+          {
+            task: "Virtual Results",
+            date: "17.09.2023",
+          },
+          {
+            task: "Final Design Report Submission Start",
+            date: "23.10.2023",
+          },
+          {
+            task: "Final Design Report Submission End",
+            date: "24.10.2023",
+          },
+          {
+            task: "College Level Technical inspection",
+            date: "25.10.2023",
+          },
+          {
+            task: "Team Promo Video Submission",
+            date: "25.10.2023",
+          },
+          {
+            task: "Final Event Starts",
+            date: "09.11.2023",
+          },
+          {
+            task: "Final Event Ends",
+            date: "11.11.2023",
+          },
+        ],
+      },
+      types: ["IC Engine", "Electric"],
+      prize: {
+        title: "Cash Prize & Awards",
+        img: "",
+        sib: [
+          {
+            img: "",
+            text: "IC Engine",
+            description: "Overall Cash Prize",
+            money: "95,000 INR",
+          },
+          {
+            img: "",
+            text: "Electric",
+            description: "Overall Cash Prize",
+            money: "80,000 INR",
+          },
+        ],
+      },
+      awards: {
+        img: "",
+        array: [
+          {
+            title: "IC Engine",
 
+            data: [
+              {
+                h1: "Runner Up",
+                p: "Trophy + Cash Prize",
+                money: "20,000 INR",
+              },
+              {
+                h1: "Champion",
+                p: "Trophy + Cash Prize",
+                money: "40,000 INR",
+              },
+              {
+                h1: "Best Endurance",
+                p: "Trophy + Cash Prize",
+                money: "10,000 INR",
+              },
+              {
+                h1: "Design & CAE",
+                p: "Trophy + Cash Prize",
+                money: "5,000 INR",
+              },
+              {
+                h1: "BMC",
+                p: "Trophy + Cash Prize",
+                money: "5,000 INR",
+              },
+              {
+                h1: "Innovation",
+                p: "Trophy + Cash Prize",
+                money: "5,000 INR",
+              },
+              {
+                h1: "Aesthetics",
+                p: "Trophy + Cash Prize",
+                money: "5,000 INR",
+              },
+              {
+                h1: "Acceleration",
+                p: "Trophy + Cash Prize",
+                money: "5,000 INR",
+              },
+              {
+                h1: "SkidPad",
+                p: "Trophy + Cash Prize",
+                money: "5,000 INR",
+              },
+              {
+                h1: "Autocross",
+                p: "Trophy + Cash Prize",
+                money: "5,000 INR",
+              },
+              {
+                h1: "Team Strategy",
+                p: "Trophy + Cash Prize",
+                money: "5,000 INR",
+              },
+              {
+                h1: "Dronacharya",
+                p: "Trophy + Cash Prize",
+                money: "5,000 INR",
+              },
+            ],
+          },
+          {
+            title: "Electric",
+            data: [
+              {
+                h1: "Runner Up",
+                p: "Trophy + Cash Prize",
+                money: "15,000 INR",
+              },
+              {
+                h1: "Champion",
+                p: "Trophy + Cash Prize",
+                money: "30,000 INR",
+              },
+              {
+                h1: "Best Endurance",
+                p: "Trophy + Cash Prize",
+                money: "10,000 INR",
+              },
+              {
+                h1: "Design & CAE",
+                p: "Trophy + Cash Prize",
+                money: "5,000 INR",
+              },
+              {
+                h1: "BMC",
+                p: "Trophy + Cash Prize",
+                money: "5,000 INR",
+              },
+              {
+                h1: "Innovation",
+                p: "Trophy + Cash Prize",
+                money: "5,000 INR",
+              },
+              {
+                h1: "Aesthetics",
+                p: "Trophy + Cash Prize",
+                money: "5,000 INR",
+              },
+              {
+                h1: "Acceleration",
+                p: "Trophy + Cash Prize",
+                money: "5,000 INR",
+              },
+              {
+                h1: "SkidPad",
+                p: "Trophy + Cash Prize",
+                money: "5,000 INR",
+              },
+              {
+                h1: "Autocross",
+                p: "Trophy + Cash Prize",
+                money: "5,000 INR",
+              },
+              {
+                h1: "Team Strategy",
+                p: "Trophy + Cash Prize",
+                money: "5,000 INR",
+              },
+              {
+                h1: "Dronacharya",
+                p: "Trophy + Cash Prize",
+                money: "5,000 INR",
+              },
+            ],
+          },
+        ],
+      },
+    }, // till here one event
+  ];
 
-]
+  const quotations = [
+    {
+      quote:
+        "Life isn’t about getting and having, it’s about giving and being.",
+      author: "Kevin Kruse",
+    },
+    {
+      quote:
+        "Whatever the mind of man can conceive and believe, it can achieve.",
+      author: "Napoleon Hill",
+    },
+    {
+      quote: "Strive not to be a success, but rather to be of value.",
+      author: "Albert Einstein",
+    },
+    {
+      quote:
+        "Two roads diverged in a wood, and I—I took the one less traveled by, And that has made all the difference.",
+      author: "Robert Frost",
+    },
+    {
+      quote: "I attribute my success to this: I never gave or took any excuse.",
+      author: "Florence Nightingale",
+    },
+    {
+      quote: "You miss 100% of the shots you don’t take.",
+      author: "Wayne Gretzky",
+    },
 
-const quotations=
-[
+    {
+      quote:
+        "The most difficult thing is the decision to act, the rest is merely tenacity.",
+      author: "Amelia Earhart",
+    },
+    {
+      quote: "Every strike brings me closer to the next home run.",
+      author: "Babe Ruth",
+    },
+    {
+      quote:
+        "Definiteness of purpose is the starting point of all achievement.",
+      author: "W. Clement Stone",
+    },
+    {
+      quote:
+        "We must balance conspicuous consumption with conscious capitalism.",
+      author: "Kevin Kruse",
+    },
+    {
+      quote:
+        "Life is what happens to you while you’re busy making other plans.",
+      author: "John Lennon",
+    },
+    {
+      quote: "We become what we think about.",
+      author: "Earl Nightingale",
+    },
 
-  {
-         quote:"Life isn’t about getting and having, it’s about giving and being.",
-         author:"Kevin Kruse"
-        },
-  {
-         quote:"Whatever the mind of man can conceive and believe, it can achieve.",author:"Napoleon Hill"},
-  {
-         quote:"Strive not to be a success, but rather to be of value.",author:"Albert Einstein"},
-  {
-         quote:"Two roads diverged in a wood, and I—I took the one less traveled by, And that has made all the difference.",author:"Robert Frost"},
-  {
-         quote:"I attribute my success to this: I never gave or took any excuse.",author:"Florence Nightingale"},
-  {
-         quote:"You miss 100% of the shots you don’t take.",author:"Wayne Gretzky"},
-  
-  {
-         quote:"The most difficult thing is the decision to act, the rest is merely tenacity.",author:"Amelia Earhart"},
-  {
-         quote:"Every strike brings me closer to the next home run.",author:"Babe Ruth"},
-  {
-         quote:"Definiteness of purpose is the starting point of all achievement.",author:"W. Clement Stone"},
-  {
-         quote:"We must balance conspicuous consumption with conscious capitalism.",author:"Kevin Kruse"},
-  {
-         quote:"Life is what happens to you while you’re busy making other plans.",author:"John Lennon"},
-  {
-         quote:"We become what we think about.",author:"Earl Nightingale"},
-  
-  {
-         quote:"Life is 10% what happens to me and 90% of how I react to it.",author:"Charles Swindoll"},
-  {
-         quote:"The most common way people give up their power is by thinking they don’t have any.",author:"Alice Walker"},
-  {
-         quote:"The mind is everything. What you think you become.",author:"Buddha"},
-  {
-         quote:"The best time to plant a tree was 20 years ago. The second best time is now.",author:"Chinese Proverb"},
-  {
-         quote:"An unexamined life is not worth living.",author:"Socrates"},
-  {
-         quote:"Eighty percent of success is showing up.",author:"Woody Allen"},
-  {
-         quote:"Your time is limited, so don’t waste it living someone else’s life.",author:"Steve Jobs"},
-  {
-         quote:"Winning isn’t everything, but wanting to win is.",author:"Vince Lombardi"},
-  {
-         quote:"I am not a product of my circumstances. I am a product of my decisions.",author:"Stephen Covey"},
-  {
-         quote:"Every child is an artist.  The problem is how to remain an artist once he grows up.",author:"Pablo Picasso"},
-  {
-         quote:"You can never cross the ocean until you have the courage to lose sight of the shore.",author:"Christopher Columbus"},
-  {
-         quote:"I’ve learned that people will forget what you said, people will forget what you did, but people will never forget how you made them feel.",author:"Maya Angelou"},
-  {
-         quote:"Either you run the day, or the day runs you.",author:"Jim Rohn"},
-  {
-         quote:"Whether you think you can or you think you can’t, you’re right.",author:"Henry Ford"},
-  {
-         quote:"The two most important days in your life are the day you are born and the day you find out why.",author:"Mark Twain"},
-  {
-         quote:"Whatever you can do, or dream you can, begin it.  Boldness has genius, power and magic in it.",author:"Johann Wolfgang von Goethe"},
-  {
-         quote:"The best revenge is massive success.",author:"Frank Sinatra"},
-  {
-         quote:"People often say that motivation doesn’t last. Well, neither does bathing.  That’s why we recommend it daily.",author:"Zig Ziglar"},
-  {
-         quote:"Life shrinks or expands in proportion to one’s courage.",author:"Anais Nin"},
-  {
-         quote:"If you hear a voice within you say “you cannot paint,” then by all means paint and that voice will be silenced.",author:"Vincent Van Gogh"},
-  {
-         quote:"There is only one way to avoid criticism: do nothing, say nothing, and be nothing.",author:"Aristotle"},
-  {
-         quote:"Ask and it will be given to you; search, and you will find; knock and the door will be opened for you.",author:"Jesus"},
-  {
-         quote:"The only person you are destined to become is the person you decide to be.",author:"Ralph Waldo Emerson"},
-  {
-         quote:"Go confidently in the direction of your dreams.  Live the life you have imagined.",author:"Henry David Thoreau"},
-  {
-         quote:"When I stand before God at the end of my life, I would hope that I would not have a single bit of talent left and could say, I used everything you gave me.",author:"Erma Bombeck"},
-  {
-         quote:"Few things can help an individual more than to place responsibility on him, and to let him know that you trust him.",author:"Booker T. Washington"},
-  {
-         quote:"Certain things catch your eye, but pursue only those that capture the heart.",author:" Ancient Indian Proverb"},
-  {
-         quote:"Believe you can and you’re halfway there.",author:"Theodore Roosevelt"},
-  {
-         quote:"Everything you’ve ever wanted is on the other side of fear.",author:"George Addair"},
-  {
-         quote:"We can easily forgive a child who is afraid of the dark; the real tragedy of life is when men are afraid of the light.",author:"Plato"},
-  {
-         quote:"Teach thy tongue to say, “I do not know,” and thous shalt progress.",author:"Maimonides"},
-  {
-         quote:"Start where you are. Use what you have.  Do what you can.",author:"Arthur Ashe"},
-  {
-         quote:"When I was 5 years old, my mother always told me that happiness was the key to life.  When I went to school, they asked me what I wanted to be when I grew up.  I wrote down ‘happy’.  They told me I didn’t understand the assignment, and I told them they didn’t understand life.",author:"John Lennon"},
-  {
-         quote:"Fall seven times and stand up eight.",author:"Japanese Proverb"},
-  {
-         quote:"When one door of happiness closes, another opens, but often we look so long at the closed door that we do not see the one that has been opened for us.",author:"Helen Keller"},
-  {
-         quote:"Everything has beauty, but not everyone can see.",author:"Confucius"},
-  {
-         quote:"How wonderful it is that nobody need wait a single moment before starting to improve the world.",author:"Anne Frank"},
-  {
-         quote:"When I let go of what I am, I become what I might be.",author:"Lao Tzu"},
-  {
-         quote:"Life is not measured by the number of breaths we take, but by the moments that take our breath away.",author:"Maya Angelou"},
-  {
-         quote:"Happiness is not something readymade.  It comes from your own actions.",author:"Dalai Lama"},
-  {
-         quote:"If you’re offered a seat on a rocket ship, don’t ask what seat! Just get on.",author:"Sheryl Sandberg"},
-  {
-         quote:"First, have a definite, clear practical ideal; a goal, an objective. Second, have the necessary means to achieve your ends; wisdom, money, materials, and methods. Third, adjust all your means to that end.",author:"Aristotle"},
-  {
-         quote:"If the wind will not serve, take to the oars.",author:"Latin Proverb"},
-  {
-         quote:"You can’t fall if you don’t climb.  But there’s no joy in living your whole life on the ground.",author:"Unknown"},
-  {
-         quote:"We must believe that we are gifted for something, and that this thing, at whatever cost, must be attained.",author:"Marie Curie"},
-  {
-         quote:"Too many of us are not living our dreams because we are living our fears.",author:"Les Brown"},
-  {
-         quote:"Challenges are what make life interesting and overcoming them is what makes life meaningful.",author:"Joshua J. Marine"},
-  {
-         quote:"If you want to lift yourself up, lift up someone else.",author:"Booker T. Washington"},
-  {
-         quote:"I have been impressed with the urgency of doing. Knowing is not enough; we must apply. Being willing is not enough; we must do.",author:"Leonardo da Vinci"},
-  {
-         quote:"Limitations live only in our minds.  But if we use our imaginations, our possibilities become limitless.",author:"Jamie Paolinetti"},
-  {
-         quote:"You take your life in your own hands, and what happens? A terrible thing, no one to blame.",author:"Erica Jong"},
-  {
-         quote:"What’s money? A man is a success if he gets up in the morning and goes to bed at night and in between does what he wants to do.",author:"Bob Dylan"},
-  {
-         quote:"I didn’t fail the test. I just found 100 ways to do it wrong.",author:"Benjamin Franklin"},
-  {
-         quote:"In order to succeed, your desire for success should be greater than your fear of failure.",author:"Bill Cosby"},
-  {
-         quote:"A person who never made a mistake never tried anything new.",author:" Albert Einstein"},
-  {
-         quote:"The person who says it cannot be done should not interrupt the person who is doing it.",author:"Chinese Proverb"},
-  {
-         quote:"There are no traffic jams along the extra mile.",author:"Roger Staubach"},
-  {
-         quote:"It is never too late to be what you might have been.",author:"George Eliot"},
-  {
-         quote:"You become what you believe.",author:"Oprah Winfrey"},
-  {
-         quote:"I would rather die of passion than of boredom.",author:"Vincent van Gogh"},
-  {
-         quote:"A truly rich man is one whose children run into his arms when his hands are empty.",author:"Unknown"},
-  {
-         quote:"It is not what you do for your children, but what you have taught them to do for themselves, that will make them successful human beings.",author:"Ann Landers"},
-  {
-         quote:"If you want your children to turn out well, spend twice as much time with them, and half as much money.",author:"Abigail Van Buren"},
-  {
-         quote:"Build your own dreams, or someone else will hire you to build theirs.",author:"Farrah Gray"},
-  {
-         quote:"The battles that count aren’t the ones for gold medals. The struggles within yourself–the invisible battles inside all of us–that’s where it’s at.",author:"Jesse Owens"},
-  {
-         quote:"Education costs money.  But then so does ignorance.",author:"Sir Claus Moser"},
-  {
-         quote:"I have learned over the years that when one’s mind is made up, this diminishes fear.",author:"Rosa Parks"},
-  {
-         quote:"It does not matter how slowly you go as long as you do not stop.",author:"Confucius"},
- 
-  {
-         quote:"Remember that not getting what you want is sometimes a wonderful stroke of luck.",author:"Dalai Lama"},
-  {
-         quote:"You can’t use up creativity.  The more you use, the more you have.",author:"Maya Angelou"},
-  {
-         quote:"Dream big and dare to fail.",author:"Norman Vaughan"},
-  {
-         quote:"Our lives begin to end the day we become silent about things that matter.",author:"Martin Luther King Jr."},
-  {
-         quote:"Do what you can, where you are, with what you have.",author:"Teddy Roosevelt"},
-  {
-         quote:"If you do what you’ve always done, you’ll get what you’ve always gotten.",author:"Tony Robbins"},
-  {
-         quote:"Dreaming, after all, is a form of planning.",author:"Gloria Steinem"},
-  {
-         quote:"It’s your place in the world; it’s your life. Go on and do all you can with it, and make it the life you want to live.",author:"Mae Jemison"},
-  {
-         quote:"You may be disappointed if you fail, but you are doomed if you don’t try.",author:"Beverly Sills"},
-  {
-         quote:"Remember no one can make you feel inferior without your consent.",author:"Eleanor Roosevelt"},
-  {
-         quote:"Life is what we make it, always has been, always will be.",author:"Grandma Moses"},
-  {
-         quote:"The question isn’t who is going to let me; it’s who is going to stop me.",author:"Ayn Rand"},
-  {
-         quote:"When everything seems to be going against you, remember that the airplane takes off against the wind, not with it.",author:"Henry Ford"},
-  {
-         quote:"It’s not the years in your life that count. It’s the life in your years.",author:"Abraham Lincoln"},
-  {
-         quote:"Change your thoughts and you change your world.",author:"Norman Vincent Peale"},
-  {
-         quote:"Either write something worth reading or do something worth writing.",author:"Benjamin Franklin"},
-  {
-         quote:"Nothing is impossible, the word itself says, “I’m possible!”",author:"–Audrey Hepburn"},
-  {
-         quote:"The only way to do great work is to love what you do.",author:"Steve Jobs"},
-  {
-         quote:"If you can dream it, you can achieve it.",author:"Zig Ziglar"}
-  ]
+    {
+      quote: "Life is 10% what happens to me and 90% of how I react to it.",
+      author: "Charles Swindoll",
+    },
+    {
+      quote:
+        "The most common way people give up their power is by thinking they don’t have any.",
+      author: "Alice Walker",
+    },
+    {
+      quote: "The mind is everything. What you think you become.",
+      author: "Buddha",
+    },
+    {
+      quote:
+        "The best time to plant a tree was 20 years ago. The second best time is now.",
+      author: "Chinese Proverb",
+    },
+    {
+      quote: "An unexamined life is not worth living.",
+      author: "Socrates",
+    },
+    {
+      quote: "Eighty percent of success is showing up.",
+      author: "Woody Allen",
+    },
+    {
+      quote:
+        "Your time is limited, so don’t waste it living someone else’s life.",
+      author: "Steve Jobs",
+    },
+    {
+      quote: "Winning isn’t everything, but wanting to win is.",
+      author: "Vince Lombardi",
+    },
+    {
+      quote:
+        "I am not a product of my circumstances. I am a product of my decisions.",
+      author: "Stephen Covey",
+    },
+    {
+      quote:
+        "Every child is an artist.  The problem is how to remain an artist once he grows up.",
+      author: "Pablo Picasso",
+    },
+    {
+      quote:
+        "You can never cross the ocean until you have the courage to lose sight of the shore.",
+      author: "Christopher Columbus",
+    },
+    {
+      quote:
+        "I’ve learned that people will forget what you said, people will forget what you did, but people will never forget how you made them feel.",
+      author: "Maya Angelou",
+    },
+    {
+      quote: "Either you run the day, or the day runs you.",
+      author: "Jim Rohn",
+    },
+    {
+      quote: "Whether you think you can or you think you can’t, you’re right.",
+      author: "Henry Ford",
+    },
+    {
+      quote:
+        "The two most important days in your life are the day you are born and the day you find out why.",
+      author: "Mark Twain",
+    },
+    {
+      quote:
+        "Whatever you can do, or dream you can, begin it.  Boldness has genius, power and magic in it.",
+      author: "Johann Wolfgang von Goethe",
+    },
+    {
+      quote: "The best revenge is massive success.",
+      author: "Frank Sinatra",
+    },
+    {
+      quote:
+        "People often say that motivation doesn’t last. Well, neither does bathing.  That’s why we recommend it daily.",
+      author: "Zig Ziglar",
+    },
+    {
+      quote: "Life shrinks or expands in proportion to one’s courage.",
+      author: "Anais Nin",
+    },
+    {
+      quote:
+        "If you hear a voice within you say “you cannot paint,” then by all means paint and that voice will be silenced.",
+      author: "Vincent Van Gogh",
+    },
+    {
+      quote:
+        "There is only one way to avoid criticism: do nothing, say nothing, and be nothing.",
+      author: "Aristotle",
+    },
+    {
+      quote:
+        "Ask and it will be given to you; search, and you will find; knock and the door will be opened for you.",
+      author: "Jesus",
+    },
+    {
+      quote:
+        "The only person you are destined to become is the person you decide to be.",
+      author: "Ralph Waldo Emerson",
+    },
+    {
+      quote:
+        "Go confidently in the direction of your dreams.  Live the life you have imagined.",
+      author: "Henry David Thoreau",
+    },
+    {
+      quote:
+        "When I stand before God at the end of my life, I would hope that I would not have a single bit of talent left and could say, I used everything you gave me.",
+      author: "Erma Bombeck",
+    },
+    {
+      quote:
+        "Few things can help an individual more than to place responsibility on him, and to let him know that you trust him.",
+      author: "Booker T. Washington",
+    },
+    {
+      quote:
+        "Certain things catch your eye, but pursue only those that capture the heart.",
+      author: " Ancient Indian Proverb",
+    },
+    {
+      quote: "Believe you can and you’re halfway there.",
+      author: "Theodore Roosevelt",
+    },
+    {
+      quote: "Everything you’ve ever wanted is on the other side of fear.",
+      author: "George Addair",
+    },
+    {
+      quote:
+        "We can easily forgive a child who is afraid of the dark; the real tragedy of life is when men are afraid of the light.",
+      author: "Plato",
+    },
+    {
+      quote:
+        "Teach thy tongue to say, “I do not know,” and thous shalt progress.",
+      author: "Maimonides",
+    },
+    {
+      quote: "Start where you are. Use what you have.  Do what you can.",
+      author: "Arthur Ashe",
+    },
+    {
+      quote:
+        "When I was 5 years old, my mother always told me that happiness was the key to life.  When I went to school, they asked me what I wanted to be when I grew up.  I wrote down ‘happy’.  They told me I didn’t understand the assignment, and I told them they didn’t understand life.",
+      author: "John Lennon",
+    },
+    {
+      quote: "Fall seven times and stand up eight.",
+      author: "Japanese Proverb",
+    },
+    {
+      quote:
+        "When one door of happiness closes, another opens, but often we look so long at the closed door that we do not see the one that has been opened for us.",
+      author: "Helen Keller",
+    },
+    {
+      quote: "Everything has beauty, but not everyone can see.",
+      author: "Confucius",
+    },
+    {
+      quote:
+        "How wonderful it is that nobody need wait a single moment before starting to improve the world.",
+      author: "Anne Frank",
+    },
+    {
+      quote: "When I let go of what I am, I become what I might be.",
+      author: "Lao Tzu",
+    },
+    {
+      quote:
+        "Life is not measured by the number of breaths we take, but by the moments that take our breath away.",
+      author: "Maya Angelou",
+    },
+    {
+      quote:
+        "Happiness is not something readymade.  It comes from your own actions.",
+      author: "Dalai Lama",
+    },
+    {
+      quote:
+        "If you’re offered a seat on a rocket ship, don’t ask what seat! Just get on.",
+      author: "Sheryl Sandberg",
+    },
+    {
+      quote:
+        "First, have a definite, clear practical ideal; a goal, an objective. Second, have the necessary means to achieve your ends; wisdom, money, materials, and methods. Third, adjust all your means to that end.",
+      author: "Aristotle",
+    },
+    {
+      quote: "If the wind will not serve, take to the oars.",
+      author: "Latin Proverb",
+    },
+    {
+      quote:
+        "You can’t fall if you don’t climb.  But there’s no joy in living your whole life on the ground.",
+      author: "Unknown",
+    },
+    {
+      quote:
+        "We must believe that we are gifted for something, and that this thing, at whatever cost, must be attained.",
+      author: "Marie Curie",
+    },
+    {
+      quote:
+        "Too many of us are not living our dreams because we are living our fears.",
+      author: "Les Brown",
+    },
+    {
+      quote:
+        "Challenges are what make life interesting and overcoming them is what makes life meaningful.",
+      author: "Joshua J. Marine",
+    },
+    {
+      quote: "If you want to lift yourself up, lift up someone else.",
+      author: "Booker T. Washington",
+    },
+    {
+      quote:
+        "I have been impressed with the urgency of doing. Knowing is not enough; we must apply. Being willing is not enough; we must do.",
+      author: "Leonardo da Vinci",
+    },
+    {
+      quote:
+        "Limitations live only in our minds.  But if we use our imaginations, our possibilities become limitless.",
+      author: "Jamie Paolinetti",
+    },
+    {
+      quote:
+        "You take your life in your own hands, and what happens? A terrible thing, no one to blame.",
+      author: "Erica Jong",
+    },
+    {
+      quote:
+        "What’s money? A man is a success if he gets up in the morning and goes to bed at night and in between does what he wants to do.",
+      author: "Bob Dylan",
+    },
+    {
+      quote: "I didn’t fail the test. I just found 100 ways to do it wrong.",
+      author: "Benjamin Franklin",
+    },
+    {
+      quote:
+        "In order to succeed, your desire for success should be greater than your fear of failure.",
+      author: "Bill Cosby",
+    },
+    {
+      quote: "A person who never made a mistake never tried anything new.",
+      author: " Albert Einstein",
+    },
+    {
+      quote:
+        "The person who says it cannot be done should not interrupt the person who is doing it.",
+      author: "Chinese Proverb",
+    },
+    {
+      quote: "There are no traffic jams along the extra mile.",
+      author: "Roger Staubach",
+    },
+    {
+      quote: "It is never too late to be what you might have been.",
+      author: "George Eliot",
+    },
+    {
+      quote: "You become what you believe.",
+      author: "Oprah Winfrey",
+    },
+    {
+      quote: "I would rather die of passion than of boredom.",
+      author: "Vincent van Gogh",
+    },
+    {
+      quote:
+        "A truly rich man is one whose children run into his arms when his hands are empty.",
+      author: "Unknown",
+    },
+    {
+      quote:
+        "It is not what you do for your children, but what you have taught them to do for themselves, that will make them successful human beings.",
+      author: "Ann Landers",
+    },
+    {
+      quote:
+        "If you want your children to turn out well, spend twice as much time with them, and half as much money.",
+      author: "Abigail Van Buren",
+    },
+    {
+      quote:
+        "Build your own dreams, or someone else will hire you to build theirs.",
+      author: "Farrah Gray",
+    },
+    {
+      quote:
+        "The battles that count aren’t the ones for gold medals. The struggles within yourself–the invisible battles inside all of us–that’s where it’s at.",
+      author: "Jesse Owens",
+    },
+    {
+      quote: "Education costs money.  But then so does ignorance.",
+      author: "Sir Claus Moser",
+    },
+    {
+      quote:
+        "I have learned over the years that when one’s mind is made up, this diminishes fear.",
+      author: "Rosa Parks",
+    },
+    {
+      quote: "It does not matter how slowly you go as long as you do not stop.",
+      author: "Confucius",
+    },
 
-  const[quotes, setQuote] = useState(quotations[Math.ceil(Math.random()*100)]);
+    {
+      quote:
+        "Remember that not getting what you want is sometimes a wonderful stroke of luck.",
+      author: "Dalai Lama",
+    },
+    {
+      quote:
+        "You can’t use up creativity.  The more you use, the more you have.",
+      author: "Maya Angelou",
+    },
+    {
+      quote: "Dream big and dare to fail.",
+      author: "Norman Vaughan",
+    },
+    {
+      quote:
+        "Our lives begin to end the day we become silent about things that matter.",
+      author: "Martin Luther King Jr.",
+    },
+    {
+      quote: "Do what you can, where you are, with what you have.",
+      author: "Teddy Roosevelt",
+    },
+    {
+      quote:
+        "If you do what you’ve always done, you’ll get what you’ve always gotten.",
+      author: "Tony Robbins",
+    },
+    {
+      quote: "Dreaming, after all, is a form of planning.",
+      author: "Gloria Steinem",
+    },
+    {
+      quote:
+        "It’s your place in the world; it’s your life. Go on and do all you can with it, and make it the life you want to live.",
+      author: "Mae Jemison",
+    },
+    {
+      quote:
+        "You may be disappointed if you fail, but you are doomed if you don’t try.",
+      author: "Beverly Sills",
+    },
+    {
+      quote: "Remember no one can make you feel inferior without your consent.",
+      author: "Eleanor Roosevelt",
+    },
+    {
+      quote: "Life is what we make it, always has been, always will be.",
+      author: "Grandma Moses",
+    },
+    {
+      quote:
+        "The question isn’t who is going to let me; it’s who is going to stop me.",
+      author: "Ayn Rand",
+    },
+    {
+      quote:
+        "When everything seems to be going against you, remember that the airplane takes off against the wind, not with it.",
+      author: "Henry Ford",
+    },
+    {
+      quote:
+        "It’s not the years in your life that count. It’s the life in your years.",
+      author: "Abraham Lincoln",
+    },
+    {
+      quote: "Change your thoughts and you change your world.",
+      author: "Norman Vincent Peale",
+    },
+    {
+      quote:
+        "Either write something worth reading or do something worth writing.",
+      author: "Benjamin Franklin",
+    },
+    {
+      quote: "Nothing is impossible, the word itself says, “I’m possible!”",
+      author: "–Audrey Hepburn",
+    },
+    {
+      quote: "The only way to do great work is to love what you do.",
+      author: "Steve Jobs",
+    },
+    {
+      quote: "If you can dream it, you can achieve it.",
+      author: "Zig Ziglar",
+    },
+  ];
+
+  const [quotes, setQuote] = useState(
+    quotations[Math.ceil(Math.random() * 100)]
+  );
 
   return (
     <StoreContext.Provider
@@ -4620,13 +5218,21 @@ const quotations=
         filter,
         setFilter,
         eventList,
-        courseIndex, setCourseIndex,
-        eventIndex, setEventIndex,
+        courseIndex,
+        setCourseIndex,
+        eventIndex,
+        setEventIndex,
         quotations,
-        quotes, setQuote,
-        metrics, setMetrics, feedback, setFeedback,
-        theme, setTheme,
-        check, setCheck
+        quotes,
+        setQuote,
+        metrics,
+        setMetrics,
+        feedback,
+        setFeedback,
+        theme,
+        setTheme,
+        check,
+        setCheck,
       }}
     >
       {children}

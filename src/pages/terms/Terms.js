@@ -233,7 +233,7 @@ function Terms() {
             return (
               <li>
                 <h2>
-                  <span class="material-symbols-outlined">contract_edit</span>
+                  {num1+1}.
                   {item.head}
                 </h2>
                 <ul className="sub-topic">

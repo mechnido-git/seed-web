@@ -200,11 +200,6 @@ function PrivacyPolicy() {
         }
     }, [loading]);
 
-    const showSubs = (e) => {
-        console.log(e.target.parentElement);
-        e.target.parentElement.classList.toggle("show");
-    };
-
     return (
         <>
             <HomeNav
@@ -223,13 +218,11 @@ function PrivacyPolicy() {
                     {policy.topic.map((item, num1) => {
                         return (
                             <li>
-                                <h2><span class="material-symbols-outlined">
-                                    receipt_long
-                                </span>{item.head}</h2>
+                                <h2>{num1+1}.{item.head}</h2>
                                 <ul className="sub-topic">
                                     {item.sub_topic.map((item, num2) => (
-                                        <li className="show">
-                                            {item.sub_head && <h3 onClick={null}>{item.sub_head}</h3>}
+                                        <li >
+                                            {item.sub_head && <h3 >{item.sub_head}</h3>}
                                             <div className="paras">
                                                 {item.paras.map(item => <>
                                                     <p>{item}</p>
