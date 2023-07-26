@@ -4390,6 +4390,385 @@ const Store = ({ children }) => {
         },
       ],
     },
+
+    {
+      id: 14,
+      name: "COMPLETE HTML BOOTCAMP",
+      thumbnail: "../../images/course.jpg",
+      slide: s3,
+      order: 14,
+
+      description:
+        "The HTML (HyperText Markup Language) course is designed to provide participants with a comprehensive understanding of the fundamental concepts of web development using HTML. ",
+      description_L: [
+        " The HTML (HyperText Markup Language) course is designed to provide participants with a comprehensive understanding of the fundamental concepts of web development using HTML.",
+        "In this course, participants will learn how to create and structure web pages using HTML to build the foundation of websites and web applications. You will learn how to create web pages and gain an in-depth understanding of various HTML elements, attributes, and best practices.",
+        "By the end of the course, you'll be well-equipped to build and design your own websites using HTML.",
+        "This Program offers students to get clear insights of HTML by Practical training which will be handled by Mechnido's faculty and industrial experts.",
+        "In 50+ hours sessions, students will get an overview of the concepts and potential opportunities in the field. Moreover, students will get certificates from Mechnido.",
+      ],
+      duration: [
+        "Flexible Timing",
+        "Weekend : 2 Sessions",
+        "    Saturday & Sunday - 4 Hrs",
+        "Weekday : 2 Sessions (Any 2 Days)",
+        "    Monday to Friday - 4 Hrs",
+      ],
+      certificate: {
+        title: "Requirements for Certification",
+        imgURL:
+          "https://firebasestorage.googleapis.com/v0/b/seed-25898.appspot.com/o/courses%2FWQr8ckDkU1WtOt5Vtnxl%2Fcertificates%2Fcert.jpg?alt=media&token=8b0c14ae-7155-4a85-908f-64d6c28fac5d",
+        sub: [
+          "An individual enrolled in the program should complete the training within the program's time limit.",
+          "To acquire the certification, you must complete all the course's assignments, tests, case studies, projects, and other criteria. ",
+          "To acquire certification, the student must show up to every session that the instructor provides.",
+        ],
+      },
+      category: "SOFTWARE",
+      fee: [
+        {
+          id: 0,
+          type: "One time",
+          price: 2500,
+        },
+      ],
+      schedule: [
+        {
+          name: "INTRODUCTION TO HTML",
+          topics: [
+            {
+              name: "Welcome and Course Introduction",
+              SUB: [
+                "Introduction to the facilitator and course objectives",
+                "Overview of the session agenda",
+              ],
+            },
+
+            {
+              name: "Introduction to HTML",
+              SUB: [
+                "Understanding the role of HTML in web development",
+                "HTML version history",
+              ],
+            },
+            {
+              name: "Structure of an HTML Document",
+              SUB: [
+                "The basic structure of an HTML document",
+                "The DOCTYPE declaration,Head and body sections in HTML",
+              ],
+            },
+            {
+              name: "Basic HTML Tags",
+              SUB: [
+                "Exploring essential HTML tags (e.g., <html>, <head>, <title>, <body>)",
+                "Using meta tags for page metadata",
+              ],
+            },
+            {
+              name: "HTML Formatting",
+              SUB: [
+                "Formatting text using tags like <strong>, <em>, <u>, <s>, etc.",
+                "Creating line breaks with <br> tag",
+              ],
+            },
+            {
+              name: "Creating Headings and Paragraphs",
+              SUB: [
+                "Using heading tags (<h1> to <h6>) for different levels of headings",
+                "Structuring content with <p> tags for paragraphs",
+              ],
+            },
+            {
+              name: "Working with Anchors and Hyperlinks",
+              SUB: [
+                "Creating hyperlinks with the <a> tag",
+                "Linking to external websites and internal pages",
+                "Utilizing anchor tags for smooth scrolling within a page",
+              ],
+            },
+            {
+              name: "Building Tables to Organize Data",
+              SUB: [
+                "Creating tables using <table> and related tags (<tr>, <th>, <td>)",
+                "Customizing table appearance with attributes",
+              ],
+            },
+            {
+              name: "Creating Ordered and Unordered Lists",
+              SUB: [
+                "Organizing content with ordered (numbered) and unordered (bullet) lists",
+                "Nesting lists for hierarchical information.",
+              ],
+            },
+            {
+              name: "Implementing Description Lists",
+              SUB: [
+                "Creating description lists with <dl>, <dt>, and <dd> tags",
+                "Displaying term and description pairs",
+              ],
+            },
+          ],
+        }, //1st ps ends
+        {
+          name: "HTML HEAD AND LAYOUT",
+          topics: [
+            {
+              name: "The Role of the HTML Head Section",
+              SUB: [
+                "Reviewing the purpose and importance of the head section",
+                "Understanding the role of the head elements (e.g., <meta>, <title>, <link>, etc.)",
+              ],
+            },
+            {
+              name: "Working with Meta Tags",
+              SUB: [
+                "Exploring common meta tags (e.g., description, keywords, author, charset, etc.)",
+                "Setting up the viewport for mobile devices",
+              ],
+            },
+            {
+              name: "Defining the Viewport for Responsive Design",
+              SUB: [
+                "Understanding the concept of responsive design",
+                "Configuring the viewport meta tag for different screen sizes",
+              ],
+            },
+            {
+              name: "Including CSS and JavaScript in HTML",
+              SUB: [
+                "Introduction to Cascading Style Sheets (CSS) and JavaScript",
+                "Linking external CSS files using the <link> tag",
+                "Embedding JavaScript code in HTML with the <script> tag",
+              ],
+            },
+            {
+              name: "Working with External Files and File Paths",
+              SUB: [
+                "Organizing project files and directories",
+                "Specifying relative and absolute file paths",
+              ],
+            },
+            {
+              name: "Using HTML to Create a Basic Layout",
+              SUB: [
+                "Designing the structure of a basic web page layout",
+                "Implementing header, navigation, content, and footer sections",
+              ],
+            },
+            {
+              name: "Implementing Responsive Design Principles",
+              SUB: [
+                "Understanding media queries for responsive layouts",
+                "Adapting the layout for different screen sizes (mobile, tablet, desktop)",
+                "Using CSS flexbox and grid for responsive design",
+              ],
+            },
+          ],
+        }, //2nd part end
+        {
+          name: "ADVANCED HTML ELEMENTS",
+          topics: [
+            {
+              name: "Embedding Multimedia in HTML",
+              SUB: [
+                "Using the <audio> tag to embed audio files",
+                "Incorporating video content with the <video> tag",
+                "Controlling playback and appearance with attributes",
+              ],
+            },
+            {
+              name: "Creating Progress Bars and Meters",
+              SUB: [
+                "Utilizing the <progress> tag for progress bars",
+                "Displaying measurements with the <meter> tag",
+              ],
+            },
+            {
+              name: "Utilizing Data Tags and Lists",
+              SUB: [
+                "Working with the <data> tag to store machine-readable data",
+                "Creating nested lists for complex data structures",
+              ],
+            },
+            {
+              name: "Building Headers and Footers for Sections",
+              SUB: [
+                "Understanding the semantic importance of <header> & <footer> tags",
+                "Using these tags to define header and footer sections within a web page",
+              ],
+            },
+            {
+              name: "Organizing Content with Article and Aside Tags",
+              SUB: [
+                "Implementing the <article> tag for standalone content",
+                "Using the <aside> tag for related, but non-essential, content",
+              ],
+            },
+            {
+              name: "Creating Interactive Dialogs with HTML",
+              SUB: [
+                "Utilizing the <dialog> tag for interactive dialogs and modal windows",
+                "Handling user interactions and actions",
+              ],
+            },
+            {
+              name: "Working with Figures and Captions",
+              SUB: [
+                "Using the <figure> and <figcaption> tags to associate captions with images and multimedia",
+                "Enhancing accessibility and user experience with captions",
+              ],
+            },
+            {
+              name: "Understanding Semantic Elements",
+              SUB: [
+                "Reviewing the importance of semantic HTML elements for accessibility and SEO",
+                "Implementing elements like <nav>, <main>, <section>, etc.",
+              ],
+            },
+            {
+              name: "Using Time, Main, Wbr, Canvas, & SVG Elements",
+              SUB: [
+                "Incorporating the <time> tag to represent dates and times",
+                "Utilizing the <main> tag to indicate the main content of a page",
+                "Employing the <wbr> tag for word breaking opportunities",
+                "Creating graphics with the <canvas> and <svg> tags",
+              ],
+            },
+          ],
+        },
+        {
+          name: "HTML SEMANTIC ELEMENTS",
+          topics: [
+            {
+              name: "Understand the Role of Semantic Elements",
+              SUB: [
+                "Importance of semantic HTML for web accessibility and SEO",
+                "How semantic elements improve code readability and maintenance",
+              ],
+            },
+            {
+              name: "Implementing Sectioning Elements",
+              SUB: [
+                "Using the <header>, <nav>, <main>, <section>, <article>, <aside>, and <footer> tags",
+                "Structuring the layout and content of web pages using these elements",
+              ],
+            },
+            {
+              name: "Working with the <details> & <summary> Tags",
+              SUB: [
+                "Creating expandable and collapsible content sections",
+                "Enhancing user experience with the details and summary elements",
+              ],
+            },
+            {
+              name: "Using the <time> Tag for Dates and Times",
+              SUB: [
+                "Representing dates and times on web pages",
+                "Formatting time-related content using HTML's <time> element",
+              ],
+            },
+            {
+              name: "Define the Main Content with the <main> Tag",
+              SUB: [
+                "Indicating the primary content of a web page with the <main> element",
+                "Properly structuring content for better accessibility",
+              ],
+            },
+            {
+              name: "Enhancing Accessibility with the <figure> and <figcaption> Tags",
+              SUB: [
+                "Associating captions with images and multimedia content",
+                "Improving accessibility and understanding of visual content",
+              ],
+            },
+            {
+              name: "Working with the <mark> & <ins>/<del> Tags",
+              SUB: [
+                "Highlighting text with the <mark> element",
+                "Indicating inserted or deleted content with <ins> & <del> elements",
+              ],
+            },
+
+            {
+              name: "Organize Data with the <data> & <time> Tags",
+              SUB: [
+                "Using the <data> element to store machine-readable data",
+                "Formatting time-related content with the <time> element",
+              ],
+            },
+            {
+              name: "Creating Interactive Dialogs - <dialog> Tag",
+              SUB: [
+                "Building interactive dialogs and modal windows with the <dialog> element",
+                "Handling user interactions and actions",
+              ],
+            },
+            {
+              name: "Understanding HTML5 Form Elements",
+              SUB: [
+                "Exploring new input types like date, time, email, and more",
+                "Validating form data using HTML attributes",
+              ],
+            },
+          ],
+        },
+        {
+          name: "HTML COLOR AND INTERVIEW QUESTIONS",
+          topics: [
+            {
+              name: "HTML Color Names",
+              SUB: [
+                "Understanding the use of named colors in HTML",
+                "Exploring the list of pre-defined color names",
+              ],
+            },
+            {
+              name: "Applying Color to HTML Elements",
+              SUB: [
+                "Using CSS to apply colors to various HTML elements",
+                "Understanding hexadecimal and RGB color values",
+              ],
+            },
+            {
+              name: "HTML Color Codes",
+              SUB: [
+                "Learning how to use color codes in HTML and CSS",
+                "Creating custom color shades for your web pages",
+              ],
+            },
+            {
+              name: "Styling with CSS",
+              SUB: [
+                "Incorporating color styles into HTML elements using CSS",
+                "Applying color to text, backgrounds, and border",
+              ],
+            },
+            {
+              name: "HTML Color Names vs. Color Codes",
+              SUB: [
+                "Pros and cons of using color names and color codes",
+                "Best practices for choosing appropriate colors",
+              ],
+            },
+            {
+              name: "Interview Questions - HTML",
+              SUB: [
+                "Reviewing common interview questions related to HTML",
+                "Tips and techniques for answering interview questions effectively",
+              ],
+            },
+            {
+              name: "Interview Questions - HTML5",
+              SUB: [
+                "Exploring advanced interview questions specific to HTML5 features",
+                "Preparing comprehensive answers to showcase your knowledge",
+              ],
+            },
+          ],
+        },
+      ],
+    },
   ];
 
   const eventList = [

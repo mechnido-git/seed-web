@@ -95,21 +95,28 @@ const EnrolledCourse = ({ dragger }) => {
           {enrolledEvents.length !== 0 && enrolledEvents.map((item, key) => {
             return <div style={{ cursor: 'pointer' }} onClick={() => getEvent(item.order)} className="card" key={key} >
               <h4>{item.name}</h4>
-              {getInvoice(item) && <div className="invoice">
-                <a onClick={(e)=>e.stopPropagation()} href={getInvoice(item)} rel="noreferrer" target="_blank"><span className="hm">Invoice</span> <span class="material-symbols-outlined">
-                  download
-                </span></a>
+              {getInvoice(item) && 
+              <div className="invoice">
+                <a onClick={(e)=>e.stopPropagation()} href={getInvoice(item)} rel="noreferrer" target="_blank">
+                  <div className="hm">
+                  Invoice <span class="material-symbols-outlined">download</span>
+                   
+                  </div>
+                  
+                </a>
                 
-              </div>}
+              </div>
+              }
             </div>
           })}
           {enrolledCourses.length !== 0 && enrolledCourses.map((item) => {
             return <div className="card" style={{ cursor: 'pointer' }} onClick={() => getCours(item.order)}>
               <h4>{item.name}</h4>
               {getInvoice(item) && <div className="invoice">
-                <a onClick={(e)=>e.stopPropagation()} href={getInvoice(item)} rel="noreferrer" target="_blank"><span className="hm">Invoice</span> <span class="material-symbols-outlined">
+                <a onClick={(e)=>e.stopPropagation()} href={getInvoice(item)} rel="noreferrer" target="_blank"><div className="hm">Invoice <span class="material-symbols-outlined">
                   download
-                </span></a>
+                </span>
+                </div></a>
                 
               </div>}
             </div>
