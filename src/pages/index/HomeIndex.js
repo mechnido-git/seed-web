@@ -38,7 +38,7 @@ function HomeIndex() {
       console.log(temp);
       setCourses(temp);
       setLoading(false)
-      // const washingtonRef = doc(db, "courses", "sE2QV4XJjyCVPWjA8XNs");
+      // const washingtonRef = doc(db, "courses", "WQr8ckDkU1WtOt5Vtnxl");
 
       // // Set the "capital" field of the city 'DC'
       // await updateDoc(washingtonRef, {
