@@ -4769,6 +4769,478 @@ const Store = ({ children }) => {
         },
       ],
     },
+
+    {
+      id: 15,
+      name: "COMPLETE HTML BOOTCAMP",
+      thumbnail: "../../images/course.jpg",
+      slide: s3,
+      order: 15,
+
+      description:
+        "SolidWorks is a comprehensive 3D computer-aided design (CAD) software widely used in the engineering and manufacturing industries. ",
+      description_L: [
+        "SolidWorks is a comprehensive 3D computer-aided design (CAD) software widely used in the engineering and manufacturing industries.",
+        "This 60-hour online course is designed to provide participants with a solid foundation in using SolidWorks to create 3D models, assemblies, and engineering drawings.",
+        "Throughout the course, participants will gain hands-on experience with the software, learning how to navigate the user interface, utilize essential tools, and employ various features to design and visualize 3D models.",
+        "This Program offers students to get clear insights of Solidworks CAD Software by Practical training which will be handled by Mechnido's faculty and industrial experts. ",
+        "In 60 hours sessions, students will get an overview of the concepts and potential opportunities in the field. Moreover, students will get certificates from Mechnido."
+      ],
+      duration: [
+        "Flexible Timing",
+        "Weekend : 2 Sessions",
+        "    Saturday & Sunday - 4 Hrs",
+        "Weekday : 2 Sessions (Any 2 Days)",
+        "    Monday to Friday - 4 Hrs",
+      ],
+      certificate: {
+        title: "Requirements for Certification",
+        imgURL:
+          "https://firebasestorage.googleapis.com/v0/b/seed-25898.appspot.com/o/courses%2FWQr8ckDkU1WtOt5Vtnxl%2Fcertificates%2Fcert.jpg?alt=media&token=8b0c14ae-7155-4a85-908f-64d6c28fac5d",
+        sub: [
+          "An individual enrolled in the program should complete the training within the program's time limit.",
+          "To acquire the certification, you must complete all the course's assignments, tests, case studies, projects, and other criteria. ",
+          "To acquire certification, the student must show up to every session that the instructor provides.",
+        ],
+      },
+      category: "SOFTWARE",
+      fee: [
+        {
+          id: 0,
+          type: "One time",
+          price: 2500,
+        },
+      ],
+
+      schedule:[
+        {
+          name:"BEGINNER LEVEL",
+          topics:
+          [
+            {
+              name:"Welcome and Course Introduction",
+              SUB:[
+                "Introduction to the facilitator and course objectives",
+                "Overview of the session agenda"
+              ]
+            },
+            {
+              name:"Introduction to SolidWorks ",
+              SUB:[
+                "Overview of SolidWorks software and its applications",
+                "Understanding the user interface and navigation"
+              ]
+            },
+            {
+              name:"Sketch Creation Tools",
+              SUB:[
+                "Using sketch tools: lines, arcs, circles, rectangles, and more",
+                "Applying sketch constraints for precise geometry"
+              ]
+            },
+            {
+              name:"Sketch Editing Tools",
+              SUB:[
+                "Editing and modifying sketches: trim, extend, offset, and fillet",
+                "Converting entities and sketch patterns"
+              ]
+            },
+            {
+              name:"GD&T Symbols and Feature Control Frames",
+              SUB:[
+                "Understanding the basic GD&T symbols and their meanings",
+                "Introduction to feature control frames and their components",
+                "Interpreting GD&T callouts on engineering drawings"
+              ]
+            },
+            {
+              name:"Part Modeling Features",
+              SUB:[
+                "Exploring various distribution channels for reaching customers.",
+                "Analyzing different customer relationship models and their impact on customer satisfaction."
+              ]
+            },
+            {
+              name:"Advanced Part Modeling",
+              SUB:[
+                "Working with design intent: patterns, configurations, and design tables",
+                "Introduction to parametric modeling"
+              ]
+            },
+            {
+              name:"Fillets and Chamfers",
+              SUB:[
+                "Adding fillets to rounds sharp edges and corners.",
+                "Applying chamfers for beveled edges."
+              ]
+            },
+            {
+              name:"Creating Patterns",
+              SUB:[
+                "Linear pattern: replicating features along a linear path.",
+                "Circular pattern: duplicating features in a circular arrangement."
+              ]
+            }
+          ]
+        },
+        {
+          name:"INTERMEDIATE LEVEL-ADVANCED PART MODELING",
+          topics:[
+            {
+              name:"Advanced Sketching Techniques",
+              SUB:[
+                "Working with splines and style splines for smooth curves.",
+                "Using equations in sketches to drive dimensions.",
+                "Creating curves and paths for loft and sweep features."
+              ]
+            },
+
+            {
+              name:"Swept Boss/Base",
+              SUB:[
+                "Creating advanced swept features along complex paths.",
+                "Utilizing guide curves for more control over the sweep."
+              ]
+            },
+            {
+              name:"Lofted Boss/Base",
+              SUB:[
+                 "Generating complex shapes by lofting between multiple profiles.",
+                 "Exploring guide curves for lofted features." 
+              ]
+            },
+            {
+              name:"FilletXpert and DraftXpert",
+              SUB:[
+                  "Utilizing FilletXpert for analyzing and applying variable fillet sizes.",
+                  "Understanding DraftXpert for draft analysis."
+              ]
+            },
+            {
+              name:"Multibody Design ",
+              SUB:[
+                  "Creating parts with multiple solid bodies in a single file.",
+                  "Managing and organizing multiple bodies in the feature tree."
+              ]
+            },
+            {
+              name:"Design Tables and Configurations",
+              SUB:[
+                  "Using design tables to control multiple configurations of a part.",
+                  "Managing configurations for different sizes and options."
+              ]
+            },
+            {
+              name:"Working with Equations",
+              SUB:[
+                  "Understanding equations for parametric modeling.",
+                  "Linking dimensions and controlling parts using equations."
+              ]
+            },
+            {
+              name:"Advanced Patterns",
+              SUB:[
+                  "Creating sketch-driven patterns for more flexibility.",
+                  "Using fill patterns to distribute features across surfaces"
+              ]
+            },
+            {
+              name:"Advanced Hole Wizard ",
+              SUB:[
+                  "Creating holes with complex patterns and custom sizes.",
+                  "Adding standard and custom threads to holes."
+              ]
+            },
+            {
+              name:"Exporting and Importing ",
+              SUB:[
+                  "Exporting parts and assemblies to various file formats (STEP, IGES, etc.).",
+                  "Importing external models into SolidWorks."
+              ]
+            },
+           
+          ]
+        },
+        {
+          name:"INTERMEDIATE LEVEL-SURFACE MODELING & SHEET METAL ",
+          topics:[
+            {
+              name:"Introduction to Surface Modeling",
+              SUB:[
+                "Understanding the difference between solid and surface modeling.",
+                "Introducing the Surface tab and its various tools."
+              ]
+            },
+            {
+              name:"Creating and Editing Surfaces",
+              SUB:[
+                "Building surfaces using boundary, loft, and fill features.",
+                "Editing surfaces using trimming, extending, & knitting operations"
+              ]
+            },
+            {
+              name:"Surface Repair and Knitting ",
+              SUB:[
+                "Identifying & repairing gaps, holes, errors in surface geometry.",
+                "Combining multiple surfaces into a single quilt using knit tools."
+              ]
+            },
+            {
+              name:"Surface Trim and Extend",
+              SUB:[
+                "Trimming and extending surfaces to achieve desired shapes.",
+                "Using trimming tools to intersect surfaces accurately"
+              ]
+            },
+            {
+              name:"Surface Offset and Thicken",
+              SUB:[
+                "Creating offset surfaces for thickening and shelling operations.",
+                "Adding thickness to surfaces to create solid models."
+              ]
+            },
+            {
+              name:"Surface Loft and Boundary",
+              SUB:[
+                "Advanced surface creation techniques using loft and boundary features.",
+                "Achieving complex and organic shapes with guide curves"
+              ]
+            },
+            {
+              name:"Introduction to Sheet Metal",
+              SUB:[
+                "Understanding the fundamentals of sheet metal design.",
+                "Design considerations for sheet metal manufacturing"
+              ]
+            },
+            {
+              name:"Base Flange and Sketched Bend ",
+              SUB:[
+                "Creating sheet metal parts using the Base Flange feature.",
+                "Adding sketched bends to create bends at specific locations."
+              ]
+            },
+            {
+              name:"Sheet Metal Forming Tools",
+              SUB:[
+                "Utilizing forming tools to create embosses, louvers, and ribs.",
+                "Customizing and saving forming tool libraries."
+              ]
+            },
+            {
+              name:"Flat Pattern and Exporting",
+              SUB:[
+                "Generating flat patterns for manufacturing.",
+                "Exporting sheet metal parts for fabrication processes."
+              ]
+            },
+          
+          ]
+
+        },
+        {
+          name:"ADVANCED LEVEL-  ADVANCED ASSEMBLIES",
+          topics:[
+            {
+              name:"Assembly Features",
+              SUB:[
+                "Creating assembly-level cuts, holes, and patterns.",
+                "Understanding the impact of assembly features on individual components."
+              ]
+            },
+            {
+              name:"Advanced Mates ",
+              SUB:[
+                "Limiting degrees of freedom with distance and angle mates.",
+                "Applying tangent, width, and symmetry mates for more complex connections."
+              ]
+            },
+            {
+              name:"Assembly Configurations",
+              SUB:[
+                "Creating and managing different configurations within an assembly.",
+                "Using configurations to explore design alternatives."
+              ]
+            },{
+              name:"Smart Fasteners",
+              SUB:[
+                "Automatically adding standard fasteners to assemblies.",
+                "Customizing and managing smart fastener libraries."
+              ]
+            },
+
+            {
+              name:"Top-Down Assembly Design",
+              SUB:[
+                "Designing parts within assemblies using in-context modeling.",
+                "Utilizing layout sketches to drive part geometry."
+              ]
+            },
+            {
+              name:"Assembly Visualization",
+              SUB:[
+                "Analyzing and optimizing large assemblies for performance.",
+                "Identifying and resolving performance bottlenecks."
+              ]
+            },
+            {
+              name:"Exploded Views and Animations",
+              SUB:[
+                "Creating exploded views to showcase assembly details.",
+                "Generating animations for dynamic assembly presentations"
+              ]
+            },
+            {
+              name:"Assembly Drawings",
+              SUB:[
+                "Generating detailed assembly drawings with views & annotations.",
+                "Creating bills of materials (BOM) for part and assembly lists."
+              ]
+            },
+            {
+              name:"Advanced Assembly Techniques",
+              SUB:[
+                "Skeleton modeling: Using layout sketches as a skeleton for parts.",
+                "Designing multi-body parts within assemblies."
+              ]
+            },
+            {
+              name:"Collaboration and CAD Management ",
+              SUB:[
+                "Collaborating with team members using SolidWorks PDM.",
+                "Managing CAD files and revisions effectively."
+              ]
+            }
+          
+          ]
+        },
+        {
+          name:"ADVANCED LEVEL-SIMULATION AND RENDERING ",
+          topics:
+          [
+            {
+              name:"Introduction to Simulation ",
+              SUB:[
+                "Understanding the importance of simulation in the design process.",
+                "Overview of SolidWorks Simulation and its capabilities."
+              ]
+            },
+            {
+              name:"Static Analysis",
+              SUB:[
+                "Applying boundary conditions & loads for static structural analysis.",
+               " Interpreting and analyzing simulation results."
+              ]
+            },
+            {
+              name:"Thermal Analysis",
+              SUB:[
+                "Defining thermal loads & boundary conditions for heat transfer analysis.",
+                "Analyzing temperature distribution and thermal effects."
+              ]
+            },
+            {
+              name:"Modal Analysis",
+              SUB:[
+                "Performing modal analysis to study natural frequencies and mode shapes.",
+                "Identifying potential vibration issues in designs."
+              ]
+            },
+            {
+              name:"Flow Simulation",
+              SUB:[
+                "Setting up fluid flow simulations in SolidWorks Flow Simulation.",
+                "Analyzing fluid behavior and heat transfer within designs"
+              ]
+            },
+            {
+              name:"Introduction to PhotoView 360",
+              SUB:[
+                "Overview of PhotoView 360 for rendering purposes.",
+                "Understanding rendering settings and options"
+              ]
+            },
+            {
+              name:"Applying Appearances and Textures ",
+              SUB:[
+                "Enhancing model appearance with materials, textures, and appearances.",
+                "Utilizing scene settings for improved realism."
+              ]
+            },
+            {
+              name:"Lighting and Cameras",
+              SUB:[
+                "Adjusting lighting conditions to improve rendering quality.",
+                "Setting up cameras for different perspectives."
+              ]
+            },
+            {
+              name:"Rendering the Model",
+              SUB:[
+                "Configuring rendering options and quality settings.",
+                "Rendering high-quality images and animations."
+              ]
+            },
+            {
+              name:"Additive Manufacturing and 3D Printing",
+              SUB:[
+                "Designing for additive manufacturing processes like 3D printing",
+                "Preparing models for successful 3D printing"
+              ]
+            },
+           
+          ]
+
+        },
+        {
+          name:"PRACTICES & INTERVIEW PREPARATION",
+          topics:[
+            {
+              name:"Beginner - Practices ",
+              SUB:[
+                "Practice 1: Sketching Practice ",
+                "Practice 2: Part Modeling Practice",
+                "Practice 3: Assembly Practice",
+                "Practice 4: Drawing Practice ",
+                "Practice 5: Comprehensive Project "
+              ]
+            },
+            {
+              name:"Intermediate - Practices ",
+              SUB:[
+                "Practice 1: Advanced Part Modeling", 
+                "Practice 2: Advanced Assembly",
+                "Practice 3: Surface Modeling", 
+                "Practice 4: Dynamic Blocks & Attributes", 
+                "Practice 5: Comprehensive Project "
+              ]
+            },
+            {
+              name:"Advanced - Practices ",
+              SUB:[
+                "Practice 1: Simulation and Analysis ",
+                "Practice 2: Advanced Surface Modeling",
+                "Practice 3: Rendering and Visualization", 
+                "Practice 4: Drawings and Detailing",
+                "Practice 5: Comprehensive Project "
+              ]
+            },
+            {
+              name:"Interview Preparation",
+              SUB:[
+                "Reviewing common SOLIDWORKS interview questions and potential answers",
+               " Discussing tips and strategies for effectively answering interview questions",
+               " Preparing for technical and non-technical aspects of interviews"
+              ]
+            },
+          
+          ]
+
+        }
+
+      ]
+
+    }
   ];
 
   const eventList = [
