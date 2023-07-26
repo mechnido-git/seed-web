@@ -275,6 +275,16 @@ Margin-left:25%
     height: 100%;
 
 }
+.enroll-card-container .card .body span{
+    color:var(--tertiary);
+}
+.enroll-card-container .card .body a:hover{
+    color:var(--primary);
+}
+
+.invoice:hover{
+    color:var(--primary);
+}
 .enroll-card-container .request-enroll{
     display:block;
     width: max-content;

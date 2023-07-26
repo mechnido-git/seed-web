@@ -159,6 +159,8 @@ const getInvoice = (course) => {
                     loading={loading}
                     arr={enrolledCourses}
                     viewDetails={getCours}
+                    download={true}
+                    user= {user}
                   />
 
                   
@@ -196,6 +198,8 @@ const getInvoice = (course) => {
                     loading={loading}
                     arr={enrolledEvents}
                     viewDetails={getCours}
+                    download={true}
+                    user= {user}
                   />
                  
              </>
