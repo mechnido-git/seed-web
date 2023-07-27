@@ -275,8 +275,13 @@ Margin-left:25%
     height: 100%;
 
 }
-.enroll-card-container .card .body span{
+.enroll-card-container .card .body .invoice{
     color:var(--tertiary);
+    font-size: 16px;
+}
+
+.enroll-card-container .card .body .invoice .material-symbols-outined{
+padding-top: 2px ;
 }
 .enroll-card-container .card .body a:hover{
     color:var(--primary);
