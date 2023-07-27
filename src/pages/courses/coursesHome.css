@@ -75,7 +75,7 @@
 .courses-home > .slides > .splide > div::-webkit-scrollbar{
     display: none;
 }
-.courses-home > .slides > .btns{
+.courses-home > .slides .btns{
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -86,7 +86,7 @@
     width: 45%;
 }
 
-.courses-home > .slides > .btns > button{
+.courses-home > .slides .btns > button{
     padding: 1.5em 3em;
     font-size: 12px;
     text-transform: uppercase;
@@ -103,7 +103,7 @@
     width: 200px;
     height: fit-content;
 }
-.courses-home > .slides > .btns > button:hover{
+.courses-home > .slides .btns > button:hover{
     background-color: var(--btnhover);
     color: var(--primary);
 }

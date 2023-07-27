@@ -282,7 +282,7 @@ Margin-left:25%
     color:var(--primary);
 }
 
-.invoice:hover{
+.invoice > a:hover{
     color:var(--primary);
 }
 .enroll-card-container .request-enroll{
