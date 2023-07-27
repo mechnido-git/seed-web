@@ -136,22 +136,26 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+    background-color: #F4F4F4;
+    
 }
+
 
 .sower > .details > .lists .card img{
     width: 100px;
 }
 
 .sower h3{
-    color: var(--primary);
+    color: var(--list);
     font-size: 25px;
 }
 
 .sower > .details > .lists .card p{
     font-size: 15px;
+    color:#282828;
     /* color: rgba(0, 0, 0, 0.544);
 */
-color: var(--tertiary);
+/* color: var(--tertiary); */
 }
 .sower > .steps{
     display: flex;

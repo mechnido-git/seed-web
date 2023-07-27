@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react';
 import './sower.css'
 import HomeNav from '../home/homeNav/HomeNav'
 import { auth } from '../../firebase/config';
@@ -20,6 +20,9 @@ import s4 from "../../images/step_4.png"
 import s5 from "../../images/step_5.png"
 import Footer from '../../components/footer/Footer';
 import ApplyNow from './ApplyNow';
+import { StoreContext } from '../../store/StoreContext';
+
+
 
 const detailList = [
   {
@@ -44,38 +47,6 @@ const detailList = [
   },
 ]
 
-const stepList = [
-  {
-    title: "Apply as Sower",
-    desc: "Apply by filling in a  Registration form.",
-    color: "#f7fdf3",
-    img: s1,
-  },
-  {
-    title: "Online Screening​",
-    desc: "Our experts will screen the best profiles.",
-    color: "#ecf8e5",
-    img: s2,
-  },
-  {
-    title: "Teaching Demo",
-    desc: "Pick a topic of your choice and give a teaching demo to our experts.",
-    color: "#dcf4ce",
-    img: s3,
-  },
-  {
-    title: "On-Boarding & Training",
-    desc: "Once selected, documentation and profile creation will be done, followed by training and induction webinar.",
-    color: "#f7fdf3",
-    img: s4,
-  },
-  {
-    title: "Start Sowering",
-    desc: "Congratulations! You are an Sower!",
-    color: "#ecf8e5",
-    img: s5,
-  },
-] 
 
 function Sower() {
 
@@ -85,7 +56,46 @@ function Sower() {
   const [dp, setDp] = useState(profile);
   const [apply, setApply] = useState(false);
   const [userId, setUserId] = useState(null)
+  const {check} = useContext(StoreContext);
 
+  
+const stepList = [
+  {
+    title: "Apply as Sower",
+    desc: "Apply by filling in a  Registration form.",
+    color: check ? "#FBFAF2" :"#f7fdf3",
+    
+    img: s1,
+  },
+  {
+    title: "Online Screening​",
+    desc: "Our experts will screen the best profiles.",
+    color: check ? "#FBFBF9" : "#ecf8e5",
+    
+    img: s2,
+  },
+  {
+    title: "Teaching Demo",
+    desc: "Pick a topic of your choice and give a teaching demo to our experts.",
+    color: check ? "#F5FEFD" : "#dcf4ce",
+   
+    img: s3,
+  },
+  {
+    title: "On-Boarding & Training",
+    desc: "Once selected, documentation and profile creation will be done, followed by training and induction webinar.",
+    color: check ? "#FBFAF2" :"#f7fdf3",
+    
+    img: s4,
+  },
+  {
+    title: "Start Sowering",
+    desc: "Congratulations! You are an Sower!",
+     color: check ? "#FBFBF9":"#ecf8e5",
+    
+    img: s5,
+  },
+] 
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
