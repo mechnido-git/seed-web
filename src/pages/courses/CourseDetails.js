@@ -23,6 +23,8 @@ function CourseDetails() {
   const [buy, setbuy] = useState(false)
   const [data, setData] = useState(courseList[index]);
 
+  const [enrolled, setEnrolled] = useState(null)
+
   const enroll = () => {
     //navigate(`/menu/courses/enroll/${currentSlide}`)
     let flag = false
@@ -57,6 +59,10 @@ function CourseDetails() {
      if(!courseList[index].metrics) setMetrics(false)
      if(!courseList[index].feedback) setFeedback(false)
 
+     courses[index].enrolled?.forEach(item => {
+      if (item.userId === userId) setEnrolled(true)
+    })
+
       const loc = window.location.href.split("/")
       const last = loc[loc.length -1]
       if(last[0] === "#"){
@@ -86,7 +92,7 @@ function CourseDetails() {
         <div className="course">
           <div className="card">
             <img src={img} alt="" />
-            <button onClick={enroll}>Enroll Now</button>
+            <button onClick={enrolled? null: enroll}>{enrolled? "Enrolled": "Enroll Now"}</button>
             <hr />
             <div className="body">
               <h3>
@@ -155,7 +161,7 @@ function CourseDetails() {
           </div>
           <div className="card">
             <img src={img} alt="" />
-            <button onClick={enroll} >Enroll Now</button>
+            <button onClick={enrolled? null: enroll}>{enrolled? "Enrolled": "Enroll Now"}</button>
             <hr />
             <div className="body">
               <h3>

@@ -4417,7 +4417,7 @@ const Store = ({ children }) => {
       certificate: {
         title: "Requirements for Certification",
         imgURL:
-          "https://firebasestorage.googleapis.com/v0/b/seed-25898.appspot.com/o/courses%2FWQr8ckDkU1WtOt5Vtnxl%2Fcertificates%2Fcert.jpg?alt=media&token=8b0c14ae-7155-4a85-908f-64d6c28fac5d",
+          "https://firebasestorage.googleapis.com/v0/b/seed-25898.appspot.com/o/courses%2FQOhykZgOQCwzbBiGoXMF%2Fcertificates%2Fcert.jpg?alt=media&token=55c2b184-bb62-4552-ad82-bacd4192bda9",
         sub: [
           "An individual enrolled in the program should complete the training within the program's time limit.",
           "To acquire the certification, you must complete all the course's assignments, tests, case studies, projects, and other criteria. ",
@@ -4772,7 +4772,7 @@ const Store = ({ children }) => {
 
     {
       id: 15,
-      name: "COMPLETE HTML BOOTCAMP",
+      name: "MASTERING SOLIDWORKS",
       thumbnail: "../../images/course.jpg",
       slide: s3,
       order: 15,
@@ -4796,7 +4796,7 @@ const Store = ({ children }) => {
       certificate: {
         title: "Requirements for Certification",
         imgURL:
-          "https://firebasestorage.googleapis.com/v0/b/seed-25898.appspot.com/o/courses%2FWQr8ckDkU1WtOt5Vtnxl%2Fcertificates%2Fcert.jpg?alt=media&token=8b0c14ae-7155-4a85-908f-64d6c28fac5d",
+          "https://firebasestorage.googleapis.com/v0/b/seed-25898.appspot.com/o/courses%2F7N89M9HTyoLSA55dfMd4%2Fcertificates%2Fcert.jpg?alt=media&token=6d1b7c8a-520c-4ada-8bde-8c30ffa54961",
         sub: [
           "An individual enrolled in the program should complete the training within the program's time limit.",
           "To acquire the certification, you must complete all the course's assignments, tests, case studies, projects, and other criteria. ",

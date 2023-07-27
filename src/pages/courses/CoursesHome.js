@@ -230,7 +230,7 @@ function CoursesHome() {
       console.log(courses);
       setRecommended(courses.filter((item, i) => i < 4))
       setTrending(courses?.filter((item, i) => i > 3 && i < 8))
-      setTeam(courses?.filter((item, i) => i > 7 && i < 15))
+      setTeam(courses?.filter((item, i) => i > 7 && i < 16))
       setLoading(false)
     }
   }, [courses])
@@ -253,6 +253,14 @@ function CoursesHome() {
 
   const viewDetails = () => {
     navigate(`/menu/courses/details/${currentSlide}`)
+  }
+
+  const checkEnroll = (item)=>{
+    let flag = false
+    item.enrolled?.forEach(item => {
+      if (item.userId === userId) flag = true
+    })
+    return flag
   }
 
   const enroll = () => {
@@ -297,16 +305,20 @@ function CoursesHome() {
                   setCurrentSlide(splide.index);
                 }}
               >
-                {courses?.map((item, i) => <SplideSlide key={i}>
+                {courses?.map((item, i) =>{
+                  let enrolled = checkEnroll(item)
+                  console.log(enrolled);
+                  return <SplideSlide key={i}>
                   {/* <img src={courseList[i].slide} style={{ objectFit: "contain", width: "100%" }} alt="" /> */}
                   <ImageLoader src={courseList[i].slide} style={{ objectFit: "contain", width: "100%" }} />
-                </SplideSlide>)}
-              </Splide>
-
-              <div className="btns">
-                <button onClick={enroll}>Enroll</button>
+                  <div className="btns">
+                <button onClick={enrolled? null: enroll }>{enrolled? "Enrolled": "Enroll"}{true}</button>
                 <button onClick={viewDetails}>Know more</button>
               </div>
+                </SplideSlide>})}
+              </Splide>
+
+
             </div>
             <div className="fixed">
               {category.map((item, index) => (
@@ -361,7 +373,7 @@ function CoursesHome() {
                     arr={team.filter((item) =>
                       filter === "All" ? item : filter == item.category
                     )}
-                    limit={7}
+                    limit={8}
                     viewDetails={getCours}
                   />
                 </div>
