@@ -36,7 +36,7 @@ function RegisterForm({ event, setRegister, email, userName }) {
 
   const [members, setMembers] = useState([])
   const [faculty, setFaculty] = useState([])
-  const [current, setCurrent] = useState(0)
+  const [current, setCurrent] = useState(-1)
 
   const navigate = useNavigate()
   
@@ -503,7 +503,10 @@ function RegisterForm({ event, setRegister, email, userName }) {
       <form onSubmit={onSumbitHandler}>
 
         <div className="fields">
-          {getFields(current)}
+          {current < 0? <div className="details">
+          <h4>Regisration fee : ₹{event.fee}</h4>
+          <button onClick={()=>setCurrent(0)}>Proceed</button>
+          </div>: getFields(current)}
         </div>
       </form>
       {termsDiv && <div className="wrapper">

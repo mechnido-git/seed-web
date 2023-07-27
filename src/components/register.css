@@ -44,6 +44,29 @@
     gap: 2px;
 }
 
+.register-form  > form .details{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.register-form  > form .details button{
+        padding: 0.7rem 3rem;
+        font-size: 17px;
+        font-weight: 500;
+        border-radius: 5px;
+        border: 2px solid var(--primary);
+        background-color: var(--primary);
+        color: var(--secondary);
+        cursor: pointer;
+        margin: 0rem auto;
+        margin-bottom: 14px;
+        transition: .2s;
+        display: inline-block;
+        box-sizing: border-box;
+}
+
 .no-arraow > input::-webkit-outer-spin-button,
 .no-arrow > input::-webkit-inner-spin-button {
   -webkit-appearance: none;
