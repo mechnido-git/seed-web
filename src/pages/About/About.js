@@ -1,5 +1,5 @@
 import { onAuthStateChanged } from "firebase/auth";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState , useContext} from "react";
 import Spinner from "../../components/Spinner";
 import { auth } from "../../firebase/config";
 import kart from "../../images/kart_logo.png";
@@ -10,9 +10,11 @@ import "./about.css";
 import HomeNav from "../home/homeNav/HomeNav";
 import { Link } from "react-router-dom";
 import Footer from "../../components/footer/Footer";
+import seedwhite from "../../images/seed_white.png";
+import { StoreContext } from "../../store/StoreContext.js";
 
 function About() {
-
+  const {check, theme } = useContext(StoreContext);
   const [dp, setDp] = useState(profile);
   const [userName, setUserName] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -93,12 +95,13 @@ function About() {
               </p>
             </div>
             <div className="logo">
-              <img src={logo} />
+            <img src={check ? seedwhite : logo} alt="seed logo " />
             </div>
           </section>
           <section>
             <div className="logo">
-              <img src={logo} alt="" />
+              {console.log("this is check",check)}
+            <img src={check ? seedwhite : logo} alt="seed logo " />
             </div>
             <div className="details">
               <h2>

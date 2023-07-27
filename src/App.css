@@ -109,6 +109,7 @@ a{
     --textcolor:#727984 ;
     --btnhover:#F4F4F4;
     --listhover: #00B17B;
+    --list:#00B17B;
 }
 
 .Dark-mode{
@@ -122,6 +123,7 @@ a{
     --btnhover: #9E9E9E;
     --listhover:#F4F4F4;
     --schbtn:rgba(210, 204, 204, 0.927);
+    --list:#2E2F2F;
     /* --listhover:rgba(255, 255, 255, 0.237); */
 }
 .Light-mode{
@@ -134,4 +136,5 @@ a{
     --btnhover:#F4F4F4;
     --listhover: #00B17B;
     --schbtn:grey;
+    --list:#00B17B;
 }
