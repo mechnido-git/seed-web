@@ -63,35 +63,35 @@ const stepList = [
   {
     title: "Apply as Sower",
     desc: "Apply by filling in a  Registration form.",
-    color: check ? "#FBFAF2" :"#f7fdf3",
+    color: check ? "#f0eee4" :"#f7fdf3",
     
     img: s1,
   },
   {
     title: "Online Screening​",
     desc: "Our experts will screen the best profiles.",
-    color: check ? "#FBFBF9" : "#ecf8e5",
+    color: check ? "#ecf3f9" : "#ecf8e5",
     
     img: s2,
   },
   {
     title: "Teaching Demo",
     desc: "Pick a topic of your choice and give a teaching demo to our experts.",
-    color: check ? "#F5FEFD" : "#dcf4ce",
+    color: check ? "#f0eee4" : "#dcf4ce",
    
     img: s3,
   },
   {
     title: "On-Boarding & Training",
     desc: "Once selected, documentation and profile creation will be done, followed by training and induction webinar.",
-    color: check ? "#FBFAF2" :"#f7fdf3",
+    color: check ? "#ecf3f9" :"#f7fdf3",
     
     img: s4,
   },
   {
     title: "Start Sowering",
     desc: "Congratulations! You are an Sower!",
-     color: check ? "#FBFBF9":"#ecf8e5",
+     color: check ? "#f0eee4":"#ecf8e5",
     
     img: s5,
   },
