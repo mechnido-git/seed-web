@@ -21,6 +21,8 @@ function Drop({ onClickOutside, show, dropIndex, redirect, setRedirect, setSignI
   const ref = useRef();
   const navigate = useNavigate()
 
+  const [events, setEvents] = useState([])
+
   console.log(dropIndex);
 
   const { setCourses, courses, setUserName } = useContext(StoreContext);
@@ -35,6 +37,7 @@ function Drop({ onClickOutside, show, dropIndex, redirect, setRedirect, setSignI
   };
 
   const doFetch = async () => {
+   try {
     const q = query(collection(db, "courses"), orderBy("order", "asc"));
     const querySnapshot = await getDocs(q);
     const temp = [];
@@ -44,7 +47,19 @@ function Drop({ onClickOutside, show, dropIndex, redirect, setRedirect, setSignI
       temp.push({ ...doc.data(), id: doc.id });
     });
     setCourses(temp);
+    const e = query(collection(db, "events"));
+    const snapshot = await getDocs(e);
+    const tmp = [];
+    snapshot?.forEach((doc) => {
+      // doc.data() is never undefined for query doc snapshots
+      //console.log(doc.id, " => ", doc.data());
+      tmp.push({ ...doc.data(), id: doc.id });
+    });
+    setEvents(tmp)
     setLoading(false)
+   } catch (error) {
+      console.log(error);
+   }
     // const washingtonRef = doc(db, "courses", "r8weEIiW3iJ8ocAkeTtJ");
 
     // // Set the "capital" field of the city 'DC'
@@ -92,16 +107,25 @@ function Drop({ onClickOutside, show, dropIndex, redirect, setRedirect, setSignI
 
   if (!show) return null;
 
-  const cardBuilder = (arr = recomended, limit = 4) => (
+  const viewEventDetails = (index) => {
+    if (user) {
+      navigate(`/menu/events/details/${index}`)
+    } else {
+      setRedirect(`/menu/events/details/${index}`)
+      return setSignIn(true)
+    }
+  }
+
+  const cardBuilder = (arr, limit = 4) => (
     <>
       {arr.map((item, index) => {
         if (limit != null && index >= limit) return;
         return (
-          <div className="card" key={index}>
+          <div className="card" key={index} onClick={()=>viewEventDetails(index)}>
             <img src={kart} alt="" />
             <div className="body">
-              <h4>Event {index + 1}</h4>
-              <p>{item.description}</p>
+              <h4>{item.name}</h4>
+              <p>{item.fee}</p>
               <div></div>
             </div>
           </div>
@@ -210,9 +234,9 @@ function Drop({ onClickOutside, show, dropIndex, redirect, setRedirect, setSignI
               <div className="cards">
                 {loading && <Spinner loading={true} normal={true} />}
                 {eventSwitch == 0
-                  ? cardBuilder()
+                  ? cardBuilder(events)
                   : eventSwitch == 1
-                    ? cardBuilder()
+                    ? cardBuilder(events)
                     : sponserCard()}
               </div>
             </div>
