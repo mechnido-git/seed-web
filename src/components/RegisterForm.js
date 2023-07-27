@@ -115,7 +115,7 @@ function RegisterForm({ event, setRegister, email, userName }) {
                 color: "#3399cc"
               }
             };
-            console.log(process.env.REACT_APP_RAZOR_ID);
+            // console.log(process.env.REACT_APP_RAZOR_ID);
             var rzp1 = new window.Razorpay(options);
             rzp1.open()
           }
@@ -496,7 +496,8 @@ function RegisterForm({ event, setRegister, email, userName }) {
 
   return (
     <div className="register-form">
-      <img className='clbt' src={cancellogo} onClick={() => { setRegister(false) }} alt="close button" />
+      {/* <img className='clbt' src={cancellogo} onClick={() => { setRegister(false) }} alt="close button" /> */}
+      <span class="material-symbols-outlined" onClick={() => { setRegister(false) }} >close</span>
       {loading && <Spinner loading={loading} />}
       <h3>{event.title}</h3>
       <form onSubmit={onSumbitHandler}>

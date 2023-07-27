@@ -139,8 +139,11 @@
 }  */
 
 .dashboard > .main > .section > .enrolled-courses > .card > .invoice .hm{
-  font-size: 13px;
+  font-size: 10px;
   color: var(--tertiary);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
 /* .dashboard > .main > .section > .enrolled-courses > .card > .invoice .hm:hover{
   color:var(--primary);

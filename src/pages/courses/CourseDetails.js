@@ -110,7 +110,7 @@ function CourseDetails() {
               <ul>
                 {data.fee.map((item, i) => (
                   <li className="fee-li" key={i}>
-                    <span>{item.type}</span>: <span style={{ fontWeight: 'bold' }}>{item.price}₹</span>{" "}
+                    <span>{item.type}</span>: <span style={{ fontWeight: 'bold' }}>₹{item.price}</span>{" "}
                   </li>
                 ))}
               </ul>
@@ -124,7 +124,7 @@ function CourseDetails() {
       </div>
       <div className="about">
         <div id="about"></div>
-        <h2>About the Course</h2>
+        <h2>About</h2>
         <div className="details">
           <div className="left">
             {data.description_L.map((item, i) => (
@@ -138,7 +138,7 @@ function CourseDetails() {
       </div>
       <div className="explore" id="explore">
         <div id="syllabus"></div>
-        <h2>Explore the course</h2>
+        <h2>Explore</h2>
         <div className="content">
           <div className="topics">
             {data.schedule.map((item, i) => (
@@ -262,7 +262,7 @@ function CourseDetails() {
           {data.feedback?.map((item, i) => (
             <SplideSlide key={i}>
               <div className="info">
-                <img src={item.dp} alt="" />
+                <img src={item.dp} alt="dp" />
                 <h4>{item.name}</h4>
               </div>
               <p>"{item.msg}"</p>

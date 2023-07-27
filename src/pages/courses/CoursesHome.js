@@ -133,9 +133,9 @@ export const CardBuilder = ({ arr, limit, viewDetails, loading , user , download
             </div>
         
             {download && getInvoice(item, user) && <div className="invoice">
-                <a  onClick={(e)=>e.stopPropagation()} href={getInvoice(item , user)} rel="noreferrer" target="_blank">Invoice <span class="material-symbols-outlined">
+                <a  onClick={(e)=>e.stopPropagation()} href={getInvoice(item , user)} rel="noreferrer" target="_blank"> <span class="material-symbols-outlined">
                   download
-                </span> </a>
+                </span>Invoice </a>
                 
               </div>}
           </div>
