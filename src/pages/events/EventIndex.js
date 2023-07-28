@@ -129,12 +129,12 @@ function EventIndex() {
 
   const getRegister = () => {
     let flag = false;
-    console.log(temp);
-    console.log(uid);
+    // console.log(temp);
+    // console.log(uid);
     temp[currentEvent].enrolled_arr?.forEach((item) => {
       if (item === uid) flag = true;
     });
-    console.log(flag);
+    // console.log(flag);
     if (flag) return alert("Alredy registered");
     setRegister(true);
   };
