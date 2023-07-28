@@ -310,11 +310,16 @@ function CoursesHome() {
                 {courses?.map((item, i) =>{
                   let enrolled = checkEnroll(item)
                    console.log("this is the value of enroled",enrolled);
+
+                  //  if(enrolled){
+                  //   document.getElementById("btnEnroll").className = "disabledbtn";
+                  //  }
+                   
                   return <SplideSlide key={i}>
-                  {/* <img src={courseList[i].slide} style={{ objectFit: "contain", width: "100%" }} alt="" /> */}
+                  {/*className="exploreBTN" <img src={courseList[i].slide} style={{ objectFit: "contain", width: "100%" }} alt="" /> */}
                   <ImageLoader src={courseList[i].slide} style={{ objectFit: "contain", width: "100%" }} />
                   <div className="btns">
-                <button  disabled={enrolled} onClick={ enroll } >{enrolled? "Enrolled": "Enroll"} </button>
+                <button  className={enrolled ? "disabledbtn" : null}disabled={enrolled} onClick={ enroll } >{enrolled? "Enrolled": "Enroll"} </button>
                 <button  onClick={viewDetails}>Know more</button>
               </div>
                 </SplideSlide>})}

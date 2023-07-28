@@ -103,10 +103,17 @@
     width: 200px;
     height: fit-content;
 }
-.courses-home > .slides .btns > button:hover{
+.courses-home > .slides .btns > button:hover:not(.disabledbtn){
     background-color: var(--btnhover);
     color: var(--primary);
 }
+.courses-home > .slides .btns > button.disabledbtn{
+    
+
+    cursor:context-menu;
+    color: #b8b4b4d1;
+}
+
 
 .courses-home > .upper{
     display: flex;
