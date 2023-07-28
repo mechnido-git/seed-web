@@ -113,7 +113,10 @@
 
 .navbar > .left img{
     width: 50px;
-    /* mix-blend-mode: darken;  */
+  
+}
+.navbar > .left img:hover{
+  cursor: pointer;
 }
 
 .navbar > .left > span{
