@@ -1,12 +1,27 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useContext } from 'react'
 import './workflow.css'
 import tnkc from "../../../images/tnkcimage.png";
+import { StoreContext } from '../../../store/StoreContext';
+import { useParams } from 'react-router-dom';
 
-export const DetailsCard = ({ enroll, prize }) => {
+
+const checkEnroll = (item , userId) => {
+  let flag = false;
+  console.log("this ia item",item);
+  item.enrolled?.forEach((item) => {
+    
+    if (item.userId === userId) flag = true;
+  });
+  return flag;
+};
+
+export const DetailsCard = ({ enroll, prize , event , userId}) => {
+ 
+  let enrolled = checkEnroll(event, userId);// checking whether the user with userId is enrolled with the event "event"
   return (
     <div className="card-event">
       <img src={tnkc} alt="tnkc image" />
-      <button onClick={enroll} >Enroll Now</button>
+      <button className={enrolled? "disabledbtn": ""} disabled = {enrolled} onClick={ enroll} >{enrolled? "Registered":"Register"}</button>
       <hr />
       <div className="card-body">
         <h3>
@@ -42,7 +57,9 @@ function WorkflowSection({ event }) {
     last.classList.add('odd-last')
     lastNum.style.transform = 'translateX(17px)'
   }
- }, [event])
+ }, [event]);
+ const {userId, events}= useContext(StoreContext);
+ const { index } = useParams();
 
   return (
     <div className='workflow-section' id='workflow'>
@@ -71,7 +88,7 @@ tour
           ))}
           </div>
         </div>
-        <DetailsCard prize={event.prize} />
+        <DetailsCard prize={event.prize} userId= {userId} event={events[index]}/>
       </div>
     </div>
   )

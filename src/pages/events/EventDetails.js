@@ -20,7 +20,7 @@ function EventDetails() {
         <MainSection event={eventList[index]} />
         <NeedSection event={eventList[index]} />
         <GraphSection event={eventList[index]} />
-        <WorkflowSection event={eventList[index]} />
+        <WorkflowSection event={eventList[index]} index={index} />
         <ScheduleSection event={eventList[index]} />
         <AwardSection event={eventList[index]} />
         <Footer />

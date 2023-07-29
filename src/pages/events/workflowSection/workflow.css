@@ -65,7 +65,7 @@
      padding: 1rem 1rem 0rem 1rem; 
      align-self: center;
      margin-bottom: 7px;
-    mix-blend-mode: darken;
+    /* mix-blend-mode: darken; */
     
 }
 
@@ -84,10 +84,16 @@
     display: inline-block;
     box-sizing: border-box;
 }
-.card-event >button:hover{
+.card-event >button:hover:not(.disabledbtn){
     color:var(--tertiary);
     background-color: var(--btnhover);
 }
+.card-event .disabledbtn{
+    color: #727984;
+    cursor: context-menu;
+
+}
+
 
 .card-event > .card-body{
     padding: 1rem;

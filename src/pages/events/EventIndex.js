@@ -98,7 +98,7 @@ function EventIndex() {
   const [temp, setTemp] = useState(null);
 
   const { setSection, eventList, userId, events : list } = useContext(StoreContext);
-  console.log(list);
+  // console.log(list);
   setSection(2);
 
   const navigate = useNavigate();
@@ -214,9 +214,11 @@ function EventIndex() {
                           />
                           <div className="btns">
                             <button
+                              className= {enrolled ? "disabledbtn" : ""}
+                              disabled={enrolled}
                               onClick={getRegister}
                             >
-                              {enrolled? "Registered": "Register"}
+                              {enrolled? "Registered ": "Register"}
                             </button>
                             <button onClick={viewDetails}>Know More</button>
                           </div>
