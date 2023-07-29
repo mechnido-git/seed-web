@@ -22,7 +22,7 @@ function HomeIndex() {
   const { event, signIn, setSignIn } = useOutletContext();
   const [loading, setLoading] = useState(true)
 
-  const { setCourses, courses, setUserName } = useContext(StoreContext);
+  const { setCourses, courses, setEvents, setUserName } = useContext(StoreContext);
 
   useEffect(() => {
     const doFetch = async () => {
@@ -30,13 +30,21 @@ function HomeIndex() {
       const querySnapshot = await getDocs(q);
       const temp = [];
       querySnapshot?.forEach((doc) => {
-        // doc.data() is never undefined for query doc snapshots
-        //console.log(doc.id, " => ", doc.data());
-        console.log(doc.data());
+
         temp.push({ ...doc.data(), id: doc.id });
       });
-      console.log(temp);
+
+      const e = query(collection(db, "events"));
+      const snapshot = await getDocs(e);
+      const tmp = [];
+      snapshot?.forEach((doc) => {
+
+        tmp.push({ ...doc.data(), id: doc.id });
+      });
+      
+
       setCourses(temp);
+      setEvents(tmp)
       setLoading(false)
 
       // const washingtonRef = doc(db, "courses", "7N89M9HTyoLSA55dfMd4");

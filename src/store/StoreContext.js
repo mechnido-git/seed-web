@@ -20,6 +20,7 @@ const Store = ({ children }) => {
   const [user, setUser] = useState(null);
   const [change, setChange] = useState(true);
   const [courses, setCourses] = useState([]);
+  const [events, setEvents] = useState([])
   const [section, setSection] = useState(null);
   const [filter, setFilter] = useState("All");
 
@@ -6063,7 +6064,7 @@ const Store = ({ children }) => {
         setChange,
         courseList,
         courses,
-        setCourses,
+        setCourses, events, setEvents,
         section,
         setSection,
         filter,
