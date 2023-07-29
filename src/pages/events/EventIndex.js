@@ -130,12 +130,12 @@ function EventIndex() {
 
   const getRegister = () => {
     let flag = false;
-    console.log(temp);
-    console.log(uid);
+    // console.log(temp);
+    // console.log(uid);
     temp[currentEvent].enrolled_arr?.forEach((item) => {
       if (item === uid) flag = true;
     });
-    console.log(flag);
+    // console.log(flag);
     if (flag) return alert("Alredy registered");
     setRegister(true);
   };
@@ -214,9 +214,9 @@ function EventIndex() {
                           />
                           <div className="btns">
                             <button
-                              onClick={enrolled? null: getRegister}
+                              onClick={getRegister}
                             >
-                              {enrolled? "Enrolled": "Enroll"}
+                              {enrolled? "Registered": "Register"}
                             </button>
                             <button onClick={viewDetails}>Know More</button>
                           </div>

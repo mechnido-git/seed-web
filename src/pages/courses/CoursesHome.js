@@ -15,6 +15,7 @@ import CardLoader from "../../components/cardLoader/cardLoader";
 import ImageLoader from "../../components/imageLoader/ImageLoader";
 import cancellogo from "../../images/cancel_icon.png";
 
+
 export const recomended = [
   {
     name: "Video Title 1",
@@ -219,7 +220,8 @@ function CoursesHome() {
   const { courseList, courses, userId, setSection } = useContext(StoreContext)
   setSection(1)
 
-  const [buy, setbuy] = useState(false)
+  const [buy, setbuy] = useState(false);
+ 
 
   const navigate = useNavigate()
 
@@ -270,7 +272,7 @@ function CoursesHome() {
       // console.log(courses);
       // console.log(courses[currentSlide]);
       courses[currentSlide].enrolled?.forEach(item => {
-        if (item.userId === userId) flag = true
+        if (item.userId === userId) flag = true;
       })
       if (flag) return window.alert("Alredy enrolled")
       setbuy(true)
@@ -307,13 +309,18 @@ function CoursesHome() {
               >
                 {courses?.map((item, i) =>{
                   let enrolled = checkEnroll(item)
-                  console.log(enrolled);
+                   console.log("this is the value of enroled",enrolled);
+
+                  //  if(enrolled){
+                  //   document.getElementById("btnEnroll").className = "disabledbtn";
+                  //  }
+                   
                   return <SplideSlide key={i}>
-                  {/* <img src={courseList[i].slide} style={{ objectFit: "contain", width: "100%" }} alt="" /> */}
+                  {/*className="exploreBTN" <img src={courseList[i].slide} style={{ objectFit: "contain", width: "100%" }} alt="" /> */}
                   <ImageLoader src={courseList[i].slide} style={{ objectFit: "contain", width: "100%" }} />
                   <div className="btns">
-                <button onClick={enrolled? null: enroll }>{enrolled? "Enrolled": "Enroll"}</button>
-                <button onClick={viewDetails}>Know more</button>
+                <button  className={enrolled ? "disabledbtn" : null}disabled={enrolled} onClick={ enroll } >{enrolled? "Enrolled": "Enroll"} </button>
+                <button  onClick={viewDetails}>Know more</button>
               </div>
                 </SplideSlide>})}
               </Splide>
