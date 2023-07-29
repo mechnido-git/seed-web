@@ -195,9 +195,50 @@ const CourseCatalog = () => {
 
 const EventDetails = () => {
   // const [drag, setDrag] = useState(false)
+  const [data, setData] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  const { events, user, setSection } = useContext(StoreContext)
+  setSection(null)
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    let temp = []
+    if (user) {
+
+      events?.forEach(event => {
+        let flag = false
+        event.enrolled_arr?.forEach(item => {
+          if (item === user.uid) flag = true
+        })
+
+        if (!flag) temp.push({ ...event })
+        if (flag) console.log(event)
+
+      });
+      setData(temp)
+      if (events) setLoading(false)
+    }
+  }, [user, events])
+
+  const getEvent = (index) => {
+    navigate(`/menu/events/details/${index}`)
+  }
 
   return <div className="section">
     <h4 >Event Catalog</h4>
+    <div className="courses" >
+      {loading ? <Spinner other={'height'} normal={true} loading={loading} /> : <>
+        {data?.length !== 0 && data?.map((item, i) => {
+          return <div className="card" onClick={() => getEvent(i)}>
+            <div className="title">
+              <h4>{item.name}</h4>
+            </div>
+          </div>
+        })}
+      </>}
+
+    </div>
   </div>
 }
 

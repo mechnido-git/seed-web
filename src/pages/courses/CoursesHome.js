@@ -312,7 +312,7 @@ function CoursesHome() {
                   {/* <img src={courseList[i].slide} style={{ objectFit: "contain", width: "100%" }} alt="" /> */}
                   <ImageLoader src={courseList[i].slide} style={{ objectFit: "contain", width: "100%" }} />
                   <div className="btns">
-                <button onClick={enrolled? null: enroll }>{enrolled? "Enrolled": "Enroll"}{true}</button>
+                <button onClick={enrolled? null: enroll }>{enrolled? "Enrolled": "Enroll"}</button>
                 <button onClick={viewDetails}>Know more</button>
               </div>
                 </SplideSlide>})}

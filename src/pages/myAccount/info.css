@@ -280,6 +280,11 @@ Margin-left:25%
     font-size: 16px;
 }
 
+.enroll-card-container .card .body .invoice a{
+    display: inline-flex;
+    align-items: center;    
+}
+
 .enroll-card-container .card .body .invoice .material-symbols-outined{
 padding-top: 2px ;
 }

@@ -73,8 +73,8 @@ function RegisterInfo({ date, data }) {
                 return (
                   <li>
                     {item.h1}
-                     <img src={medal} />
-                     {item.money}
+                    <img src={medal} />
+                    {item.money}
                   </li>
                 );
               }
@@ -95,9 +95,10 @@ function EventIndex() {
   const [loading, setLoading] = useState(true);
   const [events, setEvents] = useState(null);
 
-  const [temp, setTemp] = useState(null)
+  const [temp, setTemp] = useState(null);
 
-  const { setSection, eventList } = useContext(StoreContext);
+  const { setSection, eventList, userId, events : list } = useContext(StoreContext);
+  console.log(list);
   setSection(2);
 
   const navigate = useNavigate();
@@ -114,7 +115,7 @@ function EventIndex() {
         snaps.forEach((doc) => temp.push({ id: doc.id, ...doc.data() }));
         // setEvents(temp);
         setEvents(eventList);
-        setTemp(temp)
+        setTemp(temp);
         console.log(eventList);
       })
       .catch()
@@ -155,6 +156,15 @@ function EventIndex() {
     navigate(`/menu/events/details/${currentEvent}`);
   };
 
+  const checkEnroll = (item) => {
+    let flag = false;
+    item.enrolled?.forEach((item) => {
+      console.log(item);
+      if (item.userId === userId) flag = true;
+    });
+    return flag;
+  };
+
   return (
     <>
       <div className="events-index">
@@ -193,33 +203,29 @@ function EventIndex() {
                       arrows: window.innerWidth < 770 ? false : true,
                     }}
                   >
-                    {events.map((item, i) => {
+                    {list.map((item, i) => {
+                      let enrolled = checkEnroll(item);
+                      console.log(item);
                       return (
                         <SplideSlide key={i}>
                           <ImageLoader
                             src={image}
                             style={{ objectFit: "contain", width: "100%" }}
                           />
-                          {/* <img
-                            style={{ objectFit: "contain", width: "100%" }}
-                            src={image}
-                            alt="Image 1"
-                          /> */}
+                          <div className="btns">
+                            <button
+                              onClick={enrolled? null: getRegister}
+                            >
+                              {enrolled? "Enrolled": "Enroll"}
+                            </button>
+                            <button onClick={viewDetails}>Know More</button>
+                          </div>
                         </SplideSlide>
                       );
                     })}
                   </Splide>
                 </>
               )}
-
-              <div className="btns">
-                <button
-                  onClick={() => (user ? getRegister() : alert("login first"))}
-                >
-                  Enroll
-                </button>
-                <button onClick={viewDetails}>Know More</button>
-              </div>
             </div>
 
             <div className="register-info">
