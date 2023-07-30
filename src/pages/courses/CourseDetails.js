@@ -92,7 +92,7 @@ function CourseDetails() {
         <div className="course">
           <div className="card">
             <img src={img} alt="" />
-            <button onClick={enrolled? null: enroll}>{enrolled? "Enrolled": "Enroll Now"}</button>
+            <button className={enrolled?"disabledbtn":""} disabled={enrolled} onClick={enrolled? null: enroll}>{enrolled? "Enrolled": "Enroll Now"}</button>
             <hr />
             <div className="body">
               <h3>
@@ -160,8 +160,8 @@ function CourseDetails() {
             ))}
           </div>
           <div className="card">
-            <img src={img} alt="" />
-            <button onClick={enrolled? null: enroll}>{enrolled? "Enrolled": "Enroll Now"}</button>
+            <img src={img} alt="course image" />
+            <button className={enrolled?"disabledbtn":""} disabled={enrolled} onClick={enrolled? null: enroll}>{enrolled? "Enrolled": "Enroll Now"}</button>
             <hr />
             <div className="body">
               <h3>

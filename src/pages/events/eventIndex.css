@@ -66,9 +66,13 @@
     width: 200px;
     height: fit-content;  
 }
-.events-index > .slides .btns > button:hover{
+.events-index > .slides .btns > button:hover:not(.disabledbtn){
     background-color: var(--btnhover);
     color: var(--primary);
+}
+.events-index > .slides .btns .disabledbtn{
+    color: #b8b4b4d1;
+    cursor:context-menu;
 }
 
 .events-index > .slides-explore{
