@@ -47,12 +47,12 @@ function HomeIndex() {
       setEvents(tmp)
       setLoading(false)
 
-      // const washingtonRef = doc(db, "courses", "7N89M9HTyoLSA55dfMd4");
+      const washingtonRef = doc(db, "courses", "B3UFiWffTYeK0BtKItYF");
 
-      // // Set the "capital" field of the city 'DC'
-      // await updateDoc(washingtonRef, {
+      // Set the "capital" field of the city 'DC'
+      await updateDoc(washingtonRef, {
         
-      // });
+      });
       
     };
 
