@@ -87,7 +87,8 @@
     margin-top: 1rem;
 }
 
-.course-details > .hero > .course > .card > button, .course-details .title > a,  .course-details > .explore > .content > .card > button{
+.course-details > .hero > .course > .card > button, .course-details .title > a,  
+.course-details > .explore > .content > .card > button{
     padding: .8rem 4rem;
     font-size: 20px;
     font-weight: 500;
@@ -108,10 +109,18 @@
     color:var(--primary);
 }
 
-.course-details > .hero > .course > .card > button:hover, .course-details .title button:hover,  .course-details > .explore > .content > .card > button:hover{
+.course-details > .hero > .course > .card > button:hover:not(.disabledbtn), 
+.course-details .title button:hover, 
+.course-details > .explore > .content > .card > button:hover:not(.disabledbtn){
     color: var(--primary);
     background-color: var(--btnhover);
 }
+.course-details > .explore > .content > .card > .disabledbtn,
+.course-details > .hero > .course > .card > .disabledbtn{
+    color:#727984;
+    cursor:context-menu;
+}
+
 
 .fee-li{
     display: inline-grid;
