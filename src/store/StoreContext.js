@@ -20,7 +20,7 @@ const Store = ({ children }) => {
   const [user, setUser] = useState(null);
   const [change, setChange] = useState(true);
   const [courses, setCourses] = useState([]);
-  const [events, setEvents] = useState([])
+  const [events, setEvents] = useState([]);
   const [section, setSection] = useState(null);
   const [filter, setFilter] = useState("All");
 
@@ -4785,7 +4785,7 @@ const Store = ({ children }) => {
         "This 60-hour online course is designed to provide participants with a solid foundation in using SolidWorks to create 3D models, assemblies, and engineering drawings.",
         "Throughout the course, participants will gain hands-on experience with the software, learning how to navigate the user interface, utilize essential tools, and employ various features to design and visualize 3D models.",
         "This Program offers students to get clear insights of Solidworks CAD Software by Practical training which will be handled by Mechnido's faculty and industrial experts. ",
-        "In 60 hours sessions, students will get an overview of the concepts and potential opportunities in the field. Moreover, students will get certificates from Mechnido."
+        "In 60 hours sessions, students will get an overview of the concepts and potential opportunities in the field. Moreover, students will get certificates from Mechnido.",
       ],
       duration: [
         "Flexible Timing",
@@ -4813,435 +4813,652 @@ const Store = ({ children }) => {
         },
       ],
 
-      schedule:[
+      schedule: [
         {
-          name:"BEGINNER LEVEL",
-          topics:
-          [
+          name: "BEGINNER LEVEL",
+          topics: [
             {
-              name:"Welcome and Course Introduction",
-              SUB:[
+              name: "Welcome and Course Introduction",
+              SUB: [
                 "Introduction to the facilitator and course objectives",
-                "Overview of the session agenda"
-              ]
+                "Overview of the session agenda",
+              ],
             },
             {
-              name:"Introduction to SolidWorks ",
-              SUB:[
+              name: "Introduction to SolidWorks ",
+              SUB: [
                 "Overview of SolidWorks software and its applications",
-                "Understanding the user interface and navigation"
-              ]
+                "Understanding the user interface and navigation",
+              ],
             },
             {
-              name:"Sketch Creation Tools",
-              SUB:[
+              name: "Sketch Creation Tools",
+              SUB: [
                 "Using sketch tools: lines, arcs, circles, rectangles, and more",
-                "Applying sketch constraints for precise geometry"
-              ]
+                "Applying sketch constraints for precise geometry",
+              ],
             },
             {
-              name:"Sketch Editing Tools",
-              SUB:[
+              name: "Sketch Editing Tools",
+              SUB: [
                 "Editing and modifying sketches: trim, extend, offset, and fillet",
-                "Converting entities and sketch patterns"
-              ]
+                "Converting entities and sketch patterns",
+              ],
             },
             {
-              name:"GD&T Symbols and Feature Control Frames",
-              SUB:[
+              name: "GD&T Symbols and Feature Control Frames",
+              SUB: [
                 "Understanding the basic GD&T symbols and their meanings",
                 "Introduction to feature control frames and their components",
-                "Interpreting GD&T callouts on engineering drawings"
-              ]
+                "Interpreting GD&T callouts on engineering drawings",
+              ],
             },
             {
-              name:"Part Modeling Features",
-              SUB:[
+              name: "Part Modeling Features",
+              SUB: [
                 "Exploring various distribution channels for reaching customers.",
-                "Analyzing different customer relationship models and their impact on customer satisfaction."
-              ]
+                "Analyzing different customer relationship models and their impact on customer satisfaction.",
+              ],
             },
             {
-              name:"Advanced Part Modeling",
-              SUB:[
+              name: "Advanced Part Modeling",
+              SUB: [
                 "Working with design intent: patterns, configurations, and design tables",
-                "Introduction to parametric modeling"
-              ]
+                "Introduction to parametric modeling",
+              ],
             },
             {
-              name:"Fillets and Chamfers",
-              SUB:[
+              name: "Fillets and Chamfers",
+              SUB: [
                 "Adding fillets to rounds sharp edges and corners.",
-                "Applying chamfers for beveled edges."
-              ]
+                "Applying chamfers for beveled edges.",
+              ],
             },
             {
-              name:"Creating Patterns",
-              SUB:[
+              name: "Creating Patterns",
+              SUB: [
                 "Linear pattern: replicating features along a linear path.",
-                "Circular pattern: duplicating features in a circular arrangement."
-              ]
-            }
-          ]
+                "Circular pattern: duplicating features in a circular arrangement.",
+              ],
+            },
+          ],
         },
         {
-          name:"INTERMEDIATE LEVEL-ADVANCED PART MODELING",
-          topics:[
+          name: "INTERMEDIATE LEVEL-ADVANCED PART MODELING",
+          topics: [
             {
-              name:"Advanced Sketching Techniques",
-              SUB:[
+              name: "Advanced Sketching Techniques",
+              SUB: [
                 "Working with splines and style splines for smooth curves.",
                 "Using equations in sketches to drive dimensions.",
-                "Creating curves and paths for loft and sweep features."
-              ]
+                "Creating curves and paths for loft and sweep features.",
+              ],
             },
 
             {
-              name:"Swept Boss/Base",
-              SUB:[
+              name: "Swept Boss/Base",
+              SUB: [
                 "Creating advanced swept features along complex paths.",
-                "Utilizing guide curves for more control over the sweep."
-              ]
+                "Utilizing guide curves for more control over the sweep.",
+              ],
             },
             {
-              name:"Lofted Boss/Base",
-              SUB:[
-                 "Generating complex shapes by lofting between multiple profiles.",
-                 "Exploring guide curves for lofted features." 
-              ]
+              name: "Lofted Boss/Base",
+              SUB: [
+                "Generating complex shapes by lofting between multiple profiles.",
+                "Exploring guide curves for lofted features.",
+              ],
             },
             {
-              name:"FilletXpert and DraftXpert",
-              SUB:[
-                  "Utilizing FilletXpert for analyzing and applying variable fillet sizes.",
-                  "Understanding DraftXpert for draft analysis."
-              ]
+              name: "FilletXpert and DraftXpert",
+              SUB: [
+                "Utilizing FilletXpert for analyzing and applying variable fillet sizes.",
+                "Understanding DraftXpert for draft analysis.",
+              ],
             },
             {
-              name:"Multibody Design ",
-              SUB:[
-                  "Creating parts with multiple solid bodies in a single file.",
-                  "Managing and organizing multiple bodies in the feature tree."
-              ]
+              name: "Multibody Design ",
+              SUB: [
+                "Creating parts with multiple solid bodies in a single file.",
+                "Managing and organizing multiple bodies in the feature tree.",
+              ],
             },
             {
-              name:"Design Tables and Configurations",
-              SUB:[
-                  "Using design tables to control multiple configurations of a part.",
-                  "Managing configurations for different sizes and options."
-              ]
+              name: "Design Tables and Configurations",
+              SUB: [
+                "Using design tables to control multiple configurations of a part.",
+                "Managing configurations for different sizes and options.",
+              ],
             },
             {
-              name:"Working with Equations",
-              SUB:[
-                  "Understanding equations for parametric modeling.",
-                  "Linking dimensions and controlling parts using equations."
-              ]
+              name: "Working with Equations",
+              SUB: [
+                "Understanding equations for parametric modeling.",
+                "Linking dimensions and controlling parts using equations.",
+              ],
             },
             {
-              name:"Advanced Patterns",
-              SUB:[
-                  "Creating sketch-driven patterns for more flexibility.",
-                  "Using fill patterns to distribute features across surfaces"
-              ]
+              name: "Advanced Patterns",
+              SUB: [
+                "Creating sketch-driven patterns for more flexibility.",
+                "Using fill patterns to distribute features across surfaces",
+              ],
             },
             {
-              name:"Advanced Hole Wizard ",
-              SUB:[
-                  "Creating holes with complex patterns and custom sizes.",
-                  "Adding standard and custom threads to holes."
-              ]
+              name: "Advanced Hole Wizard ",
+              SUB: [
+                "Creating holes with complex patterns and custom sizes.",
+                "Adding standard and custom threads to holes.",
+              ],
             },
             {
-              name:"Exporting and Importing ",
-              SUB:[
-                  "Exporting parts and assemblies to various file formats (STEP, IGES, etc.).",
-                  "Importing external models into SolidWorks."
-              ]
+              name: "Exporting and Importing ",
+              SUB: [
+                "Exporting parts and assemblies to various file formats (STEP, IGES, etc.).",
+                "Importing external models into SolidWorks.",
+              ],
             },
-           
-          ]
+          ],
         },
         {
-          name:"INTERMEDIATE LEVEL-SURFACE MODELING & SHEET METAL ",
-          topics:[
+          name: "INTERMEDIATE LEVEL-SURFACE MODELING & SHEET METAL ",
+          topics: [
             {
-              name:"Introduction to Surface Modeling",
-              SUB:[
+              name: "Introduction to Surface Modeling",
+              SUB: [
                 "Understanding the difference between solid and surface modeling.",
-                "Introducing the Surface tab and its various tools."
-              ]
+                "Introducing the Surface tab and its various tools.",
+              ],
             },
             {
-              name:"Creating and Editing Surfaces",
-              SUB:[
+              name: "Creating and Editing Surfaces",
+              SUB: [
                 "Building surfaces using boundary, loft, and fill features.",
-                "Editing surfaces using trimming, extending, & knitting operations"
-              ]
+                "Editing surfaces using trimming, extending, & knitting operations",
+              ],
             },
             {
-              name:"Surface Repair and Knitting ",
-              SUB:[
+              name: "Surface Repair and Knitting ",
+              SUB: [
                 "Identifying & repairing gaps, holes, errors in surface geometry.",
-                "Combining multiple surfaces into a single quilt using knit tools."
-              ]
+                "Combining multiple surfaces into a single quilt using knit tools.",
+              ],
             },
             {
-              name:"Surface Trim and Extend",
-              SUB:[
+              name: "Surface Trim and Extend",
+              SUB: [
                 "Trimming and extending surfaces to achieve desired shapes.",
-                "Using trimming tools to intersect surfaces accurately"
-              ]
+                "Using trimming tools to intersect surfaces accurately",
+              ],
             },
             {
-              name:"Surface Offset and Thicken",
-              SUB:[
+              name: "Surface Offset and Thicken",
+              SUB: [
                 "Creating offset surfaces for thickening and shelling operations.",
-                "Adding thickness to surfaces to create solid models."
-              ]
+                "Adding thickness to surfaces to create solid models.",
+              ],
             },
             {
-              name:"Surface Loft and Boundary",
-              SUB:[
+              name: "Surface Loft and Boundary",
+              SUB: [
                 "Advanced surface creation techniques using loft and boundary features.",
-                "Achieving complex and organic shapes with guide curves"
-              ]
+                "Achieving complex and organic shapes with guide curves",
+              ],
             },
             {
-              name:"Introduction to Sheet Metal",
-              SUB:[
+              name: "Introduction to Sheet Metal",
+              SUB: [
                 "Understanding the fundamentals of sheet metal design.",
-                "Design considerations for sheet metal manufacturing"
-              ]
+                "Design considerations for sheet metal manufacturing",
+              ],
             },
             {
-              name:"Base Flange and Sketched Bend ",
-              SUB:[
+              name: "Base Flange and Sketched Bend ",
+              SUB: [
                 "Creating sheet metal parts using the Base Flange feature.",
-                "Adding sketched bends to create bends at specific locations."
-              ]
+                "Adding sketched bends to create bends at specific locations.",
+              ],
             },
             {
-              name:"Sheet Metal Forming Tools",
-              SUB:[
+              name: "Sheet Metal Forming Tools",
+              SUB: [
                 "Utilizing forming tools to create embosses, louvers, and ribs.",
-                "Customizing and saving forming tool libraries."
-              ]
+                "Customizing and saving forming tool libraries.",
+              ],
             },
             {
-              name:"Flat Pattern and Exporting",
-              SUB:[
+              name: "Flat Pattern and Exporting",
+              SUB: [
                 "Generating flat patterns for manufacturing.",
-                "Exporting sheet metal parts for fabrication processes."
-              ]
+                "Exporting sheet metal parts for fabrication processes.",
+              ],
             },
-          
-          ]
-
+          ],
         },
         {
-          name:"ADVANCED LEVEL-  ADVANCED ASSEMBLIES",
-          topics:[
+          name: "ADVANCED LEVEL-  ADVANCED ASSEMBLIES",
+          topics: [
             {
-              name:"Assembly Features",
-              SUB:[
+              name: "Assembly Features",
+              SUB: [
                 "Creating assembly-level cuts, holes, and patterns.",
-                "Understanding the impact of assembly features on individual components."
-              ]
+                "Understanding the impact of assembly features on individual components.",
+              ],
             },
             {
-              name:"Advanced Mates ",
-              SUB:[
+              name: "Advanced Mates ",
+              SUB: [
                 "Limiting degrees of freedom with distance and angle mates.",
-                "Applying tangent, width, and symmetry mates for more complex connections."
-              ]
+                "Applying tangent, width, and symmetry mates for more complex connections.",
+              ],
             },
             {
-              name:"Assembly Configurations",
-              SUB:[
+              name: "Assembly Configurations",
+              SUB: [
                 "Creating and managing different configurations within an assembly.",
-                "Using configurations to explore design alternatives."
-              ]
-            },{
-              name:"Smart Fasteners",
-              SUB:[
+                "Using configurations to explore design alternatives.",
+              ],
+            },
+            {
+              name: "Smart Fasteners",
+              SUB: [
                 "Automatically adding standard fasteners to assemblies.",
-                "Customizing and managing smart fastener libraries."
-              ]
+                "Customizing and managing smart fastener libraries.",
+              ],
             },
 
             {
-              name:"Top-Down Assembly Design",
-              SUB:[
+              name: "Top-Down Assembly Design",
+              SUB: [
                 "Designing parts within assemblies using in-context modeling.",
-                "Utilizing layout sketches to drive part geometry."
-              ]
+                "Utilizing layout sketches to drive part geometry.",
+              ],
             },
             {
-              name:"Assembly Visualization",
-              SUB:[
+              name: "Assembly Visualization",
+              SUB: [
                 "Analyzing and optimizing large assemblies for performance.",
-                "Identifying and resolving performance bottlenecks."
-              ]
+                "Identifying and resolving performance bottlenecks.",
+              ],
             },
             {
-              name:"Exploded Views and Animations",
-              SUB:[
+              name: "Exploded Views and Animations",
+              SUB: [
                 "Creating exploded views to showcase assembly details.",
-                "Generating animations for dynamic assembly presentations"
-              ]
+                "Generating animations for dynamic assembly presentations",
+              ],
             },
             {
-              name:"Assembly Drawings",
-              SUB:[
+              name: "Assembly Drawings",
+              SUB: [
                 "Generating detailed assembly drawings with views & annotations.",
-                "Creating bills of materials (BOM) for part and assembly lists."
-              ]
+                "Creating bills of materials (BOM) for part and assembly lists.",
+              ],
             },
             {
-              name:"Advanced Assembly Techniques",
-              SUB:[
+              name: "Advanced Assembly Techniques",
+              SUB: [
                 "Skeleton modeling: Using layout sketches as a skeleton for parts.",
-                "Designing multi-body parts within assemblies."
-              ]
+                "Designing multi-body parts within assemblies.",
+              ],
             },
             {
-              name:"Collaboration and CAD Management ",
-              SUB:[
+              name: "Collaboration and CAD Management ",
+              SUB: [
                 "Collaborating with team members using SolidWorks PDM.",
-                "Managing CAD files and revisions effectively."
-              ]
-            }
-          
-          ]
+                "Managing CAD files and revisions effectively.",
+              ],
+            },
+          ],
         },
         {
-          name:"ADVANCED LEVEL-SIMULATION AND RENDERING ",
-          topics:
-          [
+          name: "ADVANCED LEVEL-SIMULATION AND RENDERING ",
+          topics: [
             {
-              name:"Introduction to Simulation ",
-              SUB:[
+              name: "Introduction to Simulation ",
+              SUB: [
                 "Understanding the importance of simulation in the design process.",
-                "Overview of SolidWorks Simulation and its capabilities."
-              ]
+                "Overview of SolidWorks Simulation and its capabilities.",
+              ],
             },
             {
-              name:"Static Analysis",
-              SUB:[
+              name: "Static Analysis",
+              SUB: [
                 "Applying boundary conditions & loads for static structural analysis.",
-               " Interpreting and analyzing simulation results."
-              ]
+                " Interpreting and analyzing simulation results.",
+              ],
             },
             {
-              name:"Thermal Analysis",
-              SUB:[
+              name: "Thermal Analysis",
+              SUB: [
                 "Defining thermal loads & boundary conditions for heat transfer analysis.",
-                "Analyzing temperature distribution and thermal effects."
-              ]
+                "Analyzing temperature distribution and thermal effects.",
+              ],
             },
             {
-              name:"Modal Analysis",
-              SUB:[
+              name: "Modal Analysis",
+              SUB: [
                 "Performing modal analysis to study natural frequencies and mode shapes.",
-                "Identifying potential vibration issues in designs."
-              ]
+                "Identifying potential vibration issues in designs.",
+              ],
             },
             {
-              name:"Flow Simulation",
-              SUB:[
+              name: "Flow Simulation",
+              SUB: [
                 "Setting up fluid flow simulations in SolidWorks Flow Simulation.",
-                "Analyzing fluid behavior and heat transfer within designs"
-              ]
+                "Analyzing fluid behavior and heat transfer within designs",
+              ],
             },
             {
-              name:"Introduction to PhotoView 360",
-              SUB:[
+              name: "Introduction to PhotoView 360",
+              SUB: [
                 "Overview of PhotoView 360 for rendering purposes.",
-                "Understanding rendering settings and options"
-              ]
+                "Understanding rendering settings and options",
+              ],
             },
             {
-              name:"Applying Appearances and Textures ",
-              SUB:[
+              name: "Applying Appearances and Textures ",
+              SUB: [
                 "Enhancing model appearance with materials, textures, and appearances.",
-                "Utilizing scene settings for improved realism."
-              ]
+                "Utilizing scene settings for improved realism.",
+              ],
             },
             {
-              name:"Lighting and Cameras",
-              SUB:[
+              name: "Lighting and Cameras",
+              SUB: [
                 "Adjusting lighting conditions to improve rendering quality.",
-                "Setting up cameras for different perspectives."
-              ]
+                "Setting up cameras for different perspectives.",
+              ],
             },
             {
-              name:"Rendering the Model",
-              SUB:[
+              name: "Rendering the Model",
+              SUB: [
                 "Configuring rendering options and quality settings.",
-                "Rendering high-quality images and animations."
-              ]
+                "Rendering high-quality images and animations.",
+              ],
             },
             {
-              name:"Additive Manufacturing and 3D Printing",
-              SUB:[
+              name: "Additive Manufacturing and 3D Printing",
+              SUB: [
                 "Designing for additive manufacturing processes like 3D printing",
-                "Preparing models for successful 3D printing"
-              ]
+                "Preparing models for successful 3D printing",
+              ],
             },
-           
-          ]
-
+          ],
         },
         {
-          name:"PRACTICES & INTERVIEW PREPARATION",
-          topics:[
+          name: "PRACTICES & INTERVIEW PREPARATION",
+          topics: [
             {
-              name:"Beginner - Practices ",
-              SUB:[
+              name: "Beginner - Practices ",
+              SUB: [
                 "Practice 1: Sketching Practice ",
                 "Practice 2: Part Modeling Practice",
                 "Practice 3: Assembly Practice",
                 "Practice 4: Drawing Practice ",
-                "Practice 5: Comprehensive Project "
-              ]
+                "Practice 5: Comprehensive Project ",
+              ],
             },
             {
-              name:"Intermediate - Practices ",
-              SUB:[
-                "Practice 1: Advanced Part Modeling", 
+              name: "Intermediate - Practices ",
+              SUB: [
+                "Practice 1: Advanced Part Modeling",
                 "Practice 2: Advanced Assembly",
-                "Practice 3: Surface Modeling", 
-                "Practice 4: Dynamic Blocks & Attributes", 
-                "Practice 5: Comprehensive Project "
-              ]
+                "Practice 3: Surface Modeling",
+                "Practice 4: Dynamic Blocks & Attributes",
+                "Practice 5: Comprehensive Project ",
+              ],
             },
             {
-              name:"Advanced - Practices ",
-              SUB:[
+              name: "Advanced - Practices ",
+              SUB: [
                 "Practice 1: Simulation and Analysis ",
                 "Practice 2: Advanced Surface Modeling",
-                "Practice 3: Rendering and Visualization", 
+                "Practice 3: Rendering and Visualization",
                 "Practice 4: Drawings and Detailing",
-                "Practice 5: Comprehensive Project "
-              ]
+                "Practice 5: Comprehensive Project ",
+              ],
             },
             {
-              name:"Interview Preparation",
-              SUB:[
+              name: "Interview Preparation",
+              SUB: [
                 "Reviewing common SOLIDWORKS interview questions and potential answers",
-               " Discussing tips and strategies for effectively answering interview questions",
-               " Preparing for technical and non-technical aspects of interviews"
-              ]
+                " Discussing tips and strategies for effectively answering interview questions",
+                " Preparing for technical and non-technical aspects of interviews",
+              ],
             },
-          
-          ]
+          ],
+        },
+      ],
+    },
+    {
+      id: 16,
+      name: "3D PRINTING MASTERCLASS",
+      thumbnail: "../../images/course.jpg",
+      slide: s3,
+      order: 16,
 
-        }
+      description:
+        "This Program offers students to get clear insights of  3D Printing Technology by Practical training which will be handled by SEED faculties and industrial experts.",
+      description_L: [
+        "This Program offers students to get clear insights of  3D Printing Technology by Practical training which will be handled by SEED faculties and industrial experts.",
+        "In 15 hours sessions, students will get an overview of the concepts and potential opportunities in the field. Moreover, students will get certificates from SEED.",
+        'The "3D Printing Masterclass" is designed to provide participants with a comprehensive introduction to the fascinating world of 3D printing. This course is ideal for beginners and individuals with limited or no prior experience in 3D printing technology. ',
+        "Participants will gain a solid foundation in various aspects of 3D printing, including its history, different printing technologies, materials, software tools, hardware components, and real-world applications.",
+      ],
+      duration: [
+        "Flexible Timing",
+        "Weekend : 2 Sessions",
+        "    Saturday & Sunday - 4 Hrs",
+        "Weekday : 2 Sessions (Any 2 Days)",
+        "    Monday to Friday - 4 Hrs",
+      ],
+      certificate: {
+        title: "Requirements for Certification",
+        imgURL:
+          "https://firebasestorage.googleapis.com/v0/b/seed-25898.appspot.com/o/courses%2FB3UFiWffTYeK0BtKItYF%2Fcertificates%2Fcert.jpg?alt=media&token=ad8786a5-68b3-4b04-bba5-49f151b1d855",
+        sub: [
+          "An individual enrolled in the program should complete the training within the program's time limit.",
+          "To acquire the certification, you must complete all the course's assignments, tests, case studies, projects, and other criteria. ",
+          "To acquire certification, the student must show up to every session that the instructor provides.",
+        ],
+      },
+      category: "",
+      fee: [
+        {
+          id: 0,
+          type: "One time",
+          price: 2500,
+        },
+      ],
 
-      ]
+      schedule: [
+        {
+          name: "INTRODUCTION TO 3D PRINTING",
+          topics: [
+            {
+              name: "Welcome and Course Introduction",
+              SUB: [
+                "Introduction to the facilitator and course objectives",
+                "Overview of the session agenda",
+              ],
+            },
+            {
+              name: "Introduction to 3D Printing",
+              SUB: [
+                "What is 3D printing, and how does it work?",
+                "The significance of 3D printing in various industries.",
+                "Real-world examples of 3D printing applications.",
+              ],
+            },
+            {
+              name: "Types of 3D Printing Technologies",
+              SUB: [
+                "Fused Deposition Modeling (FDM) - principles and applications.",
+                "Stereolithography (SLA) - how it differs from FDM and its uses.",
+                "Selective Laser Sintering (SLS) - advantages and materials utilized.",
+                "Digital Light Processing (DLP) - understanding the DLP process.",
+              ],
+            },
+            {
+              name: "3D Printing Materials ",
+              SUB: [
+                "Commonly used filament materials (PLA, ABS, PETG, etc.).",
+                "Resins for SLA and DLP printers and their properties.",
+                "Specialty materials for specific purposes (flexible, conductive, etc.).",
+              ],
+            },
+            {
+              name: "3D Modeling Software ",
+              SUB: [
+                "Introduction to Computer-Aided Design (CAD) software.",
+                "Basic 3D modeling concepts and tools.",
+                "Preparing a 3D model for printing (file formats, scaling, etc.).",
+              ],
+            },
+            {
+              name: "3D Printing Hardware and Equipment",
+              SUB: [
+                "Components of a 3D printer and their functions.",
+                "Understanding printer settings and parameters.",
+                "Troubleshooting common 3D printing issues.",
+              ],
+            },
+          ],
+        },
+        {
+          name: "ADVANCED 3D PRINTING TECHNIQUES ",
+          topics: [
+            {
+              name: "3D Printer Calibration and Maintenance",
+              SUB: [
+                "Importance of calibrating your 3D printer for precise prints.",
+                "Step-by-step guide to calibrating the printer's axes & bed leveling.",
+                "Understanding and adjusting temperature settings for different materials.",
+                "Routine maintenance to keep your 3D printer in top condition.",
+              ],
+            },
 
-    }
+            {
+              name: "Post-Processing Techniques",
+              SUB: [
+                "Removing support structures and rafts from your 3D prints.",
+                "Sanding, polishing, & painting your prints for a professional finish.",
+                "Exploring vapor smoothing & other advanced post-processing methods.",
+                "Tips for optimizing post-processing to achieve desired results.",
+              ],
+            },
+            {
+              name: "Designing for Functionality",
+              SUB: [
+                "Understanding mechanical properties and material selection for functional prints.",
+                "Design guidelines for incorporating moving parts and assemblies.",
+                "Case studies of functional 3D-printed objects in various industries.",
+                "Tips for testing and iterating functional designs for best performance.",
+              ],
+            },
+            {
+              name: "3D Scanning and Photogrammetry ",
+              SUB: [
+                "Introduction to 3D scanning technologies and their applications.",
+                "Using smartphones and inexpensive tools for photogrammetry.",
+                "Converting physical objects into digital 3D models.",
+                "Cleaning and preparing scanned models for 3D printing.",
+              ],
+            },
+            {
+              name: "3D Printing for Engineering & Prototyping",
+              SUB: [
+                "Rapid prototyping: advantages, use cases, and limitations.",
+                "Design considerations for functional prototypes.",
+                "Best practices for printing engineering components with complex geometries.",
+                "Reducing prototyping costs and lead times using 3D printing.",
+              ],
+            },
+          ],
+        },
+        {
+          name: " 3D PRINTING APPLICATIONS & FUTURE TRENDS ",
+          topics: [
+            {
+              name: "3D Printing in Medicine and Healthcare ",
+              SUB: [
+                "Bio-printing: Creating living tissues & organs through 3D printing.",
+                "Custom prosthetics and orthotics for improved patient care.",
+                "Medical models & surgical planning using patient-specific 3D prints.",
+                "Advancements and challenges in medical 3D printing.",
+              ],
+            },
+            {
+              name: "3D Printing - Aerospace & Automotive Industry",
+              SUB: [
+                "Lightweight & high-performance parts for aerospace applications.",
+                "Additive manufacturing in the automotive sector",
+                "Case studies of successful 3D printed components in aerospace and automotive.",
+                "Reducing carbon footprint & enhancing design freedom with 3D printing",
+              ],
+            },
+            {
+              name: "3D Printing in Art and Fashion",
+              SUB: [
+                "Pushing artistic boundaries with 3D printed sculptures & installations.",
+                "Customized fashion design and wearable technology.",
+                "Collaborations between artists, designers, and 3D printing experts.",
+                "Sustainable fashion and its connection to additive manufacturing.",
+              ],
+            },
+            {
+              name: "Intellectual Property & Legal Considerations",
+              SUB: [
+                "Copyright and licensing challenges in the world of 3D printing.",
+                "Protecting your designs and intellectual property.",
+                "Patent landscape and its impact on 3D printing technology.",
+                "Navigating legal issues in 3D printing services and industries.",
+              ],
+            },
+            {
+              name: "Future Trends in 3D Printing",
+              SUB: [
+                "Cutting-edge materials and their potential applications.",
+                "Advances in 3D printing technologies: Multi-material and multi-color printing.",
+                "The role of 3D printing in Industry 4.0 and smart manufacturing.",
+                "The democratization of 3D printing and its impact on various sectors.",
+              ],
+            },
+          ],
+        },
+        {
+          name: "PRACTICES & INTERVIEW PREPARATION",
+          topics: [
+            {
+              name: "Beginner - Practices ",
+              SUB: [
+                "Creating assembly-level cuts, holes, and patterns.",
+                "Understanding the impact of assembly features on individual components.",
+              ],
+            },
+            {
+              name: "Advanced Mates ",
+              SUB: [
+                "Practice 1: Designing a Functional 3D Model",
+                "Practice 2: 3D Printing and Post-Processing",
+                "Practice 3: 3D Printer Calibration",
+                "Practice 4: Reflection and Discussion ",
+                "Practice 5: Comprehensive Project ",
+              ],
+            },
+            {
+              name: "Interview Preparation",
+              SUB: [
+                "Reviewing common 3D Printing and Additive manufacturing interview questions and potential answers",
+                "Discussing tips and strategies for effectively answering interview questions",
+                "Preparing for technical and non-technical aspects of interviews",
+              ],
+            },
+          ],
+        },
+      ],
+    },
   ];
 
   const eventList = [
@@ -6064,7 +6281,9 @@ const Store = ({ children }) => {
         setChange,
         courseList,
         courses,
-        setCourses, events, setEvents,
+        setCourses,
+        events,
+        setEvents,
         section,
         setSection,
         filter,
