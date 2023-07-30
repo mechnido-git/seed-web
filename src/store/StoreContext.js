@@ -5459,6 +5459,276 @@ const Store = ({ children }) => {
         },
       ],
     },
+    {
+      id: 17,
+      name: "FUSION 360 BOOTCAMP",
+      thumbnail: "../../images/course.jpg",
+      slide: s3,
+      order: 17,
+
+      description:
+        "This Program offers students to get clear insights of  Fusion 360 3D Modelling Software by Practical training which will be handled by Mechnido's faculty and industrial experts.",
+      description_L: [
+        "This Program offers students to get clear insights of  Fusion 360 3D Modelling Software by Practical training which will be handled by Mechnido's faculty and industrial experts.",
+        "In 40 hours sessions, students will get an overview of the concepts and potential opportunities in the field. Moreover, students will get certificates from Mechnido.",
+        "Fusion 360 Course is designed to equip participants with the knowledge and skills required to master Autodesk Fusion 360, a powerful 3D computer-aided design (CAD) and computer-aided manufacturing (CAM) software. Throughout this in-depth course, you will embark on a journey from the basics of Fusion 360 to advanced design and manufacturing techniques and you will gain a thorough understanding of Fusion 360's capabilities and become proficient in various design and engineering tasks.",
+      ],
+      duration: [
+        "Flexible Timing",
+        "Weekend : 2 Sessions",
+        "    Saturday & Sunday - 4 Hrs",
+        "Weekday : 2 Sessions (Any 2 Days)",
+        "    Monday to Friday - 4 Hrs",
+      ],
+      certificate: {
+        title: "Requirements for Certification",
+        imgURL:
+          "https://firebasestorage.googleapis.com/v0/b/seed-25898.appspot.com/o/courses%2F8s6lEkkIU0jQDediZpM9%2Fcertificates%2Fcert.jpg?alt=media&token=3097e826-53b9-401c-b46a-09a93bede0ac",
+        sub: [
+          "An individual enrolled in the program should complete the training within the program's time limit.",
+          "To acquire the certification, you must complete all the course's assignments, tests, case studies, projects, and other criteria. ",
+          "To acquire certification, the student must show up to every session that the instructor provides.",
+        ],
+      },
+      category: "",
+      fee: [
+        {
+          id: 0,
+          type: "One time",
+          price: 2500,
+        },
+      ],
+
+      schedule: [
+        {
+          name: "BEGINNER LEVEL",
+          topics: [
+            {
+              name: "Welcome and Course Introduction",
+              SUB: [
+                "Introduction to the facilitator and course objectives",
+                "Overview of the session agenda",
+              ],
+            },
+            {
+              name: "Introduction to Fusion 360",
+              SUB: [
+                "Overview of Fusion 360 and its features",
+                "Understanding the user interface and navigation",
+              ],
+            },
+            {
+              name: "Sketching",
+              SUB: [
+                "Creating 2D sketches using lines, circles, arcs, and other tools",
+                "Applying constraints for precise sketching",
+              ],
+            },
+            {
+              name: "Basic 3D Modeling",
+              SUB: [
+                "Extruding, revolving, and sweeping sketches into 3D solids",
+                "Editing and modifying 3D shapes",
+              ],
+            },
+            {
+              name: "Assemblies and Components",
+              SUB: [
+                "Creating and managing components in an assembly",
+                "Applying constraints to simulate real-world relationships",
+              ],
+            },
+            {
+              name: "Parametric Modeling",
+              SUB: [
+                "Understanding parametric design and history timeline",
+                "Utilizing parameters and equations for flexible designs",
+              ],
+            },
+            {
+              name: "Sculpting and Freeform Modeling",
+              SUB: [
+                "Exploring T-Splines and sculpting tools for organic shapes",
+                "Combining sculpting with parametric modeling",
+              ],
+            },
+            {
+              name: "Importing and Working with CAD Files",
+              SUB: [
+                "Importing and referencing CAD files from other software",
+                "Collaborating with different file formats",
+              ],
+            },
+          ],
+        },
+        {
+          name: "INTERMEDIATE LEVEL",
+          topics: [
+            {
+              name: "Advanced Sketching Techniques",
+              SUB: [
+                "Working with splines, equations, & more complex sketch profiles.",
+                "Utilizing sketch patterns for efficient design.",
+              ],
+            },
+
+            {
+              name: "Advanced 3D Modeling",
+              SUB: [
+                "Creating organic shapes using sculpting and T-Spline tools.",
+                "Applying advanced filleting and chamfering.",
+              ],
+            },
+            {
+              name: "Sheet Metal Design",
+              SUB: [
+                "Introduction to sheet metal modeling and bending operations.",
+                "Creating sheet metal components with specific parameters.",
+              ],
+            },
+            {
+              name: "Creating and Editing Parametric Constraints",
+              SUB: [
+                "Managing and editing existing constraints in complex designs.",
+                "Using parameters and equations for design automation.",
+              ],
+            },
+            {
+              name: "Animation and Rendering",
+              SUB: [
+                "Creating animations to visualize motion and assembly sequences.",
+                "Rendering realistic images for presentations and marketing.",
+              ],
+            },
+            {
+              name: "Intro to CAM ",
+              SUB: [
+                "Overview of CAM tools and workflows in Fusion 360.",
+                "Setting up manufacturing operations and tool libraries.",
+              ],
+            },
+            {
+              name: "Toolpaths and Machining Strategies",
+              SUB: [
+                "Generating toolpaths for 2D and 3D machining operations.",
+                "Understanding different machining strategies (e.g., adaptive clearing, contouring).",
+              ],
+            },
+            {
+              name: "CAM Simulation and Post-Processing",
+              SUB: [
+                "Simulating toolpaths to detect collisions and optimize machining.",
+                "Generating G-code for CNC machines.",
+              ],
+            },
+          ],
+        },
+        {
+          name: "ADVANCED LEVEL",
+          topics: [
+            {
+              name: "Advanced Assembly Techniques",
+              SUB: [
+                "Managing large assemblies efficiently with top-down design strategies.",
+                "Using components and joints effectively in complex assemblies.",
+              ],
+            },
+            {
+              name: "Simulation & FEA in-depth",
+              SUB: [
+                "Conducting comprehensive stress analysis on complex models.",
+                "Understanding simulation results and interpreting FEA data.",
+              ],
+            },
+            {
+              name: "Advanced CAM and Multi-Axis Machining",
+              SUB: [
+                "Mastering advanced CAM strategies for intricate machining operations.",
+                "Implementing multi-axis machining for complex geometries.",
+              ],
+            },
+            {
+              name: "Designing for 3D Printing & Additive Manufacturing",
+              SUB: [
+                "Optimizing designs for 3D printing and additive manufacturing processes.",
+                "Utilizing lattice structures and generative design tools.",
+              ],
+            },
+            {
+              name: "Creating Custom Materials and Appearances",
+              SUB: [
+                "Customizing material properties to simulate real-world behavior.",
+                "Creating realistic appearances and textures for rendering.",
+              ],
+            },
+            {
+              name: "Collaboration and Data Management",
+              SUB: [
+                "Utilizing cloud-based collaboration tools within Fusion 360.",
+                "Managing design versions and project data efficiently.",
+              ],
+            },
+            {
+              name: "Design Automation with iLogic ",
+              SUB: [
+                "Introduction to iLogic for automating design processes.",
+                "Creating rules and logic to drive parametric models.",
+              ],
+            },
+            {
+              name: "Customizing Fusion 360 with Scripts and Add-Ins",
+              SUB: [
+                "Writing and using custom scripts to extend Fusion 360's functionality.",
+                "Installing and using add-ins to streamline workflows",
+              ],
+            },
+          ],
+        },
+        {
+          name: "PRACTICES & INTERVIEW PREPARATION",
+          topics: [
+            {
+              name: "Beginner - Practices ",
+              SUB: [
+                "Practice 1: Navigating the Interface ",
+                "Practice 2: Sketching ",
+                "Practice 3: Creating Basic 3D Shapes ",
+                "Practice 4: Assemblies ",
+                "Practice 5: Introduction to Simulation ",
+              ],
+            },
+            {
+              name: "Intermediate - Practices ",
+              SUB: [
+                "Practice 1: Advanced Sketching ",
+                "Practice 2: Parametric Modeling ",
+                "Practice 3: Sheet Metal Design",
+                "Practice 4: Surface Modeling ",
+                "Practice 5: More Assembly Techniques ",
+              ],
+            },
+            {
+              name: "Advanced - Practices ",
+              SUB: [
+                "Practice 1: Sculpting ",
+                "Practice 2: Mesh Modeling ",
+                "Practice 3: Generative Design ",
+                "Practice 4: CAM",
+                "Practice 5: Comprehensive Project ",
+              ],
+            },
+            {
+              name: "Interview Preparation",
+              SUB: [
+                "Reviewing common Fusion360 and designing interview questions and potential answers",
+                "Discussing tips and strategies for effectively answering interview questions",
+                "Preparing for technical and non-technical aspects of interviews",
+              ],
+            },
+          ],
+        },
+      ],
+    },
   ];
 
   const eventList = [
