@@ -5733,7 +5733,7 @@ const Store = ({ children }) => {
 
     {
       id: 18,
-      name: "ADDITIVE MANUFACTURING - Design, Print, and Transform",
+      name: "ADDITIVE MANUFACTURING",
       thumbnail: "../../images/course.jpg",
       slide: s3,
       order: 18,
@@ -5758,7 +5758,7 @@ const Store = ({ children }) => {
       certificate: {
         title: "Requirements for Certification",
         imgURL:
-          "https://firebasestorage.googleapis.com/v0/b/seed-25898.appspot.com/o/courses%2F8s6lEkkIU0jQDediZpM9%2Fcertificates%2Fcert.jpg?alt=media&token=3097e826-53b9-401c-b46a-09a93bede0ac",
+          "https://firebasestorage.googleapis.com/v0/b/seed-25898.appspot.com/o/courses%2FFr2jw8tMSd1774kGJ2ve%2Fcertificates%2Fcert.jpg?alt=media&token=e79e6c67-1242-4369-8464-615ea9ed67d2",
         sub: [
           "An individual enrolled in the program should complete the training within the program's time limit.",
           "To acquire the certification, you must complete all the course's assignments, tests, case studies, projects, and other criteria. ",
@@ -5906,7 +5906,7 @@ const Store = ({ children }) => {
 
     {
       id: 19,
-      name: "MASTERING MS WORD - Polished and Professional",
+      name: "MASTERING MS WORD",
       thumbnail: "../../images/course.jpg",
       slide: s3,
       order: 18,
@@ -5930,7 +5930,7 @@ const Store = ({ children }) => {
       certificate: {
         title: "Requirements for Certification",
         imgURL:
-          "https://firebasestorage.googleapis.com/v0/b/seed-25898.appspot.com/o/courses%2F8s6lEkkIU0jQDediZpM9%2Fcertificates%2Fcert.jpg?alt=media&token=3097e826-53b9-401c-b46a-09a93bede0ac",
+          "https://firebasestorage.googleapis.com/v0/b/seed-25898.appspot.com/o/courses%2F82AeJcLml7iPMTjfjjTU%2Fcertificates%2Fcert.jpg?alt=media&token=a682048c-50c3-4065-be9b-fca8f9fe7d55",
         sub: [
           "An individual enrolled in the program should complete the training within the program's time limit.",
           "To acquire the certification, you must complete all the course's assignments, tests, case studies, projects, and other criteria. ",
