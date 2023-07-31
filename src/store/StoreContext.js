@@ -5729,6 +5729,458 @@ const Store = ({ children }) => {
         },
       ],
     },
+
+
+    {
+      id: 18,
+      name: "ADDITIVE MANUFACTURING - Design, Print, and Transform",
+      thumbnail: "../../images/course.jpg",
+      slide: s3,
+      order: 18,
+
+      description:
+        "This Program offers students to get clear insights of  Additive Manufacturing by Practical training which will be handled by SEED and industrial experts. ",
+      description_L: [
+        "This Program offers students to get clear insights of  Additive Manufacturing by Practical training which will be handled by SEED and industrial experts.", 
+        "In 15 hours sessions, students will get an overview of the concepts and potential opportunities in the field. Moreover, students will get certificates from SEED.",
+        "The Additive Manufacturing is a comprehensive and interactive learning program that provides participants with a thorough understanding of additive manufacturing technologies, processes, applications, and future advancements.",
+        " Additive manufacturing, also known as 3D printing, is a revolutionary manufacturing method that builds objects layer by layer, offering unique design possibilities and transforming various industries."
+
+
+      ],
+      duration: [
+        "Flexible Timing",
+        "Weekend : 2 Sessions",
+        "    Saturday & Sunday - 4 Hrs",
+        "Weekday : 2 Sessions (Any 2 Days)",
+        "    Monday to Friday - 4 Hrs",
+      ],
+      certificate: {
+        title: "Requirements for Certification",
+        imgURL:
+          "https://firebasestorage.googleapis.com/v0/b/seed-25898.appspot.com/o/courses%2F8s6lEkkIU0jQDediZpM9%2Fcertificates%2Fcert.jpg?alt=media&token=3097e826-53b9-401c-b46a-09a93bede0ac",
+        sub: [
+          "An individual enrolled in the program should complete the training within the program's time limit.",
+          "To acquire the certification, you must complete all the course's assignments, tests, case studies, projects, and other criteria. ",
+          "To acquire certification, the student must show up to every session that the instructor provides.",
+        ],
+      },
+      category: "",
+      fee: [
+        {
+          id: 0,
+          type: "One time",
+          price: 399,
+        },
+      ],
+
+      schedule:[
+        {
+          name:"INTRODUCTION TO ADDITIVE MANUFACTURING",
+          topics:[
+            {
+              name:"Welcome and Course Introduction",
+              SUB:[
+                "Introduction to the facilitator and course objectives",
+                "Overview of the session agenda"
+              ]
+            },
+            {
+              name:"Understanding Additive Manufacturing",
+              SUB:[
+                "Definition and principles of additive manufacturing",
+                "Comparison with traditional manufacturing processes"
+              ]
+            },
+            {
+              name:"Types of Additive Manufacturing Technologies",
+              SUB:[
+                "Overview of various AM technologies (SLA, SLS, FDM, DMLS, etc.)",
+                "Advantages and limitations of each technology"
+              ]
+            },
+            {
+              name:"Design for Additive Manufacturing",
+              SUB:[
+                "Principles of designing for AM",
+                "Topology optimization and lattice structures",
+                "Case studies showcasing optimized designs for specific applications"
+              ]
+            },
+            {
+              name:"Case Study 1: Aerospace Industry",
+              SUB:[
+                "How additive manufacturing revolutionized aerospace manufacturing",
+                "Real-world examples of 3D printed aerospace components."
+              ]
+            },
+           
+            
+          ]
+        },
+        {
+          name:"ADVANCED ADDITIVE MANUFACTURING TECHNIQUES",
+          topics:[
+            {
+              name:"Material Selection for Additive Manufacturing ",
+              SUB:[
+                "Types of materials used in AM (polymers, metals, ceramics, composites)",
+                "Material properties and their impact on the final product"
+              ]
+            },
+            {
+              name:"Post-Processing and Finishing",
+              SUB:[
+                "Importance of post-processing in AM",
+                "Surface finishing, heat treatment, and stress relief techniques"
+              ]
+            },
+            {
+              name:"Additive Manufacturing of Metal Parts",
+              SUB:[
+                "Metal AM processes and equipment",
+                "Case studies of metal AM in the automotive industry"
+              ]
+            },
+            {
+              name:"Additive Manufacturing of Polymer Parts",
+              SUB:[
+                "Overview of polymer AM processes",
+                "Application examples in consumer goods and medical devices"
+              ]
+            },
+            {
+              name:"Case Study 2: Medical Applications",
+              SUB:[
+                "3D printing in the healthcare sector: prosthetics, implants, surgical guides",
+                "Success stories and challenges in medical AM"
+              ]
+            },
+           
+          ]
+        },
+        {
+          name:"ADVANCEMENTS & FUTURE OF ADDITIVE MANUFACTURING",
+          topics:[
+            {
+              name:"Additive Manufacturing in Industry 4.0",
+              SUB:[
+                "Integration of AM in smart factories",
+                "Role of AM in decentralized production"
+              ]
+            },
+            {
+              name:"Hybrid Manufacturing: Combining AM with Traditional Processes",
+              SUB:[
+                "Understanding hybrid manufacturing concepts",
+                "Case studies highlighting the synergy of AM and CNC machining"
+              ]
+            },
+            {
+              name:"3D Printing Large-Scale Objects",
+              SUB:[
+                "Challenges and solutions for printing large objects",
+                "Examples of architectural and construction applications"
+              ]
+            },
+            
+            {
+              name:"Additive Manufacturing for Sustainable Practices",
+              SUB:[
+                "Environmental benefits and considerations of AM",
+                "Case studies demonstrating sustainable AM applications"
+              ]
+            },
+            {
+              name:"Case Study 3: Future Perspectives",
+              SUB:[
+                "Emerging trends and research in additive manufacturing",
+                "Speculations on the future impact of AM on various industries"
+              ]
+            },
+          ]
+        }
+      ]
+
+    },
+
+    {
+      id: 19,
+      name: "MASTERING MS WORD - Polished and Professional",
+      thumbnail: "../../images/course.jpg",
+      slide: s3,
+      order: 18,
+
+      description:
+        "This Program offers students to get clear insights of MS Word Advanced by Practical training which will be handled by SEED and industrial experts. ",
+      description_L: [
+        "This Program offers students to get clear insights of MS Word Advanced by Practical training which will be handled by SEED and industrial experts. ",
+        "In 8 hours sessions, students will get an overview of the concepts and potential opportunities in the field. Moreover, students will get certificates from SEED.",
+        "The MS Word Online Course is designed to equip participants with the essential knowledge and practical skills to harness the full potential of Microsoft Word, the industry-leading word processing software.", 
+        "Whether you're a student, a professional, an aspiring writer, or simply someone who wants to create impressive documents, this course is tailor-made for you."
+
+      ],
+      duration: [
+        "Flexible Timing",
+        "Weekend : 2 Sessions",
+        "    Saturday & Sunday - 4 Hrs",
+        "Weekday : 2 Sessions (Any 2 Days)",
+        "    Monday to Friday - 4 Hrs",
+      ],
+      certificate: {
+        title: "Requirements for Certification",
+        imgURL:
+          "https://firebasestorage.googleapis.com/v0/b/seed-25898.appspot.com/o/courses%2F8s6lEkkIU0jQDediZpM9%2Fcertificates%2Fcert.jpg?alt=media&token=3097e826-53b9-401c-b46a-09a93bede0ac",
+        sub: [
+          "An individual enrolled in the program should complete the training within the program's time limit.",
+          "To acquire the certification, you must complete all the course's assignments, tests, case studies, projects, and other criteria. ",
+          "To acquire certification, the student must show up to every session that the instructor provides.",
+        ],
+      },
+      category: "",
+      fee: [
+        {
+          id: 0,
+          type: "One time",
+          price: 299,
+        },
+      ],
+      schedule:[
+        {
+          name:"INTRODUCTION TO MS WORD ",
+          topics:[
+            {
+              name:"Welcome and Course Introduction",
+              SUB:[
+                "Introduction to the facilitator and course objectives",
+                "Overview of the session agenda"
+              ]
+            },
+            {
+              name:"Introduction to MS Word",
+              SUB:[
+                "What is Microsoft Word & its significance in document processing.",
+                "Common uses of Word in various industries and professions."
+              ]
+            },
+            {
+              name:"Navigating the Word Interface",
+              SUB:[
+                "Understanding the Ribbon: Tabs, Groups, and Commands.",
+                "Customizing the Quick Access Toolbar for frequently used commands.",
+                "Utilizing the Backstage view for managing documents."
+              ]
+            },
+            {
+              name:"Creating and Opening Documents",
+              SUB:[
+                "Creating a new document from scratch.",
+               " Opening existing documents from different locations (local and cloud storage)."
+              ]
+            },
+            {
+              name:"Working with Paragraphs",
+              SUB:[
+                "Indenting paragraphs for better readability.",
+                "Adding bullets and numbering to create lists.",
+                "Changing paragraph alignment within the document."
+              ]
+            },
+            {
+              name:"Saving and Closing Documents",
+              SUB:[
+                "Saving documents in different formats: .docx, .pdf, .doc, etc.",
+                "Using auto-save and version history in cloud-based platforms.",
+                "Closing documents and understanding the difference between closing and quitting Word."
+              ]
+            },
+            {
+              name:"Basic Text Editing",
+              SUB:[
+                "Typing and entering text in a document.",
+                "Selecting, copying, cutting, and pasting text.",
+                "Using undo and redo to correct mistakes."
+              ]
+            },
+            {
+              name:"Formatting Text",
+              SUB:[
+                "Applying font styles (bold, italic, underline) to text.",
+                "Changing font size and color.",
+                "Aligning text: left, right, center, and justified.",
+                "Adjusting line spacing and paragraph spacing."
+              ]
+            }
+          ]
+        },
+
+        {
+          name:"DOCUMENT FORMATTING",
+          topics:[
+            {
+              name:"Paragraph Formatting",
+              SUB:[
+                "Adjusting indentation for different document elements (e.g., quotes, paragraphs).",
+                "Using line spacing effectively to enhance readability.",
+                "Applying bullets and numbering with various formatting options.",
+                "Creating and modifying lists."
+              ]
+            },
+            {
+              name:"Working with Styles and Themes",
+              SUB:[
+                "Understanding the concept of styles and their significance in document formatting.",
+                "Applying pre-defined styles to text for consistency and efficiency.",
+                "Creating custom styles to suit specific document requirements.",
+                "Exploring document themes to give a cohesive look to the entire document."
+              ]
+            },
+            {
+              name:"Page Setup and Layout",
+              SUB:[
+                "Adjusting margins, orientation (portrait vs. landscape), and paper size.",
+                "Inserting page breaks for proper page layout.",
+                "reating headers and footers for professional document branding."
+              ]
+            },
+            {
+              name:"Headers and Footers",
+              SUB:[
+                "Differentiating between the header and footer sections of a document.",
+                "Adding dynamic content (e.g., document title, chapter titles) to headers and footers.",
+                "Inserting page numbers and page count information."
+              ]
+            },
+            {
+              name:"Using Tables for Organizing Information",
+              SUB:[
+                "Creating tables to organize data in rows and columns.",
+                "Formatting tables with borders, shading, and text alignment.",
+                "Merging and splitting cells for advanced table layouts."
+              ]
+            },
+            {
+              name:"Inserting and Formatting Graphics",
+              SUB:[
+                "Inserting images and illustrations into the document.",
+                "Resizing and positioning images to fit the content.",
+                "Applying text wrapping options around images.",
+                "Adding captions and labels to images and tables."
+              ]
+            },
+          ]
+
+        },
+        {
+          name:"WORKING WITH TABLES AND GRAPHICS",
+          topics:[
+            {
+              name:"Creating and Formatting Tables",
+              SUB:[
+                "Inserting tables into documents and defining the number of rows and columns.",
+                "Applying basic formatting to tables: adjusting cell size, changing borders, and shading.",
+                "Working with table styles to create consistent designs.",
+                "Sorting and filtering data within tables for better organization."
+              ]
+            },
+            {
+              name:"Advanced Table Features",
+              SUB:[
+                "Merging and splitting cells to create complex table layouts.",
+                "Adding and formatting table headers and footers.",
+                "Using formulas for basic calculations within tables.",
+                "Converting text to tables and tables to text."
+              ]
+            },
+            {
+              name:"Inserting Images and Illustrations",
+              SUB:[
+                "Adding images from various sources: local files and online resources.",
+                "Understanding image formats: JPEG, PNG, GIF, and more.",
+                "Resizing, rotating, and positioning images for better visual impact.",
+                "Applying image corrections and artistic effects."
+              ]
+            },
+            {
+              name:"Working with Shapes and SmartArt",
+              SUB:[
+                "Inserting shapes (e.g., arrows, rectangles, circles) to highlight content.",
+                "Customizing shapes with different colors, outlines, and effects.",
+                "Creating and modifying SmartArt graphics to visually represent information."
+              ]
+            },
+            {
+              name:"Text Wrapping and Alignment with Graphics",
+              SUB:[
+                "Controlling text wrapping around images and shapes.",
+                "Adjusting text alignment in relation to graphics.",
+                "Using anchor points to position graphics precisely."
+              ]
+            },
+            {
+              name:"Adding Captions and Labels",
+              SUB:[
+                "Adding captions to images and tables for better context.",
+                "Inserting and customizing labels for graphic elements.",
+                "Managing captions and labels for multiple graphics."
+              ]
+            },
+           
+          ]
+        },
+        {
+          name:"ADVANCED FEATURES AND COLLABORATION ",
+          topics:[
+            {
+              name:"Working with References",
+              SUB:[
+                "Creating a table of contents (TOC) for long documents.",
+                "Adding footnotes and endnotes for proper citation and referencing.",
+                "Managing citations and creating a bibliography with citations tools."
+              ]
+            },
+            {
+              name:"Using Track Changes and Comments",
+              SUB:[
+                "Enabling and navigating the Track Changes feature for document revision.",
+               " Accepting and rejecting changes made by collaborators.",
+                "Adding and responding to comments for feedback and discussion"
+              ]
+            }, {
+              name:"Collaborative Editing and Sharing",
+              SUB:[
+                "Sharing documents for real-time collaboration via cloud platforms.",
+                "Co-authoring documents with multiple users simultaneously.",
+                "Resolving conflicts and version control in collaborative editing."
+              ]
+            },
+            {
+              name:"Mail Merge for Personalized Communication",
+              SUB:[
+                "Creating form letters and personalized emails using the Mail Merge wizard.",
+                "Importing recipient data from external sources (e.g., Excel spreadsheets).",
+                "Previewing and printing merged documents."
+              ]
+            }, {
+              name:"Document Protection and Security",
+              SUB:[
+                "Applying document protection to control editing, formatting, and content changes.",
+                "Setting permissions and passwords to restrict document access.",
+                "Encrypting documents for secure sharing and storage."
+              ]
+            },
+            {
+              name:"Time-Saving Tips and Shortcuts",
+              SUB:[
+                "Introducing time-saving keyboard shortcuts for common tasks.",
+                "Utilizing AutoCorrect and AutoText for automatic text insertion.",
+                "Customizing the Quick Access Toolbar for frequently used commands."
+              ]
+            },
+          ]
+        }
+      ]
+    }
   ];
 
   const eventList = [
