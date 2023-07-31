@@ -232,7 +232,7 @@ function CoursesHome() {
       console.log(courses);
       setRecommended(courses.filter((item, i) => i < 4))
       setTrending(courses?.filter((item, i) => i > 3 && i < 8))
-      setTeam(courses?.filter((item, i) => i > 7 && i < 16))
+      setTeam(courses?.filter((item, i) => i > 7 && i < 26))
       setLoading(false)
     }
   }, [courses])
@@ -380,7 +380,6 @@ function CoursesHome() {
                     arr={team.filter((item) =>
                       filter === "All" ? item : filter == item.category
                     )}
-                    limit={8}
                     viewDetails={getCours}
                   />
                 </div>
