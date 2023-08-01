@@ -218,7 +218,7 @@ function EventIndex() {
                               disabled={enrolled}
                               onClick={getRegister}
                             >
-                              {enrolled? "Registered ": "Register"}
+                              {enrolled? "Enrolled ": "Enroll"}
                             </button>
                             <button onClick={viewDetails}>Know More</button>
                           </div>

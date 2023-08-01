@@ -230,9 +230,9 @@ function CoursesHome() {
   useEffect(() => {
     if (courses){
       console.log(courses);
-      setRecommended(courses.filter((item, i) => i < 4))
-      setTrending(courses?.filter((item, i) => i > 3 && i < 8))
-      setTeam(courses?.filter((item, i) => i > 7 && i < 26))
+      setRecommended(courses.filter((item, i) => i < 6))
+      setTrending(courses?.filter((item, i) => i > 5 && i < 13))
+      setTeam(courses?.filter((item, i) => i > 11 && i < 23))
       setLoading(false)
     }
   }, [courses])
@@ -355,7 +355,7 @@ function CoursesHome() {
                     arr={recommended.filter((item) =>
                       filter === "All" ? item : filter == item.category
                     )}
-                    limit={4}
+                    limit={6}
                     viewDetails={getCours}
                   />
                 </div>
@@ -367,7 +367,7 @@ function CoursesHome() {
                     arr={trending.filter((item) =>
                       filter === "All" ? item : filter == item.category
                     )}
-                    limit={4}
+                    limit={6}
                     viewDetails={getCours}
                   />
                 </div>

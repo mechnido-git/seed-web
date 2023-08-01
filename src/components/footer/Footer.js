@@ -114,7 +114,7 @@ const {theme,setCheck,setTheme, check}= useContext(StoreContext);
             </li>
             <li>
               <HashLink smooth to="/refund-policy/#refund">
-                Refund Plocy
+                Refund Policy
               </HashLink>
             </li>
             <li>

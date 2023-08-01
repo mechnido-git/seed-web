@@ -274,8 +274,6 @@ function CourseDetails() {
         <h2>Enroll Now!!</h2>
         <div className="content">
           <h3 id="individual">Individual courses</h3>
-          <h3 id="divider" ></h3>
-          <h3 id="pack" >Offer pack</h3>
           <div className="individual">
             {courses?.map((item, i) => <div className="card" onClick={()=>getCours(item.order)} key={i}>
               <h4>
@@ -290,6 +288,7 @@ function CourseDetails() {
               OR
             </div>
           </div>
+          <h3 id="pack" >Offer pack</h3>
           <div className="pack">
             <h3>OFFER PACK</h3>
           </div>

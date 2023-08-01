@@ -125,7 +125,6 @@ function Drop({ onClickOutside, show, dropIndex, redirect, setRedirect, setSignI
             <img src={kart} alt="" />
             <div className="body">
               <h4>{item.name}</h4>
-              <p>{item.fee}</p>
               <div></div>
             </div>
           </div>
