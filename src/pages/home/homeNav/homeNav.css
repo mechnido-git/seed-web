@@ -419,10 +419,10 @@
          font-size: 40px;
        }
    
-        .App > .nav a > #logo{
-         width: 3rem;
+        /* .App > .nav a > #logo{
+         width: 13rem;
        }
-   
+    */
         .App > .nav {
          justify-content: space-between;
          grid-template-columns: auto 1fr;
