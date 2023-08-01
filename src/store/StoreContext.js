@@ -5909,7 +5909,7 @@ const Store = ({ children }) => {
       name: "MASTERING MS WORD",
       thumbnail: "../../images/course.jpg",
       slide: s3,
-      order: 18,
+      order: 19,
 
       description:
         "This Program offers students to get clear insights of MS Word Advanced by Practical training which will be handled by SEED and industrial experts. ",
@@ -6393,14 +6393,14 @@ const Store = ({ children }) => {
 
             data: [
               {
-                h1: "Runner Up",
-                p: "Trophy + Cash Prize",
-                money: "20,000 INR",
-              },
-              {
                 h1: "Champion",
                 p: "Trophy + Cash Prize",
                 money: "40,000 INR",
+              },
+              {
+                h1: "Runner Up",
+                p: "Trophy + Cash Prize",
+                money: "20,000 INR",
               },
               {
                 h1: "Best Endurance",
@@ -6458,14 +6458,14 @@ const Store = ({ children }) => {
             title: "Electric",
             data: [
               {
-                h1: "Runner Up",
-                p: "Trophy + Cash Prize",
-                money: "15,000 INR",
-              },
-              {
                 h1: "Champion",
                 p: "Trophy + Cash Prize",
                 money: "30,000 INR",
+              },
+              {
+                h1: "Runner Up",
+                p: "Trophy + Cash Prize",
+                money: "15,000 INR",
               },
               {
                 h1: "Best Endurance",

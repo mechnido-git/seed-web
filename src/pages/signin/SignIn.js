@@ -17,6 +17,7 @@ import Spinner from "../../components/Spinner";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { doc, getDoc, setDoc } from "firebase/firestore";
+import { HashLink } from "react-router-hash-link";
 
 export const displayError = (inputField, errorField, msg) => {
   errorField.style.display = "block";
@@ -563,11 +564,15 @@ function SignIn({ index, redirect, setRedirect,setSignIn }) {
                 By clicking "Sign up," you agree to our
                 <br />
                 <b>
-                  <a href="#">Terms of Use</a>
+                  <HashLink smooth to="/terms/#terms" target="_blank">
+                  Terms of Use
+                  </HashLink>
                 </b>{" "}
                 and our{" "}
                 <b>
-                  <a href="#">Privacy Policy</a>
+                  <HashLink smooth to="/privacy-policy/#privacy" target="_blank">
+                  Privacy Policy
+                  </HashLink>
                 </b>
                 .{" "}
               </span>

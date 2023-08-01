@@ -21,7 +21,7 @@ export const DetailsCard = ({ enroll, prize , event , userId}) => {
   return (
     <div className="card-event">
       <img src={tnkc} alt="tnkc image" />
-      <button className={enrolled? "disabledbtn": ""} disabled = {enrolled} onClick={ enroll} >{enrolled? "Registered":"Register"}</button>
+      <button className={enrolled? "disabledbtn": ""} disabled = {enrolled} onClick={ enroll} >{enrolled? "Enrolled":"Enroll"}</button>
       <hr />
       <div className="card-body">
         <h3>
