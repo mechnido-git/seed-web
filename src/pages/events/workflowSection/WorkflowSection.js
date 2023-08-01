@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom';
 
 const checkEnroll = (item , userId) => {
   let flag = false;
-  console.log("this ia item",item);
+  
   item.enrolled?.forEach((item) => {
     
     if (item.userId === userId) flag = true;
@@ -49,7 +49,7 @@ function WorkflowSection({ event }) {
  useEffect(()=>{
   const last = document.querySelector('.workflow-container .content:last-child')
   const lastNum = document.querySelector('.workflow-container .num:last-child')
-  console.log(lastNum);
+  // console.log(lastNum);
   if(event?.workflow.data.length % 2 === 0){
     last.classList.add('even-last')
     lastNum.style.transform = 'translateX(-17px)'

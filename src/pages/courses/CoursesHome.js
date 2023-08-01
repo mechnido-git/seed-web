@@ -181,7 +181,7 @@ export const filterItems = (filter, setFilter, item, e) => {
   //const btns = document.querySelectorAll('.filter')
   const active = document.querySelectorAll(".active");
   const allBtn = document.querySelectorAll(".All");
-  console.log(active);
+  // console.log(active);
   if (active[0]) {
     if ((active[0]?.innerHTML == e.target.closest(".filter").innerHTML) || (active[1]?.innerHTML == e.target.closest(".filter").innerHTML)) {
       active[0]?.classList.toggle("active");
