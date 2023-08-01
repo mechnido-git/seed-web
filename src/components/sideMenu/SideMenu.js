@@ -53,9 +53,9 @@ function SideMenu() {
       link.classList.remove("clicked");
     });
     const index = e.target.closest("[data-index]").dataset.index;
-    console.log(index + "jiii");
+    // console.log(index + "jiii");
     if (index == 0) {
-      console.log(links[0], "k");
+      // console.log(links[0], "k");
       links[0].classList.add("clicked");
       minLinks[0].classList.add("clicked");
       setSection(0);
@@ -72,8 +72,8 @@ function SideMenu() {
 
   useEffect(() => {
     const loc = window.location.href.split("/")
-    console.log(loc);
-    console.log('hehe');
+    // console.log(loc);
+    // console.log('hehe');
     onAuthStateChanged(auth, (user) => {
       if (user) setUser(true);
     });
@@ -81,7 +81,7 @@ function SideMenu() {
     let pos = 1
     if (loc[loc.length - 1].length <= 1) pos = 2;
     if (loc[loc.length - 1].length == 1) pos = 3;
-    console.log(loc[loc.length - pos]);
+    // console.log(loc[loc.length - pos]);
     switch (loc[loc.length - pos]) {
       case "courses":
         elem = 1;
@@ -98,8 +98,8 @@ function SideMenu() {
       default:
         return;
     }
-    console.log(elem);
-    console.log(elem);
+    // console.log(elem);
+    // console.log(elem);
     document.querySelectorAll(".link").forEach((link, index) => {
       if (prev === null) {
         if (elem === 0) {

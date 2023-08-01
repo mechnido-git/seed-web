@@ -1,4 +1,4 @@
-import {React , useContext , useEffect ,useState} from 'react'
+import {React , useContext } from 'react'
 // import tick from "../../../images/tick64.png";
 import tick from "../../../images/check-mark.png";
 import tickwhite from "../../../images/checkmarkwhite.png";
@@ -8,9 +8,9 @@ import { StoreContext } from "../../../store/StoreContext";
 function NeedSection({event}) {
 
   const {theme,setCheck,setTheme, check}= useContext(StoreContext);
-  useEffect(()=>{
-    console.log(" check value is ",check);
-  },[theme]);
+  // useEffect(()=>{
+  //   console.log(" check value is ",check);
+  // },[theme]);
 
   const sibling = event.why.sibling;
  

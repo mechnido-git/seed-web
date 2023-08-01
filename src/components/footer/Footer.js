@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext} from "react";
 import "./footer.css";
 import { HashLink } from "react-router-hash-link";
 import fb from "../../images/fb.png";
@@ -8,17 +8,11 @@ import instawhite from "../../images/instawhite.png";
 import { StoreContext } from "../../store/StoreContext";
 
 function Footer() {
-const {theme,setCheck,setTheme, check}= useContext(StoreContext);
+const { check}= useContext(StoreContext);
  
- const [fbsrc, setFbsrc] = useState(fb);
- const [insrc, setInsrc] = useState(insta);
-  useEffect(()=>{
-    console.log(" check value is ",check);
-  },[theme]);
+//  const [fbsrc, setFbsrc] = useState(fb);
+//  const [insrc, setInsrc] = useState(insta);
 
-// useEffect(()=>{
-//   console.log("the theme changes");
-// },[check]);
 
 
   return (
