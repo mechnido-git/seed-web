@@ -35,7 +35,7 @@ const Store = ({ children }) => {
   const courseList = [
     {
       id: 0,
-      name: "Product Development Program",
+      name: "PRODUCT DEVELOPMENT PROGRAM",
       thumbnail: "../../images/courses.jpg",
       flag: true,
       metrics: {
@@ -232,7 +232,7 @@ const Store = ({ children }) => {
     },
     {
       id: 1,
-      name: "Design thinking",
+      name: "DESIGN THINKING",
       thumbnail: "../../images/course.jpg",
       metrics: {
         students: 600,
@@ -554,7 +554,7 @@ const Store = ({ children }) => {
 
     {
       id: 2,
-      name: "Reverse Engineering",
+      name: "REVERSE ENGINEERING ",
       thumbnail: "../../images/course.jpg",
       metrics: {
         students: 600,

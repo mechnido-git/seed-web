@@ -87,13 +87,13 @@ function Navbar({ signIn }) {
       const items = courses.filter(item => {
         return value && item && item.name && item.name.toLowerCase().includes(value)
       })
-      console.log(items)
+      console.log( " these are items",items)
       setResults(items)
     }
   }
 
   const handleKeyDown = (e) => {
-    console.log(selected);
+    // console.log(selected);
     if (selected < results.length) {
       if (e.key === "ArrowUp" && selected > 0) {
         setSelected(prev => prev - 1)
