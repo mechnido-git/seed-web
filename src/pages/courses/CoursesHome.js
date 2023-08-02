@@ -231,7 +231,7 @@ function CoursesHome() {
     if (courses){
       console.log(courses);
       setRecommended(courses.filter((item, i) => i < 6))
-      setTrending(courses?.filter((item, i) => i > 5 && i < 13))
+      setTrending(courses?.filter((item, i) => i > 5 && i < 12))
       setTeam(courses?.filter((item, i) => i > 11 && i < 23))
       setLoading(false)
     }
@@ -355,7 +355,6 @@ function CoursesHome() {
                     arr={recommended.filter((item) =>
                       filter === "All" ? item : filter == item.category
                     )}
-                    limit={6}
                     viewDetails={getCours}
                   />
                 </div>
@@ -367,7 +366,6 @@ function CoursesHome() {
                     arr={trending.filter((item) =>
                       filter === "All" ? item : filter == item.category
                     )}
-                    limit={6}
                     viewDetails={getCours}
                   />
                 </div>

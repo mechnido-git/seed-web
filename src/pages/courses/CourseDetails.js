@@ -22,6 +22,7 @@ function CourseDetails() {
 
   const [buy, setbuy] = useState(false)
   const [data, setData] = useState(courseList[index]);
+  console.log(courseList[index]);
 
   const [enrolled, setEnrolled] = useState(null)
 
@@ -47,33 +48,33 @@ function CourseDetails() {
 
   const getCours = (index) => {
 
-   // navigate(`/menu/courses/details/${index}`)
-   // navigate(`/menu/courses/details/${index}`, { replace: true })
-   window.location.href = `/menu/courses/details/${index}`
-   // navigate(0)
-   
+    // navigate(`/menu/courses/details/${index}`)
+    // navigate(`/menu/courses/details/${index}`, { replace: true })
+    window.location.href = `/menu/courses/details/${index}`
+    // navigate(0)
+
   }
 
-  useEffect(()=>{
+  useEffect(() => {
 
-     if(!courseList[index].metrics) setMetrics(false)
-     if(!courseList[index].feedback) setFeedback(false)
+    if (!courseList[index].metrics) setMetrics(false)
+    if (!courseList[index].feedback) setFeedback(false)
 
-     courses[index].enrolled?.forEach(item => {
+    courses[index].enrolled?.forEach(item => {
       if (item.userId === userId) setEnrolled(true)
     })
 
-      const loc = window.location.href.split("/")
-      const last = loc[loc.length -1]
-      if(last[0] === "#"){
-        const id = last.slice(1, last.length)
-        document.getElementById(id).scrollIntoView({behavior: 'smooth'});
-      }
+    const loc = window.location.href.split("/")
+    const last = loc[loc.length - 1]
+    if (last[0] === "#") {
+      const id = last.slice(1, last.length)
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
 
-      return ()=>{
-        setMetrics(true)
-        setFeedback(true)
-      }
+    return () => {
+      setMetrics(true)
+      setFeedback(true)
+    }
   }, [])
 
   return (
@@ -92,7 +93,7 @@ function CourseDetails() {
         <div className="course">
           <div className="card">
             <img src={img} alt="" />
-            <button className={enrolled?"disabledbtn":""} disabled={enrolled} onClick={enrolled? null: enroll}>{enrolled? "Enrolled": "Enroll Now"}</button>
+            <button className={enrolled ? "disabledbtn" : ""} disabled={enrolled} onClick={enrolled ? null : enroll}>{enrolled ? "Enrolled" : "Enroll Now"}</button>
             <hr />
             <div className="body">
               <h3>
@@ -161,7 +162,7 @@ function CourseDetails() {
           </div>
           <div className="card">
             <img src={img} alt="course image" />
-            <button className={enrolled?"disabledbtn":""} disabled={enrolled} onClick={enrolled? null: enroll}>{enrolled? "Enrolled": "Enroll Now"}</button>
+            <button className={enrolled ? "disabledbtn" : ""} disabled={enrolled} onClick={enrolled ? null : enroll}>{enrolled ? "Enrolled" : "Enroll Now"}</button>
             <hr />
             <div className="body">
               <h3>
@@ -274,8 +275,11 @@ function CourseDetails() {
         <h2>Enroll Now!!</h2>
         <div className="content">
           <h3 id="individual">Individual courses</h3>
+          <h3 id="divider"></h3>
+          <h3 id="pack" >Offer pack</h3>
+
           <div className="individual">
-            {courses?.map((item, i) => <div className="card" onClick={()=>getCours(item.order)} key={i}>
+            {courses?.filter(item=>data.category == item.category).map((item, i) => <div className="card" onClick={() => getCours(item.order)} key={i}>
               <h4>
                 {item.flag ? <>The Flagship <br /></> : ''}
                 {item.name}
@@ -288,7 +292,6 @@ function CourseDetails() {
               OR
             </div>
           </div>
-          <h3 id="pack" >Offer pack</h3>
           <div className="pack">
             <h3>OFFER PACK</h3>
           </div>
