@@ -105,6 +105,70 @@
   text-align: center;
 }
 
+.whyus h2{
+  margin:25px 16px;
+}
+
+.whyusimgs{
+  display: grid;
+  margin-top: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
+  gap:60px;
+}
+
+
+.whyusimgs img{ 
+ height: 130px;
+ width:140px;
+}
+.whyusimgs div{
+  text-align: center;
+  margin:20px;
+}
+.whyusimgs div h4{
+  font-weight: 300;
+  font-size: larger;
+  margin:10px;
+ 
+  
+}
+.accredimgs{
+  display: grid;
+  margin: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(350px,1fr));
+  gap:60px;
+  margin-top: 50px;
+  
+}
+.accredimgs img{
+  height: 130px;
+ width:140px;
+ margin:auto;
+ 
+}
+.accred h2{
+  margin:25px 16px;
+}
+
+.collabimgs{
+  display: grid;
+  margin-top: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
+  gap:60px;
+}
+.collab h2{
+  margin:25px 16px;
+  
+}
+.collabimgs div img{
+  height: 130px;
+  width: 240px;
+  object-fit: scale-down;
+}
+.collabimgs div{
+  text-align: center;
+  margin: 40px;
+}
 
 .slides-achievements{
     padding: 0rem 1rem;

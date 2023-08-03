@@ -21,7 +21,17 @@ import { doc, getDoc, setDoc } from "firebase/firestore";
 import fbwhite from "../../images/facebookwhite.png";
 import instawhite from "../../images/instawhite.png";
 import { StoreContext } from "../../store/StoreContext";
-
+import why1 from "../../images/whyus1.png";
+import why2 from "../../images/whyus2.png";
+import why3 from "../../images/whyus3.png";
+import why4 from "../../images/whyus4.png";
+import msme from "../../images/msme.png";
+import aicte from "../../images/aicte.png";
+import iso from "../../images/iso.png";
+import collab1 from "../../images/collab1.png";
+import collab2 from "../../images/collab2.png";
+import collab3 from "../../images/collab3.png";
+import collab4 from "../../images/collab4.png";
 
 function Home() {
   const [signIn, setSignIn] = useState(false);
@@ -202,6 +212,40 @@ const [insrc, setInsrc] = useState(insta);
             <h2>"Engineering the Future: Innovate, Create, and Elevate!"</h2>
             <img src={intro} alt="" />
           </div>
+
+
+          <div className="whyus">
+            <h2>Why choose us?</h2>
+            <div className="whyusimgs">
+              <div>
+              <img src = {why1}/>
+              <h4>Practical Learning</h4>
+              </div>
+              <div>
+              <img src = {why2}/>
+              <h4>Today's Need</h4>
+              </div>
+              <div>
+              <img src = {why3}/>
+              <h4>Inspire Youth</h4>
+              </div>
+              <div>
+              <img src = {why4}/>
+              <h4>Live Sessions By Expert</h4>
+              </div>
+            </div>
+          </div>
+
+          <div className="accred">
+            <h2>Accreditations</h2>
+            <div className="accredimgs">
+              <img src = {iso} alt=" ISO logo"/>
+              <img src= {msme} alt="MSME logo" />
+              <img src= {aicte} alt="AICTE logo" />
+            </div>
+
+          </div>
+
           <div className="slides-achievements">
             <div id="achievements"></div>
             <h2>Achievements</h2>
@@ -259,10 +303,32 @@ const [insrc, setInsrc] = useState(insta);
               </SplideSlide>
             </Splide>
           </div>
+
+          <div className="collab">
+            <h2>Collaborations</h2>
+            <div className="collabimgs">
+              <div>
+              <img src= {collab1} />
+              </div>
+              
+              <div>
+              <img src= {collab2} />
+              </div>
+              <div>
+              <img src= {collab3} />
+              </div>
+              <div>
+              <img src= {collab4} />
+              </div>
+             
+            </div>
+
+          </div>
+
           <div className="slides-testimonials">
             <div id="testimonials"></div>
             <h2>Testimonials</h2>
-            <p style={{ marginLeft: "5px" }}>What people say</p>
+            <p style={{ marginLeft: "5px" }}>What people say?</p>
             <Splide
               tag="section"
               aria-labelledby="My Favorite Images"
