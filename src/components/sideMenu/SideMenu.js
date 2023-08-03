@@ -326,7 +326,7 @@ function SideMenu() {
               </span>
               <div>Metrics</div>
             </HashLink> }
-            {feedback && <HashLink
+            {/* {feedback && <HashLink
               onClick={mobile ? toggle : null}
               to={`/menu/courses/details/${courseIndex}/#feedbacks`}
               smooth
@@ -336,7 +336,7 @@ function SideMenu() {
                 rate_review
               </span>
               <div>Feedbacks</div>
-            </HashLink> }
+            </HashLink> } */}
           </>);
 
       case 4:

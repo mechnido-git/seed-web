@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 import p1 from "../images/p1.jpg";
 import p2 from "../images/p2.jpg";
 import p3 from "../images/p3.jpg";
@@ -37,6 +37,7 @@ const Store = ({ children }) => {
       id: 0,
       name: "PRODUCT DEVELOPMENT PROGRAM",
       thumbnail: "../../images/courses.jpg",
+      category: "PRODUCT DEVELOPMENT",
       flag: true,
       metrics: {
         students: 1000,
@@ -556,6 +557,7 @@ const Store = ({ children }) => {
       id: 2,
       name: "REVERSE ENGINEERING ",
       thumbnail: "../../images/course.jpg",
+      category: "DESIGN ELEMENTS",
       metrics: {
         students: 600,
         hours: 20,
@@ -797,6 +799,7 @@ const Store = ({ children }) => {
       id: 3,
       name: "PRODUCTION PLANNING & CONTROL (PPC)",
       thumbnail: "../../images/course.jpg",
+      category: "MANAGEMENT",
       slide: s3,
       order: 3,
       description:
@@ -1174,6 +1177,7 @@ const Store = ({ children }) => {
       id: 4,
       name: "SUPPLY CHAIN MANAGEMENT",
       thumbnail: "../../images/course.jpg",
+      category: "MANAGEMENT",
       slide: s3,
       order: 4,
       description:
@@ -1557,6 +1561,7 @@ const Store = ({ children }) => {
       id: 5,
       name: "PROJECT MANAGEMENT",
       thumbnail: "../../images/course.jpg",
+      category: "MANAGEMENT",
       slide: s3,
       order: 5,
       description:
@@ -1941,6 +1946,7 @@ const Store = ({ children }) => {
       id: 6,
       name: "QUALITY MANAGEMENT",
       thumbnail: "../../images/course.jpg",
+      category: "MANAGEMENT",
       slide: s3,
       order: 6,
       description:
@@ -2302,6 +2308,7 @@ const Store = ({ children }) => {
       id: 7,
       name: "ELECTRIC VEHICLE DESIGN & TECHNOLOGY",
       thumbnail: "../../images/course.jpg",
+      category: "PRODUCT DEVELOPMENT",
       slide: s3,
       order: 7,
       description:
@@ -2605,6 +2612,7 @@ const Store = ({ children }) => {
       id: 8,
       name: "PERSONALITY DEVELOPMENT",
       thumbnail: "../../images/course.jpg",
+      category: "PERSONAL DELVELOPMENT",
       slide: s3,
       order: 8,
       description:
@@ -2882,6 +2890,7 @@ const Store = ({ children }) => {
     {
       id: 9,
       name: "PRODUCT DESIGN & DEVELOPMENT",
+      category: "PRODUCT DEVELOPMENT",
       thumbnail: "../../images/course.jpg",
       slide: s3,
       order: 9,
@@ -3248,6 +3257,7 @@ const Store = ({ children }) => {
       id: 10,
       name: "GD&T",
       thumbnail: "../../images/course.jpg",
+      category: "DESIGN ELEMENTS",
       slide: s3,
       order: 10,
       description:
@@ -3453,6 +3463,7 @@ const Store = ({ children }) => {
       id: 11,
       name: "3D CAD MODELING",
       thumbnail: "../../images/course.jpg",
+      category: "DESIGN ELEMENTS",
       slide: s3,
       order: 11,
       description:
@@ -3744,7 +3755,7 @@ const Store = ({ children }) => {
       thumbnail: "../../images/course.jpg",
       slide: s3,
       order: 12,
-
+      category: "SOFTWARE", 
       description:
         "This comprehensive course is designed to take you on a journey from understanding the basics of CSS to mastering advanced techniques and best practices",
       description_L: [
@@ -3770,7 +3781,6 @@ const Store = ({ children }) => {
           "To acquire certification, the student must show up to every session that the instructor provides.",
         ],
       },
-      category: "SOFTWARE",
       fee: [
         {
           id: 0,
@@ -4046,7 +4056,7 @@ const Store = ({ children }) => {
       thumbnail: "../../images/course.jpg",
       slide: s3,
       order: 13,
-
+      category: "SOFTWARE",
       description:
         "AUTO-CAD Course is a well-structured and in-depth program designed to provide participants with a comprehensive understanding of AutoCAD, a leading software for computer-aided design and drafting.",
       description_L: [
@@ -4072,7 +4082,6 @@ const Store = ({ children }) => {
           "To acquire certification, the student must show up to every session that the instructor provides.",
         ],
       },
-      category: "SOFTWARE",
       fee: [
         {
           id: 0,
@@ -4398,7 +4407,7 @@ const Store = ({ children }) => {
       thumbnail: "../../images/course.jpg",
       slide: s3,
       order: 14,
-
+      category: "SOFTWARE",
       description:
         "The HTML (HyperText Markup Language) course is designed to provide participants with a comprehensive understanding of the fundamental concepts of web development using HTML. ",
       description_L: [
@@ -4425,7 +4434,6 @@ const Store = ({ children }) => {
           "To acquire certification, the student must show up to every session that the instructor provides.",
         ],
       },
-      category: "SOFTWARE",
       fee: [
         {
           id: 0,
@@ -4777,7 +4785,7 @@ const Store = ({ children }) => {
       thumbnail: "../../images/course.jpg",
       slide: s3,
       order: 15,
-
+      category: "SOFTWARE",
       description:
         "SolidWorks is a comprehensive 3D computer-aided design (CAD) software widely used in the engineering and manufacturing industries. ",
       description_L: [
@@ -4804,7 +4812,6 @@ const Store = ({ children }) => {
           "To acquire certification, the student must show up to every session that the instructor provides.",
         ],
       },
-      category: "SOFTWARE",
       fee: [
         {
           id: 0,
@@ -5237,7 +5244,7 @@ const Store = ({ children }) => {
       thumbnail: "../../images/course.jpg",
       slide: s3,
       order: 16,
-
+      category: "DESIGN ELEMENTS",
       description:
         "This Program offers students to get clear insights of  3D Printing Technology by Practical training which will be handled by SEED faculties and industrial experts.",
       description_L: [
@@ -5263,7 +5270,6 @@ const Store = ({ children }) => {
           "To acquire certification, the student must show up to every session that the instructor provides.",
         ],
       },
-      category: "",
       fee: [
         {
           id: 0,
@@ -5465,7 +5471,7 @@ const Store = ({ children }) => {
       thumbnail: "../../images/course.jpg",
       slide: s3,
       order: 17,
-
+      
       description:
         "This Program offers students to get clear insights of  Fusion 360 3D Modelling Software by Practical training which will be handled by Mechnido's faculty and industrial experts.",
       description_L: [
@@ -5490,7 +5496,7 @@ const Store = ({ children }) => {
           "To acquire certification, the student must show up to every session that the instructor provides.",
         ],
       },
-      category: "",
+      category: "DESIGN ELEMENTS",
       fee: [
         {
           id: 0,
@@ -5765,7 +5771,7 @@ const Store = ({ children }) => {
           "To acquire certification, the student must show up to every session that the instructor provides.",
         ],
       },
-      category: "",
+      category: "DESIGN ELEMENTS",
       fee: [
         {
           id: 0,
@@ -5937,7 +5943,7 @@ const Store = ({ children }) => {
           "To acquire certification, the student must show up to every session that the instructor provides.",
         ],
       },
-      category: "",
+      category: "SOFTWARE",
       fee: [
         {
           id: 0,
