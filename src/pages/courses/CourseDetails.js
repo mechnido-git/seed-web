@@ -231,7 +231,7 @@ function CourseDetails() {
           </div>
         </div>
       </div>}
-      {data.feedback && <div className="feedback">
+      {/* {data.feedback && <div className="feedback">
         <div id="feedbacks"></div>
         <h2>Feedbacks</h2>
         <Splide
@@ -270,7 +270,7 @@ function CourseDetails() {
             </SplideSlide>
           ))}
         </Splide>
-      </div>}
+      </div>} */}
       <div className="other-courses">
         <h2>Enroll Now!!</h2>
         <div className="content">
