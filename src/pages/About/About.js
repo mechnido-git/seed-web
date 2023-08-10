@@ -52,53 +52,44 @@ function About() {
                 <span style={{ color: "red" }}>MECHNIDO</span>
               </h2>
               <p>
-                M/S MECHNIDO is an emerging enterprise started in November-2018,
-                working in the field of design, fabrication, and retailing of
-                parts associated with Go-karts and all Terrain Vehicles. We also
-                customize motorsports parts as per the customer requirements
-                prioritizing their design, comfort, and affordability.
+              M/S MECHNIDO was Established in 2018 in Coimbatore, Tamil Nadu, M/S Mechnido is a promising enterprise in the electric vehicle (EV) industry.
+               With a strong commitment to driving innovation and contributing to a sustainable future, Mechnido is dedicated to manufacturing high-quality electric vehicles that
+                offer exceptional performance and efficiency. Our team of skilled engineers, designers, and visionaries works diligently to develop cutting-edge EVs that prioritize reliability
+                 and customer satisfaction.
+
               </p>
             </div>
           </section>
           <section>
             <div className="details">
               <h2>
-                About SEED- A Unit of Mechnido
+                About SEED- AN EDTECH ORGANISATION
               </h2>
               <p>
-                Seed is a group of events
-                presented by M/S MECHNIDO, comprising of various national level
-                events which acts as a platform for engineers to apply and
-                enhance their engineering skills in real world applications. It
-                promotes the idea of developing innovative, robust structures
-                designed with sound engineering practices.{" "}
+              Mechnido's Seed Learning Hub is a dynamic and innovative platform that serves as an integral part of MECHNIDO, dedicated to providing a comprehensive learning solution for individuals across diverse segments.
+               Our platform offers a wide range of courses and events to help learners enhance their knowledge and skills, empowering them to thrive in an ever-evolving world. 
+              Our courses and events are designed by industry experts and educators who are passionate about their fields.{" "}
               </p>
-              <p>
+              {/* <p>
                 All the events included under brand name SEED are exclusive
                 events and cannot be associated with other events conducted by
                 M/S MECHNIDO.{" "}
-              </p>
+              </p> */}
               <h2>Vision</h2>
               <p>
-                Our primary vision is to motivate budding engineers to develop
-                creative ideas, implement them effectively and mould them to
-                face the obstacles. We visualize in creating a platform which
-                forms a strong technical base for them.{" "}
+              We envision a world where learning is a lifelong pursuit, and everyone has the opportunity to unlock their full potential. 
+              Our goal is to create a dynamic and inclusive learning community where individuals can explore, connect, and grow, making learning a fulfilling and enjoyable experience.{" "}
               </p>
               <h2>Mission</h2>
               <p>
-                Our mission is to play key role in forging ideas of young
-                technocrats, to create a platform for prospective engineers to
-                perform and excel their technical skills, to strive hard to
-                ensure that each student in our family evolves to their best
-                potential.
+              Our mission is to empower individuals to learn and grow by providing a comprehensive and accessible learning solution. We strive to offer a wide range of courses and events that enhance knowledge and skills, enabling individuals to thrive in a changing world
               </p>
             </div>
             <div className="logo">
             <img src={check ? seedwhite : logo} alt="seed logo " />
             </div>
           </section>
-          <section>
+          {/* <section>
             <div className="logo">
               {console.log("this is check",check)}
             <img src={check ? seedwhite : logo} alt="seed logo " />
@@ -121,7 +112,7 @@ function About() {
                 required to design a fully functional vehicle.{" "}
               </p>
             </div>
-          </section>
+          </section> */}
         </div>
 
         <Footer />
