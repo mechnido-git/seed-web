@@ -413,6 +413,10 @@
     margin: 2rem;
   }
 
+  .cards .section .details p{
+    text-align: center;
+  }
+
   .get-in-touch > h2{
     margin: 1rem;
     color:var(--tertiary);
