@@ -109,29 +109,44 @@
   margin:25px 16px;
 }
 
-.whyusimgs{
+/* .whyusimgs{
   display: grid;
   margin-top: 10px;
   grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
   gap:60px;
+} */
+
+.whyus .why{
+  display: flex;
+  flex-direction: row;
+  gap:20px;
+  width: 400px;
+  height: 150px;
+ margin:20px;
+ justify-content: center;
 }
 
+.whyus .why .imgg img{ 
+ /* height: 200px;
+ width:200px; */
+ height: 100px;
+ width: 100px;
+ object-fit: contain;
+margin-top: 25%;
+mix-blend-mode: darken;
+}
 
-.whyusimgs img{ 
- height: 130px;
- width:140px;
-}
-.whyusimgs div{
-  text-align: center;
-  margin:20px;
-}
-.whyusimgs div h4{
-  font-weight: 300;
-  font-size: larger;
-  margin:10px;
+.pp{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
  
-  
+  font-size: 27px;
 }
+
+
+
 .accredimgs{
   display: grid;
   margin: 20px;
@@ -150,26 +165,21 @@
   margin:25px 16px;
 }
 
-.collabimgs{
-  display: grid;
-  margin-top: 10px;
-  grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
-  gap:60px;
-}
+
 .collab h2{
-  margin:25px 16px;
+  margin-left:  16px;
+  margin-bottom: 40px;
+}
+.collab .col img{
+  height: 130px;
+  width: 260px;
+  object-fit: contain;
+  mix-blend-mode: darken;
   
 }
-.collabimgs div img{
-  height: 130px;
-  width: 240px;
-  object-fit: scale-down;
-}
-.collabimgs div{
+.collab .col{
   text-align: center;
-  margin: 40px;
 }
-
 .slides-achievements{
     padding: 0rem 1rem;
     margin: 1rem 0;
