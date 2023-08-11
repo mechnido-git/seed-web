@@ -15,12 +15,12 @@ const checkEnroll = (item , userId) => {
   return flag;
 };
 
-export const DetailsCard = ({ enroll, prize , event , userId}) => {
+export const DetailsCard = ({ enroll, prize , event, logo , userId}) => {
  
   let enrolled = checkEnroll(event, userId);// checking whether the user with userId is enrolled with the event "event"
   return (
     <div className="card-event">
-      <img src={tnkc} alt="tnkc image" />
+      <img src={logo} alt="tnkc image" />
       <button className={enrolled? "disabledbtn": ""} disabled = {enrolled} onClick={ enroll} >{enrolled? "Enrolled":"Enroll"}</button>
       <hr />
       <div className="card-body">
@@ -88,7 +88,7 @@ tour
           ))}
           </div>
         </div>
-        <DetailsCard prize={event.prize} userId= {userId} event={events[index]}/>
+        <DetailsCard prize={event.prize} logo={event.logo} userId= {userId} event={events[index]}/>
       </div>
     </div>
   )

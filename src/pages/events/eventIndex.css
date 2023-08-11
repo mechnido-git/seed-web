@@ -134,8 +134,15 @@
     font-size: 25px;
 }
 
+.register-info .sample{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+    padding: 1rem 0;
+}
+
 .time-container{
-    padding: 3rem 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
