@@ -6302,7 +6302,7 @@ const Store = ({ children }) => {
         data: [
           {
             task: "Registration Starts",
-            date: "15.07.2023",
+            date: "21.08.2023",
           },
           {
             task: "Payment Last Date",
@@ -6310,67 +6310,67 @@ const Store = ({ children }) => {
           },
           {
             task: "Registration Ends",
-            date: "15.08.2023",
+            date: "31.10.2023",
           },
           {
             task: "Team Details Submission End",
-            date: "17.08.2023",
+            date: "02.11.2023",
           },
           {
             task: "Workshop",
-            date: "21.08.2023",
+            date: "19.11.2023",
           },
           {
             task: "Phase 1 Design Report Submission Start",
-            date: "11.09.2023",
+            date: "24.11.2023",
           },
           {
             task: "Phase 1 Design Report Submission End",
-            date: "12.09.2023",
+            date: "25.11.2023",
           },
           {
             task: "Presentation Report Submission Start",
-            date: "11.09.2023",
+            date: "25.11.2023",
           },
           {
             task: "Presentation Report Submission End",
-            date: "12.09.2023",
+            date: "26.11.2023",
           },
           {
             task: "Virtual Event Day 1",
-            date: "15.09.2023",
+            date: "28.11.2023",
           },
           {
             task: "Virtual Event Day 2",
-            date: "16.09.2023",
+            date: "29.11.2023",
           },
           {
             task: "Virtual Results",
-            date: "17.09.2023",
+            date: "30.11.2023",
           },
           {
             task: "Final Design Report Submission Start",
-            date: "23.10.2023",
+            date: "19.01.2024",
           },
           {
             task: "Final Design Report Submission End",
-            date: "24.10.2023",
+            date: "20.01.2024",
           },
           {
             task: "College Level Technical inspection",
-            date: "25.10.2023",
+            date: "21.01.2024",
           },
           {
             task: "Team Promo Video Submission",
-            date: "25.10.2023",
+            date: "22.01.2024",
           },
           {
             task: "Final Event Starts",
-            date: "09.11.2023",
+            date: "08.02.2024",
           },
           {
             task: "Final Event Ends",
-            date: "11.11.2023",
+            date: "11.02.2024",
           },
         ],
       },

@@ -15,7 +15,7 @@ const checkEnroll = (item , userId) => {
   return flag;
 };
 
-export const DetailsCard = ({ enroll, prize , event, logo , userId}) => {
+export const DetailsCard = ({ enroll, prize, cash, register , event, logo , userId}) => {
  
   let enrolled = checkEnroll(event, userId);// checking whether the user with userId is enrolled with the event "event"
   return (
@@ -30,10 +30,18 @@ export const DetailsCard = ({ enroll, prize , event, logo , userId}) => {
           </span>{prize.title}
         </h3>
         <ul>
-         {prize.sib.map((item, key)=><li key={key}>
+         {/* {prize.sib.map((item, key)=><li key={key}>
           <h4>{item.text}</h4>
           <p>{item.description} : {item.money}</p>
-         </li>)}
+         </li>)} */}
+         <li>
+         <h4>Overall Cash Prize</h4>
+         <p>{cash}{" "}INR</p>
+         </li>
+         <li>
+         <h4>Registration fee</h4>
+         <p>{register}{" "}INR(Including 18% GST)</p>
+         </li>
         </ul>
         <h3>
           <span class="material-symbols-outlined">workspace_premium</span>
@@ -88,7 +96,7 @@ tour
           ))}
           </div>
         </div>
-        <DetailsCard prize={event.prize} logo={event.logo} userId= {userId} event={events[index]}/>
+        <DetailsCard prize={event.prize} register={event.registerFee} cash={event.overAllCash} logo={event.logo} userId= {userId} event={events[index]}/>
       </div>
     </div>
   )

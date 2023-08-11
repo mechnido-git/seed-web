@@ -30,7 +30,7 @@ function MainSection({event}) {
       <img className='image' src= {tnkc} alt="tnkc image"></img>
     </div> */}
       <div className="card-container">
-      <DetailsCard prize={event.prize} logo={event.logo} userId= {userId} event={events[index]}/>
+      <DetailsCard register={event.registerFee} cash={event.overAllCash} prize={event.prize} logo={event.logo} userId= {userId} event={events[index]}/>
       </div>
 
     </div>
