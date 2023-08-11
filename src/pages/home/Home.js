@@ -1,14 +1,9 @@
-import React, { useEffect, useRef, useState, useContext } from "react";
+import React, { useEffect, useRef, useState ,useContext} from "react";
 import "./home.css";
 import trophy from "../../images/trophy.png";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { useNavigate } from "react-router-dom";
-import {
-  GoogleAuthProvider,
-  getRedirectResult,
-  onAuthStateChanged,
-  signOut,
-} from "firebase/auth";
+import { GoogleAuthProvider, getRedirectResult, onAuthStateChanged, signOut } from "firebase/auth";
 import { auth, db } from "../../firebase/config";
 import Spinner from "../../components/Spinner";
 import { HashLink } from "react-router-hash-link";
@@ -62,73 +57,75 @@ function Home() {
   const [dp, setDp] = useState(profile);
 
   const [redirect, setRedirect] = useState(null);
-  const [redirectLoad, setRedirectLoad] = useState(false);
+  const [redirectLoad, setRedirectLoad] = useState(false)
 
-  const { theme, setCheck, setTheme, check } = useContext(StoreContext);
+  
+const {theme,setCheck,setTheme, check}= useContext(StoreContext);
+ 
+const [fbsrc, setFbsrc] = useState(fb);
+const [insrc, setInsrc] = useState(insta);
+ useEffect(()=>{
+   console.log(" check value is ",check);
+ },[theme]);
 
-  const [fbsrc, setFbsrc] = useState(fb);
-  const [insrc, setInsrc] = useState(insta);
-  useEffect(() => {
-    console.log(" check value is ", check);
-  }, [theme]);
-
-  const checkUser = async (user) => {
-    const docRef = doc(db, "users", user.uid);
+  const checkUser = async(user) => {
+    
+     const docRef = doc(db, "users", user.uid);
     try {
       const docSnap = await getDoc(docRef);
       if (docSnap.exists()) {
         // console.log("Document data:", docSnap.data());
-      } else {
-        // docSnap.data() will be undefined in this case
-        await setDoc(doc(db, "users", user.uid), {
-          name: user.displayName,
-          email: user.email,
-          cover: true,
-        });
+       } else {
+         // docSnap.data() will be undefined in this case
+         await setDoc(doc(db, "users", user.uid), {
+           name: user.displayName,
+           email: user.email,
+           cover: true
+         });
+       }
+       const redirect = localStorage.getItem('redirect')
+       localStorage.removeItem('redirect')
+       if(redirect) navigate(redirect)
+      } catch (error) {
+        alert(error)
       }
-      const redirect = localStorage.getItem("redirect");
-      localStorage.removeItem("redirect");
-      if (redirect) navigate(redirect);
-    } catch (error) {
-      alert(error);
-    }
-  };
+  }
 
   useEffect(() => {
-    const loc = window.location.href.split("/");
-    const last = loc[loc.length - 1];
+    const loc = window.location.href.split("/")
+    const last = loc[loc.length -1]
     onAuthStateChanged(auth, (user) => {
       getRedirectResult(auth)
-        .then((result) => {
-          // This gives you a Google Access Token. You can use it to access Google APIs.
-          const credential = GoogleAuthProvider.credentialFromResult(result);
-          setRedirectLoad(true);
-          const token = credential.accessToken;
-          // The signed-in user info.
-          const user = result.user;
-          // IdP data available using getAdditionalUserInfo(result)
-          checkUser(user);
-        })
-        .catch((error) => {
-          // Handle Errors here.
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          // The email of the user's account used.
-          const email = error.customData.email;
-          // The AuthCredential type that was used.
-          const credential = GoogleAuthProvider.credentialFromError(error);
-          // ...
-        });
+  .then((result) => {
+    // This gives you a Google Access Token. You can use it to access Google APIs.
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    setRedirectLoad(true)
+    const token = credential.accessToken;
+    // The signed-in user info.
+    const user = result.user;
+    // IdP data available using getAdditionalUserInfo(result)
+    checkUser(user)
+   
+  }).catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.customData.email;
+    // The AuthCredential type that was used.
+    const credential = GoogleAuthProvider.credentialFromError(error);
+    // ...
+  });
       if (user) {
         setUserName(user.displayName);
         setName(user.displayName);
         setEmail(user.email);
         if (user.photoURL) setDp(user.photoURL);
         setLoading(false);
-        if (last[0] === "#") {
-          const id = last.slice(1, last.length);
+        if(last[0] === "#"){
+          const id = last.slice(1, last.length)
           console.log(id);
-          document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+          document.getElementById(id).scrollIntoView({behavior: 'smooth'});
         }
       } else {
         setLoading(false);
@@ -178,26 +175,29 @@ function Home() {
   //   setActive3(!active3);
   // };
 
-  const getInTouchSubmit = (event) => {
-    document.getElementById("subject").value = "";
+  const getInTouchSubmit = event =>{
+    document.getElementById("subject").value= "";
     alert("Details submited");
     event.preventDefault();
-  };
+   
+  }
 
   const goToLink = (link) => {
-    if (userName) {
-      navigate("/menu/dashboard");
-    } else {
-      setRedirect("/menu/dashboard");
-      setSignIn(true);
-    }
+      if (userName) {
+        navigate("/menu/dashboard");
+      } else {
+        setRedirect("/menu/dashboard");
+        setSignIn(true);
+      }
   };
-  if (loading || redirectLoad) return <Spinner other="globel" loading={true} />;
+   if(loading || redirectLoad) 
+  return <Spinner other="globel" loading={true} />
+ 
 
   return (
     <>
       <HomeNav
-        bodyId={"home"}
+        bodyId={'home'}
         dp={dp}
         redirect={redirect}
         setLoading={setLoading}
@@ -208,16 +208,15 @@ function Home() {
         joined={true}
         initial={0}
       />
-
+      
       <div className="home" id="home">
         <div className="hero">
-          <h2>
-            Revolutionizing Possibilities: A Showcase of Engineering Excellence!
+          <h2 >
+            Revolutionizing Possibilities: A Showcase of Engineering
+            Excellence!
           </h2>
           <div className="btns">
-            <button onClick={() => navigate("/menu/dashboard")}>
-              Get started
-            </button>
+            <button onClick={()=>navigate("/menu/dashboard")}>Get started</button>
           </div>
         </div>
         <div className="main">
@@ -306,10 +305,11 @@ function Home() {
           <div className="accred">
             <h2>Accreditations</h2>
             <div className="accredimgs">
-              <img src={iso} alt=" ISO logo" />
-              <img src={msme} alt="MSME logo" />
-              <img src={aicte} alt="AICTE logo" />
+              <img src = {iso} alt=" ISO logo"/>
+              <img src= {msme} alt="MSME logo" />
+              <img src= {aicte} alt="AICTE logo" />
             </div>
+
           </div>
 
           <div className="slides-achievements">
@@ -331,10 +331,10 @@ function Home() {
                   window.innerWidth <= 426
                     ? 1
                     : window.innerWidth <= 768
-                    ? 1.5
-                    : window.innerWidth <= 1024
-                    ? 2
-                    : 3,
+                      ? 1.5
+                      : window.innerWidth <= 1024
+                        ? 2
+                        : 3,
                 perMove: 1,
                 pagination: false,
               }}
@@ -376,7 +376,7 @@ function Home() {
             
             {/* <div className="collabimgs">
               <div>
-                <img src={collab1} />
+              <img src= {collab1} />
               </div>
               
               <div>
@@ -457,7 +457,9 @@ function Home() {
               </SplideSlide>
             </Splide>
 
-            </div>
+
+             
+
           </div>
 
           <div className="slides-testimonials">
@@ -482,10 +484,10 @@ function Home() {
                   window.innerWidth <= 426
                     ? 1.2
                     : window.innerWidth <= 768
-                    ? 1.5
-                    : window.innerWidth <= 1024
-                    ? 2
-                    : 3,
+                      ? 1.5
+                      : window.innerWidth <= 1024
+                        ? 2
+                        : 3,
                 perMove: 1,
                 pagination: false,
               }}
@@ -583,10 +585,10 @@ function Home() {
                   window.innerWidth <= 426
                     ? 2.5
                     : window.innerWidth <= 768
-                    ? 3.5
-                    : window.innerWidth <= 1024
-                    ? 4
-                    : 5,
+                      ? 3.5
+                      : window.innerWidth <= 1024
+                        ? 4
+                        : 5,
                 perMove: 1,
                 pagination: false,
               }}
@@ -750,12 +752,13 @@ function Home() {
                       
                     </a>
 
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <Footer />
+          <Footer />
       </div>
     </>
   );
