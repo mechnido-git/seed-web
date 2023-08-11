@@ -69,6 +69,10 @@
     
 }
 
+.Dark-mode .card-event > img{
+    background-color: var(--primary);
+}
+
 .card-event > button{
     padding: 0.8rem 4rem;
     font-size: 20px;

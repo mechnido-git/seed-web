@@ -12,6 +12,7 @@ import s1 from "../images/slide1.png";
 import s2 from "../images/slide.jpg";
 import s3 from "../images/slide3.jpg";
 
+import tnkcLogo from '../images/tnkc_logo.jpg'
 export const StoreContext = createContext(null);
 
 const Store = ({ children }) => {
@@ -6194,13 +6195,13 @@ const Store = ({ children }) => {
       id: "hUaPM58nSpDcAbUNXSf7",
       title: "TNKC",
       subtitle: "TAMILNADU KARTING CHAMPIONSHIP",
+      logo: tnkcLogo,
       about: {
         img: "",
         title: "ABOUT TNKC",
         description:
-          " TNKC stands for TAMILNADU KARTING CHAMPIONSHIP is powered by Mechnido's Seed and supported by the Tamilnadu Government. It is an offline event encouraging budding engineers in designing a Go-kart or E-kart with proper engineering techniques. It aims at developing appropriate designing skills and understanding of the relevant scientific theories. It is a team event. The participating teams have to develop a model of Go-kart or an E-kart, analyze and optimize virtually, under ideal conditions using modern computer applications, scientific theories and engineering calculations. The teams are then evaluated based on various relevant aspects required to design a fully functional vehicle.",
+          `TNKC stands for TAMILNADU KARTING CHAMPIONSHIP is powered by Mechnido's Seed. It is an offline event encouraging budding engineers in designing a Go-kart or E-kart with proper engineering techniques. It aims at developing appropriate designing skills and understanding of the relevant scientific theories. It is a team event. The participating teams have to develop a model of Go-kart or an E-kart, analyze and optimize virtually, under ideal conditions using modern computer applications, scientific theories and engineering calculations. The teams are then evaluated based on various relevant aspects required to design a fully functional vehicle.`,
       },
-      fee: 2500,
       why: {
         img: "",
         heading: " Why TNKC 2023?",
@@ -6274,23 +6275,24 @@ const Store = ({ children }) => {
             image:
               "https://img.icons8.com/?size=512&id=Shgdq9ciSCMx&format=png",
           },
+          {
+            title: "Winners will get 5% Discount on courses in SEED platform",
+            image:
+              "https://img.icons8.com/?size=512&id=Shgdq9ciSCMx&format=png",
+          }
         ],
       },
       workflow: {
         title: "Workflow",
         data: [
-          "EVENT LAUNCH & REGISTRATION OPEN SPONCERS",
-          "OFFLINE & ONLINE MARKETING",
-          "REGISTRATION CLOSING",
-          " TEAM DETAILS COLLECTION",
-          "WORKSHOP",
-          "VIRTUAL EVENT",
-          " REPORT COLLECTION",
-          "COLLEGE LEVEL TI",
-          "TEAM PROMO VIDEO",
-          "FINAL EVENT VENUE",
-          "FACILITY ARRANGEMENTS",
-          "CLOSING CERMONY ARRANGEMENTS ",
+          "Registration",
+          "Workshop",
+          "Virtual Event ",
+          "College Level Technical inspection",
+          "Team Promo Video Submission",
+          "Static Event",
+          "Dynamic Event",
+          "Endurance",
         ],
       },
       register_end: "08/15/2023",
@@ -6300,7 +6302,7 @@ const Store = ({ children }) => {
         data: [
           {
             task: "Registration Starts",
-            date: "15.07.2023",
+            date: "21.08.2023",
           },
           {
             task: "Payment Last Date",
@@ -6308,67 +6310,67 @@ const Store = ({ children }) => {
           },
           {
             task: "Registration Ends",
-            date: "15.08.2023",
+            date: "31.10.2023",
           },
           {
             task: "Team Details Submission End",
-            date: "17.08.2023",
+            date: "02.11.2023",
           },
           {
             task: "Workshop",
-            date: "21.08.2023",
+            date: "19.11.2023",
           },
           {
             task: "Phase 1 Design Report Submission Start",
-            date: "11.09.2023",
+            date: "24.11.2023",
           },
           {
             task: "Phase 1 Design Report Submission End",
-            date: "12.09.2023",
+            date: "25.11.2023",
           },
           {
             task: "Presentation Report Submission Start",
-            date: "11.09.2023",
+            date: "25.11.2023",
           },
           {
             task: "Presentation Report Submission End",
-            date: "12.09.2023",
+            date: "26.11.2023",
           },
           {
             task: "Virtual Event Day 1",
-            date: "15.09.2023",
+            date: "28.11.2023",
           },
           {
             task: "Virtual Event Day 2",
-            date: "16.09.2023",
+            date: "29.11.2023",
           },
           {
             task: "Virtual Results",
-            date: "17.09.2023",
+            date: "30.11.2023",
           },
           {
             task: "Final Design Report Submission Start",
-            date: "23.10.2023",
+            date: "19.01.2024",
           },
           {
             task: "Final Design Report Submission End",
-            date: "24.10.2023",
+            date: "20.01.2024",
           },
           {
             task: "College Level Technical inspection",
-            date: "25.10.2023",
+            date: "21.01.2024",
           },
           {
             task: "Team Promo Video Submission",
-            date: "25.10.2023",
+            date: "22.01.2024",
           },
           {
             task: "Final Event Starts",
-            date: "09.11.2023",
+            date: "08.02.2024",
           },
           {
             task: "Final Event Ends",
-            date: "11.11.2023",
+            date: "11.02.2024",
           },
         ],
       },
@@ -6391,139 +6393,59 @@ const Store = ({ children }) => {
           },
         ],
       },
+      overAllCash: "2,00,000",
+      registerFee: '24,999',
       awards: {
         img: "",
-        array: [
+        title: 'IC Engine & Electric',
+        array:[
           {
-            title: "IC Engine",
-
-            data: [
-              {
-                h1: "Champion",
-                p: "Trophy + Cash Prize",
-                money: "40,000 INR",
-              },
-              {
-                h1: "Runner Up",
-                p: "Trophy + Cash Prize",
-                money: "20,000 INR",
-              },
-              {
-                h1: "Best Endurance",
-                p: "Trophy + Cash Prize",
-                money: "10,000 INR",
-              },
-              {
-                h1: "Design & CAE",
-                p: "Trophy + Cash Prize",
-                money: "5,000 INR",
-              },
-              {
-                h1: "BMC",
-                p: "Trophy + Cash Prize",
-                money: "5,000 INR",
-              },
-              {
-                h1: "Innovation",
-                p: "Trophy + Cash Prize",
-                money: "5,000 INR",
-              },
-              {
-                h1: "Aesthetics",
-                p: "Trophy + Cash Prize",
-                money: "5,000 INR",
-              },
-              {
-                h1: "Acceleration",
-                p: "Trophy + Cash Prize",
-                money: "5,000 INR",
-              },
-              {
-                h1: "SkidPad",
-                p: "Trophy + Cash Prize",
-                money: "5,000 INR",
-              },
-              {
-                h1: "Autocross",
-                p: "Trophy + Cash Prize",
-                money: "5,000 INR",
-              },
-              {
-                h1: "Team Strategy",
-                p: "Trophy + Cash Prize",
-                money: "5,000 INR",
-              },
-              {
-                h1: "Dronacharya",
-                p: "Trophy + Cash Prize",
-                money: "5,000 INR",
-              },
-            ],
+            h1: "Champion",
+            p: "Trophy + Cash Prize",
           },
           {
-            title: "Electric",
-            data: [
-              {
-                h1: "Champion",
-                p: "Trophy + Cash Prize",
-                money: "30,000 INR",
-              },
-              {
-                h1: "Runner Up",
-                p: "Trophy + Cash Prize",
-                money: "15,000 INR",
-              },
-              {
-                h1: "Best Endurance",
-                p: "Trophy + Cash Prize",
-                money: "10,000 INR",
-              },
-              {
-                h1: "Design & CAE",
-                p: "Trophy + Cash Prize",
-                money: "5,000 INR",
-              },
-              {
-                h1: "BMC",
-                p: "Trophy + Cash Prize",
-                money: "5,000 INR",
-              },
-              {
-                h1: "Innovation",
-                p: "Trophy + Cash Prize",
-                money: "5,000 INR",
-              },
-              {
-                h1: "Aesthetics",
-                p: "Trophy + Cash Prize",
-                money: "5,000 INR",
-              },
-              {
-                h1: "Acceleration",
-                p: "Trophy + Cash Prize",
-                money: "5,000 INR",
-              },
-              {
-                h1: "SkidPad",
-                p: "Trophy + Cash Prize",
-                money: "5,000 INR",
-              },
-              {
-                h1: "Autocross",
-                p: "Trophy + Cash Prize",
-                money: "5,000 INR",
-              },
-              {
-                h1: "Team Strategy",
-                p: "Trophy + Cash Prize",
-                money: "5,000 INR",
-              },
-              {
-                h1: "Dronacharya",
-                p: "Trophy + Cash Prize",
-                money: "5,000 INR",
-              },
-            ],
+            h1: "Runner Up",
+            p: "Trophy + Cash Prize",
+          },
+          {
+            h1: "Best Endurance",
+            p: "Trophy + Cash Prize",
+          },
+          {
+            h1: "Design & CAE",
+            p: "Trophy + Cash Prize",
+          },
+          {
+            h1: "BMC",
+            p: "Trophy + Cash Prize",
+          },
+          {
+            h1: "Innovation",
+            p: "Trophy + Cash Prize",
+          },
+          {
+            h1: "Aesthetics",
+            p: "Trophy + Cash Prize",
+          },
+          {
+            h1: "Acceleration",
+            p: "Trophy + Cash Prize",
+          },
+          {
+            h1: "SkidPad",
+            p: "Trophy + Cash Prize",
+          },
+          {
+            h1: "Autocross",
+            p: "Trophy + Cash Prize",
+          },
+          {
+            h1: "Team Strategy",
+            p: "Trophy + Cash Prize",
+          },
+          {
+            h1: "Dronacharya",
+            p: "Trophy + Cash Prize",
           },
         ],
       },

@@ -25,6 +25,8 @@ function RegisterInfo({ date, data }) {
 
   return (
     <SplideSlide>
+      <div className="sample">
+      <h3>Ovrall Cash Prize: {data.overAllCash}{" "}INR</h3>
       <div className="time-container">
         <h4>Registration Ends in</h4>
         <div className="time-div">
@@ -46,30 +48,14 @@ function RegisterInfo({ date, data }) {
           </div>
         </div>
       </div>
+      <h3>Registration Fee: {data.registerFee}{" "}INR (Including 18% GST)</h3>
+      </div>
       <div className="prize-div">
-        <h4>Prize Category</h4>
+        <h4>All awards</h4>
         <div className="prize-list">
           <ul>
-            {/* <li>
-              Overall winner <img src={medal} />
-            </li>
-            <li>
-              Overall runner up <img src={medal} />
-            </li>
-            <li>
-              Best design quality award <img src={medal} />
-            </li>
-            <li>
-              Best innovation award <img src={medal} />
-            </li>
-            <li>
-              Best strategy award <img src={medal} />
-            </li>
-            <li>
-              Best business plan <img src={medal} />
-            </li> */}
-            {data.awards.array[0].data.map((item, key) => {
-              if (key < 6) {
+            {data.awards.array.map((item, key) => {
+              if (key < 8) {
                 return (
                   <li>
                     {item.h1}
