@@ -6,6 +6,12 @@ import insta from "../../images/insta.png";
 import fbwhite from "../../images/facebookwhite.png";
 import instawhite from "../../images/instawhite.png";
 import { StoreContext } from "../../store/StoreContext";
+import linkwhite from "../../images/linkedin-white.png";
+import linkgreen from "../../images/linkedin-green.png";
+import tg from "../../images/tweet-green.png";
+import tw  from "../../images/tweet-white.png";
+import thw from "../../images/thread-w.png";
+import thg from "../../images/threads-green.png";
 
 function Footer() {
 const { check}= useContext(StoreContext);
@@ -122,22 +128,22 @@ const { check}= useContext(StoreContext);
         <div className="section get-in-touch">
           <h3>Get in touch</h3>
           <ul>
-            <li>
+            {/* <li>
 
                   <div className="details">
                     <p>
                       +91-9047363963 <br /> +91-8220662798
                     </p>
                   </div>
-            </li>
+            </li> */}
             <li>
 
                   <div className="details">
                     <p style={{ width: "100%", height: "100%" }}>
                       <a
-                        href="mailto:info@mechnido.com"
+                        href="mailto:support@mseed.in"
                       >
-                        info@mechnido.com
+                        support@mseed.in
                       </a>
                     </p>
                   </div>
@@ -165,14 +171,49 @@ const { check}= useContext(StoreContext);
                       
                       
                     </a>
+
+                    <a
+                      href="https://twitter.com/Seed_Mechnido?t=3f1PMqcAsZpphg9EG-baFA&s=09"
+                      target="_blank"
+                    >
+                      {" "}
+                     
+                    <img style={{ width: "2.0rem" }} src={check ? tw : tg} alt="facebook link " />
+                      
+                      
+                    </a>
+
+                    <a
+                      href="https://www.linkedin.com/showcase/ideaedu/"
+                      target="_blank"
+                    >
+                      {" "}
+                     
+                    <img style={{ width: "2.0rem" }} src={check ? linkwhite: linkgreen} alt="facebook link " />
+                      
+                      
+                    </a>
+                    <a
+                      href="https://www.threads.net/@ideatechevents"
+                      target="_blank"
+                    >
+                      {" "}
+                     
+                    <img style={{ width:"30px", height:"30px"  }} src={check ? thw: thg} alt="facebook link " />
+                      
+                      
+                    </a>
                   </div>
             </li>
                         <li>
               <div className="details">
+                <a href="https://www.google.com/search?client=tablet-android-samsung-ss&sxsrf=AB5stBjynXM65Dq5sU2UvOOKChyWUkVHdQ:1691480997949&q=MECHNIDO+-+R%26D&ludocid=5846389838005926368&ibp=gwp;0,7&lsig=AB86z5WDXq3Yu-LuNuV-RN5ncQKQ&kgs=a48d0248b5423189&shndl=-1&shem=lbsc,lsp&source=sh/x/kp/local/m1/6"
+                target="_blank">
                 <p>
-                  5/4b Lakshmi Vinayagar Kovil Land, 8th Street, Ganapathy
-                  Coimbatore, Tamil Nadu 641006{" "}
+                294, 1st Floor, Trichy Rd, Vivekanandha Nagar, Singanallur, Tamil Nadu 641005.{" "}
                 </p>
+                </a>
+               
               </div>
 
             </li>

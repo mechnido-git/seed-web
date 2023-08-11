@@ -25,6 +25,8 @@ import why1 from "../../images/whyus1.png";
 import why2 from "../../images/whyus2.png";
 import why3 from "../../images/whyus3.png";
 import why4 from "../../images/whyus4.png";
+import why5 from "../../images/whyus5.png";
+import why6 from "../../images/whyus6.png";
 import msme from "../../images/msme.png";
 import aicte from "../../images/aicte.png";
 import iso from "../../images/iso.png";
@@ -32,6 +34,16 @@ import collab1 from "../../images/collab1.png";
 import collab2 from "../../images/collab2.png";
 import collab3 from "../../images/collab3.png";
 import collab4 from "../../images/collab4.png";
+import collab5 from "../../images/collab5.png";
+import collab6 from "../../images/collab6.png";
+import collab7 from "../../images/collab7.png";
+import collab8 from "../../images/collab8.png";
+import linkwhite from "../../images/linkedin-white.png";
+import linkgreen from "../../images/linkedin-green.png";
+import tg from "../../images/tweet-green.png";
+import tw  from "../../images/tweet-white.png";
+import thw from "../../images/thread-w.png";
+import thg from "../../images/threads-green.png";
 
 function Home() {
   const [signIn, setSignIn] = useState(false);
@@ -213,28 +225,82 @@ const [insrc, setInsrc] = useState(insta);
             <img src={intro} alt="" />
           </div>
 
-
-          <div className="whyus">
+{/* --------------------------------------------why us ? section--------------------------------------------------------------- */}
+<div className="whyus">
             <h2>Why choose us?</h2>
-            <div className="whyusimgs">
-              <div>
-              <img src = {why1}/>
-              <h4>Practical Learning</h4>
+            
+             
+            <Splide
+              tag="section"
+              aria-labelledby="My Favorite Images"
+              options={{
+                speed: 1000,
+                pauseOnHover: false,
+                type: "loop",
+                pauseOnFocus: true,
+                keyboard: true,
+                gap: ".5rem",
+                width: "100%",
+                perPage:
+                  window.innerWidth <= 426
+                    ? 1
+                    : window.innerWidth <= 768
+                      ? 1.5
+                      : window.innerWidth <= 1024
+                        ? 2
+                        : 3,
+                perMove: 1,
+                pagination: false,
+              }}
+            >
+
+              <SplideSlide>
+              <div className="why">
+                <div className="imgg"> <img src = {why1}/></div>
+                <div className="pp"><h4>Empowering  Students</h4></div>
               </div>
-              <div>
-              <img src = {why2}/>
-              <h4>Today's Need</h4>
+              </SplideSlide>
+              <SplideSlide>
+              <div className="why">
+              <div className="imgg"> <img src = {why2}/></div>
+                <div className="pp"><h4>Today's Need</h4></div>
               </div>
-              <div>
-              <img src = {why3}/>
-              <h4>Inspire Youth</h4>
+              </SplideSlide>
+              <SplideSlide>
+              <div className="why">
+              <div className="imgg"> <img src = {why3}/></div>
+                <div className="pp"><h4>Expert-led</h4></div>
               </div>
-              <div>
-              <img src = {why4}/>
-              <h4>Live Sessions By Expert</h4>
+              
+              </SplideSlide>
+              <SplideSlide>
+              <div className="why">
+              <div className="imgg"> <img src = {why4}/></div>
+                <div className="pp"><h4>Live Interactions</h4></div>
               </div>
-            </div>
-          </div>
+           
+              </SplideSlide>
+              <SplideSlide>
+              <div className="why">
+              <div className="imgg"> <img src = {why5}/></div>
+                <div className="pp"><h4>Practical Learning</h4></div>
+              </div>
+              </SplideSlide>
+              <SplideSlide>
+              <div className="why">
+              <div className="imgg"> <img src = {why4}/></div>
+                <div className="pp"><h4>Awesome Community</h4></div>
+              </div>
+              </SplideSlide>
+              <SplideSlide>
+              <div className="why">
+              <div className="imgg"> <img src = {why6}/></div>
+                <div className="pp"><h4>Dynamic Classes</h4></div>
+              </div>
+              </SplideSlide>
+            </Splide>
+          </div> 
+{/* --------------------------------------------------------------accreditation section------------------------------------------------------- */}
 
           <div className="accred">
             <h2>Accreditations</h2>
@@ -306,7 +372,9 @@ const [insrc, setInsrc] = useState(insta);
 
           <div className="collab">
             <h2>Collaborations</h2>
-            <div className="collabimgs">
+            
+            
+            {/* <div className="collabimgs">
               <div>
               <img src= {collab1} />
               </div>
@@ -319,9 +387,78 @@ const [insrc, setInsrc] = useState(insta);
               </div>
               <div>
               <img src= {collab4} />
+              </div> */}
+
+<Splide
+              tag="section"
+              aria-labelledby="My Favorite Images"
+              options={{
+                speed: 1000,
+                autoplay: true,
+                interval: 4000,
+                arrows: false,
+                pauseOnHover: false,
+                type: "loop",
+                pauseOnFocus: true,
+                keyboard: true,
+                gap: ".5rem",
+                width: "100%",
+                perPage:
+                  window.innerWidth <= 426
+                    ? 1.2
+                    : window.innerWidth <= 768
+                      ? 1.5
+                      : window.innerWidth <= 1024
+                        ? 2
+                        : 4,
+                perMove: 1,
+                pagination: false,
+              }}
+            >
+              <SplideSlide>
+              <div className="col">
+              <img src= {collab1} />
               </div>
+              </SplideSlide>
+              <SplideSlide>
+              <div className="col">
+              <img src= {collab2} />
+              </div>
+              </SplideSlide>
+              <SplideSlide>
+              <div className="col">
+              <img src= {collab3} />
+              </div>
+              </SplideSlide>
+              <SplideSlide>
+              <div className="col">
+              <img src= {collab4} />
+              </div>
+              </SplideSlide>
+              <SplideSlide>
+              <div className="col">
+              <img src= {collab5} />
+              </div>
+              </SplideSlide>
+              <SplideSlide>
+              <div className="col">
+              <img src= {collab6} />
+              </div>
+              </SplideSlide>
+              <SplideSlide>
+              <div className="col">
+              <img src= {collab7} />
+              </div>
+              </SplideSlide>
+              <SplideSlide>
+              <div className="col">
+              <img src= {collab8} />
+              </div>
+              </SplideSlide>
+            </Splide>
+
+
              
-            </div>
 
           </div>
 
@@ -522,22 +659,25 @@ const [insrc, setInsrc] = useState(insta);
                   <input type="submit" value="Submit" />
                 </form>
               </div>
+              
               <div className="cards">
                 <div className="section">
                   <span className="material-symbols-outlined">location_on</span>
                   <div className="details">
-                    <p>
-                      5/4b Lakshmi Vinayagar Kovil Land, 8th Street, Ganapathy
-                      Coimbatore, Tamil Nadu 641006{" "}
-                    </p>
+                  <a href="https://www.google.com/search?client=tablet-android-samsung-ss&sxsrf=AB5stBjynXM65Dq5sU2UvOOKChyWUkVHdQ:1691480997949&q=MECHNIDO+-+R%26D&ludocid=5846389838005926368&ibp=gwp;0,7&lsig=AB86z5WDXq3Yu-LuNuV-RN5ncQKQ&kgs=a48d0248b5423189&shndl=-1&shem=lbsc,lsp&source=sh/x/kp/local/m1/6"
+                target="_blank">
+                <p>
+                294, 1st Floor, Trichy Rd, Vivekanandha Nagar, Singanallur, Tamil Nadu 641005.{" "}
+                </p>
+                </a>
                   </div>
                 </div>
                 <div className="section">
                   <span className="material-symbols-outlined">call</span>
                   <div className="details">
-                    <p>
+                    {/* <p>
                       +91-9047363963 <br /> +91-8220662798
-                    </p>
+                    </p> */}
                   </div>
                 </div>
                 <div className="section">
@@ -552,9 +692,9 @@ const [insrc, setInsrc] = useState(insta);
                           alignItems: "center",
                           justifyContent: "center",
                         }}
-                        href="mailto:info@mechnido.com"
+                        href="mailto:support@mseed.in"
                       >
-                        info@mechnido.com
+                       support@mseed.in
                       </a>
                     </p>
                   </div>
@@ -567,15 +707,51 @@ const [insrc, setInsrc] = useState(insta);
                       target="_blank"
                     >
                       {" "}
-                      <img  style={{width: "40px",height:'40px' }} src={check ? fbwhite : fb} alt="" />
+                      <img  style={{width: "35px",height:'35px' }} src={check ? fbwhite : fb} alt="" />
                     </a>
+                   
                     <a
                       href="https://www.instagram.com/mechnido/?igshid=YmMyMTA2M2Y%3D&__coig_restricted=1"
                       target="_blank"
                     >
                       {" "}
-                      <img style={{ width: "40px",height:'40px' }} src={check ? instawhite : insta} alt="Insta link " />
+                     
+                    <img style={{ width: "2.0rem" }} src={check ? instawhite : insta} alt="facebook link " />
+                      
+                      
                     </a>
+
+                    <a
+                      href="https://twitter.com/Seed_Mechnido?t=3f1PMqcAsZpphg9EG-baFA&s=09"
+                      target="_blank"
+                    >
+                      {" "}
+                     
+                    <img style={{ width: "2.0rem" }} src={check ? tw : tg} alt="facebook link " />
+                      
+                      
+                    </a>
+                    <a
+                      href="https://www.linkedin.com/showcase/ideaedu/"
+                      target="_blank"
+                    >
+                      {" "}
+                     
+                    <img style={{ width: "2.0rem" }} src={check ? linkwhite: linkgreen} alt="facebook link " />
+                      
+                      
+                    </a>
+                    <a
+                      href="https://www.threads.net/@ideatechevents"
+                      target="_blank"
+                    >
+                      {" "}
+                     
+                    <img style={{ width:"30px", height:"30px"  }} src={check ? thw: thg} alt="facebook link " />
+                      
+                      
+                    </a>
+
                   </div>
                 </div>
               </div>
