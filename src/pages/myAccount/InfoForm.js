@@ -9,7 +9,10 @@ import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { StoreContext } from "../../store/StoreContext";
 
 function InfoForm() {
-  const [name, setName] = useState("");
+  const [Lname, setLName] = useState("");
+  const [Fname, setFName] = useState("");
+  const [Mname, setMName] = useState("");
+
   const [gender, setGender] = useState("");
   const [college, setCollege] = useState("");
   const [dep, setDep] = useState("");
@@ -29,7 +32,9 @@ function InfoForm() {
 
       if (docSnap.exists()) {
         console.log("Document data:", docSnap.data());
-        setName(docSnap.data().name)
+        setFName(docSnap.data().Fname)
+        setMName(docSnap.data().Mname)
+        setLName(docSnap.data().Lname)
         setGender(docSnap.data().gender)
         setCollege(docSnap.data().college)
         setDep(docSnap.data().dep)
@@ -44,7 +49,7 @@ function InfoForm() {
         setLoading(false);
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       setLoading(false);
     }
   };
@@ -52,7 +57,7 @@ function InfoForm() {
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        setName(user.displayName);
+        // setName(user.displayName);
         setEmail(user.email);
         setPage(false);
         doFetch(user.uid)
@@ -88,7 +93,7 @@ function InfoForm() {
     const inputs = document.querySelectorAll(".fac-div input");
     inputs.forEach((inp, i) => {
       if (inp.value === "") {
-        console.log(inp);
+        // console.log(inp);
         inp.style.border = "2px solid red";
       }
     });
@@ -101,12 +106,36 @@ function InfoForm() {
     var pattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
 
     let flag = false;
-    if (name.length < 3) {
+    if (Fname.length < 3) {
       document.getElementById("member-name").style.display = "block";
       document.getElementById("member-name").innerText =
         "Name Must be more than 3 characters";
       flag = true;
-    } else if (!name.match(letters)) {
+    } else if (!Fname.match(letters)) {
+      document.getElementById("member-name").style.display = "block";
+      document.getElementById("member-name").innerText =
+        "Name Must be in Alphabetics";
+      flag = true;
+    }
+
+    // if (Mname.length < 3) {
+    //   document.getElementById("member-name").style.display = "block";
+    //   document.getElementById("member-name").innerText =
+    //     "Name Must be more than 3 characters";
+    //   flag = true;
+    // } else if (!Mname.match(letters)) {
+    //   document.getElementById("member-name").style.display = "block";
+    //   document.getElementById("member-name").innerText =
+    //     "Name Must be in Alphabetics";
+    //   flag = true;
+    // }
+
+    if (Lname.length < 3) {
+      document.getElementById("member-name").style.display = "block";
+      document.getElementById("member-name").innerText =
+        "Name Must be more than 3 characters";
+      flag = true;
+    } else if (!Lname.match(letters)) {
       document.getElementById("member-name").style.display = "block";
       document.getElementById("member-name").innerText =
         "Name Must be in Alphabetics";
@@ -174,7 +203,9 @@ function InfoForm() {
 
     if (!flag) {
       let temp = {
-        name,
+        Lname,
+        Fname,
+        Mname,
         dep,
         year,
         dob,
@@ -226,23 +257,67 @@ function InfoForm() {
           <h2>My Account</h2>
           <form className="fac">
             <div className="input-div">
-              <label htmlFor="college">Name</label>
+              <label htmlFor="college">First Name</label>
               <p className="col">:</p>
               <input
                 minLength={3}
-                value={name}
+                value={Fname}
                 type="text"
                 name="name"
                 required
-                onChange={(e) => setName(e.target.value.toUpperCase())}
-                placeholder="Name"
+                onChange={(e) => setFName(e.target.value.toUpperCase())}
+                placeholder="First Name"
               />
-              <div
+                <div
                 style={{ display: "none" }}
                 className="error"
                 id="member-name"
               ></div>
             </div>
+
+
+            <div className="input-div">
+              <label htmlFor="college">Middle Name</label>
+              <p className="col">:</p>
+              <input
+                minLength={3}
+                value={Mname}
+                type="text"
+                name="name"
+                required
+                onChange={(e) => setMName(e.target.value.toUpperCase())}
+                placeholder="Middle Name"
+              />
+                <div
+                style={{ display: "none" }}
+                className="error"
+                id="member-name"
+              ></div>
+            </div>
+
+
+            <div className="input-div">
+              <label htmlFor="college">Last Name</label>
+              <p className="col">:</p>
+              <input
+                minLength={3}
+                value={Lname}
+                type="text"
+                name="name"
+                required
+                onChange={(e) => setLName(e.target.value.toUpperCase())}
+                placeholder="Last Name"
+              />
+                <div
+                style={{ display: "none" }}
+                className="error"
+                id="member-name"
+              ></div>
+            </div>
+
+
+
+
             <div className="input-div">
               <label htmlFor="gender">Gender</label>
               <p className="col">:</p>
@@ -265,6 +340,8 @@ function InfoForm() {
                 Female
               </div>
             </div>
+
+
             <div className="input-div">
               <label htmlFor="college">Date of Birth</label>
               <p className="col">:</p>
@@ -277,7 +354,7 @@ function InfoForm() {
             </div>
 
             <div className="input-div">
-              <label htmlFor="college">College name</label>
+              <label htmlFor="college">Universities/Institutions/Company Name</label>
               <p className="col">:</p>
               <input
                 value={college}
@@ -297,7 +374,7 @@ function InfoForm() {
             </div>
 
             <div className="input-div">
-              <label htmlFor="college">Department</label>
+              <label htmlFor="college">Department/ Designation</label>
               <p className="col">:</p>
               <input
                 minLength={3}
@@ -315,6 +392,7 @@ function InfoForm() {
               ></div>
             </div>
 
+
             <div className="input-div">
               <label htmlFor="year">Year of Study</label>{" "}
               <p className="col">:</p>
@@ -327,8 +405,12 @@ function InfoForm() {
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
+                <option value="Others">Others</option>
               </select>
             </div>
+
+
+
             <div className="input-div">
               <label htmlFor="college">Email ID</label>
               <p className="col">:</p>
@@ -385,7 +467,9 @@ function InfoForm() {
       ) : (
         <UserProfile
           setPage={setPage}
-          name={name}
+          Fname={Fname}
+          Mname={Mname}
+          Lname={Lname}
           gender={gender}
           college={college}
           dep={dep}
