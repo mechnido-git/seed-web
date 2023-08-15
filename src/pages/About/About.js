@@ -12,6 +12,12 @@ import { Link } from "react-router-dom";
 import Footer from "../../components/footer/Footer";
 import seedwhite from "../../images/seed_white.png";
 import { StoreContext } from "../../store/StoreContext.js";
+import about1 from "../../images/about1.png";
+import about2 from "../../images/about2.png";
+import about3 from "../../images/about3.png";
+import about4 from "../../images/about4.png";
+import about5 from "../../images/about5.png";
+
 
 function About() {
   const {check, theme } = useContext(StoreContext);
@@ -88,6 +94,31 @@ function About() {
             <div className="logo">
             <img src={check ? seedwhite : logo} alt="seed logo " />
             </div>
+          </section>
+
+          <section className="sectionimg">
+            <div >
+            <div className="img"><img src={about2}/></div>
+              <div  className="txt"><h3>Experienced Trainers</h3></div>
+            </div>
+            <div>
+            <div className="img"><img src={about1}/></div>
+              <div  className="txt"><h3>Established in 2019</h3></div>
+            </div>
+            <div>
+            <div className="img"><img src={about3}/></div>
+              <div  className="txt"><h3>High quality tech-training platform</h3></div>
+            </div>
+            <div>
+            <div className="img"><img src={about4}/></div>
+              <div  className="txt"><h3>In demand courses</h3></div>
+            </div>
+            <div>
+            <div className="img"><img src={about5}/></div>
+              <div className="txt"><h3>4 Years in service</h3></div>
+            </div>
+            
+
           </section>
           {/* <section>
             <div className="logo">

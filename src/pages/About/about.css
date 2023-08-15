@@ -56,6 +56,36 @@
   .about-container .footer::before{
     width: 90%;
 }
+.about-container > .about > .sectionimg{
+  display: grid;
+   
+    grid-template-columns: repeat(auto-fill, minmax(250px,1fr));; 
+    margin: 1rem;
+    justify-content: center;
+    justify-items: center;
+    position: relative;
+    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+    padding: 2rem;
+    align-items: center;
+    background-color: var(--secondary); 
+}
+
+
+.about-container > .about > .sectionimg >div{
+  text-align: center;
+  
+  
+}
+.about-container > .about > .sectionimg >div .img img{
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  /* mix-blend-mode: darken; */
+}
+.about-container > .about > .sectionimg >div .txt h3{
+  color:var(--tertiary);
+}
+
 
   @media only screen and (max-width: 840px){
     .about-container > .about > section{

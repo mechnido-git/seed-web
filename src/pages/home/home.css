@@ -29,7 +29,8 @@
 
 .home > .hero{
     padding: 10rem 10rem;
-    background-image: url('../../images/car.jpg');
+   
+    background-image: url('../../images/homepageposter.png');
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
