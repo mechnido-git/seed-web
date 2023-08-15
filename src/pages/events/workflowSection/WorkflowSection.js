@@ -1,8 +1,9 @@
-import React, { useEffect, useContext } from 'react'
+import React, { useEffect, useContext, useState } from 'react'
 import './workflow.css'
 import tnkc from "../../../images/tnkcimage.png";
 import { StoreContext } from '../../../store/StoreContext';
 import { useParams } from 'react-router-dom';
+import RegisterForm from '../../../components/RegisterForm';
 
 
 const checkEnroll = (item , userId) => {
@@ -15,20 +16,31 @@ const checkEnroll = (item , userId) => {
   return flag;
 };
 
-export const DetailsCard = ({ enroll, prize, cash, register , event, logo , userId}) => {
+export const DetailsCard = ({ event, userId}) => {
+
+  const [register, setRegister] = useState(false)
+  const { userName, userEmail } = useContext(StoreContext);
+
+  const getRegister = () => {
+    let flag = false;
+    // console.log(temp);
+    // console.log(uid);
+    event.enrolled_arr?.forEach((item) => {
+      if (item === userId) flag = true;
+    });
+    // console.log(flag);
+    if (flag) return alert("Alredy registered");
+    setRegister(true);
+  };
  
   let enrolled = checkEnroll(event, userId);// checking whether the user with userId is enrolled with the event "event"
   return (
+    <>
     <div className="card-event">
-      <img src={logo} alt="tnkc image" />
-      <button className={enrolled? "disabledbtn": ""} disabled = {enrolled} onClick={ enroll} >{enrolled? "Enrolled":"Enroll"}</button>
+      <img src={event.logo} alt="tnkc image" />
+      <button className={enrolled? "disabledbtn": ""} disabled = {enrolled} onClick={ getRegister} >{enrolled? "Enrolled":"Enroll"}</button>
       <hr />
       <div className="card-body">
-        <h3>
-          <span class="material-symbols-outlined">
-            trophy
-          </span>{prize.title}
-        </h3>
         <ul>
          {/* {prize.sib.map((item, key)=><li key={key}>
           <h4>{item.text}</h4>
@@ -36,11 +48,11 @@ export const DetailsCard = ({ enroll, prize, cash, register , event, logo , user
          </li>)} */}
          <li>
          <h4>Overall Cash Prize</h4>
-         <p>{cash}{" "}INR</p>
+         <p>INR{" "}{event.overAllCash}</p>
          </li>
          <li>
          <h4>Registration fee</h4>
-         <p>{register}{" "}INR(Including 18% GST)</p>
+         <p>INR{" "}{event.registerFee}(Including 18% GST)</p>
          </li>
         </ul>
         <h3>
@@ -49,6 +61,18 @@ export const DetailsCard = ({ enroll, prize, cash, register , event, logo , user
         </h3>
       </div>
     </div>
+    {register && (
+        <div className="wrapper-reg">
+          <div className="blocker"></div>
+          <RegisterForm
+            event={event}
+            userName={userName}
+            email={userEmail}
+            setRegister={setRegister}
+          />
+        </div>
+      )}
+    </>
   )
 }
 
@@ -96,7 +120,7 @@ tour
           ))}
           </div>
         </div>
-        <DetailsCard prize={event.prize} register={event.registerFee} cash={event.overAllCash} logo={event.logo} userId= {userId} event={events[index]}/>
+        <DetailsCard userId={userId} event={event}/>
       </div>
     </div>
   )

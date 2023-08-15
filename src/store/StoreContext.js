@@ -18,6 +18,7 @@ export const StoreContext = createContext(null);
 const Store = ({ children }) => {
   const [userId, setUserId] = useState(null);
   const [userName, setUserName] = useState(null);
+  const [userEmail, setUserEmail] = useState(null);
   const [user, setUser] = useState(null);
   const [change, setChange] = useState(true);
   const [courses, setCourses] = useState([]);
@@ -6195,7 +6196,7 @@ const Store = ({ children }) => {
       id: "hUaPM58nSpDcAbUNXSf7",
       title: "TNKC",
       subtitle: "TAMILNADU KARTING CHAMPIONSHIP",
-      logo: tnkcLogo,
+      logo: 'https://firebasestorage.googleapis.com/v0/b/seed-25898.appspot.com/o/events%2Flogo%2Flogo.jpg?alt=media&token=bddf5d8f-f943-4e21-b121-8946b2af61da',
       about: {
         img: "",
         title: "ABOUT TNKC",
@@ -6295,7 +6296,7 @@ const Store = ({ children }) => {
           "Endurance",
         ],
       },
-      register_end: "08/15/2023",
+      register_end: "10/31/2023",
 
       schedule: {
         title: "Schedule",
@@ -6375,24 +6376,6 @@ const Store = ({ children }) => {
         ],
       },
       types: ["IC Engine", "Electric"],
-      prize: {
-        title: "Cash Prize & Awards",
-        img: "",
-        sib: [
-          {
-            img: "",
-            text: "IC Engine",
-            description: "Overall Cash Prize",
-            money: "95,000 INR",
-          },
-          {
-            img: "",
-            text: "Electric",
-            description: "Overall Cash Prize",
-            money: "80,000 INR",
-          },
-        ],
-      },
       overAllCash: "2,00,000",
       registerFee: '24,999',
       awards: {
@@ -6449,7 +6432,7 @@ const Store = ({ children }) => {
           },
         ],
       },
-    }, // till here one event
+    },
   ];
 
   const quotations = [
@@ -6925,6 +6908,7 @@ const Store = ({ children }) => {
         setUserId,
         userName,
         setUserName,
+        userEmail, setUserEmail,
         user,
         setUser,
         change,

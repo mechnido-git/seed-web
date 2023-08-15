@@ -25,8 +25,12 @@ function RegisterInfo({ date, data }) {
 
   return (
     <SplideSlide>
+            <div className="prize-div">
+            <h3>Registration Fee: INR{" "}{data.registerFee} (Including 18% GST)</h3>
+      <h3>Ovrall Cash Prize: INR{" "}{data.overAllCash}</h3>
+        
+        </div>
       <div className="sample">
-      <h3>Ovrall Cash Prize: {data.overAllCash}{" "}INR</h3>
       <div className="time-container">
         <h4>Registration Ends in</h4>
         <div className="time-div">
@@ -48,25 +52,7 @@ function RegisterInfo({ date, data }) {
           </div>
         </div>
       </div>
-      <h3>Registration Fee: {data.registerFee}{" "}INR (Including 18% GST)</h3>
-      </div>
-      <div className="prize-div">
-        <h4>All awards</h4>
-        <div className="prize-list">
-          <ul>
-            {data.awards.array.map((item, key) => {
-              if (key < 8) {
-                return (
-                  <li>
-                    {item.h1}
-                    <img src={medal} />
-                    {item.money}
-                  </li>
-                );
-              }
-            })}
-          </ul>
-        </div>
+      
       </div>
     </SplideSlide>
   );
@@ -74,16 +60,11 @@ function RegisterInfo({ date, data }) {
 
 function EventIndex() {
   const [currentEvent, setCurrentEvent] = useState(0);
-  const [user, setUser] = useState(false);
   const [uid, setUid] = useState("");
-  const [email, setEmail] = useState(null);
   const { register, setRegister } = useOutletContext();
   const [loading, setLoading] = useState(true);
-  const [events, setEvents] = useState(null);
 
-  const [temp, setTemp] = useState(null);
-
-  const { setSection, eventList, userId, events : list } = useContext(StoreContext);
+  const { setSection, userId, events, setUserName, userName, setUserEmail, userEmail } = useContext(StoreContext);
   // console.log(list);
   setSection(2);
 
@@ -91,25 +72,12 @@ function EventIndex() {
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
-      if (user) setUser(user.displayName);
+      if (user) setUserName(user.displayName);
       if (user) setUid(user.uid);
-      if (user) setEmail(user.email);
+      if (user) setUserEmail(user.email);
+      setLoading(false)
     });
-    const temp = [];
-    getDocs(collection(db, "events"))
-      .then((snaps) => {
-        snaps.forEach((doc) => temp.push({ id: doc.id, ...doc.data() }));
-        // setEvents(temp);
-        setEvents(eventList);
-        setTemp(temp);
-        console.log(eventList);
-      })
-      .catch()
-      .finally(() => {
-        setTimeout(() => {
-          setLoading(false);
-        }, 1000);
-      });
+
   }, []);
   const ref = useRef();
   const ref2 = useRef();
@@ -118,7 +86,7 @@ function EventIndex() {
     let flag = false;
     // console.log(temp);
     // console.log(uid);
-    temp[currentEvent].enrolled_arr?.forEach((item) => {
+    events[currentEvent].enrolled_arr?.forEach((item) => {
       if (item === uid) flag = true;
     });
     // console.log(flag);
@@ -189,7 +157,7 @@ function EventIndex() {
                       arrows: window.innerWidth < 770 ? false : true,
                     }}
                   >
-                    {list.map((item, i) => {
+                    {events.map((item, i) => {
                       let enrolled = checkEnroll(item);
                       console.log(item);
                       return (
@@ -227,7 +195,9 @@ function EventIndex() {
                   arrows: false,
                   pagination: false,
                   width: "100%",
+                  fixedWidth: "100%"
                 }}
+                style={{width: "100%"}}
                 onMove={(splide, prev, next) => {
                   setCurrentEvent(splide.index);
                   console.log(prev, splide.index, next);
@@ -242,7 +212,6 @@ function EventIndex() {
                 }}
               >
                 {events.map((item, i) => {
-                  const date = ["5/25/2023", "5/26/2023", "5/27/2023"];
                   return (
                     <RegisterInfo
                       data={item}
@@ -414,8 +383,8 @@ function EventIndex() {
           <div className="blocker"></div>
           <RegisterForm
             event={events[currentEvent]}
-            userName={user}
-            email={email}
+            userName={userName}
+            email={userEmail}
             setRegister={setRegister}
           />
         </div>
