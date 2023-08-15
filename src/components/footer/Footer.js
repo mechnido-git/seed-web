@@ -200,8 +200,6 @@ const { check}= useContext(StoreContext);
                       {" "}
                      
                     <img style={{ width:"30px", height:"30px"  }} src={check ? thw: thg} alt="facebook link " />
-                      
-                      
                     </a>
                   </div>
             </li>

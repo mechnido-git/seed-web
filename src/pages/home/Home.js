@@ -389,7 +389,7 @@ const [insrc, setInsrc] = useState(insta);
               <img src= {collab4} />
               </div> */}
 
-<Splide
+              <Splide
               tag="section"
               aria-labelledby="My Favorite Images"
               options={{
@@ -632,6 +632,19 @@ const [insrc, setInsrc] = useState(insta);
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                   />
+
+                
+                <div class="dropdown">
+
+                  <label >Category</label>
+                  
+                  <div class="dropdown-content">
+                    <a href="#">Link 1</a>
+                    <a href="#">Link 2</a>
+                    <a href="#">Link 3</a>
+                  </div>
+                </div>
+
 
                   <label htmlFor="email">Email</label>
                   <input
