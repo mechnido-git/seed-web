@@ -25,6 +25,7 @@ function Navbar({ signIn }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [msg, setMsg] = useState("");
+  const [category, setCategory] = useState("Group joining")
 
   const [selected, setSelected] = useState(-1)
 
@@ -205,6 +206,19 @@ function Navbar({ signIn }) {
                     onChange={(e) => setEmail(e.target.value)}
                     pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                   />
+
+<label >Category</label>
+                  <select value={category} onChange={(e)=>setCategory(e.target.value)} >
+                    <option style={{fontSize: "17px"}} value="Group joining">Group joining</option>
+                    <option style={{fontSize: "17px"}}  value="Courses related">Courses related</option>
+                    <option style={{fontSize: "17px"}}  value="Events related">Events related</option>
+                    <option style={{fontSize: "17px"}}  value="University/College collaboration ">University/College collaboration </option>
+                    <option style={{fontSize: "17px"}}  value="Technical issues ">Technical issues </option>
+                    <option style={{fontSize: "17px"}}  value="Payment issues">Payment issues</option>
+                    <option style={{fontSize: "17px"}}  value="Event Sponsors">Event Sponsors</option>
+                    <option style={{fontSize: "17px"}}  value="Others">Others</option>
+
+                  </select>
 
                   <label htmlFor="subject">Subject</label>
                   <textarea
