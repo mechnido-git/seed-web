@@ -26,7 +26,7 @@ function RegisterInfo({ date, data }) {
   return (
     <SplideSlide>
       <div className="prize-div">
-        <h3>Ovrall Cash Prize: INR{" "}{data.overAllCash}</h3>
+        <h3>Overall Cash Prize: INR{" "}{data.overAllCash}</h3>
         <h3>Registration Fee: INR{" "}{data.registerFee} (Including 18% GST)</h3>
 
       </div>
