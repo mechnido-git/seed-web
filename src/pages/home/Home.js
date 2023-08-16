@@ -12,7 +12,7 @@ import fb from "../../images/fb.png";
 import insta from "../../images/insta.png";
 import profile from "../../images/profile.png";
 import intro from "../../images/intro.jpg";
-import sponsor from "../../images/sponsor.jpg";
+
 import HomeNav from "./homeNav/HomeNav";
 import { Link } from "react-router-dom";
 import Footer from "../../components/footer/Footer";
@@ -53,6 +53,7 @@ function Home() {
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [category, setCategory] = useState("Group joining")
   const [msg, setMsg] = useState("");
   const [dp, setDp] = useState(profile);
 
@@ -312,64 +313,6 @@ const [insrc, setInsrc] = useState(insta);
 
           </div>
 
-          <div className="slides-achievements">
-            <div id="achievements"></div>
-            <h2>Achievements</h2>
-
-            <Splide
-              tag="section"
-              aria-labelledby="My Favorite Images"
-              options={{
-                speed: 1000,
-                pauseOnHover: false,
-                type: "loop",
-                pauseOnFocus: true,
-                keyboard: true,
-                gap: ".5rem",
-                width: "100%",
-                perPage:
-                  window.innerWidth <= 426
-                    ? 1
-                    : window.innerWidth <= 768
-                      ? 1.5
-                      : window.innerWidth <= 1024
-                        ? 2
-                        : 3,
-                perMove: 1,
-                pagination: false,
-              }}
-            >
-              <SplideSlide>
-                <img src={trophy} style={{ width: "100px" }} />
-                Achievement #1
-              </SplideSlide>
-              <SplideSlide>
-                <img src={trophy} style={{ width: "100px" }} />
-                Achievement #2
-              </SplideSlide>
-              <SplideSlide>
-                <img src={trophy} style={{ width: "100px" }} />
-                Achievement #3
-              </SplideSlide>
-              <SplideSlide>
-                <img src={trophy} style={{ width: "100px" }} />
-                Achievement #4
-              </SplideSlide>
-              <SplideSlide>
-                <img src={trophy} style={{ width: "100px" }} />
-                Achievement #5
-              </SplideSlide>
-              <SplideSlide>
-                <img src={trophy} style={{ width: "100px" }} />
-                Achievement #6
-              </SplideSlide>
-              <SplideSlide>
-                <img src={trophy} style={{ width: "100px" }} />
-                Achievement #7
-              </SplideSlide>
-            </Splide>
-          </div>
-
           <div className="collab">
             <h2>Collaborations</h2>
             
@@ -564,58 +507,7 @@ const [insrc, setInsrc] = useState(insta);
               </SplideSlide>
             </Splide>
           </div>
-          <div className="slides-sponsors">
-            <div id="sponsors"></div>
-            <h2>Sponsors</h2>
 
-            <Splide
-              tag="section"
-              aria-labelledby="My Favorite Images"
-              options={{
-                speed: 800,
-                autoplay: true,
-                interval: 2500,
-                pauseOnHover: false,
-                type: "loop",
-                pauseOnFocus: true,
-                keyboard: true,
-                gap: ".5rem",
-                width: "100%",
-                perPage:
-                  window.innerWidth <= 426
-                    ? 2.5
-                    : window.innerWidth <= 768
-                      ? 3.5
-                      : window.innerWidth <= 1024
-                        ? 4
-                        : 5,
-                perMove: 1,
-                pagination: false,
-              }}
-            >
-              <SplideSlide>
-                <img src={sponsor} style={{ width: "100px" }} />
-              </SplideSlide>
-              <SplideSlide>
-                <img src={sponsor} style={{ width: "100px" }} />
-              </SplideSlide>
-              <SplideSlide>
-                <img src={sponsor} style={{ width: "100px" }} />
-              </SplideSlide>
-              <SplideSlide>
-                <img src={sponsor} style={{ width: "100px" }} />
-              </SplideSlide>
-              <SplideSlide>
-                <img src={sponsor} style={{ width: "100px" }} />
-              </SplideSlide>
-              <SplideSlide>
-                <img src={sponsor} style={{ width: "100px" }} />
-              </SplideSlide>
-              <SplideSlide>
-                <img src={sponsor} style={{ width: "100px" }} />
-              </SplideSlide>
-            </Splide>
-          </div>
           <div className="get-in-touch">
             <div id="get-in-touch"></div>
             <h2>Get in Touch</h2>
@@ -633,18 +525,18 @@ const [insrc, setInsrc] = useState(insta);
                     onChange={(e) => setName(e.target.value)}
                   />
 
-                
-                <div class="dropdown">
-
                   <label >Category</label>
-                  
-                  <div class="dropdown-content">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                  </div>
-                </div>
+                  <select value={category} onChange={(e)=>setCategory(e.target.value)} >
+                    <option value="Group joining">Group joining</option>
+                    <option value="Courses related">Courses related</option>
+                    <option value="Events related">Events related</option>
+                    <option value="University/College collaboration ">University/College collaboration </option>
+                    <option value="Technical issues ">Technical issues </option>
+                    <option value="Payment issues">Payment issues</option>
+                    <option value="Event Sponsors">Event Sponsors</option>
+                    <option value="Others">Others</option>
 
+                  </select>
 
                   <label htmlFor="email">Email</label>
                   <input
@@ -675,15 +567,14 @@ const [insrc, setInsrc] = useState(insta);
               
               <div className="cards">
                 <div className="section">
+                  <a href="https://www.google.com/search?client=tablet-android-samsung-ss&sxsrf=AB5stBjynXM65Dq5sU2UvOOKChyWUkVHdQ:1691480997949&q=MECHNIDO+-+R%26D&ludocid=5846389838005926368&ibp=gwp;0,7&lsig=AB86z5WDXq3Yu-LuNuV-RN5ncQKQ&kgs=a48d0248b5423189&shndl=-1&shem=lbsc,lsp&source=sh/x/kp/local/m1/6" target="_blank">
                   <span className="material-symbols-outlined">location_on</span>
                   <div className="details">
-                  <a href="https://www.google.com/search?client=tablet-android-samsung-ss&sxsrf=AB5stBjynXM65Dq5sU2UvOOKChyWUkVHdQ:1691480997949&q=MECHNIDO+-+R%26D&ludocid=5846389838005926368&ibp=gwp;0,7&lsig=AB86z5WDXq3Yu-LuNuV-RN5ncQKQ&kgs=a48d0248b5423189&shndl=-1&shem=lbsc,lsp&source=sh/x/kp/local/m1/6"
-                target="_blank">
                 <p>
                 294, 1st Floor, Trichy Rd, Vivekanandha Nagar, Singanallur, Tamil Nadu 641005.{" "}
                 </p>
-                </a>
                   </div>
+                </a>
                 </div>
                 <div className="section">
                   <span className="material-symbols-outlined">call</span>

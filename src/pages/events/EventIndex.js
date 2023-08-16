@@ -4,7 +4,7 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import image from "../../images/slide3.png";
 import kart from "../../images/kart.jpg";
 import medal from "../../images/medal.png";
-
+import sponsor from "../../images/sponsor.jpg";
 import "@splidejs/react-splide/css";
 import { useNavigate, useOutletContext } from "react-router-dom";
 import RegisterForm from "../../components/RegisterForm";
@@ -223,6 +223,8 @@ function EventIndex() {
               </Splide>
             </div>
 
+
+
             <div className="slides-gallery">
               <div id="gallery"></div>
               <h2>Gallery</h2>
@@ -324,6 +326,59 @@ function EventIndex() {
                 </SplideSlide>
               </Splide>
             </div>
+
+            <div className="slides-sponsors">
+            <div id="sponsors"></div>
+            <h2>Sponsors</h2>
+
+            <Splide
+              tag="section"
+              aria-labelledby="My Favorite Images"
+              options={{
+                speed: 800,
+                autoplay: true,
+                interval: 2500,
+                pauseOnHover: false,
+                type: "loop",
+                pauseOnFocus: true,
+                keyboard: true,
+                gap: ".5rem",
+                width: "100%",
+                perPage:
+                  window.innerWidth <= 426
+                    ? 2.5
+                    : window.innerWidth <= 768
+                      ? 3.5
+                      : window.innerWidth <= 1024
+                        ? 4
+                        : 5,
+                perMove: 1,
+                pagination: false,
+              }}
+            >
+              <SplideSlide>
+                <img src={sponsor} style={{ width: "100px" }} />
+              </SplideSlide>
+              <SplideSlide>
+                <img src={sponsor} style={{ width: "100px" }} />
+              </SplideSlide>
+              <SplideSlide>
+                <img src={sponsor} style={{ width: "100px" }} />
+              </SplideSlide>
+              <SplideSlide>
+                <img src={sponsor} style={{ width: "100px" }} />
+              </SplideSlide>
+              <SplideSlide>
+                <img src={sponsor} style={{ width: "100px" }} />
+              </SplideSlide>
+              <SplideSlide>
+                <img src={sponsor} style={{ width: "100px" }} />
+              </SplideSlide>
+              <SplideSlide>
+                <img src={sponsor} style={{ width: "100px" }} />
+              </SplideSlide>
+            </Splide>
+          </div>
             <div className="slides-sponsors">
               <div id="upcoming"></div>
               <h2>Upcoming Events</h2>

@@ -10,6 +10,7 @@ import ScheduleSection from './scheduleSection/ScheduleSection';
 import AwardSection from './awardsSection/AwardSection';
 import Footer from '../../components/footer/Footer';
 import DownloadSection from './downloadSection/DownloadSection';
+import UploadSection from './uploadSection/UploadSection';
 
 function EventDetails() {
   const { events, setSection, setEventIndex } = useContext(StoreContext)
@@ -25,6 +26,7 @@ function EventDetails() {
         <ScheduleSection event={events[index]} />
         <AwardSection event={events[index]} />
         <DownloadSection event={events[index]} />
+        <UploadSection event={events[index]} />
         <Footer />
     </div>
   )
