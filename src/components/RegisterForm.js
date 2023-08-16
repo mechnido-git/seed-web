@@ -480,7 +480,7 @@ function RegisterForm({ event, setRegister, email, userName }) {
             </label>
           </div>
           <div className="fee">
-            <h4>Regisration fee : {event.fee}</h4>
+            <h4>Regisration fee : {event.registerFee}</h4>
           </div>
         </div>
         <div className="btns">
@@ -504,7 +504,7 @@ function RegisterForm({ event, setRegister, email, userName }) {
 
         <div className="fields">
           {current < 0? <div className="details">
-          <h4>Regisration fee : ₹{event.fee}</h4>
+          <h4>Regisration fee : ₹{event.registerFee}(Including 18% GST)</h4>
           <button onClick={()=>setCurrent(0)}>Proceed</button>
           </div>: getFields(current)}
         </div>

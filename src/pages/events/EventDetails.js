@@ -9,20 +9,24 @@ import { StoreContext } from '../../store/StoreContext';
 import ScheduleSection from './scheduleSection/ScheduleSection';
 import AwardSection from './awardsSection/AwardSection';
 import Footer from '../../components/footer/Footer';
+import DownloadSection from './downloadSection/DownloadSection';
+import UploadSection from './uploadSection/UploadSection';
 
 function EventDetails() {
-  const { eventList, setSection, setEventIndex } = useContext(StoreContext)
+  const { events, setSection, setEventIndex } = useContext(StoreContext)
     const { index } = useParams();
     setEventIndex(index)
     setSection(4)
   return (
     <div className="event-details">
-        <MainSection event={eventList[index]} />
-        <NeedSection event={eventList[index]} />
-        <GraphSection event={eventList[index]} />
-        <WorkflowSection event={eventList[index]} index={index} />
-        <ScheduleSection event={eventList[index]} />
-        <AwardSection event={eventList[index]} />
+        <MainSection event={events[index]} />
+        <NeedSection event={events[index]} />
+        <GraphSection event={events[index]} />
+        {/* <WorkflowSection event={events[index]} index={index} /> */}
+        <ScheduleSection event={events[index]} />
+        <AwardSection event={events[index]} />
+        <DownloadSection event={events[index]} />
+        <UploadSection event={events[index]} />
         <Footer />
     </div>
   )

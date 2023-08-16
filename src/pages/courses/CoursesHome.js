@@ -128,7 +128,7 @@ export const CardBuilder = ({ arr, limit, viewDetails, loading , user , download
               {item.flag ? <>The Flagship <br /></> : ''}
               {item.name}
             </h4>
-            {item.description_L && <p>{item?.description_L[2]?.slice(0, 100)}...</p>}
+            {item.description && <p>{item?.description[0]?.slice(0, 100)}...</p>}
             <div>
               {item.rating && <h5>Rating:{item.rating}</h5>}
             </div>
@@ -154,6 +154,9 @@ export const category = [
   "PERSONAL DELVELOPMENT",
   "BUSINESS",
   "SOFTWARE",
+  "Technology",
+  "Production",
+  "Master's Programme"
 ];
 
 export const addIcon = (item) => {

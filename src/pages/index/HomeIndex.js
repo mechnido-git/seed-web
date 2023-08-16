@@ -45,9 +45,10 @@ function HomeIndex() {
 
       setCourses(temp);
       setEvents(tmp)
+      console.log(tmp);
       setLoading(false)
 
-      // const washingtonRef = doc(db, "courses", "82AeJcLml7iPMTjfjjTU");
+      // const washingtonRef = doc(db, "events", "hUaPM58nSpDcAbUNXSf7");
 
       // // Set the "capital" field of the city 'DC'
       // await updateDoc(washingtonRef, {

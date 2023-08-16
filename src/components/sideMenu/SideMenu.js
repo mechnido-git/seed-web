@@ -1,16 +1,25 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./sideMenu.css";
-import { Link, useLocation, useNavigate, useOutletContext } from "react-router-dom";
+import {
+  Link,
+  useLocation,
+  useNavigate,
+  useOutletContext,
+} from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import RegisterForm from "../RegisterForm";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../firebase/config";
 import SignIn from "../../pages/signin/SignIn";
 import { StoreContext } from "../../store/StoreContext";
-import { addIcon, category, filterItems } from "../../pages/courses/CoursesHome";
+import {
+  addIcon,
+  category,
+  filterItems,
+} from "../../pages/courses/CoursesHome";
 import intro from "../../images/intro.png";
 import why from "../../images/why.png";
-import perk from"../../images/perk.png";
+import perk from "../../images/perk.png";
 import sch from "../../images/sch.png";
 import tro from "../../images/tro.png";
 import workflow from "../../images/workflow.png";
@@ -26,7 +35,8 @@ function SideMenu() {
   // const {loc, setLoc} = useContext(ToggleContext)
   const [user, setUser] = useState(false);
   const [prev, setPrev] = useState(null);
-  const { filter, setFilter, courseIndex, eventIndex, metrics, feedback } = useContext(StoreContext);
+  const { filter, setFilter, courseIndex, eventIndex, metrics, feedback } =
+    useContext(StoreContext);
 
   // const [loc, setLoc] = useState(location.pathname.split("/"))
   const navigator = useNavigate();
@@ -36,10 +46,9 @@ function SideMenu() {
   //const loc = location.pathname.split("/");
   //const [loc, setLoc] = useState()
   const { setSignIn } = useOutletContext();
-  const { change, setLoc, section, setSection } = useContext(StoreContext)
+  const { change, setLoc, section, setSection } = useContext(StoreContext);
   // setLoc(location.split("/"))
   // console.log(location.split("/"));
-
 
   const mobile = window.innerWidth < 840 ? true : false;
 
@@ -71,14 +80,14 @@ function SideMenu() {
   }
 
   useEffect(() => {
-    const loc = window.location.href.split("/")
+    const loc = window.location.href.split("/");
     // console.log(loc);
     // console.log('hehe');
     onAuthStateChanged(auth, (user) => {
       if (user) setUser(true);
     });
     let elem = -1;
-    let pos = 1
+    let pos = 1;
     if (loc[loc.length - 1].length <= 1) pos = 2;
     if (loc[loc.length - 1].length == 1) pos = 3;
     // console.log(loc[loc.length - pos]);
@@ -183,17 +192,24 @@ function SideMenu() {
             </HashLink>
             <hr />
             <h3>CATEGORIES</h3>
-            {category.map((item, i) =>
+            {category.map((item, i) => (
               <Link
                 key={i}
-                className={i === 0 ? `filter sub active ${item.replace(" ", "-")}` : `filter sub ${item.replace(" ", "-")}`}
-                onClick={(e) => { if (mobile) toggle(); filterItems(filter, setFilter, item, e) }}
+                className={
+                  i === 0
+                    ? `filter sub active ${item.replace(" ", "-")}`
+                    : `filter sub ${item.replace(" ", "-")}`
+                }
+                onClick={(e) => {
+                  if (mobile) toggle();
+                  filterItems(filter, setFilter, item, e);
+                }}
                 to="#"
               >
                 <span class="material-symbols-outlined">{addIcon(item)}</span>
                 <div>{item.toLowerCase()}</div>
               </Link>
-            )}
+            ))}
             {/* <Link
               className="sub"
               onClick={mobile ? toggle : null}
@@ -277,9 +293,7 @@ function SideMenu() {
               smooth
               className="sub"
             >
-              <span class="material-symbols-outlined">
-                description
-              </span>
+              <span class="material-symbols-outlined">description</span>
               <div>Intro</div>
             </HashLink>
             <HashLink
@@ -288,9 +302,7 @@ function SideMenu() {
               smooth
               className="sub"
             >
-              <span class="material-symbols-outlined">
-                info
-              </span>
+              <span class="material-symbols-outlined">info</span>
               <div>About</div>
             </HashLink>
             <HashLink
@@ -299,9 +311,7 @@ function SideMenu() {
               smooth
               className="sub"
             >
-              <span class="material-symbols-outlined">
-                import_contacts
-              </span>
+              <span class="material-symbols-outlined">import_contacts</span>
               <div>Syllabus</div>
             </HashLink>
             <HashLink
@@ -310,22 +320,20 @@ function SideMenu() {
               smooth
               className="sub"
             >
-              <span class="material-symbols-outlined">
-                badge
-              </span>
+              <span class="material-symbols-outlined">badge</span>
               <div>Certificate</div>
             </HashLink>
-           {metrics && <HashLink
-              onClick={mobile ? toggle : null}
-              to={`/menu/courses/details/${courseIndex}/#metrics`}
-              smooth
-              className="sub"
-            >
-              <span class="material-symbols-outlined">
-                bar_chart
-              </span>
-              <div>Metrics</div>
-            </HashLink> }
+            {metrics && (
+              <HashLink
+                onClick={mobile ? toggle : null}
+                to={`/menu/courses/details/${courseIndex}/#metrics`}
+                smooth
+                className="sub"
+              >
+                <span class="material-symbols-outlined">bar_chart</span>
+                <div>Metrics</div>
+              </HashLink>
+            )}
             {/* {feedback && <HashLink
               onClick={mobile ? toggle : null}
               to={`/menu/courses/details/${courseIndex}/#feedbacks`}
@@ -337,7 +345,8 @@ function SideMenu() {
               </span>
               <div>Feedbacks</div>
             </HashLink> } */}
-          </>);
+          </>
+        );
 
       case 4:
         return (
@@ -353,9 +362,7 @@ function SideMenu() {
                 description
               </span> */}
               {/* <img className="menu-icon" src={intro} alt="tnkc icon"/> */}
-              <span class="material-symbols-outlined">
-info
-</span>
+              <span class="material-symbols-outlined">info</span>
               <div>Intro</div>
             </HashLink>
             <HashLink
@@ -368,9 +375,7 @@ info
                 description
               </span> */}
               {/* <img className="menu-icon"  src={why} alt="tnkc icon"/> */}
-              <span class="material-symbols-outlined">
-help
-</span>
+              <span class="material-symbols-outlined">help</span>
               <div>Why TNKC 2023?</div>
             </HashLink>
             <HashLink
@@ -382,13 +387,11 @@ help
               {/* <span class="material-symbols-outlined">
                 description
               </span> */}
-               {/* <img className="menu-icon"  src={perk} alt="tnkc icon"/> */}
-               <span class="material-symbols-outlined">
-interests
-</span>
+              {/* <img className="menu-icon"  src={perk} alt="tnkc icon"/> */}
+              <span class="material-symbols-outlined">interests</span>
               <div>Perks</div>
             </HashLink>
-            <HashLink
+            {/* <HashLink
               onClick={mobile ? toggle : null}
               to={`/menu/events/details/${eventIndex}/#workflow`}
               smooth
@@ -397,12 +400,10 @@ interests
               {/* <span class="material-symbols-outlined">
                 description
               </span> */}
-               {/* <img className="menu-icon"  src={workflow} alt="tnkc icon"/> */}
-               <span class="material-symbols-outlined">
-rebase
-</span>
+              {/* <img className="menu-icon"  src={workflow} alt="tnkc icon"/> */}
+              {/*<span class="material-symbols-outlined">rebase</span>
               <div>Workflow</div>
-            </HashLink>
+            </HashLink> */}
             <HashLink
               onClick={mobile ? toggle : null}
               to={`/menu/events/details/${eventIndex}/#schedule`}
@@ -412,10 +413,8 @@ rebase
               {/* <span class="material-symbols-outlined">
                 description
               </span> */}
-               {/* <img className="menu-icon" src={sch} alt="tnkc icon"/> */}
-               <span class="material-symbols-outlined">
-calendar_month
-</span>
+              {/* <img className="menu-icon" src={sch} alt="tnkc icon"/> */}
+              <span class="material-symbols-outlined">calendar_month</span>
               <div>Schedule</div>
             </HashLink>
             <HashLink
@@ -427,14 +426,25 @@ calendar_month
               {/* <span class="material-symbols-outlined">
                 description
               </span> */}
-               {/* <img className="menu-icon" src={tro} alt="tnkc icon"/> */}
-               <span class="material-symbols-outlined">
-celebration
-</span>
+              {/* <img className="menu-icon" src={tro} alt="tnkc icon"/> */}
+              <span class="material-symbols-outlined">celebration</span>
               <div>Awards & Prizes</div>
             </HashLink>
+            <HashLink
+              onClick={mobile ? toggle : null}
+              to={`/menu/events/details/${eventIndex}/#downloads`}
+              smooth
+              className="sub"
+            >
+              {/* <span class="material-symbols-outlined">
+                description
+              </span> */}
+              {/* <img className="menu-icon" src={tro} alt="tnkc icon"/> */}
+              <span class="material-symbols-outlined">celebration</span>
+              <div>Downloads</div>
+            </HashLink>
           </>
-        )
+        );
 
       default:
         return <></>;
@@ -442,9 +452,15 @@ celebration
   };
 
   return (
-    <div className={`side-menu ${window.innerWidth > 650 && 'border'}`} id="side-menu">
-      <div className={`min-menu ${window.innerWidth > 650 && 'disable'}`} id="min-menu">
-        <Link to="dashboard" className="link" data-index={0} >
+    <div
+      className={`side-menu ${window.innerWidth > 650 && "border"}`}
+      id="side-menu"
+    >
+      <div
+        className={`min-menu ${window.innerWidth > 650 && "disable"}`}
+        id="min-menu"
+      >
+        <Link to="dashboard" className="link" data-index={0}>
           <span class="material-symbols-outlined">dashboard</span>
           <p>Dashboard</p>
         </Link>
@@ -457,7 +473,10 @@ celebration
           <p>Events</p>
         </Link>
       </div>
-      <div className={`menu-options ${window.innerWidth < 650 && 'disable'}`} id="menu-options">
+      <div
+        className={`menu-options ${window.innerWidth < 650 && "disable"}`}
+        id="menu-options"
+      >
         <Link to="dashboard" className="min-link" data-index={0}>
           <span class="material-symbols-outlined">dashboard</span>
           <div>Dashboard</div>

@@ -28,9 +28,8 @@
 }
 
 .home > .hero{
-    padding: 10rem 10rem;
-   
     background-image: url('../../images/homepageposter.png');
+    aspect-ratio: 16 / 9;
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
@@ -39,6 +38,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+    max-height: 100vh;
 }
 .home > .hero > h2{
   color: whitesmoke!important;
@@ -416,7 +416,8 @@ mix-blend-mode: darken;
     
   }
 
-  .contact-us input[type=text], .contact-us select, .contact-us textarea, .contact-us input[type=email] {
+  .contact-us input[type=text], .contact-us select, .contact-us textarea, .contact-us input[type=email],
+  .contact-us select {
     width: 100%; /* Full width */
     padding: 12px; /* Some padding */ 
     border: 1px solid#CACACA;
@@ -515,12 +516,18 @@ mix-blend-mode: darken;
     text-wrap: balance;
   }
 
-  .get-in-touch > .content > .cards > .section > span:hover{
+  .get-in-touch > .content > .cards .section span:hover{
     background-color: var(--primary);
     color: var(--secondary);
   }
 
-  .get-in-touch > .content > .cards > .section > span{
+  .get-in-touch > .content > .cards .section > a{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .get-in-touch > .content > .cards .section  span{
     font-size: 2rem;
     z-index: 0;
     padding: 1rem;

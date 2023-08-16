@@ -21,8 +21,8 @@ function CourseDetails() {
 
 
   const [buy, setbuy] = useState(false)
-  const [data, setData] = useState(courseList[index]);
-  console.log(courseList[index]);
+  const [data, setData] = useState(courses[index]);
+  console.log(courses[index]);
 
   const [enrolled, setEnrolled] = useState(null)
 
@@ -85,7 +85,7 @@ function CourseDetails() {
             {data.flag ? <>The Flagship <br /></> : ''}
             {data.name}
           </h1>
-          <p>{data.description}</p>
+          {data.description.map(item=><p>{item}</p>)}
           <HashLink to={`${loc.pathname}/#explore`} smooth>
             Explore
           </HashLink>
@@ -103,7 +103,9 @@ function CourseDetails() {
                 {data.duration.map((item, i) => (
                   <li key={i}>{item}</li>
                 ))}
+                <li>{data.metrics.hours} hours of live interaction class</li>
               </ul>
+
               <h3>
                 <span class="material-symbols-outlined">currency_rupee</span>Fee
                 Structure
@@ -214,20 +216,15 @@ function CourseDetails() {
         <div id="metrics"></div>
         <h2>Our Metrics</h2>
         <div className="content">
-          <div className="section">
+          {data.metrics.students &&<div className="section">
             <span class="material-symbols-outlined">groups</span>
             <h4>{data.metrics.students}+</h4>
             <p>Students participated</p>
-          </div>
+          </div>}
           <div className="section">
             <span class="material-symbols-outlined">record_voice_over</span>
             <h4>{data.metrics.hours} Hours</h4>
             <p>of live Interaction</p>
-          </div>
-          <div className="section">
-            <span class="material-symbols-outlined">groups</span>
-            <h4>{data.metrics.students}+</h4>
-            <p>Students participated</p>
           </div>
         </div>
       </div>}

@@ -34,11 +34,6 @@ const { check}= useContext(StoreContext);
               </HashLink>
             </li>
             <li>
-              <HashLink smooth to="/#achievements">
-                Achievements
-              </HashLink>
-            </li>
-            <li>
               <HashLink smooth to="/#testimonials">
                 Testimonials
               </HashLink>
