@@ -10,8 +10,8 @@ import "./homeNav.css";
 import Themes from "../../../components/Themes";
 import seedwhite from "../../../images/seed_white.png";
 import { StoreContext } from "../../../store/StoreContext";
-import LogoLoader from "../../../components/imageLoader/LogoLoader";
-
+import seedblack from "../../../images/seedblackss.png";
+ 
 function HomeNav({
   bodyId,
   dp,
@@ -135,8 +135,7 @@ function HomeNav({
     <div className="nav" id="nav" ref={navRef}>
       <div className="left">
         <Link to="/" smooth>
-          {/* <img src={check ?seedwhite:logo_joined} id="logo" alt="seed logo " /> */}
-          <LogoLoader src={check ?seedwhite:logo_joined} />
+          <img src={check ?seedwhite:seedblack} style ={(!check) ? {mixBlendMode:"darken"}:{}}  id="logo" alt="seed logo " />
         </Link>
       </div>
       <div className="options">
