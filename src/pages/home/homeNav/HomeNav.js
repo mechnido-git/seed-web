@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState, useContext } from "react";
 import { HashLink } from "react-router-hash-link";
 import logo from "../../../images/seed_logo/Seed.svg";
-import logo_joined from "../../../images/seed_logo/Seed Joined.svg";
+import logo_joined from "../../../images/seed_logo/Seed Joined.png";
 import { Link, useNavigate } from "react-router-dom";
 import ProfileDrop from "../ProfileDrop";
 import Drop from "../Drop";
@@ -10,6 +10,7 @@ import "./homeNav.css";
 import Themes from "../../../components/Themes";
 import seedwhite from "../../../images/seed_white.png";
 import { StoreContext } from "../../../store/StoreContext";
+import LogoLoader from "../../../components/imageLoader/LogoLoader";
 
 function HomeNav({
   bodyId,
@@ -134,7 +135,8 @@ function HomeNav({
     <div className="nav" id="nav" ref={navRef}>
       <div className="left">
         <Link to="/" smooth>
-          <img src={check ?seedwhite:logo_joined} id="logo" alt="seed logo " />
+          {/* <img src={check ?seedwhite:logo_joined} id="logo" alt="seed logo " /> */}
+          <LogoLoader src={check ?seedwhite:logo_joined} />
         </Link>
       </div>
       <div className="options">
