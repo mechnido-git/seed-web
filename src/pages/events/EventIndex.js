@@ -25,34 +25,34 @@ function RegisterInfo({ date, data }) {
 
   return (
     <SplideSlide>
-            <div className="prize-div">
-            <h3>Registration Fee: INR{" "}{data.registerFee} (Including 18% GST)</h3>
-      <h3>Ovrall Cash Prize: INR{" "}{data.overAllCash}</h3>
-        
-        </div>
-      <div className="sample">
-      <div className="time-container">
-        <h4>Registration Ends in</h4>
-        <div className="time-div">
-          <div className="days-div">
-            <h3>Days</h3>
-            <p>{days <= 0 ? 0 : days}</p>
-          </div>
-          <div className="hour-div">
-            <h3>Hours</h3>
-            <p>{hours <= 0 ? 0 : hours}</p>
-          </div>
-          <div className="minute-div">
-            <h3>Minutes</h3>
-            <p>{minutes <= 0 ? 0 : minutes}</p>
-          </div>
-          <div className="second-div">
-            <h3>Seconds</h3>
-            <p>{seconds <= 0 ? 0 : seconds}</p>
-          </div>
-        </div>
+      <div className="prize-div">
+        <h3>Ovrall Cash Prize: INR{" "}{data.overAllCash}</h3>
+        <h3>Registration Fee: INR{" "}{data.registerFee} (Including 18% GST)</h3>
+
       </div>
-      
+      <div className="sample">
+        <div className="time-container">
+          <h4>Registration Ends in</h4>
+          <div className="time-div">
+            <div className="days-div">
+              <h3>Days</h3>
+              <p>{days <= 0 ? 0 : days}</p>
+            </div>
+            <div className="hour-div">
+              <h3>Hours</h3>
+              <p>{hours <= 0 ? 0 : hours}</p>
+            </div>
+            <div className="minute-div">
+              <h3>Minutes</h3>
+              <p>{minutes <= 0 ? 0 : minutes}</p>
+            </div>
+            <div className="second-div">
+              <h3>Seconds</h3>
+              <p>{seconds <= 0 ? 0 : seconds}</p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </SplideSlide>
   );
@@ -168,11 +168,11 @@ function EventIndex() {
                           />
                           <div className="btns">
                             <button
-                              className= {enrolled ? "disabledbtn" : ""}
+                              className={enrolled ? "disabledbtn" : ""}
                               disabled={enrolled}
                               onClick={getRegister}
                             >
-                              {enrolled? "Enrolled ": "Enroll"}
+                              {enrolled ? "Enrolled " : "Enroll"}
                             </button>
                             <button onClick={viewDetails}>Know More</button>
                           </div>
@@ -197,7 +197,7 @@ function EventIndex() {
                   width: "100%",
                   fixedWidth: "100%"
                 }}
-                style={{width: "100%"}}
+                style={{ width: "100%" }}
                 onMove={(splide, prev, next) => {
                   setCurrentEvent(splide.index);
                   console.log(prev, splide.index, next);
@@ -246,10 +246,10 @@ function EventIndex() {
                     window.innerWidth <= 426
                       ? 1
                       : window.innerWidth <= 768
-                      ? 1.5
-                      : window.innerWidth <= 1024
-                      ? 2
-                      : 3,
+                        ? 1.5
+                        : window.innerWidth <= 1024
+                          ? 2
+                          : 3,
                   perMove: 1,
                   pagination: false,
                 }}
@@ -328,57 +328,57 @@ function EventIndex() {
             </div>
 
             <div className="slides-sponsors">
-            <div id="sponsors"></div>
-            <h2>Sponsors</h2>
+              <div id="sponsors"></div>
+              <h2>Sponsors</h2>
 
-            <Splide
-              tag="section"
-              aria-labelledby="My Favorite Images"
-              options={{
-                speed: 800,
-                autoplay: true,
-                interval: 2500,
-                pauseOnHover: false,
-                type: "loop",
-                pauseOnFocus: true,
-                keyboard: true,
-                gap: ".5rem",
-                width: "100%",
-                perPage:
-                  window.innerWidth <= 426
-                    ? 2.5
-                    : window.innerWidth <= 768
-                      ? 3.5
-                      : window.innerWidth <= 1024
-                        ? 4
-                        : 5,
-                perMove: 1,
-                pagination: false,
-              }}
-            >
-              <SplideSlide>
-                <img src={sponsor} style={{ width: "100px" }} />
-              </SplideSlide>
-              <SplideSlide>
-                <img src={sponsor} style={{ width: "100px" }} />
-              </SplideSlide>
-              <SplideSlide>
-                <img src={sponsor} style={{ width: "100px" }} />
-              </SplideSlide>
-              <SplideSlide>
-                <img src={sponsor} style={{ width: "100px" }} />
-              </SplideSlide>
-              <SplideSlide>
-                <img src={sponsor} style={{ width: "100px" }} />
-              </SplideSlide>
-              <SplideSlide>
-                <img src={sponsor} style={{ width: "100px" }} />
-              </SplideSlide>
-              <SplideSlide>
-                <img src={sponsor} style={{ width: "100px" }} />
-              </SplideSlide>
-            </Splide>
-          </div>
+              <Splide
+                tag="section"
+                aria-labelledby="My Favorite Images"
+                options={{
+                  speed: 800,
+                  autoplay: true,
+                  interval: 2500,
+                  pauseOnHover: false,
+                  type: "loop",
+                  pauseOnFocus: true,
+                  keyboard: true,
+                  gap: ".5rem",
+                  width: "100%",
+                  perPage:
+                    window.innerWidth <= 426
+                      ? 2.5
+                      : window.innerWidth <= 768
+                        ? 3.5
+                        : window.innerWidth <= 1024
+                          ? 4
+                          : 5,
+                  perMove: 1,
+                  pagination: false,
+                }}
+              >
+                <SplideSlide>
+                  <img src={sponsor} style={{ width: "100px" }} />
+                </SplideSlide>
+                <SplideSlide>
+                  <img src={sponsor} style={{ width: "100px" }} />
+                </SplideSlide>
+                <SplideSlide>
+                  <img src={sponsor} style={{ width: "100px" }} />
+                </SplideSlide>
+                <SplideSlide>
+                  <img src={sponsor} style={{ width: "100px" }} />
+                </SplideSlide>
+                <SplideSlide>
+                  <img src={sponsor} style={{ width: "100px" }} />
+                </SplideSlide>
+                <SplideSlide>
+                  <img src={sponsor} style={{ width: "100px" }} />
+                </SplideSlide>
+                <SplideSlide>
+                  <img src={sponsor} style={{ width: "100px" }} />
+                </SplideSlide>
+              </Splide>
+            </div>
             <div className="slides-sponsors">
               <div id="upcoming"></div>
               <h2>Upcoming Events</h2>
@@ -398,10 +398,10 @@ function EventIndex() {
                     window.innerWidth <= 426
                       ? 3
                       : window.innerWidth <= 768
-                      ? 3.5
-                      : window.innerWidth <= 1024
-                      ? 4
-                      : 5,
+                        ? 3.5
+                        : window.innerWidth <= 1024
+                          ? 4
+                          : 5,
                   perMove: 1,
                   pagination: false,
                 }}

@@ -183,6 +183,11 @@
     gap: 1rem;
 }
 
+.prize-div > h3{
+    font-size: 27px;
+    text-align: center;
+}
+
 .prize-div > h4{
     font-size: larger;
 }
