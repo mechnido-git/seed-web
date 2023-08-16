@@ -16,93 +16,6 @@ import ImageLoader from "../../components/imageLoader/ImageLoader";
 import cancellogo from "../../images/cancel_icon.png";
 
 
-export const recomended = [
-  {
-    name: "Video Title 1",
-    description:
-      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
-    rating: "4.4",
-    thumbnail: courses,
-    category: "Marketing",
-  },
-  {
-    name: "Video Title 2",
-    description:
-      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout",
-    rating: "4.4",
-    thumbnail: courses,
-    category: "Sell Online",
-  },
-  {
-    name: "Video Title 3",
-    description:
-      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
-    rating: "4.4",
-    thumbnail: courses,
-    category: "Services & Events",
-  },
-  {
-    name: "Video Title 4",
-    description:
-      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
-    rating: "4.4",
-    thumbnail: courses,
-    category: "Media Content",
-  },
-  {
-    name: "Video Title 5",
-    description:
-      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
-    rating: "4.4",
-    thumbnail: courses,
-    category: "Design Elements",
-  },
-  {
-    name: "Video Title 6",
-    description:
-      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
-    rating: "4.4",
-    thumbnail: courses,
-    category: "Communication",
-  },
-];
-
-export const trending = [
-  {
-    name: "Video Title 5",
-    description:
-      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
-    rating: "4.4",
-    thumbnail: courses,
-    category: "Design Elements",
-  },
-  {
-    name: "Video Title 6",
-    description:
-      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
-    rating: "4.4",
-    thumbnail: courses,
-    category: "Communication",
-  },
-  {
-    name: "Video Title 7",
-    description:
-      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
-    rating: "4.4",
-    thumbnail: courses,
-    category: "Marketing",
-  },
-  {
-    name: "Video Title 8",
-    description:
-      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
-    rating: "4.4",
-    thumbnail: courses,
-    category: "Sell Online",
-  },
-];
-
-
 const getInvoice = (course , user) => {
   let invoice = null;
  
@@ -121,7 +34,7 @@ export const CardBuilder = ({ arr, limit, viewDetails, loading , user , download
       return (
         <div className="card" key={index} onClick={() => viewDetails(item.order)}>
           {/* <img src={require("../../images/courses.jpg")} alt="" /> */}
-          <ImageLoader src={require("../../images/courses.jpg")} />
+          <ImageLoader src={item.poster? item.poster:require("../../images/courses.jpg")} />
           <div className="body">
 
             <h4>
@@ -326,7 +239,7 @@ function CoursesHome() {
                    
                   return <SplideSlide key={i}>
                   {/*className="exploreBTN" <img src={courseList[i].slide} style={{ objectFit: "contain", width: "100%" }} alt="" /> */}
-                  <ImageLoader src={courseList[i].slide} style={{ objectFit: "contain", width: "100%" }} />
+                  <ImageLoader src={item.poster? item.poster: courseList[i].slide} style={{ objectFit: "contain", width: "100%" }} />
                   <div className="btns">
                 <button  className={enrolled ? "disabledbtn" : null}disabled={enrolled} onClick={ enroll } >{enrolled? "Enrolled": "Enroll"} </button>
                 <button  onClick={viewDetails}>Know more</button>
