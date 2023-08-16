@@ -175,6 +175,12 @@ export const addIcon = (item) => {
       return "design_services";
     case "SOFTWARE":
       return "hub";
+    case "Technology":
+      return "engineering"
+    case "Production":
+      return "precision_manufacturing"
+    case "Master's Programme":
+      return "workspace_premium"
   }
 };
 
