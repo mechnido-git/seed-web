@@ -47,7 +47,7 @@
     color: var(--textcolor)
   }
 
-  .footer > .links > .section.get-in-touch li, .sower .footer > .links > .section.get-in-touch li{
+  .footer > .links > .section.get-in-touch li, .sower .footer > .links > .section.get-in-touch li,.footer > .links > .section.get-in-touch li, .footer > .links > .section.get-in-touch li > .details{
     display: flex;
     gap: 10px;
     align-items: center;
@@ -64,7 +64,7 @@
   }
 
   .footer > .links > .section.get-in-touch li img, .sower .footer > .links > .section.get-in-touch li img{
-    width: 30px !important;
+    width: 20px !important;
   }
 
   .footer > .links > .section.get-in-touch li p, .sower .footer > .links > .section.get-in-touch li p{
