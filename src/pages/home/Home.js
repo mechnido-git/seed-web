@@ -527,14 +527,14 @@ const [insrc, setInsrc] = useState(insta);
 
                   <label >Category</label>
                   <select value={category} onChange={(e)=>setCategory(e.target.value)} >
-                    <option value="Group joining">Group joining</option>
-                    <option value="Courses related">Courses related</option>
-                    <option value="Events related">Events related</option>
-                    <option value="University/College collaboration ">University/College collaboration </option>
-                    <option value="Technical issues ">Technical issues </option>
-                    <option value="Payment issues">Payment issues</option>
-                    <option value="Event Sponsors">Event Sponsors</option>
-                    <option value="Others">Others</option>
+                    <option style={{fontSize: "17px"}} value="Group joining">Group joining</option>
+                    <option style={{fontSize: "17px"}} value="Courses related">Courses related</option>
+                    <option style={{fontSize: "17px"}} value="Events related">Events related</option>
+                    <option style={{fontSize: "17px"}} value="University/College collaboration ">University/College collaboration </option>
+                    <option style={{fontSize: "17px"}} value="Technical issues ">Technical issues </option>
+                    <option style={{fontSize: "17px"}} value="Payment issues">Payment issues</option>
+                    <option style={{fontSize: "17px"}} value="Event Sponsors">Event Sponsors</option>
+                    <option style={{fontSize: "17px"}} value="Others">Others</option>
 
                   </select>
 
