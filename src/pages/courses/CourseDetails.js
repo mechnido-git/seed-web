@@ -92,7 +92,7 @@ function CourseDetails() {
         </div>
         <div className="course">
           <div className="card">
-            <img src={img} alt="" />
+            <img src={data.poster? data.poster: img} alt="" />
             <button className={enrolled ? "disabledbtn" : ""} disabled={enrolled} onClick={enrolled ? null : enroll}>{enrolled ? "Enrolled" : "Enroll Now"}</button>
             <hr />
             <div className="body">
@@ -163,7 +163,7 @@ function CourseDetails() {
             ))}
           </div>
           <div className="card">
-            <img src={img} alt="course image" />
+            <img src={data.poster? data.poster: img} alt="course image" />
             <button className={enrolled ? "disabledbtn" : ""} disabled={enrolled} onClick={enrolled ? null : enroll}>{enrolled ? "Enrolled" : "Enroll Now"}</button>
             <hr />
             <div className="body">
@@ -174,6 +174,7 @@ function CourseDetails() {
                 {data.duration.map((item, i) => (
                   <li key={i}>{item}</li>
                 ))}
+                <li>{data.metrics.hours} hours of live interaction class</li>
               </ul>
               <h3>
                 <span class="material-symbols-outlined">currency_rupee</span>Fee

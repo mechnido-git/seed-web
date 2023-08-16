@@ -66,6 +66,8 @@
 
 .courses-home > .slides img{
     border-radius: 10px;
+    aspect-ratio: 16 / 7;
+    object-fit: cover !important;
 }
 
 .courses-home > .slides > .splide > div{
@@ -170,6 +172,8 @@
     cursor: pointer;
     transition: .2s;
     color: var(--textcolor);
+    overflow: hidden;
+    min-width: 220px;
 }
 
 .courses-home > .main-div > .section > .card-container-div > .card > .body > h4{
@@ -189,7 +193,7 @@
 }
 
 .courses-home > .main-div > .section > .card-container-div > .card > img{
-    max-width: 220px;
+    width: 100%;
     align-self: center;
     /* mix-blend-mode: darken; */
 }
