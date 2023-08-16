@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState, useContext } from "react";
 import { HashLink } from "react-router-hash-link";
 import logo from "../../../images/seed_logo/Seed.svg";
-import logo_joined from "../../../images/seed_logo/Seed Joined.svg";
+import logo_joined from "../../../images/seed_logo/Seed Joined.png";
 import { Link, useNavigate } from "react-router-dom";
 import ProfileDrop from "../ProfileDrop";
 import Drop from "../Drop";
