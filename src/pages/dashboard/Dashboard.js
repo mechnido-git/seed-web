@@ -182,7 +182,7 @@ const CourseCatalog = () => {
 
             </div>
             <div className="details">
-              <p>{item.description_L[2].slice(0, 50)}...</p>
+              <p>{item.description[0].slice(0, 50)}...</p>
             </div>
           </div>
         })}
