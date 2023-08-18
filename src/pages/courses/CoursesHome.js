@@ -219,7 +219,9 @@ function CoursesHome() {
                   speed: 1500,
                   autoplay: true,
                   interval: 3400,
-                  pauseOnHover: false,
+                  pauseOnHover: true,
+                  type: "loop",
+                 
                   pauseOnFocus: true,
                   keyboard: true,
                   gap: "1rem",
