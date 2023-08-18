@@ -17,7 +17,7 @@ function MainSection({event}) {
     <div className='main-section' id='intro'>
       
     <div className="title"> 
-      <h1><span style={{color:"var(--primary)"}}>TN</span>KC</h1>
+      <h1>{event.title}</h1>
       <h2 className='subtitle'> {event.subtitle}</h2>
       <TextLimiter number={250} text={event.about.description} />
       <HashLink className="btn" to={`${loc.pathname}/#workflow`} smooth>

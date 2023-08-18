@@ -29,7 +29,7 @@ const getInvoice = (course , user) => {
 export const CardBuilder = ({ arr, limit, viewDetails, loading , user , download}) => (
   <>
     {arr.map((item, index) => {
-      console.log(index);
+      // console.log(index);
       if (limit != null && index >= limit) return;
       return (
         <div className="card" key={index} onClick={() => viewDetails(item.order)}>
@@ -216,7 +216,9 @@ function CoursesHome() {
                 tag="section"
                 aria-labelledby="My Favorite Images"
                 options={{
-                  speed: 1000,
+                  speed: 1500,
+                  autoplay: true,
+                  interval: 3400,
                   pauseOnHover: false,
                   pauseOnFocus: true,
                   keyboard: true,
@@ -231,7 +233,7 @@ function CoursesHome() {
               >
                 {courses?.map((item, i) =>{
                   let enrolled = checkEnroll(item)
-                   console.log("this is the value of enroled",enrolled);
+                  //  console.log("this is the value of enroled",enrolled);
 
                   //  if(enrolled){
                   //   document.getElementById("btnEnroll").className = "disabledbtn";

@@ -48,24 +48,7 @@ function About() {
 
         <div className="about" id="about">
           
-          <section>
-            <div className="logo">
-              <img src={mech} alt="" />
-            </div>
-            <div className="details">
-              <h2>
-                About Organizing Team -{" "}
-                <span style={{ color: "red" }}>MECHNIDO</span>
-              </h2>
-              <p>
-              M/S MECHNIDO was Established in 2018 in Coimbatore, Tamil Nadu, M/S Mechnido is a promising enterprise in the electric vehicle (EV) industry.
-               With a strong commitment to driving innovation and contributing to a sustainable future, Mechnido is dedicated to manufacturing high-quality electric vehicles that
-                offer exceptional performance and efficiency. Our team of skilled engineers, designers, and visionaries works diligently to develop cutting-edge EVs that prioritize reliability
-                 and customer satisfaction.
-
-              </p>
-            </div>
-          </section>
+     
           <section>
             <div className="details">
               <h2>
@@ -120,6 +103,26 @@ function About() {
             
 
           </section>
+
+          <section>
+            <div className="logo">
+              <img src={mech} alt="" />
+            </div>
+            <div className="details">
+              <h2>
+                About Organizing Team -{" "}
+                <span style={{ color: "red" }}>MECHNIDO</span>
+              </h2>
+              <p>
+              M/S MECHNIDO was Established in 2018 in Coimbatore, Tamil Nadu, M/S Mechnido is a promising enterprise in the electric vehicle (EV) industry.
+               With a strong commitment to driving innovation and contributing to a sustainable future, Mechnido is dedicated to manufacturing high-quality electric vehicles that
+                offer exceptional performance and efficiency. Our team of skilled engineers, designers, and visionaries works diligently to develop cutting-edge EVs that prioritize reliability
+                 and customer satisfaction.
+
+              </p>
+            </div>
+          </section>
+
           {/* <section>
             <div className="logo">
               {console.log("this is check",check)}
