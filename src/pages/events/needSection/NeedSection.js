@@ -18,7 +18,7 @@ function NeedSection({event}) {
     <div>
        <div className='whysection' id='features'> 
     <div>
-      <h2 className='whyh1'>Why <span style={{color:"var(--primary)"}}>TN</span>KC 2023?</h2>
+      <h2 className='whyh1'>Why TNKC 2023?</h2>
       <div class="grid-container">
     {
       sibling.map((element)=>{

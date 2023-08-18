@@ -10,7 +10,7 @@ import { auth, db } from "../../firebase/config";
 import { onAuthStateChanged } from "firebase/auth";
 import Spinner from '../../components/Spinner';
 
-export default function UserProfile({ Fname, Mname, Lname ,gender, college , dep , year, dob , email, mobile, setPage }) {
+export default function UserProfile({ name ,gender, college , dep , year, dob , email, mobile, setPage }) {
 
 const {filter, setFilter} =  useContext(StoreContext);
 const [loading, setLoading] = useState(true);
@@ -104,17 +104,10 @@ const getInvoice = (course) => {
   <div className='form-container'>
     <div className='form-data'>
       <div>
-      <div className='head-data'><h3>First Name</h3></div>
-      <div className='data'><p>{Fname}</p></div>
+      <div className='head-data'><h3>Full Name</h3></div>
+      <div className='data'><p>{name}</p></div>
       </div>
-      <div>
-      <div className='head-data'><h3>Middle Name</h3></div>
-      <div className='data'><p>{Mname}</p></div>
-      </div>
-      <div>
-      <div className='head-data'><h3>Last Name</h3></div>
-      <div className='data'><p>{Lname}</p></div>
-      </div>
+     
 
       <div>
       <div className='head-data'><h3>Gender</h3></div>
@@ -126,28 +119,29 @@ const getInvoice = (course) => {
       <div className='data'><p>{mobile}</p></div>
       </div>
 
+      <div>
+      <div className='head-data'><h3>Date Of Birth</h3></div>
+      <div className='data'><p>{dob}</p></div>
+      </div>
       
       
     </div>
     <div className='form-data'>
     <div>
-      <div className='head-data'><h3>Email</h3></div>
+      <div className='head-data'><h3>Email ID</h3></div>
       <div className='data'><p>{email}</p></div>
       </div>
+     
       <div>
-      <div className='head-data'><h3>Date Of Birth</h3></div>
-      <div className='data'><p>{dob}</p></div>
-      </div>
-      <div>
-      <div className='head-data'><h3>College</h3></div>
+      <div className='head-data'><h3>Universities/Institutions/Company Name</h3></div>
       <div className='data'><p>{college}</p></div>
       </div>
       <div>
-      <div className='head-data'><h3>Department</h3></div>
+      <div className='head-data'><h3>Department/ Designation</h3></div>
       <div className='data'><p>{dep}</p></div>
       </div>
       <div>
-      <div className='head-data'><h3>Year</h3></div>
+      <div className='head-data'><h3>Year of Study</h3></div>
       <div className='data'><p>{year}</p></div>
       </div>
       

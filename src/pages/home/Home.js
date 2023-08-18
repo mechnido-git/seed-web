@@ -53,7 +53,7 @@ function Home() {
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [category, setCategory] = useState("Group joining")
+  const [category, setCategory] = useState("Category");
   const [msg, setMsg] = useState("");
   const [dp, setDp] = useState(profile);
 
@@ -63,11 +63,11 @@ function Home() {
   
 const {theme,setCheck,setTheme, check}= useContext(StoreContext);
  
-const [fbsrc, setFbsrc] = useState(fb);
-const [insrc, setInsrc] = useState(insta);
- useEffect(()=>{
-   console.log(" check value is ",check);
- },[theme]);
+// const [fbsrc, setFbsrc] = useState(fb);
+// const [insrc, setInsrc] = useState(insta);
+//  useEffect(()=>{
+//    console.log(" check value is ",check);
+//  },[theme]);
 
   const checkUser = async(user) => {
     
@@ -525,19 +525,6 @@ const [insrc, setInsrc] = useState(insta);
                     onChange={(e) => setName(e.target.value)}
                   />
 
-                  <label >Category</label>
-                  <select value={category} onChange={(e)=>setCategory(e.target.value)} >
-                    <option style={{fontSize: "17px"}} value="Group joining">Group joining</option>
-                    <option style={{fontSize: "17px"}} value="Courses related">Courses related</option>
-                    <option style={{fontSize: "17px"}} value="Events related">Events related</option>
-                    <option style={{fontSize: "17px"}} value="University/College collaboration ">University/College collaboration </option>
-                    <option style={{fontSize: "17px"}} value="Technical issues ">Technical issues </option>
-                    <option style={{fontSize: "17px"}} value="Payment issues">Payment issues</option>
-                    <option style={{fontSize: "17px"}} value="Event Sponsors">Event Sponsors</option>
-                    <option style={{fontSize: "17px"}} value="Others">Others</option>
-
-                  </select>
-
                   <label htmlFor="email">Email</label>
                   <input
                     type="email"
@@ -550,6 +537,22 @@ const [insrc, setInsrc] = useState(insta);
                     pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                   />
 
+
+                  <label >Category</label>
+                  <select value={category} onChange={(e)=>setCategory(e.target.value)} >
+                    <option value="none" selected hidden>Select an Option</option>
+                    <option style={{fontSize: "17px"}} value="Group joining">Group joining</option>
+                    <option style={{fontSize: "17px"}} value="Courses related">Courses related</option>
+                    <option style={{fontSize: "17px"}} value="Events related">Events related</option>
+                    <option style={{fontSize: "17px"}} value="University/College collaboration ">University/College collaboration </option>
+                    <option style={{fontSize: "17px"}} value="Technical issues ">Technical issues </option>
+                    <option style={{fontSize: "17px"}} value="Payment issues">Payment issues</option>
+                    <option style={{fontSize: "17px"}} value="Event Sponsors">Event Sponsors</option>
+                    <option style={{fontSize: "17px"}} value="Others">Others</option>
+
+                  </select>
+
+                 
                   <label htmlFor="subject">Subject</label>
                   <textarea
                     id="subject"
