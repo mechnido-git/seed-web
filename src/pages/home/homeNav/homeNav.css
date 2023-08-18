@@ -9,7 +9,7 @@
     width: 100%;
     z-index: 3;
     backdrop-filter: blur(6px); 
-   
+    
     box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
     /* background-color: #00b17b99 ; */
     background-color: var(--secondary);
