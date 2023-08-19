@@ -46,8 +46,7 @@ function RegisterForm({ event, setRegister, email, userName }) {
     onAuthStateChanged(auth, async(user) => {
           try {
             if (user) {
-              console.log(event.id);
-              console.log(user.uid);
+             
               const data = await getDoc(doc(db, 'events', event.id))
                 if (data) {
                   const enrolled = data.data().enrolled
@@ -499,7 +498,8 @@ function RegisterForm({ event, setRegister, email, userName }) {
       {/* <img className='clbt' src={cancellogo} onClick={() => { setRegister(false) }} alt="close button" /> */}
       <span class="material-symbols-outlined" onClick={() => { setRegister(false) }} >close</span>
       {loading && <Spinner loading={loading} />}
-      <h3>{event.title}</h3>
+      {/* <h3>{event.title}</h3> */}
+      <img src={event.logo} alt="tnkc image" />
       <form onSubmit={onSumbitHandler}>
 
         <div className="fields">

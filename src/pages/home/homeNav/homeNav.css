@@ -140,6 +140,7 @@
     flex-direction: column;
     gap: 10px;
     position: relative;
+    overflow: scroll ;
   }
   
   .nav.offer .drop-menu > .lists ul::after{
@@ -166,6 +167,7 @@
     font-size: 15px !important;
     background-color: var(--seconday);
     color:var(--tertiary);
+   
   }
   .nav.offer .drop-menu > .lists ul > li .material-symbols-outlined {
     color:var(--tertiary);
