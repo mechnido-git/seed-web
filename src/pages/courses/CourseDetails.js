@@ -99,11 +99,12 @@ function CourseDetails() {
               <h3>
                 <span class="material-symbols-outlined">schedule</span> Duration
               </h3>
+              <p>{data.metrics.hours} hours of live interaction class</p>
               <ul>
                 {data.duration.map((item, i) => (
                   <li key={i}>{item}</li>
                 ))}
-                <li>{data.metrics.hours} hours of live interaction class</li>
+                
               </ul>
 
               <h3>
@@ -170,11 +171,12 @@ function CourseDetails() {
               <h3>
                 <span class="material-symbols-outlined">schedule</span> Duration
               </h3>
+              <p>{data.metrics.hours} hours of live interaction class</p>
               <ul>
                 {data.duration.map((item, i) => (
                   <li key={i}>{item}</li>
                 ))}
-                <li>{data.metrics.hours} hours of live interaction class</li>
+               
               </ul>
               <h3>
                 <span class="material-symbols-outlined">currency_rupee</span>Fee
