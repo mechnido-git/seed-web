@@ -44,6 +44,7 @@ import tg from "../../images/tweet-green.png";
 import tw  from "../../images/tweet-white.png";
 import thw from "../../images/thread-w.png";
 import thg from "../../images/threads-green.png";
+import hp2 from "../../images/home page 2.png";
 
 function Home() {
   const [signIn, setSignIn] = useState(false);
@@ -223,7 +224,7 @@ const {theme,setCheck,setTheme, check}= useContext(StoreContext);
         <div className="main">
           <div className="title">
             <h2>"Engineering the Future: Innovate, Create, and Elevate!"</h2>
-            <img src={intro} alt="" />
+            <img src={hp2} alt="" />
           </div>
 
 {/* --------------------------------------------why us ? section--------------------------------------------------------------- */}
