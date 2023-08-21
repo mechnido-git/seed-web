@@ -55,7 +55,7 @@ function InfoForm() {
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        // setName(user.displayName);
+        setName(user.displayName);
         setEmail(user.email);
         setPage(false);
         doFetch(user.uid)
