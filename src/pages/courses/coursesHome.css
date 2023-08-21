@@ -107,6 +107,7 @@
     outline: none;
     width: 200px;
     height: fit-content;
+
 }
 .courses-home > .slides .btns > button:hover:not(.disabledbtn){
     background-color: var(--btnhover);
