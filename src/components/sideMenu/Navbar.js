@@ -25,7 +25,7 @@ function Navbar({ signIn }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [msg, setMsg] = useState("");
-  const [category, setCategory] = useState("Group joining")
+  const [category, setCategory] = useState("Category")
 
   const [selected, setSelected] = useState(-1)
 
@@ -209,6 +209,7 @@ function Navbar({ signIn }) {
 
 <label >Category</label>
                   <select value={category} onChange={(e)=>setCategory(e.target.value)} >
+                  <option value="none" selected hidden>Choose a category</option>
                     <option style={{fontSize: "17px"}} value="Group joining">Group joining</option>
                     <option style={{fontSize: "17px"}}  value="Courses related">Courses related</option>
                     <option style={{fontSize: "17px"}}  value="Events related">Events related</option>

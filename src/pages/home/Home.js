@@ -541,7 +541,7 @@ const {theme,setCheck,setTheme, check}= useContext(StoreContext);
 
                   <label >Category</label>
                   <select value={category} onChange={(e)=>setCategory(e.target.value)} >
-                    <option value="none" selected hidden>Select an Option</option>
+                    <option value="none" selected hidden>Choose a category</option>
                     <option style={{fontSize: "17px"}} value="Group joining">Group joining</option>
                     <option style={{fontSize: "17px"}} value="Courses related">Courses related</option>
                     <option style={{fontSize: "17px"}} value="Events related">Events related</option>
