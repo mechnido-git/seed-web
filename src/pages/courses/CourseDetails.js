@@ -229,6 +229,20 @@ function CourseDetails() {
             <h4>{data.metrics.hours} Hours</h4>
             <p>of live Interaction</p>
           </div>
+          {data.metrics.hike && 
+           <div className="section">
+           <span class="material-symbols-outlined">account_balance</span>
+             <h4>{data.metrics.hike}%</h4>
+             <p>Average Salary Hike</p>
+           </div>
+          }
+          {data.metrics.sal && 
+           <div className="section">
+           <span class="material-symbols-outlined">account_balance</span>
+             <h4>INR {data.metrics.sal}L</h4>
+             <p>Average Salary </p>
+           </div>
+          }
         </div>
       </div>}
       {/* {data.feedback && <div className="feedback">
