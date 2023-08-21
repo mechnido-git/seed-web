@@ -5,6 +5,13 @@ import img from "../../images/courses.jpg";
 import side from "../../images/side.jpg";
 import cert from "../../images/cert.jpg";
 
+import environment from "../../images/KEY FEATURES/Supportive Learning Environment.svg"
+import globel from "../../images/KEY FEATURES/Globally Recognised Certification.svg"
+import carriculum from "../../images/KEY FEATURES/Comprehensive Curriculum.svg"
+import support from "../../images/KEY FEATURES/SEED  Forum Support.svg"
+import mentor from "../../images/KEY FEATURES/One-to-One Personal Mentorship.svg"
+import live from "../../images/KEY FEATURES/Live Sessions.svg"
+
 import "./details.css";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { HashLink } from "react-router-hash-link";
@@ -85,14 +92,14 @@ function CourseDetails() {
             {data.flag ? <>The Flagship <br /></> : ''}
             {data.name}
           </h1>
-          {data.description.map(item=><p>{item}</p>)}
+          {data.description.map(item => <p>{item}</p>)}
           <HashLink to={`${loc.pathname}/#explore`} smooth>
             Explore
           </HashLink>
         </div>
         <div className="course">
           <div className="card">
-            <img src={data.poster? data.poster: img} alt="" />
+            <img src={data.poster ? data.poster : img} alt="" />
             <button className={enrolled ? "disabledbtn" : ""} disabled={enrolled} onClick={enrolled ? null : enroll}>{enrolled ? "Enrolled" : "Enroll Now"}</button>
             <hr />
             <div className="body">
@@ -104,7 +111,7 @@ function CourseDetails() {
                 {data.duration.map((item, i) => (
                   <li key={i}>{item}</li>
                 ))}
-                
+
               </ul>
 
               <h3>
@@ -140,6 +147,23 @@ function CourseDetails() {
           </div>
         </div>
       </div>
+      <div className="key-features">
+        <div id="key-features"></div>
+        <h2>Key Features</h2>
+        <div className="features">
+
+          <div className="feature"><img src={environment} /> <p>Supportive Learning Environment</p></div>
+          <div className="feature"><img src={globel} /><p>Globally Recognised Certification</p></div>
+          <div className="feature"><img src={carriculum} /><p>Comprehensive Curriculum</p></div>
+          <div className="feature"><img src={support} /><p>SEEDForum Support</p></div>
+          <div className="feature"><img src={mentor} /><p>One-to-One
+            Personal Mentorship</p></div>
+          <div className="feature">
+            <img src={live} />
+            <p>Live Sessions</p>
+          </div>
+        </div>
+      </div>
       <div className="explore" id="explore">
         <div id="syllabus"></div>
         <h2>Explore</h2>
@@ -164,7 +188,7 @@ function CourseDetails() {
             ))}
           </div>
           <div className="card">
-            <img src={data.poster? data.poster: img} alt="course image" />
+            <img src={data.poster ? data.poster : img} alt="course image" />
             <button className={enrolled ? "disabledbtn" : ""} disabled={enrolled} onClick={enrolled ? null : enroll}>{enrolled ? "Enrolled" : "Enroll Now"}</button>
             <hr />
             <div className="body">
@@ -176,7 +200,7 @@ function CourseDetails() {
                 {data.duration.map((item, i) => (
                   <li key={i}>{item}</li>
                 ))}
-               
+
               </ul>
               <h3>
                 <span class="material-symbols-outlined">currency_rupee</span>Fee
@@ -219,7 +243,7 @@ function CourseDetails() {
         <div id="metrics"></div>
         <h2>Our Metrics</h2>
         <div className="content">
-          {data.metrics.students &&<div className="section">
+          {data.metrics.students && <div className="section">
             <span class="material-symbols-outlined">groups</span>
             <h4>{data.metrics.students}+</h4>
             <p>Students participated</p>
@@ -279,7 +303,7 @@ function CourseDetails() {
           <h3 id="pack" >Offer pack</h3>
 
           <div className="individual">
-            {courses?.filter(item=>data.category == item.category).map((item, i) => <div className="card" onClick={() => getCours(item.order)} key={i}>
+            {courses?.filter(item => data.category == item.category).map((item, i) => <div className="card" onClick={() => getCours(item.order)} key={i}>
               <h4>
                 {item.flag ? <>The Flagship <br /></> : ''}
                 {item.name}
