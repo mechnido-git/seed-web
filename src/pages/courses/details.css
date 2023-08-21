@@ -128,6 +128,34 @@
     grid-template-columns: 1fr auto 1fr;
 }
 
+.course-details > .key-features{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.course-details > .key-features > .features{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    row-gap: 30px;
+}
+
+.course-details > .key-features > .features img{
+    width: 100px;
+}
+
+.course-details > .key-features > .features p{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.course-details > .key-features > .features > .feature{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .course-details > .about > h2, .course-details > .explore h2, .course-details > .feedback h2, .course-details > .certificate h2{
     font-size: 38px;
     margin: 1rem 0;

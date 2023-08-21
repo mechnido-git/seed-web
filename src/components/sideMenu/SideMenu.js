@@ -443,6 +443,7 @@ function SideMenu() {
               <span class="material-symbols-outlined">celebration</span>
               <div>Downloads</div>
             </HashLink>
+            
           </>
         );
 

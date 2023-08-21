@@ -16,17 +16,17 @@ import ImageLoader from "../../components/imageLoader/ImageLoader";
 import cancellogo from "../../images/cancel_icon.png";
 
 
-const getInvoice = (course , user) => {
+const getInvoice = (course, user) => {
   let invoice = null;
- 
-  course.enrolled.forEach(item=>{
-    if(item.userId === user.uid){
+
+  course.enrolled.forEach(item => {
+    if (item.userId === user.uid) {
       invoice = item.invoice
     }
   })
   return invoice
 }
-export const CardBuilder = ({ arr, limit, viewDetails, loading , user , download}) => (
+export const CardBuilder = ({ arr, limit, viewDetails, loading, user, download }) => (
   <>
     {arr.map((item, index) => {
       // console.log(index);
@@ -34,7 +34,7 @@ export const CardBuilder = ({ arr, limit, viewDetails, loading , user , download
       return (
         <div className="card" key={index} onClick={() => viewDetails(item.order)}>
           {/* <img src={require("../../images/courses.jpg")} alt="" /> */}
-          <ImageLoader src={item.poster? item.poster:require("../../images/courses.jpg")} />
+          <ImageLoader src={item.poster ? item.poster : require("../../images/courses.jpg")} />
           <div className="body">
 
             <h4>
@@ -45,13 +45,13 @@ export const CardBuilder = ({ arr, limit, viewDetails, loading , user , download
             <div>
               {item.rating && <h5>Rating:{item.rating}</h5>}
             </div>
-        
+
             {download && getInvoice(item, user) && <div className="invoice">
-                <a  onClick={(e)=>e.stopPropagation()} href={getInvoice(item , user)} rel="noreferrer" target="_blank"> <span class="material-symbols-outlined">
-                  download
-                </span>Invoice </a>
-                
-              </div>}
+              <a onClick={(e) => e.stopPropagation()} href={getInvoice(item, user)} rel="noreferrer" target="_blank"> <span class="material-symbols-outlined">
+                download
+              </span>Invoice </a>
+
+            </div>}
           </div>
         </div>
       );
@@ -69,7 +69,7 @@ export const category = [
   "SOFTWARE",
   "Technology",
   "Production",
-  "Master's Programme"
+  "Master's Programme",
 ];
 
 export const addIcon = (item) => {
@@ -114,11 +114,11 @@ export const filterItems = (filter, setFilter, item, e) => {
       active[0]?.classList.remove("active");
       active[1]?.classList.remove("active");
       //e.target.classList.add("active");
-      category.map(item=>{
+      category.map(item => {
 
-        if(e.target.closest(".filter").className.includes(item.replace(" ", "-"))){
+        if (e.target.closest(".filter").className.includes(item.replace(" ", "-"))) {
           const btns = document.querySelectorAll(`.${item.replace(" ", "-")}`)
-          btns.forEach(item=> item.classList.add("active"))
+          btns.forEach(item => item.classList.add("active"))
         }
       })
     }
@@ -129,7 +129,7 @@ export const filterItems = (filter, setFilter, item, e) => {
 };
 
 function CoursesHome() {
-  const {filter, setFilter} =  useContext(StoreContext);
+  const { filter, setFilter } = useContext(StoreContext);
   const [loading, setLoading] = useState(true);
 
   const [recommended, setRecommended] = useState([])
@@ -143,14 +143,14 @@ function CoursesHome() {
   setSection(1)
 
   const [buy, setbuy] = useState(false);
- 
+
 
   const navigate = useNavigate()
 
 
 
   useEffect(() => {
-    if (courses){
+    if (courses) {
       console.log(courses);
       setRecommended(courses.filter((item, i) => i < 6))
       setTrending(courses?.filter((item, i) => i > 5 && i < 12))
@@ -159,13 +159,13 @@ function CoursesHome() {
     }
   }, [courses])
 
-  useEffect(()=>{
-    if(!loading){
+  useEffect(() => {
+    if (!loading) {
       const loc = window.location.href.split("/")
-      const last = loc[loc.length -1]
-      if(last[0] === "#"){
+      const last = loc[loc.length - 1]
+      if (last[0] === "#") {
         const id = last.slice(1, last.length)
-        document.getElementById(id).scrollIntoView({behavior: 'smooth'});
+        document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
       }
     }
   }, [loading])
@@ -179,7 +179,7 @@ function CoursesHome() {
     navigate(`/menu/courses/details/${currentSlide}`)
   }
 
-  const checkEnroll = (item)=>{
+  const checkEnroll = (item) => {
     let flag = false
     item.enrolled?.forEach(item => {
       if (item.userId === userId) flag = true
@@ -221,7 +221,7 @@ function CoursesHome() {
                   interval: 3400,
                   pauseOnHover: true,
                   type: "loop",
-                 
+
                   pauseOnFocus: true,
                   keyboard: true,
                   gap: "1rem",
@@ -233,22 +233,23 @@ function CoursesHome() {
                   setCurrentSlide(splide.index);
                 }}
               >
-                {courses?.map((item, i) =>{
+                {courses?.map((item, i) => {
                   let enrolled = checkEnroll(item)
                   //  console.log("this is the value of enroled",enrolled);
 
                   //  if(enrolled){
                   //   document.getElementById("btnEnroll").className = "disabledbtn";
                   //  }
-                   
+
                   return <SplideSlide key={i}>
-                  {/*className="exploreBTN" <img src={courseList[i].slide} style={{ objectFit: "contain", width: "100%" }} alt="" /> */}
-                  <ImageLoader src={item.poster? item.poster: courseList[i].slide} style={{ objectFit: "contain", width: "100%" }} />
-                  <div className="btns">
-                <button  className={enrolled ? "disabledbtn" : null}disabled={enrolled} onClick={ enroll } >{enrolled? "Enrolled": "Enroll"} </button>
-                <button  onClick={viewDetails}>Know more</button>
-              </div>
-                </SplideSlide>})}
+                    {/*className="exploreBTN" <img src={courseList[i].slide} style={{ objectFit: "contain", width: "100%" }} alt="" /> */}
+                    <ImageLoader src={item.poster ? item.poster : courseList[i].slide} style={{ objectFit: "contain", width: "100%" }} />
+                    <div className="btns">
+                      <button className={enrolled ? "disabledbtn" : null} disabled={enrolled} onClick={enroll} >{enrolled ? "Enrolled" : "Enroll"} </button>
+                      <button onClick={viewDetails}>Know more</button>
+                    </div>
+                  </SplideSlide>
+                })}
               </Splide>
 
 
@@ -269,7 +270,8 @@ function CoursesHome() {
             <section className="main-div">
               <div id="recommended" className="section">
                 <h2>Recommended for You</h2>
-                <div className="card-container-div">
+                {recommended.filter((item) =>
+                  filter === "All" ? item : filter == item.category).length != 0 ? (<div className="card-container-div">
                   {/* <CardBuilder
                     arr={recomended.filter((item) =>
                       filter === "All" ? item : filter == item.category
@@ -283,22 +285,24 @@ function CoursesHome() {
                     )}
                     viewDetails={getCours}
                   />
-                </div>
+                </div>): <p>No courses</p>}
               </div>
               <div id="trending" className="section">
                 <h2>Trending Now</h2>
-                <div className="card-container-div">
+                {trending.filter((item) =>
+                  filter === "All" ? item : filter == item.category).length != 0 ? (<div className="card-container-div">
                   <CardBuilder
                     arr={trending.filter((item) =>
                       filter === "All" ? item : filter == item.category
                     )}
                     viewDetails={getCours}
                   />
-                </div>
+                </div>): <p>No courses</p>}
               </div>
               <div id="team" className="section">
                 <h2>Team Picks</h2>
-                <div className="card-container-div">
+                {team.filter((item) =>
+                  filter === "All" ? item : filter == item.category).length != 0 ? (<div className="card-container-div">
                   {/* <CardBuilder arr={recomended} limit={4} /> */}
                   <CardBuilder
                     arr={team.filter((item) =>
@@ -306,7 +310,7 @@ function CoursesHome() {
                     )}
                     viewDetails={getCours}
                   />
-                </div>
+                </div>): <p>No courses</p>}
               </div>
             </section>
             <Footer />
@@ -317,10 +321,10 @@ function CoursesHome() {
       {buy && (
         <div className="wrapper">
           <div className="blocker" onClick={() => setbuy(false)}>
-          
+
           </div>
-        
-          <Enroll index={currentSlide} setbuy= {setbuy} />
+
+          <Enroll index={currentSlide} setbuy={setbuy} />
         </div>
       )}
     </>
