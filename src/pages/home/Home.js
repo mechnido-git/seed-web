@@ -437,74 +437,120 @@ const {theme,setCheck,setTheme, check}= useContext(StoreContext);
               }}
             >
               <SplideSlide>
-                <h3>Greate Events & expierienced Judges</h3>
+                <h3>Engaging and Informative Sessions!</h3>
                 <p>
-                  I have been to many automotive events in India but what
-                  attaracted me most about NEKC is the Experienced Judging
-                  Panels. The Judges were very knowledgeable and completely
-                  unbaised.
+                Kudos to the instructors of the Design Thinking course! The real-life case studies discussed during the live sessions have truly expanded my understanding of the subject. This platform's approach to incorporating interactive sessions has given me a chance to apply the principles in real-time scenarios, enhancing my problem-solving skills
+
                 </p>
-                <p>Rahul Kumar</p>
+                <p>PRAVEEN D</p>
               </SplideSlide>
               <SplideSlide>
-                <h3>Greate Events & expierienced Judges</h3>
+                <h3>Interactive Learning at Its Best!</h3>
                 <p>
-                  I have been to many automotive events in India but what
-                  attaracted me most about NEKC is the Experienced Judging
-                  Panels. The Judges were very knowledgeable and completely
-                  unbaised.
+                I'm loving the live interaction sessions on this platform. It's like being in a real classroom, but even better! The sowers engage with us, answer our questions, and make learning so much more exciting.
+
                 </p>
-                <p>Rahul Kumar</p>
+                <p>ABIRAMI R</p>
               </SplideSlide>
               <SplideSlide>
-                <h3>Greate Events & expierienced Judges</h3>
+                <h3>Personalized Learning Recommendations</h3>
                 <p>
-                  I have been to many automotive events in India but what
-                  attaracted me most about NEKC is the Experienced Judging
-                  Panels. The Judges were very knowledgeable and completely
-                  unbaised.
+                Seed's personalized course recommendations based on my interests and learning history have helped me discover new subjects I'm passionate about.
+
                 </p>
-                <p>Rahul Kumar</p>
+                <p>VADIVEL S</p>
               </SplideSlide>
               <SplideSlide>
-                <h3>Greate Events & expierienced Judges</h3>
+                <h3>Mastering Concepts Made Easy</h3>
                 <p>
-                  I have been to many automotive events in India but what
-                  attaracted me most about NEKC is the Experienced Judging
-                  Panels. The Judges were very knowledgeable and completely
-                  unbaised.
+                The live sessions for Supply Chain Management were an eye-opener. Real-time case studies and discussions on supply chain challenges enriched our understanding. The platform's live interaction feature made complex concepts feel accessible
                 </p>
-                <p>Rahul Kumar</p>
+                <p>RAJKUMAR P</p>
               </SplideSlide>
               <SplideSlide>
-                <h3>Greate Events & expierienced Judges</h3>
+                <h3>Learning with a Community Feel</h3>
                 <p>
-                  I have been to many automotive events in India but what
-                  attaracted me most about NEKC is the Experienced Judging
-                  Panels. The Judges were very knowledgeable and completely
-                  unbaised.
+                I'm amazed by how connected I feel to my classmates through these live sessions. We collaborate, discuss, and learn together just like we used to in the physical classroom. The platform has truly created a virtual learning community." 
+
                 </p>
-                <p>Rahul Kumar</p>
+                <p>JEYANTH P</p>
               </SplideSlide>
               <SplideSlide>
-                <h3>Greate Events & expierienced Judges</h3>
+                <h3>Responsive Customer Support</h3>
                 <p>
-                  I have been to many automotive events in India but what
-                  attaracted me most about NEKC is the Experienced Judging
-                  Panels. The Judges were very knowledgeable and completely
-                  unbaised.
+                Whenever I've had questions or faced technical issues, Seed's customer support team has been incredibly responsive and helpful.
+
                 </p>
-                <p>Rahul Kumar</p>
+                <p>SARAN M</p>
               </SplideSlide>
               <SplideSlide>
-                <h3>Greate Events & expierienced Judges</h3>
+                <h3>User-Friendly Learning Platform</h3>
                 <p>
-                  I have been to many automotive events in India but what
-                  attaracted me most about NEKC is the Experienced Judging
-                  Panels. The Judges were very knowledgeable and completely
-                  unbaised.
+                I'm not the most tech-savvy person, but using this platform was a breeze. The interface is intuitive, and everything is well-organized. From finding courses to tracking my progress, the platform makes learning straightforward.
+
                 </p>
-                <p>Rahul Kumar</p>
+                <p>MANICKAM J</p>
+              </SplideSlide>
+
+
+
+              <SplideSlide>
+                <h3>A Hub for Lifelong Learners.</h3>
+                <p>
+                "The content was comprehensive, excellent, very thorough, and suitable for people of all skill levels because we had the chance to implement what we learned immediately. such a great session, really comprehensive."
+
+                </p>
+                <p>ELANGO</p>
+              </SplideSlide>
+              <SplideSlide>
+                <h3>Clear and Concise Explanations</h3>
+                <p>
+                The explanations provided on courses are clear and to the point. I appreciate how easily I can grasp complex concepts through the well-structured content.
+
+                </p>
+                <p>DIWAHAR M</p>
+              </SplideSlide>
+              <SplideSlide>
+                <h3>Interactive Learning at Its Best!</h3>
+                <p>
+                I'm loving the live interaction sessions on this platform. It's like being in a real classroom, but even better! The sowers engage with us, answer our questions, and make learning so much more exciting.
+
+                </p>
+                <p>MOHAMMED SHERIFF</p>
+              </SplideSlide>
+              <SplideSlide>
+                <h3>Progress Tracking and Motivation</h3>
+                <p>
+                Seeing my progress tracked in real-time is incredibly motivating. 
+                The platform's dashboard shows me how far I've come, the topics I've mastered,
+                 and the ones I still need to work on. This visual representation of my journey
+                  keeps me motivated and determined to keep pushing forward.
+                </p>
+                <p>DIVAKAR </p>
+              </SplideSlide>
+              <SplideSlide>
+                <h3>Supportive Community of Learners</h3>
+                <p>
+                The community forum is a hidden gem. Connecting with fellow learners worldwide has broadened my perspective. We exchange ideas, help each other with challenging concepts, and even collaborate on projects. It's a supportive ecosystem
+                </p>
+                <p>BARATHI S A</p>
+              </SplideSlide>
+              <SplideSlide>
+                <h3>Empowering and Convenient</h3>
+                <p>
+                I'm amazed by the convenience Seed Learning Platform offers. As a student, having access to top-notch educational resources at my fingertips has been a game-changer.
+
+                </p>
+                <p>JOSHITH J S</p>
+              </SplideSlide>
+
+              <SplideSlide>
+                <h3>Affordable and Worth It!</h3>
+                <p>
+                As a student on a budget, Seed E Learning Platform's affordable pricing was a breath of fresh air. The quality of the courses far exceeded my expectations given the cost. It's a fantastic option for anyone looking to learn without breaking the bank.
+
+                </p>
+                <p>ARUL VEL MURUGAN</p>
               </SplideSlide>
             </Splide>
           </div>
