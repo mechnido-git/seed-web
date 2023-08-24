@@ -7,17 +7,18 @@ import { Link } from 'react-router-dom';
 import profile from "../../images/profile.png";
 import Spinner from '../../components/Spinner';
 import hero from "../../images/sower_hero.png"
-import logo from "../../images/seed_logo/Seed.svg"
+// import logo from "../../images/seed_logo/Seed.svg"
 import descImg from "../../images/description_sower.png"
-import d1 from "../../images/details_1.png"
-import d2 from "../../images/details_2.png"
-import d3 from "../../images/details_3.png"
-import d4 from "../../images/details_4.png"
-import s1 from "../../images/step_1.png"
-import s2 from "../../images/step_2.png"
-import s3 from "../../images/step_3.png"
-import s4 from "../../images/step_4.png"
-import s5 from "../../images/step_5.png"
+import d1 from "../../images/KEY FEATURES/Payouts Well.svg"
+import d2 from "../../images/KEY FEATURES/Flexibility & Independence.svg"
+import d3 from "../../images/KEY FEATURES/Awesome Community.svg"
+import d4 from "../../images/KEY FEATURES/Share Your Expertise.svg"
+import s1 from "../../images/BECOME A SOWER APPLY PROCESS/s1.svg"
+import s2 from "../../images/BECOME A SOWER APPLY PROCESS/s2.svg"
+import s3 from "../../images/BECOME A SOWER APPLY PROCESS/s3.svg"
+import s4 from "../../images/BECOME A SOWER APPLY PROCESS/s4.svg"
+import s5 from "../../images/BECOME A SOWER APPLY PROCESS/s5.svg"
+// import s4 from "../../images/BECOME A SOWER APPLY PROCESS/On-Boarding & Training.svg"
 import Footer from '../../components/footer/Footer';
 import ApplyNow from './ApplyNow';
 import { StoreContext } from '../../store/StoreContext';
@@ -135,7 +136,7 @@ const stepList = [
       <div className="sower" id='sower'>
         <div className="hero">
           <div className="left">
-           {/* <img src={logo} alt="" />  */}
+           
           <div className="title">
             <h1>Become a Sower</h1>
             <button className='sower-btn' onClick={applyNow}>Apply Now</button>
