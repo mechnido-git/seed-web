@@ -323,7 +323,7 @@ function SideMenu() {
               <span class="material-symbols-outlined">badge</span>
               <div>Certificate</div>
             </HashLink>
-            {metrics && (
+            { (
               <HashLink
                 onClick={mobile ? toggle : null}
                 to={`/menu/courses/details/${courseIndex}/#metrics`}
