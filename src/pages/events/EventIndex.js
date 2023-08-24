@@ -147,14 +147,18 @@ function EventIndex() {
                     tag="section"
                     aria-labelledby="My Favorite Images"
                     options={{
-                      speed: 1000,
-                      pauseOnHover: false,
-                      pauseOnFocus: true,
-                      keyboard: true,
-                      gap: "1rem",
-                      width: "100%",
-                      pagination: true,
-                      arrows: window.innerWidth < 770 ? false : true,
+                      speed: 1500,
+                  autoplay: true,
+                  interval: 3400,
+                  pauseOnHover: true,
+                  type: "loop",
+
+                  pauseOnFocus: true,
+                  keyboard: true,
+                  gap: "1rem",
+                  width: "100%",
+                  pagination: true,
+                  arrows: window.innerWidth < 770 ? false : true,
                     }}
                   >
                     {events.map((item, i) => {
@@ -356,27 +360,11 @@ function EventIndex() {
                   pagination: false,
                 }}
               >
-                <SplideSlide>
-                  <img src={sponsor} style={{ width: "100px" }} />
-                </SplideSlide>
-                <SplideSlide>
-                  <img src={sponsor} style={{ width: "100px" }} />
-                </SplideSlide>
-                <SplideSlide>
-                  <img src={sponsor} style={{ width: "100px" }} />
-                </SplideSlide>
-                <SplideSlide>
-                  <img src={sponsor} style={{ width: "100px" }} />
-                </SplideSlide>
-                <SplideSlide>
-                  <img src={sponsor} style={{ width: "100px" }} />
-                </SplideSlide>
-                <SplideSlide>
-                  <img src={sponsor} style={{ width: "100px" }} />
-                </SplideSlide>
-                <SplideSlide>
-                  <img src={sponsor} style={{ width: "100px" }} />
-                </SplideSlide>
+                {events[currentEvent].sponsors.map((item => (
+                  <SplideSlide>
+                    <img src={item} style={{ width: "100px" }} />
+                  </SplideSlide>
+                )))}
               </Splide>
             </div>
             <div className="slides-sponsors">

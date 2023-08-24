@@ -143,6 +143,7 @@
 
 .sower > .details > .lists .card img{
     width: 100px;
+    mix-blend-mode: darken;
 }
 
 .sower h3{

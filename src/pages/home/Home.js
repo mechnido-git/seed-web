@@ -46,6 +46,21 @@ import thw from "../../images/thread-w.png";
 import thg from "../../images/threads-green.png";
 import hp2 from "../../images/home page 2.png";
 
+import p1 from "../../images/p1.jpg";
+import p3 from "../../images/p3.jpg";
+import d1 from "../../images/dp/dp1.png"
+import d2 from "../../images/dp/dp2.png"
+import d3 from "../../images/dp/dp3.png"
+import d4 from "../../images/dp/dp4.png"
+import d5 from "../../images/dp/dp5.png"
+import d6 from "../../images/dp/dp6.png"
+import d7 from "../../images/dp/dp7.png"
+import d8 from "../../images/dp/dp8.png"
+import d9 from "../../images/dp/dp9.png"
+import d10 from "../../images/dp/dp11.png"
+import d11 from "../../images/dp/dp12.png"
+import d12 from "../../images/dp/dp13.png"
+
 function Home() {
   const [signIn, setSignIn] = useState(false);
   const [userName, setUserName] = useState(null);
@@ -437,6 +452,7 @@ const {theme,setCheck,setTheme, check}= useContext(StoreContext);
               }}
             >
               <SplideSlide>
+                <img src={p1} alt="" />
                 <h3>Engaging and Informative Sessions!</h3>
                 <p>
                 Kudos to the instructors of the Design Thinking course! The real-life case studies discussed during the live sessions have truly expanded my understanding of the subject. This platform's approach to incorporating interactive sessions has given me a chance to apply the principles in real-time scenarios, enhancing my problem-solving skills
@@ -445,6 +461,7 @@ const {theme,setCheck,setTheme, check}= useContext(StoreContext);
                 <p>PRAVEEN D</p>
               </SplideSlide>
               <SplideSlide>
+              <img src={d1} alt="" />
                 <h3>Interactive Learning at Its Best!</h3>
                 <p>
                 I'm loving the live interaction sessions on this platform. It's like being in a real classroom, but even better! The sowers engage with us, answer our questions, and make learning so much more exciting.
@@ -453,6 +470,7 @@ const {theme,setCheck,setTheme, check}= useContext(StoreContext);
                 <p>ABIRAMI R</p>
               </SplideSlide>
               <SplideSlide>
+              <img src={d2} alt="" />
                 <h3>Personalized Learning Recommendations</h3>
                 <p>
                 Seed's personalized course recommendations based on my interests and learning history have helped me discover new subjects I'm passionate about.
@@ -461,6 +479,7 @@ const {theme,setCheck,setTheme, check}= useContext(StoreContext);
                 <p>VADIVEL S</p>
               </SplideSlide>
               <SplideSlide>
+              <img src={d3} alt="" />
                 <h3>Mastering Concepts Made Easy</h3>
                 <p>
                 The live sessions for Supply Chain Management were an eye-opener. Real-time case studies and discussions on supply chain challenges enriched our understanding. The platform's live interaction feature made complex concepts feel accessible
@@ -468,6 +487,7 @@ const {theme,setCheck,setTheme, check}= useContext(StoreContext);
                 <p>RAJKUMAR P</p>
               </SplideSlide>
               <SplideSlide>
+              <img src={p3} alt="" />
                 <h3>Learning with a Community Feel</h3>
                 <p>
                 I'm amazed by how connected I feel to my classmates through these live sessions. We collaborate, discuss, and learn together just like we used to in the physical classroom. The platform has truly created a virtual learning community." 
@@ -476,6 +496,7 @@ const {theme,setCheck,setTheme, check}= useContext(StoreContext);
                 <p>JEYANTH P</p>
               </SplideSlide>
               <SplideSlide>
+              <img src={d4} alt="" />
                 <h3>Responsive Customer Support</h3>
                 <p>
                 Whenever I've had questions or faced technical issues, Seed's customer support team has been incredibly responsive and helpful.
@@ -484,6 +505,7 @@ const {theme,setCheck,setTheme, check}= useContext(StoreContext);
                 <p>SARAN M</p>
               </SplideSlide>
               <SplideSlide>
+              <img src={d5} alt="" />
                 <h3>User-Friendly Learning Platform</h3>
                 <p>
                 I'm not the most tech-savvy person, but using this platform was a breeze. The interface is intuitive, and everything is well-organized. From finding courses to tracking my progress, the platform makes learning straightforward.
@@ -495,6 +517,7 @@ const {theme,setCheck,setTheme, check}= useContext(StoreContext);
 
 
               <SplideSlide>
+              <img src={d6} alt="" />
                 <h3>A Hub for Lifelong Learners.</h3>
                 <p>
                 "The content was comprehensive, excellent, very thorough, and suitable for people of all skill levels because we had the chance to implement what we learned immediately. such a great session, really comprehensive."
@@ -503,6 +526,7 @@ const {theme,setCheck,setTheme, check}= useContext(StoreContext);
                 <p>ELANGO</p>
               </SplideSlide>
               <SplideSlide>
+              <img src={d7} alt="" />
                 <h3>Clear and Concise Explanations</h3>
                 <p>
                 The explanations provided on courses are clear and to the point. I appreciate how easily I can grasp complex concepts through the well-structured content.
@@ -511,6 +535,7 @@ const {theme,setCheck,setTheme, check}= useContext(StoreContext);
                 <p>DIWAHAR M</p>
               </SplideSlide>
               <SplideSlide>
+              <img src={d8} alt="" />
                 <h3>Interactive Learning at Its Best!</h3>
                 <p>
                 I'm loving the live interaction sessions on this platform. It's like being in a real classroom, but even better! The sowers engage with us, answer our questions, and make learning so much more exciting.
@@ -519,6 +544,7 @@ const {theme,setCheck,setTheme, check}= useContext(StoreContext);
                 <p>MOHAMMED SHERIFF</p>
               </SplideSlide>
               <SplideSlide>
+              <img src={d9} alt="" />
                 <h3>Progress Tracking and Motivation</h3>
                 <p>
                 Seeing my progress tracked in real-time is incredibly motivating. 
@@ -529,6 +555,7 @@ const {theme,setCheck,setTheme, check}= useContext(StoreContext);
                 <p>DIVAKAR </p>
               </SplideSlide>
               <SplideSlide>
+              <img src={d10} alt="" />
                 <h3>Supportive Community of Learners</h3>
                 <p>
                 The community forum is a hidden gem. Connecting with fellow learners worldwide has broadened my perspective. We exchange ideas, help each other with challenging concepts, and even collaborate on projects. It's a supportive ecosystem
@@ -536,6 +563,7 @@ const {theme,setCheck,setTheme, check}= useContext(StoreContext);
                 <p>BARATHI S A</p>
               </SplideSlide>
               <SplideSlide>
+              <img src={d11} alt="" />
                 <h3>Empowering and Convenient</h3>
                 <p>
                 I'm amazed by the convenience Seed Learning Platform offers. As a student, having access to top-notch educational resources at my fingertips has been a game-changer.
@@ -545,6 +573,7 @@ const {theme,setCheck,setTheme, check}= useContext(StoreContext);
               </SplideSlide>
 
               <SplideSlide>
+              <img src={d12} alt="" />
                 <h3>Affordable and Worth It!</h3>
                 <p>
                 As a student on a budget, Seed E Learning Platform's affordable pricing was a breath of fresh air. The quality of the courses far exceeded my expectations given the cost. It's a fantastic option for anyone looking to learn without breaking the bank.
