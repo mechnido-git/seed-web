@@ -45,6 +45,7 @@
     display: flex;
     align-self: center;
     border-radius: 50%;
+    color:black;
 }
 
 
@@ -57,15 +58,16 @@
 
 .path-div > .paths .course-path > img{
     width: 15rem;
-    aspect-ratio: 1 / 1;
+    height: 15rem;
+    /* aspect-ratio: 1 / 1; */
     object-fit: contain;
-    /* mix-blend-mode: darken; */
+    
 }
 .path-div > .paths .event-path > img{
-    width: 15rem;
-    aspect-ratio: 1 / 1;
+    width: 220px;
+    height: 210px;
+    /* aspect-ratio: 1 / 1; */
     object-fit: contain;
-    /* mix-blend-mode: darken; */
 }
 
 .path-div > .paths .course-path, .path-div > .paths .event-path{
