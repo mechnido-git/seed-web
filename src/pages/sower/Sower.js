@@ -3,7 +3,7 @@ import './sower.css'
 import HomeNav from '../home/homeNav/HomeNav'
 import { auth } from '../../firebase/config';
 import { onAuthStateChanged } from 'firebase/auth';
-import { Link } from 'react-router-dom';
+
 import profile from "../../images/profile.png";
 import Spinner from '../../components/Spinner';
 import hero from "../../images/sower_hero.png"
