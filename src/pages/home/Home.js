@@ -6,12 +6,10 @@ import { useNavigate } from "react-router-dom";
 import { GoogleAuthProvider, getRedirectResult, onAuthStateChanged, signOut } from "firebase/auth";
 import { auth, db } from "../../firebase/config";
 import Spinner from "../../components/Spinner";
-import { HashLink } from "react-router-hash-link";
-import { FiPlus } from "react-icons/fi";
 import fb from "../../images/fb.png";
 import insta from "../../images/insta.png";
 import profile from "../../images/profile.png";
-import intro from "../../images/intro.jpg";
+
 
 import HomeNav from "./homeNav/HomeNav";
 import { Link } from "react-router-dom";
@@ -28,7 +26,7 @@ import why4 from "../../images/whyus4.png";
 import why5 from "../../images/whyus5.png";
 import why6 from "../../images/whyus6.png";
 import msme from "../../images/msme.png";
-import aicte from "../../images/aicte.png";
+import aicte from "../../images/aicte (1).png";
 import iso from "../../images/iso.png";
 import collab1 from "../../images/collab1.png";
 import collab2 from "../../images/collab2.png";
@@ -44,8 +42,8 @@ import tg from "../../images/tweet-green.png";
 import tw  from "../../images/tweet-white.png";
 import thw from "../../images/thread-w.png";
 import thg from "../../images/threads-green.png";
-import hp2 from "../../images/home page 2.png";
-
+// import hp2 from "../../images/home page 2.png";
+// import hp1 from "../../images/homepage 1.png";
 import p1 from "../../images/p1.jpg";
 import p3 from "../../images/p3.jpg";
 import d1 from "../../images/dp/dp1.png"
@@ -227,7 +225,7 @@ const {theme,setCheck,setTheme, check}= useContext(StoreContext);
       />
       
       <div className="home" id="home">
-        <div className="hero">
+        <div className="hero"> 
           <h2 >
             Revolutionizing Possibilities: A Showcase of Engineering
             Excellence!
@@ -237,10 +235,26 @@ const {theme,setCheck,setTheme, check}= useContext(StoreContext);
           </div>
         </div>
         <div className="main">
-          <div className="title">
+          {/* <div className="title">
             <h2>"Engineering the Future: Innovate, Create, and Elevate!"</h2>
             <img src={hp2} alt="" />
-          </div>
+          </div> */}
+
+
+
+        <div className="accredation">
+           <div><h1>Accreditations</h1></div> 
+           <div className="img">
+            <img src= {iso}/>
+            <img src= {msme}/>
+            <img src= {aicte}/>
+           </div>
+
+        </div>
+
+
+
+
 
 {/* --------------------------------------------why us ? section--------------------------------------------------------------- */}
 <div className="whyus">
@@ -319,7 +333,7 @@ const {theme,setCheck,setTheme, check}= useContext(StoreContext);
           </div> 
 {/* --------------------------------------------------------------accreditation section------------------------------------------------------- */}
 
-          <div className="accred">
+          {/* <div className="accred">
             <h2>Accreditations</h2>
             <div className="accredimgs">
               <img src = {iso} alt=" ISO logo"/>
@@ -327,27 +341,10 @@ const {theme,setCheck,setTheme, check}= useContext(StoreContext);
               <img src= {aicte} alt="AICTE logo" />
             </div>
 
-          </div>
+          </div> */}
 
           <div className="collab">
             <h2>Collaborations</h2>
-            
-            
-            {/* <div className="collabimgs">
-              <div>
-              <img src= {collab1} />
-              </div>
-              
-              <div>
-              <img src= {collab2} />
-              </div>
-              <div>
-              <img src= {collab3} />
-              </div>
-              <div>
-              <img src= {collab4} />
-              </div> */}
-
               <Splide
               tag="section"
               aria-labelledby="My Favorite Images"
