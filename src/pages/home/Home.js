@@ -1,15 +1,19 @@
-import React, { useEffect, useRef, useState ,useContext} from "react";
+import React, { useEffect, useRef, useState, useContext } from "react";
 import "./home.css";
 import trophy from "../../images/trophy.png";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { useNavigate } from "react-router-dom";
-import { GoogleAuthProvider, getRedirectResult, onAuthStateChanged, signOut } from "firebase/auth";
+import {
+  GoogleAuthProvider,
+  getRedirectResult,
+  onAuthStateChanged,
+  signOut,
+} from "firebase/auth";
 import { auth, db } from "../../firebase/config";
 import Spinner from "../../components/Spinner";
 import fb from "../../images/fb.png";
 import insta from "../../images/insta.png";
 import profile from "../../images/profile.png";
-
 
 import HomeNav from "./homeNav/HomeNav";
 import { Link } from "react-router-dom";
@@ -39,25 +43,25 @@ import collab8 from "../../images/collab8.png";
 import linkwhite from "../../images/linkedin-white.png";
 import linkgreen from "../../images/linkedin-green.png";
 import tg from "../../images/tweet-green.png";
-import tw  from "../../images/tweet-white.png";
+import tw from "../../images/tweet-white.png";
 import thw from "../../images/thread-w.png";
 import thg from "../../images/threads-green.png";
 // import hp2 from "../../images/home page 2.png";
 // import hp1 from "../../images/homepage 1.png";
 import p1 from "../../images/p1.jpg";
 import p3 from "../../images/p3.jpg";
-import d1 from "../../images/dp/dp1.png"
-import d2 from "../../images/dp/dp2.png"
-import d3 from "../../images/dp/dp3.png"
-import d4 from "../../images/dp/dp4.png"
-import d5 from "../../images/dp/dp5.png"
-import d6 from "../../images/dp/dp6.png"
-import d7 from "../../images/dp/dp7.png"
-import d8 from "../../images/dp/dp8.png"
-import d9 from "../../images/dp/dp9.png"
-import d10 from "../../images/dp/dp11.png"
-import d11 from "../../images/dp/dp12.png"
-import d12 from "../../images/dp/dp13.png"
+import d1 from "../../images/dp/dp1.png";
+import d2 from "../../images/dp/dp2.png";
+import d3 from "../../images/dp/dp3.png";
+import d4 from "../../images/dp/dp4.png";
+import d5 from "../../images/dp/dp5.png";
+import d6 from "../../images/dp/dp6.png";
+import d7 from "../../images/dp/dp7.png";
+import d8 from "../../images/dp/dp8.png";
+import d9 from "../../images/dp/dp9.png";
+import d10 from "../../images/dp/dp11.png";
+import d11 from "../../images/dp/dp12.png";
+import d12 from "../../images/dp/dp13.png";
 
 function Home() {
   const [signIn, setSignIn] = useState(false);
@@ -72,75 +76,73 @@ function Home() {
   const [dp, setDp] = useState(profile);
 
   const [redirect, setRedirect] = useState(null);
-  const [redirectLoad, setRedirectLoad] = useState(false)
+  const [redirectLoad, setRedirectLoad] = useState(false);
 
-  
-const {theme,setCheck,setTheme, check}= useContext(StoreContext);
- 
-// const [fbsrc, setFbsrc] = useState(fb);
-// const [insrc, setInsrc] = useState(insta);
-//  useEffect(()=>{
-//    console.log(" check value is ",check);
-//  },[theme]);
+  const { theme, setCheck, setTheme, check } = useContext(StoreContext);
 
-  const checkUser = async(user) => {
-    
-     const docRef = doc(db, "users", user.uid);
+  // const [fbsrc, setFbsrc] = useState(fb);
+  // const [insrc, setInsrc] = useState(insta);
+  //  useEffect(()=>{
+  //    console.log(" check value is ",check);
+  //  },[theme]);
+
+  const checkUser = async (user) => {
+    const docRef = doc(db, "users", user.uid);
     try {
       const docSnap = await getDoc(docRef);
       if (docSnap.exists()) {
         // console.log("Document data:", docSnap.data());
-       } else {
-         // docSnap.data() will be undefined in this case
-         await setDoc(doc(db, "users", user.uid), {
-           name: user.displayName,
-           email: user.email,
-           cover: true
-         });
-       }
-       const redirect = localStorage.getItem('redirect')
-       localStorage.removeItem('redirect')
-       if(redirect) navigate(redirect)
-      } catch (error) {
-        alert(error)
+      } else {
+        // docSnap.data() will be undefined in this case
+        await setDoc(doc(db, "users", user.uid), {
+          name: user.displayName,
+          email: user.email,
+          cover: true,
+        });
       }
-  }
+      const redirect = localStorage.getItem("redirect");
+      localStorage.removeItem("redirect");
+      if (redirect) navigate(redirect);
+    } catch (error) {
+      alert(error);
+    }
+  };
 
   useEffect(() => {
-    const loc = window.location.href.split("/")
-    const last = loc[loc.length -1]
+    const loc = window.location.href.split("/");
+    const last = loc[loc.length - 1];
     onAuthStateChanged(auth, (user) => {
       getRedirectResult(auth)
-  .then((result) => {
-    // This gives you a Google Access Token. You can use it to access Google APIs.
-    const credential = GoogleAuthProvider.credentialFromResult(result);
-    setRedirectLoad(true)
-    const token = credential.accessToken;
-    // The signed-in user info.
-    const user = result.user;
-    // IdP data available using getAdditionalUserInfo(result)
-    checkUser(user)
-   
-  }).catch((error) => {
-    // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // The email of the user's account used.
-    const email = error.customData.email;
-    // The AuthCredential type that was used.
-    const credential = GoogleAuthProvider.credentialFromError(error);
-    // ...
-  });
+        .then((result) => {
+          // This gives you a Google Access Token. You can use it to access Google APIs.
+          const credential = GoogleAuthProvider.credentialFromResult(result);
+          setRedirectLoad(true);
+          const token = credential.accessToken;
+          // The signed-in user info.
+          const user = result.user;
+          // IdP data available using getAdditionalUserInfo(result)
+          checkUser(user);
+        })
+        .catch((error) => {
+          // Handle Errors here.
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          // The email of the user's account used.
+          const email = error.customData.email;
+          // The AuthCredential type that was used.
+          const credential = GoogleAuthProvider.credentialFromError(error);
+          // ...
+        });
       if (user) {
         setUserName(user.displayName);
         setName(user.displayName);
         setEmail(user.email);
         if (user.photoURL) setDp(user.photoURL);
         setLoading(false);
-        if(last[0] === "#"){
-          const id = last.slice(1, last.length)
+        if (last[0] === "#") {
+          const id = last.slice(1, last.length);
           console.log(id);
-          document.getElementById(id).scrollIntoView({behavior: 'smooth'});
+          document.getElementById(id).scrollIntoView({ behavior: "smooth" });
         }
       } else {
         setLoading(false);
@@ -190,29 +192,26 @@ const {theme,setCheck,setTheme, check}= useContext(StoreContext);
   //   setActive3(!active3);
   // };
 
-  const getInTouchSubmit = event =>{
-    document.getElementById("subject").value= "";
+  const getInTouchSubmit = (event) => {
+    document.getElementById("subject").value = "";
     alert("Details submited");
     event.preventDefault();
-   
-  }
+  };
 
   const goToLink = (link) => {
-      if (userName) {
-        navigate("/menu/dashboard");
-      } else {
-        setRedirect("/menu/dashboard");
-        setSignIn(true);
-      }
+    if (userName) {
+      navigate("/menu/dashboard");
+    } else {
+      setRedirect("/menu/dashboard");
+      setSignIn(true);
+    }
   };
-   if(loading || redirectLoad) 
-  return <Spinner other="globel" loading={true} />
- 
+  if (loading || redirectLoad) return <Spinner other="globel" loading={true} />;
 
   return (
     <>
       <HomeNav
-        bodyId={'home'}
+        bodyId={"home"}
         dp={dp}
         redirect={redirect}
         setLoading={setLoading}
@@ -223,15 +222,16 @@ const {theme,setCheck,setTheme, check}= useContext(StoreContext);
         joined={true}
         initial={0}
       />
-      
+
       <div className="home" id="home">
-        <div className="hero"> 
-          <h2 >
-            Revolutionizing Possibilities: A Showcase of Engineering
-            Excellence!
+        <div className="hero">
+          <h2>
+            Revolutionizing Possibilities: A Showcase of Engineering Excellence!
           </h2>
           <div className="btns">
-            <button onClick={()=>navigate("/menu/dashboard")}>Get started</button>
+            <button onClick={() => navigate("/menu/dashboard")}>
+              Get started
+            </button>
           </div>
         </div>
         <div className="main">
@@ -240,27 +240,21 @@ const {theme,setCheck,setTheme, check}= useContext(StoreContext);
             <img src={hp2} alt="" />
           </div> */}
 
+          <div className="accredation">
+            <div>
+              <h1>Accreditations</h1>
+            </div>
+            <div className="img">
+              <img src={iso} />
+              <img src={msme} />
+              <img src={aicte} />
+            </div>
+          </div>
 
-
-        <div className="accredation">
-           <div><h1>Accreditations</h1></div> 
-           <div className="img">
-            <img src= {iso}/>
-            <img src= {msme}/>
-            <img src= {aicte}/>
-           </div>
-
-        </div>
-
-
-
-
-
-{/* --------------------------------------------why us ? section--------------------------------------------------------------- */}
-<div className="whyus">
+          {/* --------------------------------------------why us ? section--------------------------------------------------------------- */}
+          <div className="whyus">
             <h2>Why choose us?</h2>
-            
-             
+
             <Splide
               tag="section"
               aria-labelledby="My Favorite Images"
@@ -276,62 +270,94 @@ const {theme,setCheck,setTheme, check}= useContext(StoreContext);
                   window.innerWidth <= 426
                     ? 1
                     : window.innerWidth <= 768
-                      ? 1.5
-                      : window.innerWidth <= 1024
-                        ? 2
-                        : 3,
+                    ? 1.5
+                    : window.innerWidth <= 1024
+                    ? 2
+                    : 3,
                 perMove: 1,
                 pagination: false,
               }}
             >
-
               <SplideSlide>
-              <div className="why">
-                <div className="imgg"> <img src = {why1}/></div>
-                <div className="pp"><h4>Empowering  Students</h4></div>
-              </div>
+                <div className="why">
+                  <div className="imgg">
+                    {" "}
+                    <img src={why1} />
+                  </div>
+                  <div className="pp">
+                    <h4>Empowering Students</h4>
+                  </div>
+                </div>
               </SplideSlide>
               <SplideSlide>
-              <div className="why">
-              <div className="imgg"> <img src = {why2}/></div>
-                <div className="pp"><h4>Today's Need</h4></div>
-              </div>
+                <div className="why">
+                  <div className="imgg">
+                    {" "}
+                    <img src={why2} />
+                  </div>
+                  <div className="pp">
+                    <h4>Today's Need</h4>
+                  </div>
+                </div>
               </SplideSlide>
               <SplideSlide>
-              <div className="why">
-              <div className="imgg"> <img src = {why3}/></div>
-                <div className="pp"><h4>Expert-led</h4></div>
-              </div>
-              
+                <div className="why">
+                  <div className="imgg">
+                    {" "}
+                    <img src={why3} />
+                  </div>
+                  <div className="pp">
+                    <h4>Expert-led</h4>
+                  </div>
+                </div>
               </SplideSlide>
               <SplideSlide>
-              <div className="why">
-              <div className="imgg"> <img src = {why4}/></div>
-                <div className="pp"><h4>Live Interactions</h4></div>
-              </div>
-           
+                <div className="why">
+                  <div className="imgg">
+                    {" "}
+                    <img src={why4} />
+                  </div>
+                  <div className="pp">
+                    <h4>Live Interactions</h4>
+                  </div>
+                </div>
               </SplideSlide>
               <SplideSlide>
-              <div className="why">
-              <div className="imgg"> <img src = {why5}/></div>
-                <div className="pp"><h4>Practical Learning</h4></div>
-              </div>
+                <div className="why">
+                  <div className="imgg">
+                    {" "}
+                    <img src={why5} />
+                  </div>
+                  <div className="pp">
+                    <h4>Practical Learning</h4>
+                  </div>
+                </div>
               </SplideSlide>
               <SplideSlide>
-              <div className="why">
-              <div className="imgg"> <img src = {why4}/></div>
-                <div className="pp"><h4>Awesome Community</h4></div>
-              </div>
+                <div className="why">
+                  <div className="imgg">
+                    {" "}
+                    <img src={why4} />
+                  </div>
+                  <div className="pp">
+                    <h4>Awesome Community</h4>
+                  </div>
+                </div>
               </SplideSlide>
               <SplideSlide>
-              <div className="why">
-              <div className="imgg"> <img src = {why6}/></div>
-                <div className="pp"><h4>Dynamic Classes</h4></div>
-              </div>
+                <div className="why">
+                  <div className="imgg">
+                    {" "}
+                    <img src={why6} />
+                  </div>
+                  <div className="pp">
+                    <h4>Dynamic Classes</h4>
+                  </div>
+                </div>
               </SplideSlide>
             </Splide>
-          </div> 
-{/* --------------------------------------------------------------accreditation section------------------------------------------------------- */}
+          </div>
+          {/* --------------------------------------------------------------accreditation section------------------------------------------------------- */}
 
           {/* <div className="accred">
             <h2>Accreditations</h2>
@@ -345,7 +371,7 @@ const {theme,setCheck,setTheme, check}= useContext(StoreContext);
 
           <div className="collab">
             <h2>Collaborations</h2>
-              <Splide
+            <Splide
               tag="section"
               aria-labelledby="My Favorite Images"
               options={{
@@ -363,59 +389,55 @@ const {theme,setCheck,setTheme, check}= useContext(StoreContext);
                   window.innerWidth <= 426
                     ? 1.2
                     : window.innerWidth <= 768
-                      ? 1.5
-                      : window.innerWidth <= 1024
-                        ? 2
-                        : 4,
+                    ? 1.5
+                    : window.innerWidth <= 1024
+                    ? 2
+                    : 4,
                 perMove: 1,
                 pagination: false,
               }}
             >
               <SplideSlide>
-              <div className="col">
-              <img src= {collab1} />
-              </div>
+                <div className="col">
+                  <img src={collab1} />
+                </div>
               </SplideSlide>
               <SplideSlide>
-              <div className="col">
-              <img src= {collab2} />
-              </div>
+                <div className="col">
+                  <img src={collab2} />
+                </div>
               </SplideSlide>
               <SplideSlide>
-              <div className="col">
-              <img src= {collab3} />
-              </div>
+                <div className="col">
+                  <img src={collab3} />
+                </div>
               </SplideSlide>
               <SplideSlide>
-              <div className="col">
-              <img src= {collab4} />
-              </div>
+                <div className="col">
+                  <img src={collab4} />
+                </div>
               </SplideSlide>
               <SplideSlide>
-              <div className="col">
-              <img src= {collab5} />
-              </div>
+                <div className="col">
+                  <img src={collab5} />
+                </div>
               </SplideSlide>
               <SplideSlide>
-              <div className="col">
-              <img src= {collab6} />
-              </div>
+                <div className="col">
+                  <img src={collab6} />
+                </div>
               </SplideSlide>
               <SplideSlide>
-              <div className="col">
-              <img src= {collab7} />
-              </div>
+                <div className="col">
+                  <img src={collab7} />
+                </div>
               </SplideSlide>
               <SplideSlide>
-              <div className="col">
-              <img src= {collab8} />
-              </div>
+                <div className="col">
+                  <img src={collab8} />
+                </div>
               </SplideSlide>
             </Splide>
-
-
-             
-
           </div>
 
           <div className="slides-testimonials">
@@ -440,10 +462,10 @@ const {theme,setCheck,setTheme, check}= useContext(StoreContext);
                   window.innerWidth <= 426
                     ? 1.2
                     : window.innerWidth <= 768
-                      ? 1.5
-                      : window.innerWidth <= 1024
-                        ? 2
-                        : 3,
+                    ? 1.5
+                    : window.innerWidth <= 1024
+                    ? 2
+                    : 3,
                 perMove: 1,
                 pagination: false,
               }}
@@ -452,141 +474,172 @@ const {theme,setCheck,setTheme, check}= useContext(StoreContext);
                 <img src={p1} alt="" />
                 <h3>Engaging and Informative Sessions!</h3>
                 <p>
-                Kudos to the instructors of the Design Thinking course! The real-life case studies discussed during the live sessions have truly expanded my understanding of the subject. This platform's approach to incorporating interactive sessions has given me a chance to apply the principles in real-time scenarios, enhancing my problem-solving skills
-
+                  Kudos to the instructors of the Design Thinking course! The
+                  real-life case studies discussed during the live sessions have
+                  truly expanded my understanding of the subject. This
+                  platform's approach to incorporating interactive sessions has
+                  given me a chance to apply the principles in real-time
+                  scenarios, enhancing my problem-solving skills
                 </p>
                 <p>PRAVEEN D</p>
               </SplideSlide>
               <SplideSlide>
-              <img src={d1} alt="" />
+                <img src={d1} alt="" />
                 <h3>Interactive Learning at Its Best!</h3>
                 <p>
-                I'm loving the live interaction sessions on this platform. It's like being in a real classroom, but even better! The sowers engage with us, answer our questions, and make learning so much more exciting.
-
+                  I'm loving the live interaction sessions on this platform.
+                  It's like being in a real classroom, but even better! The
+                  sowers engage with us, answer our questions, and make learning
+                  so much more exciting.
                 </p>
                 <p>ABIRAMI R</p>
               </SplideSlide>
               <SplideSlide>
-              <img src={d2} alt="" />
+                <img src={d2} alt="" />
                 <h3>Personalized Learning Recommendations</h3>
                 <p>
-                Seed's personalized course recommendations based on my interests and learning history have helped me discover new subjects I'm passionate about.
-
+                  Seed's personalized course recommendations based on my
+                  interests and learning history have helped me discover new
+                  subjects I'm passionate about.
                 </p>
                 <p>VADIVEL S</p>
               </SplideSlide>
               <SplideSlide>
-              <img src={d3} alt="" />
+                <img src={d3} alt="" />
                 <h3>Mastering Concepts Made Easy</h3>
                 <p>
-                The live sessions for Supply Chain Management were an eye-opener. Real-time case studies and discussions on supply chain challenges enriched our understanding. The platform's live interaction feature made complex concepts feel accessible
+                  The live sessions for Supply Chain Management were an
+                  eye-opener. Real-time case studies and discussions on supply
+                  chain challenges enriched our understanding. The platform's
+                  live interaction feature made complex concepts feel accessible
                 </p>
                 <p>RAJKUMAR P</p>
               </SplideSlide>
               <SplideSlide>
-              <img src={p3} alt="" />
+                <img src={p3} alt="" />
                 <h3>Learning with a Community Feel</h3>
                 <p>
-                I'm amazed by how connected I feel to my classmates through these live sessions. We collaborate, discuss, and learn together just like we used to in the physical classroom. The platform has truly created a virtual learning community." 
-
+                  I'm amazed by how connected I feel to my classmates through
+                  these live sessions. We collaborate, discuss, and learn
+                  together just like we used to in the physical classroom. The
+                  platform has truly created a virtual learning community."
                 </p>
                 <p>JEYANTH P</p>
               </SplideSlide>
               <SplideSlide>
-              <img src={d4} alt="" />
+                <img src={d4} alt="" />
                 <h3>Responsive Customer Support</h3>
                 <p>
-                Whenever I've had questions or faced technical issues, Seed's customer support team has been incredibly responsive and helpful.
-
+                  Whenever I've had questions or faced technical issues, Seed's
+                  customer support team has been incredibly responsive and
+                  helpful.
                 </p>
                 <p>SARAN M</p>
               </SplideSlide>
               <SplideSlide>
-              <img src={d5} alt="" />
+                <img src={d5} alt="" />
                 <h3>User-Friendly Learning Platform</h3>
                 <p>
-                I'm not the most tech-savvy person, but using this platform was a breeze. The interface is intuitive, and everything is well-organized. From finding courses to tracking my progress, the platform makes learning straightforward.
-
+                  I'm not the most tech-savvy person, but using this platform
+                  was a breeze. The interface is intuitive, and everything is
+                  well-organized. From finding courses to tracking my progress,
+                  the platform makes learning straightforward.
                 </p>
                 <p>MANICKAM J</p>
               </SplideSlide>
 
-
-
               <SplideSlide>
-              <img src={d6} alt="" />
+                <img src={d6} alt="" />
                 <h3>A Hub for Lifelong Learners.</h3>
                 <p>
-                "The content was comprehensive, excellent, very thorough, and suitable for people of all skill levels because we had the chance to implement what we learned immediately. such a great session, really comprehensive."
-
+                  "The content was comprehensive, excellent, very thorough, and
+                  suitable for people of all skill levels because we had the
+                  chance to implement what we learned immediately. such a great
+                  session, really comprehensive."
                 </p>
                 <p>ELANGO</p>
               </SplideSlide>
               <SplideSlide>
-              <img src={d7} alt="" />
+                <img src={d7} alt="" />
                 <h3>Clear and Concise Explanations</h3>
                 <p>
-                The explanations provided on courses are clear and to the point. I appreciate how easily I can grasp complex concepts through the well-structured content.
-
+                  The explanations provided on courses are clear and to the
+                  point. I appreciate how easily I can grasp complex concepts
+                  through the well-structured content.
                 </p>
                 <p>DIWAHAR M</p>
               </SplideSlide>
               <SplideSlide>
-              <img src={d8} alt="" />
+                <img src={d8} alt="" />
                 <h3>Interactive Learning at Its Best!</h3>
                 <p>
-                I'm loving the live interaction sessions on this platform. It's like being in a real classroom, but even better! The sowers engage with us, answer our questions, and make learning so much more exciting.
-
+                  I'm loving the live interaction sessions on this platform.
+                  It's like being in a real classroom, but even better! The
+                  sowers engage with us, answer our questions, and make learning
+                  so much more exciting.
                 </p>
                 <p>MOHAMMED SHERIFF</p>
               </SplideSlide>
               <SplideSlide>
-              <img src={d9} alt="" />
+                <img src={d9} alt="" />
                 <h3>Progress Tracking and Motivation</h3>
                 <p>
-                Seeing my progress tracked in real-time is incredibly motivating. 
-                The platform's dashboard shows me how far I've come, the topics I've mastered,
-                 and the ones I still need to work on. This visual representation of my journey
-                  keeps me motivated and determined to keep pushing forward.
+                  Seeing my progress tracked in real-time is incredibly
+                  motivating. The platform's dashboard shows me how far I've
+                  come, the topics I've mastered, and the ones I still need to
+                  work on. This visual representation of my journey keeps me
+                  motivated and determined to keep pushing forward.
                 </p>
                 <p>DIVAKAR </p>
               </SplideSlide>
               <SplideSlide>
-              <img src={d10} alt="" />
+                <img src={d10} alt="" />
                 <h3>Supportive Community of Learners</h3>
                 <p>
-                The community forum is a hidden gem. Connecting with fellow learners worldwide has broadened my perspective. We exchange ideas, help each other with challenging concepts, and even collaborate on projects. It's a supportive ecosystem
+                  The community forum is a hidden gem. Connecting with fellow
+                  learners worldwide has broadened my perspective. We exchange
+                  ideas, help each other with challenging concepts, and even
+                  collaborate on projects. It's a supportive ecosystem
                 </p>
                 <p>BARATHI S A</p>
               </SplideSlide>
               <SplideSlide>
-              <img src={d11} alt="" />
+                <img src={d11} alt="" />
                 <h3>Empowering and Convenient</h3>
                 <p>
-                I'm amazed by the convenience Seed Learning Platform offers. As a student, having access to top-notch educational resources at my fingertips has been a game-changer.
-
+                  I'm amazed by the convenience Seed Learning Platform offers.
+                  As a student, having access to top-notch educational resources
+                  at my fingertips has been a game-changer.
                 </p>
                 <p>JOSHITH J S</p>
               </SplideSlide>
 
               <SplideSlide>
-              <img src={d12} alt="" />
+                <img src={d12} alt="" />
                 <h3>Affordable and Worth It!</h3>
                 <p>
-                As a student on a budget, Seed E Learning Platform's affordable pricing was a breath of fresh air. The quality of the courses far exceeded my expectations given the cost. It's a fantastic option for anyone looking to learn without breaking the bank.
-
+                  As a student on a budget, Seed E Learning Platform's
+                  affordable pricing was a breath of fresh air. The quality of
+                  the courses far exceeded my expectations given the cost. It's
+                  a fantastic option for anyone looking to learn without
+                  breaking the bank.
                 </p>
                 <p>ARUL VEL MURUGAN</p>
               </SplideSlide>
             </Splide>
           </div>
 
+          {/* ------------------------------------------------------------------------------------------Get In touch section--------------------------------------------------------------------------------------------- */}
+
           <div className="get-in-touch">
             <div id="get-in-touch"></div>
-            <h2>Get in Touch</h2>
+           
             <div className="content">
+            <h2>Get in Touch</h2>
               <div className="container-div contact-us">
                 <form action="" onSubmit={getInTouchSubmit}>
+                  <div>
+
                   <label htmlFor="name">Name</label>
                   <input
                     type="text"
@@ -598,7 +651,7 @@ const {theme,setCheck,setTheme, check}= useContext(StoreContext);
                     onChange={(e) => setName(e.target.value)}
                   />
 
-                  <label htmlFor="email">Email</label>
+                  <label htmlFor="email">EMail</label>
                   <input
                     type="email"
                     id="email"
@@ -610,38 +663,53 @@ const {theme,setCheck,setTheme, check}= useContext(StoreContext);
                     pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                   />
 
-
-                  <label >Category</label>
-                  <select value={category} onChange={(e)=>setCategory(e.target.value)} >
-                    <option value="none" selected hidden>Choose a category</option>
-                    <option style={{fontSize: "17px"}} value="Group joining">Group joining</option>
-                    <option style={{fontSize: "17px"}} value="Courses related">Courses related</option>
-                    <option style={{fontSize: "17px"}} value="Events related">Events related</option>
-                    <option style={{fontSize: "17px"}} value="University/College collaboration ">University/College collaboration </option>
-                    <option style={{fontSize: "17px"}} value="Technical issues ">Technical issues </option>
-                    <option style={{fontSize: "17px"}} value="Payment issues">Payment issues</option>
-                    <option style={{fontSize: "17px"}} value="Event Sponsors">Event Sponsors</option>
-                    <option style={{fontSize: "17px"}} value="Others">Others</option>
-
+                  <label>Category</label>
+                  <select
+                    value={category}
+                    onChange={(e) => setCategory(e.target.value)}
+                  >
+                    <option value="none" selected hidden>
+                      Choose a category
+                    </option>
+                    <option style={{ fontSize: "17px" }} value="Group joining">
+                      Group joining
+                    </option>
+                    <option
+                      style={{ fontSize: "17px" }}
+                      value="Courses related"
+                    >
+                      Courses related
+                    </option>
+                    <option style={{ fontSize: "17px" }} value="Events related">
+                      Events related
+                    </option>
+                    <option
+                      style={{ fontSize: "17px" }}
+                      value="University/College collaboration "
+                    >
+                      University/College collaboration{" "}
+                    </option>
+                    <option
+                      style={{ fontSize: "17px" }}
+                      value="Technical issues "
+                    >
+                      Technical issues{" "}
+                    </option>
+                    <option style={{ fontSize: "17px" }} value="Payment issues">
+                      Payment issues
+                    </option>
+                    <option style={{ fontSize: "17px" }} value="Event Sponsors">
+                      Event Sponsors
+                    </option>
+                    <option style={{ fontSize: "17px" }} value="Others">
+                      Others
+                    </option>
                   </select>
 
+                  </div>
                  
-                  <label htmlFor="subject">Subject</label>
-                  <textarea
-                    id="subject"
-                    name="subject"
-                    placeholder="Write something"
-                    style={{ height: "200px" }}
-                    required
-                    value={msg}
-                    onChange={(e) => setMsg(e.target.value)}
-                  ></textarea>
 
-                  <input type="submit" value="Submit" />
-                </form>
-              </div>
-              
-              <div className="cards">
+                  {/* <div className="cards">
                 <div className="section">
                   <a href="https://www.google.com/search?client=tablet-android-samsung-ss&sxsrf=AB5stBjynXM65Dq5sU2UvOOKChyWUkVHdQ:1691480997949&q=MECHNIDO+-+R%26D&ludocid=5846389838005926368&ibp=gwp;0,7&lsig=AB86z5WDXq3Yu-LuNuV-RN5ncQKQ&kgs=a48d0248b5423189&shndl=-1&shem=lbsc,lsp&source=sh/x/kp/local/m1/6" target="_blank">
                   <span className="material-symbols-outlined">location_on</span>
@@ -657,7 +725,7 @@ const {theme,setCheck,setTheme, check}= useContext(StoreContext);
                   <div className="details">
                     {/* <p>
                       +91-9047363963 <br /> +91-8220662798
-                    </p> */}
+                    </p> 
                   </div>
                 </div>
                 <div className="section">
@@ -732,13 +800,32 @@ const {theme,setCheck,setTheme, check}= useContext(StoreContext);
                       
                     </a>
 
-                  </div>
+                  </div> 
                 </div>
+               </div>  */}
+
+                  <div>
+                    <label htmlFor="subject">Subject</label>
+                    <textarea
+                      id="subject"
+                      name="subject"
+                      placeholder="Write something"
+                      style={{ height: "200px" }}
+                      required
+                      value={msg}
+                      onChange={(e) => setMsg(e.target.value)}
+                    ></textarea>
+
+                    <input type="submit" value="Submit" />
+                  </div>
+                </form>
               </div>
             </div>
           </div>
         </div>
-          <Footer />
+
+        {/* ---------------------------------------------------------------------Footer Section-------------------------------------------------------------------------------------------------------------------------- */}
+        <Footer />
       </div>
     </>
   );

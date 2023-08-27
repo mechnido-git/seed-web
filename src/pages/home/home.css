@@ -114,7 +114,7 @@
 }
 
 .home>.main {
-  padding: 2rem;
+  /* padding: 2rem; */
   display: flex;
   flex-direction: column;
   gap: 3rem;
@@ -219,30 +219,6 @@
 
 /* ------------------------------------------------------------------------------------------------------------ */
 
-/* 
-.accredimgs {
-  display: grid;
-  margin: 20px;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 60px;
-  margin-top: 50px;
-
-}
-
-.accredimgs img {
-  height: 130px;
-  width: 140px;
-  margin: auto;
-
-}
-
-.accred h2 {
-  margin: 25px 16px;
-} */
-
-
-
-
 .accredation{
   width: 1175px;
   height: 150px;
@@ -279,7 +255,7 @@ margin-top: 25px;
   filter: drop-shadow(0px 2px 7px #464545);
 
 }
-
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------- */
 
 .collab h2 {
   margin-left: 16px;
@@ -498,6 +474,7 @@ margin-top: 25px;
 .contact-us textarea,
 .contact-us input[type=email],
 .contact-us select {
+  font-size: 14px;
   width: 100%;
   /* Full width */
   padding: 12px;
@@ -512,18 +489,23 @@ margin-top: 25px;
   margin-bottom: 16px;
   /* Bottom margin */
   resize: vertical
+  
     /* Allow the user to vertically resize the textarea (not horizontally) */
 }
 
 /* Style the submit button with a specific background color etc */
 .contact-us input[type=submit] {
   background-color: var(--primary);
+  width: 170px;
+  height: 45px;
   color: var(--secondary);
   padding: 12px 20px;
   border: none;
-  border-radius: 4px;
+  border-radius: 10px;
   cursor: pointer;
-  margin: 0 auto;
+  font-size: 17px;
+  /* margin: 0 auto; */
+  align-self: flex-end;
   transition: .3s;
 }
 
@@ -548,13 +530,17 @@ margin-top: 25px;
 
 .get-in-touch {
   position: relative;
+  background-color: #464545;
 }
 
 .get-in-touch>.content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
+  /* display: grid;
+  grid-template-columns: 1fr 1fr; */
+  margin:60px;
+  color:#f4f4f4;
 
+}
+/* 
 .get-in-touch>.content>.cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -562,15 +548,22 @@ margin-top: 25px;
   justify-items: center;
   padding: 1rem;
   margin: 2rem;
-}
+} */
 
 .cards .section .details p {
   text-align: center;
 }
 
-.get-in-touch>h2 {
-  margin: 1rem;
+.get-in-touch> .content h2 {
+  /* margin: 1rem; */
   color: var(--tertiary);
+ margin-left: 18px;
+ font-size:35px;
+ width:224px;
+ height: 39px;
+ letter-spacing: 1px;
+ color:#f4f4f4;
+
 }
 
 
@@ -591,6 +584,8 @@ margin-top: 25px;
 
 }
 
+ 
+/* 
 .get-in-touch>.content>.cards>.section>.details {
   cursor: pointer;
   display: flex;
@@ -614,8 +609,8 @@ margin-top: 25px;
   display: flex;
   flex-direction: column;
   gap: 10px;
-}
-
+} */
+/* 
 .get-in-touch>.content>.cards .section span {
   font-size: 2rem;
   z-index: 0;
@@ -625,11 +620,23 @@ margin-top: 25px;
   margin: 0 auto;
   color: var(--primary);
   transition: .4s;
-}
+} */
 
-.container-div>form {
+.container-div>form >div {
   display: flex;
   flex-direction: column;
+  width: 620px;
+}
+
+.container-div>form >div>label{
+  font-size: 18px;
+  margin: 5px 0px;
+  letter-spacing: 1px;
+}
+.container-div> form {
+  display: flex;
+  flex-direction: row;
+  gap:70px;
   width: 100%;
 }
 
