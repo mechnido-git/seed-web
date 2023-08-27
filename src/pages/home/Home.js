@@ -251,8 +251,28 @@ function Home() {
             </div>
           </div>
 
+          {/* ------------------------------------------------section 2 ----------------------------------------------------- */}
+
+          <div className="title">
+            <div className="titleleft">
+            <h1>Engineering the Future: Innovate, Create, and Elevate!</h1>
+            <div>
+              "The best way to predict the Future is to create it ". With Technology we an achieve the unimaginable.   
+            </div>
+            </div>
+
+
+            <div title="titleright">
+            <img></img>
+            </div>
+           
+          </div>
+
+
+
+
           {/* --------------------------------------------why us ? section--------------------------------------------------------------- */}
-          <div className="whyus">
+          {/* <div className="whyus">
             <h2>Why choose us?</h2>
 
             <Splide
@@ -356,7 +376,7 @@ function Home() {
                 </div>
               </SplideSlide>
             </Splide>
-          </div>
+          </div> */}
           {/* --------------------------------------------------------------accreditation section------------------------------------------------------- */}
 
           {/* <div className="accred">
