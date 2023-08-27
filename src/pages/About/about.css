@@ -107,6 +107,23 @@
       }
   }
 
+  .card-conti{
+    display: grid;
+    /* grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); */
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    justify-items: center;
+    padding: 1rem;
+    margin: 2rem;
+  }
+  .card-conti div img{
+    width: 190px;
+    height:190px;
+  }
+  .contri{
+   font-size: 40px;
+  }
+
   @media only screen and (max-width: 425px){
     .about-container > .about > section{
       padding: 10px;

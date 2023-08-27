@@ -17,6 +17,10 @@ import about2 from "../../images/about2.png";
 import about3 from "../../images/about3.png";
 import about4 from "../../images/about4.png";
 import about5 from "../../images/about5.png";
+import conti1 from "../../images/contri1.png";
+import conti2 from "../../images/contri2.png";
+import conti3 from "../../images/contri3.png";
+import conti4 from "../../images/contri4.png";
 
 
 function About() {
@@ -121,6 +125,24 @@ function About() {
 
               </p>
             </div>
+          </section>
+
+          <section>
+
+          <div className="details">
+              <h2 className="contri">
+              Our Contribution to the <br></br> Sustainable Development Goals
+              </h2>
+            </div>
+
+
+            <div className="card-conti">
+              <div><img src={conti1} alt=""/></div>
+              <div><img src={conti2} alt=""/></div>
+              <div><img src={conti3} alt=""/></div>
+              <div><img src={conti4} alt=""/></div>
+            </div>
+           
           </section>
 
           {/* <section>

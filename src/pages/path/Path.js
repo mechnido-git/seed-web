@@ -45,19 +45,25 @@ function Path({ user }) {
         <div className="path">
           <div className="course-path" >
             <img src={courseImg} alt="" />
-            <p> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+            <h2>Elevate Your Skills with Our Courses</h2>
+            <p> Explore a diverse spectrum of courses on Seed Learning Hub. Each course is designed to empower you
+               with practical skills, deep insights, and a transformative learning experience. Whether you're looking to expand your horizons,
+               enhance your career prospects, or simply pursue a passion, you're in the right place.</p>
           </div>
           <button onClick={goCourse}>Courses</button>
         </div>
         <div className="divider">
           <div className="circle">
-            OR
+           OR
           </div>
         </div>
         <div className="path">
           <div className="event-path">
             <img src={eventImg} alt="" />
-            <p> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+            <h2>Ignite Innovation with Our Exciting Events! </h2>
+           <p>Immerse yourself in a world of innovation and learning through our upcoming events – Design Challenge, Hackathon, and Ideathon
+             – are tailor-made for aspiring innovators like you
+              Our events are designed to inspire, empower, and connect learners, educators, and tech enthusiasts alike..</p>
           </div>
           <button onClick={goEvents} >Events</button>
         </div>

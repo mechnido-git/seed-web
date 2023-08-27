@@ -329,7 +329,7 @@ const QuickLinks = () => {
       link.classList.remove("clicked");
     });
     // const index = e.target.closest("[data-index]").dataset.index;
-    console.log(index + "jiii");
+    // console.log(index + "jiii");
     if (index == 0) {
       console.log(links[0], "k");
       links[0].classList.add("clicked");
