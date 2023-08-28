@@ -389,8 +389,50 @@ function Home() {
 
           </div> */}
 
+         
+
+
+          {/* -----------------------------------------------------------WHO ARE WE?------------------------------------------------------------------------- */}
+              
+              <div className="whoarewe">
+              <h1>Who are we?</h1>
+                <div className="who">
+                  <div className="whoLeft">
+                    <h2>About SEED - AN EDTECH ORGANISATION</h2>
+                    <p>
+                    Kudos to the instructors of the Design Thinking course! The
+                  real-life case studies discussed during the live sessions have
+                  truly expanded my understanding of the subject. This
+                  platform's approach to incorporating interactive sessions has
+                  given me a chance to apply the principles in real-time
+                  scenarios, enhancing my problem-solving skills
+                    </p>
+
+                  </div>
+                  <div className="whoRight">
+                  <h2>About SEED - AN EDTECH ORGANISATION</h2>
+                    <p>
+                    Kudos to the instructors of the Design Thinking course! The
+                  real-life case studies discussed during the live sessions have
+                  truly expanded my understanding of the subject. This
+                  platform's approach to incorporating interactive sessions has
+                  given me a chance to apply the principles in real-time
+                  scenarios, enhancing my problem-solving skills
+                    </p>
+                  </div>
+
+              </div>
+
+              </div>
+               
+
+
+
+          {/* ---------------------------------------------------------------------------------------------------------------------------------------------------------- */}
+
+          {/* -----------------------------------------Collaborations------------------------------------------------------------------------------------------------ */}
           <div className="collab">
-            <h2>Collaborations</h2>
+            <h1>Collaborations</h1>
             <Splide
               tag="section"
               aria-labelledby="My Favorite Images"
@@ -460,7 +502,10 @@ function Home() {
             </Splide>
           </div>
 
-          <div className="slides-testimonials">
+
+          {/* ----------------------------------------------------------------------------------------------------------------------------------------------------------------- */}
+
+          {/* <div className="slides-testimonials">
             <div id="testimonials"></div>
             <h2>Testimonials</h2>
             <p style={{ marginLeft: "5px" }}>What people say?</p>
@@ -647,7 +692,7 @@ function Home() {
                 <p>ARUL VEL MURUGAN</p>
               </SplideSlide>
             </Splide>
-          </div>
+          </div> */}
 
           {/* ------------------------------------------------------------------------------------------Get In touch section--------------------------------------------------------------------------------------------- */}
 
