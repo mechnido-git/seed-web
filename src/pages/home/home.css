@@ -47,7 +47,7 @@
 }
 .home .main .whoarewe{
   margin:60px;
-  height:400px;
+  height:370px;
 }
 .home .main .whoarewe h1{
   margin-bottom: 50px;
@@ -59,7 +59,7 @@
 .home .main .who{
   display: flex;
   flex-direction: row;
-  gap:270px
+  gap:270px;
 }
 .home .main .whoarewe h2{
  margin-bottom:50px;
