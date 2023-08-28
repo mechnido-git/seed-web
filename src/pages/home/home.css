@@ -104,6 +104,7 @@
   text-align: center;
   max-height: 100vh;
   margin-top: -50px;
+  height:665px;
 }
 
 .home>.hero>h2 {
@@ -117,6 +118,7 @@
   text-shadow: 2px 2px 2px #444444;
   font-weight: bold;
   line-height: 70px;
+  
 }
 
 .home>.hero>.btns {
