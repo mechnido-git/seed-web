@@ -46,7 +46,7 @@ import tg from "../../images/tweet-green.png";
 import tw from "../../images/tweet-white.png";
 import thw from "../../images/thread-w.png";
 import thg from "../../images/threads-green.png";
-// import hp2 from "../../images/home page 2.png";
+import hp2 from "../../images/homepage 2.svg";
 // import hp1 from "../../images/homepage 1.png";
 import p1 from "../../images/p1.jpg";
 import p3 from "../../images/p3.jpg";
@@ -262,8 +262,8 @@ function Home() {
             </div>
 
 
-            <div title="titleright">
-            <img></img>
+            <div className="titleright">
+            <img src={hp2} alt=""/>
             </div>
            
           </div>
