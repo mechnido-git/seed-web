@@ -46,7 +46,7 @@ import tg from "../../images/tweet-green.png";
 import tw from "../../images/tweet-white.png";
 import thw from "../../images/thread-w.png";
 import thg from "../../images/threads-green.png";
-// import hp2 from "../../images/home page 2.png";
+import hp2 from "../../images/homepage 2.svg";
 // import hp1 from "../../images/homepage 1.png";
 import p1 from "../../images/p1.jpg";
 import p3 from "../../images/p3.jpg";
@@ -62,7 +62,7 @@ import d9 from "../../images/dp/dp9.png";
 import d10 from "../../images/dp/dp11.png";
 import d11 from "../../images/dp/dp12.png";
 import d12 from "../../images/dp/dp13.png";
-
+import grp from "../../images/group.svg";
 function Home() {
   const [signIn, setSignIn] = useState(false);
   const [userName, setUserName] = useState(null);
@@ -230,7 +230,7 @@ function Home() {
           </h2>
           <div className="btns">
             <button onClick={() => navigate("/menu/dashboard")}>
-              Get started
+              Get Started
             </button>
           </div>
         </div>
@@ -262,8 +262,8 @@ function Home() {
             </div>
 
 
-            <div title="titleright">
-            <img></img>
+            <div className="titleright">
+            <img src={hp2} alt=""/>
             </div>
            
           </div>
@@ -377,20 +377,66 @@ function Home() {
               </SplideSlide>
             </Splide>
           </div> */}
-          {/* --------------------------------------------------------------accreditation section------------------------------------------------------- */}
+          {/* --------------------------------------------------------------whyus------------------------------------------------------- */}
 
-          {/* <div className="accred">
-            <h2>Accreditations</h2>
-            <div className="accredimgs">
-              <img src = {iso} alt=" ISO logo"/>
-              <img src= {msme} alt="MSME logo" />
-              <img src= {aicte} alt="AICTE logo" />
-            </div>
+          <div className="whyus">
+              <div className="whyusleft">
+                <img src={grp} alt="why us "/>
+              </div>
+              <div className="whyusright">
+                <h1>Why Choose Us?</h1>
+                <div> The possibilities of the sky and the realm of knowledge are limitless,</div>
+                 <div> Embark on a journey of self transformation and unleash your creative potential.
+                </div>
+                  <button>EXPLORE COURSES</button>
+              </div>
 
-          </div> */}
+          </div>
 
+         
+
+
+          {/* -----------------------------------------------------------WHO ARE WE?------------------------------------------------------------------------- */}
+              
+              <div className="whoarewe">
+              <h1>Who are we?</h1>
+                <div className="who">
+                  <div className="whoLeft">
+                    <h2>About SEED - AN EDTECH ORGANISATION</h2>
+                    <div>
+                    Kudos to the instructors of the Design Thinking course! The
+                  real-life case studies discussed during the live sessions have
+                  truly expanded my understanding of the subject. This
+                  platform's approach to incorporating interactive sessions has
+                  given me a chance to apply the principles in real-time
+                  scenarios, enhancing my problem-solving skills
+                    </div>
+
+                  </div>
+                  <div className="whoRight">
+                  <h2>About SEED - AN EDTECH ORGANISATION</h2>
+                    <div>
+                    Kudos to the instructors of the Design Thinking course! The
+                  real-life case studies discussed during the live sessions have
+                  truly expanded my understanding of the subject. This
+                  platform's approach to incorporating interactive sessions has
+                  given me a chance to apply the principles in real-time
+                  scenarios, enhancing my problem-solving skills
+                    </div>
+                  </div>
+
+              </div>
+
+              </div>
+               
+
+
+
+          {/* ---------------------------------------------------------------------------------------------------------------------------------------------------------- */}
+
+          {/* -----------------------------------------Collaborations------------------------------------------------------------------------------------------------ */}
           <div className="collab">
-            <h2>Collaborations</h2>
+            <h1>Collaborations</h1>
             <Splide
               tag="section"
               aria-labelledby="My Favorite Images"
@@ -460,7 +506,10 @@ function Home() {
             </Splide>
           </div>
 
-          <div className="slides-testimonials">
+
+          {/* ----------------------------------------------------------------------------------------------------------------------------------------------------------------- */}
+
+          {/* <div className="slides-testimonials">
             <div id="testimonials"></div>
             <h2>Testimonials</h2>
             <p style={{ marginLeft: "5px" }}>What people say?</p>
@@ -647,7 +696,7 @@ function Home() {
                 <p>ARUL VEL MURUGAN</p>
               </SplideSlide>
             </Splide>
-          </div>
+          </div> */}
 
           {/* ------------------------------------------------------------------------------------------Get In touch section--------------------------------------------------------------------------------------------- */}
 
