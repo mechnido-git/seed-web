@@ -120,7 +120,7 @@ const { check}= useContext(StoreContext);
           </ul>
         </div>
 
-        <div className="section get-in-touch">
+        <div className="section GIT">
           <h3>Get in touch</h3>
           <ul>
             {/* <li>

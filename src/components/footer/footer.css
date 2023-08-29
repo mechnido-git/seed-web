@@ -47,27 +47,27 @@
     color: var(--textcolor)
   }
 
-  .footer > .links > .section.get-in-touch li, .sower .footer > .links > .section.get-in-touch li,.footer > .links > .section.get-in-touch li, .footer > .links > .section.get-in-touch li > .details{
+  .footer > .links > .section.GIT li, .sower .footer > .links > .section.GIT li,.footer > .links > .section.GIT li, .footer > .links > .section.GIT li > .details{
     display: flex;
     gap: 10px;
     align-items: center;
   }
 
-  .footer > .links > .section.get-in-touch li span, .sower .footer > .links > .section.get-in-touch li span{
+  .footer > .links > .section.GIT li span, .sower .footer > .links > .section.GIT li span{
     color: var(--primary);
     font-size: 28px;
     
   }
 
-  .footer > .links > .section.get-in-touch ul, .sower .footer> .links > .section.get-in-touch ul{
+  .footer > .links > .section.GIT ul, .sower .footer> .links > .section.GIT ul{
     gap: 12px;
   }
 
-  .footer > .links > .section.get-in-touch li img, .sower .footer > .links > .section.get-in-touch li img{
+  .footer > .links > .section.GIT li img, .sower .footer > .links > .section.GIT li img{
     width: 20px !important;
   }
 
-  .footer > .links > .section.get-in-touch li p, .sower .footer > .links > .section.get-in-touch li p{
+  .footer > .links > .section.GIT li p, .sower .footer > .links > .section.GIT li p{
     font-size: 13px;
     color:var(--textcolor);
   }
