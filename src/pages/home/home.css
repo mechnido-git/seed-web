@@ -343,7 +343,67 @@ margin-bottom: 30px;
   color:var(--primary);
   border-color: var(--primary);
 }
+/* ---------------------------------------------------------------------------------------------------------------------------------------------------- */
 
+/*  ------------------------------------------------------------Sowersection---------------------------------------------------------------------------------------- */
+
+
+.sowersection{
+  display: flex;
+  flex-direction: row;
+  gap:120px;
+  margin-left: 60px;
+  margin-top: -20px;
+}
+
+.sowerleft h1{
+  margin-bottom: 40px;
+  font-size: 36px;
+  font-weight: bold;
+  line-height: 43px;
+}
+
+
+.sowerleft{
+  width:550px;
+  margin:auto 0px;
+}
+.sowerleft div{
+  font-size: 20px;
+  line-height: 35px;
+}
+
+.btnsec{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.btnsec div{
+  margin-top: 65px ;
+  color:var(--primary)
+}
+.sowerleft .btnsec button{
+ padding:5px 14px;
+  border: 2px solid var(--primary);
+  background-color: var(--primary);
+  color: var(--secondary);
+  margin-top: 50px;
+  width:200px;
+  height:50px;
+  font-size: 17px;
+  cursor: pointer;
+  transition: .4s;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.sowerleft .btnsec button:hover{
+  background-color: var(--secondary);
+  color:var(--primary);
+  border-color: var(--primary);
+}
+
+/* ---------------------------------------------------------------------------------------------------------------------- */
 .slides-achievements {
   padding: 0rem 1rem;
   margin: 1rem 0;
