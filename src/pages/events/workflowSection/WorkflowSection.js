@@ -52,7 +52,7 @@ export const DetailsCard = ({ event, userId}) => {
          </li>
          <li>
          <h4>Registration fee</h4>
-         <p>INR{" "}{event.registerFee}(Including 18% GST)</p>
+         <p>INR{" "}{event.regFeeTxt}(Including 18% GST)</p>
          </li>
         </ul>
         <h3>
