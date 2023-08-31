@@ -60,11 +60,12 @@ function RegisterInfo({ date, data }) {
 
 function EventIndex() {
   const [currentEvent, setCurrentEvent] = useState(0);
+
   const [uid, setUid] = useState("");
   const { register, setRegister } = useOutletContext();
   const [loading, setLoading] = useState(true);
 
-  const { setSection, userId, events, setUserName, userName, setUserEmail, userEmail } = useContext(StoreContext);
+  const { setSection, userId, events, upcomingEvents, setUserName, userName, setUserEmail, userEmail } = useContext(StoreContext);
   // console.log(list);
   setSection(2);
 
@@ -74,7 +75,8 @@ function EventIndex() {
     onAuthStateChanged(auth, (user) => {
       if (user) setUserName(user.displayName);
       if (user) setUid(user.uid);
-      if (user) setUserEmail(user.email);
+      if (user) setUserEmail(user.email); 
+      console.log(upcomingEvents);
       setLoading(false)
     });
 
@@ -148,17 +150,17 @@ function EventIndex() {
                     aria-labelledby="My Favorite Images"
                     options={{
                       speed: 1500,
-                  autoplay: true,
-                  interval: 3400,
-                  pauseOnHover: true,
-                  type: "loop",
+                      autoplay: true,
+                      interval: 3400,
+                      pauseOnHover: true,
+                      type: "loop",
 
-                  pauseOnFocus: true,
-                  keyboard: true,
-                  gap: "1rem",
-                  width: "100%",
-                  pagination: true,
-                  arrows: window.innerWidth < 770 ? false : true,
+                      pauseOnFocus: true,
+                      keyboard: true,
+                      gap: "1rem",
+                      width: "100%",
+                      pagination: true,
+                      arrows: window.innerWidth < 770 ? false : true,
                     }}
                   >
                     {events.map((item, i) => {
@@ -367,7 +369,7 @@ function EventIndex() {
                 )))}
               </Splide>
             </div>
-            <div className="slides-sponsors">
+            <div className="slides-sponsors upcoming-events">
               <div id="upcoming"></div>
               <h2>Upcoming Events</h2>
 
@@ -384,37 +386,23 @@ function EventIndex() {
                   width: "100%",
                   perPage:
                     window.innerWidth <= 426
-                      ? 3
+                      ? 2
                       : window.innerWidth <= 768
-                        ? 3.5
+                        ? 2.5
                         : window.innerWidth <= 1024
-                          ? 4
-                          : 5,
+                          ? 3
+                          : 4,
                   perMove: 1,
                   pagination: false,
                 }}
               >
-                <SplideSlide>
-                  <img src={soon} style={{ width: "100px" }} />
-                </SplideSlide>
-                <SplideSlide>
-                  <img src={soon} style={{ width: "100px" }} />
-                </SplideSlide>
-                <SplideSlide>
-                  <img src={soon} style={{ width: "100px" }} />
-                </SplideSlide>
-                <SplideSlide>
-                  <img src={soon} style={{ width: "100px" }} />
-                </SplideSlide>
-                <SplideSlide>
-                  <img src={soon} style={{ width: "100px" }} />
-                </SplideSlide>
-                <SplideSlide>
-                  <img src={soon} style={{ width: "100px" }} />
-                </SplideSlide>
-                <SplideSlide>
-                  <img src={soon} style={{ width: "100px" }} />
-                </SplideSlide>
+                {upcomingEvents.map((item) => (
+                  <SplideSlide>
+                    <img src={item.poster} style={{ width: "100%" }} />
+                    <h3>{item.title}</h3>
+                    <p>{item.subtitle}</p>
+                  </SplideSlide>
+                ))}
               </Splide>
             </div>
             <Footer />

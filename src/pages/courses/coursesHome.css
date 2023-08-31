@@ -154,6 +154,10 @@
     margin: 1rem 0rem;
 }
 
+.courses-home > .main-div > .section > p{
+    color: var(--textcolor);
+}
+
 .courses-home > .main-div > .section{
     margin: .5rem;
 }
