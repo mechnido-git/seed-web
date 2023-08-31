@@ -23,6 +23,7 @@ const Store = ({ children }) => {
   const [change, setChange] = useState(true);
   const [courses, setCourses] = useState([]);
   const [events, setEvents] = useState([]);
+  const [upcomingEvents, setUpcomingEvents] = useState([])
   const [section, setSection] = useState(null);
   const [filter, setFilter] = useState("All");
 
@@ -6938,6 +6939,7 @@ const Store = ({ children }) => {
         setTheme,
         check,
         setCheck,
+        upcomingEvents, setUpcomingEvents,
       }}
     >
       {children}
