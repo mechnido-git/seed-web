@@ -19,7 +19,7 @@ import HomeNav from "./homeNav/HomeNav";
 import { Link } from "react-router-dom";
 import Footer from "../../components/footer/Footer";
 import { doc, getDoc, setDoc } from "firebase/firestore";
-
+import sower from "../../images/gsower.png"
 import fbwhite from "../../images/facebookwhite.png";
 import instawhite from "../../images/instawhite.png";
 import { StoreContext } from "../../store/StoreContext";
@@ -697,6 +697,27 @@ function Home() {
               </SplideSlide>
             </Splide>
           </div> */}
+
+
+            {/* -----------------------------------------------------------------------------------Sower --------------------------------------------------------------------------------------------- */}
+
+              <div className="sowersection">
+                <div className="sowerleft">
+                <h1>Become a sower</h1>
+                <div>Enlighten the world with the radiance of your wisdom.</div>
+                 <div> Are you an expert in your field, eager to inspire and empower learners?
+                </div>
+                <div className="btnsec">
+                <button>APPLY NOW</button>
+                  <div>KNOW MORE &gt;</div>
+                </div>
+                 
+                </div>
+                <div className="sowerright">
+                  <img src={sower} alt=""/>
+                </div>
+              </div>
+
 
           {/* ------------------------------------------------------------------------------------------Get In touch section--------------------------------------------------------------------------------------------- */}
 
