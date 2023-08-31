@@ -27,6 +27,8 @@ const Store = ({ children }) => {
   const [section, setSection] = useState(null);
   const [filter, setFilter] = useState("All");
 
+  const [gallery, setGallery] = useState([])
+
   const [courseIndex, setCourseIndex] = useState(null);
   const [eventIndex, setEventIndex] = useState(null);
 
@@ -6940,6 +6942,7 @@ const Store = ({ children }) => {
         check,
         setCheck,
         upcomingEvents, setUpcomingEvents,
+        gallery, setGallery,
       }}
     >
       {children}

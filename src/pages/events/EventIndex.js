@@ -65,7 +65,7 @@ function EventIndex() {
   const { register, setRegister } = useOutletContext();
   const [loading, setLoading] = useState(true);
 
-  const { setSection, userId, events, upcomingEvents, setUserName, userName, setUserEmail, userEmail } = useContext(StoreContext);
+  const { setSection, userId, events, upcomingEvents, gallery, setUserName, userName, setUserEmail, userEmail } = useContext(StoreContext);
   // console.log(list);
   setSection(2);
 
@@ -75,8 +75,8 @@ function EventIndex() {
     onAuthStateChanged(auth, (user) => {
       if (user) setUserName(user.displayName);
       if (user) setUid(user.uid);
-      if (user) setUserEmail(user.email); 
-      console.log(upcomingEvents);
+      if (user) setUserEmail(user.email);
+      console.log(gallery);
       setLoading(false)
     });
 
@@ -260,76 +260,12 @@ function EventIndex() {
                   pagination: false,
                 }}
               >
-                <SplideSlide>
-                  <img
-                    style={{
-                      objectFit: "contain",
-                      width: "100%",
-                    }}
-                    src={kart}
-                    alt="Image 1"
-                  />
-                </SplideSlide>
-                <SplideSlide>
-                  <img
-                    style={{
-                      objectFit: "contain",
-                      width: "100%",
-                    }}
-                    src={kart}
-                    alt="Image 1"
-                  />
-                </SplideSlide>
-                <SplideSlide>
-                  <img
-                    style={{
-                      objectFit: "contain",
-                      width: "100%",
-                    }}
-                    src={kart}
-                    alt="Image 1"
-                  />
-                </SplideSlide>
-                <SplideSlide>
-                  <img
-                    style={{
-                      objectFit: "contain",
-                      width: "100%",
-                    }}
-                    src={kart}
-                    alt="Image 2"
-                  />
-                </SplideSlide>
-                <SplideSlide>
-                  <img
-                    style={{
-                      objectFit: "contain",
-                      width: "100%",
-                    }}
-                    src={kart}
-                    alt="Image 2"
-                  />
-                </SplideSlide>
-                <SplideSlide>
-                  <img
-                    style={{
-                      objectFit: "contain",
-                      width: "100%",
-                    }}
-                    src={kart}
-                    alt="Image 2"
-                  />
-                </SplideSlide>
-                <SplideSlide>
-                  <img
-                    style={{
-                      objectFit: "contain",
-                      width: "100%",
-                    }}
-                    src={kart}
-                    alt="Image 2"
-                  />
-                </SplideSlide>
+                {gallery[0].images.map((item) => (
+                  <SplideSlide>
+                    <ImageLoader src={item} style={{ objectFit: "contain", width: "100%" }} />
+                  </SplideSlide>
+
+                ))}
               </Splide>
             </div>
 

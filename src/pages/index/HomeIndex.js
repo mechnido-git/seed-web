@@ -22,7 +22,7 @@ function HomeIndex() {
   const { event, signIn, setSignIn } = useOutletContext();
   const [loading, setLoading] = useState(true)
 
-  const { setCourses, courses, setUpcomingEvents, setEvents, setUserName } = useContext(StoreContext);
+  const { setCourses, courses, setUpcomingEvents, setGallery, setEvents, setUserName } = useContext(StoreContext);
 
   useEffect(() => {
     const doFetch = async () => {
@@ -49,8 +49,17 @@ function HomeIndex() {
 
         ftmp.push({ ...doc.data(), id: doc.id });
       });
+
+      const g = query(collection(db, "gallery"));
+      const s = await getDocs(g);
+      const gtmp = [];
+      s?.forEach((doc) => {
+
+        gtmp.push({ ...doc.data(), id: doc.id });
+      });
       
       setUpcomingEvents(ftmp)
+      setGallery(gtmp)
       setCourses(temp);
       setEvents(tmp)
       setLoading(false)
