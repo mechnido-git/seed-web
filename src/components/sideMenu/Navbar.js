@@ -93,6 +93,12 @@ function Navbar({ signIn }) {
     }
   }
 
+  const getInTouchSubmit = (event) => {
+    document.getElementById("subject").value = "";
+    alert("Details submited");
+    event.preventDefault();
+  };
+
   const handleKeyDown = (e) => {
     // console.log(selected);
     if (selected < results.length) {
@@ -176,14 +182,16 @@ function Navbar({ signIn }) {
       {getInTouch && (
         <div className="wrapper-reg">
           <div className="blocker" onClick={() => setGetInTouch(false)}></div>
-          <div className="get-in-touch">
-          <span className="material-symbols-outlined" onClick={()=>{setGetInTouch(false)}}>close</span>
-          {/* <img className='clbtn' src={cancellogo} onClick={()=>{setGetInTouch(false)}} alt="close button"/> */}
+
+                    <div className="get-in-touch">
             <div id="get-in-touch"></div>
-            <h2>Get in Touch</h2>
+           
             <div className="content">
-              <div class="container-div contact-us">
-                <form action="">
+            <h2>Get in Touch</h2>
+              <div className="container-div contact-us">
+                <form action="" onSubmit={getInTouchSubmit}>
+                  <div>
+
                   <label htmlFor="name">Name</label>
                   <input
                     type="text"
@@ -207,32 +215,161 @@ function Navbar({ signIn }) {
                     pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                   />
 
-<label >Category</label>
-                  <select value={category} onChange={(e)=>setCategory(e.target.value)} >
-                  <option value="none" selected hidden>Choose a category</option>
-                    <option style={{fontSize: "17px"}} value="Group joining">Group joining</option>
-                    <option style={{fontSize: "17px"}}  value="Courses related">Courses related</option>
-                    <option style={{fontSize: "17px"}}  value="Events related">Events related</option>
-                    <option style={{fontSize: "17px"}}  value="University/College collaboration ">University/College collaboration </option>
-                    <option style={{fontSize: "17px"}}  value="Technical issues ">Technical issues </option>
-                    <option style={{fontSize: "17px"}}  value="Payment issues">Payment issues</option>
-                    <option style={{fontSize: "17px"}}  value="Event Sponsors">Event Sponsors</option>
-                    <option style={{fontSize: "17px"}}  value="Others">Others</option>
-
+                  <label>Category</label>
+                  <select
+                    value={category}
+                    onChange={(e) => setCategory(e.target.value)}
+                  >
+                    <option value="none" selected hidden>
+                      Choose a category
+                    </option>
+                    <option style={{ fontSize: "17px" }} value="Group joining">
+                      Group joining
+                    </option>
+                    <option
+                      style={{ fontSize: "17px" }}
+                      value="Courses related"
+                    >
+                      Courses related
+                    </option>
+                    <option style={{ fontSize: "17px" }} value="Events related">
+                      Events related
+                    </option>
+                    <option
+                      style={{ fontSize: "17px" }}
+                      value="University/College collaboration "
+                    >
+                      University/College collaboration{" "}
+                    </option>
+                    <option
+                      style={{ fontSize: "17px" }}
+                      value="Technical issues "
+                    >
+                      Technical issues{" "}
+                    </option>
+                    <option style={{ fontSize: "17px" }} value="Payment issues">
+                      Payment issues
+                    </option>
+                    <option style={{ fontSize: "17px" }} value="Event Sponsors">
+                      Event Sponsors
+                    </option>
+                    <option style={{ fontSize: "17px" }} value="Others">
+                      Others
+                    </option>
                   </select>
 
-                  <label htmlFor="subject">Subject</label>
-                  <textarea
-                    id="subject"
-                    name="subject"
-                    placeholder="Write something"
-                    style={{ height: "200px" }}
-                    required
-                    value={msg}
-                    onChange={(e) => setMsg(e.target.value)}
-                  ></textarea>
+                  </div>
+                 
 
-                  <input type="submit" value="Submit" />
+                  {/* <div className="cards">
+                <div className="section">
+                  <a href="https://www.google.com/search?client=tablet-android-samsung-ss&sxsrf=AB5stBjynXM65Dq5sU2UvOOKChyWUkVHdQ:1691480997949&q=MECHNIDO+-+R%26D&ludocid=5846389838005926368&ibp=gwp;0,7&lsig=AB86z5WDXq3Yu-LuNuV-RN5ncQKQ&kgs=a48d0248b5423189&shndl=-1&shem=lbsc,lsp&source=sh/x/kp/local/m1/6" target="_blank">
+                  <span className="material-symbols-outlined">location_on</span>
+                  <div className="details">
+                <p>
+                294, 1st Floor, Trichy Rd, Vivekanandha Nagar, Singanallur, Tamil Nadu 641005.{" "}
+                </p>
+                  </div>
+                </a>
+                </div>
+                <div className="section">
+                  <span className="material-symbols-outlined">call</span>
+                  <div className="details">
+                    {/* <p>
+                      +91-9047363963 <br /> +91-8220662798
+                    </p> 
+                  </div>
+                </div>
+                <div className="section">
+                  <span className="material-symbols-outlined">mail</span>
+                  <div className="details">
+                    <p style={{ width: "100%", height: "100%" }}>
+                      <a
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
+                        href="mailto:support@mseed.in"
+                      >
+                       support@mseed.in
+                      </a>
+                    </p>
+                  </div>
+                </div>
+                <div className="section">
+                  <span className="material-symbols-outlined">group</span>
+                  <div className="details">
+                    <a
+                      href="https://www.facebook.com/IDEATECHEVENTS"
+                      target="_blank"
+                    >
+                      {" "}
+                      <img  style={{width: "35px",height:'35px' }} src={check ? fbwhite : fb} alt="" />
+                    </a>
+                   
+                    <a
+                      href="https://www.instagram.com/mechnido/?igshid=YmMyMTA2M2Y%3D&__coig_restricted=1"
+                      target="_blank"
+                    >
+                      {" "}
+                     
+                    <img style={{ width: "2.0rem" }} src={check ? instawhite : insta} alt="facebook link " />
+                      
+                      
+                    </a>
+
+                    <a
+                      href="https://twitter.com/Seed_Mechnido?t=3f1PMqcAsZpphg9EG-baFA&s=09"
+                      target="_blank"
+                    >
+                      {" "}
+                     
+                    <img style={{ width: "2.0rem" }} src={check ? tw : tg} alt="facebook link " />
+                      
+                      
+                    </a>
+                    <a
+                      href="https://www.linkedin.com/showcase/ideaedu/"
+                      target="_blank"
+                    >
+                      {" "}
+                     
+                    <img style={{ width: "2.0rem" }} src={check ? linkwhite: linkgreen} alt="facebook link " />
+                      
+                      
+                    </a>
+                    <a
+                      href="https://www.threads.net/@ideatechevents"
+                      target="_blank"
+                    >
+                      {" "}
+                     
+                    <img style={{ width:"30px", height:"30px"  }} src={check ? thw: thg} alt="facebook link " />
+                      
+                      
+                    </a>
+
+                  </div> 
+                </div>
+               </div>  */}
+
+                  <div>
+                    <label htmlFor="subject">Subject</label>
+                    <textarea
+                      id="subject"
+                      name="subject"
+                      placeholder="Write something"
+                      style={{ height: "200px" }}
+                      required
+                      value={msg}
+                      onChange={(e) => setMsg(e.target.value)}
+                    ></textarea>
+
+                    <input type="submit" value="Submit" />
+                  </div>
                 </form>
               </div>
             </div>

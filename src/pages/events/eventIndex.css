@@ -114,6 +114,12 @@
     filter: drop-shadow();
 }
 
+.events-index > .slides img{
+    border-radius: 10px;
+    aspect-ratio: 16 / 7.5;
+    object-fit: cover !important;
+}
+
 .register-info{
     padding: 2rem 1rem;
     display: grid;

@@ -299,19 +299,8 @@
     padding: .5rem;
   }
 
-  .navbar .get-in-touch{
-    background-color: var(--secondary);
-    border-radius: 5px;
-    width: 50%;
+   .navbar .get-in-touch{
     z-index: 11;
-  }
-
-  .navbar .get-in-touch .content{
-    grid-template-columns: 1fr;
-    
-  }
-  .navbar .get-in-touch label{
-    color:var(--tertiary);
   }
 
   .navbar > .right > button{

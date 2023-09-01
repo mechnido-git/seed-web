@@ -169,7 +169,7 @@ function EventIndex() {
                       return (
                         <SplideSlide key={i}>
                           <ImageLoader
-                            src={image}
+                            src={item.poster}
                             style={{ objectFit: "contain", width: "100%" }}
                           />
                           <div className="btns">
