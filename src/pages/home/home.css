@@ -863,18 +863,18 @@ margin-bottom: 20px;
   transition: .4s;
 } */
 
-.container-div>form >div {
+.container-div .footer_form >div {
   display: flex;
   flex-direction: column;
   width: 620px;
 }
 
-.container-div>form >div>label{
+.container-div .footer_form >div>label{
   font-size: 18px;
   margin: 5px 0px;
   letter-spacing: 1px;
 }
-.container-div> form {
+.container-div .footer_form {
   display: flex;
   flex-direction: row;
   gap:70px;

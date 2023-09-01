@@ -176,14 +176,14 @@ function Navbar({ signIn }) {
       {getInTouch && (
         <div className="wrapper-reg">
           <div className="blocker" onClick={() => setGetInTouch(false)}></div>
-          <div className="get-in-touch">
+          <div className="git">
           <span className="material-symbols-outlined" onClick={()=>{setGetInTouch(false)}}>close</span>
           {/* <img className='clbtn' src={cancellogo} onClick={()=>{setGetInTouch(false)}} alt="close button"/> */}
-            <div id="get-in-touch"></div>
+            <div id="git"></div>
             <h2>Get in Touch</h2>
             <div className="content">
               <div class="container-div contact-us">
-                <form action="">
+                <form  action="">
                   <label htmlFor="name">Name</label>
                   <input
                     type="text"

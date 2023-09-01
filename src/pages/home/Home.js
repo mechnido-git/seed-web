@@ -838,7 +838,7 @@ function Home() {
             <div className="content">
             <h2>Get in Touch</h2>
               <div className="container-div contact-us">
-                <form action="" onSubmit={getInTouchSubmit}>
+                <form className="footer_form" action="" onSubmit={getInTouchSubmit}>
                   <div>
 
                   <label htmlFor="name">Name</label>
