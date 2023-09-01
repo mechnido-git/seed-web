@@ -741,7 +741,7 @@ function Home() {
                     onChange={(e) => setName(e.target.value)}
                   />
 
-                  <label htmlFor="email">EMail</label>
+                  <label htmlFor="email">Email</label>
                   <input
                     type="email"
                     id="email"

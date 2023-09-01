@@ -499,7 +499,7 @@ function RegisterForm({ event, setRegister, email, userName }) {
       <span class="material-symbols-outlined" onClick={() => { setRegister(false) }} >close</span>
       {loading && <Spinner loading={loading} />}
       {/* <h3>{event.title}</h3> */}
-      <img src={event.logo} alt="tnkc image" />
+      <img src={event.poster} alt="tnkc image" />
       <form onSubmit={onSumbitHandler}>
 
         <div className="fields">
