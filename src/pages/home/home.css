@@ -374,8 +374,9 @@ margin-bottom: 30px;
 }
 .testimage{
   width:72px;
-  height:350px;
-  position: relative;
+  height:356px;
+  position: absolute;
+  margin-top: 10px;
 }
 .testimage img{
   width: 70px;
@@ -405,14 +406,17 @@ margin-bottom: 30px;
   
 }
 .testimage div{
-  position: absolute;
-  margin-top:78px
+ 
+  margin-top:85px
 }
 .testsection{
+  
   width:570px;
+  height:345px;
   border:2px solid var(--textcolor);
   border-radius: 5px;
   margin-left: 50px;
+  margin-left:180px
 }
 .test_content{
   margin:15px 53px;
