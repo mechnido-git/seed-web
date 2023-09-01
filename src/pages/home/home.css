@@ -345,6 +345,71 @@ margin-bottom: 30px;
 }
 /* ---------------------------------------------------------------------------------------------------------------------------------------------------- */
 
+/* ----------------------------------------------testimonials----------------------------------------------------------- */
+.testimonialsection{
+  margin-left: 60px;
+}
+.testimonialsection h1{
+ margin-bottom: 8px;
+  font-size: 36px;
+  font-weight: bold;
+  line-height: 43px;
+}
+
+.testimonialsection .say{
+  margin-left:9px;
+  width: 161px;
+  height: 39px;
+  font-size: 18px;
+  margin-bottom: 40px;
+  color:var(--textcolor);
+  line-height: 25px;
+  
+ letter-spacing: 0.5px;
+}
+.testsection{
+  width:570px;
+  border:2px solid var(--textcolor);
+  border-radius: 5px;
+  margin-left: 50px;
+}
+.test_content{
+  margin:15px 53px;
+
+}
+.test_content h2{
+font-size: 20px;
+width: 340px;
+height: 39px;
+color:var(--tertiary);
+margin-bottom: 20px;
+}
+.test_content .text{
+  margin-bottom: 20px;
+  font-size: 16px;
+  letter-spacing: 1px;
+  line-height: 22px;
+  width:400px;
+  
+}
+.test_content .name{
+  width: 121px;
+  height: 38px;
+  font-size: 18px;
+  color:var(--textcolor);
+  
+}
+
+
+
+.splide__pagination , .splide__arrow--prev , .splide__arrow--next , .splide__arrow svg{
+  visibility: hidden;
+}
+
+
+
+
+/* ---------------------------------------------------------------------------------------------------------------------------------- */
 /*  ------------------------------------------------------------Sowersection---------------------------------------------------------------------------------------- */
 
 
