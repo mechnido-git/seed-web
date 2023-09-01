@@ -198,7 +198,7 @@
     bottom: 0;
     right: 0;
     content: ' ';
-    background: rgba(0,0,0,.5);
+    /* background: rgba(0,0,0,.5); */
 }
   .navbar .account{
     display: flex;
@@ -303,15 +303,13 @@
     background-color: var(--secondary);
     border-radius: 5px;
     width: 50%;
-   .navbar .get-in-touch{
-    z-index: 11;
   }
 
-  .navbar .get-in-touch .content{
+  .navbar .git .content{
     grid-template-columns: 1fr;
     
   }
-  .navbar .get-in-touch label{
+  .navbar .git label{
     color:var(--tertiary);
   }
 
