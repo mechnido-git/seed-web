@@ -27,7 +27,7 @@ function RegisterInfo({ date, data }) {
     <SplideSlide>
       <div className="prize-div">
         <h3>Overall Cash Prize: INR{" "}{data.overAllCash}</h3>
-        <h3>Registration Fee: INR{" "}{data.registerFee} (Including 18% GST)</h3>
+        <h3>Registration Fee: INR{" "}{data.regFeeTxt} (Including 18% GST)</h3>
 
       </div>
       <div className="sample">
@@ -60,11 +60,12 @@ function RegisterInfo({ date, data }) {
 
 function EventIndex() {
   const [currentEvent, setCurrentEvent] = useState(0);
+
   const [uid, setUid] = useState("");
   const { register, setRegister } = useOutletContext();
   const [loading, setLoading] = useState(true);
 
-  const { setSection, userId, events, setUserName, userName, setUserEmail, userEmail } = useContext(StoreContext);
+  const { setSection, userId, events, upcomingEvents, gallery, setUserName, userName, setUserEmail, userEmail } = useContext(StoreContext);
   // console.log(list);
   setSection(2);
 
@@ -75,6 +76,7 @@ function EventIndex() {
       if (user) setUserName(user.displayName);
       if (user) setUid(user.uid);
       if (user) setUserEmail(user.email);
+      console.log(gallery);
       setLoading(false)
     });
 
@@ -148,17 +150,17 @@ function EventIndex() {
                     aria-labelledby="My Favorite Images"
                     options={{
                       speed: 1500,
-                  autoplay: true,
-                  interval: 3400,
-                  pauseOnHover: true,
-                  type: "loop",
+                      autoplay: true,
+                      interval: 3400,
+                      pauseOnHover: true,
+                      type: "loop",
 
-                  pauseOnFocus: true,
-                  keyboard: true,
-                  gap: "1rem",
-                  width: "100%",
-                  pagination: true,
-                  arrows: window.innerWidth < 770 ? false : true,
+                      pauseOnFocus: true,
+                      keyboard: true,
+                      gap: "1rem",
+                      width: "100%",
+                      pagination: true,
+                      arrows: window.innerWidth < 770 ? false : true,
                     }}
                   >
                     {events.map((item, i) => {
@@ -258,76 +260,12 @@ function EventIndex() {
                   pagination: false,
                 }}
               >
-                <SplideSlide>
-                  <img
-                    style={{
-                      objectFit: "contain",
-                      width: "100%",
-                    }}
-                    src={kart}
-                    alt="Image 1"
-                  />
-                </SplideSlide>
-                <SplideSlide>
-                  <img
-                    style={{
-                      objectFit: "contain",
-                      width: "100%",
-                    }}
-                    src={kart}
-                    alt="Image 1"
-                  />
-                </SplideSlide>
-                <SplideSlide>
-                  <img
-                    style={{
-                      objectFit: "contain",
-                      width: "100%",
-                    }}
-                    src={kart}
-                    alt="Image 1"
-                  />
-                </SplideSlide>
-                <SplideSlide>
-                  <img
-                    style={{
-                      objectFit: "contain",
-                      width: "100%",
-                    }}
-                    src={kart}
-                    alt="Image 2"
-                  />
-                </SplideSlide>
-                <SplideSlide>
-                  <img
-                    style={{
-                      objectFit: "contain",
-                      width: "100%",
-                    }}
-                    src={kart}
-                    alt="Image 2"
-                  />
-                </SplideSlide>
-                <SplideSlide>
-                  <img
-                    style={{
-                      objectFit: "contain",
-                      width: "100%",
-                    }}
-                    src={kart}
-                    alt="Image 2"
-                  />
-                </SplideSlide>
-                <SplideSlide>
-                  <img
-                    style={{
-                      objectFit: "contain",
-                      width: "100%",
-                    }}
-                    src={kart}
-                    alt="Image 2"
-                  />
-                </SplideSlide>
+                {gallery[0].images.map((item) => (
+                  <SplideSlide>
+                    <ImageLoader src={item} style={{ objectFit: "contain", width: "100%" }} />
+                  </SplideSlide>
+
+                ))}
               </Splide>
             </div>
 
@@ -367,7 +305,7 @@ function EventIndex() {
                 )))}
               </Splide>
             </div>
-            <div className="slides-sponsors">
+            <div className="slides-sponsors upcoming-events">
               <div id="upcoming"></div>
               <h2>Upcoming Events</h2>
 
@@ -384,37 +322,23 @@ function EventIndex() {
                   width: "100%",
                   perPage:
                     window.innerWidth <= 426
-                      ? 3
+                      ? 2
                       : window.innerWidth <= 768
-                        ? 3.5
+                        ? 2.5
                         : window.innerWidth <= 1024
-                          ? 4
-                          : 5,
+                          ? 3
+                          : 4,
                   perMove: 1,
                   pagination: false,
                 }}
               >
-                <SplideSlide>
-                  <img src={soon} style={{ width: "100px" }} />
-                </SplideSlide>
-                <SplideSlide>
-                  <img src={soon} style={{ width: "100px" }} />
-                </SplideSlide>
-                <SplideSlide>
-                  <img src={soon} style={{ width: "100px" }} />
-                </SplideSlide>
-                <SplideSlide>
-                  <img src={soon} style={{ width: "100px" }} />
-                </SplideSlide>
-                <SplideSlide>
-                  <img src={soon} style={{ width: "100px" }} />
-                </SplideSlide>
-                <SplideSlide>
-                  <img src={soon} style={{ width: "100px" }} />
-                </SplideSlide>
-                <SplideSlide>
-                  <img src={soon} style={{ width: "100px" }} />
-                </SplideSlide>
+                {upcomingEvents.map((item) => (
+                  <SplideSlide>
+                    <img src={item.poster} style={{ width: "100%" }} />
+                    <h3>{item.title}</h3>
+                    <p>{item.subtitle}</p>
+                  </SplideSlide>
+                ))}
               </Splide>
             </div>
             <Footer />

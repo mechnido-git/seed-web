@@ -279,7 +279,7 @@ function CoursesHome() {
                     )}
                     viewDetails={getCours}
                   />
-                </div>): <p>No courses</p>}
+                </div>): <p>No courses available</p>}
               </div>
               <div id="trending" className="section">
                 <h2>Trending Now</h2>
@@ -291,7 +291,7 @@ function CoursesHome() {
                     )}
                     viewDetails={getCours}
                   />
-                </div>): <p>No courses</p>}
+                </div>): <p>No courses available</p>}
               </div>
               <div id="team" className="section">
                 <h2>Team Picks</h2>
@@ -304,7 +304,7 @@ function CoursesHome() {
                     )}
                     viewDetails={getCours}
                   />
-                </div>): <p>No courses</p>}
+                </div>): <p>No courses available</p>}
               </div>
             </section>
             <Footer />
