@@ -349,6 +349,11 @@ margin-bottom: 30px;
 .testimonialsection{
   margin-left: 60px;
 }
+.testimonial_content{
+  display: flex;
+  flex-direction: row;
+  gap:57px
+}
 .testimonialsection h1{
  margin-bottom: 8px;
   font-size: 36px;
@@ -366,6 +371,42 @@ margin-bottom: 30px;
   line-height: 25px;
   
  letter-spacing: 0.5px;
+}
+.testimage{
+  width:72px;
+  height:350px;
+  position: relative;
+}
+.testimage img{
+  width: 70px;
+  height:70px;
+  margin-bottom:-25px ;
+ 
+}
+.left-arrow{
+ width:65px;
+ height:65px;
+ border:2px solid var(--textcolor);
+ position: absolute;
+ transform: translate(-50%, -50%) rotate(45deg);
+ border-right: none;
+ border-top: none;
+ margin-left:170px;
+ margin-top:50px;
+}
+.left-arrow:before{
+  position:absolute;
+  content:"";
+  border-top: 2px solid var(--textcolor);
+  width:calc(1.41*(64px + 2px));
+  transform:rotate(45deg);
+ left: -15px;
+ top:32px
+  
+}
+.testimage div{
+  position: absolute;
+  margin-top:78px
 }
 .testsection{
   width:570px;

@@ -50,18 +50,18 @@ import hp2 from "../../images/homepage 2.svg";
 // import hp1 from "../../images/homepage 1.png";
 // import p1 from "../../images/p1.jpg";
 // import p3 from "../../images/p3.jpg";
-// import d1 from "../../images/dp/dp1.png";
-// import d2 from "../../images/dp/dp2.png";
-// import d3 from "../../images/dp/dp3.png";
-// import d4 from "../../images/dp/dp4.png";
-// import d5 from "../../images/dp/dp5.png";
-// import d6 from "../../images/dp/dp6.png";
-// import d7 from "../../images/dp/dp7.png";
-// import d8 from "../../images/dp/dp8.png";
-// import d9 from "../../images/dp/dp9.png";
-// import d10 from "../../images/dp/dp11.png";
-// import d11 from "../../images/dp/dp12.png";
-// import d12 from "../../images/dp/dp13.png";
+import d1 from "../../images/dp/dp1.png";
+import d2 from "../../images/dp/dp2.png";
+import d3 from "../../images/dp/dp3.png";
+import d4 from "../../images/dp/dp4.png";
+import d5 from "../../images/dp/dp5.png";
+import d6 from "../../images/dp/dp6.png";
+import d7 from "../../images/dp/dp7.png";
+import d8 from "../../images/dp/dp8.png";
+import d9 from "../../images/dp/dp9.png";
+import d10 from "../../images/dp/dp11.png";
+import d11 from "../../images/dp/dp12.png";
+import d12 from "../../images/dp/dp13.png";
 import grp from "../../images/group.svg";
 function Home() {
   const [signIn, setSignIn] = useState(false);
@@ -292,11 +292,6 @@ function Home() {
           </div>
         </div>
         <div className="main">
-          {/* <div className="title">
-            <h2>"Engineering the Future: Innovate, Create, and Elevate!"</h2>
-            <img src={hp2} alt="" />
-          </div> */}
-
           <div className="accredation">
             <div>
               <h1>Accreditations</h1>
@@ -454,6 +449,23 @@ function Home() {
             <div className="testimonialsection"> 
               <h1>Testimonials</h1>
               <div className="say">What people say?</div>
+            <div className="testimonial_content">
+
+              <div className="testimage">
+              <img className="currentimg" src={d1}/>
+              <div>
+                <img src={d1}/>
+                <img src={d2}/>
+                <img src={d3}/>
+                <img src={d4}/>
+              </div>
+              </div>
+
+              <div className="left-arrow">
+                
+
+              </div>
+
            
             <div className="testsection">
             <Splide
@@ -481,6 +493,7 @@ function Home() {
 
 
               </Splide>
+            </div>
             </div>
 
             </div>
