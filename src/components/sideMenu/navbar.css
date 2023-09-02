@@ -198,7 +198,7 @@
     bottom: 0;
     right: 0;
     content: ' ';
-    background: rgba(0,0,0,.5);
+    /* background: rgba(0,0,0,.5); */
 }
   .navbar .account{
     display: flex;
@@ -299,8 +299,18 @@
     padding: .5rem;
   }
 
-   .navbar .get-in-touch{
-    z-index: 11;
+  .navbar .git{
+    background-color: var(--secondary);
+    border-radius: 5px;
+    width: 50%;
+  }
+
+  .navbar .git .content{
+    grid-template-columns: 1fr;
+    
+  }
+  .navbar .git label{
+    color:var(--tertiary);
   }
 
   .navbar > .right > button{
@@ -321,7 +331,7 @@
     cursor: pointer;
   }
 
-  .get-in-touch .material-symbols-outlined{
+  .git .material-symbols-outlined{
     /* width: 50px;
     height: 50px; */
     float:right;
@@ -369,6 +379,7 @@
     }
 }
 
+
 @media only screen and (max-width: 650px){
 .navbar > .search-bar:has(.input-div > input:focus), .navbar > .search-bar:has(.input-div > input.search){
   background-color: var(--secondary);
@@ -379,7 +390,7 @@
 }
 
 @media only screen and (max-width: 768px){
-  .navbar .get-in-touch{
+  .navbar .git{
     width: 90%;
   }
 }

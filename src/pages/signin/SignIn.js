@@ -314,7 +314,7 @@ function SignIn({ index, redirect, setRedirect,setSignIn }) {
         const email = error.customData.email;
         // The AuthCredential type that was used.
         const credential = FacebookAuthProvider.credentialFromError(error);
-        console.log(errorMessage);
+        // console.log(errorMessage);
 
         // ...
       });

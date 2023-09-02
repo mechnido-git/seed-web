@@ -48,8 +48,8 @@ import thw from "../../images/thread-w.png";
 import thg from "../../images/threads-green.png";
 import hp2 from "../../images/homepage 2.svg";
 // import hp1 from "../../images/homepage 1.png";
-import p1 from "../../images/p1.jpg";
-import p3 from "../../images/p3.jpg";
+// import p1 from "../../images/p1.jpg";
+// import p3 from "../../images/p3.jpg";
 import d1 from "../../images/dp/dp1.png";
 import d2 from "../../images/dp/dp2.png";
 import d3 from "../../images/dp/dp3.png";
@@ -192,12 +192,69 @@ function Home() {
   //   setActive3(!active3);
   // };
 
+  const test=[
+    {
+      head: "Engaging and Informative Sessions!",
+      text:"Kudos to the instructors of the Design Thinking course! Thereal-life case studies discussed during the live sessions have truly expanded my understanding of the subject. This platform's approach to incorporating interactive sessions has given me a chance to apply the principles in real-time scenarios, enhancing my problem-solving skills",
+      name:"PRAVEEN D"
+    },
+    {
+      head: "Interactive Learning at Its Best!",
+      text:" I'm loving the live interaction sessions on this platform. It's like being in a real classroom, but even better! The sowers engage with us, answer our questions, and make learning so much more exciting.",
+      name:"ABIRAMI R"
+    },
+    {
+      head: "Personalized Learning Recommendations",
+      text:"Seed's personalized course recommendations based on my interests and learning history have helped me discover new subjects I'm passionate about.",
+      name:"VADIVEL S"
+    },
+    {
+      head: "Mastering Concepts Made Easy",
+      text:" The live sessions for Supply Chain Management were an eye-opener. Real-time case studies and discussions on supply chain challenges enriched our understanding. The platform's live interaction feature made complex concepts feel accessible",
+      name:"RAJKUMAR P"
+    },
+    {
+      head: "Learning with a Community Feel",
+      text:"Kudos to the instructors of the Design Thinking course! Thereal-life case studies discussed during the live sessions have truly expanded my understanding of the subject. This platform's approach to incorporating interactive sessions has given me a chance to apply the principles in real-time scenarios, enhancing my problem-solving skills",
+      name:"PRAVEEN D"
+    },
+    {
+      head: "Responsive Customer Support",
+      text:" Whenever I've had questions or faced technical issues, Seed's customer support team has been incredibly responsive and helpful.",
+      name:"SARAN M"
+    },
+    {
+      head: "User-Friendly Learning Platform",
+      text:" I'm not the most tech-savvy person, but using this platform was a breeze. The interface is intuitive, and everything is well-organized. From finding courses to tracking my progress, the platform makes learning straightforward.",
+      name:"MANICKAM J"
+    },
+    {
+      head: "A Hub for Lifelong Learners.",
+      text:" The content was comprehensive, excellent, very thorough, and  suitable for people of all skill levels because we had the chance to implement what we learned immediately. such a great session, really comprehensive.",
+      name:"JEYANTH P"
+    },
+    {
+      head: "Engaging and Informative Sessions!",
+      text:" I'm amazed by how connected I feel to my classmates through these live sessions. We collaborate, discuss, and learn together just like we used to in the physical classroom. The platform has truly created a virtual learning community.",
+      name:"ELANGO"
+    },
+    {
+      head: "Engaging and Informative Sessions!",
+      text:" I'm amazed by how connected I feel to my classmates through these live sessions. We collaborate, discuss, and learn together just like we used to in the physical classroom. The platform has truly created a virtual learning community.",
+      name:"JEYANTH P"
+    },
+    {
+      head: "Engaging and Informative Sessions!",
+      text:" I'm amazed by how connected I feel to my classmates through these live sessions. We collaborate, discuss, and learn together just like we used to in the physical classroom. The platform has truly created a virtual learning community.",
+      name:"JEYANTH P"
+    },
+  ]
+
   const getInTouchSubmit = (event) => {
     document.getElementById("subject").value = "";
     alert("Details submited");
     event.preventDefault();
   };
-
   const goToLink = (link) => {
     if (userName) {
       navigate("/menu/dashboard");
@@ -235,19 +292,14 @@ function Home() {
           </div>
         </div>
         <div className="main">
-          {/* <div className="title">
-            <h2>"Engineering the Future: Innovate, Create, and Elevate!"</h2>
-            <img src={hp2} alt="" />
-          </div> */}
-
           <div className="accredation">
             <div>
               <h1>Accreditations</h1>
             </div>
             <div className="img">
-              <img src={iso} />
-              <img src={msme} />
-              <img src={aicte} />
+              <img src={iso} alt="ISO"/>
+              <img src={msme} alt="MSME"/>
+              <img src={aicte} alt="AICTE" />
             </div>
           </div>
 
@@ -393,9 +445,58 @@ function Home() {
 
           </div>
 
-         
+          {/* ----------------------------------------------------------- testimonials---------------------------------------------------------------- */}
+            <div className="testimonialsection"> 
+              <h1>Testimonials</h1>
+              <div className="say">What people say?</div>
+            <div className="testimonial_content">
+
+              <div className="testimage">
+              <img className="currentimg" src={d1}/>
+              <div>
+                <img src={d1}/>
+                <img src={d2}/>
+                <img src={d3}/>
+                <img src={d4}/>
+              </div>
+              </div>
+
+              <div className="left-arrow">
+                
+
+              </div>
+
+           
+            <div className="testsection">
+            <Splide
+                tag="section"
+                aria-labelledby="My Images"
+                options={{
+                  speed: 1500,
+                  autoplay: true,
+                  interval: 3400,
+                  pauseOnHover: true,
+                  type: "loop",                
+                  keyboard: true,
+                  gap: "1rem"
+                }}
+              >
+                {test.map((item, i)=>{
+                  return<SplideSlide key={i}>
+                    <div className="test_content">
+                    <h2>{item.head}</h2>
+                    <p className="text">{item.text}</p>
+                    <p className="name">{item.name}</p>
+                    </div>
+                  </SplideSlide>
+                })}
 
 
+              </Splide>
+            </div>
+            </div>
+
+            </div>
           {/* -----------------------------------------------------------WHO ARE WE?------------------------------------------------------------------------- */}
               
               <div className="whoarewe">
@@ -465,42 +566,42 @@ function Home() {
             >
               <SplideSlide>
                 <div className="col">
-                  <img src={collab1} />
+                  <img src={collab1} alt="" />
                 </div>
               </SplideSlide>
               <SplideSlide>
                 <div className="col">
-                  <img src={collab2} />
+                  <img src={collab2} alt=""  />
                 </div>
               </SplideSlide>
               <SplideSlide>
                 <div className="col">
-                  <img src={collab3} />
+                  <img src={collab3} alt=""  />
                 </div>
               </SplideSlide>
               <SplideSlide>
                 <div className="col">
-                  <img src={collab4} />
+                  <img src={collab4} alt=""  />
                 </div>
               </SplideSlide>
               <SplideSlide>
                 <div className="col">
-                  <img src={collab5} />
+                  <img src={collab5} alt="" />
                 </div>
               </SplideSlide>
               <SplideSlide>
                 <div className="col">
-                  <img src={collab6} />
+                  <img src={collab6} alt=""  />
                 </div>
               </SplideSlide>
               <SplideSlide>
                 <div className="col">
-                  <img src={collab7} />
+                  <img src={collab7} alt=""  />
                 </div>
               </SplideSlide>
               <SplideSlide>
                 <div className="col">
-                  <img src={collab8} />
+                  <img src={collab8} alt=""  />
                 </div>
               </SplideSlide>
             </Splide>
@@ -595,6 +696,12 @@ function Home() {
                 </p>
                 <p>JEYANTH P</p>
               </SplideSlide>
+
+
+
+
+
+              
               <SplideSlide>
                 <img src={d4} alt="" />
                 <h3>Responsive Customer Support</h3>
@@ -628,6 +735,10 @@ function Home() {
                 </p>
                 <p>ELANGO</p>
               </SplideSlide>
+
+
+
+
               <SplideSlide>
                 <img src={d7} alt="" />
                 <h3>Clear and Concise Explanations</h3>
@@ -727,7 +838,7 @@ function Home() {
             <div className="content">
             <h2>Get in Touch</h2>
               <div className="container-div contact-us">
-                <form action="" onSubmit={getInTouchSubmit}>
+                <form className="footer_form" action="" onSubmit={getInTouchSubmit}>
                   <div>
 
                   <label htmlFor="name">Name</label>

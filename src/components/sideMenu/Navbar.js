@@ -183,15 +183,15 @@ function Navbar({ signIn }) {
         <div className="wrapper-reg">
           <div className="blocker" onClick={() => setGetInTouch(false)}></div>
 
-                    <div className="get-in-touch">
-            <div id="get-in-touch"></div>
+          <div className="git">
+            <div id="git"></div>
            
             <div className="content">
             <h2>Get in Touch</h2>
               <div className="container-div contact-us">
                 <form action="" onSubmit={getInTouchSubmit}>
                   <div>
-
+ 
                   <label htmlFor="name">Name</label>
                   <input
                     type="text"

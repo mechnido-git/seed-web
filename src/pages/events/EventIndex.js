@@ -17,7 +17,6 @@ import { useCountdown } from "../../hooks/useCountDown";
 import Footer from "../../components/footer/Footer";
 import ImageLoader from "../../components/imageLoader/ImageLoader";
 import { StoreContext } from "../../store/StoreContext";
-
 function RegisterInfo({ date, data }) {
   const [eventDate, setEventDate] = useState(new Date(date));
 
@@ -76,7 +75,7 @@ function EventIndex() {
       if (user) setUserName(user.displayName);
       if (user) setUid(user.uid);
       if (user) setUserEmail(user.email);
-      console.log(gallery);
+      // console.log(gallery);
       setLoading(false)
     });
 
@@ -102,7 +101,7 @@ function EventIndex() {
       const last = loc[loc.length - 1];
       if (last[0] === "#") {
         const id = last.slice(1, last.length);
-        console.log(id);
+        // console.log(id);
         document.getElementById(id).scrollIntoView({ behavior: "smooth" });
       }
     }
@@ -136,14 +135,14 @@ function EventIndex() {
                     ref={ref}
                     onMove={(splide, prev, next) => {
                       setCurrentEvent(splide.index);
-                      console.log(prev, splide.index, next);
-                      console.log(
-                        ref2.current.splide.Components.Move.move(
-                          splide.index,
-                          splide.index,
-                          splide.index + 1
-                        )
-                      );
+                      // console.log(prev, splide.index, next);
+                      // console.log(
+                      //   ref2.current.splide.Components.Move.move(
+                      //     splide.index,
+                      //     splide.index,
+                      //     splide.index + 1
+                      //   )
+                      // );
                       //ref2.current.splide.Components.Contro.move(splide.index)
                     }}
                     tag="section"
@@ -165,7 +164,7 @@ function EventIndex() {
                   >
                     {events.map((item, i) => {
                       let enrolled = checkEnroll(item);
-                      console.log(item);
+                      console.log(" this is items",item);
                       return (
                         <SplideSlide key={i}>
                           <ImageLoader
