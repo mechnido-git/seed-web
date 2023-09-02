@@ -309,119 +309,8 @@ function Home() {
 
             <div className="titleright">
             <img src={hp2} alt=""/>
-            </div>
-           
+            </div> 
           </div>
-
-
-
-
-          {/* --------------------------------------------why us ? section--------------------------------------------------------------- */}
-          {/* <div className="whyus">
-            <h2>Why choose us?</h2>
-
-            <Splide
-              tag="section"
-              aria-labelledby="My Favorite Images"
-              options={{
-                speed: 1000,
-                pauseOnHover: false,
-                type: "loop",
-                pauseOnFocus: true,
-                keyboard: true,
-                gap: ".5rem",
-                width: "100%",
-                perPage:
-                  window.innerWidth <= 426
-                    ? 1
-                    : window.innerWidth <= 768
-                    ? 1.5
-                    : window.innerWidth <= 1024
-                    ? 2
-                    : 3,
-                perMove: 1,
-                pagination: false,
-              }}
-            >
-              <SplideSlide>
-                <div className="why">
-                  <div className="imgg">
-                    {" "}
-                    <img src={why1} />
-                  </div>
-                  <div className="pp">
-                    <h4>Empowering Students</h4>
-                  </div>
-                </div>
-              </SplideSlide>
-              <SplideSlide>
-                <div className="why">
-                  <div className="imgg">
-                    {" "}
-                    <img src={why2} />
-                  </div>
-                  <div className="pp">
-                    <h4>Today's Need</h4>
-                  </div>
-                </div>
-              </SplideSlide>
-              <SplideSlide>
-                <div className="why">
-                  <div className="imgg">
-                    {" "}
-                    <img src={why3} />
-                  </div>
-                  <div className="pp">
-                    <h4>Expert-led</h4>
-                  </div>
-                </div>
-              </SplideSlide>
-              <SplideSlide>
-                <div className="why">
-                  <div className="imgg">
-                    {" "}
-                    <img src={why4} />
-                  </div>
-                  <div className="pp">
-                    <h4>Live Interactions</h4>
-                  </div>
-                </div>
-              </SplideSlide>
-              <SplideSlide>
-                <div className="why">
-                  <div className="imgg">
-                    {" "}
-                    <img src={why5} />
-                  </div>
-                  <div className="pp">
-                    <h4>Practical Learning</h4>
-                  </div>
-                </div>
-              </SplideSlide>
-              <SplideSlide>
-                <div className="why">
-                  <div className="imgg">
-                    {" "}
-                    <img src={why4} />
-                  </div>
-                  <div className="pp">
-                    <h4>Awesome Community</h4>
-                  </div>
-                </div>
-              </SplideSlide>
-              <SplideSlide>
-                <div className="why">
-                  <div className="imgg">
-                    {" "}
-                    <img src={why6} />
-                  </div>
-                  <div className="pp">
-                    <h4>Dynamic Classes</h4>
-                  </div>
-                </div>
-              </SplideSlide>
-            </Splide>
-          </div> */}
           {/* --------------------------------------------------------------whyus------------------------------------------------------- */}
 
           <div className="whyus">
@@ -438,9 +327,7 @@ function Home() {
                   <div onClick={() => navigate("/menu/events")}>EXPLORE EVENTS</div>
                   </div>
               </div>
-
           </div>
-
           {/* ----------------------------------------------------------- testimonials---------------------------------------------------------------- */}
             <div className="testimonialsection"> 
               <h1>Testimonials</h1>
@@ -501,14 +388,17 @@ function Home() {
                   <div className="whoLeft">
                     <h2>About SEED - AN EDTECH ORGANISATION</h2>
                     <div>
-                    Mechnido's Seed Learning Hub is a dynamic and innovative platform that serves as an integral part of MECHNIDO, dedicated to providing a comprehensive learning solution for individuals across diverse segments .Our platform offers a wide <span onClick={()=>navigate('/about/#about')}>Know More &gt;</span>
+                    Mechnido's Seed Learning Hub is a dynamic and innovative platform that
+                     serves as an integral part of MECHNIDO, dedicated to providing a comprehensive 
+                     learning solution for individuals across diverse segments .Our platform offers a wide <span onClick={()=>navigate('/about/#about')}>Know More &gt;</span>
                     </div>
 
                   </div>
                   <div className="whoRight">
                   <h2> About Organizing Team - MECHNIDO</h2>
                     <div>
-                    M/S MECHNIDO was Established in 2018 in Coimbatore, Tamil Nadu, M/S Mechnido is a promising enterprise in the electric vehicle (EV) industry.
+                    M/S MECHNIDO was Established in 2018 in Coimbatore, Tamil Nadu, M/S Mechnido is a
+                     promising enterprise in the electric vehicle (EV) industry.
                With a strong commitment to driving innovation and contributing to a sustainable future, <span onClick={()=>navigate('/about/#about')}>Know More &gt;</span>
                     </div>
                   </div>
