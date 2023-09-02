@@ -70,7 +70,16 @@
 .home .main .who .whoLeft div , .home .main .who .whoRight div{
   font-size: 20px;
   line-height: 35px;
-
+  width:500px;
+}
+.home .main .who .whoRight div{
+  width:520px
+}
+.home .main .who .whoLeft div span , .home .main .who .whoRight div span{
+  color:var(--primary);
+}
+.home .main .who .whoLeft div span:hover , .home .main .who .whoRight div span:hover{
+  cursor: pointer;
 }
 
 /* .home>.main>.title {
@@ -323,25 +332,36 @@ margin-bottom: 30px;
   line-height: 35px;
 }
 
-.whyusright button{
- padding:5px 14px;
-  border: 2px solid var(--primary);
+.whyusright .whyusbtns{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 38px;
+  color:var(--primary);
+}
+.whyusright .whyusbtns div{
+  font-size: 18px;
+  font-weight: 500;
+  position:relative;
+}
+.whyusright .whyusbtns div::before{
+  content: "";
+  position: absolute;
+  left:0;
+  bottom:0;
+  width:0;;
+  height: 2px;
   background-color: var(--primary);
-  color: var(--secondary);
-  margin-top: 50px;
-  width:200px;
-  height:50px;
-  font-size: 17px;
-  cursor: pointer;
-  transition: .4s;
-  align-items: center;
-  border-radius: 10px;
+  transition: width 0.35s ease-out;
 }
 
-.whyusright button:hover{
-  background-color: var(--secondary);
-  color:var(--primary);
-  border-color: var(--primary);
+
+.whyusright .whyusbtns div:hover::before{
+  width: 100%;
+}
+
+.whyusright .whyusbtns div:hover {
+  cursor: pointer;
 }
 /* ---------------------------------------------------------------------------------------------------------------------------------------------------- */
 
@@ -491,6 +511,9 @@ margin-bottom: 20px;
 .btnsec div{
   margin-top: 65px ;
   color:var(--primary)
+}
+.btnsec div:hover{
+  cursor: pointer;
 }
 .sowerleft .btnsec button{
  padding:5px 14px;
@@ -871,7 +894,7 @@ margin-bottom: 20px;
 
 .container-div .footer_form >div>label{
   font-size: 18px;
-  margin: 5px 0px;
+  margin: 5px 0px; 
   letter-spacing: 1px;
 }
 .container-div .footer_form {
