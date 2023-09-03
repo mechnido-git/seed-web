@@ -261,6 +261,10 @@
     gap: 1rem;
 }
 
+.upcoming-events .splide__slide img{
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+}
 
 .register-info > section{
     pointer-events: none;

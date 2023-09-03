@@ -571,10 +571,6 @@ margin-bottom: 30px;
   gap: 1rem;
 }
 
-.slides-sponsors .splide__slide img {
-  border-radius: 50%;
-}
-
 
 .about>.left {
   display: flex;

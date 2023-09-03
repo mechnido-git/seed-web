@@ -260,12 +260,14 @@ function EventIndex() {
                   pagination: false,
                 }}
               >
-                {gallery[0].images.map((item) => (
-                  <SplideSlide>
-                    <ImageLoader src={item} style={{ objectFit: "contain", width: "100%" }} />
+                {gallery[0].images.map((item, i) => {
+                  console.log("slide "+i);
+                  return <SplideSlide>
+                    {/* <ImageLoader src={item} style={{ objectFit: "contain", width: "100%" }} /> */}
+                    <img src={item} style={{ objectFit: "contain", width: "100%" }} alt="" />
                   </SplideSlide>
 
-                ))}
+})}
               </Splide>
             </div>
 
@@ -286,6 +288,7 @@ function EventIndex() {
                   keyboard: true,
                   gap: ".5rem",
                   width: "100%",
+                  arrows: false,
                   perPage:
                     window.innerWidth <= 426
                       ? 2.5
@@ -320,6 +323,7 @@ function EventIndex() {
                   keyboard: true,
                   gap: ".5rem",
                   width: "100%",
+                  arrows: false,
                   perPage:
                     window.innerWidth <= 426
                       ? 2
