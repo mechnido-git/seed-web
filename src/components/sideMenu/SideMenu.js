@@ -269,12 +269,24 @@ function SideMenu() {
             <HashLink
               className="sub"
               onClick={mobile ? toggle : null}
+              to="/menu/events/#sponsors"
+              smooth
+            >
+              <span class="material-symbols-outlined">currency_exchange</span>
+              <div>Sponsors</div>
+            </HashLink>
+
+            <HashLink
+              className="sub"
+              onClick={mobile ? toggle : null}
               to="/menu/events/#upcoming"
               smooth
             >
               <span class="material-symbols-outlined">event_upcoming</span>
               <div>Upcoming Events</div>
             </HashLink>
+
+
             {!user && (
               <div className="cover">
                 <button onClick={() => setSignIn(true)}>Sign in</button>

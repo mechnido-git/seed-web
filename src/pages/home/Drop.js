@@ -210,7 +210,7 @@ function Drop({ onClickOutside, show, dropIndex, redirect, setRedirect, setSignI
                 })}
               </ul>
               <div className="cards">
-                {loading ? <Spinner loading={loading} normal={true} />:(<>
+                {loading ? <Spinner loading={loading}  />:(<>
                   {courses.length !== 0 && <CardBuilder
                   arr={courses.filter((item) =>
                     filter === "All" ? item : filter == item.category
@@ -245,7 +245,7 @@ function Drop({ onClickOutside, show, dropIndex, redirect, setRedirect, setSignI
                 </li>
               </ul>
               <div className="cards">
-                {loading && <Spinner loading={true} normal={true} />}
+                {loading && <Spinner loading={true}  />}
                 {eventSwitch == 0
                   ? <CArdBuilder id={10} loading={loading} arr={events} up={false} viewEventDetails={viewEventDetails} />
                   : eventSwitch == 1
