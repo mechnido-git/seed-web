@@ -235,12 +235,6 @@ function CoursesHome() {
               >
                 {courses?.map((item, i) => {
                   let enrolled = checkEnroll(item)
-                  //  console.log("this is the value of enroled",enrolled);
-
-                  //  if(enrolled){
-                  //   document.getElementById("btnEnroll").className = "disabledbtn";
-                  //  }
-
                   return <SplideSlide key={i}>
                     {/*className="exploreBTN" <img src={courseList[i].slide} style={{ objectFit: "contain", width: "100%" }} alt="" /> */}
                     <ImageLoader src={item.poster ? item.poster : courseList[i].slide} style={{ objectFit: "contain", width: "100%" }} />

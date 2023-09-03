@@ -183,22 +183,23 @@ function Navbar({ signIn }) {
         <div className="wrapper-reg">
           <div className="blocker" onClick={() => setGetInTouch(false)}></div>
 
-                    <div className="get-in-touch">
-            <div id="get-in-touch"></div>
-           
+          <div className="git">
+            {/* <div id="git"></div> */}
+            <span class="material-symbols-outlined">close</span>
             <div className="content">
+            
             <h2>Get in Touch</h2>
               <div className="container-div contact-us">
                 <form action="" onSubmit={getInTouchSubmit}>
                   <div>
-
+ 
                   <label htmlFor="name">Name</label>
                   <input
                     type="text"
                     id="name"
                     name="name"
                     placeholder="Your name"
-                    required
+                    required 
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                   />

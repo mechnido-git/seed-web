@@ -23,6 +23,8 @@ import Footer from '../../components/footer/Footer';
 import ApplyNow from './ApplyNow';
 import { StoreContext } from '../../store/StoreContext';
 
+import p1 from "../../images/sower_poster1.png";
+import p2 from "../../images/gsower.png"
 
 
 const detailList = [
@@ -143,12 +145,12 @@ const stepList = [
           </div>
           </div>
           <div className="right">
-            <img src={hero} alt="" />
+            <img src={p1} alt="" />
           </div>
         </div>
         <div className="description">
           <div className="left">
-            <img src={descImg} alt="" />
+            <img src={p2} alt="" />
           </div>
           <div className="right">
           <h2>Become a Sower</h2>

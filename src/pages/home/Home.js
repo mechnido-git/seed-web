@@ -8,27 +8,16 @@ import {
   getRedirectResult,
   onAuthStateChanged,
   signOut,
-} from "firebase/auth";
+} from "firebase/auth"; 
 import { auth, db } from "../../firebase/config";
 import Spinner from "../../components/Spinner";
-import fb from "../../images/fb.png";
-import insta from "../../images/insta.png";
 import profile from "../../images/profile.png";
-
 import HomeNav from "./homeNav/HomeNav";
 import { Link } from "react-router-dom";
 import Footer from "../../components/footer/Footer";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import sower from "../../images/gsower.png"
-import fbwhite from "../../images/facebookwhite.png";
-import instawhite from "../../images/instawhite.png";
 import { StoreContext } from "../../store/StoreContext";
-import why1 from "../../images/whyus1.png";
-import why2 from "../../images/whyus2.png";
-import why3 from "../../images/whyus3.png";
-import why4 from "../../images/whyus4.png";
-import why5 from "../../images/whyus5.png";
-import why6 from "../../images/whyus6.png";
 import msme from "../../images/msme.png";
 import aicte from "../../images/aicte (1).png";
 import iso from "../../images/iso.png";
@@ -40,16 +29,11 @@ import collab5 from "../../images/collab5.png";
 import collab6 from "../../images/collab6.png";
 import collab7 from "../../images/collab7.png";
 import collab8 from "../../images/collab8.png";
-import linkwhite from "../../images/linkedin-white.png";
-import linkgreen from "../../images/linkedin-green.png";
-import tg from "../../images/tweet-green.png";
-import tw from "../../images/tweet-white.png";
-import thw from "../../images/thread-w.png";
-import thg from "../../images/threads-green.png";
 import hp2 from "../../images/homepage 2.svg";
+import ApplyNow from "../sower/ApplyNow";
 // import hp1 from "../../images/homepage 1.png";
-import p1 from "../../images/p1.jpg";
-import p3 from "../../images/p3.jpg";
+// import p1 from "../../images/p1.jpg";
+// import p3 from "../../images/p3.jpg";
 import d1 from "../../images/dp/dp1.png";
 import d2 from "../../images/dp/dp2.png";
 import d3 from "../../images/dp/dp3.png";
@@ -74,10 +58,10 @@ function Home() {
   const [category, setCategory] = useState("Category");
   const [msg, setMsg] = useState("");
   const [dp, setDp] = useState(profile);
-
+  const [userId, setUserId] = useState(null)
   const [redirect, setRedirect] = useState(null);
   const [redirectLoad, setRedirectLoad] = useState(false);
-
+  const [apply, setApply] = useState(false);
   const { theme, setCheck, setTheme, check } = useContext(StoreContext);
 
   // const [fbsrc, setFbsrc] = useState(fb);
@@ -137,11 +121,12 @@ function Home() {
         setUserName(user.displayName);
         setName(user.displayName);
         setEmail(user.email);
+        setUserId(user.uid)
         if (user.photoURL) setDp(user.photoURL);
         setLoading(false);
         if (last[0] === "#") {
           const id = last.slice(1, last.length);
-          console.log(id);
+          // console.log(id);
           document.getElementById(id).scrollIntoView({ behavior: "smooth" });
         }
       } else {
@@ -192,12 +177,77 @@ function Home() {
   //   setActive3(!active3);
   // };
 
+  const applyNow = () =>{
+    if(userId){
+      
+      setApply(true)
+    }else{
+      alert("Log in first")
+    }
+  }
+  const test=[
+    {
+      head: "Engaging and Informative Sessions!",
+      text:"Kudos to the instructors of the Design Thinking course! Thereal-life case studies discussed during the live sessions have truly expanded my understanding of the subject. This platform's approach to incorporating interactive sessions has given me a chance to apply the principles in real-time scenarios, enhancing my problem-solving skills",
+      name:"PRAVEEN D"
+    },
+    {
+      head: "Interactive Learning at Its Best!",
+      text:" I'm loving the live interaction sessions on this platform. It's like being in a real classroom, but even better! The sowers engage with us, answer our questions, and make learning so much more exciting.",
+      name:"ABIRAMI R"
+    },
+    {
+      head: "Personalized Learning Recommendations",
+      text:"Seed's personalized course recommendations based on my interests and learning history have helped me discover new subjects I'm passionate about.",
+      name:"VADIVEL S"
+    },
+    {
+      head: "Mastering Concepts Made Easy",
+      text:" The live sessions for Supply Chain Management were an eye-opener. Real-time case studies and discussions on supply chain challenges enriched our understanding. The platform's live interaction feature made complex concepts feel accessible",
+      name:"RAJKUMAR P"
+    },
+    {
+      head: "Learning with a Community Feel",
+      text:"Kudos to the instructors of the Design Thinking course! Thereal-life case studies discussed during the live sessions have truly expanded my understanding of the subject. This platform's approach to incorporating interactive sessions has given me a chance to apply the principles in real-time scenarios, enhancing my problem-solving skills",
+      name:"PRAVEEN D"
+    },
+    {
+      head: "Responsive Customer Support",
+      text:" Whenever I've had questions or faced technical issues, Seed's customer support team has been incredibly responsive and helpful.",
+      name:"SARAN M"
+    },
+    {
+      head: "User-Friendly Learning Platform",
+      text:" I'm not the most tech-savvy person, but using this platform was a breeze. The interface is intuitive, and everything is well-organized. From finding courses to tracking my progress, the platform makes learning straightforward.",
+      name:"MANICKAM J"
+    },
+    {
+      head: "A Hub for Lifelong Learners.",
+      text:" The content was comprehensive, excellent, very thorough, and  suitable for people of all skill levels because we had the chance to implement what we learned immediately. such a great session, really comprehensive.",
+      name:"JEYANTH P"
+    },
+    {
+      head: "Engaging and Informative Sessions!",
+      text:" I'm amazed by how connected I feel to my classmates through these live sessions. We collaborate, discuss, and learn together just like we used to in the physical classroom. The platform has truly created a virtual learning community.",
+      name:"ELANGO"
+    },
+    {
+      head: "Engaging and Informative Sessions!",
+      text:" I'm amazed by how connected I feel to my classmates through these live sessions. We collaborate, discuss, and learn together just like we used to in the physical classroom. The platform has truly created a virtual learning community.",
+      name:"JEYANTH P"
+    },
+    {
+      head: "Engaging and Informative Sessions!",
+      text:" I'm amazed by how connected I feel to my classmates through these live sessions. We collaborate, discuss, and learn together just like we used to in the physical classroom. The platform has truly created a virtual learning community.",
+      name:"JEYANTH P"
+    },
+  ]
+
   const getInTouchSubmit = (event) => {
     document.getElementById("subject").value = "";
     alert("Details submited");
     event.preventDefault();
   };
-
   const goToLink = (link) => {
     if (userName) {
       navigate("/menu/dashboard");
@@ -235,19 +285,14 @@ function Home() {
           </div>
         </div>
         <div className="main">
-          {/* <div className="title">
-            <h2>"Engineering the Future: Innovate, Create, and Elevate!"</h2>
-            <img src={hp2} alt="" />
-          </div> */}
-
           <div className="accredation">
             <div>
               <h1>Accreditations</h1>
             </div>
             <div className="img">
-              <img src={iso} />
-              <img src={msme} />
-              <img src={aicte} />
+              <img src={iso} alt="ISO"/>
+              <img src={msme} alt="MSME"/>
+              <img src={aicte} alt="AICTE" />
             </div>
           </div>
 
@@ -264,119 +309,8 @@ function Home() {
 
             <div className="titleright">
             <img src={hp2} alt=""/>
-            </div>
-           
+            </div> 
           </div>
-
-
-
-
-          {/* --------------------------------------------why us ? section--------------------------------------------------------------- */}
-          {/* <div className="whyus">
-            <h2>Why choose us?</h2>
-
-            <Splide
-              tag="section"
-              aria-labelledby="My Favorite Images"
-              options={{
-                speed: 1000,
-                pauseOnHover: false,
-                type: "loop",
-                pauseOnFocus: true,
-                keyboard: true,
-                gap: ".5rem",
-                width: "100%",
-                perPage:
-                  window.innerWidth <= 426
-                    ? 1
-                    : window.innerWidth <= 768
-                    ? 1.5
-                    : window.innerWidth <= 1024
-                    ? 2
-                    : 3,
-                perMove: 1,
-                pagination: false,
-              }}
-            >
-              <SplideSlide>
-                <div className="why">
-                  <div className="imgg">
-                    {" "}
-                    <img src={why1} />
-                  </div>
-                  <div className="pp">
-                    <h4>Empowering Students</h4>
-                  </div>
-                </div>
-              </SplideSlide>
-              <SplideSlide>
-                <div className="why">
-                  <div className="imgg">
-                    {" "}
-                    <img src={why2} />
-                  </div>
-                  <div className="pp">
-                    <h4>Today's Need</h4>
-                  </div>
-                </div>
-              </SplideSlide>
-              <SplideSlide>
-                <div className="why">
-                  <div className="imgg">
-                    {" "}
-                    <img src={why3} />
-                  </div>
-                  <div className="pp">
-                    <h4>Expert-led</h4>
-                  </div>
-                </div>
-              </SplideSlide>
-              <SplideSlide>
-                <div className="why">
-                  <div className="imgg">
-                    {" "}
-                    <img src={why4} />
-                  </div>
-                  <div className="pp">
-                    <h4>Live Interactions</h4>
-                  </div>
-                </div>
-              </SplideSlide>
-              <SplideSlide>
-                <div className="why">
-                  <div className="imgg">
-                    {" "}
-                    <img src={why5} />
-                  </div>
-                  <div className="pp">
-                    <h4>Practical Learning</h4>
-                  </div>
-                </div>
-              </SplideSlide>
-              <SplideSlide>
-                <div className="why">
-                  <div className="imgg">
-                    {" "}
-                    <img src={why4} />
-                  </div>
-                  <div className="pp">
-                    <h4>Awesome Community</h4>
-                  </div>
-                </div>
-              </SplideSlide>
-              <SplideSlide>
-                <div className="why">
-                  <div className="imgg">
-                    {" "}
-                    <img src={why6} />
-                  </div>
-                  <div className="pp">
-                    <h4>Dynamic Classes</h4>
-                  </div>
-                </div>
-              </SplideSlide>
-            </Splide>
-          </div> */}
           {/* --------------------------------------------------------------whyus------------------------------------------------------- */}
 
           <div className="whyus">
@@ -388,14 +322,67 @@ function Home() {
                 <div> The possibilities of the sky and the realm of knowledge are limitless,</div>
                  <div> Embark on a journey of self transformation and unleash your creative potential.
                 </div>
-                  <button>EXPLORE COURSES</button>
+                  <div className="whyusbtns">
+                  <div onClick={() => navigate("/menu/courses")}>EXPLORE COURSES</div>
+                  <div onClick={() => navigate("/menu/events")}>EXPLORE EVENTS</div>
+                  </div>
+              </div>
+          </div>
+          {/* ----------------------------------------------------------- testimonials---------------------------------------------------------------- */}
+            <div className="testimonialsection"> 
+              <h1>Testimonials</h1>
+              <div className="say">What people say?</div>
+            <div className="testimonial_content">
+
+              <div className="testimage">
+              <img className="currentimg" src={d1}/>
+              <div>
+                <img src={d1}/>
+                <img src={d2}/>
+                <img src={d3}/>
+                <img src={d4}/>
+              </div>
               </div>
 
-          </div>
+              <div className="left-arrow">
+                
 
-         
+              </div>
+
+           
+            <div className="testsection">
+            <Splide
+                tag="section"
+                aria-labelledby="My Images"
+               
+                options={{
+                  speed: 1500,
+                  Arrow:false,
+                  autoplay: true,
+                  interval: 3400,
+                  pauseOnHover: true,
+                  type: "loop",                
+                  keyboard: true,
+                  gap: "1rem",
+                  pagination:false
+                }}
+              >
+                {test.map((item, i)=>{
+                  return<SplideSlide key={i}>
+                    <div className="test_content">
+                    <h2>{item.head}</h2>
+                    <p className="text">{item.text}</p>
+                    <p className="name">{item.name}</p>
+                    </div>
+                  </SplideSlide>
+                })}
 
 
+              </Splide>
+            </div>
+            </div>
+
+            </div>
           {/* -----------------------------------------------------------WHO ARE WE?------------------------------------------------------------------------- */}
               
               <div className="whoarewe">
@@ -404,24 +391,18 @@ function Home() {
                   <div className="whoLeft">
                     <h2>About SEED - AN EDTECH ORGANISATION</h2>
                     <div>
-                    Kudos to the instructors of the Design Thinking course! The
-                  real-life case studies discussed during the live sessions have
-                  truly expanded my understanding of the subject. This
-                  platform's approach to incorporating interactive sessions has
-                  given me a chance to apply the principles in real-time
-                  scenarios, enhancing my problem-solving skills
+                    Mechnido's Seed Learning Hub is a dynamic and innovative platform that
+                     serves as an integral part of MECHNIDO, dedicated to providing a comprehensive 
+                     learning solution for individuals across diverse segments .Our platform offers a wide <span onClick={()=>navigate('/about/#about')}>Know More &gt;</span>
                     </div>
 
                   </div>
                   <div className="whoRight">
-                  <h2>About SEED - AN EDTECH ORGANISATION</h2>
+                  <h2> About Organizing Team - MECHNIDO</h2>
                     <div>
-                    Kudos to the instructors of the Design Thinking course! The
-                  real-life case studies discussed during the live sessions have
-                  truly expanded my understanding of the subject. This
-                  platform's approach to incorporating interactive sessions has
-                  given me a chance to apply the principles in real-time
-                  scenarios, enhancing my problem-solving skills
+                    M/S MECHNIDO was Established in 2018 in Coimbatore, Tamil Nadu, M/S Mechnido is a
+                     promising enterprise in the electric vehicle (EV) industry.
+               With a strong commitment to driving innovation and contributing to a sustainable future, <span onClick={()=>navigate('/about/#about')}>Know More &gt;</span>
                     </div>
                   </div>
 
@@ -465,42 +446,42 @@ function Home() {
             >
               <SplideSlide>
                 <div className="col">
-                  <img src={collab1} />
+                  <img src={collab1} alt="" />
                 </div>
               </SplideSlide>
               <SplideSlide>
                 <div className="col">
-                  <img src={collab2} />
+                  <img src={collab2} alt=""  />
                 </div>
               </SplideSlide>
               <SplideSlide>
                 <div className="col">
-                  <img src={collab3} />
+                  <img src={collab3} alt=""  />
                 </div>
               </SplideSlide>
               <SplideSlide>
                 <div className="col">
-                  <img src={collab4} />
+                  <img src={collab4} alt=""  />
                 </div>
               </SplideSlide>
               <SplideSlide>
                 <div className="col">
-                  <img src={collab5} />
+                  <img src={collab5} alt="" />
                 </div>
               </SplideSlide>
               <SplideSlide>
                 <div className="col">
-                  <img src={collab6} />
+                  <img src={collab6} alt=""  />
                 </div>
               </SplideSlide>
               <SplideSlide>
                 <div className="col">
-                  <img src={collab7} />
+                  <img src={collab7} alt=""  />
                 </div>
               </SplideSlide>
               <SplideSlide>
                 <div className="col">
-                  <img src={collab8} />
+                  <img src={collab8} alt=""  />
                 </div>
               </SplideSlide>
             </Splide>
@@ -595,6 +576,12 @@ function Home() {
                 </p>
                 <p>JEYANTH P</p>
               </SplideSlide>
+
+
+
+
+
+              
               <SplideSlide>
                 <img src={d4} alt="" />
                 <h3>Responsive Customer Support</h3>
@@ -628,6 +615,10 @@ function Home() {
                 </p>
                 <p>ELANGO</p>
               </SplideSlide>
+
+
+
+
               <SplideSlide>
                 <img src={d7} alt="" />
                 <h3>Clear and Concise Explanations</h3>
@@ -708,9 +699,9 @@ function Home() {
                  <div> Are you an expert in your field, eager to inspire and empower learners?
                 </div>
                 <div className="btnsec">
-                <button>APPLY NOW</button>
-                  <div>KNOW MORE &gt;</div>
-                </div>
+                <button onClick={applyNow}>APPLY NOW</button>
+                  <div onClick={()=> navigate('/sower/#sower')}>KNOW MORE &gt;</div>
+                </div> 
                  
                 </div>
                 <div className="sowerright">
@@ -727,7 +718,7 @@ function Home() {
             <div className="content">
             <h2>Get in Touch</h2>
               <div className="container-div contact-us">
-                <form action="" onSubmit={getInTouchSubmit}>
+                <form className="footer_form" action="" onSubmit={getInTouchSubmit}>
                   <div>
 
                   <label htmlFor="name">Name</label>
@@ -916,6 +907,12 @@ function Home() {
 
         {/* ---------------------------------------------------------------------Footer Section-------------------------------------------------------------------------------------------------------------------------- */}
         <Footer />
+        {apply && (
+        <div className="wrapper">
+          <div className="blocker" onClick={() => setApply(false)}></div>
+          <ApplyNow name={userName} uid={userId} setLoading={setLoading}  />
+        </div>
+      )}
       </div>
     </>
   );

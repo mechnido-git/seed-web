@@ -70,7 +70,16 @@
 .home .main .who .whoLeft div , .home .main .who .whoRight div{
   font-size: 20px;
   line-height: 35px;
-
+  width:500px;
+}
+.home .main .who .whoRight div{
+  width:520px
+}
+.home .main .who .whoLeft div span , .home .main .who .whoRight div span{
+  color:var(--primary);
+}
+.home .main .who .whoLeft div span:hover , .home .main .who .whoRight div span:hover{
+  cursor: pointer;
 }
 
 /* .home>.main>.title {
@@ -245,11 +254,12 @@
   z-index: 10;
   align-self: center;
   position: relative;
-  background: linear-gradient( #727984, #ffffff) ;
+  background-image: linear-gradient( #727984, #ffffff) ;
   /* filter: blur; */
-  backdrop-filter: blur(10px); 
+  backdrop-filter: blur(4px); 
   border-radius: 20px;
  display: flex;
+
  
 
 }
@@ -257,13 +267,15 @@
 position: absolute;
 margin-left: 45%;
 margin-top: 25px;
+z-index:21;
 }
 .accredation h1{
   margin-top: 55px;
   margin-left:100%;
   letter-spacing: 1px;
   font-size: 30px;
-  font-weight:bold ;
+  font-weight:bolder ;
+  
 
 }
 .accredation .img img{
@@ -323,28 +335,149 @@ margin-bottom: 30px;
   line-height: 35px;
 }
 
-.whyusright button{
- padding:5px 14px;
-  border: 2px solid var(--primary);
+.whyusright .whyusbtns{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 38px;
+  color:var(--primary);
+}
+.whyusright .whyusbtns div{
+  font-size: 18px;
+  font-weight: 500;
+  position:relative;
+}
+.whyusright .whyusbtns div::before{
+  content: "";
+  position: absolute;
+  left:0;
+  bottom:0;
+  width:0;;
+  height: 2px;
   background-color: var(--primary);
-  color: var(--secondary);
-  margin-top: 50px;
-  width:200px;
-  height:50px;
-  font-size: 17px;
-  cursor: pointer;
-  transition: .4s;
-  align-items: center;
-  border-radius: 10px;
+  transition: width 0.35s ease-out;
 }
 
-.whyusright button:hover{
-  background-color: var(--secondary);
-  color:var(--primary);
-  border-color: var(--primary);
+
+.whyusright .whyusbtns div:hover::before{
+  width: 100%;
+}
+
+.whyusright .whyusbtns div:hover {
+  cursor: pointer;
 }
 /* ---------------------------------------------------------------------------------------------------------------------------------------------------- */
 
+/* ----------------------------------------------testimonials----------------------------------------------------------- */
+.testimonialsection{
+  margin-left: 60px;
+}
+.testimonial_content{
+  display: flex;
+  flex-direction: row;
+  gap:57px
+}
+.testimonialsection h1{
+ margin-bottom: 8px;
+  font-size: 36px;
+  font-weight: bold;
+  line-height: 43px;
+}
+
+.testimonialsection .say{
+  margin-left:9px;
+  width: 161px;
+  height: 39px;
+  font-size: 18px;
+  margin-bottom: 40px;
+  color:var(--textcolor);
+  line-height: 25px;
+  
+ letter-spacing: 0.5px;
+}
+.testimage{
+  width:72px;
+  height:356px;
+  position: absolute;
+  margin-top: 10px;
+}
+.testimage img{
+  width: 70px;
+  height:70px;
+  margin-bottom:-25px ;
+ 
+}
+.left-arrow{
+ width:65px;
+ height:65px;
+ border:2px solid var(--textcolor);
+ position: absolute;
+ transform: translate(-50%, -50%) rotate(45deg);
+ border-right: none;
+ border-top: none;
+ margin-left:170px;
+ margin-top:50px;
+}
+.left-arrow:before{
+  position:absolute;
+  content:"";
+  border-top: 2px solid var(--textcolor);
+  width:calc(1.41*(64px + 2px));
+  transform:rotate(45deg);
+ left: -15px;
+ top:32px
+  
+}
+.testimage div{
+ 
+  margin-top:85px
+}
+.testsection{
+  
+  width:570px;
+  height:345px;
+  border:2px solid var(--textcolor);
+  border-radius: 5px;
+  margin-left: 50px;
+  margin-left:180px
+}
+.test_content{
+  margin:15px 53px;
+
+}
+.test_content h2{
+font-size: 20px;
+width: 340px;
+height: 39px;
+color:var(--tertiary);
+margin-bottom: 20px;
+}
+.test_content .text{
+  margin-bottom: 20px;
+  font-size: 16px;
+  letter-spacing: 1px;
+  line-height: 22px;
+  width:400px;
+  
+}
+.test_content .name{
+  width: 121px;
+  height: 38px;
+  font-size: 18px;
+  color:var(--textcolor);
+  
+}
+
+
+
+/* .splide__pagination , .splide__arrow--prev , .splide__arrow--next , .splide__arrow svg{
+  visibility: hidden;
+} */
+
+
+
+
+/* ---------------------------------------------------------------------------------------------------------------------------------- */
 /*  ------------------------------------------------------------Sowersection---------------------------------------------------------------------------------------- */
 
 
@@ -381,6 +514,9 @@ margin-bottom: 30px;
 .btnsec div{
   margin-top: 65px ;
   color:var(--primary)
+}
+.btnsec div:hover{
+  cursor: pointer;
 }
 .sowerleft .btnsec button{
  padding:5px 14px;
@@ -749,18 +885,18 @@ margin-bottom: 30px;
   transition: .4s;
 } */
 
-.container-div>form >div {
+.container-div .footer_form >div {
   display: flex;
   flex-direction: column;
   width: 620px;
 }
 
-.container-div>form >div>label{
+.container-div .footer_form >div>label{
   font-size: 18px;
-  margin: 5px 0px;
+  margin: 5px 0px; 
   letter-spacing: 1px;
 }
-.container-div> form {
+.container-div .footer_form {
   display: flex;
   flex-direction: row;
   gap:70px;
