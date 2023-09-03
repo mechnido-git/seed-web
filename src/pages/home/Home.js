@@ -8,7 +8,7 @@ import {
   getRedirectResult,
   onAuthStateChanged,
   signOut,
-} from "firebase/auth";
+} from "firebase/auth"; 
 import { auth, db } from "../../firebase/config";
 import Spinner from "../../components/Spinner";
 import profile from "../../images/profile.png";
@@ -354,14 +354,17 @@ function Home() {
             <Splide
                 tag="section"
                 aria-labelledby="My Images"
+               
                 options={{
                   speed: 1500,
+                  Arrow:false,
                   autoplay: true,
                   interval: 3400,
                   pauseOnHover: true,
                   type: "loop",                
                   keyboard: true,
-                  gap: "1rem"
+                  gap: "1rem",
+                  pagination:false
                 }}
               >
                 {test.map((item, i)=>{
