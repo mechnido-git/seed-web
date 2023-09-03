@@ -357,7 +357,7 @@ function Home() {
                
                 options={{
                   speed: 1500,
-                  Arrow:false,
+                  arrows:false,
                   autoplay: true,
                   interval: 3400,
                   pauseOnHover: true,

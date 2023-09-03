@@ -286,6 +286,8 @@
     width: 100%;
     align-self: center;
     /* mix-blend-mode: darken; */
+    aspect-ratio: 16 / 8;
+
   }
   
   .nav.offer .drop-menu > .lists .cards > .card > .body{
