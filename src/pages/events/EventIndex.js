@@ -324,6 +324,7 @@ function EventIndex() {
                   gap: ".5rem",
                   width: "100%",
                   arrows: false,
+                  autoplay: true,
                   perPage:
                     window.innerWidth <= 426
                       ? 2
