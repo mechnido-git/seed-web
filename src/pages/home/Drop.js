@@ -11,6 +11,28 @@ import { auth, db } from "../../firebase/config";
 import { onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import Spinner from "../../components/Spinner";
+import ImageLoader from "../../components/imageLoader/ImageLoader";
+
+const CArdBuilder = ({arr, up, viewEventDetails, loading, id}) => {
+  useEffect(()=>{
+
+  }, [arr])
+  if(loading) return;
+  return <>
+        {arr.map((item, index) => {
+      return (
+        <div className="card" key={index+id} onClick={!up?()=>viewEventDetails(index): null}>
+          {/* <img src={item.poster} alt="" /> */}
+          <ImageLoader src={item.poster} style={{width: '100%'}} />
+          <div className="body">
+            <h4>{item.title}</h4>
+            <p>{item.subtitle}</p>
+          </div>
+        </div>
+      );
+    })}
+  </>
+}
 
 function Drop({ onClickOutside, show, dropIndex, redirect, setRedirect, setSignIn, linkRef1, linkRef2, linkRef3, navRef }) {
   const [offerSwitch, setOfferSwitch] = useState(0);
@@ -21,11 +43,10 @@ function Drop({ onClickOutside, show, dropIndex, redirect, setRedirect, setSignI
   const ref = useRef();
   const navigate = useNavigate()
 
-  const [events, setEvents] = useState([])
 
   console.log(dropIndex);
 
-  const { setCourses, courses, setUserName } = useContext(StoreContext);
+  const { setCourses, courses, events, setEvents, upcomingEvents, setUpcomingEvents } = useContext(StoreContext);
 
   const selcectOffer = (e) => {
     const list = document.querySelectorAll(".offer");
@@ -56,6 +77,14 @@ function Drop({ onClickOutside, show, dropIndex, redirect, setRedirect, setSignI
       tmp.push({ ...doc.data(), id: doc.id });
     });
     setEvents(tmp)
+    const f = query(collection(db, "upcoming_events"));
+      const snap = await getDocs(f);
+      const ftmp = [];
+      snap?.forEach((doc) => {
+
+        ftmp.push({ ...doc.data(), id: doc.id });
+      });
+      setUpcomingEvents(ftmp)
     setLoading(false)
    } catch (error) {
       console.log(error);
@@ -116,22 +145,7 @@ function Drop({ onClickOutside, show, dropIndex, redirect, setRedirect, setSignI
     }
   }
 
-  const cardBuilder = (arr, limit = 4) => (
-    <>
-      {arr.map((item, index) => {
-        if (limit != null && index >= limit) return;
-        return (
-          <div className="card" key={index} onClick={()=>viewEventDetails(index)}>
-            <img src={kart} alt="" />
-            <div className="body">
-              <h4>{item.name}</h4>
-              <div></div>
-            </div>
-          </div>
-        );
-      })}
-    </>
-  );
+
   const li = [1, 2, 3, 4, 5, 6];
 
   const sponserCard = () => (
@@ -233,9 +247,9 @@ function Drop({ onClickOutside, show, dropIndex, redirect, setRedirect, setSignI
               <div className="cards">
                 {loading && <Spinner loading={true} normal={true} />}
                 {eventSwitch == 0
-                  ? cardBuilder(events)
+                  ? <CArdBuilder id={10} loading={loading} arr={events} up={false} viewEventDetails={viewEventDetails} />
                   : eventSwitch == 1
-                    ? cardBuilder(events)
+                    ? <CArdBuilder id={100} loading={loading} arr={upcomingEvents} up={true} viewEventDetails={viewEventDetails} />
                     : sponserCard()}
               </div>
             </div>
