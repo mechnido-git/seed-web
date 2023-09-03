@@ -184,9 +184,10 @@ function Navbar({ signIn }) {
           <div className="blocker" onClick={() => setGetInTouch(false)}></div>
 
           <div className="git">
-            <div id="git"></div>
-           
+            {/* <div id="git"></div> */}
+            <span class="material-symbols-outlined">close</span>
             <div className="content">
+            
             <h2>Get in Touch</h2>
               <div className="container-div contact-us">
                 <form action="" onSubmit={getInTouchSubmit}>
@@ -198,7 +199,7 @@ function Navbar({ signIn }) {
                     id="name"
                     name="name"
                     placeholder="Your name"
-                    required
+                    required 
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                   />

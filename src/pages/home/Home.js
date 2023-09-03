@@ -11,24 +11,13 @@ import {
 } from "firebase/auth";
 import { auth, db } from "../../firebase/config";
 import Spinner from "../../components/Spinner";
-import fb from "../../images/fb.png";
-import insta from "../../images/insta.png";
 import profile from "../../images/profile.png";
-
 import HomeNav from "./homeNav/HomeNav";
 import { Link } from "react-router-dom";
 import Footer from "../../components/footer/Footer";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import sower from "../../images/gsower.png"
-import fbwhite from "../../images/facebookwhite.png";
-import instawhite from "../../images/instawhite.png";
 import { StoreContext } from "../../store/StoreContext";
-import why1 from "../../images/whyus1.png";
-import why2 from "../../images/whyus2.png";
-import why3 from "../../images/whyus3.png";
-import why4 from "../../images/whyus4.png";
-import why5 from "../../images/whyus5.png";
-import why6 from "../../images/whyus6.png";
 import msme from "../../images/msme.png";
 import aicte from "../../images/aicte (1).png";
 import iso from "../../images/iso.png";
@@ -40,13 +29,8 @@ import collab5 from "../../images/collab5.png";
 import collab6 from "../../images/collab6.png";
 import collab7 from "../../images/collab7.png";
 import collab8 from "../../images/collab8.png";
-import linkwhite from "../../images/linkedin-white.png";
-import linkgreen from "../../images/linkedin-green.png";
-import tg from "../../images/tweet-green.png";
-import tw from "../../images/tweet-white.png";
-import thw from "../../images/thread-w.png";
-import thg from "../../images/threads-green.png";
 import hp2 from "../../images/homepage 2.svg";
+import ApplyNow from "../sower/ApplyNow";
 // import hp1 from "../../images/homepage 1.png";
 // import p1 from "../../images/p1.jpg";
 // import p3 from "../../images/p3.jpg";
@@ -74,10 +58,10 @@ function Home() {
   const [category, setCategory] = useState("Category");
   const [msg, setMsg] = useState("");
   const [dp, setDp] = useState(profile);
-
+  const [userId, setUserId] = useState(null)
   const [redirect, setRedirect] = useState(null);
   const [redirectLoad, setRedirectLoad] = useState(false);
-
+  const [apply, setApply] = useState(false);
   const { theme, setCheck, setTheme, check } = useContext(StoreContext);
 
   // const [fbsrc, setFbsrc] = useState(fb);
@@ -137,11 +121,12 @@ function Home() {
         setUserName(user.displayName);
         setName(user.displayName);
         setEmail(user.email);
+        setUserId(user.uid)
         if (user.photoURL) setDp(user.photoURL);
         setLoading(false);
         if (last[0] === "#") {
           const id = last.slice(1, last.length);
-          console.log(id);
+          // console.log(id);
           document.getElementById(id).scrollIntoView({ behavior: "smooth" });
         }
       } else {
@@ -192,6 +177,14 @@ function Home() {
   //   setActive3(!active3);
   // };
 
+  const applyNow = () =>{
+    if(userId){
+      
+      setApply(true)
+    }else{
+      alert("Log in first")
+    }
+  }
   const test=[
     {
       head: "Engaging and Informative Sessions!",
@@ -316,119 +309,8 @@ function Home() {
 
             <div className="titleright">
             <img src={hp2} alt=""/>
-            </div>
-           
+            </div> 
           </div>
-
-
-
-
-          {/* --------------------------------------------why us ? section--------------------------------------------------------------- */}
-          {/* <div className="whyus">
-            <h2>Why choose us?</h2>
-
-            <Splide
-              tag="section"
-              aria-labelledby="My Favorite Images"
-              options={{
-                speed: 1000,
-                pauseOnHover: false,
-                type: "loop",
-                pauseOnFocus: true,
-                keyboard: true,
-                gap: ".5rem",
-                width: "100%",
-                perPage:
-                  window.innerWidth <= 426
-                    ? 1
-                    : window.innerWidth <= 768
-                    ? 1.5
-                    : window.innerWidth <= 1024
-                    ? 2
-                    : 3,
-                perMove: 1,
-                pagination: false,
-              }}
-            >
-              <SplideSlide>
-                <div className="why">
-                  <div className="imgg">
-                    {" "}
-                    <img src={why1} />
-                  </div>
-                  <div className="pp">
-                    <h4>Empowering Students</h4>
-                  </div>
-                </div>
-              </SplideSlide>
-              <SplideSlide>
-                <div className="why">
-                  <div className="imgg">
-                    {" "}
-                    <img src={why2} />
-                  </div>
-                  <div className="pp">
-                    <h4>Today's Need</h4>
-                  </div>
-                </div>
-              </SplideSlide>
-              <SplideSlide>
-                <div className="why">
-                  <div className="imgg">
-                    {" "}
-                    <img src={why3} />
-                  </div>
-                  <div className="pp">
-                    <h4>Expert-led</h4>
-                  </div>
-                </div>
-              </SplideSlide>
-              <SplideSlide>
-                <div className="why">
-                  <div className="imgg">
-                    {" "}
-                    <img src={why4} />
-                  </div>
-                  <div className="pp">
-                    <h4>Live Interactions</h4>
-                  </div>
-                </div>
-              </SplideSlide>
-              <SplideSlide>
-                <div className="why">
-                  <div className="imgg">
-                    {" "}
-                    <img src={why5} />
-                  </div>
-                  <div className="pp">
-                    <h4>Practical Learning</h4>
-                  </div>
-                </div>
-              </SplideSlide>
-              <SplideSlide>
-                <div className="why">
-                  <div className="imgg">
-                    {" "}
-                    <img src={why4} />
-                  </div>
-                  <div className="pp">
-                    <h4>Awesome Community</h4>
-                  </div>
-                </div>
-              </SplideSlide>
-              <SplideSlide>
-                <div className="why">
-                  <div className="imgg">
-                    {" "}
-                    <img src={why6} />
-                  </div>
-                  <div className="pp">
-                    <h4>Dynamic Classes</h4>
-                  </div>
-                </div>
-              </SplideSlide>
-            </Splide>
-          </div> */}
           {/* --------------------------------------------------------------whyus------------------------------------------------------- */}
 
           <div className="whyus">
@@ -440,11 +322,12 @@ function Home() {
                 <div> The possibilities of the sky and the realm of knowledge are limitless,</div>
                  <div> Embark on a journey of self transformation and unleash your creative potential.
                 </div>
-                  <button>EXPLORE COURSES</button>
+                  <div className="whyusbtns">
+                  <div onClick={() => navigate("/menu/courses")}>EXPLORE COURSES</div>
+                  <div onClick={() => navigate("/menu/events")}>EXPLORE EVENTS</div>
+                  </div>
               </div>
-
           </div>
-
           {/* ----------------------------------------------------------- testimonials---------------------------------------------------------------- */}
             <div className="testimonialsection"> 
               <h1>Testimonials</h1>
@@ -505,24 +388,18 @@ function Home() {
                   <div className="whoLeft">
                     <h2>About SEED - AN EDTECH ORGANISATION</h2>
                     <div>
-                    Kudos to the instructors of the Design Thinking course! The
-                  real-life case studies discussed during the live sessions have
-                  truly expanded my understanding of the subject. This
-                  platform's approach to incorporating interactive sessions has
-                  given me a chance to apply the principles in real-time
-                  scenarios, enhancing my problem-solving skills
+                    Mechnido's Seed Learning Hub is a dynamic and innovative platform that
+                     serves as an integral part of MECHNIDO, dedicated to providing a comprehensive 
+                     learning solution for individuals across diverse segments .Our platform offers a wide <span onClick={()=>navigate('/about/#about')}>Know More &gt;</span>
                     </div>
 
                   </div>
                   <div className="whoRight">
-                  <h2>About SEED - AN EDTECH ORGANISATION</h2>
+                  <h2> About Organizing Team - MECHNIDO</h2>
                     <div>
-                    Kudos to the instructors of the Design Thinking course! The
-                  real-life case studies discussed during the live sessions have
-                  truly expanded my understanding of the subject. This
-                  platform's approach to incorporating interactive sessions has
-                  given me a chance to apply the principles in real-time
-                  scenarios, enhancing my problem-solving skills
+                    M/S MECHNIDO was Established in 2018 in Coimbatore, Tamil Nadu, M/S Mechnido is a
+                     promising enterprise in the electric vehicle (EV) industry.
+               With a strong commitment to driving innovation and contributing to a sustainable future, <span onClick={()=>navigate('/about/#about')}>Know More &gt;</span>
                     </div>
                   </div>
 
@@ -819,9 +696,9 @@ function Home() {
                  <div> Are you an expert in your field, eager to inspire and empower learners?
                 </div>
                 <div className="btnsec">
-                <button>APPLY NOW</button>
-                  <div>KNOW MORE &gt;</div>
-                </div>
+                <button onClick={applyNow}>APPLY NOW</button>
+                  <div onClick={()=> navigate('/sower/#sower')}>KNOW MORE &gt;</div>
+                </div> 
                  
                 </div>
                 <div className="sowerright">
@@ -1027,6 +904,12 @@ function Home() {
 
         {/* ---------------------------------------------------------------------Footer Section-------------------------------------------------------------------------------------------------------------------------- */}
         <Footer />
+        {apply && (
+        <div className="wrapper">
+          <div className="blocker" onClick={() => setApply(false)}></div>
+          <ApplyNow name={userName} uid={userId} setLoading={setLoading}  />
+        </div>
+      )}
       </div>
     </>
   );
