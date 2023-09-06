@@ -3,18 +3,18 @@ import React, { useEffect, useState , useContext} from "react";
 import Spinner from "../../components/Spinner";
 import { auth } from "../../firebase/config";
 import kart from "../../images/kart_logo.png";
-import logo from "../../images/seed_logo/Seed Joined.svg";
+import logo from "../../images/seed_logo/Seed Joined.svg"
 import mech from "../../images/mech_logo.png";
 import profile from "../../images/profile.png";
 import "./about.css";
 import HomeNav from "../home/homeNav/HomeNav";
 import { Link } from "react-router-dom";
 import Footer from "../../components/footer/Footer";
-import seedwhite from "../../images/seed_white.png";
+import seedwhite from "../../images/Seed Joined White 2 .png";
 import { StoreContext } from "../../store/StoreContext.js";
 import about1 from "../../images/about1.png";
 import about2 from "../../images/about2.png";
-import about3 from "../../images/about3.png";
+import about3 from "../../images/about3.png"; 
 import about4 from "../../images/about4.png";
 import about5 from "../../images/about5.png";
 import conti1 from "../../images/contri1.png";
@@ -53,7 +53,7 @@ function About() {
         <div className="about" id="about">
           
      
-          <section>
+          {/* <section>
             <div className="details">
               <h2>
                 About SEED- AN EDTECH ORGANISATION
@@ -67,7 +67,7 @@ function About() {
                 All the events included under brand name SEED are exclusive
                 events and cannot be associated with other events conducted by
                 M/S MECHNIDO.{" "}
-              </p> */}
+              </p> *
               <h2>Vision</h2>
               <p>
               We envision a world where learning is a lifelong pursuit, and everyone has the opportunity to unlock their full potential. 
@@ -81,9 +81,9 @@ function About() {
             <div className="logo">
             <img src={check ? seedwhite : logo} alt="seed logo " />
             </div>
-          </section>
+          </section> */}
 
-          <section className="sectionimg">
+          {/* <section className="sectionimg">
             <div >
             <div className="img"><img src={about2}/></div>
               <div  className="txt"><h3>Experienced Trainers</h3></div>
@@ -104,19 +104,52 @@ function About() {
             <div className="img"><img src={about5}/></div>
               <div className="txt"><h3>4 Years in service</h3></div>
             </div>
-            
+          </section> */}
 
-          </section>
 
           <section>
-            <div className="logo">
-              <img src={mech} alt="" />
+            <div>
+            <h1>
+                About SEED- AN EDTECH ORGANISATION
+              </h1>
+
+              <p>
+              Mechnido's Seed Learning Hub is a dynamic and innovative platform that serves as an integral part of MECHNIDO, dedicated to providing a comprehensive learning solution for individuals across diverse segments.
+               Our platform offers a wide range of courses and events to help learners enhance their knowledge and skills, empowering them to thrive in an ever-evolving world. 
+              Our courses and events are designed by industry experts and educators who are passionate about their fields.{" "}
+              </p>
             </div>
+            <div className="logo">
+            <img src={check ? seedwhite : logo} alt="seed logo " />
+            </div>
+          </section>
+
+        
+
+
+          <section className="vismis">
+           <div className="vis">
+           <h1>Vision</h1>
+              <p>
+              We envision a world where learning is a lifelong pursuit, and everyone has the opportunity to unlock their full potential. 
+              Our goal is to create a dynamic and inclusive learning community where individuals can explore, connect, and grow, making learning a fulfilling and enjoyable experience.{" "}
+              </p>
+           </div>
+           <div className="mis">
+           <h1>Mission</h1>
+              <p>
+              Our mission is to empower individuals to learn and grow by providing a comprehensive and accessible learning solution. We strive to offer a wide range of courses and events that enhance knowledge and skills, enabling individuals to thrive in a changing world
+              </p>
+           </div>
+          </section>
+
+
+          <section>
             <div className="details">
-              <h2>
+              <h1>
                 About Organizing Team -{" "}
                 <span style={{ color: "red" }}>MECHNIDO</span>
-              </h2>
+              </h1>
               <p>
               M/S MECHNIDO was Established in 2018 in Coimbatore, Tamil Nadu, M/S Mechnido is a promising enterprise in the electric vehicle (EV) industry.
                With a strong commitment to driving innovation and contributing to a sustainable future, Mechnido is dedicated to manufacturing high-quality electric vehicles that
@@ -125,7 +158,14 @@ function About() {
 
               </p>
             </div>
+            <div className="logomech">
+              <img src={mech} alt="" />
+            </div>
           </section>
+
+
+
+
 
           <section>
 
