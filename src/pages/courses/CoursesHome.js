@@ -314,7 +314,7 @@ function CoursesHome() {
       </div>
       {buy && (
         <div className="wrapper">
-          <div className="blocker" onClick={() => setbuy(false)}>
+          <div className="blocker" >
 
           </div>
 
