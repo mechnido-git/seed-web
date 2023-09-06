@@ -290,9 +290,19 @@ function Home() {
               <h1>Accreditations</h1>
             </div>
             <div className="img">
+              <div>
               <img src={iso} alt="ISO"/>
+              <p>Approved by ISO</p>
+              </div>
+             <div>
               <img src={msme} alt="MSME"/>
-              <img src={aicte} alt="AICTE" />
+             <p>Approved by MSME</p>
+             </div>
+             <div> <img src={aicte} alt="AICTE" />
+             <p>Internship Partner</p></div>
+              
+              
+             
             </div>
           </div>
 
