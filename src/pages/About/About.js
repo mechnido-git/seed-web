@@ -29,7 +29,8 @@ function About() {
   const [userName, setUserName] = useState(null);
   const [loading, setLoading] = useState(true);
   const [redirect, setRedirect] = useState(null);
-  const [signIn, setSignin] = useState(false)
+  const [signIn, setSignin] = useState(false);
+  const [ind, setInd] = useState(0);
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -43,6 +44,13 @@ function About() {
     });
   }, []);
 
+setInterval(()=>{
+  let a = (ind+1)%4;
+  setInd(a);
+}, 5000)
+ 
+
+
   return (
     <>
     {loading && <Spinner other="globel" loading={loading} />}
@@ -51,37 +59,6 @@ function About() {
         {loading && <Spinner loading={loading} />}
 
         <div className="about" id="about">
-          
-     
-          {/* <section>
-            <div className="details">
-              <h2>
-                About SEED- AN EDTECH ORGANISATION
-              </h2>
-              <p>
-              Mechnido's Seed Learning Hub is a dynamic and innovative platform that serves as an integral part of MECHNIDO, dedicated to providing a comprehensive learning solution for individuals across diverse segments.
-               Our platform offers a wide range of courses and events to help learners enhance their knowledge and skills, empowering them to thrive in an ever-evolving world. 
-              Our courses and events are designed by industry experts and educators who are passionate about their fields.{" "}
-              </p>
-              {/* <p>
-                All the events included under brand name SEED are exclusive
-                events and cannot be associated with other events conducted by
-                M/S MECHNIDO.{" "}
-              </p> *
-              <h2>Vision</h2>
-              <p>
-              We envision a world where learning is a lifelong pursuit, and everyone has the opportunity to unlock their full potential. 
-              Our goal is to create a dynamic and inclusive learning community where individuals can explore, connect, and grow, making learning a fulfilling and enjoyable experience.{" "}
-              </p>
-              <h2>Mission</h2>
-              <p>
-              Our mission is to empower individuals to learn and grow by providing a comprehensive and accessible learning solution. We strive to offer a wide range of courses and events that enhance knowledge and skills, enabling individuals to thrive in a changing world
-              </p>
-            </div>
-            <div className="logo">
-            <img src={check ? seedwhite : logo} alt="seed logo " />
-            </div>
-          </section> */}
 
           {/* <section className="sectionimg">
             <div >
@@ -164,7 +141,10 @@ function About() {
           </section>
 
 
+          {
 
+
+          }
 
 
           <section>
@@ -174,41 +154,16 @@ function About() {
               Our Contribution to the <br></br> Sustainable Development Goals
               </h2>
             </div>
-
-
             <div className="card-conti">
-              <div><img src={conti1} alt=""/></div>
-              <div><img src={conti2} alt=""/></div>
-              <div><img src={conti3} alt=""/></div>
-              <div><img src={conti4} alt=""/></div>
+              <img className="img1" src={conti1} alt=""/>
+              <img  className="img2" src={conti2} alt=""/>
+             <img  className="img3" src={conti3} alt=""/>
+              <img className="img4" src={conti4} alt=""/>
             </div>
            
           </section>
 
-          {/* <section>
-            <div className="logo">
-              {console.log("this is check",check)}
-            <img src={check ? seedwhite : logo} alt="seed logo " />
-            </div>
-            <div className="details">
-              <h2>
-                About SEED - VIRTUAL
-                KART{" "}
-              </h2>
-              <p>
-                SEED virtual kart is an online event encouraging
-                budding engineers in designing a Go-kart or E-kart with proper
-                engineering techniques. It aims at developing appropriate
-                designing skills and understanding of the relevant scientific
-                theories. It is a team event. The participating teams have to
-                develop a virtual model of Go-kart or an E-kart, analyse and
-                optimise virtually, under ideal conditions using modern computer
-                applications, scientific theories and engineering calculations.
-                The teams are then evaluated based on various relevant aspects
-                required to design a fully functional vehicle.{" "}
-              </p>
-            </div>
-          </section> */}
+        
         </div>
 
         <Footer />

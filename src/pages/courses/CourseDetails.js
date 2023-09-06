@@ -93,9 +93,12 @@ function CourseDetails() {
             {data.name}
           </h1>
           {data.description.map(item => <p>{item}</p>)}
+          <div>
           <HashLink to={`${loc.pathname}/#explore`} smooth>
-            Explore
+             Explore
           </HashLink>
+          </div>
+          
         </div>
         <div className="course">
           <div className="card">
