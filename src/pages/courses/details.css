@@ -87,7 +87,7 @@
     margin-top: 1rem;
 }
 
-.course-details > .hero > .course > .card > button, .course-details .title > a,  
+.course-details > .hero > .course > .card > button, 
 .course-details > .explore > .content > .card > button{
     padding: .8rem 4rem;
     font-size: 20px;
@@ -101,13 +101,37 @@
     transition: .2s;
     display: inline-block;
     box-sizing: border-box;
-
-    
 }
-.course-details .title > a:hover{
+
+.course-details .title > div{
+    position: relative;
+    margin-top: 20px;
+  padding: 5px ;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    width:fit-content;
+  color:var(--primary);
+}
+
+.course-details .title > div::before{
+    content: "";
+    position: absolute;
+    left:0;
+    bottom:0;
+    width:0;;
+    height: 3px;
+    background-color: var(--primary);
+    transition: width 0.35s ease-out;
+}
+.course-details .title > div:hover::before{
+    width:100%;
+}
+
+/* .course-details .title > a:hover{
     background-color: var(--btnhover);
     color:var(--primary);
-}
+} */
 
 .course-details > .hero > .course > .card > button:hover:not(.disabledbtn), 
 .course-details .title button:hover, 
