@@ -49,19 +49,53 @@
   .about-container > .about .vismis .vis p{
     width: 500px;
   }
+  .about-container > .about .abouts{
+    background-color: #B1E9D8;
+  }
 
   .about-container > .about .sectionimg{
  display: flex;
  flex-direction: row;
- gap: 60px;
- height: 400px;
+ gap: -30px;
+ height: 600px;
+ margin-right:200px;
+ margin-left: 150px;
+ margin-top: 70px;
+
 
   }
+  /* .about-container > .about .sectionimg div .txt h3{
+    display: inline;
+
+  } */
   .about-container > .about .sectionimg div{
     text-align: center;
     margin: auto auto;
+    margin-bottom: 35px;
   }
+  /* .about-container > .about .sectionimg .ab1{
+    position: absolute;
+    top:50px
+  } */
 
+  .about-container > .about .sectionimg div .img{
+    width:150px;
+    height:150px;
+    object-fit: contain;
+    transform: (100, 100);
+   
+  }
+  .about-container > .about .sectionimg div .txt{
+    width:200px;
+    margin-top: -10px;
+  }
+  .about-container > .about .sectionimg div .img1 img{
+    width:250px;
+    height: 250px;
+  }
+  .about-container > .about .sectionimg .centralimg{
+    margin-top:35px
+  }
 /* 
   .about-container{
     display: flex;

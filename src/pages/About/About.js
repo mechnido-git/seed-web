@@ -60,7 +60,26 @@ useEffect(() => {
 }, [ind]);
 
 const about=[
-  about1, about2, about3, about4 ,about5
+ {
+  imgs:about1,
+  data:"Experienced Trainers"
+ },
+ {
+  imgs: about2,
+  data :"Established in 2019"
+ },
+ {
+  imgs: about3,
+  data :"High quality tech-training platform"
+ } ,
+ {
+  imgs: about4,
+  data :"In demand courses"
+ } ,
+ {
+  imgs: about5,
+  data :"4 Years in service"
+ }
 ]
 
 
@@ -111,29 +130,31 @@ const about=[
               </p>
            </div>
           </section>
-
+          <div className="abouts">
           <section className="sectionimg">
-            <div >
-            <div className="img"><img src={about[ind]}/></div>
-              <div  className="txt"><h3>Experienced Trainers</h3></div>
+            <div className="ab1" >
+            <div className="img"><img src={about[ind].imgs}/></div>
+              <div  className="txt"><h3>{about[ind].data}</h3></div>
             </div>
-            <div>
-            <div className="img"><img src={about[(ind+4)%5]}/></div>
-              <div  className="txt"><h3>Established in 2019</h3></div>
+            <div className="ab2">
+            <div className="img"><img src={about[(ind+4)%5].imgs}/></div>
+              <div  className="txt"><h3>{about[(ind+4)%5].data}</h3></div>
+            </div >
+            <div className="centralimg">
+            <div className="img1"><img src={about[(ind+3)%5].imgs}/></div>
+              <div  className="txt"><h3>{about[(ind+3)%5].data}</h3></div>
             </div>
-            <div>
-            <div className="img"><img src={about[(ind+3)%5]}/></div>
-              <div  className="txt"><h3>High quality tech-training platform</h3></div>
+            <div className="ab4">
+            <div className="img"><img src={about[(ind+2)%5].imgs}/></div>
+              <div  className="txt"><h3>{about[(ind+2)%5].data}</h3></div>
             </div>
-            <div>
-            <div className="img"><img src={about[(ind+2)%5]}/></div>
-              <div  className="txt"><h3>In demand courses</h3></div>
-            </div>
-            <div>
-            <div className="img"><img src={about[(ind+1)%5]}/></div>
-              <div className="txt"><h3>4 Years in service</h3></div>
+            <div className="ab5">
+            <div className="img"><img src={about[(ind+1)%5].imgs}/></div>
+              <div className="txt"><h3>{about[(ind+1)%5].data}</h3></div>
             </div>
           </section>
+          </div>
+          
 
           <section>
             <div className="details">
