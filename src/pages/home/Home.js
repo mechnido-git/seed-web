@@ -353,10 +353,7 @@ function Home() {
                 <img src={d4}/>
               </div>
               </div>
-
               <div className="left-arrow">
-                
-
               </div>
 
            
