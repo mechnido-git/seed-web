@@ -44,11 +44,24 @@ function About() {
     });
   }, []);
 
-setInterval(()=>{
-  let a = (ind+1)%4;
-  setInd(a);
-}, 5000)
+
  
+useEffect(() => {
+  
+  //Implementing the setInterval method
+  const interval = setInterval(()=>{
+    let a = (ind+1)%5;
+    setInd(a);
+    console.log("about changes", ind);
+  }, 3000)
+
+  //Clearing the interval
+  return () => clearInterval(interval);
+}, [ind]);
+
+const about=[
+  about1, about2, about3, about4 ,about5
+]
 
 
   return (
@@ -60,28 +73,7 @@ setInterval(()=>{
 
         <div className="about" id="about">
 
-          {/* <section className="sectionimg">
-            <div >
-            <div className="img"><img src={about2}/></div>
-              <div  className="txt"><h3>Experienced Trainers</h3></div>
-            </div>
-            <div>
-            <div className="img"><img src={about1}/></div>
-              <div  className="txt"><h3>Established in 2019</h3></div>
-            </div>
-            <div>
-            <div className="img"><img src={about3}/></div>
-              <div  className="txt"><h3>High quality tech-training platform</h3></div>
-            </div>
-            <div>
-            <div className="img"><img src={about4}/></div>
-              <div  className="txt"><h3>In demand courses</h3></div>
-            </div>
-            <div>
-            <div className="img"><img src={about5}/></div>
-              <div className="txt"><h3>4 Years in service</h3></div>
-            </div>
-          </section> */}
+        
 
 
           <section>
@@ -120,6 +112,28 @@ setInterval(()=>{
            </div>
           </section>
 
+          <section className="sectionimg">
+            <div >
+            <div className="img"><img src={about[ind]}/></div>
+              <div  className="txt"><h3>Experienced Trainers</h3></div>
+            </div>
+            <div>
+            <div className="img"><img src={about[(ind+4)%5]}/></div>
+              <div  className="txt"><h3>Established in 2019</h3></div>
+            </div>
+            <div>
+            <div className="img"><img src={about[(ind+3)%5]}/></div>
+              <div  className="txt"><h3>High quality tech-training platform</h3></div>
+            </div>
+            <div>
+            <div className="img"><img src={about[(ind+2)%5]}/></div>
+              <div  className="txt"><h3>In demand courses</h3></div>
+            </div>
+            <div>
+            <div className="img"><img src={about[(ind+1)%5]}/></div>
+              <div className="txt"><h3>4 Years in service</h3></div>
+            </div>
+          </section>
 
           <section>
             <div className="details">
