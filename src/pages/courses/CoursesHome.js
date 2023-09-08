@@ -26,11 +26,13 @@ const getInvoice = (course, user) => {
   })
   return invoice
 }
-export const CardBuilder = ({ arr, limit, viewDetails, loading, user, download }) => (
-  <>
+export const CardBuilder = ({ arr, limit, viewDetails, loading, user, download }) => {
+  if(arr.length <= 0) return <p>No Courses Available</p>
+ return <>
     {arr.map((item, index) => {
       // console.log(index);
       if (limit != null && index >= limit) return;
+      
       return (
         <div className="card" key={index} onClick={() => viewDetails(item.order)}>
           {/* <img src={require("../../images/courses.jpg")} alt="" /> */}
@@ -57,7 +59,7 @@ export const CardBuilder = ({ arr, limit, viewDetails, loading, user, download }
       );
     })}
   </>
-);
+};
 
 export const category = [
   "All",

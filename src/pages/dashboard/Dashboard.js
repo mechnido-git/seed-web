@@ -373,14 +373,7 @@ const Announcement = () => {
     <div className="messages card">
       <div className="message">
         <h4 >Welcome</h4>
-        <p >Happy to see you</p>
-        <span class="material-symbols-outlined">
-          notifications
-        </span>
-      </div>
-      <div className="message">
-        <h4 >Welcome</h4>
-        <p >Happy to see you</p>
+        <p >Happy to see you let's Revolutionizing Possibilities</p>
         <span class="material-symbols-outlined">
           notifications
         </span>
@@ -392,12 +385,21 @@ const Announcement = () => {
 const LearningResources = () => {
   // const [drag, setDrag] = useState(false)
 
+  const LearingResources = [
+    {
+      title: "IS PERSISTENCE REALLY MATTER TO SUCCESS?",
+      link: "https://guhublog5103.blogspot.com/2023/08/is-persistence-really-matter-to-success.html?m=1",
+    },
+    {
+      title: "7 BENEFITS OF OVERTHINKING",
+      link: "https://guhublog5103.blogspot.com/2023/07/7-proven-benefits-of-overthinking.html?m=1",
+    }
+  ]
+
   return <div className="section">
     <h4>Learning Recources</h4>
     <div className="links">
-      <div className="card">Link #1</div>
-      <div className="card">Link #2</div>
-      <div className="card">Link #3</div>
+      {LearingResources.map(item=><div className="card"><Link target="_blank" to={item.link} >{item.title}</Link></div>)}
     </div>
   </div>
 }
