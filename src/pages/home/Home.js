@@ -29,7 +29,7 @@ import collab5 from "../../images/collab5.png";
 import collab6 from "../../images/collab6.png";
 import collab7 from "../../images/collab7.png";
 import collab8 from "../../images/collab8.png";
-import hp2 from "../../images/homepage 2.svg";
+import hp2 from "../../images/homepage 2.png";
 import ApplyNow from "../sower/ApplyNow";
 // import hp1 from "../../images/homepage 1.png";
 // import p1 from "../../images/p1.jpg";

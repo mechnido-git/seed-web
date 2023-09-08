@@ -41,9 +41,10 @@
 } */
 
 .home .main .title .titleright img{
-  
   margin-left: 730px;
   margin-top: -400px;
+  z-index: 1;
+
 }
 .home .main .whoarewe{
   margin:60px;
@@ -530,10 +531,24 @@ margin-bottom: 20px;
 }
 .btnsec div{
   margin-top: 65px ;
-  color:var(--primary)
+  color:var(--primary);
+  position:relative;
+}
+.btnsec div::before{
+  content: "";
+  position: absolute;
+  left:0;
+  bottom:0;
+  width:0;;
+  height: 2px;
+  background-color: var(--primary);
+  transition: width 0.35s ease-out;
 }
 .btnsec div:hover{
   cursor: pointer;
+}
+.btnsec div:hover::before{
+  width: 100%;
 }
 .sowerleft .btnsec button{
  padding:5px 14px;
