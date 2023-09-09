@@ -31,7 +31,19 @@ function About() {
   const [redirect, setRedirect] = useState(null);
   const [signIn, setSignin] = useState(false);
   const [ind, setInd] = useState(0);
-
+  const[rgt, setRgt] = useState('1160');
+  const[rgt1, setrgt1]= useState('900');
+  const[rgt2, setrgt2]= useState('650');
+  const[rgt3, setrgt3]= useState('450');
+  const[rgt4, setrgt4]= useState('200');
+  const[top, settop]=  useState('1260');
+  const[center, setcenter] = useState(false);
+  const[tp1, stp1]= useState('1260');
+  const[tp2, stp2]= useState('900');
+  const[tp3, stp3]= useState('1260');
+  const[tp4, stp4]= useState('1260');
+  
+  
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -46,18 +58,52 @@ function About() {
 
 
  
-useEffect(() => {
+// useEffect(() => {
   
-  //Implementing the setInterval method
-  const interval = setInterval(()=>{
-    let a = (ind+1)%5;
-    setInd(a);
-    console.log("about changes", ind);
-  }, 3000)
+//   //Implementing the setInterval method
+//   const interval = setInterval(()=>{
+//     let a = (ind+1)%5;
+//     setInd(a);
+//     console.log("about changes", ind);
+//   }, 3000)
 
-  //Clearing the interval
-  return () => clearInterval(interval);
-}, [ind]);
+//   //Clearing the interval
+//   return () => clearInterval(interval);
+// }, [ind]);
+
+const positions =[
+  {right:"1160px", top:"1260px"},
+  {right:"900px", top:"1260px"},
+  {right:"650px", top:"960px", center:'true'},
+  {right:"450px", top:"1260px"},
+  {right:"200px", top:"1260px"},
+]
+let cp=0;
+useEffect(()=>{
+  const interval = setInterval(()=>{
+        let a = (ind+1)%5;
+        
+        setInd(a);
+        cp = positions[ind];
+        settop(cp.top);
+       setRgt(cp.right);
+
+       setrgt1( positions[(ind+4)%5].right );
+       stp1(positions[(ind+4)%5].top);
+
+       setrgt2( positions[(ind+3)%5].right );
+       stp2(positions[(ind+3)%5].top);
+
+       setrgt3( positions[(ind+2)%5].right );
+       stp3(positions[(ind+2)%5].top);
+
+       setrgt4( positions[(ind+1)%5].right );
+       stp4(positions[(ind+1)%5].top);
+    
+      }, 3000)
+     
+      return () => clearInterval(interval);
+},[ind])
 
 const about=[
  {
@@ -91,9 +137,6 @@ const about=[
         {loading && <Spinner loading={loading} />}
 
         <div className="about" id="about">
-
-        
-
 
           <section>
             <div>
@@ -132,28 +175,33 @@ const about=[
           </section>
           <div className="abouts">
           <section className="sectionimg">
-            <div className="ab1" >
-            <div className="img"><img src={about[ind].imgs}/></div>
-              <div  className="txt"><h3>{about[ind].data}</h3></div>
+            <div className= "ab1" style={{right:rgt, transition:'0.5s', top: top }} >
+            <div className={top=="960px"? "img1" :"img"}><img style={{transition:'0.5s'}} src={about[0].imgs}/></div>
+              <div  className="txt"><h3>{about[0].data}</h3></div>
             </div>
-            <div className="ab2">
-            <div className="img"><img src={about[(ind+4)%5].imgs}/></div>
-              <div  className="txt"><h3>{about[(ind+4)%5].data}</h3></div>
+            <div className="ab2"  style={{right:rgt1, transition:'0.5s', top: tp1 }}>
+            <div className={tp1=="960px"? "img1" :"img"}><img src={about[1].imgs}/></div>
+              <div  className="txt"><h3>{about[1].data}</h3></div>
             </div >
-            <div className="centralimg">
-            <div className="img1"><img src={about[(ind+3)%5].imgs}/></div>
-              <div  className="txt"><h3>{about[(ind+3)%5].data}</h3></div>
+            <div className="centralimg"  style={{right:rgt2, transition:'0.5s', top: tp2 }}>
+            <div className={tp2=="960px"? "img1" :"img"}><img src={about[2].imgs}/></div>
+              <div  className="txt"><h3>{about[2].data}</h3></div>
             </div>
-            <div className="ab4">
-            <div className="img"><img src={about[(ind+2)%5].imgs}/></div>
-              <div  className="txt"><h3>{about[(ind+2)%5].data}</h3></div>
+            <div className="ab4"  style={{right:rgt3, transition:'0.5s', top: tp3 }}>
+            <div className={tp3=="960px"? "img1" :"img"}><img src={about[3].imgs}/></div>
+              <div  className="txt"><h3>{about[3].data}</h3></div>
             </div>
-            <div className="ab5">
-            <div className="img"><img src={about[(ind+1)%5].imgs}/></div>
-              <div className="txt"><h3>{about[(ind+1)%5].data}</h3></div>
+            <div className="ab5"  style={{right:rgt4, transition:'0.5s', top: tp4 }}> 
+            <div className={tp4=="960px"? "img1" :"img"}><img src={about[4].imgs}/></div>
+              <div className="txt"><h3>{about[4].data}</h3></div>
             </div>
           </section>
           </div>
+        
+         
+         
+        
+          
           
 
           <section>
