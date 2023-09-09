@@ -108,7 +108,7 @@
   .about-container > .about .sectionimg div .img1 img{
     width:250px;
     height: 250px;
-    transition:0.5s;
+    
   }
   .about-container > .about .sectionimg .centralimg{
     /* margin-top:35px */
@@ -238,16 +238,40 @@
     justify-items: center;
     padding: 1rem;
     margin: 2rem; 
-    
-
+    height:450px
   }
+
+
   .card-conti img{
     border-radius: 80%;
     width:150px;
     height: 150px;
+    position: absolute;
+  }
+  .card-conti .img1{
+    top:0px;
+    right:290px;
+  }
+  .card-conti .img2{
+    top:250px;
+    right:80px
+  }
+  .card-conti .img3{
+    top:160px;
+    right:240px;
+  }
+
+  .card-conti .img4{
+    top:250px;
+    right:500px
+  }
+  .card-conti .ctimg{
+    width:250px;
+    height:250px;
   }
   
   
   .contri{
    font-size: 40px;
+   margin-top:170px
   }
