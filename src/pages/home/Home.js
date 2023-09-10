@@ -3,6 +3,7 @@ import "./home.css";
 import trophy from "../../images/trophy.png";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { useNavigate } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 import {
   GoogleAuthProvider,
   getRedirectResult,
@@ -285,7 +286,7 @@ function Home() {
           </div>
         </div>
         <div className="main">
-          <div className="accredation">
+          <div className="accredation" id="accreditations">
             <div>
               <h1>Accreditations</h1>
             </div>
@@ -339,7 +340,7 @@ function Home() {
               </div>
           </div>
           {/* ----------------------------------------------------------- testimonials---------------------------------------------------------------- */}
-            <div className="testimonialsection"> 
+            <div className="testimonialsection" id="testimonial"> 
               <h1>Testimonials</h1>
               <div className="say">What people say?</div>
             <div className="testimonial_content">
@@ -400,7 +401,7 @@ function Home() {
                     <div>
                     Mechnido's Seed Learning Hub is a dynamic and innovative platform that
                      serves as an integral part of MECHNIDO, dedicated to providing a comprehensive 
-                     learning solution for individuals across diverse segments .Our platform offers a wide <span onClick={()=>navigate('/about/#about')}>Know More &gt;</span>
+                     learning solution for individuals across diverse segments .Our platform offers a wide  <HashLink className="whoto" to="/about/#about" smooth >Know More &gt;</HashLink>
                     </div>
 
                   </div>
@@ -409,7 +410,7 @@ function Home() {
                     <div>
                     M/S MECHNIDO was Established in 2018 in Coimbatore, Tamil Nadu, M/S Mechnido is a
                      promising enterprise in the electric vehicle (EV) industry.
-               With a strong commitment to driving innovation and contributing to a sustainable future, <span onClick={()=>navigate('/about/#about')}>Know More &gt;</span>
+               With a strong commitment to driving innovation and contributing to a sustainable future, <HashLink className="whoto" to="/about/#about" smooth >Know More &gt;</HashLink>
                     </div>
                   </div>
 
@@ -423,7 +424,7 @@ function Home() {
           {/* ---------------------------------------------------------------------------------------------------------------------------------------------------------- */}
 
           {/* -----------------------------------------Collaborations------------------------------------------------------------------------------------------------ */}
-          <div className="collab">
+          <div className="collab" id="Collaborations">
             <h1>Collaborations</h1>
             <Splide
               tag="section"
@@ -707,7 +708,10 @@ function Home() {
                 </div>
                 <div className="btnsec">
                 <button onClick={applyNow}>APPLY NOW</button>
-                  <div onClick={()=> navigate('/sower/#sower')}>KNOW MORE &gt;</div>
+                 
+                  <HashLink className="know" to="/sower/#sower" smooth>
+                  KNOW MORE &gt;
+              </HashLink>
                 </div> 
                  
                 </div>
@@ -760,16 +764,16 @@ function Home() {
                       Choose a category
                     </option>
                     <option style={{ fontSize: "17px" }} value="Group joining">
-                      Group joining
+                      Group Joining
                     </option>
                     <option
                       style={{ fontSize: "17px" }}
                       value="Courses related"
                     >
-                      Courses related
+                      Courses Related
                     </option>
                     <option style={{ fontSize: "17px" }} value="Events related">
-                      Events related
+                      Events Related
                     </option>
                     <option
                       style={{ fontSize: "17px" }}
@@ -781,10 +785,10 @@ function Home() {
                       style={{ fontSize: "17px" }}
                       value="Technical issues "
                     >
-                      Technical issues{" "}
+                      Technical Issues{" "}
                     </option>
                     <option style={{ fontSize: "17px" }} value="Payment issues">
-                      Payment issues
+                      Payment Issues
                     </option>
                     <option style={{ fontSize: "17px" }} value="Event Sponsors">
                       Event Sponsors
