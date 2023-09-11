@@ -49,7 +49,73 @@
   .about-container > .about .vismis .vis p{
     width: 500px;
   }
+  .about-container > .about .abouts{
+    background-color: #B1E9D8;
+  }
 
+  .about-container > .about .sectionimg{
+ display: flex;
+ flex-direction: row;
+ gap: -30px;
+ height: 600px;
+ margin-right:200px;
+ margin-left: 150px;
+ margin-top: 70px;
+
+
+  }
+  /* .about-container > .about .sectionimg div .txt h3{
+    display: inline;
+
+  } */
+  .about-container > .about .sectionimg div{
+    text-align: center;
+    margin: auto auto;
+    margin-bottom: 35px;
+  }
+  .about-container > .about .sectionimg .ab1,
+  .about-container > .about .sectionimg .ab2,
+  .about-container > .about .sectionimg .ab4,
+  .about-container > .about .sectionimg .ab5
+  {
+    position: absolute;
+    top:1260px
+  }
+  .about-container > .about .sectionimg .ab5{
+    right:200px
+  }
+  .about-container > .about .sectionimg .ab4{
+    right:450px
+  }
+  .about-container > .about .sectionimg .ab2{
+   right:900px
+  }
+  .about-container > .about .sectionimg .ab1{
+    right:1160px
+  }
+
+  .about-container > .about .sectionimg div .img{
+    width:150px;
+    height:150px;
+    object-fit: contain;
+    transform: (100, 100);
+   
+  }
+  .about-container > .about .sectionimg div .txt{
+    width:200px;
+    margin-top: -10px;
+  }
+  .about-container > .about .sectionimg div .img1 img{
+    width:250px;
+    height: 250px;
+    
+  }
+  .about-container > .about .sectionimg .centralimg{
+    /* margin-top:35px */
+    position:absolute;
+    top:960px;
+    right:650px;
+  }
 /* 
   .about-container{
     display: flex;
@@ -133,6 +199,7 @@
 
 
 
+
   @media only screen and (max-width: 840px){
     .about-container > .about > section{
         grid-template-columns: 1fr;
@@ -152,6 +219,8 @@
         grid-row: 2 / 3;
       }
   }
+
+
   @media only screen and (max-width: 425px){
     .about-container > .about > section{
       padding: 10px;
@@ -169,16 +238,40 @@
     justify-items: center;
     padding: 1rem;
     margin: 2rem; 
-    
-
+    height:450px
   }
+
+
   .card-conti img{
     border-radius: 80%;
     width:150px;
     height: 150px;
+    position: absolute;
+  }
+  .card-conti .img1{
+    top:0px;
+    right:290px;
+  }
+  .card-conti .img2{
+    top:250px;
+    right:80px
+  }
+  .card-conti .img3{
+    top:160px;
+    right:240px;
+  }
+
+  .card-conti .img4{
+    top:250px;
+    right:500px
+  }
+  .card-conti .ctimg{
+    width:250px;
+    height:250px;
   }
   
   
   .contri{
    font-size: 40px;
+   margin-top:170px
   }

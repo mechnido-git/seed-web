@@ -34,24 +34,30 @@ const { check}= useContext(StoreContext);
               </HashLink>
             </li>
             <li>
-              <HashLink smooth to="/#testimonials">
+              <HashLink smooth to="/#accreditations">
+                Accreditations
+              </HashLink>
+            </li>
+            <li>
+              <HashLink smooth to="/#testimonial">
                 Testimonials
               </HashLink>
             </li>
             <li>
-              <HashLink smooth to="/#sponsors">
-                Sponsors
+              <HashLink smooth to="/#Colaborations">
+                Collaborations
               </HashLink>
             </li>
+           
             <li>
               <HashLink smooth to="/faq/#faq">
                 FAQ
               </HashLink>
             </li>
-          </ul>
+          </ul> 
         </div>
         <div className="section">
-          <h3>Cources</h3>
+          <h3>Courses</h3>
           <ul>
             <li>
             <HashLink smooth to="/menu/courses/#recommended">
@@ -63,6 +69,7 @@ const { check}= useContext(StoreContext);
                 Trending now
               </HashLink>
             </li>
+            
             <li>
               <HashLink smooth to="/menu/courses/#team">
                 Team Picks
@@ -82,6 +89,11 @@ const { check}= useContext(StoreContext);
             <li>
               <HashLink smooth to="/menu/events/#upcoming">
                 Upcoming Events
+              </HashLink>
+            </li>
+            <li>
+              <HashLink smooth to="/menu/events/#sponsors">
+                Sponsors
               </HashLink>
             </li>
           </ul>

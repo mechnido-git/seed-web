@@ -3,6 +3,7 @@ import "./home.css";
 import trophy from "../../images/trophy.png";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { useNavigate } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 import {
   GoogleAuthProvider,
   getRedirectResult,
@@ -285,7 +286,7 @@ function Home() {
           </div>
         </div>
         <div className="main">
-          <div className="accredation">
+          <div className="accredation" id="accreditations">
             <div>
               <h1>Accreditations</h1>
             </div>
@@ -339,7 +340,7 @@ function Home() {
               </div>
           </div>
           {/* ----------------------------------------------------------- testimonials---------------------------------------------------------------- */}
-            <div className="testimonialsection"> 
+            <div className="testimonialsection" id="testimonial"> 
               <h1>Testimonials</h1>
               <div className="say">What people say?</div>
             <div className="testimonial_content">
@@ -400,7 +401,7 @@ function Home() {
                     <div>
                     Mechnido's Seed Learning Hub is a dynamic and innovative platform that
                      serves as an integral part of MECHNIDO, dedicated to providing a comprehensive 
-                     learning solution for individuals across diverse segments .Our platform offers a wide <span onClick={()=>navigate('/about/#about')}>Know More &gt;</span>
+                     learning solution for individuals across diverse segments .Our platform offers a wide  <HashLink className="whoto" to="/about/#about" smooth >Know More &gt;</HashLink>
                     </div>
 
                   </div>
@@ -409,7 +410,7 @@ function Home() {
                     <div>
                     M/S MECHNIDO was Established in 2018 in Coimbatore, Tamil Nadu, M/S Mechnido is a
                      promising enterprise in the electric vehicle (EV) industry.
-               With a strong commitment to driving innovation and contributing to a sustainable future, <span onClick={()=>navigate('/about/#about')}>Know More &gt;</span>
+               With a strong commitment to driving innovation and contributing to a sustainable future, <HashLink className="whoto" to="/about/#about" smooth >Know More &gt;</HashLink>
                     </div>
                   </div>
 
@@ -423,7 +424,7 @@ function Home() {
           {/* ---------------------------------------------------------------------------------------------------------------------------------------------------------- */}
 
           {/* -----------------------------------------Collaborations------------------------------------------------------------------------------------------------ */}
-          <div className="collab">
+          <div className="collab" id="Collaborations">
             <h1>Collaborations</h1>
             <Splide
               tag="section"
@@ -707,7 +708,10 @@ function Home() {
                 </div>
                 <div className="btnsec">
                 <button onClick={applyNow}>APPLY NOW</button>
-                  <div onClick={()=> navigate('/sower/#sower')}>KNOW MORE &gt;</div>
+                 
+                  <HashLink className="know" to="/sower/#sower" smooth>
+                  KNOW MORE &gt;
+              </HashLink>
                 </div> 
                  
                 </div>
@@ -760,16 +764,16 @@ function Home() {
                       Choose a category
                     </option>
                     <option style={{ fontSize: "17px" }} value="Group joining">
-                      Group joining
+                      Group Joining
                     </option>
                     <option
                       style={{ fontSize: "17px" }}
                       value="Courses related"
                     >
-                      Courses related
+                      Courses Related
                     </option>
                     <option style={{ fontSize: "17px" }} value="Events related">
-                      Events related
+                      Events Related
                     </option>
                     <option
                       style={{ fontSize: "17px" }}
@@ -781,10 +785,10 @@ function Home() {
                       style={{ fontSize: "17px" }}
                       value="Technical issues "
                     >
-                      Technical issues{" "}
+                      Technical Issues{" "}
                     </option>
                     <option style={{ fontSize: "17px" }} value="Payment issues">
-                      Payment issues
+                      Payment Issues
                     </option>
                     <option style={{ fontSize: "17px" }} value="Event Sponsors">
                       Event Sponsors
@@ -795,103 +799,7 @@ function Home() {
                   </select>
 
                   </div>
-                 
-
-                  {/* <div className="cards">
-                <div className="section">
-                  <a href="https://www.google.com/search?client=tablet-android-samsung-ss&sxsrf=AB5stBjynXM65Dq5sU2UvOOKChyWUkVHdQ:1691480997949&q=MECHNIDO+-+R%26D&ludocid=5846389838005926368&ibp=gwp;0,7&lsig=AB86z5WDXq3Yu-LuNuV-RN5ncQKQ&kgs=a48d0248b5423189&shndl=-1&shem=lbsc,lsp&source=sh/x/kp/local/m1/6" target="_blank">
-                  <span className="material-symbols-outlined">location_on</span>
-                  <div className="details">
-                <p>
-                294, 1st Floor, Trichy Rd, Vivekanandha Nagar, Singanallur, Tamil Nadu 641005.{" "}
-                </p>
-                  </div>
-                </a>
-                </div>
-                <div className="section">
-                  <span className="material-symbols-outlined">call</span>
-                  <div className="details">
-                    {/* <p>
-                      +91-9047363963 <br /> +91-8220662798
-                    </p> 
-                  </div>
-                </div>
-                <div className="section">
-                  <span className="material-symbols-outlined">mail</span>
-                  <div className="details">
-                    <p style={{ width: "100%", height: "100%" }}>
-                      <a
-                        style={{
-                          width: "100%",
-                          height: "100%",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                        }}
-                        href="mailto:support@mseed.in"
-                      >
-                       support@mseed.in
-                      </a>
-                    </p>
-                  </div>
-                </div>
-                <div className="section">
-                  <span className="material-symbols-outlined">group</span>
-                  <div className="details">
-                    <a
-                      href="https://www.facebook.com/IDEATECHEVENTS"
-                      target="_blank"
-                    >
-                      {" "}
-                      <img  style={{width: "35px",height:'35px' }} src={check ? fbwhite : fb} alt="" />
-                    </a>
-                   
-                    <a
-                      href="https://www.instagram.com/mechnido/?igshid=YmMyMTA2M2Y%3D&__coig_restricted=1"
-                      target="_blank"
-                    >
-                      {" "}
-                     
-                    <img style={{ width: "2.0rem" }} src={check ? instawhite : insta} alt="facebook link " />
-                      
-                      
-                    </a>
-
-                    <a
-                      href="https://twitter.com/Seed_Mechnido?t=3f1PMqcAsZpphg9EG-baFA&s=09"
-                      target="_blank"
-                    >
-                      {" "}
-                     
-                    <img style={{ width: "2.0rem" }} src={check ? tw : tg} alt="facebook link " />
-                      
-                      
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/showcase/ideaedu/"
-                      target="_blank"
-                    >
-                      {" "}
-                     
-                    <img style={{ width: "2.0rem" }} src={check ? linkwhite: linkgreen} alt="facebook link " />
-                      
-                      
-                    </a>
-                    <a
-                      href="https://www.threads.net/@ideatechevents"
-                      target="_blank"
-                    >
-                      {" "}
-                     
-                    <img style={{ width:"30px", height:"30px"  }} src={check ? thw: thg} alt="facebook link " />
-                      
-                      
-                    </a>
-
-                  </div> 
-                </div>
-               </div>  */}
-
+                
                   <div>
                     <label htmlFor="subject">Subject</label>
                     <textarea
