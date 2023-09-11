@@ -418,12 +418,16 @@ margin-bottom: 30px;
   height:356px;
   position: absolute;
   margin-top: 10px;
+  overflow: hidden;
 }
+
 .testimage img{
   width: 70px;
   height:70px;
   margin-bottom:-25px ;
- 
+  border-radius: 50%;
+  position: absolute;
+  transition: .6s;
 }
 .left-arrow{
  width:65px;
@@ -461,7 +465,10 @@ margin-bottom: 30px;
 }
 .test_content{
   margin:15px 53px;
-
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 .test_content h2{
 font-size: 20px;
