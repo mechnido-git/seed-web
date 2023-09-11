@@ -9,7 +9,7 @@ import {
   getRedirectResult,
   onAuthStateChanged,
   signOut,
-} from "firebase/auth"; 
+} from "firebase/auth";
 import { auth, db } from "../../firebase/config";
 import Spinner from "../../components/Spinner";
 import profile from "../../images/profile.png";
@@ -33,8 +33,8 @@ import collab8 from "../../images/collab8.png";
 import hp2 from "../../images/homepage 2.png";
 import ApplyNow from "../sower/ApplyNow";
 // import hp1 from "../../images/homepage 1.png";
-// import p1 from "../../images/p1.jpg";
-// import p3 from "../../images/p3.jpg";
+import p1 from "../../images/p1.jpg";
+import p3 from "../../images/p3.jpg";
 import d1 from "../../images/dp/dp1.png";
 import d2 from "../../images/dp/dp2.png";
 import d3 from "../../images/dp/dp3.png";
@@ -178,69 +178,98 @@ function Home() {
   //   setActive3(!active3);
   // };
 
-  const applyNow = () =>{
-    if(userId){
-      
+  const applyNow = () => {
+    if (userId) {
+
       setApply(true)
-    }else{
+    } else {
       alert("Log in first")
     }
   }
-  const test=[
+  const test = [
     {
+      img: p1,
       head: "Engaging and Informative Sessions!",
-      text:"Kudos to the instructors of the Design Thinking course! Thereal-life case studies discussed during the live sessions have truly expanded my understanding of the subject. This platform's approach to incorporating interactive sessions has given me a chance to apply the principles in real-time scenarios, enhancing my problem-solving skills",
-      name:"PRAVEEN D"
+      text: "Kudos to the instructors of the Design Thinking course! Thereal-life case studies discussed during the live sessions have truly expanded my understanding of the subject. This platform's approach to incorporating interactive sessions has given me a chance to apply the principles in real-time scenarios, enhancing my problem-solving skills",
+      name: "PRAVEEN D"
     },
     {
+      img: d1,
       head: "Interactive Learning at Its Best!",
-      text:" I'm loving the live interaction sessions on this platform. It's like being in a real classroom, but even better! The sowers engage with us, answer our questions, and make learning so much more exciting.",
-      name:"ABIRAMI R"
+      text: " I'm loving the live interaction sessions on this platform. It's like being in a real classroom, but even better! The sowers engage with us, answer our questions, and make learning so much more exciting.",
+      name: "ABIRAMI R"
     },
     {
+      img: d2,
       head: "Personalized Learning Recommendations",
-      text:"Seed's personalized course recommendations based on my interests and learning history have helped me discover new subjects I'm passionate about.",
-      name:"VADIVEL S"
+      text: "Seed's personalized course recommendations based on my interests and learning history have helped me discover new subjects I'm passionate about.",
+      name: "VADIVEL S"
     },
     {
+      img: d3,
       head: "Mastering Concepts Made Easy",
-      text:" The live sessions for Supply Chain Management were an eye-opener. Real-time case studies and discussions on supply chain challenges enriched our understanding. The platform's live interaction feature made complex concepts feel accessible",
-      name:"RAJKUMAR P"
+      text: " The live sessions for Supply Chain Management were an eye-opener. Real-time case studies and discussions on supply chain challenges enriched our understanding. The platform's live interaction feature made complex concepts feel accessible",
+      name: "RAJKUMAR P"
     },
     {
+      img: p3,
       head: "Learning with a Community Feel",
-      text:"Kudos to the instructors of the Design Thinking course! Thereal-life case studies discussed during the live sessions have truly expanded my understanding of the subject. This platform's approach to incorporating interactive sessions has given me a chance to apply the principles in real-time scenarios, enhancing my problem-solving skills",
-      name:"PRAVEEN D"
+      text: "I'm amazed by how connected I feel to my classmates through these live sessions. We collaborate, discuss, and learn together just like we used to in the physical classroom. The platform has truly created a virtual learning community.",
+      name: "JEYANTH P"
     },
     {
+      img: d4,
       head: "Responsive Customer Support",
-      text:" Whenever I've had questions or faced technical issues, Seed's customer support team has been incredibly responsive and helpful.",
-      name:"SARAN M"
+      text: " Whenever I've had questions or faced technical issues, Seed's customer support team has been incredibly responsive and helpful.",
+      name: "SARAN M"
     },
     {
+      img: d5,
       head: "User-Friendly Learning Platform",
-      text:" I'm not the most tech-savvy person, but using this platform was a breeze. The interface is intuitive, and everything is well-organized. From finding courses to tracking my progress, the platform makes learning straightforward.",
-      name:"MANICKAM J"
+      text: " I'm not the most tech-savvy person, but using this platform was a breeze. The interface is intuitive, and everything is well-organized. From finding courses to tracking my progress, the platform makes learning straightforward.",
+      name: "MANICKAM J"
     },
     {
+      img: d6,
       head: "A Hub for Lifelong Learners.",
-      text:" The content was comprehensive, excellent, very thorough, and  suitable for people of all skill levels because we had the chance to implement what we learned immediately. such a great session, really comprehensive.",
-      name:"JEYANTH P"
+      text: " The content was comprehensive, excellent, very thorough, and  suitable for people of all skill levels because we had the chance to implement what we learned immediately. such a great session, really comprehensive.",
+      name: "ELANGO"
     },
     {
-      head: "Engaging and Informative Sessions!",
-      text:" I'm amazed by how connected I feel to my classmates through these live sessions. We collaborate, discuss, and learn together just like we used to in the physical classroom. The platform has truly created a virtual learning community.",
-      name:"ELANGO"
+      img: d7,
+      head: "Clear and Concise Explanations",
+      text: "The explanations provided on courses are clear and to the point. I appreciate how easily I can grasp complex concepts through the well-structured content.",
+      name: "DIWAHAR M"
     },
     {
-      head: "Engaging and Informative Sessions!",
-      text:" I'm amazed by how connected I feel to my classmates through these live sessions. We collaborate, discuss, and learn together just like we used to in the physical classroom. The platform has truly created a virtual learning community.",
-      name:"JEYANTH P"
+      img: d8,
+      head: " Interactive Learning at Its Best!",
+      text: "I'm loving the live interaction sessions on this platform. It's like being in a real classroom, but even better! The sowers engage with us, answer our questions, and make learning so much more exciting.",
+      name: "MOHAMMED SHERIFF"
     },
     {
-      head: "Engaging and Informative Sessions!",
-      text:" I'm amazed by how connected I feel to my classmates through these live sessions. We collaborate, discuss, and learn together just like we used to in the physical classroom. The platform has truly created a virtual learning community.",
-      name:"JEYANTH P"
+      img: d9,
+      head: " Progress Tracking and Motivation",
+      text: "Seeing my progress tracked in real-time is incredibly motivating. The platform's dashboard shows me how far I've come, the topics I've mastered, and the ones I still need to work on. This visual representation of my journey keeps me motivated and determined to keep pushing forward.",
+      name: "DIVAKAR "
+    },
+    {
+      img: d10,
+      head: "Supportive Community of Learners",
+      text: "The community forum is a hidden gem. Connecting with fellow learners worldwide has broadened my perspective. We exchange ideas, help each other with challenging concepts, and even collaborate on projects. It's a supportive ecosystem.",
+      name: "BARATHI S A"
+    },
+    {
+      img: d11,
+      head: "Empowering and Convenient",
+      text: "I'm amazed by the convenience Seed Learning Platform offers. As a student, having access to top-notch educational resources at my fingertips has been a game-changer.",
+      name: "JOSHITH J S"
+    },
+    {
+      img: d12,
+      head: "Affordable and Worth It!",
+      text: "As a student on a budget, Seed E Learning Platform's affordable pricing was a breath of fresh air. The quality of the courses far exceeded my expectations given the cost. It's a fantastic option for anyone looking to learn without breaking the bank.",
+      name: "ARUL VEL MURUGAN"
     },
   ]
 
@@ -292,18 +321,18 @@ function Home() {
             </div>
             <div className="img">
               <div>
-              <img src={iso} alt="ISO"/>
-              <p>Approved by ISO</p>
+                <img src={iso} alt="ISO" />
+                <p>Approved by ISO</p>
               </div>
-             <div>
-              <img src={msme} alt="MSME"/>
-             <p>Approved by MSME</p>
-             </div>
-             <div> <img src={aicte} alt="AICTE" />
-             <p>Internship Partner</p></div>
-              
-              
-             
+              <div>
+                <img src={msme} alt="MSME" />
+                <p>Approved by MSME</p>
+              </div>
+              <div> <img src={aicte} alt="AICTE" />
+                <p>Internship Partner</p></div>
+
+
+
             </div>
           </div>
 
@@ -311,113 +340,144 @@ function Home() {
 
           <div className="title">
             <div className="titleleft">
-            <h1>Engineering the Future: Innovate, Create, and Elevate!</h1>
-            <div>
-              "The best way to predict the Future is to create it ". With Technology we an achieve the unimaginable.   
-            </div>
+              <h1>Engineering the Future: Innovate, Create, and Elevate!</h1>
+              <div>
+                "The best way to predict the Future is to create it ". With Technology we an achieve the unimaginable.
+              </div>
             </div>
 
 
             <div className="titleright">
-            <img src={hp2} alt=""/>
-            </div> 
+              <img src={hp2} alt="" />
+            </div>
           </div>
           {/* --------------------------------------------------------------whyus------------------------------------------------------- */}
 
           <div className="whyus">
-              <div className="whyusleft">
-                <img src={grp} alt="why us "/>
+            <div className="whyusleft">
+              <img src={grp} alt="why us " />
+            </div>
+            <div className="whyusright">
+              <h1>Why Choose Us?</h1>
+              <div> The possibilities of the sky and the realm of knowledge are limitless,</div>
+              <div> Embark on a journey of self transformation and unleash your creative potential.
               </div>
-              <div className="whyusright">
-                <h1>Why Choose Us?</h1>
-                <div> The possibilities of the sky and the realm of knowledge are limitless,</div>
-                 <div> Embark on a journey of self transformation and unleash your creative potential.
-                </div>
-                  <div className="whyusbtns">
-                  <div onClick={() => navigate("/menu/courses")}>EXPLORE COURSES</div>
-                  <div onClick={() => navigate("/menu/events")}>EXPLORE EVENTS</div>
-                  </div>
+              <div className="whyusbtns">
+                <div onClick={() => navigate("/menu/courses")}>EXPLORE COURSES</div>
+                <div onClick={() => navigate("/menu/events")}>EXPLORE EVENTS</div>
               </div>
+            </div>
           </div>
           {/* ----------------------------------------------------------- testimonials---------------------------------------------------------------- */}
-            <div className="testimonialsection" id="testimonial"> 
-              <h1>Testimonials</h1>
-              <div className="say">What people say?</div>
+          <div className="testimonialsection" id="testimonial">
+            <h1>Testimonials</h1>
+            <div className="say">What people say?</div>
             <div className="testimonial_content">
 
               <div className="testimage">
-              <img className="currentimg" src={d1}/>
-              <div>
-                <img src={d1}/>
-                <img src={d2}/>
-                <img src={d3}/>
-                <img src={d4}/>
-              </div>
+                
+                {test.map((item, i) => {
+                  if (i !== 0) return <img className="nextimg" style={{ top: `${i * 50 + 90}px` }} src={item.img} />
+                  return <img className="currentimg" src={item.img} style={{ top: `0px` }} />
+                })}
               </div>
               <div className="left-arrow">
               </div>
 
-           
-            <div className="testsection">
-            <Splide
-                tag="section"
-                aria-labelledby="My Images"
-               
-                options={{
-                  speed: 1500,
-                  arrows:false,
-                  autoplay: true,
-                  interval: 3400,
-                  pauseOnHover: true,
-                  type: "loop",                
-                  keyboard: true,
-                  gap: "1rem",
-                  pagination:false
-                }}
-              >
-                {test.map((item, i)=>{
-                  return<SplideSlide key={i}>
-                    <div className="test_content">
-                    <h2>{item.head}</h2>
-                    <p className="text">{item.text}</p>
-                    <p className="name">{item.name}</p>
-                    </div>
-                  </SplideSlide>
-                })}
+
+              <div className="testsection">
+                <Splide
+                  onMove={(splide, prev, next) => {
+                    console.log(splide.index);
+                    const dps = document.querySelectorAll(".testimage > img")
+                    const current = document.querySelector(".testimage > .currentimg")
+                    current.style.transform = 'translateX(-100px)'
+                    current.className = "nextimg"
+                   
+                    let queue = 1;
+                    dps[splide.index].className = "currentimg"
+                    dps[splide.index].style.transform = `translateY(-${splide.index * 50 + 90}px)`
+                    dps[splide.index].style.top = `0px`
+                    dps[splide.index].style.left = `0px`
+                    dps[splide.index].style.transform = ''
+                    dps.forEach((item, i )=>{
+                      if(i > splide.index && i <= dps.length){
+                        item.className = 'nextimg'
+                        item.style.transform = `translateY(-50px)`
+                        item.style.top = `${queue * 50 + 90}px`
+                        item.style.transform = ''
+                        queue++
+                      }
+                    })
+                    dps.forEach((item, i )=>{
+                      if(i < splide.index-1){
+                        item.className = 'nextimg'
+                        item.style.transform = `translateY(-50px)`
+                        item.style.top = `${queue * 50 + 90}px`
+                        item.style.transform = ''
+                        queue++
+                      }
+                    })
+
+                  }}
+                  tag="section"
+                  aria-labelledby="My Images"
+
+                  options={{
+                    speed: 1500,
+                    arrows: false,
+                    autoplay: true,
+                    interval: 3400,
+                    pauseOnHover: true,
+                    type: "loop",
+                    keyboard: true,
+                    gap: "1rem",
+                    pagination: false
+                  }}
+                >
+                  {test.map((item, i) => {
+                    return <SplideSlide key={i}>
+                      <div className="test_content">
+                        <h2>{item.head}</h2>
+                        <p className="text">{item.text}</p>
+                        <p className="name">{item.name}</p>
+                      </div>
+                    </SplideSlide>
+                  })}
 
 
-              </Splide>
-            </div>
+                </Splide>
+              </div>
             </div>
 
-            </div>
+          </div>
           {/* -----------------------------------------------------------WHO ARE WE?------------------------------------------------------------------------- */}
-              
-              <div className="whoarewe">
-              <h1>Who are we?</h1>
-                <div className="who">
-                  <div className="whoLeft">
-                    <h2>About SEED - AN EDTECH ORGANISATION</h2>
-                    <div>
-                    Mechnido's Seed Learning Hub is a dynamic and innovative platform that
-                     serves as an integral part of MECHNIDO, dedicated to providing a comprehensive 
-                     learning solution for individuals across diverse segments .Our platform offers a wide  <HashLink className="whoto" to="/about/#about" smooth >Know More &gt;</HashLink>
-                    </div>
 
-                  </div>
-                  <div className="whoRight">
-                  <h2> About Organizing Team - MECHNIDO</h2>
-                    <div>
-                    M/S MECHNIDO was Established in 2018 in Coimbatore, Tamil Nadu, M/S Mechnido is a
-                     promising enterprise in the electric vehicle (EV) industry.
-               With a strong commitment to driving innovation and contributing to a sustainable future, <HashLink className="whoto" to="/about/#about" smooth >Know More &gt;</HashLink>
-                    </div>
-                  </div>
+          <div className="whoarewe">
+            <h1>Who are we?</h1>
+            <div className="who">
+              <div className="whoLeft">
+                <h2>About SEED - AN EDTECH ORGANISATION</h2>
+                <div>
+                  Mechnido's Seed Learning Hub is a dynamic and innovative platform that
+                  serves as an integral part of MECHNIDO, dedicated to providing a comprehensive
+                  learning solution for individuals across diverse segments .Our platform offers a wide  <HashLink className="whoto" to="/about/#about" smooth >Know More &gt;</HashLink>
+                </div>
 
               </div>
-
+              <div className="whoRight">
+                <h2> About Organizing Team - MECHNIDO</h2>
+                <div>
+                  M/S MECHNIDO was Established in 2018 in Coimbatore, Tamil Nadu, M/S Mechnido is a
+                  promising enterprise in the electric vehicle (EV) industry.
+                  With a strong commitment to driving innovation and contributing to a sustainable future, <HashLink className="whoto" to="/about/#about" smooth >Know More &gt;</HashLink>
+                </div>
               </div>
-               
+
+            </div>
+
+          </div>
+
 
 
 
@@ -444,10 +504,10 @@ function Home() {
                   window.innerWidth <= 426
                     ? 1.2
                     : window.innerWidth <= 768
-                    ? 1.5
-                    : window.innerWidth <= 1024
-                    ? 2
-                    : 4,
+                      ? 1.5
+                      : window.innerWidth <= 1024
+                        ? 2
+                        : 4,
                 perMove: 1,
                 pagination: false,
               }}
@@ -459,17 +519,17 @@ function Home() {
               </SplideSlide>
               <SplideSlide>
                 <div className="col">
-                  <img src={collab2} alt=""  />
+                  <img src={collab2} alt="" />
                 </div>
               </SplideSlide>
               <SplideSlide>
                 <div className="col">
-                  <img src={collab3} alt=""  />
+                  <img src={collab3} alt="" />
                 </div>
               </SplideSlide>
               <SplideSlide>
                 <div className="col">
-                  <img src={collab4} alt=""  />
+                  <img src={collab4} alt="" />
                 </div>
               </SplideSlide>
               <SplideSlide>
@@ -479,17 +539,17 @@ function Home() {
               </SplideSlide>
               <SplideSlide>
                 <div className="col">
-                  <img src={collab6} alt=""  />
+                  <img src={collab6} alt="" />
                 </div>
               </SplideSlide>
               <SplideSlide>
                 <div className="col">
-                  <img src={collab7} alt=""  />
+                  <img src={collab7} alt="" />
                 </div>
               </SplideSlide>
               <SplideSlide>
                 <div className="col">
-                  <img src={collab8} alt=""  />
+                  <img src={collab8} alt="" />
                 </div>
               </SplideSlide>
             </Splide>
@@ -698,108 +758,108 @@ function Home() {
           </div> */}
 
 
-            {/* -----------------------------------------------------------------------------------Sower --------------------------------------------------------------------------------------------- */}
+          {/* -----------------------------------------------------------------------------------Sower --------------------------------------------------------------------------------------------- */}
 
-              <div className="sowersection">
-                <div className="sowerleft">
-                <h1>Become a sower</h1>
-                <div>Enlighten the world with the radiance of your wisdom.</div>
-                 <div> Are you an expert in your field, eager to inspire and empower learners?
-                </div>
-                <div className="btnsec">
-                <button onClick={applyNow}>APPLY NOW</button>
-                 
-                  <HashLink className="know" to="/sower/#sower" smooth>
-                  KNOW MORE &gt;
-              </HashLink>
-                </div> 
-                 
-                </div>
-                <div className="sowerright">
-                  <img src={sower} alt=""/>
-                </div>
+          <div className="sowersection">
+            <div className="sowerleft">
+              <h1>Become a sower</h1>
+              <div>Enlighten the world with the radiance of your wisdom.</div>
+              <div> Are you an expert in your field, eager to inspire and empower learners?
               </div>
+              <div className="btnsec">
+                <button onClick={applyNow}>APPLY NOW</button>
+
+                <HashLink className="know" to="/sower/#sower" smooth>
+                  KNOW MORE &gt;
+                </HashLink>
+              </div>
+
+            </div>
+            <div className="sowerright">
+              <img src={sower} alt="" />
+            </div>
+          </div>
 
 
           {/* ------------------------------------------------------------------------------------------Get In touch section--------------------------------------------------------------------------------------------- */}
 
           <div className="get-in-touch">
             <div id="get-in-touch"></div>
-           
+
             <div className="content">
-            <h2>Get in Touch</h2>
+              <h2>Get in Touch</h2>
               <div className="container-div contact-us">
                 <form className="footer_form" action="" onSubmit={getInTouchSubmit}>
                   <div>
 
-                  <label htmlFor="name">Name</label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    placeholder="Your name"
-                    required
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                  />
+                    <label htmlFor="name">Name</label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      placeholder="Your name"
+                      required
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                    />
 
-                  <label htmlFor="email">Email</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="example@gmail.com"
-                    required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-                  />
+                    <label htmlFor="email">Email</label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      placeholder="example@gmail.com"
+                      required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                    />
 
-                  <label>Category</label>
-                  <select
-                    value={category}
-                    onChange={(e) => setCategory(e.target.value)}
-                  >
-                    <option value="none" selected hidden>
-                      Choose a category
-                    </option>
-                    <option style={{ fontSize: "17px" }} value="Group joining">
-                      Group Joining
-                    </option>
-                    <option
-                      style={{ fontSize: "17px" }}
-                      value="Courses related"
+                    <label>Category</label>
+                    <select
+                      value={category}
+                      onChange={(e) => setCategory(e.target.value)}
                     >
-                      Courses Related
-                    </option>
-                    <option style={{ fontSize: "17px" }} value="Events related">
-                      Events Related
-                    </option>
-                    <option
-                      style={{ fontSize: "17px" }}
-                      value="University/College collaboration "
-                    >
-                      University/College collaboration{" "}
-                    </option>
-                    <option
-                      style={{ fontSize: "17px" }}
-                      value="Technical issues "
-                    >
-                      Technical Issues{" "}
-                    </option>
-                    <option style={{ fontSize: "17px" }} value="Payment issues">
-                      Payment Issues
-                    </option>
-                    <option style={{ fontSize: "17px" }} value="Event Sponsors">
-                      Event Sponsors
-                    </option>
-                    <option style={{ fontSize: "17px" }} value="Others">
-                      Others
-                    </option>
-                  </select>
+                      <option value="none" selected hidden>
+                        Choose a category
+                      </option>
+                      <option style={{ fontSize: "17px" }} value="Group joining">
+                        Group Joining
+                      </option>
+                      <option
+                        style={{ fontSize: "17px" }}
+                        value="Courses related"
+                      >
+                        Courses Related
+                      </option>
+                      <option style={{ fontSize: "17px" }} value="Events related">
+                        Events Related
+                      </option>
+                      <option
+                        style={{ fontSize: "17px" }}
+                        value="University/College collaboration "
+                      >
+                        University/College collaboration{" "}
+                      </option>
+                      <option
+                        style={{ fontSize: "17px" }}
+                        value="Technical issues "
+                      >
+                        Technical Issues{" "}
+                      </option>
+                      <option style={{ fontSize: "17px" }} value="Payment issues">
+                        Payment Issues
+                      </option>
+                      <option style={{ fontSize: "17px" }} value="Event Sponsors">
+                        Event Sponsors
+                      </option>
+                      <option style={{ fontSize: "17px" }} value="Others">
+                        Others
+                      </option>
+                    </select>
 
                   </div>
-                
+
                   <div>
                     <label htmlFor="subject">Subject</label>
                     <textarea
@@ -823,11 +883,11 @@ function Home() {
         {/* ---------------------------------------------------------------------Footer Section-------------------------------------------------------------------------------------------------------------------------- */}
         <Footer />
         {apply && (
-        <div className="wrapper">
-          <div className="blocker" onClick={() => setApply(false)}></div>
-          <ApplyNow name={userName} uid={userId} setLoading={setLoading}  />
-        </div>
-      )}
+          <div className="wrapper">
+            <div className="blocker" onClick={() => setApply(false)}></div>
+            <ApplyNow name={userName} uid={userId} setLoading={setLoading} />
+          </div>
+        )}
       </div>
     </>
   );

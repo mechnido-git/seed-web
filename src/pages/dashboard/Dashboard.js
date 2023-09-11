@@ -373,7 +373,7 @@ const Announcement = () => {
     <div className="messages card">
       <div className="message">
         <h4 >Welcome</h4>
-        <p >Happy to see you let's Revolutionizing Possibilities</p>
+        <p >Happy to see you, let's Revolutionize Possibilities</p>
         <span class="material-symbols-outlined">
           notifications
         </span>
