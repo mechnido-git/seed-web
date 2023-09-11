@@ -20,7 +20,7 @@ function MainSection({event}) {
       <h1>{event.title}</h1>
       <h2 className='subtitle'> {event.subtitle}</h2>
       <TextLimiter number={250} text={event.about.description} />
-      <HashLink className="btn" to={`${loc.pathname}/#workflow`} smooth>
+      <HashLink className="btn" to={`${loc.pathname}/#schedule`} smooth>
             Explore
         </HashLink>
      

@@ -34,11 +34,12 @@
     font-size: 17px;
     line-height: 26px;
     font-weight: 400;
-    color:var(--textcolor);
+    color:var(--textcolor); 
+    margin-bottom:20px;
 }
 
 .main-section .btn{
-    padding: .8rem 4rem;
+    /* padding: .8rem 4rem;
     font-size: 20px;
     font-weight: 500;
     border-radius: 5px;
@@ -49,12 +50,30 @@
     margin:  1rem auto;
     transition: .2s;
     display: inline-block;
-    box-sizing: border-box;
+    box-sizing: border-box; */
+    position: relative;
+    padding: 5px ;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    width:fit-content;
+    color:var(--primary);
+
 }
-.main-section .btn:hover{
-    color:var(--tertiary);
-    background-color: var(--btnhover);
+.main-section .btn::before{
+    content: "";
+    position: absolute;
+    left:0;
+    bottom:0;
+    width:0;;
+    height: 3px;
+    background-color: var(--primary);
+    transition: width 0.35s ease-out;
 }
+.main-section .btn:hover::before{
+    width:100%;
+}
+
 
 .main-section .titleimage{
     /* display: inline; */

@@ -185,7 +185,7 @@ function Navbar({ signIn }) {
 
           <div className="git">
             {/* <div id="git"></div> */}
-            <span class="material-symbols-outlined">close</span>
+            <span class="material-symbols-outlined"  onClick={() => setGetInTouch(false)}>close</span>
             <div className="content">
             
             <h2>Get in Touch</h2>

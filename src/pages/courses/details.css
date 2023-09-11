@@ -106,12 +106,12 @@
 .course-details .title > div{
     position: relative;
     margin-top: 20px;
-  padding: 5px ;
+    padding: 5px ;
     font-size: 20px;
     font-weight: 600;
     letter-spacing: 1px;
     width:fit-content;
-  color:var(--primary);
+    color:var(--primary);
 }
 
 .course-details .title > div::before{

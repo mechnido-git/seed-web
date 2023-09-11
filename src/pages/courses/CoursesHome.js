@@ -27,7 +27,7 @@ const getInvoice = (course, user) => {
   return invoice
 }
 export const CardBuilder = ({ arr, limit, viewDetails, loading, user, download }) => {
-  if(arr.length <= 0) return <p>No Courses Available</p>
+  if(arr.length <= 0) return <p className="nocourses">No courses available at the moment</p>
  return <>
     {arr.map((item, index) => {
       // console.log(index);

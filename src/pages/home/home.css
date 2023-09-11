@@ -76,10 +76,10 @@
 .home .main .who .whoRight div{
   width:520px
 }
-.home .main .who .whoLeft div span , .home .main .who .whoRight div span{
+.home .main .who .whoLeft div .whoto, .home .main .who .whoRight div .whoto{
   color:var(--primary);
 }
-.home .main .who .whoLeft div span:hover , .home .main .who .whoRight div span:hover{
+.home .main .who .whoLeft div .whotp:hover , .home .main .who .whoRight div .whoto:hover{
   cursor: pointer;
 }
 
@@ -113,7 +113,7 @@
   justify-content: center;
   text-align: center;
   max-height: 100vh;
-  margin-top: -50px;
+  /* margin-top: -50px; */
   height:665px;
 }
 
@@ -529,7 +529,7 @@ margin-bottom: 20px;
   flex-direction: row;
   justify-content: space-between;
 }
-.btnsec div{
+.btnsec .know{
   margin-top: 65px ;
   color:var(--primary);
   position:relative;
@@ -1096,7 +1096,11 @@ margin-bottom: 20px;
   color: var(--tertiary);
 
 }
-
+.courses .cards .nocourses{
+  position: absolute;
+  top:50%;
+  left:35%;
+}
 
 .courses {
   color: var(--tertiary);
