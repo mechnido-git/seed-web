@@ -44,7 +44,7 @@ const { check}= useContext(StoreContext);
               </HashLink>
             </li>
             <li>
-              <HashLink smooth to="/#Colaborations">
+              <HashLink smooth to="/#Collaborations">
                 Collaborations
               </HashLink>
             </li>
