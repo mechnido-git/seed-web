@@ -152,13 +152,10 @@ function EventIndex() {
                       autoplay: true,
                       interval: 3400,
                       pauseOnHover: true,
-                      type: "loop",
-
                       pauseOnFocus: true,
                       keyboard: true,
                       gap: "1rem",
                       width: "100%",
-                      pagination: true,
                       arrows: window.innerWidth < 770 ? false : true,
                     }}
                   >
