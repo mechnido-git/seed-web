@@ -72,7 +72,7 @@ function Enroll({ index, setbuy }) {
               courseId: id,
               email: email,
               userName,
-              item: String(courseList[index].name)
+              item: String(courses[index].name)
             })
             console.log(res);
             window.location.reload()
