@@ -321,6 +321,7 @@ function CourseDetails() {
 
           <div className="individual">
             {courses?.filter(item => data.category == item.category).map((item, i) => <div className="card" onClick={() => getCours(item.order)} key={i}>
+              <img src={item.poster} alt="" />
               <h4>
                 {item.flag ? <>The Flagship <br /></> : ''}
                 {item.name}
