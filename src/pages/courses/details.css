@@ -442,7 +442,6 @@
 }
 
 .course-details > .other-courses .individual > .card{
-    padding: 2rem;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     display: flex;
     flex-direction: column;
@@ -450,12 +449,21 @@
     border-radius: 10px;
     cursor: pointer;
     color:var(--tertiary);
+    align-content: space-between;
+    overflow: hidden;
 }
 
 .course-details > .other-courses .individual > .card > h4{
     font-size: 16px;
     font-weight: bolder;
     text-transform: uppercase;
+    margin: 1rem;
+    margin-bottom: 0;
+}
+
+.course-details > .other-courses .individual > .card > span{
+    margin: 0rem 1rem;
+    margin-bottom: 1rem;
 }
 
 .course-details > .other-courses .divider{
