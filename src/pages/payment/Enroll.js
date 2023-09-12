@@ -30,6 +30,7 @@ function Enroll({ index, setbuy }) {
   }
 
   useEffect(() => {
+    console.log(courses[index].id);
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setUid(user.uid);
@@ -49,7 +50,7 @@ function Enroll({ index, setbuy }) {
     const data = {
       id: String(id),
       range: range,
-      name: String(courseList[index].name),
+      name: String(courses[index].name),
       userId: uid,
     }
     try {
@@ -71,7 +72,7 @@ function Enroll({ index, setbuy }) {
               courseId: id,
               email: email,
               userName,
-              item: String(courseList[index].name)
+              item: String(courses[index].name)
             })
             console.log(res);
             window.location.reload()
