@@ -44,7 +44,6 @@ function Enroll({ index, setbuy }) {
   const proceed = async (e) => {
     e.preventDefault()
     if (range === null) return
-
     setLoading(true)
     const url = `${process.env.REACT_APP_SERVER_URL}/order`;
     const data = {

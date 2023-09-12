@@ -141,6 +141,8 @@ function CoursesHome() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const { register, setRegister } = useOutletContext();
 
+  const [currentCourse, setCurrentCourse] = useState(0)
+
   const { courseList, courses, userId, setSection } = useContext(StoreContext)
   setSection(1)
 
@@ -153,7 +155,6 @@ function CoursesHome() {
 
   useEffect(() => {
     if (courses) {
-      console.log(courses);
       setRecommended(courses.filter((item, i) => i < 6))
       setTrending(courses?.filter((item, i) => i > 5 && i < 12))
       setTeam(courses?.filter((item, i) => i > 11 && i < 23))
@@ -194,11 +195,12 @@ function CoursesHome() {
     let flag = false
     if (userId) {
       // console.log(courses);
-      // console.log(courses[currentSlide]);
+      // console.log(courses[currentSlide].name);
       courses[currentSlide].enrolled?.forEach(item => {
         if (item.userId === userId) flag = true;
       })
       if (flag) return window.alert("Alredy enrolled")
+      setCurrentCourse(currentSlide)
       setbuy(true)
 
     } else {
@@ -232,7 +234,7 @@ function CoursesHome() {
                   arrows: window.innerWidth < 770 ? false : true,
                 }}
                 onMove={(splide, prev, next) => {
-                  setCurrentSlide(splide.index);
+                   setCurrentSlide(splide.index);
                 }}
               >
                 {courses?.map((item, i) => {
@@ -320,7 +322,7 @@ function CoursesHome() {
 
           </div>
 
-          <Enroll index={currentSlide} setbuy={setbuy} />
+          <Enroll index={currentCourse} setbuy={setbuy} />
         </div>
       )}
     </>
