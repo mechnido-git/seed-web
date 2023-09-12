@@ -73,6 +73,7 @@ function Home() {
 
   const checkUser = async (user) => {
     const docRef = doc(db, "users", user.uid);
+    console.log(user.uid);
     try {
       const docSnap = await getDoc(docRef);
       if (docSnap.exists()) {

@@ -248,17 +248,14 @@ Margin-left:25%
 /* css enrolled course card display on the my account page */
 
 .enroll-card-container{
-    width: 270px;
     height: max-content;
     display:grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
     gap:25px;
     margin:20px
 }
 .enroll-card-container .card img{
-    width:238px;
-    height: 200px;
-    padding:1rem;
+    width: 100%;
 }
 .enroll-card-container .card{
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
@@ -266,6 +263,7 @@ Margin-left:25%
     cursor: pointer;
     transition: .2s;
     color: var(--textcolor);
+    overflow: hidden;
 }
 .enroll-card-container .card .body{
     display: flex;
@@ -274,6 +272,10 @@ Margin-left:25%
     gap: 0.5rem;
     height: 100%;
 
+}
+
+.enroll-card-container .card .body > p{
+    font-size: .95rem;
 }
 .enroll-card-container .card .body .invoice{
     color:var(--tertiary);
