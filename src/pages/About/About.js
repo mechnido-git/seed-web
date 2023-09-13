@@ -42,19 +42,15 @@ function About() {
   const[tp3, stp3]= useState('1260');
   const[tp4, stp4]= useState('1260');
   const[ig , setIg] = useState(0);
-
   const[s1 , sets1]= useState("290px");
   const[s2 , sets2]= useState("500px");
   const[s3 , sets3]= useState("240px");
   const[s4 , sets4]= useState("80px");
-
   const[st1 , setst1]= useState("0px");
   const[st2 , setst2]= useState("250px");
   const[st3 , setst3]= useState("160px");
   const[st4 , setst4]= useState("250px");
 
-  
-  
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -67,7 +63,6 @@ function About() {
     });
   }, []);
 
-
 const positions =[
   {right:"1160px", top:"1260px"},
   {right:"900px", top:"1260px"},
@@ -75,6 +70,7 @@ const positions =[
   {right:"450px", top:"1260px"},
   {right:"200px", top:"1260px"},
 ]
+
 let cp=0;
 useEffect(()=>{
   const interval = setInterval(()=>{
@@ -150,7 +146,7 @@ useEffect(()=>{
         setst3(pos[(ig+2)%4].top);
         setst4(pos[(ig+1)%4].top);
         
-        
+         
       }, 2000)
      
       return () => clearInterval(interval);
@@ -231,7 +227,7 @@ useEffect(()=>{
           
           
 
-          <section>
+          <section className="mech">
             <div className="details">
               <h1>
                 About Organizing Team -{" "}
