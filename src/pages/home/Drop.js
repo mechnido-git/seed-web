@@ -44,7 +44,7 @@ function Drop({ onClickOutside, show, dropIndex, redirect, setRedirect, setSignI
   const navigate = useNavigate()
 
 
-  console.log(dropIndex);
+  // console.log(dropIndex);
 
   const { setCourses, courses, events, setEvents, upcomingEvents, setUpcomingEvents } = useContext(StoreContext);
 
@@ -172,7 +172,7 @@ function Drop({ onClickOutside, show, dropIndex, redirect, setRedirect, setSignI
   const listSelector = (e) => {
     const lists = document.querySelectorAll("li.category")
     lists.forEach(item => item.classList.remove("cat-on"))
-    console.log(e);
+    // console.log(e);
     e.target.classList.add("cat-on")
   }
 
