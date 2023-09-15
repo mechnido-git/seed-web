@@ -57,9 +57,9 @@ function CourseDetails() {
 
     // navigate(`/menu/courses/details/${index}`)
     // navigate(`/menu/courses/details/${index}`, { replace: true })
-    window.location.href = `#/menu/courses/details/${index}`
-    // navigate(0)
-
+    // window.location.href = `#/menu/courses/details/${index}`
+    navigate(`/menu/courses/details/${index}`)
+    navigate(0)
   }
 
   useEffect(() => {
