@@ -5,12 +5,12 @@ import img from "../../images/courses.jpg";
 import side from "../../images/side.jpg";
 import cert from "../../images/cert.jpg";
 
-import environment from "../../images/KEY FEATURES/Supportive Learning Environment.svg"
-import globel from "../../images/KEY FEATURES/Globally Recognised Certification.svg"
-import carriculum from "../../images/KEY FEATURES/Comprehensive Curriculum.svg"
-import support from "../../images/KEY FEATURES/SEED  Forum Support.svg"
-import mentor from "../../images/KEY FEATURES/One-to-One Personal Mentorship.svg"
-import live from "../../images/KEY FEATURES/Live Sessions.svg"
+import environment from "../../images/KEY_FEATURES/Supportive Learning Environment.svg"
+import globel from "../../images/KEY_FEATURES/Globally Recognised Certification.svg"
+import carriculum from "../../images/KEY_FEATURES/Comprehensive Curriculum.svg"
+import support from "../../images/KEY_FEATURES/SEED  Forum Support.svg"
+import mentor from "../../images/KEY_FEATURES/One-to-One Personal Mentorship.svg"
+import live from "../../images/KEY_FEATURES/Live Sessions.svg"
 
 import "./details.css";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
