@@ -41,9 +41,26 @@ function Enroll({ index, setbuy }) {
     });
   }, []);
 
+  const getNextSection = () => {
+    if(month === -1){
+      alert("Select a month")
+      return
+    }
+
+    if(batch === -1){
+      alert("Select a batch")
+      return
+    }
+    setSection(1)
+  }
+
   const proceed = async (e) => {
     e.preventDefault()
-    if (range === null) return
+    if (range === null) {
+      alert("Select amount")
+      return
+    }
+
     setLoading(true)
     const url = `${process.env.REACT_APP_SERVER_URL}/order`;
     const data = {
@@ -141,7 +158,7 @@ function Enroll({ index, setbuy }) {
             </select>
           </div>
           <div className="inp">
-          <button type='button' onClick={()=>setSection(1)}>PROCEED</button>
+          <button type='button' onClick={getNextSection}>PROCEED</button>
           </div>
         </div>:<>
           <div className="inp-form">
