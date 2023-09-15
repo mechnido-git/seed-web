@@ -27,7 +27,7 @@ import RefundPolicy from "./pages/refundPolicy/RefundPolicy";
 function Router() {
   return (
     
-    <BrowserRouter >
+    <HashRouter >
       <Routes>
         <Route exact path="/" element={<Home />} />   {/* WEBISTE route*/}
         <Route exact path="/about" element={<About />} /> {/* ABOUT route */}
@@ -48,7 +48,7 @@ function Router() {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/refund-policy" element={<RefundPolicy />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   
   );
 }
