@@ -186,7 +186,7 @@ function Enroll({ index, setbuy }) {
             <label htmlFor="name">Apply with coupon code</label>
             <div className="field">
             <input type="text" name="email" placeholder='Enter Code xxx' value={code} onChange={(e)=>setCode(e.target.value)} id="" />
-            <button>Apply</button>
+            <button type='button' >Apply</button>
             </div>
           </div>
           </div>
