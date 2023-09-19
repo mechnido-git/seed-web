@@ -59,6 +59,13 @@ const EnrolledCourse = ({ dragger }) => {
     console.log(error);
   }
   }
+  const { setSignIn, setRedirect } = useContext(StoreContext)
+  const handleclose=(setSignIn)=>{
+    document.body.classList.remove("disable-scroll");
+    setRedirect("/");
+    setSignIn(false);
+  }
+
 
   const getInvoice = (course) => {
     let invoice = null;
