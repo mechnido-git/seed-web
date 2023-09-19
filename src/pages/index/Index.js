@@ -21,7 +21,7 @@ function Index() {
       {signIn && (
         <div className="wrapper">
           <div className="blocker" onClick={() => setSignIn(false)}></div>
-          <SignIn />
+          <SignIn close={true} />
         </div>
       )}
     </div>

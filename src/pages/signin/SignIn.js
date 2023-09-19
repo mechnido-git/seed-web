@@ -92,7 +92,7 @@ export const onChangeInput = (e, setValue, errorId) => {
 }
 
 
-function SignIn({ index, redirect, setRedirect,setSignIn }) {
+function SignIn({ index, redirect, setRedirect,setSignIn, close }) {
   const [signin, setSigin] = useState(!index ? true : false);
   const [loading, setLoading] = useState(false);
 
@@ -117,9 +117,19 @@ function SignIn({ index, redirect, setRedirect,setSignIn }) {
   const click = useRef();
 
   const handleclose=()=>{
-    document.body.classList.remove("disable-scroll");
-    setRedirect(null)
-    setSignIn(false);
+    
+    if(close){
+      // setSignIn(false);
+      document.body.classList.remove("disable-scroll");
+     return navigate("/");
+    }
+    else{
+      document.body.classList.remove("disable-scroll");
+      setRedirect(null)
+      setSignIn(false);
+    }
+   
+
   }
 
   const showPassword = (e) => {

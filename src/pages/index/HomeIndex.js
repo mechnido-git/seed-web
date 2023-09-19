@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import SignIn from "../signin/SignIn";
-import { Outlet, useOutletContext } from "react-router-dom";
+import { Outlet, redirect, useOutletContext } from "react-router-dom";
 import SideMenu from "../../components/sideMenu/SideMenu";
 import { StoreContext } from "../../store/StoreContext";
 import { auth, db } from "../../firebase/config";
@@ -103,7 +103,7 @@ function HomeIndex() {
       {signIn && (
         <div className="wrapper">
           <div className="blocker" onClick={() => setSignIn(false)}></div>
-          <SignIn />
+          <SignIn close={true}/>
         </div>
       )}
     </>
