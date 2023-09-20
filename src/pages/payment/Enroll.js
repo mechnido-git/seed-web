@@ -131,13 +131,14 @@ function Enroll({ index, setbuy }) {
             <label htmlFor="name">Name</label>
             <input type="text" name="name" value={userName} onChange={(e) => setUserName(e.target.value)} id="" />
           </div>
-          <div className="inp">
-            <label htmlFor="name">Email</label>
-            <input type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} id="" />
-          </div>
+         
           <div className="inp">
             <label htmlFor="name">Course Category</label>
             <input type="email" name="email" value={data.category} id="" />
+          </div>
+          <div className="inp">
+            <label htmlFor="name">Email</label>
+            <input type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} id="" />
           </div>
           <div className="inp">
             <label htmlFor="name">Select Month</label>
@@ -162,35 +163,46 @@ function Enroll({ index, setbuy }) {
           </div>
         </div>:<>
           <div className="inp-form">
-
-          <div className="card" >
+            <div>
+            <div className="card" >
             <h5>Including 18% GST </h5>
             {data.fee.map((item, i) => <div className='inp'>
               <label htmlFor="radio">{item.type}{" : "} <span>₹{item.price}</span></label>
-              <input type="radio" value={item.id} checked={range === parseInt(item.id)} onChange={change} id="range" />
+              <input type="radio" value={item.id} checked onChange={change} id="range" />
+              {/* checked={range === parseInt(item.id)} */}
             </div>)}
           </div>
-          <div className="inp">
-            <label htmlFor="name">Mode</label>
-            <input type="text" name="email" value={"online"} id="" />
-          </div>
-          <div className="inp">
-            <label htmlFor="name">Selected Month</label>
-            <input type="text" name="email" value={month} id="" />
-          </div>
-          <div className="inp">
-            <label htmlFor="name">Selected Batch</label>
-            <input type="text" name="email" value={batch} id="" />
-          </div>
-          <div className="inp">
+         
+          <div className="inpt">
             <label htmlFor="name">Apply with coupon code</label>
             <div className="field">
             <input type="text" name="email" placeholder='Enter Code xxx' value={code} onChange={(e)=>setCode(e.target.value)} id="" />
             <button type='button' >Apply</button>
             </div>
           </div>
+
+            </div>
+          
+         
+          <div>
+          <div className="inpt">
+            <label htmlFor="name">Mode</label>
+            <input type="text" name="email" value={"online"} id="" />
           </div>
-            <button className='buy' onClick={proceed}>Proceed</button>
+          <div className="inpt">
+            <label htmlFor="name">Selected Month</label>
+            <input type="text" name="email" value={month} id="" />
+          </div>
+          <div className="inpt">
+            <label htmlFor="name">Selected Batch</label>
+            <input type="text" name="email" value={batch} id="" />
+          </div>
+
+          </div>
+         
+         
+          </div>
+            <button className='buy' onClick={proceed}>Complete Checkout</button>
         </>}
 
 
