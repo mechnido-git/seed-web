@@ -17,7 +17,7 @@ function Enroll({ index, setbuy }) {
   const [loading, setLoading] = useState(false)
   const [email, setEmail] = useState(null)
   const [userName, setUserName] = useState(null)
-
+ const[total, setTotal] = useState(data.fee.price);
   const [section, setSection] = useState(0)
 
   const [month, setMonth] = useState(-1)
@@ -25,12 +25,13 @@ function Enroll({ index, setbuy }) {
   const [code, setCode] = useState('')
 
   const change = (e) => {
-    console.log(typeof range);
-    setRange(parseInt(e.target.value))
+    // console.log(typeof range);
+    setRange(parseInt(e.target.value));
+  setTotal(data.fee[0].price)
   }
 
   useEffect(() => {
-    console.log(courses[index].id);
+    // console.log(courses[index].id);
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setUid(user.uid);
@@ -114,6 +115,9 @@ function Enroll({ index, setbuy }) {
   const handleclose = () => {
     setbuy(false);
   }
+  const coupan=()=>{
+    // setTotal(data.fee[0].price)
+  }
   return (
     <div className='enroll-div'>
       {/* <img className='clbt' src={cancellogo} onClick={handleclose} alt="close button"/> */}
@@ -138,7 +142,7 @@ function Enroll({ index, setbuy }) {
           </div>
           <div className="inp">
             <label htmlFor="name">Email</label>
-            <input type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} id="" />
+            <input type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} id="em" />
           </div>
           <div className="inp">
             <label htmlFor="name">Select Month</label>
@@ -154,8 +158,8 @@ function Enroll({ index, setbuy }) {
             <label htmlFor="name">Select Batch</label>
             <select name="month" value={batch} onChange={(e)=>setBatch(e.target.value)} id="">
               <option value="none" selected hidden>Select Batch</option>
-              <option value="Batch 1 Weekdays">Batch 1 Weekdays</option>
-              <option value="Batch 2 Weekends">Batch 2 Weekends</option>
+              <option value="Weekdays">Weekdays</option>
+              <option value="Weekends">Weekends</option>
             </select>
           </div>
           <div className="inp">
@@ -168,32 +172,40 @@ function Enroll({ index, setbuy }) {
             <h5>Including 18% GST </h5>
             {data.fee.map((item, i) => <div className='inp'>
               <label htmlFor="radio">{item.type}{" : "} <span>₹{item.price}</span></label>
-              <input type="radio" value={item.id} checked onChange={change} id="range" />
+              <input type="radio" value={item.id} checked={range === parseInt(item.id)} onChange={change} id="range" />
               {/* checked={range === parseInt(item.id)} */}
-            </div>)}
+             
+            </div>
+             
+            )}
           </div>
          
-          <div className="inpt">
+          <div className="inpt coup">
             <label htmlFor="name">Apply with coupon code</label>
             <div className="field">
             <input type="text" name="email" placeholder='Enter Code xxx' value={code} onChange={(e)=>setCode(e.target.value)} id="" />
-            <button type='button' >Apply</button>
+            <button type='button' onClick={coupan} >Apply</button>
             </div>
+          </div>
+
+          <div className='totalamount'>
+            <label>  Total Amount</label>
+            <input className="ta" type="text" name="email" value={"₹"+total?total:0} id="" />
           </div>
 
             </div>
           
          
-          <div>
-          <div className="inpt">
+          <div className='left'>
+          <div className="inpt lft">
             <label htmlFor="name">Mode</label>
-            <input type="text" name="email" value={"online"} id="" />
+            <input type="text" name="email" value="Online" id="" />
           </div>
-          <div className="inpt">
+          <div className="inpt lft">
             <label htmlFor="name">Selected Month</label>
             <input type="text" name="email" value={month} id="" />
           </div>
-          <div className="inpt">
+          <div className="inpt lft">
             <label htmlFor="name">Selected Batch</label>
             <input type="text" name="email" value={batch} id="" />
           </div>

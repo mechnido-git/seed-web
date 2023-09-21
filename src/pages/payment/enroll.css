@@ -9,7 +9,12 @@
     padding: 1rem 1rem;
     border-radius: 5px;
     z-index: 11;
-
+}
+.card h5{
+    color:var(--tertiary);
+}
+.inp-form label{
+    color:var(--tertiary);
 }
 .enroll-div h1 , h4{
     color:var(--tertiary);
@@ -47,11 +52,22 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     border: 1px solid rgb(182, 182, 182);
-    padding: 1rem;
+    padding: 0.5rem;
     border-radius: 5px;
+    margin-top: 10px;
     
 }
 
+#range{
+    position:absolute;
+    width:40px;
+    height:25px;
+    right: 5px;
+    top:7px
+}
+.enroll-div .card .inp > label{
+    width:200px
+}
 .enroll-div .card .inp > label > span{
     font-weight: bold;
 }
@@ -81,7 +97,7 @@
     align-items: center;
     
 }
-.enroll-div .inpt .field{
+.enroll-div .coup{
     margin-top: 50px;
 }
 .enroll-div .inp .field input,.enroll-div .inpt .field input{
@@ -95,6 +111,8 @@
     background-color: var(--primary);
     color: var(--secondary);
     cursor: pointer;
+    margin-left: -15px;
+    width:80px
    
 }
 
@@ -119,7 +137,8 @@
     display: grid;
     padding: 2rem .4rem;
     grid-template-columns: 1fr 1fr;
-    gap: 50px;
+    gap: 38px;
+    width:560px;
 }
 
 .enroll-div .inp{
@@ -148,6 +167,9 @@
     border-radius: 5px;
     font-size: medium;
 }
+.enroll-div .inp #em{
+    color:black;
+}
 
 .enroll-div .inpt > input[type = "text"],
 .enroll-div .inpt > input[type = "email"],
@@ -161,13 +183,18 @@
 }
 .enroll-div .inp > input[type = "email"]
 {
-    color: var(--primary);
+    color: #00B17B;
 }
 
 .enroll-div .inpt > input[type = "text"]{
-    color:var(--primary);
+    color:#00B17B;
+    width: 130px;
+    height:25px;
+    
 }
-
+.enroll-div .lft{
+    margin-left:90px;
+}
 .enroll-div .hours{
     text-align: center;
 }
@@ -177,7 +204,16 @@
     width: 100%;
     justify-content: space-between;
 }
-
+.totalamount{
+     margin-top: 110px;
+}
+.totalamount .ta{
+    padding: 5px;
+    border: 1px solid#CACACA;
+    border-radius: 5px;
+    font-size: medium;
+    width:150px
+}
 .enroll-div .inp > button{
     position: absolute;
     padding: .7rem 2rem;
