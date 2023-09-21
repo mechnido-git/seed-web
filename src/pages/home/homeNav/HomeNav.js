@@ -41,8 +41,8 @@ function HomeNav({
   const popup = (i) => {
     document.body.classList.add("disable-scroll");
     setIndex(i);
-    console.log(redirect);
-    console.log(bodyId !== 'sower');
+    // console.log(redirect);
+    // console.log(bodyId !== 'sower');
     if(bodyId !== 'sower') setRedirect("/menu/dashboard")
     setSignIn(true);
   };

@@ -1,5 +1,5 @@
 .enroll-div{
-    
+    height: 510px;
     display: flex;
     flex-direction: column;
     gap: .6rem;
@@ -9,7 +9,12 @@
     padding: 1rem 1rem;
     border-radius: 5px;
     z-index: 11;
-
+}
+.card h5{
+    color:var(--tertiary);
+}
+.inp-form label{
+    color:var(--tertiary);
 }
 .enroll-div h1 , h4{
     color:var(--tertiary);
@@ -32,6 +37,7 @@
     flex-direction: column;
     font-size: 17px;
     border-radius: 10px;
+    
 }
 
 .enroll-div .card form{
@@ -46,17 +52,29 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     border: 1px solid rgb(182, 182, 182);
-    padding: 1rem;
+    padding: 0.5rem;
     border-radius: 5px;
+    margin-top: 10px;
     
 }
 
+#range{
+    position:absolute;
+    width:40px;
+    height:25px;
+    right: 5px;
+    top:7px
+}
+.enroll-div .card .inp > label{
+    width:200px
+}
 .enroll-div .card .inp > label > span{
     font-weight: bold;
 }
 
 .enroll-div .buy{
-    padding: .8rem 4rem;
+    position: absolute;
+    padding: .5rem 1.4rem;
     font-size: 20px;
     font-weight: 500;
     border-radius: 5px;
@@ -64,30 +82,38 @@
     background-color: var(--primary);
     color: var(--secondary);
     cursor: pointer;
-    margin:  1rem auto;
+    /* margin:  1rem auto; */
     transition: .2s;
     display: inline-block;
     box-sizing: border-box;
     transition:0.2s;
-    margin-left: auto;
+   top:450px;
+   right:50px
 }
 
-.enroll-div .inp .field{
+.enroll-div .inp .field, .enroll-div .inpt .field{
     display: grid;
     grid-template-columns: 1fr auto;
     align-items: center;
+    
 }
-
-.enroll-div .inp .field input{
+.enroll-div .coup{
+    margin-top: 50px;
+}
+.enroll-div .inp .field input,.enroll-div .inpt .field input{
     font-size: large;
     padding: 0; 
 }
 
-.enroll-div .inp .field button{
+
+.enroll-div .inp .field button , .enroll-div .inpt .field button{
     padding: .5rem 1rem;
     background-color: var(--primary);
     color: var(--secondary);
     cursor: pointer;
+    margin-left: -15px;
+    width:80px
+   
 }
 
 .enroll-div  .buy:hover{
@@ -109,12 +135,23 @@
 
 .enroll-div .inp-form{
     display: grid;
-    padding: 2rem 0;
+    padding: 2rem .4rem;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    gap: 38px;
+    width:560px;
 }
 
 .enroll-div .inp{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+   
+}
+.enroll-div .inpt
+{
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -128,9 +165,36 @@
     padding: 5px;
     border: 1px solid#CACACA;
     border-radius: 5px;
-    font-size: large;
+    font-size: medium;
+}
+.enroll-div .inp #em{
+    color:black;
 }
 
+.enroll-div .inpt > input[type = "text"],
+.enroll-div .inpt > input[type = "email"],
+.enroll-div .inpt > select,
+.enroll-div .inpt > textarea{
+    padding: 5px;
+    border: 1px solid#CACACA;
+    border-radius: 5px;
+    font-size: medium;
+    margin-bottom: 20px;
+}
+.enroll-div .inp > input[type = "email"]
+{
+    color: #00B17B;
+}
+
+.enroll-div .inpt > input[type = "text"]{
+    color:#00B17B;
+    width: 130px;
+    height:25px;
+    
+}
+.enroll-div .lft{
+    margin-left:90px;
+}
 .enroll-div .hours{
     text-align: center;
 }
@@ -140,10 +204,21 @@
     width: 100%;
     justify-content: space-between;
 }
-
+.totalamount{
+     margin-top: 110px;
+}
+.totalamount .ta{
+    padding: 5px;
+    border: 1px solid#CACACA;
+    border-radius: 5px;
+    font-size: medium;
+    width:150px
+}
 .enroll-div .inp > button{
+    position: absolute;
     padding: .7rem 2rem;
     margin: 0 auto;
+    top:80px;
     align-self: flex-end;
     background-color: var(--primary);
     color: var(--secondary);

@@ -539,9 +539,9 @@ margin-bottom: 20px;
 .btnsec .know{
   margin-top: 65px ;
   color:var(--primary);
-  position:relative;
+  position:relative; 
 }
-.btnsec div::before{
+.btnsec .know::before{
   content: "";
   position: absolute;
   left:0;
@@ -551,10 +551,10 @@ margin-bottom: 20px;
   background-color: var(--primary);
   transition: width 0.35s ease-out;
 }
-.btnsec div:hover{
+.btnsec .know:hover{
   cursor: pointer;
 }
-.btnsec div:hover::before{
+.btnsec .know:hover::before{
   width: 100%;
 }
 .sowerleft .btnsec button{
