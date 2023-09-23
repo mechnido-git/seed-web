@@ -4,7 +4,7 @@
   align-content: center;
   position: relative;
   width: 100%;
-  overflow-y: auto;
+  /* overflow-y: auto; */
   z-index: 2;
   background-color: var(--secondary);
   color: var(--tertiary);
@@ -16,22 +16,24 @@
   column-gap: -80px;
 } */
 .home .main .title .titleleft{
- z-index: 30;
+ z-index: 5;
 }
 
 .home .main .title .titleleft h1{
   margin-left: 80px;
   margin-top: 60px;
-  width: 905px;
+  /* width: 905px; */
+  width:60%;
   font-size: 35px;
   font-weight: bold;
   line-height: 43px;
 }
 .home .main .title .titleleft div{
-  width: 509px;
+  /* width: 509px; */
+  width:33%;
   height: 91px;
   font-size: 20px;
-  margin-left:242px;
+  margin-left:17%;
   margin-top:60px;
   line-height: 35px;
 }
@@ -41,14 +43,23 @@
 } */
 
 .home .main .title .titleright img{
-  margin-left: 730px;
+  /* margin-left: 730px;
+  */
   margin-top: -400px;
+  margin-left: 45%;
+  /* margin-top: -30%; */
   z-index: 1;
+  width:55%;
 
 }
 .home .main .whoarewe{
   margin:60px;
   height:370px;
+  
+  
+}
+.who::-webkit-scrollbar {
+  display: none;
 }
 .home .main .whoarewe h1{
   margin-bottom: 50px;
@@ -61,6 +72,7 @@
   display: flex;
   flex-direction: row;
   gap:270px;
+  overflow-x: auto;
 }
 .home .main .whoarewe h2{
  margin-bottom:50px;
@@ -112,16 +124,19 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  max-height: 100vh;
+  max-height: 95vh;
   /* margin-top: -50px; */
   height:665px;
+  width:100%;
 }
 
 .home>.hero>h2 {
   color: whitesmoke !important;
   font-size: 40px;
-  width: 1101px;
+  /* width: 1101px; */
+  width:80vw;
   height: 127px;
+  
   /* margin-top: -50px; */
   /* margin: 1rem; */
   /* margin-top: 5rem; */
@@ -194,6 +209,46 @@
   gap: 3rem;
   background-color: var(--secondary);
 }
+
+
+@media only screen and (max-width: 840px) {
+  .home>.hero {
+    justify-content: center;
+    /* padding: 8rem 5rem; */
+  }
+  .home>.hero h2{
+    /* width:95vw; */
+    width:90%;
+    /* overflow-y: auto; */
+    font-size: 25px;
+   
+   
+  }
+  .home>.hero>.btns>button {
+    font-size: medium;
+    padding: 1rem 4rem;
+  }
+
+  .home>.main {
+    margin: 0;
+    padding: .7rem;
+    gap: 1.5rem;
+  }
+  .home .main .title .titleleft div
+  {
+    width: 51%;
+    font-size: 16px;
+    margin-left: 6%;
+  }
+  .home .main .title .titleleft h1
+  {
+    margin-left: 25px;
+    margin-top: 60px;
+    font-size: 25px;
+  }
+}
+
+
 /* --------------------------------------------dropdown ------------------------------------ */
 
 .dropbtn {
@@ -248,7 +303,8 @@
 /* ------------------------------------------------------------------------------------------------------------ */
 
 .accredation{
-  width: 1260px;
+  /* width: 1260px; */
+  width: 85%;
   height: 170px;
   border:1px solid;
   margin-top:-85px;
@@ -267,11 +323,12 @@
 .accredation .img{
   display: flex;
   flex-direction: row;
-  gap:45px;
-position: absolute;
-margin-left: 40%;
-margin-top: 17px;
-z-index:21;
+  gap: 2%;
+  position: absolute;
+  margin-left: 48%;
+  margin-top: 1%;
+  z-index: 21;
+  width:50%;
 }
 .accredation h1{
   margin-top: 55px;
@@ -297,12 +354,36 @@ z-index:21;
 }
 
 .accredation .img div p{
-  font-size: 20px;
-  line-height: 38px;
+  font-size: medium;
+  /* line-height: 38px; */
   letter-spacing: 3%;
   color:#000000;
   font-weight: bold;
+  margin-top: 5px;
 }
+
+
+@media only screen and (max-width: 840px) {
+  .accredation h1{
+    width: 9vw;
+    font-size: 27px;
+  }
+  .accredation .img div img{
+    width: 70px;
+    height: 70px;
+  }  
+  .accredation .img
+  {
+    margin-left: 40%;
+    margin-top: 4%;
+    gap: 0vw;
+  }
+  .accredation .img div p{
+    font-size: 12px
+  }
+  
+}
+
 /* ------------------------------------------------------------------------------------------------------------------------------------------------------- */
 
 .collab{
@@ -333,10 +414,16 @@ margin-bottom: 30px;
   display: flex;
   flex-direction: row;
   gap:100px;
+  height: max-content;
 }
 .whyusleft img{
-  margin-top: -265px;
-  margin-left: 61px;
+  /* margin-top: -31%;
+  margin-left: 7%;
+  width: 100%; */
+  margin-left: 7%;
+ 
+  width: 100%;
+ margin-top: -40%;
 }
 
 .whyusright h1{
@@ -384,11 +471,50 @@ margin-bottom: 30px;
 .whyusright .whyusbtns div:hover {
   cursor: pointer;
 }
+@media only screen and (max-width: 840px) 
+{
+  .whyus{
+    gap: 50px;
+  }
+  .whyusleft img{
+    width:90%;
+    margin-top:-5%;
+  }
+  .whyusright h1 {
+    margin-bottom: 25px;
+    font-size: 25px;
+  }
+  .whyusright div {
+    font-size: 14px;
+    line-height: 25px;
+  }
+  .whyusright .whyusbtns div{
+    font-size: 14px;
+    font-weight: 400;
+    width:max-content;
+    position:relative;
+  }
+}
+
+@media only screen and (max-width: 940px) {
+
+  .whyusleft img{
+    /* margin-top: -31%;
+    margin-left: 7%;
+    width: 100%; */
+    margin-left: 7%;
+   
+    width: 100%;
+   margin-top: -10%;
+  }
+}
+
 /* ---------------------------------------------------------------------------------------------------------------------------------------------------- */
 
 /* ----------------------------------------------testimonials----------------------------------------------------------- */
 .testimonialsection{
   margin-left: 60px;
+  margin-top: 100px;
 }
 .testimonial_content{
   display: flex;
@@ -494,24 +620,39 @@ margin-bottom: 20px;
 }
 
 
+@media only screen and (max-width: 840px) {
+.testsection {
+  width: 480px;
+}
 
-/* .splide__pagination , .splide__arrow--prev , .splide__arrow--next , .splide__arrow svg{
-  visibility: hidden;
-} */
+.testimonialsection h1{
+  font-size: 30px;
+}
+.testimage {
+  height: 352px;
+}
+  .home .main .whoarewe h1{
+font-size: 30px; 
+  }
 
-
-
-
+  .home .main .who{
+    overflow-x: auto;
+    gap:100px;
+  }
+  .collab h1{
+    font-size: 30px;
+  }
+}
 /* ---------------------------------------------------------------------------------------------------------------------------------- */
 /*  ------------------------------------------------------------Sowersection---------------------------------------------------------------------------------------- */
 
 
 .sowersection{
-  display: flex;
-  flex-direction: row;
-  gap:120px;
+  display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 2rem;
   margin-left: 60px;
-  margin-top: -20px;
+  /* margin-top: -20px; */
 }
 
 .sowerleft h1{
@@ -576,6 +717,21 @@ margin-bottom: 20px;
   background-color: var(--secondary);
   color:var(--primary);
   border-color: var(--primary);
+}
+.sowerright img{
+  width:80%;
+}
+
+@media only screen and (max-width:850px){
+  .sowerleft h1{
+ font-size: 30px;
+  }
+  /* .sowersection 
+  {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 2rem;
+  } */
 }
 
 /* ---------------------------------------------------------------------------------------------------------------------- */
@@ -968,7 +1124,7 @@ margin-bottom: 20px;
 .home p {
   color: var(--textcolor);
 }
-
+/* 
 @media only screen and (max-width: 840px) {
   .home>.hero {
     justify-content: center;
@@ -1111,4 +1267,4 @@ margin-bottom: 20px;
 
 .courses {
   color: var(--tertiary);
-}
+} */
