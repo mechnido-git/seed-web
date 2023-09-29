@@ -64,11 +64,16 @@ function About() {
   }, []);
 
 const positions =[
-  {right:"1160px", top:"1260px"},
-  {right:"900px", top:"1260px"},
-  {right:"650px", top:"960px", center:'true'},
-  {right:"450px", top:"1260px"},
-  {right:"200px", top:"1260px"},
+  // {right:"1160px", top:"1260px"},
+  // {right:"900px", top:"1260px"},
+  // {right:"650px", top:"960px", center:'true'},
+  // {right:"450px", top:"1260px"},
+  // {right:"200px", top:"1260px"},
+  {right:"77%", top:"40%"},
+  {right:"60%", top:"40%"},
+  {right:"45%", top:"31%", center:'true'},
+  {right:"30%", top:"40%"},
+  {right:"15%", top:"40%"},
 ]
 
 let cp=0;
@@ -199,23 +204,23 @@ useEffect(()=>{
           <div className="abouts">
           <section className="sectionimg">
             <div className= "ab1" style={{right:rgt, transition:'0.5s', top: top }} >
-            <div className={top=="960px"? "img1" :"img"}><img style={{transition:'0.5s'}} src={about[0].imgs}/></div>
+            <div className={top=="31%"? "img1" :"img"}><img style={{transition:'0.5s'}} src={about[0].imgs}/></div>
               <div  className="txt"><h3>{about[0].data}</h3></div>
             </div>
             <div className="ab2"  style={{right:rgt1, transition:'0.5s', top: tp1 }}>
-            <div className={tp1=="960px"? "img1" :"img"}><img src={about[1].imgs}/></div>
+            <div className={tp1=="31%"? "img1" :"img"}><img src={about[1].imgs}/></div>
               <div  className="txt"><h3>{about[1].data}</h3></div>
             </div >
             <div className="centralimg"  style={{right:rgt2, transition:'0.5s', top: tp2 }}>
-            <div className={tp2=="960px"? "img1" :"img"}><img src={about[2].imgs}/></div>
+            <div className={tp2=="31%"? "img1" :"img"}><img src={about[2].imgs}/></div>
               <div  className="txt"><h3>{about[2].data}</h3></div>
             </div>
             <div className="ab4"  style={{right:rgt3, transition:'0.5s', top: tp3 }}>
-            <div className={tp3=="960px"? "img1" :"img"}><img src={about[3].imgs}/></div>
+            <div className={tp3=="31%"? "img1" :"img"}><img src={about[3].imgs}/></div>
               <div  className="txt"><h3>{about[3].data}</h3></div>
             </div>
             <div className="ab5"  style={{right:rgt4, transition:'0.5s', top: tp4 }}> 
-            <div className={tp4=="960px"? "img1" :"img"}><img src={about[4].imgs}/></div>
+            <div className={tp4=="31%"? "img1" :"img"}><img src={about[4].imgs}/></div>
               <div className="txt"><h3>{about[4].data}</h3></div>
             </div>
           </section>

@@ -225,7 +225,7 @@ function CoursesHome() {
                   interval: 3400,
                   pauseOnHover: true,
                   type: "loop",
-
+                  // noDrag:true,
                   pauseOnFocus: true,
                   keyboard: true,
                   gap: "1rem",
