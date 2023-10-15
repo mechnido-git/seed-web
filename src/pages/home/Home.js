@@ -488,73 +488,79 @@ function Home() {
           <div className="collab" id="Collaborations">
             <h1>Collaborations</h1>
             <Splide
-              tag="section"
-              aria-labelledby="My Favorite Images"
-              options={{
-                speed: 1000,
-                autoplay: true,
-                interval: 4000,
-                arrows: false,
-                pauseOnHover: false,
-                type: "loop",
-                pauseOnFocus: true,
-                keyboard: true,
-                gap: ".5rem",
-                width: "100%",
-                perPage:
-                  window.innerWidth <= 426
-                    ? 1.2
-                    : window.innerWidth <= 768
+                tag="section"
+                aria-labelledby="My Favorite Images"
+                options={{
+                  speed: 800,
+                  autoplay: true,
+                  interval: 2500,
+                  pauseOnHover: false,
+                  type: "loop",
+                  pauseOnFocus: true,
+                  keyboard: true,
+                  gap: ".5rem",
+                  width: "100%",
+                  arrows: false,
+                  perPage:
+                    window.innerWidth <= 426
                       ? 1.5
-                      : window.innerWidth <= 1024
-                        ? 2
-                        : 4,
-                perMove: 1,
-                pagination: false,
-              }}
+                      : window.innerWidth <= 768
+                        ? 3.5
+                        : window.innerWidth <= 1024
+                          ? 4
+                          : 5,
+                  perMove: 1,
+                  pagination: false,
+                }}
             >
               <SplideSlide>
-                <div className="col">
+                <div className="coll">
                   <img src={collab1} alt="" />
                 </div>
               </SplideSlide>
               <SplideSlide>
-                <div className="col">
+                <div className="coll">
                   <img src={collab2} alt="" />
                 </div>
               </SplideSlide>
               <SplideSlide>
-                <div className="col">
+                <div className="coll">
                   <img src={collab3} alt="" />
                 </div>
               </SplideSlide>
               <SplideSlide>
-                <div className="col">
+                <div className="coll">
                   <img src={collab4} alt="" />
                 </div>
               </SplideSlide>
               <SplideSlide>
-                <div className="col">
+                <div className="coll">
                   <img src={collab5} alt="" />
                 </div>
               </SplideSlide>
               <SplideSlide>
-                <div className="col">
+                <div className="coll">
                   <img src={collab6} alt="" />
                 </div>
               </SplideSlide>
               <SplideSlide>
-                <div className="col">
+                <div className="coll">
                   <img src={collab7} alt="" />
                 </div>
               </SplideSlide>
               <SplideSlide>
-                <div className="col">
+                <div className="coll">
                   <img src={collab8} alt="" />
                 </div>
               </SplideSlide>
             </Splide>
-          </div>
+          </div> 
+
+ 
+
+
+
+
 
 
           {/* ----------------------------------------------------------------------------------------------------------------------------------------------------------------- */}

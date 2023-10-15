@@ -7,6 +7,9 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../../firebase/config';
 import Spinner from '../../components/Spinner';
 import cancellogo from "../../images/cancel_icon.png";
+const base64json = require('base64json');
+
+
 
 function Enroll({ index, setbuy }) {
   const { courseList, courses } = useContext(StoreContext);
@@ -24,6 +27,7 @@ function Enroll({ index, setbuy }) {
   const [batch, setBatch] = useState(-1)
   const [code, setCode] = useState('')
 
+  const [xverify, setxverify]= useState('');
   const change = (e) => {
     // console.log(typeof range);
     setRange(parseInt(e.target.value));
@@ -63,47 +67,104 @@ function Enroll({ index, setbuy }) {
     }
 
     setLoading(true)
-    const url = `${process.env.REACT_APP_SERVER_URL}/order`;
-    const data = {
-      id: String(id),
-      range: range,
-      name: String(courses[index].name),
-      userId: uid,
-    }
+
+
+    // const url = `${process.env.REACT_APP_SERVER_URL}/order`;
+    // const data = {
+    //   id: String(id),
+    //   range: range,
+    //   name: String(courses[index].name),
+    //   userId: uid,
+    // }
     try {
 
-      const res = await axios.post(url, data);
-      console.log(res.data.order);
-      var options = {
-        key: process.env.REACT_APP_RAZOR_ID, // Enter the Key ID generated from the Dashboard
-        amount: Number(res.data.order.amount), // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-        currency: "INR",
-        order_id: res.data.order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-        handler: async function (response) {
-          try {
-            setLoading(true)
-            const res = await axios.post(`${process.env.REACT_APP_SERVER_URL}/verify`, {
-              response,
-              userId: uid,
-              range: range,
-              courseId: id,
-              email: email,
-              userName,
-              item: String(courses[index].name)
-            })
-            console.log(res);
-            window.location.reload()
-          } catch (error) {
-            alert(error)
-          }
-        },
-        theme: {
-          color: "#3399cc"
-        }
-      };
-      console.log(process.env.REACT_APP_RAZOR_ID);
-      var rzp1 = new window.Razorpay(options);
-      rzp1.open()
+      // const res = await axios.post(url, data);
+      // console.log(res.data.order);
+      // var options = {
+      //   key: process.env.REACT_APP_RAZOR_ID, // Enter the Key ID generated from the Dashboard
+      //   amount: Number(res.data.order.amount), // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+      //   currency: "INR",
+      //   order_id: res.data.order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+      //   handler: async function (response) {
+      //     try {
+      //       setLoading(true)
+      //       const res = await axios.post(`${process.env.REACT_APP_SERVER_URL}/verify`, {
+      //         response,
+      //         userId: uid,
+      //         range: range,
+      //         courseId: id,
+      //         email: email,
+      //         userName,
+      //         item: String(courses[index].name)
+      //       })
+      //       console.log(res);
+      //       window.location.reload()
+      //     } catch (error) {
+      //       alert(error)
+      //     }
+      //   },
+      //   theme: {
+      //     color: "#3399cc"
+      //   }
+      // };
+      // // console.log(process.env.REACT_APP_RAZOR_ID);
+      // var rzp1 = new window.Razorpay(options);
+      // rzp1.open()
+
+
+      
+const data = 
+{
+  "merchantId": "M1J6KDOBZOWG",
+  "merchantTransactionId":uid,
+  "merchantUserId": uid,
+  "amount": 100,
+  "redirectUrl": "http://localhost:3000/#/menu/dashboard",
+  "redirectMode": "REDIRECT",
+  "callbackUrl": "http://localhost:4242/verify",
+  "mobileNumber": "9999999999",
+  "paymentInstrument": {
+    "type": "PAY_PAGE"
+  }
+}
+
+var buff = JSON.stringify(data).toString("base64");
+const payload = base64json.stringify(data);
+let check = payload+"/pg/v1/pay"+"8efa9411-a19f-4874-9245-479b00da244d";
+
+const encoder = new TextEncoder();
+const dt = encoder.encode(check);
+window.crypto.subtle.digest('SHA-256', dt)
+.then(hashBuffer => {
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  const hashHex = hashArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
+  console.log(hashHex);
+  let a = hashHex+"###1";
+  setxverify(a);
+  console.log(a);
+})
+.catch(error => console.error(error));
+
+console.log("this is xverify ," , xverify); // calculated the  xverify till here
+
+// sending the req to the phonepay using axios
+const url = "https://api.phonepe.com/apis/hermes/pg/v1/pay"
+const config = {
+  headers:{
+    // 'Access-Control-Allow-Credentials':true,
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+    "Content-Type" : "application/json",
+    "X-VERIFY": xverify
+    
+  }
+};
+
+axios.post(url, payload, config)
+  .then(res => console.log(res))
+  .catch(err => console.log(err))
+
+
 
     } catch (error) {
       console.log(error);

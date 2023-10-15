@@ -24,11 +24,13 @@ import PrivacyPolicy from "./pages/privacyPolicy/PrivacyPolicy";
 import Terms from "./pages/terms/Terms";
 import RefundPolicy from "./pages/refundPolicy/RefundPolicy";
 
+
 function Router() {
   return (
     
     <HashRouter >
       <Routes>
+      
         <Route exact path="/" element={<Home />} />   {/* WEBISTE route*/}
         <Route exact path="/about" element={<About />} /> {/* ABOUT route */}
         <Route exact path="/sower" element={<Sower />} /> {/* SOWER route */}
