@@ -248,6 +248,13 @@
   }
 }
 
+@media only screen and (max-width:420px){
+  .home>.hero{
+    margin-top: 75px;
+    height: 219px;
+  }
+}
+
 
 /* --------------------------------------------dropdown ------------------------------------ */
 
@@ -384,6 +391,68 @@
   
 }
 
+@media only screen and (max-width: 420px) {
+
+  .accredation{
+    width: 308px;
+    height: 60px;
+   
+    margin-top: -42px;
+  }
+  .accredation h1
+  {
+    margin-top: 20px;
+    font-size:13px;
+  }
+
+  .accredation .img div img{
+    width: 28px;
+    height: 28px;
+  }  
+
+  .accredation .img div {
+    margin-left: 8px;
+  }
+
+  .accredation .img div p {
+    font-size: 5px;
+}
+
+.home>.hero>.btns>button {
+  font-size: 13px;
+  padding: 1rem 1rem;
+}
+.home>.hero>.btns>button 
+{
+  margin-top: -68px;
+  width: 121px;
+  height: 37px;
+}
+.home .main .title .titleleft h1 {
+  margin-left: 11px;
+  margin-top: 0px;
+  font-size: 14px;
+  width: 100%;
+}
+
+
+  .home .main .title .titleleft div {
+    width: 61%;
+    font-size: 9px;
+    margin-left: 3%;
+    margin-top: 4px;
+    line-height: 21px;
+  }
+
+  .home .main .title .titleright img {
+   
+    margin-top: -150px;
+    margin-left: 45%;
+  }
+
+
+}
+
 /* ------------------------------------------------------------------------------------------------------------------------------------------------------- */
 
 .collab{
@@ -397,17 +466,22 @@ margin-bottom: 30px;
   line-height: 43px;
 }
 
-.collab .col img {
+.collab .coll img {
   height: 130px;
   width: 260px;
   object-fit: contain;
 }
 
-.collab .col {
+.collab .coll {
   text-align: center;
 }
 
-
+.collab .splide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+}
 
 /* ----------------------------------------------whyus ------------------------------------------------------*/
 .whyus{
@@ -507,6 +581,34 @@ margin-bottom: 30px;
     width: 100%;
    margin-top: -10%;
   }
+}
+@media only screen and (max-width: 420px) 
+{
+  .whyus {
+    gap: 50px;
+    display: grid;
+   }
+.whyusleft img {
+  margin-left: 7%;
+  width: 68%;
+  margin-top: -10%;
+}
+
+.whyusright h1 {
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+.whyusright div {
+  font-size: 14px;
+  line-height: 25px;
+  width: 70%;
+}
+.collab .coll img {
+  height: 100px;
+  width: 100px;
+  object-fit: contain;
+}
+
 }
 
 /* ---------------------------------------------------------------------------------------------------------------------------------------------------- */
@@ -643,6 +745,141 @@ font-size: 30px;
     font-size: 30px;
   }
 }
+
+
+@media only screen and (max-width: 420px)
+{
+  .testimonialsection {
+    margin-left: 10px;
+    margin-top: 31px;
+}
+.testimonialsection h1{
+  font-size: 22px;
+}
+
+.testimonialsection .say {
+  margin-left: 2px;
+  width: 161px;
+  height: 39px;
+  font-size: 14px;
+}
+.testimage{
+  height: 250px;
+}
+.testimage img{
+  width: 50px;
+  height:50px;
+  margin-bottom:-25px ;
+  border-radius: 50%;
+  position: absolute;
+  transition: .6s;
+}
+
+.left-arrow {
+  width: 45px;
+  height: 45px;
+  border: 2px solid var(--textcolor);
+  position: absolute;
+  transform: translate(-50%, -50%) rotate(45deg);
+  border-right: none;
+  border-top: none;
+  margin-left: 100px;
+  margin-top: 34px;
+}
+.left-arrow:before{
+  position:absolute;
+  content:"";
+  border-top: 2px solid var(--textcolor);
+  width:calc(1.41*(45px + 1px));
+  transform:rotate(45deg);
+ left: -12px;
+ top:19px;
+  
+}
+
+.testsection{
+  height:228px;
+  margin-left: 114px;
+  width:67%
+}
+.testsection li{
+  margin-left: -10px;
+}
+
+.test_content h2{
+  font-size: 18px;
+  width: 200px;
+  height: 20px;
+  margin-left: -13px;
+  margin-bottom: 15px;
+  }
+
+  .test_content .text{
+    margin-bottom: 5px;
+    font-size: 10px;
+    letter-spacing: 1px;
+    line-height: 12px;
+    width:200px;
+    margin-left: -13px;
+  }
+  .test_content .name{
+    width: 121px;
+    height: 30px;
+    font-size: 14px;
+    color:var(--textcolor);
+    margin-left: -13px;
+  }
+
+
+  .home .main .whoarewe h1{
+    font-size: 22px; 
+      }
+
+
+      .home .main .whoarewe {
+        /* margin: 29px; */
+        height: 520px;
+        margin-left: 7px;
+    }
+
+    .home .main .whoarewe h2 {
+      margin-bottom: 20px;
+      font-size: 17px;
+  }
+
+  .home .main .who .whoLeft, .home .main .who .whoRight {
+    width: 280px;
+}
+  .home .main .who .whoLeft div, .home .main .who .whoRight div {
+    font-size: 14px;
+    line-height: 25px;
+    width: 280px;
+  }
+.home .main .who {
+ 
+  gap: 45px;
+  display: grid;}
+
+  .collab h1 {
+    font-size: 22px;
+    margin-bottom: -4px;
+}
+  .collab {
+    margin-left: 3px;
+    margin-bottom: -19px;
+    margin-top: 30px;
+}
+.sowerleft .btnsec button 
+{
+  width: 123px;
+  height: 39px;
+  font-size: 13px;
+
+}
+
+}
+
+
 /* ---------------------------------------------------------------------------------------------------------------------------------- */
 /*  ------------------------------------------------------------Sowersection---------------------------------------------------------------------------------------- */
 
@@ -726,12 +963,32 @@ font-size: 30px;
   .sowerleft h1{
  font-size: 30px;
   }
-  /* .sowersection 
-  {
+ 
+}
+
+@media only screen and (max-width:420px)
+{
+  .sowersection {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
     gap: 2rem;
-  } */
+    margin-left: 2px;}
+  
+    .sowerleft h1 {
+      font-size: 22px;
+  }
+  
+  .sowerleft div {
+    font-size: 14px;
+    line-height: 16px;
+    width: 355px;
+  }
+
+  .sowerleft .btnsec button {
+    margin-top: 50px;
+    width: 128px;
+    height: 39px;
+    font-size: 14px;}
 }
 
 /* ---------------------------------------------------------------------------------------------------------------------- */
@@ -1268,3 +1525,29 @@ font-size: 30px;
 .courses {
   color: var(--tertiary);
 } */
+
+@media only screen and (max-width: 420px)
+{
+  .container-div .footer_form {
+    /* display: flex; */
+    display: grid;
+    width: 100%;}
+
+
+    .get-in-touch>.content {
+      margin:0px;
+      margin-top: 10px;
+      color: #f4f4f4;
+  }
+
+  .container-div .footer_form >div {
+   
+    width: 303px;}
+
+
+    .footer > .links > .section.GIT li > .details {
+      /* display: flex; */ 
+      gap: 6px;}
+
+
+}

@@ -22,9 +22,9 @@ import conti2 from "../../images/conti2.jpg";
 import conti3 from "../../images/conti3.jpg";
 import conti4 from "../../images/conti4.jpg";
 
-
+import { Splide, SplideSlide } from "@splidejs/react-splide";
 function About() {
-  const {check, theme } = useContext(StoreContext);
+  const {check, theme   } = useContext(StoreContext);
   const [dp, setDp] = useState(profile);
   const [userName, setUserName] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -226,9 +226,47 @@ useEffect(()=>{
           </section>
           </div>
         
+          {/* <div className="slides-gallery">
+              <div id="gallery"></div>
+              <h2>Gallery</h2>
+
+              <Splide
+                tag="section"
+                aria-labelledby="My Favorite Images"
+                options={{
+                  speed: 1000,
+                  autoplay: true,
+                  interval: 3400,
+                  pauseOnHover: false,
+                  type: "loop",
+                  pauseOnFocus: true,
+                  keyboard: true,
+                  gap: ".5rem",
+                  width: "100%",
+                  perPage:
+                    window.innerWidth <= 426
+                      ? 1
+                      : window.innerWidth <= 768
+                        ? 1.5
+                        : window.innerWidth <= 1024
+                          ? 2
+                          : 3,
+                  perMove: 1,
+                  pagination: false,
+                }}
+              >
+                {gallery[0].images.map((item, i) => {
+                  console.log("slide "+i);
+                  return <SplideSlide>
+                    {/* <ImageLoader src={item} style={{ objectFit: "contain", width: "100%" }} /> */}
+                  {/*  <img src={item} style={{ objectFit: "contain", width: "100%" }} alt="" />
+                  </SplideSlide>
+                })}
+                
+              </Splide>
+            </div>
          
-         
-        
+              */}
           
           
 
