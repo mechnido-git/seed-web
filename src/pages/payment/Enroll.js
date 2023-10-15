@@ -153,6 +153,7 @@ const config = {
   headers:{
     // 'Access-Control-Allow-Credentials':true,
     "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Requested-With",
     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
     "Content-Type" : "application/json",
     "X-VERIFY": xverify
