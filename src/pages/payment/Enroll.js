@@ -112,102 +112,134 @@ function Enroll({ index, setbuy }) {
       // rzp1.open()
 
 
+
       
-// const data = 
-// {
-//   "merchantId": "M1J6KDOBZOWG",
-//   "merchantTransactionId":uid,
-//   "merchantUserId": uid,
-//   "amount": 100,
-//   "redirectUrl": "http://localhost:3000/#/menu/dashboard",
-//   "redirectMode": "REDIRECT",
-//   "callbackUrl": "http://localhost:4242/verify",
-//   "mobileNumber": "9999999999",
-//   "paymentInstrument": {
-//     "type": "PAY_PAGE"
-//   }
-// }
+/* Function to generate combination of password */
+function generatePass() {
+  let pass = '';
+  let str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' +
+      'abcdefghijklmnopqrstuvwxyz0123456789';
 
-// var buff = JSON.stringify(data).toString("base64");
-// const payload = base64json.stringify(data);
-// let check = payload+"/pg/v1/pay"+"8efa9411-a19f-4874-9245-479b00da244d";
+  for (let i = 1; i <= 8; i++) {
+      let char = Math.floor(Math.random()
+          * str.length + 1);
 
-// const encoder = new TextEncoder();
-// const dt = encoder.encode(check);
-// window.crypto.subtle.digest('SHA-256', dt)
-// .then(hashBuffer => {
-//   const hashArray = Array.from(new Uint8Array(hashBuffer));
-//   const hashHex = hashArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
-//   console.log(hashHex);
-//   let a = hashHex+"###1";
-//   setxverify(a);
-//   console.log(a);
-// })
-// .catch(error => console.error(error));
+      pass += str.charAt(char)
+  }
 
-// console.log("this is xverify ," , xverify); // calculated the  xverify till here
+  return pass;
+}
+      
 
-// // sending the req to the phonepay using axios
+let mti = generatePass();
+let uidd = generatePass();
+
+console.log(mti);
+console.log(uidd);
+
+const data = 
+{
+  "merchantId": "M1J6KDOBZOWG",
+  "merchantTransactionId":"psdfrnjnfn",
+  "merchantUserId": "plpkmmmjd" ,
+  "amount": 10000,
+  "redirectUrl": "http://localhost:3000/#/menu/dashboard",
+  "redirectMode": "REDIRECT",
+  "callbackUrl": "http://localhost:4242/verify",
+  "mobileNumber": "9876893678",
+  "paymentInstrument": {
+    "type": "PAY_PAGE"
+  }
+}
+
+var buff = JSON.stringify(data);
+const payload = base64json.stringify(data);
+let check = payload+"/pg/v1/pay"+"8efa9411-a19f-4874-9245-479b00da244d";
+
+const encoder = new TextEncoder();
+const dt = encoder.encode(check);
+window.crypto.subtle.digest('SHA-256', dt)
+.then(hashBuffer => {
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  const hashHex = hashArray.map(byte => byte.toString(16)).join('');
+  console.log(hashHex);
+  let a = hashHex+"###1";
+  setxverify(a);
+  console.log(a);
+})
+.catch(error => console.error(error));
+
+console.log("this is xverify ," , xverify); 
+const pay = {
+  "request": payload ,
+  "xverify":xverify
+}
+axios.post("http://localhost:4242/payments", pay)
+.then(res => console.log(res))
+ .catch(err => console.log(err))
+
+
+
+
+
+// calculated the  xverify till here
+
+// sending the req to the phonepay using axios
 // const url = "https://api.phonepe.com/apis/hermes/pg/v1/pay"
-// const config = {
+
+// 'Access-Control-Allow-Credentials':true,
+// "Access-Control-Allow-Origin": "*",
+//.padStart(2, '0')
+//  const config = {
 //   headers:{
-//     // 'Access-Control-Allow-Credentials':true,
-//     "Access-Control-Allow-Origin": "*",
-//     "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Requested-With",
-//     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
 //     "Content-Type" : "application/json",
-//     "X-VERIFY": xverify,
-//     "Transfer-Encoding":"chunked",
-//     "Connection":"keep-alive",
-//     "X-REQUESTED-METHOD":"POST",
-//     "X-ENCRYPTED-RESPONSE":false,
-//     "X-Frame-Options":"DENY",
-//     "X-Content-Type-Options":"nosniff",
-//     "X-XSS-Protection":"1; mode=block",
-//     "strict-transport-security":"max-age=31536000; preload",
-//     "Content-Encoding":"gzip",
-//     "CF-Cache-Status":"DYNAMIC",
-//     "Server":"cloudflare",
-//     "CF-RAY":"8165842b68c231ed-BOM"
-
-
-    
+//     "X-VERIFY": xverify,    
 //   }
 // };
 
-// axios.post(url, payload, config)
-//   .then(res => console.log(res))
-//   .catch(err => console.log(err))
+
+
+
+// ======================================================final trial =======================================================================================
+
+
+
+// var buff = JSON.stringify(data);
+// const payload = base64json.stringify(data);
+
+// console.log(typeof(payload));
+// let check = payload+"/pg/v1/pay"+"8efa9411-a19f-4874-9245-479b00da244d";
 
 
 
 
+// =========================================================================================================================================================
 
 // ===========================================postman code===============================================
 
 // const axios = require('axios');
-let data = JSON.stringify({
-  "request": "ewogICJtZXJjaGFudElkIjogIk0xSjZLRE9CWk9XRyIsCiAgIm1lcmNoYW50VHJhbnNhY3Rpb25JZCI6ICJNVDc4NTA0IiwKICAibWVyY2hhbnRVc2VySWQiOiAiTVVJRDEyMyIsCiAgImFtb3VudCI6IDEwMDAwLAogICJyZWRpcmVjdFVybCI6ICJodHRwOi8vbG9jYWxob3N0OjMwMDAvIy90ZXN0Y2FsbCIsCiAgInJlZGlyZWN0TW9kZSI6ICJSRURJUkVDVCIsCiAgImNhbGxiYWNrVXJsIjogImh0dHA6Ly9sb2NhbGhvc3Q6MzAwMC8jL3Rlc3RjYWxsIiwKICAibW9iaWxlTnVtYmVyIjogIjk5OTk5OTk5OTkiLAogICJwYXltZW50SW5zdHJ1bWVudCI6IHsKICAgICJ0eXBlIjogIlBBWV9QQUdFIgogIH0KfQ=="
-});
+// let data = JSON.stringify({
+//   "request": "ewogICJtZXJjaGFudElkIjogIk0xSjZLRE9CWk9XRyIsCiAgIm1lcmNoYW50VHJhbnNhY3Rpb25JZCI6ICJNVDc4NTA0IiwKICAibWVyY2hhbnRVc2VySWQiOiAiTVVJRDEyMyIsCiAgImFtb3VudCI6IDEwMDAwLAogICJyZWRpcmVjdFVybCI6ICJodHRwOi8vbG9jYWxob3N0OjMwMDAvIy90ZXN0Y2FsbCIsCiAgInJlZGlyZWN0TW9kZSI6ICJSRURJUkVDVCIsCiAgImNhbGxiYWNrVXJsIjogImh0dHA6Ly9sb2NhbGhvc3Q6MzAwMC8jL3Rlc3RjYWxsIiwKICAibW9iaWxlTnVtYmVyIjogIjk5OTk5OTk5OTkiLAogICJwYXltZW50SW5zdHJ1bWVudCI6IHsKICAgICJ0eXBlIjogIlBBWV9QQUdFIgogIH0KfQ=="
+// });
 
-let config = {
-  method: 'post',
-  maxBodyLength: Infinity,
-  url: 'https://api.phonepe.com/apis/hermes/pg/v1/pay',
-  headers: { 
-    'X-VERIFY': '3d91b63f2c1b36e7282aaec4c397addc92ba98f25b4a6e1959dc6cd9bff8539c###1', 
-    'Content-Type': 'application/json'
-  },
-  data : data
-};
+// let config = {
+//   method: 'post',
+//   maxBodyLength: Infinity,
+//   url: 'https://api.phonepe.com/apis/hermes/pg/v1/pay',
+//   headers: { 
+//     'X-VERIFY': '3d91b63f2c1b36e7282aaec4c397addc92ba98f25b4a6e1959dc6cd9bff8539c###1', 
+//     'Content-Type': 'application/json'
+//   },
+//   data : data
+// };
 
-axios.request(config)
-.then((response) => {
-  console.log(JSON.stringify(response.data));
-})
-.catch((error) => {
-  console.log(error);
-});
+// axios.request(config)
+// .then((response) => {
+//   console.log(JSON.stringify(response.data));
+// })
+// .catch((error) => {
+//   console.log(error);
+// });
 
 // =========================================================================================================
 

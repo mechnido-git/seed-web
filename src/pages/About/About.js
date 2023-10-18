@@ -22,6 +22,13 @@ import conti2 from "../../images/conti2.jpg";
 import conti3 from "../../images/conti3.jpg";
 import conti4 from "../../images/conti4.jpg";
 
+import l1 from "../../images/1.svg";
+import l2 from "../../images/2.svg";
+import l3 from "../../images/3.svg";
+import l4 from "../../images/4.svg";
+import l5 from "../../images/tnkc_launch.png";
+
+
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 function About() {
   const {check, theme   } = useContext(StoreContext);
@@ -50,6 +57,7 @@ function About() {
   const[st2 , setst2]= useState("250px");
   const[st3 , setst3]= useState("160px");
   const[st4 , setst4]= useState("250px");
+  const[l, setl] = useState([l1, l2,l3,l4,l5]);
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -64,16 +72,11 @@ function About() {
   }, []);
 
 const positions =[
-  // {right:"1160px", top:"1260px"},
-  // {right:"900px", top:"1260px"},
-  // {right:"650px", top:"960px", center:'true'},
-  // {right:"450px", top:"1260px"},
-  // {right:"200px", top:"1260px"},
-  {right:"77%", top:"40%"},
-  {right:"60%", top:"40%"},
-  {right:"45%", top:"31%", center:'true'},
-  {right:"30%", top:"40%"},
-  {right:"15%", top:"40%"},
+  {right:"77%", top:"50%"},
+  {right:"60%", top:"50%"},
+  {right:"45%", top:"10%", center:'true'},
+  {right:"30%", top:"50%"},
+  {right:"15%", top:"50%"},
 ]
 
 let cp=0;
@@ -100,6 +103,7 @@ useEffect(()=>{
     
       }, 3000)
      
+      
       return () => clearInterval(interval);
 },[ind])
 
@@ -127,10 +131,15 @@ const about=[
 ]
 
 const pos =[
-  {right:"290px", top:"0px"},
-  {right:"500px", top:"250px"},
-  {right:"240px", top:"160px"},
-  {right:"80px", top:"250px"},
+  // {right:"290px", top:"0px"},
+  // {right:"500px", top:"250px"},
+  // {right:"240px", top:"160px"},
+  // {right:"80px", top:"250px"},
+
+  {right:"36%", top:"0px"},
+  {right:"63%", top:"250px"},
+  {right:"30%", top:"120px"},
+  {right:"10%", top:"250px"},
 ]
 
 useEffect(()=>{
@@ -202,33 +211,85 @@ useEffect(()=>{
            </div>
           </section>
           <div className="abouts">
+            { window.innerWidth >= 500?
           <section className="sectionimg">
             <div className= "ab1" style={{right:rgt, transition:'0.5s', top: top }} >
-            <div className={top=="31%"? "img1" :"img"}><img style={{transition:'0.5s'}} src={about[0].imgs}/></div>
+            <div className={top=="10%"? "img1" :"img"}><img style={{transition:'0.5s'}} src={about[0].imgs}/></div>
               <div  className="txt"><h3>{about[0].data}</h3></div>
             </div>
             <div className="ab2"  style={{right:rgt1, transition:'0.5s', top: tp1 }}>
-            <div className={tp1=="31%"? "img1" :"img"}><img src={about[1].imgs}/></div>
+            <div className={tp1=="10%"? "img1" :"img"}><img src={about[1].imgs}/></div>
               <div  className="txt"><h3>{about[1].data}</h3></div>
             </div >
             <div className="centralimg"  style={{right:rgt2, transition:'0.5s', top: tp2 }}>
-            <div className={tp2=="31%"? "img1" :"img"}><img src={about[2].imgs}/></div>
+            <div className={tp2=="10%"? "img1" :"img"}><img src={about[2].imgs}/></div>
               <div  className="txt"><h3>{about[2].data}</h3></div>
             </div>
             <div className="ab4"  style={{right:rgt3, transition:'0.5s', top: tp3 }}>
-            <div className={tp3=="31%"? "img1" :"img"}><img src={about[3].imgs}/></div>
+            <div className={tp3=="10%"? "img1" :"img"}><img src={about[3].imgs}/></div>
               <div  className="txt"><h3>{about[3].data}</h3></div>
             </div>
             <div className="ab5"  style={{right:rgt4, transition:'0.5s', top: tp4 }}> 
-            <div className={tp4=="31%"? "img1" :"img"}><img src={about[4].imgs}/></div>
+            <div className={tp4=="10%"? "img1" :"img"}><img src={about[4].imgs}/></div>
               <div className="txt"><h3>{about[4].data}</h3></div>
             </div>
           </section>
+          :
+          <section>
+            <div className="abouts_mobile">
+              {/* upper images */}
+              <div className="up">
+                <div className="blocks">
+                  <div className="imgg"><img src={about1}/></div>
+                  <div><h5>Experienced Trainers</h5></div>
+                </div>
+
+                <div className="blocks">
+                  <div className="imgg"><img src={about2}/></div>
+                  <div><h5>Established in 2019</h5></div>
+                </div>
+
+                <div className="blocks">
+                  <div className="imgg"><img src={about3}/></div>
+                  <div><h5>High quality tech-training platform</h5></div>
+                </div>
+              </div>
+              
+
+
+              {/* lower images */}
+              <div className="down">
+
+
+              <div className="blocks">
+                  <div className="imgg"><img src={about4}/></div>
+                  <div><h5>In demand courses</h5></div>
+                </div>
+
+                <div className="blocks">
+                  <div className="imgg"><img src={about5}/></div>
+                  <div><h5>4 Years in service</h5></div>
+                </div>
+           
+
+              </div>
+
+
+
+            </div>
+           
+          </section>
+
+            }
           </div>
-        
-          {/* <div className="slides-gallery">
+        <div className="guly">
+
+       
+          <div className="slides-gallery">
               <div id="gallery"></div>
-              <h2>Gallery</h2>
+              <h1>Gallery</h1>
+
+              <p>Our esteemed Education Minister of Tamil Nadu , Mr Anbil Mahesh Poyyamozhi ceremoniously inaugurated our website</p>
 
               <Splide
                 tag="section"
@@ -255,18 +316,28 @@ useEffect(()=>{
                   pagination: false,
                 }}
               >
-                {gallery[0].images.map((item, i) => {
+                {/* {gallery[0].images.map((item, i) => {
                   console.log("slide "+i);
                   return <SplideSlide>
-                    {/* <ImageLoader src={item} style={{ objectFit: "contain", width: "100%" }} /> */}
-                  {/*  <img src={item} style={{ objectFit: "contain", width: "100%" }} alt="" />
+                    {/* <ImageLoader src={item} style={{ objectFit: "contain", width: "100%" }} /> 
+                   <img src={item} style={{ objectFit: "contain", width: "100%" }} alt="" />
                   </SplideSlide>
-                })}
+                })} */}
+
+                {
+                  l.map((item)=>{
+                    return <SplideSlide>
+                   <img src={item} style={{  height:"200px", objectFit: "contain", width: "100%" }} alt="" />
+                  </SplideSlide>
+                  })
+                }
+
+
                 
               </Splide>
             </div>
          
-              */}
+            </div>
           
           
 
@@ -295,11 +366,12 @@ useEffect(()=>{
               Our Contribution to the <br></br> Sustainable Development Goals
               </h2>
             </div>
+
             <div className="card-conti">
-              <img className={s1=="240px"?"ctimg":"img1"} src={conti1} style={{right:s1, transition:'0.5s', top: st1 }}alt=""/>
-              <img  className={s2=="240px"?"ctimg":"img2"} src={conti2}  style={{right:s2, transition:'0.5s', top: st2 }} alt=""/>
-             <img  className={s3=="240px"?"ctimg":"img3"} src={conti3}  style={{right:s3, transition:'0.5s', top: st3 }} alt=""/>
-              <img className={s4=="240px"?"ctimg":"img4"} src={conti4}  style={{right:s4, transition:'0.5s', top: st4 }} alt=""/>
+              <img className={s1=="30%"?"ctimg":"img1"} src={conti1} style={{right:s1, transition:'0.5s', top: st1 }}alt=""/>
+              <img  className={s2=="30%"?"ctimg":"img2"} src={conti2}  style={{right:s2, transition:'0.5s', top: st2 }} alt=""/>
+             <img  className={s3=="30%"?"ctimg":"img3"} src={conti3}  style={{right:s3, transition:'0.5s', top: st3 }} alt=""/>
+              <img className={s4=="30%"?"ctimg":"img4"} src={conti4}  style={{right:s4, transition:'0.5s', top: st4 }} alt=""/>
             </div>
           </section>
 
