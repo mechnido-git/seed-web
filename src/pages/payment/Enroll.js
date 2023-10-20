@@ -140,9 +140,9 @@ console.log(uidd);
 const data = 
 {
   "merchantId": "M1J6KDOBZOWG",
-  "merchantTransactionId":"psdfrnjnfn",
-  "merchantUserId": "plpkmmmjd" ,
-  "amount": 10000,
+  "merchantTransactionId":mti,
+  "merchantUserId": uid ,
+  "amount": 100,
   "redirectUrl": "http://localhost:3000/#/menu/dashboard",
   "redirectMode": "REDIRECT",
   "callbackUrl": "http://localhost:4242/verify",

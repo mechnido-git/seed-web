@@ -12,7 +12,20 @@ import FacultyForm from "../pages/events/eventConfig/FacultyForm";
 import axios from "axios";
 import cancellogo from "../images/cancel_icon.png";
 import { displayError, onChangeInput, validateEmail, validateName, validatePassword, validatePhone } from "../pages/signin/SignIn";
+const { initializeApp } = require("firebase/app");
+// const { firebaseConfig } = require("../firebase/config");
+// const {
+//   doc,
+//   updateDoc,
+//   getFirestore,
+//   collection,
+//   addDoc,
+//   getDoc,
+//   arrayUnion,
+//   serverTimestamp,
+// } = require("firebase/firestore");
 
+// initializeApp(firebaseConfig);
 
 function RegisterForm({ event, setRegister, email, userName }) {
   const [teamName, setTeamName] = useState("");
@@ -39,7 +52,15 @@ function RegisterForm({ event, setRegister, email, userName }) {
   const [current, setCurrent] = useState(-1)
 
   const navigate = useNavigate()
+
+const tempdata=(e)=>{
+  e.preventDefault();
+
+
   
+}
+
+ 
   const onSumbitHandler = async (e) => {
     e.preventDefault();
     setLoading(true)
@@ -57,7 +78,6 @@ function RegisterForm({ event, setRegister, email, userName }) {
                   }
       
                 }
-      
                 const eventData = {
                   id: user.uid,
                   eventId: event.id,
@@ -76,52 +96,58 @@ function RegisterForm({ event, setRegister, email, userName }) {
                   members,
                   faculty
                 }
-      
-                const url = `${process.env.REACT_APP_SERVER_URL}/register`;
-                const info = {
-                  id: event.id,
-                  name: event.name,
-                  userId: user.uid,
-                }
+                await addDoc(collection(db, "enrolled"), {
+                  ...eventData
+                });
+
+       window.alert("Congratulations !! You have been registered . We will contact you soon.");
+             //sending the request to the backend
+                // const url = `${process.env.REACT_APP_SERVER_URL}/register`;
+                // const info = {
+                //   id: event.id,
+                //   name: event.name,
+                //   userId: user.uid,
+                // }
       
 
-            const res = await axios.post(url, info);
-            console.log(res.data.order);
-            var options = {
-              key: process.env.REACT_APP_RAZOR_ID, // Enter the Key ID generated from the Dashboard
-              amount: Number(res.data.order.amount), // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-              currency: "INR",
-              order_id: res.data.order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-              handler: async function (response) {
-                try {
-                  setLoading(true)
-                  const res = await axios.post(`${process.env.REACT_APP_SERVER_URL}/register-verify`, {
-                    response,
-                    userId: user.uid,
-                    eventData: eventData,
-                    eventId: event.id,
-                    email: email,
-                    userName,
-                    item  : event.title,
-                  })
-                  console.log(res);
-                  window.location.reload()
-                } catch (error) {
-                  alert(error)
-                }
-              },
-              theme: {
-                color: "#3399cc"
-              }
-            };
-            // console.log(process.env.REACT_APP_RAZOR_ID);
-            var rzp1 = new window.Razorpay(options);
-            rzp1.open()
+            // const res = await axios.post(url, info);
+            // console.log(res.data.order);
+            // var options = {
+            //   key: process.env.REACT_APP_RAZOR_ID, // Enter the Key ID generated from the Dashboard
+            //   amount: Number(res.data.order.amount), // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+            //   currency: "INR",
+            //   order_id: res.data.order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+            //   handler: async function (response) {
+            //     try {
+            //       setLoading(true)
+            //       const res = await axios.post(`${process.env.REACT_APP_SERVER_URL}/register-verify`, {
+            //         response,
+            //         userId: user.uid,
+            //         eventData: eventData,
+            //         eventId: event.id,
+            //         email: email,
+            //         userName,
+            //         item  : event.title,
+            //       })
+            //       console.log(res);
+            //       window.location.reload()
+            //     } catch (error) {
+            //       alert(error)
+            //     }
+            //   },
+            //   theme: {
+            //     color: "#3399cc"
+            //   }
+            // };
+            // // console.log(process.env.REACT_APP_RAZOR_ID);
+            // var rzp1 = new window.Razorpay(options);
+            // rzp1.open()
           }
           } catch (error) {
             console.log(error);
 
           } finally {
+
             setLoading(false)
           }
     })
@@ -484,7 +510,7 @@ function RegisterForm({ event, setRegister, email, userName }) {
         </div>
         <div className="btns">
           <button className="cntrl" onClick={() => setCurrent(current - 1)} type="button">Back</button>
-          <input type="submit" value="Register" />
+          <input type="submit"  value="Register" />
         </div>
       </div>;
 
