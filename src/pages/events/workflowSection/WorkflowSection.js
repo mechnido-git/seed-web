@@ -37,7 +37,7 @@ export const DetailsCard = ({ event, userId}) => {
   return (
     <>
     <div className="card-event">
-      <img src={event.poster} alt="tnkc image" />
+      <img src="https://firebasestorage.googleapis.com/v0/b/seed-25898.appspot.com/o/events%2FhUaPM58nSpDcAbUNXSf7%2Flogo%2Flogo.jpg?alt=media&token=8f67ea31-a179-4fc1-a530-2e4c0443fad9&_gl=1*pls390*_ga*OTQxNTA1NzcyLjE2ODc5NTg1OTk.*_ga_CW55HF8NVT*MTY5NzkyMTQyNy41MS4xLjE2OTc5MjE5MDAuNTEuMC4w" alt="tnkc image" />
       <button className={enrolled? "disabledbtn": ""} disabled = {enrolled} onClick={ getRegister} >{enrolled? "Enrolled":"Enroll"}</button>
       <hr />
       <div className="card-body">
