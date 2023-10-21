@@ -96,6 +96,7 @@ const tempdata=(e)=>{
                   members,
                   faculty
                 }
+                //storing the data in the data base directly without payments here . For payments the code is in the backend file .
                 await addDoc(collection(db, "enrolled"), {
                   ...eventData
                 });
