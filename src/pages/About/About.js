@@ -22,8 +22,8 @@ import conti2 from "../../images/conti2.jpg";
 import conti3 from "../../images/conti3.jpg";
 import conti4 from "../../images/conti4.jpg";
 
-import l1 from "../../images/1.svg";
-import l2 from "../../images/2.svg";
+import l1 from "../../images/launch1.JPG";
+import l2 from "../../images/launch2.JPG";
 import l3 from "../../images/3.svg";
 import l4 from "../../images/4.svg";
 import l5 from "../../images/tnkc_launch.png";
@@ -57,7 +57,7 @@ function About() {
   const[st2 , setst2]= useState("250px");
   const[st3 , setst3]= useState("160px");
   const[st4 , setst4]= useState("250px");
-  const[l, setl] = useState([l1, l2,l3,l4,l5]);
+  const[l, setl] = useState([l1 , l2, l5]);
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -138,7 +138,7 @@ const pos =[
 
   {right:"36%", top:"0px"},
   {right:"63%", top:"250px"},
-  {right:"30%", top:"120px"},
+  {right:"30%", top:"130px"},
   {right:"10%", top:"250px"},
 ]
 
@@ -290,28 +290,28 @@ useEffect(()=>{
               <h1>Gallery</h1>
 
               <p>Our esteemed Education Minister of Tamil Nadu , Mr Anbil Mahesh Poyyamozhi ceremoniously inaugurated our website</p>
-
+            <div className="launch">
               <Splide
                 tag="section"
                 aria-labelledby="My Favorite Images"
                 options={{
                   speed: 1000,
-                  autoplay: true,
+                  // autoplay: true,
                   interval: 3400,
                   pauseOnHover: false,
                   type: "loop",
                   pauseOnFocus: true,
                   keyboard: true,
                   gap: ".5rem",
-                  width: "100%",
+                  width: "60%",
                   perPage:
                     window.innerWidth <= 426
                       ? 1
                       : window.innerWidth <= 768
-                        ? 1.5
+                        ? 1
                         : window.innerWidth <= 1024
-                          ? 2
-                          : 3,
+                          ? 1
+                          : 1,
                   perMove: 1,
                   pagination: false,
                 }}
@@ -327,7 +327,7 @@ useEffect(()=>{
                 {
                   l.map((item)=>{
                     return <SplideSlide>
-                   <img src={item} style={{  height:"200px", objectFit: "contain", width: "100%" }} alt="" />
+                   <img src={item} style={{  height:"250px", objectFit: "contain", width: "100%" }} alt="" />
                   </SplideSlide>
                   })
                 }
@@ -335,6 +335,7 @@ useEffect(()=>{
 
                 
               </Splide>
+              </div>
             </div>
          
             </div>

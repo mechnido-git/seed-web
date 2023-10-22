@@ -14,7 +14,7 @@ import Footer from "../../components/footer/Footer";
 import CardLoader from "../../components/cardLoader/cardLoader";
 import ImageLoader from "../../components/imageLoader/ImageLoader";
 import cancellogo from "../../images/cancel_icon.png";
-
+import crs  from "../../images/nocourse.svg";
 
 const getInvoice = (course, user) => {
   let invoice = null;
@@ -27,7 +27,7 @@ const getInvoice = (course, user) => {
   return invoice
 }
 export const CardBuilder = ({ arr, limit, viewDetails, loading, user, download }) => {
-  if(arr.length <= 0) return <p className="nocourses">No courses available at the moment</p>
+  if(arr.length <= 0) return <img src={crs} className="nocourses"></img>
  return <>
     {arr.map((item, index) => {
       // console.log(index);
@@ -69,9 +69,9 @@ export const category = [
   "PERSONAL DELVELOPMENT",
   "BUSINESS",
   "SOFTWARE",
-  "Technology",
-  "Production",
-  "Master's Programme",
+  "TECHNOLOGY",
+  "PRODUCTION",
+  "MASTER'S PROGRAMME",
 ];
 
 export const addIcon = (item) => {
