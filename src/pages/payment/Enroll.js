@@ -75,6 +75,8 @@ function Enroll({ index, setbuy }) {
       range: range,
       name: String(courses[index].name),
       userId: uid,
+      email: email,
+      username: userName
     }
     try {
       const res = await axios.post(url, data);
