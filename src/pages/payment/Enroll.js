@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { StoreContext } from '../../store/StoreContext';
 import './enroll.css'
 import axios from 'axios';
@@ -27,7 +27,7 @@ function Enroll({ index, setbuy }) {
   const [batch, setBatch] = useState(-1)
   const [code, setCode] = useState('')
 
-  const [xverify, setxverify]= useState('');
+  const navigate = useNavigate()
   const change = (e) => {
     // console.log(typeof range);
     setRange(parseInt(e.target.value));
@@ -69,180 +69,17 @@ function Enroll({ index, setbuy }) {
     setLoading(true)
 
 
-    // const url = `${process.env.REACT_APP_SERVER_URL}/order`;
-    // const data = {
-    //   id: String(id),
-    //   range: range,
-    //   name: String(courses[index].name),
-    //   userId: uid,
-    // }
+    const url = `${process.env.REACT_APP_SERVER_URL}/order`;
+    const data = {
+      id: String(id),
+      range: range,
+      name: String(courses[index].name),
+      userId: uid,
+    }
     try {
-
-      // const res = await axios.post(url, data);
-      // console.log(res.data.order);
-      // var options = {
-      //   key: process.env.REACT_APP_RAZOR_ID, // Enter the Key ID generated from the Dashboard
-      //   amount: Number(res.data.order.amount), // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-      //   currency: "INR",
-      //   order_id: res.data.order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-      //   handler: async function (response) {
-      //     try {
-      //       setLoading(true)
-      //       const res = await axios.post(`${process.env.REACT_APP_SERVER_URL}/verify`, {
-      //         response,
-      //         userId: uid,
-      //         range: range,
-      //         courseId: id,
-      //         email: email,
-      //         userName,
-      //         item: String(courses[index].name)
-      //       })
-      //       console.log(res);
-      //       window.location.reload()
-      //     } catch (error) {
-      //       alert(error)
-      //     }
-      //   },
-      //   theme: {
-      //     color: "#3399cc"
-      //   }
-      // };
-      // // console.log(process.env.REACT_APP_RAZOR_ID);
-      // var rzp1 = new window.Razorpay(options);
-      // rzp1.open()
-
-
-
-      
-/* Function to generate combination of password */
-function generatePass() {
-  let pass = '';
-  let str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' +
-      'abcdefghijklmnopqrstuvwxyz0123456789';
-
-  for (let i = 1; i <= 8; i++) {
-      let char = Math.floor(Math.random()
-          * str.length + 1);
-
-      pass += str.charAt(char)
-  }
-
-  return pass;
-}
-      
-
-let mti = generatePass();
-let uidd = generatePass();
-
-console.log(mti);
-console.log(uidd);
-
-const data = 
-{
-  "merchantId": "M1J6KDOBZOWG",
-  "merchantTransactionId":mti,
-  "merchantUserId": uid ,
-  "amount": 100,
-  "redirectUrl": "http://localhost:3000/#/menu/dashboard",
-  "redirectMode": "REDIRECT",
-  "callbackUrl": "http://localhost:4242/verify",
-  "mobileNumber": "9876893678",
-  "paymentInstrument": {
-    "type": "PAY_PAGE"
-  }
-}
-
-var buff = JSON.stringify(data);
-const payload = base64json.stringify(data);
-let check = payload+"/pg/v1/pay"+"8efa9411-a19f-4874-9245-479b00da244d";
-
-const encoder = new TextEncoder();
-const dt = encoder.encode(check);
-window.crypto.subtle.digest('SHA-256', dt)
-.then(hashBuffer => {
-  const hashArray = Array.from(new Uint8Array(hashBuffer));
-  const hashHex = hashArray.map(byte => byte.toString(16)).join('');
-  console.log(hashHex);
-  let a = hashHex+"###1";
-  setxverify(a);
-  console.log(a);
-})
-.catch(error => console.error(error));
-
-console.log("this is xverify ," , xverify); 
-const pay = {
-  "request": payload ,
-  "xverify":xverify
-}
-axios.post("http://localhost:4242/payments", pay)
-.then(res => console.log(res))
- .catch(err => console.log(err))
-
-
-
-
-
-// calculated the  xverify till here
-
-// sending the req to the phonepay using axios
-// const url = "https://api.phonepe.com/apis/hermes/pg/v1/pay"
-
-// 'Access-Control-Allow-Credentials':true,
-// "Access-Control-Allow-Origin": "*",
-//.padStart(2, '0')
-//  const config = {
-//   headers:{
-//     "Content-Type" : "application/json",
-//     "X-VERIFY": xverify,    
-//   }
-// };
-
-
-
-
-// ======================================================final trial =======================================================================================
-
-
-
-// var buff = JSON.stringify(data);
-// const payload = base64json.stringify(data);
-
-// console.log(typeof(payload));
-// let check = payload+"/pg/v1/pay"+"8efa9411-a19f-4874-9245-479b00da244d";
-
-
-
-
-// =========================================================================================================================================================
-
-// ===========================================postman code===============================================
-
-// const axios = require('axios');
-// let data = JSON.stringify({
-//   "request": "ewogICJtZXJjaGFudElkIjogIk0xSjZLRE9CWk9XRyIsCiAgIm1lcmNoYW50VHJhbnNhY3Rpb25JZCI6ICJNVDc4NTA0IiwKICAibWVyY2hhbnRVc2VySWQiOiAiTVVJRDEyMyIsCiAgImFtb3VudCI6IDEwMDAwLAogICJyZWRpcmVjdFVybCI6ICJodHRwOi8vbG9jYWxob3N0OjMwMDAvIy90ZXN0Y2FsbCIsCiAgInJlZGlyZWN0TW9kZSI6ICJSRURJUkVDVCIsCiAgImNhbGxiYWNrVXJsIjogImh0dHA6Ly9sb2NhbGhvc3Q6MzAwMC8jL3Rlc3RjYWxsIiwKICAibW9iaWxlTnVtYmVyIjogIjk5OTk5OTk5OTkiLAogICJwYXltZW50SW5zdHJ1bWVudCI6IHsKICAgICJ0eXBlIjogIlBBWV9QQUdFIgogIH0KfQ=="
-// });
-
-// let config = {
-//   method: 'post',
-//   maxBodyLength: Infinity,
-//   url: 'https://api.phonepe.com/apis/hermes/pg/v1/pay',
-//   headers: { 
-//     'X-VERIFY': '3d91b63f2c1b36e7282aaec4c397addc92ba98f25b4a6e1959dc6cd9bff8539c###1', 
-//     'Content-Type': 'application/json'
-//   },
-//   data : data
-// };
-
-// axios.request(config)
-// .then((response) => {
-//   console.log(JSON.stringify(response.data));
-// })
-// .catch((error) => {
-//   console.log(error);
-// });
-
-// =========================================================================================================
-
+      const res = await axios.post(url, data);
+      window.location.href = res.data.url
+     
     } catch (error) {
       console.log(error);
 
