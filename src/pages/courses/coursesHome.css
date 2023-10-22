@@ -33,7 +33,12 @@
     gap: 8px;
     border: none;
 }
+.nocourses{
+    position:absolute;
+    top:20%;
+    right:30%;
 
+}
 .fixed > button > div{
     text-transform: capitalize;
     color:var(--tertiary);
