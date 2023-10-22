@@ -68,7 +68,6 @@ function Enroll({ index, setbuy }) {
 
     setLoading(true)
 
-
     const url = `${process.env.REACT_APP_SERVER_URL}/order`;
     const data = {
       id: String(id),

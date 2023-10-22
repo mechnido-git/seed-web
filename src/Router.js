@@ -23,6 +23,7 @@ import Faq from "./pages/faq/Faq";
 import PrivacyPolicy from "./pages/privacyPolicy/PrivacyPolicy";
 import Terms from "./pages/terms/Terms";
 import RefundPolicy from "./pages/refundPolicy/RefundPolicy";
+import PaymentDelay from "./pages/payment/PaymentDelay";
 
 
 function Router() {
@@ -39,6 +40,7 @@ function Router() {
           <Route element={<HomeIndex />}> {/* NESTED ROUTE */}
             <Route index element={<Navigate to='dashboard' />} /> {/* DEFAULT ROUTE -> /menu/dashboard */}
             <Route exaact path="dashboard" element={<Dashboard />} /> {/* DASHBOARD */}
+            <Route exaact path="processing" element={<PaymentDelay />} />
             <Route exact path="courses" element={<CoursesHome />} /> {/* COURSES HOME */}
             <Route path="courses/details/:index" element={<CourseDetails />} /> {/* DEATAILS OF SINGLE COURSE */}
             <Route path="events" element={<EventIndex />} /> {/* EVENTS HOME */}
