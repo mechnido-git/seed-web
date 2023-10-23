@@ -44,6 +44,7 @@ function RegisterForm({ event, setRegister, email, userName }) {
   const [city, setCity] = useState('')
   const [state, setState] = useState('')
   const [pincode, setPincode] = useState('')
+  const [pay , setpay] = useState(false)
 
   console.log(event);
 
@@ -261,7 +262,7 @@ useEffect(()=>{
 
   const getFields = (page) => {
     switch (page) {
-      case 0:
+      case 6:
         return <form id="page-1">
 
           <div className="input-div">
@@ -465,7 +466,7 @@ useEffect(()=>{
           </div>
         </div>;
 
-      case 4: return <div className="register">
+      case 5: return <div className="register">
         <div className="terms">
           <div className="check">
             <input type="checkbox" checked={terms} required onChange={() => setTerms(!terms)} name="terms" />
@@ -476,15 +477,88 @@ useEffect(()=>{
               </span>
             </label>
           </div>
-          <div className="fee">
+
+          {/* <div className="fee">
             <h4>Regisration fee : {event.regFeeTxt}</h4>
-          </div>
+          </div> */}
+
         </div>
-        <div className="btns">
+
+        {/* <div className="btns">
           <button className="cntrl" onClick={() => setCurrent(current - 1)} type="button">Back</button>
           <input type="submit"  value="Register" />
-        </div>
+        </div> */}
+
       </div>;
+
+      case 0:
+        return < div className="pay1">
+
+          <h1>Name of the event</h1>
+          <div className="p1">
+
+            <div className="left">
+
+            <div>
+              <label>Amount</label><br/>
+              <input type="Text" value= "24,999 INR"/>
+            </div>
+
+            <div>
+              <label>Name</label><br/>
+              <input type="Text" value= ""/>
+            </div>
+
+            </div>  
+
+            <div className="right">
+
+            <div>
+              <label>Email</label><br/>
+              <input type="Text" value= ""/>
+            </div>
+
+            <div>
+              <label>Phone Number</label><br/>
+              <input type="Text" value= ""/>
+            </div>
+
+            </div>
+          </div>
+          <div className="p2">
+          <div className="left">
+            <label>Select Payment</label>
+          <form>
+          <div>
+              <span> Full amount </span>
+            <input type="radio" value = "" ckecked={pay} onChange={()=>{setpay(false)}}/>
+              </div>
+
+              <div>
+              <span> By due </span>
+            <input type="radio" value = "" checked = {pay}onChange={()=>{setpay(true)}}/>
+              </div>
+           
+          </form>
+            
+          </div>
+          <div className="right" style={{visibility: pay?"":"hidden"}}>
+          <div>
+              <label>Amount </label><br/>
+              <input type="Text" value= ""/>
+            </div>
+
+            <div>
+              <label>Next payment before</label><br/>
+              <input type="Text" value= ""/>
+            </div>
+          </div>
+          </div>
+          <div>
+          <button>Complete Checkout</button>
+          </div>
+         
+        </div>
 
       default:
         break;
