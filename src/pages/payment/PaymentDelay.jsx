@@ -8,15 +8,17 @@ export default function PaymentDelay() {
    useEffect(()=>{
     const unmount =  setTimeout(()=>{
       navigate("/menu/dashboard")
-    }, 1000)
+    }, 3000)
 
     return ()=>{
       clearTimeout(unmount)
     }
    }, [])
+   console.log('hi');
 
   return (
-    <div>
+    <div style={{width: '100vw', height: '100vh'}}>
+      <p style={{textAlign: 'center', paddingTop: '2rem'}}>Updating courses....</p>
       <Spinner loading={true} />
     </div>
   )
