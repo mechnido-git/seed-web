@@ -471,7 +471,7 @@ useEffect(()=>{
             <input type="checkbox" checked={terms} required onChange={() => setTerms(!terms)} name="terms" />
             <label htmlFor="terms">
               I hereby agree to all{" "}
-              <span id="terms-btn" onClick={() => window.open("/terms", "_blank")}>
+              <span id="terms-btn" onClick={() => window.open("/#/terms", "_blank")}>
                 *Terms and Conditions*
               </span>
             </label>
