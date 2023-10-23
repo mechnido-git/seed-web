@@ -60,26 +60,34 @@ const tempdata=(e)=>{
   
 }
 
+useEffect(()=>{
+  onAuthStateChanged(auth, async(user)=>{
+    try {
+      if(user){
+        setUid(user.uid)
+        const data = await getDoc(doc(db, 'events', event.id))
+        if(data){
+          const enrolled = data.data().enrolled
+          if (enrolled && enrolled.includes(user.uid)) {
+            alert('You are alredy enrolled')
+            window.location.reload()
+            return
+          }
+        }
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  })
+}, [])
+
  
   const onSumbitHandler = async (e) => {
     e.preventDefault();
     setLoading(true)
-    onAuthStateChanged(auth, async(user) => {
           try {
-            if (user) {
-             
-              const data = await getDoc(doc(db, 'events', event.id))
-                if (data) {
-                  const enrolled = data.data().enrolled
-                  if (enrolled && enrolled.includes(user.uid)) {
-                    alert('You are alredy enrolled')
-                    window.location.reload()
-                    return
-                  }
-      
-                }
                 const eventData = {
-                  id: user.uid,
+                  userId: uid,
                   eventId: event.id,
                   teamName,
                   teamEmail,
@@ -96,54 +104,17 @@ const tempdata=(e)=>{
                   members,
                   faculty
                 }
-                //storing the data in the data base directly without payments here . For payments the code is in the backend file .
-                await addDoc(collection(db, "enrolled"), {
-                  ...eventData
-                });
 
-       window.alert("Congratulations !! You have been registered . We will contact you soon.");
              //sending the request to the backend
-                // const url = `${process.env.REACT_APP_SERVER_URL}/register`;
-                // const info = {
-                //   id: event.id,
-                //   name: event.name,
-                //   userId: user.uid,
-                // }
+                const url = `${process.env.REACT_APP_SERVER_URL}/register`;
+                const info = {
+                  name: event.name,
+                  ...eventData,
+                  username: userName
+                }
       
-
-            // const res = await axios.post(url, info);
-            // console.log(res.data.order);
-            // var options = {
-            //   key: process.env.REACT_APP_RAZOR_ID, // Enter the Key ID generated from the Dashboard
-            //   amount: Number(res.data.order.amount), // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-            //   currency: "INR",
-            //   order_id: res.data.order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-            //   handler: async function (response) {
-            //     try {
-            //       setLoading(true)
-            //       const res = await axios.post(`${process.env.REACT_APP_SERVER_URL}/register-verify`, {
-            //         response,
-            //         userId: user.uid,
-            //         eventData: eventData,
-            //         eventId: event.id,
-            //         email: email,
-            //         userName,
-            //         item  : event.title,
-            //       })
-            //       console.log(res);
-            //       window.location.reload()
-            //     } catch (error) {
-            //       alert(error)
-            //     }
-            //   },
-            //   theme: {
-            //     color: "#3399cc"
-            //   }
-            // };
-            // // console.log(process.env.REACT_APP_RAZOR_ID);
-            // var rzp1 = new window.Razorpay(options);
-            // rzp1.open()
-          }
+            const res = await axios.post(url, info);
+            window.location.href = res.data.url
           } catch (error) {
             console.log(error);
 
@@ -151,7 +122,7 @@ const tempdata=(e)=>{
 
             setLoading(false)
           }
-    })
+
   };
 
   const validate = (e) => {
