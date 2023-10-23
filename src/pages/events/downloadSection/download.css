@@ -1,0 +1,9 @@
+.hm img{
+    width:100px;
+    height:140px;
+}
+.hm{
+    display: flex;
+    flex-direction: column;
+    color:var(--tertiary)
+}
