@@ -23,18 +23,20 @@ import Faq from "./pages/faq/Faq";
 import PrivacyPolicy from "./pages/privacyPolicy/PrivacyPolicy";
 import Terms from "./pages/terms/Terms";
 import RefundPolicy from "./pages/refundPolicy/RefundPolicy";
+import PaymentDelay from "./pages/payment/PaymentDelay";
 
 
 function Router() {
   return (
-    
+
     <HashRouter >
       <Routes>
-      
+
         <Route exact path="/" element={<Home />} />   {/* WEBISTE route*/}
         <Route exact path="/about" element={<About />} /> {/* ABOUT route */}
         <Route exact path="/sower" element={<Sower />} /> {/* SOWER route */}
         <Route exact path="/faq" element={<Faq />} /> {/* FAQ route */}
+        <Route exaact path="/processing" element={<PaymentDelay />} />
         <Route path="/menu" exact element={<Index />}> {/* NESTED ROUTE TO WEB APPLICATION */}
           <Route element={<HomeIndex />}> {/* NESTED ROUTE */}
             <Route index element={<Navigate to='dashboard' />} /> {/* DEFAULT ROUTE -> /menu/dashboard */}
@@ -51,7 +53,7 @@ function Router() {
         <Route path="/refund-policy" element={<RefundPolicy />} />
       </Routes>
     </HashRouter>
-  
+
   );
 }
 
