@@ -1,5 +1,6 @@
 .enroll-div{
-    height: 510px;
+    height: 77%;
+    width: 36%;
     display: flex;
     flex-direction: column;
     gap: .6rem;
@@ -14,6 +15,9 @@
     color:var(--tertiary);
 }
 .inp-form label{
+    color:var(--tertiary);
+}
+.inp-form2 label{
     color:var(--tertiary);
 }
 .enroll-div h1 , h4{
@@ -87,8 +91,8 @@
     display: inline-block;
     box-sizing: border-box;
     transition:0.2s;
-   top:450px;
-   right:50px
+    top: 90%;
+    right: 4%;
 }
 
 .enroll-div .inp .field, .enroll-div .inpt .field{
@@ -135,10 +139,17 @@
 
 .enroll-div .inp-form{
     display: grid;
-    padding: 2rem .4rem;
+    padding: 2rem 0.4rem;
     grid-template-columns: 1fr 1fr;
-    gap: 38px;
-    width:560px;
+    gap: 20%;
+    width: 38%;
+}
+.enroll-div .inp-form2{
+    display: grid;
+    padding: 2rem 0.4rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 20%;
+    width: 38%;
 }
 
 .enroll-div .inp{
@@ -193,7 +204,7 @@
     
 }
 .enroll-div .lft{
-    margin-left:90px;
+    margin-left:50%;
 }
 .enroll-div .hours{
     text-align: center;
@@ -218,7 +229,7 @@
     position: absolute;
     padding: .7rem 2rem;
     margin: 0 auto;
-    top:80px;
+    top: 170%;
     align-self: flex-end;
     background-color: var(--primary);
     color: var(--secondary);
@@ -227,3 +238,92 @@
     cursor: pointer;
     margin-top: 1.6rem;
 }
+
+
+@media only screen and (max-width: 840px){
+    .enroll-div .inp-form {
+        display: grid;
+        padding: 2rem 4rem;
+        grid-template-columns: 1fr 1fr ;
+        gap: 20%;
+        width: 45%;
+       
+    }
+    .enroll-div h1 {
+        font-size: 1rem;}
+
+    .enroll-div {
+        overflow-y: auto;
+       width:77%;
+       height:44%
+    }
+    .enroll-div .inp-form2{
+        display: grid;
+        padding: 2rem 4rem;
+        grid-template-columns: 1fr 1fr ;
+        gap: 9%;
+        width: 45%;
+    }
+    .totalamount {
+        margin-top: 30px;
+    }
+    .enroll-div .lft {
+        margin-left: 102px;
+    }
+
+    .enroll-div .buy {
+        font-size: 16px;
+        font-weight: 200;
+        top: 79%;
+        right: 18%;
+    }
+
+    .enroll-div .coup {
+        margin-top: 29px;
+    }
+
+}
+
+@media only screen and (max-width: 420px){
+    .enroll-div .inp-form {
+        display: grid;
+        padding: 2rem 4rem;
+        grid-template-columns: 1fr ;
+        gap: 10%;
+        width: 45%;
+       
+    }
+    .enroll-div h1 {
+        font-size: 1rem;}
+
+    .enroll-div {
+        overflow-y: auto;
+       width:77%;
+    }
+    .enroll-div .inp-form2{
+        display: grid;
+        padding: 2rem 4rem;
+        grid-template-columns: 1fr ;
+        gap: 9%;
+        width: 45%;
+    }
+    .totalamount {
+        margin-top: 30px;
+    }
+    .enroll-div .lft {
+        margin-left: 3px;
+    }
+
+    .enroll-div .buy {
+        font-size: 16px;
+        font-weight: 200;
+        top: 227%;
+        right: 18%;
+    }
+
+    .enroll-div .coup {
+        margin-top: 29px;
+    }
+
+}
+

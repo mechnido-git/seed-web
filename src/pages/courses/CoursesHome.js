@@ -90,11 +90,11 @@ export const addIcon = (item) => {
       return "design_services";
     case "SOFTWARE":
       return "hub";
-    case "Technology":
+    case "TECHNOLOGY":
       return "engineering"
-    case "Production":
+    case "PRODUCTION":
       return "precision_manufacturing"
-    case "Master's Programme":
+    case "MASTER'S PROGRAMME":
       return "workspace_premium"
   }
 };
@@ -283,7 +283,7 @@ function CoursesHome() {
                     )}
                     viewDetails={getCours}
                   />
-                </div>): <p>No courses available</p>}
+                </div>): <img src={crs} ></img>}
               </div>
               <div id="trending" className="section">
                 <h2>Trending Now</h2>
@@ -295,7 +295,7 @@ function CoursesHome() {
                     )}
                     viewDetails={getCours}
                   />
-                </div>): <p>No courses available</p>}
+                </div>):<img src={crs} ></img>}
               </div>
               <div id="team" className="section">
                 <h2>Team Picks</h2>
@@ -308,7 +308,7 @@ function CoursesHome() {
                     )}
                     viewDetails={getCours}
                   />
-                </div>): <p>No courses available</p>}
+                </div>): <img src={crs} ></img>}
               </div>
             </section>
             <Footer />

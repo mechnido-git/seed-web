@@ -286,18 +286,20 @@ useEffect(()=>{
 
        
           <div className="slides-gallery">
-              <div id="gallery"></div>
-              <h1>Gallery</h1>
-
+              <div id="gallery-left">
+              <h1> Website Launch</h1>
               <p>Our esteemed Education Minister of Tamil Nadu , Mr Anbil Mahesh Poyyamozhi ceremoniously inaugurated our website</p>
+              </div>
+              
             <div className="launch">
               <Splide
                 tag="section"
                 aria-labelledby="My Favorite Images"
                 options={{
                   speed: 1000,
-                  // autoplay: true,
+                  autoplay: true,
                   interval: 3400,
+                 
                   pauseOnHover: false,
                   type: "loop",
                   pauseOnFocus: true,
@@ -313,7 +315,7 @@ useEffect(()=>{
                           ? 1
                           : 1,
                   perMove: 1,
-                  pagination: false,
+                  pagination: true,
                 }}
               >
                 {/* {gallery[0].images.map((item, i) => {
