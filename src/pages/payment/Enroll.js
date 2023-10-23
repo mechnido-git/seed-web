@@ -93,6 +93,9 @@ function Enroll({ index, setbuy }) {
   }
   const coupan=()=>{
     // setTotal(data.fee[0].price)
+    let j = 0.10 (data.fee.price);
+    // if()
+    setTotal(data.fee.price - j )
   }
   return (
     <div className='enroll-div'>
@@ -142,7 +145,7 @@ function Enroll({ index, setbuy }) {
           <button type='button' onClick={getNextSection}>PROCEED</button>
           </div>
         </div>:<>
-          <div className="inp-form">
+          <div className="inp-form2">
             <div>
             <div className="card" >
             <h5>Including 18% GST </h5>

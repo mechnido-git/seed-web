@@ -260,7 +260,7 @@ function EventIndex() {
                   console.log("slide "+i);
                   return <SplideSlide>
                     {/* <ImageLoader src={item} style={{ objectFit: "contain", width: "100%" }} /> */}
-                    <img src={item} style={{ objectFit: "contain", width: "100%" }} alt="" />
+                    <img src={item} style={{ objectFit: "contain", width: "100%", height:"230px" }} alt="" />
                   </SplideSlide>
 
 })}
