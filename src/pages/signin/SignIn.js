@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
+import axios from 'axios';
 import "./signin.css";
 import icon from "../../images/cancel_icon.png";
 import google from "./pngwing.com.png";
@@ -159,6 +160,12 @@ function SignIn({ index, redirect, setRedirect,setSignIn, close }) {
            email: user.email,
            cover: true
          });
+
+         await axios.post(
+          `${process.env.REACT_APP_SERVER_URL}/send-register-email`,
+          {email: user.email}
+         )
+
        }
        if (redirect) {
          navigate(redirect);
