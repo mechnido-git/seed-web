@@ -35,7 +35,8 @@ function Enroll({ index, setbuy }) {
   }
 
   useEffect(() => {
-    // console.log(courses[index].id);
+    console.log("this is enrollll  ;;           ", courses[index]);
+    console.log(courses[index].month);
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setUid(user.uid);
@@ -142,6 +143,14 @@ function Enroll({ index, setbuy }) {
             </select>
           </div>
           <div className="inp">
+            <label htmlFor="name">Dates </label>
+            <input type="text" name="dates" value={courses[index][month]}  id="em" />
+          </div>
+         
+        
+<div></div>
+
+          <div className="inp">
           <button type='button' onClick={getNextSection}>PROCEED</button>
           </div>
         </div>:<>
@@ -158,7 +167,8 @@ function Enroll({ index, setbuy }) {
              
             )}
           </div>
-         
+
+        
           <div className="inpt coup">
             <label htmlFor="name">Apply with coupon code</label>
             <div className="field">
