@@ -95,8 +95,8 @@ function EventIndex() {
           if (item.phase == 2) {
             return alert("Alredy registered");
           } else {
-            setDue(true)
-            console.log("due");
+            return setDue(true)
+
           }
         }
       } 
@@ -192,7 +192,7 @@ function EventIndex() {
                           />
                           <div className="btns">
                             <button
-                              className={enrolled ? (enrolled && !fullPay)? (enrolled && !fullPay && (phase == 2))? "disableBtn": "" : "disableBtn" : ""}
+                              className={enrolled ? (enrolled && !fullPay)? (enrolled && !fullPay && (phase == 2))? "disabledbtn": "" : "disabledbtn" : ""}
                               disabled={enrolled ? (enrolled && !fullPay)? (enrolled && !fullPay && (phase == 2))? true: false : true : false}
                               onClick={getRegister}
                             >
