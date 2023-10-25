@@ -86,22 +86,26 @@ function EventIndex() {
   const ref2 = useRef();
 
   const getRegister = () => {
+    let flag = false
     events[currentEvent].enrolled?.forEach((item) => {
       console.log(item);
       if (item.userId === userId) {
         if (item.fullPay) {
+          flag = true
           return alert("Alredy registered");
         } else {
           if (item.phase == 2) {
+            flag = true
             return alert("Alredy registered");
           } else {
+            flag = true
             return setDue(true)
 
           }
         }
       } 
     })
-    setRegister(true);
+    if(!flag) setRegister(true);
   };
 
   useEffect(() => {
