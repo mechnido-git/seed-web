@@ -27,7 +27,7 @@ const { initializeApp } = require("firebase/app");
 
 // initializeApp(firebaseConfig);
 
-function RegisterForm({ event, setRegister, email, userName }) {
+function RegisterForm({ event, setRegister }) {
   const [teamName, setTeamName] = useState("");
   const [teamEmail, setTeamEmail] = useState("");
   const [teamMembers, setTeamMembers] = useState(3);
@@ -44,7 +44,9 @@ function RegisterForm({ event, setRegister, email, userName }) {
   const [city, setCity] = useState('')
   const [state, setState] = useState('')
   const [pincode, setPincode] = useState('')
-  const [pay , setpay] = useState(false)
+  const [pay , setpay] = useState(null)
+  const [username, setUsername] = useState('')
+  const [email, setEmail] = useState('')
 
   console.log(event);
 
@@ -66,6 +68,8 @@ useEffect(()=>{
     try {
       if(user){
         setUid(user.uid)
+        setEmail(user.email)
+        setUsername(user.displayName)
         const data = await getDoc(doc(db, 'events', event.id))
         if(data){
           const enrolled = data.data().enrolled
@@ -85,6 +89,8 @@ useEffect(()=>{
  
   const onSumbitHandler = async (e) => {
     e.preventDefault();
+    if(pay === null) return alert("Select payment")
+
     setLoading(true)
           try {
                 const eventData = {
@@ -111,7 +117,9 @@ useEffect(()=>{
                 const info = {
                   name: event.name,
                   ...eventData,
-                  username: userName
+                  username: username,
+                  fullPay: pay? false: true,
+                  phase: pay? 1: null,
                 }
       
             const res = await axios.post(url, info);
@@ -260,6 +268,11 @@ useEffect(()=>{
     if (value.length <= 10) setValue(current.length <= 10 ? current : value)
   }
 
+  function checkTerms(e){
+    if(!terms) return alert("Accept Terms and Conditions")
+    setCurrent(current + 1)
+  }
+
   const getFields = (page) => {
     switch (page) {
       case 6:
@@ -349,7 +362,7 @@ useEffect(()=>{
           </div>
         </form>;
 
-      case 1:
+      case 5:
         return <div className="members">
           <MemberForm setMembers={setMembers} members={members} />
           <div className="members-container">
@@ -466,7 +479,7 @@ useEffect(()=>{
           </div>
         </div>;
 
-      case 5: return <div className="register">
+      case 0: return <div className="register">
         <div className="terms">
           <div className="check">
             <input type="checkbox" checked={terms} required onChange={() => setTerms(!terms)} name="terms" />
@@ -478,20 +491,21 @@ useEffect(()=>{
             </label>
           </div>
 
-          {/* <div className="fee">
+           {/* <div className="fee">
             <h4>Regisration fee : {event.regFeeTxt}</h4>
-          </div> */}
+          </div>  */}
 
         </div>
 
-        {/* <div className="btns">
+        <div className="btns">
           <button className="cntrl" onClick={() => setCurrent(current - 1)} type="button">Back</button>
-          <input type="submit"  value="Register" />
-        </div> */}
+          <button className="cntrl" onClick={checkTerms} type="button">Proceed to payment</button>
+          
+        </div>
 
       </div>;
 
-      case 0:
+      case 1:
         return < div className="pay1">
 
           <h1>Name of the event</h1>
@@ -506,7 +520,7 @@ useEffect(()=>{
 
             <div>
               <label>Name</label><br/>
-              <input type="Text" value= ""/>
+              <input type="Text" value={username}/>
             </div>
 
             </div>  
@@ -515,7 +529,7 @@ useEffect(()=>{
 
             <div>
               <label>Email</label><br/>
-              <input type="Text" value= ""/>
+              <input type="Text" value={email}/>
             </div>
 
             <div>
@@ -531,12 +545,12 @@ useEffect(()=>{
           <form>
           <div>
               <span> Full amount </span>
-            <input type="radio" value = "" ckecked={pay} onChange={()=>{setpay(false)}}/>
+            <input type="radio" value = "" name="amount" ckecked={pay} onChange={()=>{setpay(false)}}/>
               </div>
 
               <div>
               <span> By due </span>
-            <input type="radio" value = "" checked = {pay}onChange={()=>{setpay(true)}}/>
+            <input type="radio" value = "" name="amount" checked={pay}onChange={()=>{setpay(true)}}/>
               </div>
            
           </form>
@@ -545,17 +559,18 @@ useEffect(()=>{
           <div className="right" style={{visibility: pay?"":"hidden"}}>
           <div>
               <label>Amount </label><br/>
-              <input type="Text" value= ""/>
+              <input type="Text" value={event.phase1fee}/>
             </div>
 
             <div>
               <label>Next payment before</label><br/>
-              <input type="Text" value= ""/>
+              <input type="Text" value={event.phase2fee}/>
             </div>
           </div>
           </div>
           <div>
-          <button>Complete Checkout</button>
+          <button type="submit">Complete Checkout</button>
+          {/* <input type="submit"  value="Register" /> */}
           </div>
          
         </div>
