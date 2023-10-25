@@ -565,7 +565,7 @@ useEffect(()=>{
             </div>
 
             <div>
-              <label>Next payment before</label><br/>
+              <label>Next payment before: {event.dueDate}</label><br/>
               <input type="Text" value={event.phase2fee}/>
             </div>
           </div>
