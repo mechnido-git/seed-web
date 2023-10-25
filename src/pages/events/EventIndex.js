@@ -84,14 +84,22 @@ function EventIndex() {
   const ref2 = useRef();
 
   const getRegister = () => {
-    let flag = false;
-    // console.log(temp);
-    // console.log(uid);
-    events[currentEvent].enrolled_arr?.forEach((item) => {
-      if (item === uid) flag = true;
-    });
-    // console.log(flag);
-    if (flag) return alert("Alredy registered");
+    events[currentEvent].enrolled?.forEach((item) => {
+      console.log(item);
+      if (item.userId === userId) {
+        if (item.fullPay) {
+          return alert("Alredy registered");
+        } else {
+          if (item.phase == 2) {
+            phase = 2
+            return alert("Alredy registered");
+          } else {
+            setDue(true)
+            console.log("due");
+          }
+        }
+      } 
+    })
     setRegister(true);
   };
 
