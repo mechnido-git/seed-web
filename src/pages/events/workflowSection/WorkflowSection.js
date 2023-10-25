@@ -36,6 +36,7 @@ export const DetailsCard = ({ event, userId }) => {
   const { userName, userEmail } = useContext(StoreContext);
 
   const getRegister = () => {
+    console.log(event);
     event.enrolled?.forEach((item) => {
       console.log(item);
       if (item.userId === userId) {
@@ -50,11 +51,9 @@ export const DetailsCard = ({ event, userId }) => {
             console.log("due");
           }
         }
-      } else {
-        setRegister(true);
-
-      }
+      } 
     })
+    setRegister(true);
   };
 
   let { enrolled, fullPay, phase } = checkEnroll(event, userId);// checking whether the user with userId is enrolled with the event "event"
