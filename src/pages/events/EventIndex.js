@@ -112,12 +112,25 @@ function EventIndex() {
   };
 
   const checkEnroll = (item) => {
-    let flag = false;
+    let enrolled = false;
+    let fullPay = false;
+    let phase = 1;
     item.enrolled?.forEach((item) => {
       console.log(item);
-      if (item.userId === userId) flag = true;
+      if (item.userId === userId){
+        enrolled = true
+        if(item.fullPay){
+          fullPay = true
+          phase = null
+        }else{
+          if(item.phase == 2){
+            phase = 2
+          }  
+          
+        }
+      }
     });
-    return flag;
+    return {enrolled, fullPay, phase};
   };
 
   return (
@@ -160,7 +173,7 @@ function EventIndex() {
                     }}
                   >
                     {events.map((item, i) => {
-                      let enrolled = checkEnroll(item);
+                      let {enrolled, fullPay, phase} = checkEnroll(item);
                       console.log(" this is items",item);
                       return (
                         <SplideSlide key={i}>
@@ -170,11 +183,11 @@ function EventIndex() {
                           />
                           <div className="btns">
                             <button
-                              className={enrolled ? "disabledbtn" : ""}
-                              disabled={enrolled}
+                              className={enrolled ? (enrolled && !fullPay)? (enrolled && !fullPay && (phase == 2))? "disableBtn": "" : "disableBtn" : ""}
+                              disabled={enrolled ? (enrolled && !fullPay)? (enrolled && !fullPay && (phase == 2))? true: false : true : false}
                               onClick={getRegister}
                             >
-                              {enrolled ? "Enrolled " : "Enroll"}
+                              {enrolled ? (enrolled && !fullPay)? (enrolled && !fullPay && (phase == 2))? "Enrolled": "Pay Due" : "Enrolled" : "Enroll"}
                             </button>
                             <button onClick={viewDetails}>Know More</button>
                           </div>
