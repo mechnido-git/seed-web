@@ -44,11 +44,9 @@ export const DetailsCard = ({ event, userId }) => {
           return alert("Alredy registered");
         } else {
           if (item.phase == 2) {
-            phase = 2
             return alert("Alredy registered");
           } else {
             setDue(true)
-            console.log("due");
           }
         }
       } 

@@ -17,6 +17,7 @@ import { useCountdown } from "../../hooks/useCountDown";
 import Footer from "../../components/footer/Footer";
 import ImageLoader from "../../components/imageLoader/ImageLoader";
 import { StoreContext } from "../../store/StoreContext";
+import PayDue from "../../components/payDue/PayDue";
 function RegisterInfo({ date, data }) {
   const [eventDate, setEventDate] = useState(new Date(date));
 
@@ -59,6 +60,7 @@ function RegisterInfo({ date, data }) {
 
 function EventIndex() {
   const [currentEvent, setCurrentEvent] = useState(0);
+  const [due, setDue] = useState(false)
 
   const [uid, setUid] = useState("");
   const { register, setRegister } = useOutletContext();
@@ -91,7 +93,6 @@ function EventIndex() {
           return alert("Alredy registered");
         } else {
           if (item.phase == 2) {
-            phase = 2
             return alert("Alredy registered");
           } else {
             setDue(true)
@@ -375,6 +376,17 @@ function EventIndex() {
             userName={userName}
             email={userEmail}
             setRegister={setRegister}
+          />
+        </div>
+      )}
+            {due && (
+        <div className="wrapper-reg">
+          <div className="blocker"></div>
+          <PayDue
+            event={events[currentEvent]}
+            userName={userName}
+            email={userEmail}
+            setDue={setDue}
           />
         </div>
       )}
