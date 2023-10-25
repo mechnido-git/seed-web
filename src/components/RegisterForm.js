@@ -96,6 +96,7 @@ useEffect(()=>{
                 const eventData = {
                   userId: uid,
                   eventId: event.id,
+                  email: email,
                   teamName,
                   teamEmail,
                   teamMembers,
