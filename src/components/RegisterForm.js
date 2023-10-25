@@ -74,6 +74,7 @@ useEffect(()=>{
         if(data){
           const enrolled = data.data().enrolled
           if (enrolled && enrolled.includes(user.uid)) {
+
             alert('You are alredy enrolled')
             window.location.reload()
             return
