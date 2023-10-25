@@ -37,21 +37,25 @@ export const DetailsCard = ({ event, userId }) => {
 
   const getRegister = () => {
     console.log(event);
+    let flag = false
     event.enrolled?.forEach((item) => {
       console.log(item);
       if (item.userId === userId) {
         if (item.fullPay) {
+          flag = true
           return alert("Alredy registered");
         } else {
           if (item.phase == 2) {
+            flag = true
             return alert("Alredy registered");
           } else {
+            flag = true
             return setDue(true)
           }
         }
       } 
     })
-    setRegister(true);
+    if(!flag) setRegister(true);
   };
 
   let { enrolled, fullPay, phase } = checkEnroll(event, userId);// checking whether the user with userId is enrolled with the event "event"
