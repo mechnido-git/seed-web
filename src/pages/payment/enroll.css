@@ -145,8 +145,7 @@
     display: grid;
     padding: 2rem 0.4rem;
     grid-template-columns: 1fr 1fr;
-    gap: 20%;
-    width: 38%;
+    gap: 1rem;
 }
 
 .enroll-div .inp{
@@ -196,13 +195,10 @@
 
 .enroll-div .inpt > input[type = "text"]{
     color:#00B17B;
-    width: 130px;
     height:25px;
     
 }
-.enroll-div .lft{
-    margin-left:50%;
-}
+
 .enroll-div .hours{
     text-align: center;
 }
