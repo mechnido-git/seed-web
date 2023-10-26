@@ -1,6 +1,4 @@
 .enroll-div{
-    height: 77%;
-    width: 557px;
     display: flex;
     flex-direction: column;
     gap: .6rem;
@@ -141,9 +139,8 @@
     display: grid;
     padding: 2rem 0.4rem;
     grid-template-columns: 1fr 1fr;
-    gap: 20%;
-    width: 38%;
-}
+    gap: 1rem;
+}   
 .enroll-div .inp-form2{
     display: grid;
     padding: 2rem 0.4rem;
@@ -226,7 +223,6 @@
     width:150px
 }
 .enroll-div .inp > button{
-    position: absolute;
     padding: .7rem 2rem;
     margin: 0 auto;
     top: 170%;
