@@ -277,7 +277,7 @@ useEffect(()=>{
 
   const getFields = (page) => {
     switch (page) {
-      case 6:
+      case 0:
         return <form id="page-1">
 
           <div className="input-div">
@@ -364,7 +364,7 @@ useEffect(()=>{
           </div>
         </form>;
 
-      case 5:
+      case 1:
         return <div className="members">
           <MemberForm setMembers={setMembers} members={members} />
           <div className="members-container">
@@ -462,7 +462,7 @@ useEffect(()=>{
           </div>
         </form>;
 
-      case 3:
+      case 2:
         return <div className="members">
           <FacultyForm setFaculty={setFaculty} faculty={faculty} />
           <div className="members-container">
@@ -481,7 +481,7 @@ useEffect(()=>{
           </div>
         </div>;
 
-      case 0: return <div className="register">
+      case 3: return <div className="register">
         <div className="terms">
           <div className="check">
             <input type="checkbox" checked={terms} required onChange={() => setTerms(!terms)} name="terms" />
@@ -507,7 +507,7 @@ useEffect(()=>{
 
       </div>;
 
-      case 1:
+      case 4:
         return < div className="pay1">
 
           <h1>Name of the event</h1>
