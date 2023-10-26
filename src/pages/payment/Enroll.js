@@ -4,9 +4,10 @@ import { StoreContext } from '../../store/StoreContext';
 import './enroll.css'
 import axios from 'axios';
 import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from '../../firebase/config';
+import { auth, db } from '../../firebase/config';
 import Spinner from '../../components/Spinner';
 import cancellogo from "../../images/cancel_icon.png";
+import { collection, getDocs, query, where } from 'firebase/firestore';
 const base64json = require('base64json');
 
 
@@ -26,12 +27,18 @@ function Enroll({ index, setbuy }) {
   const [month, setMonth] = useState(-1)
   const [batch, setBatch] = useState(-1)
   const [code, setCode] = useState('')
+  const [codeYes, setCodeYes] = useState(false)
+
 
   const navigate = useNavigate()
-  const change = (e) => {
+  const change = (e, i) => {
     // console.log(typeof range);
+    setCode('')
+    setCodeYes(false)
+    document.getElementById('code-msg').innerText = ""
+    document.getElementById('code-error').innerText= ""
     setRange(parseInt(e.target.value));
-  setTotal(data.fee[0].price)
+  setTotal(data.fee[i].price)
   }
 
   useEffect(() => {
@@ -76,7 +83,9 @@ function Enroll({ index, setbuy }) {
       name: String(courses[index].name),
       userId: uid,
       email: email,
-      username: userName
+      username: userName,
+      coupen: codeYes,
+      code: code
     }
     try {
       const res = await axios.post(url, data);
@@ -92,11 +101,44 @@ function Enroll({ index, setbuy }) {
   const handleclose = () => {
     setbuy(false);
   }
-  const coupan=()=>{
-    // setTotal(data.fee[0].price)
-    let j = 0.10 (data.fee.price);
-    // if()
-    setTotal(data.fee.price - j )
+  const coupan = async ()=>{
+    if(codeYes){
+      setTotal(data.fee[range].price)
+      setCodeYes(false)
+      setCode("")
+      document.getElementById('code-msg').innerText = ""
+      document.getElementById('code-error').innerText= ""
+      return
+    }
+    let success = document.getElementById('code-msg')
+    let error = document.getElementById('code-error')
+    success.innerText = ""
+    error.innerText = ""
+
+    if(range === null) return alert("Select amount first")
+    if(code.length <= 0) return error.innerText = "No coupen code"
+    success.innerText = "Applying code..."
+    const q = query(collection(db, "coupens"), where("code", "==", code.toLowerCase()));
+    try {
+      const querySnapshot = await getDocs(q);
+      let flag = false
+      let discount;
+      querySnapshot.forEach((doc) => {
+        flag = true
+        discount = doc.data().discount
+      });
+      if(!flag){
+        success.innerText = ""
+        return error.innerText = "invalid coupen code"
+      }
+      setTotal(total - parseInt((discount/100)* total))
+      success.innerText = "Coupen Applied"
+      setCodeYes(true)
+    } catch (error) {
+      console.log(error);
+    } finally{
+      setLoading(false)
+    }
   }
   return (
     <div className='enroll-div'>
@@ -160,7 +202,7 @@ function Enroll({ index, setbuy }) {
             <h5>Including 18% GST </h5>
             {data.fee.map((item, i) => <div className='inp'>
               <label htmlFor="radio">{item.type}{" : "} <span>₹{item.price}</span></label>
-              <input type="radio" value={item.id} checked={range === parseInt(item.id)} onChange={change} id="range" />
+              <input type="radio" value={item.id} checked={range === parseInt(item.id)} onChange={(e)=>change(e, i)} id="range" />
               {/* checked={range === parseInt(item.id)} */}
              
             </div>
@@ -172,9 +214,11 @@ function Enroll({ index, setbuy }) {
           <div className="inpt coup">
             <label htmlFor="name">Apply with coupon code</label>
             <div className="field">
-            <input type="text" name="email" placeholder='Enter Code xxx' value={code} onChange={(e)=>setCode(e.target.value)} id="" />
-            <button type='button' onClick={coupan} >Apply</button>
+            <input type="text" id="code" name="code" placeholder='Enter Code xxx' value={code} onChange={(e)=>setCode(e.target.value)} />
+            <button type='button' onClick={coupan} >{codeYes? "remove": "Apply"}</button>
             </div>
+            <p id='code-msg'></p>
+            <p id='code-error' style={{color: 'red'}}></p>
           </div>
 
           <div className='totalamount'>
