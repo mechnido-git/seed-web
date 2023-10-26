@@ -462,7 +462,7 @@ useEffect(()=>{
           </div>
         </form>;
 
-      case 2:
+      case 3:
         return <div className="members">
           <FacultyForm setFaculty={setFaculty} faculty={faculty} />
           <div className="members-container">
@@ -481,7 +481,7 @@ useEffect(()=>{
           </div>
         </div>;
 
-      case 3: return <div className="register">
+      case 4: return <div className="register">
         <div className="terms">
           <div className="check">
             <input type="checkbox" checked={terms} required onChange={() => setTerms(!terms)} name="terms" />
@@ -507,7 +507,7 @@ useEffect(()=>{
 
       </div>;
 
-      case 4:
+      case 5:
         return < div className="pay1">
 
           <h1>Name of the event</h1>
