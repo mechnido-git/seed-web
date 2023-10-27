@@ -131,7 +131,7 @@ function Enroll({ index, setbuy }) {
         success.innerText = ""
         return error.innerText = "invalid coupen code"
       }
-      setTotal(total - parseInt((discount / 100) * total))
+      setTotal(total - Math.round((discount / 100) * total))
       success.innerText = "Coupen Applied"
       setCodeYes(true)
     } catch (error) {
