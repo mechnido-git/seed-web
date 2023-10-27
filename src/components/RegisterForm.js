@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./register.css";
 import { Link, useNavigate } from "react-router-dom";
-import { addDoc, arrayUnion, collection, doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
+import { addDoc, arrayUnion, collection, doc, getDoc, getDocs, query, setDoc, updateDoc, where } from "firebase/firestore";
 import { auth, db } from "../firebase/config";
 import { onAuthStateChanged } from "firebase/auth";
 import Spinner from "./Spinner";
@@ -44,7 +44,7 @@ function RegisterForm({ event, setRegister }) {
   const [city, setCity] = useState('')
   const [state, setState] = useState('')
   const [pincode, setPincode] = useState('')
-  const [pay , setpay] = useState(null)
+  const [pay, setpay] = useState(null)
   const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
 
@@ -54,85 +54,125 @@ function RegisterForm({ event, setRegister }) {
   const [faculty, setFaculty] = useState([])
   const [current, setCurrent] = useState(-1)
 
+  const [code, setCode] = useState('')
+  const [codeYes, setCodeYes] = useState(false)
+  const [total, setTotal] = useState('')
+
   const navigate = useNavigate()
 
-const tempdata=(e)=>{
-  e.preventDefault();
+  const coupan = async () => {
+    if (codeYes) {
+      setTotal(event.registerFee)
+      setCodeYes(false)
+      setCode("")
+      document.getElementById('code-msg').innerText = ""
+      document.getElementById('code-error').innerText = ""
+      return
+    }
+    let success = document.getElementById('code-msg')
+    let error = document.getElementById('code-error')
+    success.innerText = ""
+    error.innerText = ""
 
-
-  
-}
-
-useEffect(()=>{
-  onAuthStateChanged(auth, async(user)=>{
+    if (pay === null) return alert("Select amount first")
+    if (code.length <= 0) return error.innerText = "No coupen code"
+    success.innerText = "Applying code..."
+    const q = query(collection(db, "coupens"), where("code", "==", code.toLowerCase()));
     try {
-      if(user){
-        setUid(user.uid)
-        setEmail(user.email)
-        setUsername(user.displayName)
-        const data = await getDoc(doc(db, 'events', event.id))
-        if(data){
-          const enrolled = data.data().enrolled
-          if (enrolled && enrolled.includes(user.uid)) {
-
-            alert('You are alredy enrolled')
-            window.location.reload()
-            return
-          }
-        }
+      const querySnapshot = await getDocs(q);
+      let flag = false
+      let discount;
+      querySnapshot.forEach((doc) => {
+        flag = true
+        discount = doc.data().discount
+      });
+      if (!flag) {
+        success.innerText = ""
+        return error.innerText = "invalid coupen code"
       }
+      console.log((discount / 100) * total)
+      setTotal(total - Math.round((discount / 100) * total))
+      success.innerText = "Coupen Applied"
+      setCodeYes(true)
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false)
     }
-  })
-}, [])
+  }
 
- 
+  useEffect(() => {
+    onAuthStateChanged(auth, async (user) => {
+      try {
+        if (user) {
+          setUid(user.uid)
+          setEmail(user.email)
+          setUsername(user.displayName)
+          const data = await getDoc(doc(db, 'events', event.id))
+          if (data) {
+            const enrolled = data.data().enrolled
+            if (enrolled && enrolled.includes(user.uid)) {
+
+              alert('You are alredy enrolled')
+              window.location.reload()
+              return
+            }
+          }
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    })
+  }, [])
+
+
   const onSumbitHandler = async (e) => {
     e.preventDefault();
-    if(pay === null) return alert("Select payment")
+    if (pay === null) return alert("Select payment")
 
     setLoading(true)
-          try {
-                const eventData = {
-                  userId: uid,
-                  eventId: event.id,
-                  email: email,
-                  teamName,
-                  teamEmail,
-                  teamMembers,
-                  capName,
-                  kartType,
-                  contact,
-                  collegeName,
-                  fac,
-                  adress,
-                  city,
-                  state,
-                  pincode,
-                  members,
-                  faculty
-                }
+    try {
+      const eventData = {
+        userId: uid,
+        eventId: event.id,
+        email: email,
+        teamName,
+        teamEmail,
+        teamMembers,
+        capName,
+        kartType,
+        contact,
+        collegeName,
+        fac,
+        adress,
+        city,
+        state,
+        pincode,
+        members,
+        faculty
+      }
 
-             //sending the request to the backend
-                const url = `${process.env.REACT_APP_SERVER_URL}/register`;
-                const info = {
-                  name: event.name,
-                  ...eventData,
-                  username: username,
-                  fullPay: pay? false: true,
-                  phase: pay? 1: null,
-                }
-      
-            const res = await axios.post(url, info);
-            window.location.href = res.data.url
-          } catch (error) {
-            console.log(error);
+      //sending the request to the backend
+      const url = `${process.env.REACT_APP_SERVER_URL}/register`;
+      const info = {
+        name: event.name,
+        ...eventData,
+        username: username,
+        fullPay: pay ? false : true,
+        phase: pay ? 1 : null,
+        coupen: codeYes,
+        code: code
+      }
 
-          } finally {
+      const res = await axios.post(url, info);
+      window.location.href = res.data.url
+    } catch (error) {
+      console.log(error);
 
-            setLoading(false)
-          }
+    } finally {
+
+      setLoading(false)
+    }
 
   };
 
@@ -201,8 +241,8 @@ useEffect(()=>{
           }
         ]
 
-        validator.forEach(item=>{
-          if(item.result.error){
+        validator.forEach(item => {
+          if (item.result.error) {
             displayError(item.input, item.error, item.result.msg)
             flag = true
           }
@@ -270,14 +310,14 @@ useEffect(()=>{
     if (value.length <= 10) setValue(current.length <= 10 ? current : value)
   }
 
-  function checkTerms(e){
-    if(!terms) return alert("Accept Terms and Conditions")
+  function checkTerms(e) {
+    if (!terms) return alert("Accept Terms and Conditions")
     setCurrent(current + 1)
   }
 
   const getFields = (page) => {
     switch (page) {
-      case 0:
+      case 5:
         return <form id="page-1">
 
           <div className="input-div">
@@ -291,7 +331,7 @@ useEffect(()=>{
               data-type="name"
               required
               onChange={(e) => onChangeInput(e, setTeamName, "team-name-error")}
-              
+
               placeholder="Name"
             />
             <span style={{ display: 'none' }} className="error" id="team-name-error"></span>
@@ -339,7 +379,7 @@ useEffect(()=>{
               value={kartType}
               onChange={(e) => setKartType(e.target.value)}
             >
-              {event.types.map(item=><option value={item}>{item}</option>)}
+              {event.types.map(item => <option value={item}>{item}</option>)}
             </select>
           </div>
 
@@ -493,7 +533,7 @@ useEffect(()=>{
             </label>
           </div>
 
-           {/* <div className="fee">
+          {/* <div className="fee">
             <h4>Regisration fee : {event.regFeeTxt}</h4>
           </div>  */}
 
@@ -502,79 +542,93 @@ useEffect(()=>{
         <div className="btns">
           <button className="cntrl" onClick={() => setCurrent(current - 1)} type="button">Back</button>
           <button className="cntrl" onClick={checkTerms} type="button">Proceed to payment</button>
-          
+
         </div>
 
       </div>;
 
-      case 5:
+      case 0:
         return < div className="pay1">
 
-          <h1>Name of the event</h1>
+          <h1>{event.name}</h1>
           <div className="p1">
 
             <div className="left">
 
-            <div>
-              <label>Amount</label><br/>
-              <input type="Text" value= "24,999 INR"/>
-            </div>
+              <div>
+                <label>Amount</label><br />
+                <input type="Text" value={event.regFeeTxt} />
+              </div>
 
-            <div>
-              <label>Name</label><br/>
-              <input type="Text" value={username}/>
-            </div>
+              <div>
+                <label>Name</label><br />
+                <input type="Text" value={username} />
+              </div>
 
-            </div>  
+            </div>
 
             <div className="right">
 
-            <div>
-              <label>Email</label><br/>
-              <input type="Text" value={email}/>
-            </div>
+              <div>
+                <label>Email</label><br />
+                <input type="Text" value={email} />
+              </div>
 
-            <div>
-              <label>Phone Number</label><br/>
-              <input type="Text" value= ""/>
-            </div>
+              <div>
+                <label>Phone Number</label><br />
+                <input type="Text" value="" />
+              </div>
 
             </div>
           </div>
           <div className="p2">
-          <div className="left">
-            <label>Select Payment</label>
-          <form>
-          <div>
-              <span> Full amount </span>
-            <input type="radio" value = "" name="amount" ckecked={pay} onChange={()=>{setpay(false)}}/>
+            <div className="left">
+              <label>Select Payment</label>
+              <form>
+                <div>
+                  <span> Full amount </span>
+                  <input type="radio" value="" name="amount" ckecked={pay} onChange={() => { setpay(false); setTotal(event.registerFee) }} />
+                </div>
+
+                <div>
+                  <span> By due </span>
+                  <input type="radio" value="" name="amount" checked={pay} onChange={() => { setpay(true) }} />
+                </div>
+
+              </form>
+
+            </div>
+            {(pay && (pay !== null)) && <div className="right" >
+              <div>
+                <label>Amount </label><br />
+                <input type="Text" value={event.phase1fee} />
               </div>
 
               <div>
-              <span> By due </span>
-            <input type="radio" value = "" name="amount" checked={pay}onChange={()=>{setpay(true)}}/>
+                <label>Next payment before: {event.dueDate}</label><br />
+                <input type="Text" value={event.phase2fee} />
               </div>
-           
-          </form>
-            
+            </div>}
+            {(!pay && (pay !== null)) && <> <div className="inpt coup">
+                <label htmlFor="name">Apply with coupon code</label>
+                <div className="fields">
+                  <input type="text" id="code" name="code" placeholder='Enter Code xxx' value={code} onChange={(e) => setCode(e.target.value)} />
+                  <button type='button' onClick={coupan} >{codeYes ? "remove" : "Apply"}</button>
+                </div>
+                <p id='code-msg'></p>
+                <p id='code-error' style={{ color: 'red' }}></p>
+              <div className='totalamount' style={{marginTop: '20px',gap: '.5rem', alignItems: 'center', display: 'flex', justifyContent: 'start'}}>
+                <label>Total:</label>
+                <input className="ta" type="text" name="email" value={"₹" + total ? total : 0} id="" />
+              </div>
+              </div>
+              </>}
           </div>
-          <div className="right" style={{visibility: pay?"":"hidden"}}>
           <div>
-              <label>Amount </label><br/>
-              <input type="Text" value={event.phase1fee}/>
-            </div>
+            <button className="checkout" type="submit">Complete Checkout</button>
+            {/* <input type="submit"  value="Register" /> */}
+          </div>
 
-            <div>
-              <label>Next payment before: {event.dueDate}</label><br/>
-              <input type="Text" value={event.phase2fee}/>
-            </div>
-          </div>
-          </div>
-          <div>
-          <button type="submit">Complete Checkout</button>
-          {/* <input type="submit"  value="Register" /> */}
-          </div>
-         
         </div>
 
       default:
@@ -592,10 +646,10 @@ useEffect(()=>{
       <form onSubmit={onSumbitHandler}>
 
         <div className="fields">
-          {current < 0? <div className="details">
-          <h4>Regisration fee : ₹{event.regFeeTxt}(Including 18% GST)</h4>
-          <button onClick={()=>setCurrent(0)}>Proceed</button>
-          </div>: getFields(current)}
+          {current < 0 ? <div className="details">
+            <h4>Regisration fee : ₹{event.regFeeTxt}(Including 18% GST)</h4>
+            <button onClick={() => setCurrent(0)}>Proceed</button>
+          </div> : getFields(current)}
         </div>
       </form>
       {termsDiv && <div className="wrapper">

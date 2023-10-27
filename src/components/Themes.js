@@ -11,24 +11,31 @@ const toggleTheme= ()=>{
  
 
   if(theme==='Light-mode'){
+    console.log(theme);
       setTheme('Dark-mode');
-      console.log(theme);
-      setCheck(false);
+      setCheck(true);
+      document.body.className = 'Dark-mode';
+      localStorage.setItem('theme', 'Dark-mode');
   }
   else{
+    console.log(theme);
       setTheme('Light-mode');
       
-      setCheck(true);
+      setCheck(false);
+      document.body.className = 'Light-mode';
+      localStorage.setItem('theme', 'Light-mode');
   }
-  localStorage.setItem('theme', theme);
 
 }
 
 
 
 useEffect(()=>{
- document.body.className = localStorage.getItem('theme'); 
-},[theme])
+  let temp = localStorage.getItem('theme')
+ document.body.className = temp ;
+ if(temp) setCheck(temp === 'Dark-mode'? true: false)
+ if(temp) setTheme(temp === 'Dark-mode'? 'Dark-mode': 'Light-mode')
+},[])
 
 // useEffect(()=>{
 //    if ( localStorage.getItem('theme')==='Light-mode')
