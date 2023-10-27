@@ -317,7 +317,7 @@ function RegisterForm({ event, setRegister }) {
 
   const getFields = (page) => {
     switch (page) {
-      case 5:
+      case 1:
         return <form id="page-1">
 
           <div className="input-div">
@@ -547,7 +547,7 @@ function RegisterForm({ event, setRegister }) {
 
       </div>;
 
-      case 0:
+      case 5:
         return < div className="pay1">
 
           <h1>{event.name}</h1>
