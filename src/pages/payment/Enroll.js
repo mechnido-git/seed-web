@@ -21,7 +21,7 @@ function Enroll({ index, setbuy }) {
   const [loading, setLoading] = useState(false)
   const [email, setEmail] = useState(null)
   const [userName, setUserName] = useState(null)
- const[total, setTotal] = useState(data.fee.price);
+  const [total, setTotal] = useState(data.fee.price);
   const [section, setSection] = useState(0)
 
   const [month, setMonth] = useState(-1)
@@ -36,9 +36,9 @@ function Enroll({ index, setbuy }) {
     setCode('')
     setCodeYes(false)
     document.getElementById('code-msg').innerText = ""
-    document.getElementById('code-error').innerText= ""
+    document.getElementById('code-error').innerText = ""
     setRange(parseInt(e.target.value));
-  setTotal(data.fee[i].price)
+    setTotal(data.fee[i].price)
   }
 
   useEffect(() => {
@@ -55,12 +55,12 @@ function Enroll({ index, setbuy }) {
   }, []);
 
   const getNextSection = () => {
-    if(month === -1){
+    if (month === -1) {
       alert("Select a month")
       return
     }
 
-    if(batch === -1){
+    if (batch === -1) {
       alert("Select a batch")
       return
     }
@@ -90,7 +90,7 @@ function Enroll({ index, setbuy }) {
     try {
       const res = await axios.post(url, data);
       window.location.href = res.data.url
-     
+
     } catch (error) {
       console.log(error);
 
@@ -101,13 +101,13 @@ function Enroll({ index, setbuy }) {
   const handleclose = () => {
     setbuy(false);
   }
-  const coupan = async ()=>{
-    if(codeYes){
+  const coupan = async () => {
+    if (codeYes) {
       setTotal(data.fee[range].price)
       setCodeYes(false)
       setCode("")
       document.getElementById('code-msg').innerText = ""
-      document.getElementById('code-error').innerText= ""
+      document.getElementById('code-error').innerText = ""
       return
     }
     let success = document.getElementById('code-msg')
@@ -115,8 +115,8 @@ function Enroll({ index, setbuy }) {
     success.innerText = ""
     error.innerText = ""
 
-    if(range === null) return alert("Select amount first")
-    if(code.length <= 0) return error.innerText = "No coupen code"
+    if (range === null) return alert("Select amount first")
+    if (code.length <= 0) return error.innerText = "No coupen code"
     success.innerText = "Applying code..."
     const q = query(collection(db, "coupens"), where("code", "==", code.toLowerCase()));
     try {
@@ -127,16 +127,16 @@ function Enroll({ index, setbuy }) {
         flag = true
         discount = doc.data().discount
       });
-      if(!flag){
+      if (!flag) {
         success.innerText = ""
         return error.innerText = "invalid coupen code"
       }
-      setTotal(total - parseInt((discount/100)* total))
+      setTotal(total - parseInt((discount / 100) * total))
       success.innerText = "Coupen Applied"
       setCodeYes(true)
     } catch (error) {
       console.log(error);
-    } finally{
+    } finally {
       setLoading(false)
     }
   }
@@ -144,20 +144,20 @@ function Enroll({ index, setbuy }) {
     <div className='enroll-div'>
       {/* <img className='clbt' src={cancellogo} onClick={handleclose} alt="close button"/> */}
       <div className="btn">
-      {section === 1 && <span style={{fontSize: "1.5rem"}} onClick={()=>setSection(0)}> {"<-"} </span> }
-      <span className="material-symbols-outlined" style={{marginLeft: "auto"}} onClick={handleclose} alt="close button">close</span>
+        {section === 1 && <span style={{ fontSize: "1.5rem" }} onClick={() => setSection(0)}> {"<-"} </span>}
+        <span className="material-symbols-outlined" style={{ marginLeft: "auto" }} onClick={handleclose} alt="close button">close</span>
       </div>
       {loading && <Spinner other={"globel"} loading={loading} />}
       {/* <img className='clbt' src={cancellogo} alt="close button"/> */}
       <h1>{data.name}</h1>
-        <form  action="" style={{display: 'flex', flexDirection: 'column'}}>
+      <form action="" style={{ display: 'flex', flexDirection: 'column' }}>
         <p className='hours'>Duration <span>{data.metrics.hours}</span> Hours</p>
-      {section === 0 ? <div className='inp-form'>
+        {section === 0 ? <div className='inp-form'>
           <div className="inp">
             <label htmlFor="name">Name</label>
             <input type="text" name="name" value={userName} onChange={(e) => setUserName(e.target.value)} id="" />
           </div>
-         
+
           <div className="inp">
             <label htmlFor="name">Course Category</label>
             <input type="email" name="email" value={data.category} id="" />
@@ -168,7 +168,7 @@ function Enroll({ index, setbuy }) {
           </div>
           <div className="inp">
             <label htmlFor="name">Select Month</label>
-            <select name="month" value={month} onChange={(e)=>setMonth(e.target.value)} id="">
+            <select name="month" value={month} onChange={(e) => setMonth(e.target.value)} id="">
               <option value="none" selected hidden>Select Month</option>
               <option value="September">September</option>
               <option value="October">October</option>
@@ -178,7 +178,7 @@ function Enroll({ index, setbuy }) {
           </div>
           <div className="inp">
             <label htmlFor="name">Select Batch</label>
-            <select name="month" value={batch} onChange={(e)=>setBatch(e.target.value)} id="">
+            <select name="month" value={batch} onChange={(e) => setBatch(e.target.value)} id="">
               <option value="none" selected hidden>Select Batch</option>
               <option value="Weekdays">Weekdays</option>
               <option value="Weekends">Weekends</option>
@@ -186,68 +186,68 @@ function Enroll({ index, setbuy }) {
           </div>
           <div className="inp">
             <label htmlFor="name">Dates </label>
-            <input type="text" name="dates" value={courses[index][month]}  id="em" />
+            <input type="text" name="dates" value={courses[index][month]} id="em" />
           </div>
-         
-        
-<div></div>
+
+
+          <div></div>
 
           <div className="inp">
-          <button type='button' onClick={getNextSection}>PROCEED</button>
+            <button type='button' onClick={getNextSection}>PROCEED</button>
           </div>
-        </div>:<>
+        </div> : <>
           <div className="inp-form2">
             <div>
-            <div className="card" >
-            <h5>Including 18% GST </h5>
-            {data.fee.map((item, i) => <div className='inp'>
-              <label htmlFor="radio">{item.type}{" : "} <span>₹{item.price}</span></label>
-              <input type="radio" value={item.id} checked={range === parseInt(item.id)} onChange={(e)=>change(e, i)} id="range" />
-              {/* checked={range === parseInt(item.id)} */}
-             
+              <div className="card" >
+                <h5>Including 18% GST </h5>
+                {data.fee.map((item, i) => <div className='inp'>
+                  <label htmlFor="radio">{item.type}{" : "} <span>₹{item.price}</span></label>
+                  <input type="radio" value={item.id} checked={range === parseInt(item.id)} onChange={(e) => change(e, i)} id="range" />
+                  {/* checked={range === parseInt(item.id)} */}
+
+                </div>
+
+                )}
+              </div>
+
+
+              <div className="inpt coup">
+                <label htmlFor="name">Apply with coupon code</label>
+                <div className="field">
+                  <input type="text" id="code" name="code" placeholder='Enter Code xxx' value={code} onChange={(e) => setCode(e.target.value)} />
+                  <button type='button' onClick={coupan} >{codeYes ? "remove" : "Apply"}</button>
+                </div>
+                <p id='code-msg'></p>
+                <p id='code-error' style={{ color: 'red' }}></p>
+              </div>
+
+              <div className='totalamount'>
+                <label>  Total Amount</label>
+                <input className="ta" type="text" name="email" value={"₹" + total ? total : 0} id="" />
+              </div>
+
             </div>
-             
-            )}
-          </div>
 
-        
-          <div className="inpt coup">
-            <label htmlFor="name">Apply with coupon code</label>
-            <div className="field">
-            <input type="text" id="code" name="code" placeholder='Enter Code xxx' value={code} onChange={(e)=>setCode(e.target.value)} />
-            <button type='button' onClick={coupan} >{codeYes? "remove": "Apply"}</button>
-            </div>
-            <p id='code-msg'></p>
-            <p id='code-error' style={{color: 'red'}}></p>
-          </div>
 
-          <div className='totalamount'>
-            <label>  Total Amount</label>
-            <input className="ta" type="text" name="email" value={"₹"+total?total:0} id="" />
-          </div>
+            <div className='left'>
+              <div className="inpt lft">
+                <label htmlFor="name">Mode</label>
+                <input type="text" name="email" value="Online" id="" />
+              </div>
+              <div className="inpt lft">
+                <label htmlFor="name">Selected Month</label>
+                <input type="text" name="email" value={month} id="" />
+              </div>
+              <div className="inpt lft">
+                <label htmlFor="name">Selected Batch</label>
+                <input type="text" name="email" value={batch} id="" />
+              </div>
 
             </div>
-          
-         
-          <div className='left'>
-          <div className="inpt lft">
-            <label htmlFor="name">Mode</label>
-            <input type="text" name="email" value="Online" id="" />
-          </div>
-          <div className="inpt lft">
-            <label htmlFor="name">Selected Month</label>
-            <input type="text" name="email" value={month} id="" />
-          </div>
-          <div className="inpt lft">
-            <label htmlFor="name">Selected Batch</label>
-            <input type="text" name="email" value={batch} id="" />
-          </div>
+
 
           </div>
-         
-         
-          </div>
-            <button className='buy' onClick={proceed}>Complete Checkout</button>
+          <button className='buy' onClick={proceed}>Complete Checkout</button>
         </>}
 
 
