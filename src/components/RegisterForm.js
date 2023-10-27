@@ -610,19 +610,19 @@ function RegisterForm({ event, setRegister }) {
               </div>
             </div>}
             {(!pay && (pay !== null)) && <> <div className="inpt coup">
-                <label htmlFor="name">Apply with coupon code</label>
-                <div className="fields">
-                  <input type="text" id="code" name="code" placeholder='Enter Code xxx' value={code} onChange={(e) => setCode(e.target.value)} />
-                  <button type='button' onClick={coupan} >{codeYes ? "remove" : "Apply"}</button>
-                </div>
-                <p id='code-msg'></p>
-                <p id='code-error' style={{ color: 'red' }}></p>
-              <div className='totalamount' style={{marginTop: '20px',gap: '.5rem', alignItems: 'center', display: 'flex', justifyContent: 'start'}}>
+              <label htmlFor="name">Apply with coupon code</label>
+              <div className="fields">
+                <input type="text" id="code" name="code" placeholder='Enter Code xxx' value={code} onChange={(e) => setCode(e.target.value)} />
+                <button type='button' onClick={coupan} >{codeYes ? "remove" : "Apply"}</button>
+              </div>
+              <p id='code-msg'></p>
+              <p id='code-error' style={{ color: 'red' }}></p>
+              <div className='totalamount' style={{ marginTop: '20px', gap: '.5rem', alignItems: 'center', display: 'flex', justifyContent: 'start' }}>
                 <label>Total:</label>
                 <input className="ta" type="text" name="email" value={"₹" + total ? total : 0} id="" />
               </div>
-              </div>
-              </>}
+            </div>
+            </>}
           </div>
           <div>
             <button className="checkout" type="submit">Complete Checkout</button>
