@@ -557,12 +557,12 @@ function RegisterForm({ event, setRegister }) {
 
               <div>
                 <label>Amount</label><br />
-                <input type="Text" value={event.regFeeTxt} />
+                <input disabled type="Text" value={event.regFeeTxt} />
               </div>
 
               <div>
                 <label>Name</label><br />
-                <input type="Text" value={username} />
+                <input disabled type="Text" value={username} />
               </div>
 
             </div>
@@ -571,12 +571,12 @@ function RegisterForm({ event, setRegister }) {
 
               <div>
                 <label>Email</label><br />
-                <input type="Text" value={email} />
+                <input disabled type="Text" value={email} />
               </div>
 
               <div>
                 <label>Phone Number</label><br />
-                <input type="Text" value="" />
+                <input disabled type="Text" value="" />
               </div>
 
             </div>
@@ -601,12 +601,12 @@ function RegisterForm({ event, setRegister }) {
             {(pay && (pay !== null)) && <div className="right" >
               <div>
                 <label>Amount </label><br />
-                <input type="Text" value={event.phase1fee} />
+                <input type="Text" disabled value={event.phase1fee} />
               </div>
 
               <div>
                 <label>Next payment before: {event.dueDate}</label><br />
-                <input type="Text" value={event.phase2fee} />
+                <input type="Text" disabled value={event.phase2fee} />
               </div>
             </div>}
             {(!pay && (pay !== null)) && <> <div className="inpt coup">
@@ -619,7 +619,7 @@ function RegisterForm({ event, setRegister }) {
               <p id='code-error' style={{ color: 'red' }}></p>
               <div className='totalamount' style={{ marginTop: '20px', gap: '.5rem', alignItems: 'center', display: 'flex', justifyContent: 'start' }}>
                 <label>Total:</label>
-                <input className="ta" type="text" name="email" value={"₹" + total ? total : 0} id="" />
+                <input className="ta" disabled type="text" name="email" value={"₹" + total ? total : 0} id="" />
               </div>
             </div>
             </>}
