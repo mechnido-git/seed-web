@@ -215,7 +215,7 @@ const { check}= useContext(StoreContext);
                 <a href="https://www.google.com/search?client=tablet-android-samsung-ss&sxsrf=AB5stBjynXM65Dq5sU2UvOOKChyWUkVHdQ:1691480997949&q=MECHNIDO+-+R%26D&ludocid=5846389838005926368&ibp=gwp;0,7&lsig=AB86z5WDXq3Yu-LuNuV-RN5ncQKQ&kgs=a48d0248b5423189&shndl=-1&shem=lbsc,lsp&source=sh/x/kp/local/m1/6"
                 target="_blank">
                 <p>
-                294, 1st Floor, Trichy Rd, Vivekanandha Nagar, Singanallur, Tamil Nadu 641005.{" "}
+                294, 1st Floor, Trichy Rd, Vivekanandha Nagar, Singanallur, Coimbatore, Tamil Nadu 641005.{" "}
                 </p>
                 </a>
                

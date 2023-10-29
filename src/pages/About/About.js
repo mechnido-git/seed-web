@@ -288,7 +288,7 @@ useEffect(()=>{
           <div className="slides-gallery">
               <div id="gallery-left">
               <h1> Website Launch</h1>
-              <p>Our esteemed Education Minister of Tamil Nadu , Mr Anbil Mahesh Poyyamozhi ceremoniously inaugurated our website</p>
+              <p>Our Honorable Education Minister of Tamil Nadu, Thiru. Anbil Mahesh Poyyamozhi, ceremoniously inaugurated our website</p>
               </div>
               
             <div className="launch">

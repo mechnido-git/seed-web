@@ -85,7 +85,9 @@ function Enroll({ index, setbuy }) {
       email: email,
       username: userName,
       coupen: codeYes,
-      code: code
+      code: code,
+      batch: batch,
+      month: month
     }
     try {
       const res = await axios.post(url, data);
@@ -155,16 +157,16 @@ function Enroll({ index, setbuy }) {
         {section === 0 ? <div className='inp-form'>
           <div className="inp">
             <label htmlFor="name">Name</label>
-            <input type="text" name="name" value={userName} onChange={(e) => setUserName(e.target.value)} id="" />
+            <input type="text" disabled name="name" value={userName} onChange={(e) => setUserName(e.target.value)} id="" />
           </div>
 
           <div className="inp">
             <label htmlFor="name">Course Category</label>
-            <input type="email" name="email" value={data.category} id="" />
+            <input type="email" disabled name="email" value={data.category} id="" />
           </div>
           <div className="inp">
             <label htmlFor="name">Email</label>
-            <input type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} id="em" />
+            <input type="email" name="email" disabled value={email} onChange={(e) => setEmail(e.target.value)} id="em" />
           </div>
           <div className="inp">
             <label htmlFor="name">Select Month</label>
@@ -186,7 +188,7 @@ function Enroll({ index, setbuy }) {
           </div>
           <div className="inp">
             <label htmlFor="name">Dates </label>
-            <input type="text" name="dates" value={courses[index][month]} id="em" />
+            <input type="text" name="dates" disabled value={courses[index][month]?.[batch]} id="em" />
           </div>
 
 
@@ -222,8 +224,8 @@ function Enroll({ index, setbuy }) {
               </div>
 
               <div className='totalamount'>
-                <label>  Total Amount</label>
-                <input className="ta" type="text" name="email" value={"₹" + total ? total : 0} id="" />
+                <label>  Total Amount{" "}</label>
+                <input className="ta" disabled type="text" name="email" value={"₹" + total ? total : 0} id="" />
               </div>
 
             </div>
@@ -232,15 +234,15 @@ function Enroll({ index, setbuy }) {
             <div className='left'>
               <div className="inpt lft">
                 <label htmlFor="name">Mode</label>
-                <input type="text" name="email" value="Online" id="" />
+                <input type="text" disabled name="email" value="Online" id="" />
               </div>
               <div className="inpt lft">
                 <label htmlFor="name">Selected Month</label>
-                <input type="text" name="email" value={month} id="" />
+                <input type="text" disabled name="email" value={month} id="" />
               </div>
               <div className="inpt lft">
                 <label htmlFor="name">Selected Batch</label>
-                <input type="text" name="email" value={batch} id="" />
+                <input type="text" disabled name="email" value={batch} id="" />
               </div>
 
             </div>
