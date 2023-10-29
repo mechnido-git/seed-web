@@ -21,7 +21,7 @@ function DownloadSection() {
                     <img src={p} alt="Registraion Guidlines Download PDF"/>
                     <div>
                     <span class="material-symbols-outlined">download</span>
-                 <span>Registraion Guidlines</span> 
+                 <span>Registration Guidelines</span> 
                     </div>
                   </div>
                 </a>
