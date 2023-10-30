@@ -187,7 +187,7 @@ function Enroll({ index, setbuy }) {
             </select>
           </div>
           <div className="inp">
-            <label htmlFor="name">Dates </label>
+            <label htmlFor="name">Start Date</label>
             <input type="text" name="dates" disabled value={courses[index][month]?.[batch]} id="em" />
           </div>
 
