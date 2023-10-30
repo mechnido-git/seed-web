@@ -172,8 +172,8 @@ function Enroll({ index, setbuy }) {
             <label htmlFor="name">Select Month</label>
             <select name="month" value={month} onChange={(e) => setMonth(e.target.value)} id="">
               <option value="none" selected hidden>Select Month</option>
-              <option value="September">September</option>
-              <option value="October">October</option>
+              {/* <option value="September">September</option>
+              <option value="October">October</option> */}
               <option value="November">November</option>
               <option value="December">December</option>
             </select>
