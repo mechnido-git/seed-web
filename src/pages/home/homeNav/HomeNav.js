@@ -130,7 +130,13 @@ function HomeNav({
     })
     }
   }, [])
+  console.log(mobile);
 
+  const gotoo = () => {
+    console.log('hi');
+    navigate("/menu/events")
+  }
+ 
   return (
     <div className="nav" id="nav" ref={navRef}>
       <div className="left">
@@ -152,12 +158,12 @@ function HomeNav({
               </HashLink>
             </li>
             <li className="link">
-              <Link to="#" id="offer" data-index={0} onMouseEnter={!mobile? !showDrop? toggleOffer: dropIndex != 0? toggleOffer: null : null} onClick={!mobile? toggleOffer : ()=>navigate("/menu/courses")}>
+              <Link to="/menu/courses" id="offer" data-index={0} onMouseEnter={!mobile? !showDrop? toggleOffer: dropIndex != 0? toggleOffer: null : null} onClick={!mobile? toggleOffer : ()=>navigate("/menu/courses")}>
                 Courses
               </Link>
             </li>
             <li className="link" >
-              <Link to="#" id="offer" data-index={1} onMouseEnter={!mobile? !showDrop? toggleOffer: dropIndex != 1? toggleOffer: null : null} onClick={!mobile? toggleOffer : ()=>navigate("/menu/events")}>
+              <Link to="/menu/events" id="offer" data-index={1} onMouseEnter={!mobile? !showDrop? toggleOffer: dropIndex != 1? toggleOffer: null : null} onClick={!mobile? toggleOffer : ()=>navigate("/menu/events")}>
                 Events
               </Link>
             </li>

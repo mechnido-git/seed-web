@@ -649,7 +649,7 @@ function RegisterForm({ event, setRegister }) {
           {current < 0 ? <div className="details">
             <h4>Regisration fee : ₹{event.regFeeTxt}(Including 18% GST)</h4>
             <button onClick={() => setCurrent(0)}>Proceed</button>
-          </div> : getFields(5)}
+          </div> : getFields(current)}
         </div>
       </form>
       {termsDiv && <div className="wrapper">
