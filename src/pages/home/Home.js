@@ -389,7 +389,6 @@ function Home() {
               <div className="testsection">
                 <Splide
                   onMove={(splide, prev, next) => {
-                    console.log(splide.index);
                     const dps = document.querySelectorAll(".testimage > img")
                     const current = document.querySelector(".testimage > .currentimg")
                     current.style.transform = 'translateX(-100px)'

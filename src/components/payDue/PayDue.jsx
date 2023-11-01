@@ -96,7 +96,7 @@ export default function PayDue({ setDue, event }) {
                         <h2>Pay Due</h2>
                         <p className='amount'>Due Amount: {event.phase2fee}</p>
                         <p>Due Date: {event.dueDate}</p>
-                        <p>time remaining : {seconds <= 0 ? 0 : seconds}:{minutes <= 0 ? 0 : minutes}:{hours <= 0 ? 0 : hours}:{days <= 0 ? 0 : hours}</p>
+                        <p>time remaining : {days <= 0 ? 0 : days}:{hours <= 0 ? 0 : hours}:{minutes <= 0 ? 0 : minutes}:{seconds <= 0 ? 0 : seconds}</p>
                         <button onClick={handleProceed}>Proceed</button>
                     </div>
                     <div className="inpt coup" style={{
