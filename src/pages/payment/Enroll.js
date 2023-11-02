@@ -217,7 +217,7 @@ function Enroll({ index, setbuy }) {
                 <label htmlFor="name">Apply with coupon code</label>
                 <div className="field">
                   <input type="text" id="code" name="code" placeholder='Enter Code xxx' value={code} onChange={(e) => setCode(e.target.value)} />
-                  <button type='button' onClick={coupan} >{codeYes ? "remove" : "Apply"}</button>
+                  <button type='button' onClick={coupan} >{codeYes ? "Remove" : "Apply"}</button>
                 </div>
                 <p id='code-msg'></p>
                 <p id='code-error' style={{ color: 'red' }}></p>
