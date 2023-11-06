@@ -190,13 +190,13 @@ function RegisterForm({ event, setRegister }) {
   const removeMember = (index) => {
     let temp = members;
     temp.splice(index, 1)
-    setMembers(temp)
+    setMembers([...temp])
   }
 
   const removeFac = (index) => {
     let temp = faculty;
     temp.splice(index, 1)
-    setFaculty(temp)
+    setFaculty([...temp])
   }
 
   const getNextPage = (e) => {

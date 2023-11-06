@@ -43,6 +43,8 @@ function MemberForm({ members, setMembers }) {
       if (inp.value === '') {
         console.log(inp);
         inp.style.border = '2px solid red'
+      }else{
+        inp.style.border = '1px solid #cacaca'
       }
     });
 
@@ -158,8 +160,9 @@ function MemberForm({ members, setMembers }) {
             value={dep}
             type="text"
             name="dep"
+            data-type='dep'
             required
-            onChange={(e) => setDep(e.target.value)}
+            onChange={(e) => onChangeInput(e, setDep, "member-dep")}
             placeholder="Department"
           />
           <div style={{display: 'none'}} className="error" id='member-dep'></div>
