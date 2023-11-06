@@ -56,6 +56,16 @@ export const validateName = (name) => {
   return {error: false}
 }
 
+export const validateDep = (dep) => {
+  var letters = /^[a-zA-Z ]*$/
+  if (dep.length < 2) {
+    return {error: true, msg: "Department Must be more than 2 characters"}
+  } else if (!dep.match(letters)) {
+    return {error: true, msg: "Department Must be in Alphabetics"}
+  }
+  return {error: false}
+}
+
 export const validatePhone = (phone) => {
   if (phone.length === 0) {
     return {error: true, msg: "Phone cannot be empty"}
@@ -89,6 +99,9 @@ export const onChangeInput = (e, setValue, errorId) => {
   }else if(type === "phone"){
     const phoneResult = validatePhone(e.target.value)
     if(phoneResult.error) displayError(e.target, error, phoneResult.msg)
+  }else if(type === 'dep'){
+    const depResult = validateDep(e.target.value)
+    if(depResult.error) displayError(e.target, error, depResult.msg)
   }
 }
 
