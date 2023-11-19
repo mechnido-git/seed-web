@@ -6,7 +6,7 @@ function MemberForm({ members, setMembers }) {
 
   const [name, setName] = useState("");
   const [dep, setDep] = useState("");
-  const [year, setYear] = useState("");
+  const [year, setYear] = useState(1);
   const [dob, setDob] = useState("");
   const [email, setEmail] = useState("");
   const [mobile, setMobile] = useState("");
@@ -23,7 +23,7 @@ function MemberForm({ members, setMembers }) {
     if (mm < 10) mm = '0' + mm;
     today = yyyy + '-' + mm + '-' + dd;
     let temp = value.split('-')
-    if (temp[0] < minY? true : temp[0] == minY ? temp[1] < mm? true : temp[1] == mm? temp[2] <= dd ? true : false : false : false ) {
+    if (temp[0] < minY ? true : temp[0] == minY ? temp[1] < mm ? true : temp[1] == mm ? temp[2] <= dd ? true : false : false : false) {
       setDob(e.target.value)
     } else {
       document.getElementById('member-dob').innerText = "Minimum age is 13"
@@ -32,7 +32,7 @@ function MemberForm({ members, setMembers }) {
   }
 
   const onChangeNumber = (value, setValue, current) => {
-    if(value.length <= 10) setValue(current.length <= 10? current: value )
+    if (value.length <= 10) setValue(current.length <= 10 ? current : value)
   }
 
   const validate = (e) => {
@@ -43,13 +43,13 @@ function MemberForm({ members, setMembers }) {
       if (inp.value === '') {
         console.log(inp);
         inp.style.border = '2px solid red'
-      }else{
+      } else {
         inp.style.border = '1px solid #cacaca'
       }
     });
 
     const error = document.querySelectorAll('.error')
-    error.forEach(item=>item.style.display = "none")
+    error.forEach(item => item.style.display = "none")
     error.forEach(item => item.innerHTML = "")
     var letters = /^[A-Za-z ]+$/;
     var pattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/
@@ -127,7 +127,7 @@ function MemberForm({ members, setMembers }) {
       inputs.forEach((inp, i) => {
         inp.style.border = ''
       });
-    }else{
+    } else {
       console.log("no added");
       console.log(flag);
     }
@@ -150,7 +150,7 @@ function MemberForm({ members, setMembers }) {
             data-type='name'
             placeholder="Name"
           />
-          <div style={{display: 'none'}} className="error" id='member-name-error'></div>
+          <div style={{ display: 'none' }} className="error" id='member-name-error'></div>
         </div>
         <div className="input-div">
           <label htmlFor="college">Department</label>
@@ -165,11 +165,11 @@ function MemberForm({ members, setMembers }) {
             onChange={(e) => onChangeInput(e, setDep, "member-dep")}
             placeholder="Department"
           />
-          <div style={{display: 'none'}} className="error" id='member-dep'></div>
+          <div style={{ display: 'none' }} className="error" id='member-dep'></div>
         </div>
 
         <div className="input-div">
-          <label htmlFor="year">Year of Study</label> 
+          <label htmlFor="year">Year of Study</label>
           <p className="col">:</p>
           <select
             name="year"
@@ -187,7 +187,7 @@ function MemberForm({ members, setMembers }) {
           <label htmlFor="college">Date of Birth</label>
           <p className="col">:</p>
           <input type="date" value={dob} onChange={onDateChange} />
-          <div style={{display: 'none'}} className="error" id='member-dob'></div>
+          <div style={{ display: 'none' }} className="error" id='member-dob'></div>
         </div>
         <div className="input-div">
           <label htmlFor="college">Email ID</label>
@@ -202,7 +202,7 @@ function MemberForm({ members, setMembers }) {
             placeholder="example@gmail.com"
             pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
           />
-          <div style={{display: 'none'}} className="error" id="member-email-error"></div>
+          <div style={{ display: 'none' }} className="error" id="member-email-error"></div>
         </div>
         <div className="input-div">
           <label htmlFor="college">Mobile</label>
@@ -214,10 +214,10 @@ function MemberForm({ members, setMembers }) {
             name="contact"
             required
             onChange={(e) => onChangeInput(e, setMobile, "member-mobile-error")}
-            
+
             placeholder="6234567890"
           />
-          <div style={{display: 'none'}} className="error" id="member-mobile-error"></div>
+          <div style={{ display: 'none' }} className="error" id="member-mobile-error"></div>
         </div>
         <input className={`cntrl ${members.length >= 25 && 'opacity'}`} onClick={members.length < 25 ? validate : null} type="button" value="Add" />
       </form>
