@@ -36,7 +36,7 @@ function RegisterForm({ event, setRegister }) {
   const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
 
-  const [formData, setFormData] = useState({})
+  const [formData, setFormData] = useState({ kartType: event.types[0] })
 
   console.log(event);
 
