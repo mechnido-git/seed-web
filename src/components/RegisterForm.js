@@ -11,7 +11,7 @@ import MemberForm from "../pages/events/eventConfig/MemberForm";
 import FacultyForm from "../pages/events/eventConfig/FacultyForm";
 import axios from "axios";
 import cancellogo from "../images/cancel_icon.png";
-import { displayError, onChangeInput, validateEmail, validateName, validatePassword, validatePhone } from "../pages/signin/SignIn";
+import { displayError, validateDep, validateEmail, validateName, validatePassword, validatePhone } from "../pages/signin/SignIn";
 const { initializeApp } = require("firebase/app");
 // const { firebaseConfig } = require("../firebase/config");
 // const {
@@ -28,25 +28,15 @@ const { initializeApp } = require("firebase/app");
 // initializeApp(firebaseConfig);
 
 function RegisterForm({ event, setRegister }) {
-  const [teamName, setTeamName] = useState("");
-  const [teamEmail, setTeamEmail] = useState("");
-  const [teamMembers, setTeamMembers] = useState(3);
-  const [capName, setCapName] = useState("");
-  const [kartType, setKartType] = useState("gokart");
-  const [contact, setContact] = useState("");
-  const [collegeName, setCollegeName] = useState("");
-  const [fac, setFac] = useState('one');
   const [terms, setTerms] = useState(false);
   const [uid, setUid] = useState(null);
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
   const [termsDiv, setTermsDiv] = useState(false);
-  const [adress, setAdress] = useState('')
-  const [city, setCity] = useState('')
-  const [state, setState] = useState('')
-  const [pincode, setPincode] = useState('')
   const [pay, setpay] = useState(null)
   const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
+
+  const [formData, setFormData] = useState({})
 
   console.log(event);
 
@@ -112,15 +102,29 @@ function RegisterForm({ event, setRegister }) {
           if (data) {
             const enrolled = data.data().enrolled
             if (enrolled && enrolled.includes(user.uid)) {
-
               alert('You are alredy enrolled')
               window.location.reload()
               return
             }
           }
+          const docRef = doc(db, "enrolled_temp", user.uid);
+          const docSnap = await getDoc(docRef);
+
+          if (docSnap.exists()) {
+            console.log("Document data:", docSnap.data());
+            var { members, faculty, ...info } = docSnap.data()
+            setMembers(members ? members : [])
+            setFaculty(faculty ? faculty : [])
+            setFormData({ ...info })
+          } else {
+            // docSnap.data() will be undefined in this case
+            console.log("No such document!");
+          }
         }
       } catch (error) {
         console.log(error);
+      } finally {
+        setLoading(false)
       }
     })
   }, [])
@@ -136,20 +140,9 @@ function RegisterForm({ event, setRegister }) {
         userId: uid,
         eventId: event.id,
         email: email,
-        teamName,
-        teamEmail,
-        teamMembers,
-        capName,
-        kartType,
-        contact,
-        collegeName,
-        fac,
-        adress,
-        city,
-        state,
-        pincode,
         members,
-        faculty
+        faculty,
+        ...formData
       }
 
       //sending the request to the backend
@@ -176,15 +169,32 @@ function RegisterForm({ event, setRegister }) {
 
   };
 
-  const validate = (e) => {
-    const inputs = document.querySelectorAll('input')
-    inputs.forEach((inp, i) => {
-      if (inp.value === '' && i != 0) {
-        console.log(inp);
-        inp.style.border = '2px solid red'
-      }
-    });
+  function onChangeInput(e, errorId) {
+    setFormData(prev => ({ ...prev, [e.target.id]: e.target.value }))
+    const error = document.getElementById(errorId)
+    e.target.classList.remove("inp-error")
+    error.innerHTML = ""
+    error.style.display = "none"
+    const type = e.target.dataset.type
+    if (type === "email") {
+      const emailResult = validateEmail(e.target.value)
+      if (emailResult.error) displayError(e.target, error, emailResult.msg)
+    } else if (type === "password") {
+      const passResult = validatePassword(e.target.value)
+      if (passResult.error) displayError(e.target, error, passResult.msg)
+    } else if (type === "name") {
+      setFormData(prev => ({ ...prev, [e.target.id]: e.target.value.toUpperCase() }))
+      const nameResult = validateName(e.target.value)
+      if (nameResult.error) displayError(e.target, error, nameResult.msg)
+    } else if (type === "phone") {
+      const phoneResult = validatePhone(e.target.value)
+      if (phoneResult.error) displayError(e.target, error, phoneResult.msg)
+    } else if (type === 'dep') {
+      const depResult = validateDep(e.target.value)
+      if (depResult.error) displayError(e.target, error, depResult.msg)
+    }
   }
+
 
 
   const removeMember = (index) => {
@@ -199,7 +209,8 @@ function RegisterForm({ event, setRegister }) {
     setFaculty([...temp])
   }
 
-  const getNextPage = (e) => {
+  const getNextPage = async (e) => {
+    setLoading(true)
     e.preventDefault()
     //if(current === 0) updateMembers(teamMembers)
     const inputs = document.querySelectorAll(`#page-${current + 1} > .input-div > input`)
@@ -222,22 +233,22 @@ function RegisterForm({ event, setRegister }) {
           {
             input: document.getElementById('team-name'),
             error: document.getElementById('team-name-error'),
-            result: validateName(teamName)
+            result: validateName(formData.teamName)
           },
           {
             input: document.getElementById('team-email'),
             error: document.getElementById('team-email-error'),
-            result: validateEmail(teamEmail)
+            result: validateEmail(formData.teamEmail)
           },
           {
             input: document.getElementById('cap-name'),
             error: document.getElementById('cap-name-error'),
-            result: validateName(capName)
+            result: validateName(formData.capName)
           },
           {
             input: document.getElementById('team-contact'),
             error: document.getElementById('team-contact-error'),
-            result: validatePhone(contact)
+            result: validatePhone(formData.contact)
           }
         ]
 
@@ -253,47 +264,47 @@ function RegisterForm({ event, setRegister }) {
 
       case 2:
         flag = false;
-        if (collegeName.length < 3) {
+        if (formData.collegeName.length < 3) {
           document.getElementById('college-name').style.display = 'block'
           document.getElementById('college-name').innerText = "College Name Must be more than 3 characters";
           flag = true;
-        } else if (!collegeName.match(letters)) {
+        } else if (!formData.collegeName.match(letters)) {
           document.getElementById('college-name').style.display = 'block'
           document.getElementById('college-name').innerText = "College Name Must be in Alphabetics";
           flag = true;
         }
 
-        if (adress.length < 3) {
+        if (formData.adress.length < 3) {
           document.getElementById('college-address').style.display = 'block'
           document.getElementById('college-address').innerText = "Address must be more than 3 characters";
           flag = true;
         }
 
-        if (city.length < 3) {
+        if (formData.city.length < 3) {
           document.getElementById('college-city').style.display = 'block'
           document.getElementById('college-city').innerText = "City must be more than 3 characters";
           flag = true;
-        } else if (!city.match(letters)) {
+        } else if (!formData.city.match(letters)) {
           document.getElementById('college-city').style.display = 'block'
           document.getElementById('college-city').innerText = "City must be in Alphabetics";
           flag = true;
         }
 
-        if (state.length < 3) {
+        if (formData.state.length < 3) {
           document.getElementById('college-state').style.display = 'block'
           document.getElementById('college-state').innerText = "State must be more than 3 characters";
           flag = true;
-        } else if (!state.match(letters)) {
+        } else if (!formData.state.match(letters)) {
           document.getElementById('college-state').style.display = 'block'
           document.getElementById('college-state').innerText = "State must be in Alphabetics";
           flag = true;
         }
 
-        if (pincode.length === 0) {
+        if (formData.pincode.length === 0) {
           document.getElementById('college-pin').style.display = 'block'
           document.getElementById('college-pin').innerText = "pin cannot be empty";
           flag = true;
-        } else if (!pincode.match(pin)) {
+        } else if (!formData.pincode.match(pin)) {
           document.getElementById('college-pin').style.display = 'block'
           document.getElementById('college-pin').innerText = "Enter a valid pin number";
           flag = true;
@@ -304,10 +315,42 @@ function RegisterForm({ event, setRegister }) {
 
       default: return
     }
+    try {
+      const cityRef = doc(db, 'enrolled_temp', uid);
+      await setDoc(cityRef, { ...formData }, { merge: true });
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false)
+    }
   }
 
-  const onChangeNumber = (value, setValue, current) => {
-    if (value.length <= 10) setValue(current.length <= 10 ? current : value)
+  const changeMember = async (pos) => {
+    setLoading(true)
+    try {
+      const cityRef = doc(db, 'enrolled_temp', uid);
+      await setDoc(cityRef, { members }, { merge: true });
+      if (pos === "+") return setCurrent(current + 1)
+      setCurrent(current - 1)
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  const changeFac = async (pos) => {
+    setLoading(true)
+    try {
+      const cityRef = doc(db, 'enrolled_temp', uid);
+      await setDoc(cityRef, { faculty }, { merge: true });
+      if (pos === "+") return setCurrent(current + 1)
+      setCurrent(current - 1)
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false)
+    }
   }
 
   function checkTerms(e) {
@@ -325,12 +368,13 @@ function RegisterForm({ event, setRegister }) {
             <p className="col">:</p>
             <input
               minLength={3}
-              value={teamName}
+              id="teamName"
+              value={formData.teamName}
               type="text"
               name="team-name"
               data-type="name"
               required
-              onChange={(e) => onChangeInput(e, setTeamName, "team-name-error")}
+              onChange={(e) => onChangeInput(e, "team-name-error")}
 
               placeholder="Name"
             />
@@ -341,11 +385,12 @@ function RegisterForm({ event, setRegister }) {
             <label htmlFor="team-email">Team Email Id</label>
             <p className="col">:</p>
             <input
-              value={teamEmail}
+              value={formData.teamEmail}
+              id="teamEmail"
               type="email"
               name="team-email"
               required
-              onChange={(e) => onChangeInput(e, setTeamEmail, "team-email-error")}
+              onChange={(e) => onChangeInput(e, "team-email-error")}
               data-type='email'
               placeholder="example@gmail.com"
               pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
@@ -359,11 +404,12 @@ function RegisterForm({ event, setRegister }) {
             <p className="col">:</p>
             <input
               minLength={3}
-              value={capName}
+              value={formData.capName}
+              id="capName"
               type="text"
               name="cap-name"
               required
-              onChange={(e) => onChangeInput(e, setCapName, "cap-name-error")}
+              onChange={(e) => onChangeInput(e, "cap-name-error")}
               data-type="name"
               placeholder="Name"
             />
@@ -376,8 +422,8 @@ function RegisterForm({ event, setRegister }) {
             <select
               name="kartType"
               id="kartType"
-              value={kartType}
-              onChange={(e) => setKartType(e.target.value)}
+              value={formData.kartType}
+              onChange={(e) => setFormData(prev => ({ ...prev, kartType: e.target.value }))}
             >
               {event.types.map(item => <option value={item}>{item}</option>)}
             </select>
@@ -387,14 +433,14 @@ function RegisterForm({ event, setRegister }) {
             <label htmlFor="team-contact">Contact Number</label>
             <p className="col">:</p>
             <input
-              value={contact}
-              id="team-contact"
+              value={formData.contact}
+              id="contact"
               type="tel"
               min={10}
               name="contact"
               required
               data-type='phone'
-              onChange={(e) => onChangeInput(e, setContact, "team-contact-error")}
+              onChange={(e) => onChangeInput(e, "team-contact-error")}
               placeholder="6234567890"
             />
             <div style={{ display: 'none' }} className="error" id="team-contact-error"></div>
@@ -416,7 +462,7 @@ function RegisterForm({ event, setRegister }) {
             </div>)}
           </div>
           <div className="btns">
-            <button className="cntrl" onClick={() => setCurrent(current - 1)} type="button">Back</button><button onMouseLeave={() => { members.length < 3 && document.querySelector('.disable-msg').classList.remove("show") }} onMouseEnter={() => { members.length < 3 && document.querySelector('.disable-msg').classList.add("show") }} className={`cntrl ${members.length < 3 && 'opacity'}`} onClick={members.length >= 3 ? () => setCurrent(current + 1) : null} type="button">Next</button>
+            <button className="cntrl" onClick={() => changeMember("-")} type="button">Back</button><button onMouseLeave={() => { members.length < 3 && document.querySelector('.disable-msg').classList.remove("show") }} onMouseEnter={() => { members.length < 3 && document.querySelector('.disable-msg').classList.add("show") }} className={`cntrl ${members.length < 3 && 'opacity'}`} onClick={members.length >= 3 ? () => changeMember("+") : null} type="button">Next</button>
             <div className="disable-msg">
               <p>Add minimum 3 members and maximum 25 members</p>
             </div>
@@ -430,11 +476,12 @@ function RegisterForm({ event, setRegister }) {
             <p className="col">:</p>
             <input
               minLength={3}
-              value={collegeName}
+              value={formData.collegeName}
               type="text"
               name="adress"
+              id="collegeName"
               required
-              onChange={(e) => setCollegeName(e.target.value)}
+              onChange={(e) => setFormData(prev => ({ ...prev, collegeName: e.target.value }))}
               placeholder="College"
             />
             <div style={{ display: 'none' }} className="error" id="college-name"></div>
@@ -444,8 +491,9 @@ function RegisterForm({ event, setRegister }) {
             <label htmlFor="college-name">College Adress</label>
             <p className="col">:</p>
             <textarea
-              value={adress}
-              onChange={(e) => setAdress(e.target.value)}
+              value={formData.adress}
+              id="adress"
+              onChange={(e) => setFormData(prev => ({ ...prev, adress: e.target.value }))}
               rows={5}
               cols={5}
               placeholder="Address"
@@ -458,11 +506,12 @@ function RegisterForm({ event, setRegister }) {
             <p className="col">:</p>
             <input
               minLength={3}
-              value={city}
+              value={formData.city}
+              id="city"
               type="text"
               name="city"
               required
-              onChange={(e) => setCity(e.target.value)}
+              onChange={(e) => setFormData(prev => ({ ...prev, city: e.target.value }))}
               placeholder="City"
             />
             <div style={{ display: 'none' }} className="error" id="college-city"></div>
@@ -473,11 +522,12 @@ function RegisterForm({ event, setRegister }) {
             <p className="col">:</p>
             <input
               minLength={3}
-              value={state}
+              value={formData.state}
+              id="state"
               type="text"
               name="state"
               required
-              onChange={(e) => setState(e.target.value)}
+              onChange={(e) => setFormData(prev => ({ ...prev, state: e.target.value }))}
               placeholder="Tamil Nadu"
             />
             <div style={{ display: 'none' }} className="error" id="college-state"></div>
@@ -487,11 +537,12 @@ function RegisterForm({ event, setRegister }) {
             <p className="col">:</p>
             <input
               min={6}
-              value={pincode}
+              value={formData.pincode}
+              id="pincode"
               type="number"
               name="pincode"
               required
-              onChange={(e) => setPincode(e.target.value)}
+              onChange={(e) => setFormData(prev => ({ ...prev, pincode: e.target.value }))}
               placeholder="652512"
               pattern="[1-9][0-9]{5}" title="Please enter a valid zip code, example: 652512"
             />
@@ -514,7 +565,7 @@ function RegisterForm({ event, setRegister }) {
             </div>)}
           </div>
           <div className="btns">
-            <button className="cntrl" onClick={() => setCurrent(current - 1)} type="button">Back</button><button className={`cntrl ${faculty.length < 1 && 'opacity'}`} onMouseLeave={() => { faculty.length < 1 && document.querySelector('.disable-msg').classList.remove("show") }} onMouseEnter={() => { faculty.length < 1 && document.querySelector('.disable-msg').classList.add("show") }} onClick={faculty.length >= 1 ? () => setCurrent(current + 1) : null} type="button">Next</button>
+            <button className="cntrl" onClick={() => changeFac("-")} type="button">Back</button><button className={`cntrl ${faculty.length < 1 && 'opacity'}`} onMouseLeave={() => { faculty.length < 1 && document.querySelector('.disable-msg').classList.remove("show") }} onMouseEnter={() => { faculty.length < 1 && document.querySelector('.disable-msg').classList.add("show") }} onClick={faculty.length >= 1 ? () => changeFac("+") : null} type="button">Next</button>
             <div className="disable-msg">
               <p>Add minimum 1 faculty and maximum 2 faculties</p>
             </div>
@@ -640,21 +691,23 @@ function RegisterForm({ event, setRegister }) {
     <div className="register-form">
       {/* <img className='clbt' src={cancellogo} onClick={() => { setRegister(false) }} alt="close button" /> */}
       <span class="material-symbols-outlined" onClick={() => { setRegister(false) }} >close</span>
-      {loading && <Spinner loading={loading} />}
-      {/* <h3>{event.title}</h3> */}
-      <img src={event.poster} alt="tnkc image" />
-      <form onSubmit={onSumbitHandler}>
+      {loading ? <Spinner other={"inner-spinner"} loading={loading} /> : <>
+        {/* <h3>{event.title}</h3> */}
+        <img src={event.poster} alt="tnkc image" />
+        <form onSubmit={onSumbitHandler}>
 
-        <div className="fields">
-          {current < 0 ? <div className="details">
-            <h4>Regisration fee : ₹{event.regFeeTxt}(Including 18% GST)</h4>
-            <button onClick={() => setCurrent(0)}>Proceed</button>
-          </div> : getFields(current)}
-        </div>
-      </form>
-      {termsDiv && <div className="wrapper">
-        <Terms close={setTermsDiv} />
-      </div>}
+          <div className="fields">
+            {current < 0 ? <div className="details">
+              <h4>Regisration fee : ₹{event.regFeeTxt}(Including 18% GST)</h4>
+              <button onClick={() => setCurrent(0)}>Proceed</button>
+            </div> : getFields(current)}
+          </div>
+        </form>
+        {termsDiv && <div className="wrapper">
+          <Terms close={setTermsDiv} />
+        </div>}
+      </>}
+
     </div>
   );
 }

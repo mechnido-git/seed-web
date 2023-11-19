@@ -124,6 +124,7 @@ function Home() {
         setName(user.displayName);
         setEmail(user.email);
         setUserId(user.uid)
+        console.log(user.uid);
         if (user.photoURL) setDp(user.photoURL);
         setLoading(false);
         if (last[0] === "#") {
@@ -376,7 +377,7 @@ function Home() {
             <div className="testimonial_content">
 
               <div className="testimage">
-                
+
                 {test.map((item, i) => {
                   if (i !== 0) return <img className="nextimg" style={{ top: `${i * 50 + 90}px` }} src={item.img} />
                   return <img className="currentimg" src={item.img} style={{ top: `0px` }} />
@@ -393,15 +394,15 @@ function Home() {
                     const current = document.querySelector(".testimage > .currentimg")
                     current.style.transform = 'translateX(-100px)'
                     current.className = "nextimg"
-                   
+
                     let queue = 1;
                     dps[splide.index].className = "currentimg"
                     dps[splide.index].style.transform = `translateY(-${splide.index * 50 + 90}px)`
                     dps[splide.index].style.top = `0px`
                     dps[splide.index].style.left = `0px`
                     dps[splide.index].style.transform = ''
-                    dps.forEach((item, i )=>{
-                      if(i > splide.index && i <= dps.length){
+                    dps.forEach((item, i) => {
+                      if (i > splide.index && i <= dps.length) {
                         item.className = 'nextimg'
                         item.style.transform = `translateY(-50px)`
                         item.style.top = `${queue * 50 + 90}px`
@@ -409,8 +410,8 @@ function Home() {
                         queue++
                       }
                     })
-                    dps.forEach((item, i )=>{
-                      if(i < splide.index-1){
+                    dps.forEach((item, i) => {
+                      if (i < splide.index - 1) {
                         item.className = 'nextimg'
                         item.style.transform = `translateY(-50px)`
                         item.style.top = `${queue * 50 + 90}px`
@@ -487,30 +488,30 @@ function Home() {
           <div className="collab" id="Collaborations">
             <h1>Collaborations</h1>
             <Splide
-                tag="section"
-                aria-labelledby="My Favorite Images"
-                options={{
-                  speed: 800,
-                  autoplay: true,
-                  interval: 2500,
-                  pauseOnHover: false,
-                  type: "loop",
-                  pauseOnFocus: true,
-                  keyboard: true,
-                  gap: ".5rem",
-                  width: "100%",
-                  arrows: false,
-                  perPage:
-                    window.innerWidth <= 426
-                      ? 1.5
-                      : window.innerWidth <= 768
-                        ? 3.5
-                        : window.innerWidth <= 1024
-                          ? 4
-                          : 5,
-                  perMove: 1,
-                  pagination: false,
-                }}
+              tag="section"
+              aria-labelledby="My Favorite Images"
+              options={{
+                speed: 800,
+                autoplay: true,
+                interval: 2500,
+                pauseOnHover: false,
+                type: "loop",
+                pauseOnFocus: true,
+                keyboard: true,
+                gap: ".5rem",
+                width: "100%",
+                arrows: false,
+                perPage:
+                  window.innerWidth <= 426
+                    ? 1.5
+                    : window.innerWidth <= 768
+                      ? 3.5
+                      : window.innerWidth <= 1024
+                        ? 4
+                        : 5,
+                perMove: 1,
+                pagination: false,
+              }}
             >
               <SplideSlide>
                 <div className="coll">
@@ -553,9 +554,9 @@ function Home() {
                 </div>
               </SplideSlide>
             </Splide>
-          </div> 
+          </div>
 
- 
+
 
 
 
