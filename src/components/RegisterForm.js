@@ -98,6 +98,7 @@ function RegisterForm({ event, setRegister }) {
           setUid(user.uid)
           setEmail(user.email)
           setUsername(user.displayName)
+          console.log(user.uid);
           const data = await getDoc(doc(db, 'events', event.id))
           if (data) {
             const enrolled = data.data().enrolled
